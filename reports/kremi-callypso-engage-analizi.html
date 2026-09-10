@@ -1,0 +1,832 @@
+<title>Kremi × Callypso Engage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,650;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#faf5f1; --surface:#ffffff; --surface-2:#f2e7e0; --surface-3:#ece0d8;
+    --ink:#241019; --ink-2:#5c4650; --muted:#8c7a82; --border:#e7dbd2; --border-strong:#d8c6bb;
+    --brand:#7a1f3d; --brand-ink:#ffffff; --brand-2:#c4576e; --brand-soft:#f5e3e8; --brand-soft-strong:#eeccd4;
+    --gold:#a9772e; --gold-soft:#f3e6cd;
+    --good:#0ca30c; --warn:#b8863b; --crit:#b23a3a;
+    --s1:#2a78d6; --s1-soft:#e3edfb; --s2:#eb6834; --s2-soft:#fbe6da; --s3:#1baf7a; --s3-soft:#dcf3e9;
+    --shadow: 0 1px 2px rgba(36,16,25,.06), 0 8px 24px -12px rgba(36,16,25,.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1114; --surface:#231519; --surface-2:#2c1b20; --surface-3:#35222a;
+      --ink:#f6ecee; --ink-2:#d9c2c9; --muted:#a98d95; --border:#3c262d; --border-strong:#4c303a;
+      --brand:#e8899e; --brand-ink:#2a0f18; --brand-2:#d9738a; --brand-soft:#3a1e26; --brand-soft-strong:#4a2530;
+      --gold:#d9a85b; --gold-soft:#3a2e1a;
+      --good:#3fc23f; --warn:#d9a85b; --crit:#e07a7a;
+      --s1:#3987e5; --s1-soft:#1b2a3d; --s2:#d95926; --s2-soft:#3a2417; --s3:#199e70; --s3-soft:#153327;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1a1114; --surface:#231519; --surface-2:#2c1b20; --surface-3:#35222a;
+    --ink:#f6ecee; --ink-2:#d9c2c9; --muted:#a98d95; --border:#3c262d; --border-strong:#4c303a;
+    --brand:#e8899e; --brand-ink:#2a0f18; --brand-2:#d9738a; --brand-soft:#3a1e26; --brand-soft-strong:#4a2530;
+    --gold:#d9a85b; --gold-soft:#3a2e1a;
+    --good:#3fc23f; --warn:#d9a85b; --crit:#e07a7a;
+    --s1:#3987e5; --s1-soft:#1b2a3d; --s2:#d95926; --s2-soft:#3a2417; --s3:#199e70; --s3-soft:#153327;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;padding-inline:20px;}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;text-wrap:balance;margin:0;color:var(--ink);}
+  p{margin:0;color:var(--ink-2);line-height:1.55;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .wrap{max-width:1180px;margin-inline:auto;}
+  a{color:inherit;}
+  ::selection{background:var(--brand-soft-strong);}
+
+  /* ---------- top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-block:12px;margin-inline:-20px;padding-inline:20px;}
+  .topbar-row{max-width:1180px;margin-inline:auto;display:flex;align-items:center;gap:18px;}
+  .brandmark{display:flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-weight:650;font-size:16px;white-space:nowrap;}
+  .brandmark .x{color:var(--muted);font-weight:400;font-style:italic;}
+  .navchips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;}
+  .navchips::-webkit-scrollbar{display:none;}
+  .navchips a{flex:none;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:100px;color:var(--ink-2);text-decoration:none;border:1px solid transparent;white-space:nowrap;}
+  .navchips a:hover{border-color:var(--border-strong);background:var(--surface);}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:52px 36px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);border:1px solid var(--brand-soft-strong);padding:6px 12px;border-radius:100px;}
+  .hero h1{font-size:clamp(28px,4.4vw,46px);line-height:1.08;margin-top:16px;max-width:16ch;font-weight:650;}
+  .hero p.lede{font-size:17px;max-width:62ch;margin-top:14px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13px;color:var(--muted);}
+  .hero-meta b{color:var(--ink-2);font-weight:600;}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:32px;}
+  .stat{background:var(--surface);padding:18px 18px 16px;}
+  .stat .n{font-family:'Fraunces',serif;font-size:28px;font-weight:650;font-variant-numeric:tabular-nums;}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  @media (max-width:760px){.stat-row{grid-template-columns:repeat(2,1fr);}}
+
+  section{padding-block:52px;border-top:1px solid var(--border);}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px;}
+  .sec-head .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+  .sec-head h2{font-size:clamp(22px,3vw,32px);margin-top:6px;}
+  .sec-head p{max-width:56ch;font-size:14.5px;margin-top:8px;}
+
+  /* ---------- catalog ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px;}
+  .cat-card{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--surface);}
+  .cat-card .n{font-family:'Fraunces',serif;font-size:26px;font-weight:650;}
+  .cat-card .l{font-size:13px;font-weight:600;margin-top:2px;}
+  .cat-card .d{font-size:12px;color:var(--muted);margin-top:6px;}
+  @media (max-width:760px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+
+  table.prod{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.prod thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:0 12px 10px;border-bottom:1px solid var(--border-strong);}
+  table.prod td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+  table.prod tbody tr:hover{background:var(--surface-2);}
+  table.prod td.num{font-family:'IBM Plex Mono';font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pname{font-weight:700;}
+  .psub{font-size:11.5px;color:var(--muted);}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap;}
+  .b-off{background:var(--brand-soft);color:var(--brand);}
+  .b-out{background:var(--surface-3);color:var(--muted);}
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:6px 4px;}
+
+  .findings{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px;}
+  .finding{border:1px solid var(--border);border-radius:14px;padding:16px 18px;background:var(--surface);display:flex;gap:12px;}
+  .finding .ico{flex:none;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-size:12px;font-weight:700;background:var(--gold-soft);color:var(--gold);}
+  .finding h4{font-size:14px;font-weight:700;}
+  .finding p{font-size:12.8px;margin-top:4px;}
+  @media (max-width:760px){.findings{grid-template-columns:1fr;}}
+
+  /* ---------- callypso categories / scenario cards ---------- */
+  .cy-toolbar{display:flex;justify-content:flex-end;margin-bottom:10px;}
+  .btn-ghost{font-family:'Manrope';font-size:12.5px;font-weight:700;background:var(--surface);border:1px solid var(--border-strong);color:var(--ink-2);padding:8px 14px;border-radius:100px;cursor:pointer;}
+  .btn-ghost:hover{background:var(--surface-2);}
+
+  .cy-cat{border:1px solid var(--border);border-radius:16px;background:var(--surface);margin-bottom:12px;overflow:hidden;}
+  .cy-cat > summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;}
+  .cy-cat > summary::-webkit-details-marker{display:none;}
+  .cy-num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-weight:600;font-size:13px;}
+  .cy-cat summary h3{font-size:16.5px;flex:1;}
+  .cy-count{font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap;}
+  .chev{width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .15s;flex:none;}
+  .cy-cat[open] .chev{transform:rotate(45deg);}
+  .cy-body{padding:2px 18px 20px;border-top:1px solid var(--border);}
+  .cy-intro{font-size:13px;padding:14px 0 6px;max-width:74ch;}
+  .scen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:8px;}
+  .scen{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--surface-2);}
+  .scen h4{font-size:14.5px;font-weight:700;font-family:'Manrope';margin-bottom:10px;line-height:1.3;}
+  .scen dl{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:12.5px;margin:0;}
+  .scen dt{font-weight:700;color:var(--brand);white-space:nowrap;}
+  .scen dd{margin:0;color:var(--ink-2);}
+  .chan{display:inline-flex;gap:4px;flex-wrap:wrap;}
+  .chan span{font-size:10.5px;font-weight:700;background:var(--surface);border:1px solid var(--border-strong);padding:1px 7px;border-radius:100px;}
+
+  .rfm-wrap{overflow-x:auto;margin-top:10px;}
+  table.rfm{border-collapse:collapse;width:100%;min-width:640px;font-size:12.8px;}
+  table.rfm th,table.rfm td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top;}
+  table.rfm th{background:var(--surface-3);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);}
+  table.rfm td.seg{font-weight:700;color:var(--brand);white-space:nowrap;}
+
+  .lc-flow{display:flex;align-items:center;gap:6px;overflow-x:auto;padding:14px 2px;margin-top:6px;}
+  .lc-step{flex:none;min-width:118px;border:1px solid var(--border-strong);background:var(--surface);border-radius:12px;padding:10px 12px;text-align:center;}
+  .lc-step .t{font-size:12.5px;font-weight:700;}
+  .lc-step .d{font-size:10.5px;color:var(--muted);margin-top:2px;}
+  .lc-arrow{flex:none;color:var(--muted);font-size:16px;}
+
+  /* ---------- opportunities ---------- */
+  .quad-wrap{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:20px 20px 8px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:10px;padding-top:12px;border-top:1px solid var(--border);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-weight:600;}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  #tooltip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:8px 11px;border-radius:8px;max-width:230px;opacity:0;transition:opacity .1s;z-index:60;line-height:1.4;box-shadow:var(--shadow);}
+  :root[data-theme="dark"] #tooltip, :root:not([data-theme="light"]) #tooltip{}
+  #tooltip b{display:block;font-size:12.5px;margin-bottom:2px;}
+
+  .opp-groups{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
+  .opp-group h4{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .opp-group h4 i{width:10px;height:10px;border-radius:50%;}
+  .opp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
+  .opp{border:1px solid var(--border);border-radius:14px;padding:15px 16px;background:var(--surface);}
+  .opp h5{font-size:14px;font-weight:700;font-family:'Manrope';margin-bottom:6px;}
+  .opp p{font-size:12.3px;}
+  .opp-metrics{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .met{font-size:10.3px;font-weight:700;padding:3px 8px;border-radius:100px;background:var(--surface-3);color:var(--ink-2);}
+
+  /* ---------- roadmap ---------- */
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .road-col{border-radius:16px;border:1px solid var(--border);overflow:hidden;background:var(--surface);}
+  .road-head{padding:14px 16px;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:space-between;}
+  .road-head span{font-size:11px;font-weight:700;opacity:.75;}
+  .road-h1{background:var(--s3-soft);color:var(--s3);}
+  .road-h2{background:var(--gold-soft);color:var(--gold);}
+  .road-h3{background:var(--brand-soft);color:var(--brand);}
+  .road-list{list-style:none;margin:0;padding:12px 16px 18px;display:flex;flex-direction:column;gap:9px;}
+  .road-list li{font-size:13px;color:var(--ink-2);padding-left:16px;position:relative;line-height:1.4;}
+  .road-list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--border-strong);}
+  @media (max-width:820px){.road{grid-template-columns:1fr;}}
+
+  /* ---------- questions ---------- */
+  .q-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .q-group{border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:16px 18px;}
+  .q-group h4{font-size:13px;color:var(--brand);margin-bottom:10px;}
+  .q-group ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:9px;}
+  .q-group li{font-size:13px;color:var(--ink-2);line-height:1.4;padding-left:2px;}
+  .q-group li::marker{font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:12px;}
+  @media (max-width:760px){.q-groups{grid-template-columns:1fr;}}
+
+  footer{padding-block:34px 60px;border-top:1px solid var(--border);}
+  footer p{font-size:12px;color:var(--muted);}
+</style>
+
+<div id="tooltip"></div>
+
+<div class="topbar">
+  <div class="topbar-row">
+    <div class="brandmark">Kremi <span class="x">×</span> Callypso Engage</div>
+    <nav class="navchips">
+      <a href="#genel-bakis">Genel Bakış</a>
+      <a href="#katalog">Site & Katalog</a>
+      <a href="#callypso">Callypso Senaryoları</a>
+      <a href="#firsatlar">Diğer Fırsatlar</a>
+      <a href="#yol-haritasi">Yol Haritası</a>
+      <a href="#sorular">Toplantı Soruları</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero" id="genel-bakis" style="border-top:none;padding-top:44px;">
+    <span class="eyebrow">Müşteri Toplantısı Hazırlığı · kremibeauty.com</span>
+    <h1>Kremi Beauty için otomasyon &amp; büyüme fırsat analizi</h1>
+    <p class="lede">Kremi Beauty'nin canlı sitesi, 16 SKU'luk kataloğu ve mevcut kampanya yapısı incelenerek, Callypso Engage ile hayata geçirilebilecek somut pazarlama otomasyonu senaryoları ve Callypso dışında değerlendirilebilecek AI/e-ticaret geliştirmeleri bir araya getirildi. Her senaryo gerçek ürün adı, fiyat ve segment mantığıyla kurgulandı.</p>
+    <div class="hero-meta">
+      <span><b>Marka konumu:</b> Vegan, kruelti-free, dermatolojik test onaylı "clinical beauty"</span>
+      <span><b>Kanallar:</b> Web (Shopify), Kremi mobil app (iOS/Android), WhatsApp, Instagram/TikTok</span>
+      <span><b>Analiz tarihi:</b> 10 Eylül 2026</span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="n">16</div><div class="l">Aktif ürün / SKU — 4 kategori (Dudak, Cilt Bakımı, Makyaj, Aksesuar)</div></div>
+      <div class="stat"><div class="n">~%55</div><div class="l">Kataloğun genelinde ortalama indirim oranı, raf fiyatına göre</div></div>
+      <div class="stat"><div class="n">3 Al 2</div><div class="l">Öde — sitede şu an tek aktif, kategori-bağımsız kampanya mekaniği</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Tespit edilen: sadakat programı, kişiselleştirilmiş öneri, abonelik / tekrar sipariş akışı</div></div>
+    </div>
+  </section>
+
+  <section id="katalog">
+    <div class="sec-head">
+      <div>
+        <div class="k">01 · Site &amp; Katalog Analizi</div>
+        <h2>Kremi bugün ne satıyor, nasıl satıyor?</h2>
+        <p>Otomasyon senaryolarının dayandığı gerçek zemin: kategori dağılımı, fiyatlama mantığı ve sitenin bugün otomatikleştirmediği noktalar.</p>
+      </div>
+    </div>
+
+    <div class="cat-grid" id="cat-grid"></div>
+
+    <div class="tbl-scroll">
+      <table class="prod">
+        <thead><tr><th>Ürün</th><th>Kategori</th><th>Fiyat</th><th>İndirim</th><th>Puan</th><th>Durum</th></tr></thead>
+        <tbody id="prod-body"></tbody>
+      </table>
+    </div>
+
+    <div class="findings" id="findings"></div>
+  </section>
+
+  <section id="callypso">
+    <div class="sec-head">
+      <div>
+        <div class="k">02 · Callypso Engage Senaryo Kütüphanesi</div>
+        <h2>12 başlıkta, gerçek ürünlerle kurgulanmış otomasyonlar</h2>
+        <p>Her senaryo: Tetikleyici → Segment → Aksiyon → Kanal → Beklenen Fayda → Gerekli Veri formatında. Kategori başlığına tıklayarak senaryoları açabilirsiniz.</p>
+      </div>
+      <div class="cy-toolbar"><button class="btn-ghost" id="toggleAll">Tümünü Genişlet</button></div>
+    </div>
+    <div id="cy-root"></div>
+  </section>
+
+  <section id="firsatlar">
+    <div class="sec-head">
+      <div>
+        <div class="k">03 · Callypso Engage Dışındaki Fırsatlar</div>
+        <h2>Callypso'yu tamamlayacak diğer AI &amp; e-ticaret yatırımları</h2>
+        <p>Etki, uygulama kolaylığı ve satışa katkı potansiyeline göre haritalandı. Baloncuk büyüklüğü satışa katkı potansiyelini gösterir.</p>
+      </div>
+    </div>
+    <div class="quad-wrap">
+      <svg id="quadChart" viewBox="0 0 640 380" style="width:100%;height:auto;display:block;" role="img" aria-label="Etki ve uygulama kolaylığına göre fırsat haritası"></svg>
+      <div class="legend" id="quadLegend"></div>
+    </div>
+    <div class="opp-groups" id="opp-root"></div>
+  </section>
+
+  <section id="yol-haritasi">
+    <div class="sec-head">
+      <div>
+        <div class="k">04 · Toplantıda Önerilecek Yol Haritası</div>
+        <h2>Quick Win → Orta Vadeli → İleri Seviye</h2>
+        <p>Uygulama karmaşıklığı ve veri olgunluğuna göre kademelendirilmiş, Callypso ve Callypso-dışı önerileri birleştiren yol haritası.</p>
+      </div>
+    </div>
+    <div class="road">
+      <div class="road-col">
+        <div class="road-head road-h1">Quick Win <span>0–4 hafta</span></div>
+        <ul class="road-list" id="road1"></ul>
+      </div>
+      <div class="road-col">
+        <div class="road-head road-h2">Orta Vadeli <span>1–3 ay</span></div>
+        <ul class="road-list" id="road2"></ul>
+      </div>
+      <div class="road-col">
+        <div class="road-head road-h3">İleri Seviye <span>3–6+ ay</span></div>
+        <ul class="road-list" id="road3"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sorular">
+    <div class="sec-head">
+      <div>
+        <div class="k">05 · Toplantı Öncesi Kritik Sorular</div>
+        <h2>Müşteriye sorulacak sorular</h2>
+        <p>Doğru önceliklendirme ve teklif kapsamı için toplantıda netleştirilmesi gereken teknik, veri ve strateji soruları.</p>
+      </div>
+    </div>
+    <div class="q-groups" id="q-root"></div>
+  </section>
+
+  <footer>
+    <p>Kremi Beauty (kremibeauty.com) sitesinin genel erişilebilir sayfaları üzerinden hazırlanmıştır — 10 Eylül 2026. İç veri (gerçek sepet terk oranı, email/SMS performansı, sipariş geçmişi) paylaşıldıkça senaryolar kalibre edilecektir. Yalnızca müşteri toplantısı hazırlığı amacıyla hazırlanmıştır.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+  /* ================= 01 Catalog ================= */
+  var categories = [
+    {n:6, l:'Dudak Bakımı', d:'Lip Vitamin Balm, Total Lip Care, Lip Definer + setler'},
+    {n:5, l:'Cilt Bakımı', d:'Cleanser, Toner Pad, Serum, SPF 50+, Eye Cream'},
+    {n:3, l:'Makyaj', d:'BB Cream, Kiss’n Blush + set'},
+    {n:2, l:'Aksesuar', d:'Angled Sponge, Daily Glow Mirror'},
+  ];
+  var catGrid = document.getElementById('cat-grid');
+  categories.forEach(function(c){
+    catGrid.insertAdjacentHTML('beforeend','<div class="cat-card"><div class="n">'+c.n+'</div><div class="l">'+c.l+'</div><div class="d">'+c.d+'</div></div>');
+  });
+
+  var products = [
+    ['Lip Vitamin Balm','Dudak','249,90 ₺','−58%','4.7','3 Al 2 Öde · 6 renk'],
+    ['Total Lip Care','Dudak','249,90 ₺','−58%','3.5','3 Al 2 Öde'],
+    ['Lip Definer','Dudak','249,90 ₺','−58%','3.1','3 Al 2 Öde · bazı tonlar tükendi'],
+    ['Lip Vitamin Balm Set (3’lü)','Dudak','769,90 ₺','−45%','4.6','Set'],
+    ['Lip Vitamin Balm Set (4’lü)','Dudak','999,90 ₺','−46%','5.0','Set'],
+    ['Lip Definer Set','Dudak','1.299,90 ₺','−42%','3.0','Set'],
+    ['Face Cleanser','Cilt Bakımı','299,90 ₺','−45%','4.8','3 Al 2 Öde'],
+    ['Toner Pad (60’lı)','Cilt Bakımı','249,90 ₺','−64%','3.9','3 Al 2 Öde'],
+    ['Serum in Moisturizer','Cilt Bakımı','299,90 ₺','−57%','4.2','3 Al 2 Öde'],
+    ['Serum in SPF 50+','Cilt Bakımı','319,90 ₺','−60%','3.7','3 Al 2 Öde'],
+    ['Cooling Eye Cream','Cilt Bakımı','279,90 ₺','−60%','4.0','3 Al 2 Öde'],
+    ['All in One BB Cream','Makyaj','299,90 ₺','−62%','4.2','3 Al 2 Öde · 3 ton'],
+    ['Kiss’n Blush','Makyaj','299,90 ₺','−62%','4.0','3 Al 2 Öde · 3 ton'],
+    ['Kiss’n Blush Set','Makyaj','2.149,90 ₺','—','3.3','Set (tekliden pahalı)'],
+    ['Angled Sponge','Aksesuar','249,90 ₺','−29%','5.0','3 Al 2 Öde'],
+    ['Daily Glow Mirror','Aksesuar','399,90 ₺','—','4.3','Stokta yok'],
+  ];
+  var pbody = document.getElementById('prod-body');
+  products.forEach(function(p){
+    var offBadge = p[3]==='—' ? '' : '<span class="badge b-off">'+p[3]+'</span>';
+    var statusBadge = p[5].indexOf('yok')>-1 || p[5].indexOf('tükendi')>-1
+      ? '<span class="badge b-out">'+p[5]+'</span>'
+      : '<span class="psub">'+p[5]+'</span>';
+    pbody.insertAdjacentHTML('beforeend',
+      '<tr><td><div class="pname">'+p[0]+'</div></td><td>'+p[1]+'</td>'+
+      '<td class="num">'+p[2]+'</td><td class="num">'+offBadge+'</td>'+
+      '<td class="num">★ '+p[4]+'</td><td>'+statusBadge+'</td></tr>');
+  });
+
+  var findings = [
+    ['①','Öneri motoru var, ama kanal-sınırlı','Ürün URL’lerinde <span class="mono">pr_prod_strat / pr_rec_id</span> parametreleri bir on-site öneri motorunun (pinned/jac/e5_desc stratejileri) çalıştığını gösteriyor — ancak bu sinyal yalnızca sitede kalıyor; email, SMS ve post-purchase akışlarına hiç taşınmıyor, 16 SKU’luk dar katalogda da sonuçlar tekrarlı görünüyor.'],
+    ['②','Favoriler (wishlist) kullanılmıyor','Sitede "Favorilerim" özelliği mevcut ve girişli hesaplarla çalışıyor, fakat favoriye eklenip alınmayan ürünler için herhangi bir hatırlatma/otomasyon tetiklenmiyor.'],
+    ['③','Sadakat programı yok','Puan, kademe (VIP) veya tekrar alışverişi ödüllendiren hiçbir mekanik tespit edilmedi; tüm teşvik "3 Al 2 Öde" indirimine dayanıyor.'],
+    ['④','Boş içerik/blog kanalı','Blog bölümü tamamen boş — marka "topluluk odaklı" ve Ar-Ge’ye dayalı hikayesini anlatan hiçbir eğitim içeriği üretilmiyor; e-posta ve SEO için hazır içerik altyapısı yok.'],
+    ['⑤','Set fiyatlama tutarsızlığı','Kiss’n Blush Set (2.149,90 ₺) ve Lip Definer Set, ürünleri tek tek indirimli fiyattan almaktan daha pahalı — bundle mantığı gözden geçirilmeli.'],
+    ['⑥','İade penceresi dar, ürün ömrü net','14 gün / yalnızca açılmamış ürün; açılmış ürünün raf ömrü 12 ay — bu, tekrar satın alma tahmini senaryolarına üst sınır veriyor, ton/renk seçimi olan ürünlerde iade riskini de artırıyor.'],
+    ['⑦','Hazır ek kanallar','Kremi mobil app (iOS/Android) ve WhatsApp destek hattı zaten mevcut — push ve WhatsApp otomasyonları için altyapı hazır, kullanılmıyor.'],
+  ];
+  var fWrap = document.getElementById('findings');
+  findings.forEach(function(f){
+    fWrap.insertAdjacentHTML('beforeend','<div class="finding"><div class="ico">'+f[0]+'</div><div><h4>'+f[1]+'</h4><p>'+f[2]+'</p></div></div>');
+  });
+
+  /* ================= 02 Callypso scenarios ================= */
+  function field(dt,dd){ return '<dt>'+dt+'</dt><dd>'+dd+'</dd>'; }
+  function chans(list){ return '<span class="chan">'+list.map(function(c){return '<span>'+c+'</span>';}).join('')+'</span>'; }
+  function scenCard(title, rows){
+    var html = '<div class="scen"><h4>'+title+'</h4><dl>';
+    rows.forEach(function(r){ html += field(r[0], r[0]==='Kanal' ? chans(r[1].split(' + ')) : r[1]); });
+    html += '</dl></div>';
+    return html;
+  }
+
+  var cyCategories = [
+    { title:'Sepet Terk Otomasyonları',
+      intro:'Ödemeye giden yolun en fazla gelir sızdıran noktası — üç kademeli, tutar duyarlı bir seri.',
+      scenarios:[
+        ['Genel sepet terkı',[
+          ['Tetikleyici','Sepete ürün eklenip 45 dk içinde ödeme tamamlanmaması'],
+          ['Segment','E-posta/telefonu bilinen tüm sepet sahipleri'],
+          ['Aksiyon','T+45dk ürün görselli hatırlatma → T+24s "3 Al 2 Öde" vurgulu 2. e-posta → T+48s son uyarı'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Sektör ortalaması sepet terk serilerinde %5-11 kurtarma; ek gelir, sıfır reklam maliyeti'],
+          ['Gerekli Veri','Sepet içeriği (SKU, varyant, tutar), iletişim izni, sepet zaman damgası'],
+        ]],
+        ['Yüksek tutarlı sepet (set/kit)',[
+          ['Tetikleyici','Sepette Lip Vitamin Balm Set (4’lü) veya Kiss’n Blush Set gibi >750₺ ürün, ödeme tamamlanmadı'],
+          ['Segment','Sepet tutarı 750₺ üzeri terk edenler'],
+          ['Aksiyon','Kişisel tonlu e-posta + ücretsiz kargo hatırlatması + WhatsApp üzerinden canlı destek teklifi'],
+          ['Kanal','Email + WhatsApp'],
+          ['Beklenen Fayda','Yüksek sepet tutarları orantısız gelir payı taşır — kurtarma önceliği en yüksek segment'],
+          ['Gerekli Veri','Sepet tutarı eşiği, WhatsApp opt-in, ürün/varyant bilgisi'],
+        ]],
+        ['Ödeme adımında terk',[
+          ['Tetikleyici','Checkout başladı, ödeme ekranına gelindi, 30 dk içinde tamamlanmadı'],
+          ['Segment','"Checkout-started" kullanıcılar'],
+          ['Aksiyon','Sepeti koruyan direkt ödeme linkiyle tek adımlık SMS hatırlatma'],
+          ['Kanal','SMS'],
+          ['Beklenen Fayda','3D Secure/kart hatası kaynaklı kayıpların hızlı kurtarımı, en yüksek niyetli segment'],
+          ['Gerekli Veri','Checkout event verisi, telefon numarası, ödeme adım durumu'],
+        ]],
+      ]},
+
+    { title:'Ürün Görüntüleyip Satın Almayan Müşteriler',
+      intro:'Sepete hiç girmeden ayrılan trafiği — ürün ve rutin bazlı hatırlatmalarla geri kazanma.',
+      scenarios:[
+        ['Tekil ürün görüntüleme — Lip Vitamin Balm',[
+          ['Tetikleyici','Ürün sayfası 2+ kez ziyaret / 60sn+ kalma, sepete eklenmedi, 24 saat içinde'],
+          ['Segment','Ürünü görüntüleyip eklemeyen tanımlı ziyaretçiler'],
+          ['Aksiyon','6 renk seçeneği + 129 değerlendirme/4.7★ sosyal kanıtı + "3 Al 2 Öde" hatırlatması'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Düşük maliyetli, yüksek hacimli trafiği (sepete girmeyenler) satışa çevirme'],
+          ['Gerekli Veri','Ürün görüntüleme event’i, email (varsa identify), zaman damgası'],
+        ]],
+        ['Kategori gezinme — Cilt Bakımı',[
+          ['Tetikleyici','Cilt bakımı koleksiyonunda 3+ farklı ürün görüntülendi, hiçbiri alınmadı'],
+          ['Segment','Karşılaştırma yapan cilt bakımı ilgilisi'],
+          ['Aksiyon','"Rutininizi tamamlayın" e-postası — Cleanser → Serum → SPF 3 adımlı rutin önerisi, en yüksek puanlı ürün (Face Cleanser 4.8★) öne çıkarılır'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Rutin çerçevesiyle karar sürtünmesini azaltma, sepet büyüklüğünü artırma'],
+          ['Gerekli Veri','Kategori/ürün görüntüleme geçmişi'],
+        ]],
+        ['Stokta olmayan ürün ilgisi',[
+          ['Tetikleyici','Daily Glow Mirror veya tükenen Lip Definer tonu gibi sold-out sayfa görüntülendi'],
+          ['Segment','Sold-out ürün ilgilisi'],
+          ['Aksiyon','"Stoğa gelince haber ver" opt-in daveti + benzer alternatif ürün önerisi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Kayıp satışı azaltma, gerçek talebi ölçme'],
+          ['Gerekli Veri','Stok durumu (Shopify inventory webhook), ürün görüntüleme'],
+        ]],
+        ['Favorilere eklenip alınmayan ürün',[
+          ['Tetikleyici','Sitedeki mevcut "Favorilerim" özelliğine ürün eklendi, 5 gün içinde satın alınmadı'],
+          ['Segment','Favori ekleyip almayan girişli kullanıcılar'],
+          ['Aksiyon','Favorideki ürünü hatırlatan e-posta; fiyatı düşerse veya "3 Al 2 Öde"ye girerse anında bildirim'],
+          ['Kanal','Email + Push (Kremi app)'],
+          ['Beklenen Fayda','Bugün hiç kullanılmayan mevcut bir özelliği (ek geliştirme maliyeti düşük) doğrudan satışa çevirme'],
+          ['Gerekli Veri','Favoriler listesi (hesap bazlı), fiyat/kampanya değişim event’i'],
+        ]],
+      ]},
+
+    { title:'Satın Alma Sonrası Cross-sell / Upsell',
+      intro:'Teslimattan sonraki ilk kullanım anını yakalayan, ürün ailesi içi ve rutin tamamlayıcı teklifler.',
+      scenarios:[
+        ['Balm alıcısına dudak rutini tamamlama',[
+          ['Tetikleyici','Teslimattan 7 gün sonra — yalnızca Lip Vitamin Balm alınmış, Lip Definer/Total Lip Care yok'],
+          ['Segment','Tek ürünlü dudak bakımı alıcıları'],
+          ['Aksiyon','"Rutininizi tamamlayın" e-postası — 6 tonluk Lip Definer + Total Lip Care, kombine %10 kod'],
+          ['Kanal','Email + SMS (kod hatırlatması)'],
+          ['Beklenen Fayda','Ürün ailesi içi çapraz satışla müşteri başına ürün adedi ve AOV artışı'],
+          ['Gerekli Veri','SKU bazlı sipariş geçmişi, teslimat tarihi, kod kullanım durumu'],
+        ]],
+        ['BB Cream alıcısına aksesuar + temizleyici',[
+          ['Tetikleyici','All in One BB Cream siparişi onaylandı, sepette sünger/cleanser yok'],
+          ['Segment','BB Cream sahibi, aksesuar/temizleyici sahibi olmayan'],
+          ['Aksiyon','Sipariş onayında tek tıkla Angled Sponge ekleme teklifi; akşam temizliği için Face Cleanser önerisi'],
+          ['Kanal','Email + site içi post-purchase teklif ekranı'],
+          ['Beklenen Fayda','Düşük görünürlüklü aksesuar kategorisinde ek gelir, düşük fiyatlı ürünle sepet artışı'],
+          ['Gerekli Veri','Sipariş içeriği, aksesuar/temizleyici sahiplik durumu'],
+        ]],
+        ['Set alıcısına koleksiyon tamamlama',[
+          ['Tetikleyici','Lip Vitamin Balm Set (3’lü) alındıktan 30 gün sonra'],
+          ['Segment','Kısmi set sahibi (6 tondan 3’ü)'],
+          ['Aksiyon','"Koleksiyonunu tamamla" e-postası — sette olmayan 3 tonu (Cherry Coke, Strawberry Velvet, Coffee) öner'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Marka bağlılığı yüksek segmentte renk/varyant tamamlama satışı'],
+          ['Gerekli Veri','Ürün varyant meta verisi, satın alma geçmişi'],
+        ]],
+        ['Nemlendirici alıcısına SPF çapraz satışı',[
+          ['Tetikleyici','Serum in Moisturizer alındı, Serum in SPF 50+ alınmadı, 14 gün sonra'],
+          ['Segment','Nemlendirici sahibi, SPF sahibi olmayan'],
+          ['Aksiyon','"Nemlendirmenin 2. adımı: güneşten koruma" eğitici e-posta'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Rutin tamamlama, mevsimsel cilt bakımı çapraz satışı'],
+          ['Gerekli Veri','SKU bazlı satın alma geçmişi'],
+        ]],
+      ]},
+
+    { title:'Tekrar Satın Alma Zamanı Tahmini',
+      intro:'Sarf ürünlerinin (ped, serum, balm) ortalama tüketim süresine göre proaktif yeniden sipariş hatırlatmaları.',
+      scenarios:[
+        ['Toner Pad (60’lı) tükenme tahmini',[
+          ['Tetikleyici','Satın alımdan +25 gün (günde 2 kullanımda ~30 günlük stok, %80 tüketim noktası)'],
+          ['Segment','Toner Pad alıcıları, ikinci siparişi olmayan'],
+          ['Aksiyon','"Pedleriniz azalıyor olabilir" hatırlatma + tek tıkla yeniden sipariş linki + 2. alım indirimi'],
+          ['Kanal','Email + SMS (gün 30 pekiştirme)'],
+          ['Beklenen Fayda','Sarf üründe düzenli tekrar satın alma döngüsü, abonelik-benzeri davranış ve LTV artışı'],
+          ['Gerekli Veri','Ürün başına ortalama tüketim süresi (gerçek reorder verisiyle kalibre edilir), son satın alma tarihi'],
+        ]],
+        ['Cleanser & Serum in Moisturizer (50ml) tükenme tahmini',[
+          ['Tetikleyici','Satın alımdan +50 gün'],
+          ['Segment','Cilt bakımı sarf ürünü alıcıları'],
+          ['Aksiyon','"Rutininize devam edin" hatırlatıcı + BB Cream/SPF ile birlikte alımda mini indirim'],
+          ['Kanal','Email + Push (Kremi app)'],
+          ['Beklenen Fayda','Sarf üründe churn önleme, öngörülebilir tekrar gelir akışı'],
+          ['Gerekli Veri','Ürün bazlı ortalama tüketim gün sayısı, app push token'],
+        ]],
+        ['Lip Vitamin Balm — renk çeşitliliğiyle tekrar alım',[
+          ['Tetikleyici','Satın alımdan +35 gün, tekrar sipariş yok'],
+          ['Segment','Balm alıcıları'],
+          ['Aksiyon','"Bu sefer farklı bir renk dene?" — aynı üründe farklı ton önerisiyle hatırlatma'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Yenilik faktörüyle düz hatırlatmadan daha yüksek dönüşüm'],
+          ['Gerekli Veri','Satın alınan varyant/renk, tüketim süresi tahmini'],
+        ]],
+      ]},
+
+    { title:'Win-back / Kaybedilen Müşteri Kazanımı',
+      intro:'Sessizleşen tek seferlik alıcılar ve tamamen pasifleşen müşteriler için kademeli reaktivasyon.',
+      scenarios:[
+        ['90 gün sessiz — tek seferlik alıcı',[
+          ['Tetikleyici','Son siparişten 90 gün geçti, 2. sipariş yok, son 30 günde e-posta etkileşimi yok'],
+          ['Segment','Tek seferlik alıcı, "riskli" etiketli'],
+          ['Aksiyon','"Seni özledik" — kişiye özel %20 kod + önceki alımına göre öneri (ör. Kiss’n Blush alana yeni ton/set önerisi)'],
+          ['Kanal','Email, yanıt yoksa 7 gün sonra SMS'],
+          ['Beklenen Fayda','Churn öncesi müdahale; yeni müşteri edinmekten daha düşük maliyetli koruma'],
+          ['Gerekli Veri','Son sipariş tarihi, e-posta etkileşim skoru, geçmiş ürün/kategori tercihi'],
+        ]],
+        ['180+ gün tamamen pasif',[
+          ['Tetikleyici','180 gün sipariş yok, son 60 gün e-posta etkileşimi yok'],
+          ['Segment','Derin pasif / yüksek kayıp riski'],
+          ['Aksiyon','Son çare teklif — "3 Al 2 Öde" + ek %15 veya ücretsiz mini ürün; yanıt yoksa gönderim sıklığını düşür'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Reaktivasyon ya da liste hijyeni ile genel açılma oranı/teslim edilebilirlik iyileşmesi'],
+          ['Gerekli Veri','E-posta etkileşim geçmişi, sipariş geçmişi'],
+        ]],
+      ]},
+
+    { title:'Müşteri Segmentasyonu',
+      intro:'RFM ve davranışsal katmanların birleşimi — yukarıdaki tüm senaryoların tetikleyici mantığının temeli.',
+      rfm:[
+        ['Yeni Müşteri','İlk 0-30 gün, 1 sipariş','Hoşgeldin serisi, ilk çapraz satış'],
+        ['Tekrar Eden','2+ sipariş','Tekrar satın alma tahmini, ürün ailesi upsell'],
+        ['Sadık / VIP','3+ sipariş veya yüksek harcama','VIP erken erişim, öncelikli destek'],
+        ['Risk Altında','60-90 gün sessiz, önceden aktif','Win-back — 1. kademe'],
+        ['Kayıp','90-180+ gün pasif','Win-back — son çare / liste hijyeni'],
+        ['Set / Bundle Alıcısı','Set satın almış','Koleksiyon tamamlama upsell’i'],
+        ['Sadece İndirimde Alan','Yalnızca kampanyalı dönemde satın almış','Kampanya bazlı tetikleme, tam fiyatta agresif indirim yerine numune/hediye'],
+      ],
+      scenarios:[
+        ['Yeni segment: "Set Alıcısı" etiketi',[
+          ['Tetikleyici','Herhangi bir set (Lip Vitamin Balm Set, Kiss’n Blush Set, Lip Definer Set) satın alındığında otomatik etiketleme'],
+          ['Segment','Set alıcıları'],
+          ['Aksiyon','Farklı bir upsell/win-back mantığı uygulanır — tekli ürün indirimleri yerine tamamlayıcı set/renk teklifleri'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Segment bazlı doğru teklif ile dönüşüm oranı artışı, gereksiz indirim erozyonunun önlenmesi'],
+          ['Gerekli Veri','Sipariş satır kalemleri (SKU seviyesinde set/varyant ayrımı)'],
+        ]],
+      ]},
+
+    { title:'Email ve SMS Otomasyonları',
+      intro:'Tüm senaryoların üzerine oturduğu omurga akışlar — yeni abone ve sipariş sonrası yaşam döngüsü.',
+      scenarios:[
+        ['Hoşgeldin serisi',[
+          ['Tetikleyici','Yeni e-posta/SMS aboneliği (newsletter pop-up veya checkout opt-in)'],
+          ['Segment','Yeni abone, henüz sipariş vermemiş'],
+          ['Aksiyon','3 e-postalık seri: (1) marka hikayesi (vegan/kruelti-free/FSC) + ilk sipariş indirimi (2) best-seller tanıtımı — Lip Vitamin Balm, BB Cream, Kiss’n Blush (3) yorum/sosyal kanıt + son hatırlatma'],
+          ['Kanal','Email + SMS (indirim kodu hatırlatması)'],
+          ['Beklenen Fayda','İlk satın almaya dönüşüm oranında artış, marka bilinirliği'],
+          ['Gerekli Veri','Opt-in zaman damgası, ilk sipariş durumu'],
+        ]],
+        ['Sipariş yaşam döngüsü hibrit akışı',[
+          ['Tetikleyici','Sipariş onayı → kargoya verildi → teslim edildi transactional adımları'],
+          ['Segment','Tüm alıcılar'],
+          ['Aksiyon','Transactional mesajlara marka içeriği eklenir: kargo SMS’inde takip linki, teslimat e-postasında ürün kullanım rehberi ve ilgili ürün önerisi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Zaten açılan transactional mesajlardan ek pazarlama değeri, kullanım oranı ve memnuniyet artışı'],
+          ['Gerekli Veri','Sipariş/kargo durum event’leri'],
+        ]],
+      ]},
+
+    { title:'Kişiselleştirilmiş Ürün Önerileri',
+      intro:'Sitede bir on-site öneri motoru zaten çalışıyor (ürün URL’lerindeki pr_prod_strat parametreleri bunu gösteriyor) — fakat bu sinyal e-posta/SMS’e hiç taşınmıyor ve dar katalogda tekrarlı görünüyor. En düşük efor / en yüksek etkili boşluk burada.',
+      scenarios:[
+        ['Mevcut öneri sinyalini email/SMS’e taşıma',[
+          ['Tetikleyici','Ürün sayfası görüntüleme veya sipariş sonrası e-posta anı'],
+          ['Segment','Tüm ziyaretçi/müşteriler'],
+          ['Aksiyon','Sitedeki mevcut öneri motorunun (pr_prod_strat) ürettiği kişiye özel önerileri, gerçek birlikte-satın-alma verisiyle zenginleştirip email/SMS’e de yansıtma'],
+          ['Kanal','Web (ürün sayfası) + Email'],
+          ['Beklenen Fayda','Var olan yatırımın kanal genelinde kullanılmasıyla düşük ek maliyetle çapraz satış artışı'],
+          ['Gerekli Veri','Sipariş satırı bazlı birlikte satın alma matrisi, mevcut öneri motoru API’si'],
+        ]],
+        ['Ton/renk eşleştirme önerisi',[
+          ['Tetikleyici','BB Cream (3 ton), Kiss’n Blush (3 ton) veya Lip Definer (6 ton) sayfası ziyareti'],
+          ['Segment','Ton seçimi gereken ürün ilgilileri'],
+          ['Aksiyon','Kısa quiz/self-select ile cilt tonuna özel ürün+ton önerisi, email’de de aynı öneri hatırlatılır'],
+          ['Kanal','Web + Email'],
+          ['Beklenen Fayda','Yanlış ton seçiminden kaynaklı iade oranının azalması + dönüşüm artışı'],
+          ['Gerekli Veri','Quiz yanıtları, ürün varyant metadatası'],
+        ]],
+        ['Haftalık "Sizin İçin Seçtik"',[
+          ['Tetikleyici','Haftalık zamanlanmış gönderim'],
+          ['Segment','Aktif e-posta abonesi, son 60 günde sipariş vermiş'],
+          ['Aksiyon','Geçmiş kategori tercihine göre (dudak/cilt/makyaj ağırlıklı) 3 ürünlük kişisel seçki'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Düzenli etkileşim ve tekrar ziyaret artışı'],
+          ['Gerekli Veri','Kategori bazlı satın alma/görüntüleme geçmişi'],
+        ]],
+      ]},
+
+    { title:'Kampanya ve İndirim Otomasyonları',
+      intro:'Tek kampanya mekaniğine ("3 Al 2 Öde") bağımlılığı azaltıp, segment bazlı ve olay bazlı tetiklemeler eklemek.',
+      scenarios:[
+        ['Sepette kampanya eşiği bildirimi',[
+          ['Tetikleyici','Sepette 2 ürün var, "3 Al 2 Öde" kampanyasına 1 ürün uzakta'],
+          ['Segment','Kampanya eşiğine yakın sepet sahipleri'],
+          ['Aksiyon','"1 ürün daha ekle, en ucuzu bedava" bildirimi — site içi + terk sepeti e-postasında'],
+          ['Kanal','Web + Email'],
+          ['Beklenen Fayda','AOV artışı, kampanya kullanım oranının yükselmesi'],
+          ['Gerekli Veri','Sepet içeriği, kampanya kuralı'],
+        ]],
+        ['Fiyat hassasiyetine göre farklılaştırılmış teklif',[
+          ['Tetikleyici','Segment ataması: "sadece indirimde alan" vs "tam fiyat alan"'],
+          ['Segment','Fiyat hassasiyeti segmentleri'],
+          ['Aksiyon','İndirim-bağımlı segmente agresif % kod yerine sınırlı süreli fırsat; tam fiyat alıcılarına indirim yerine numune/hediye'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Marj erozyonunu azaltırken her iki segmentte de dönüşüm koruma'],
+          ['Gerekli Veri','Geçmiş satın alma - kampanya dönemi ilişkisi'],
+        ]],
+        ['Doğum günü / yıl dönümü kampanyası',[
+          ['Tetikleyici','Müşterinin doğum günü veya ilk sipariş yıl dönümü'],
+          ['Segment','Doğum tarihi bilinen tüm müşteriler'],
+          ['Aksiyon','Kişiye özel indirim + "sana özel" temalı ürün önerisi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Duygusal bağ kurma, düşük maliyetli ek satış anı yaratma'],
+          ['Gerekli Veri','Doğum tarihi (hesap/quiz üzerinden toplanmalı), ilk sipariş tarihi'],
+        ]],
+      ]},
+
+    { title:'Stok Yenilenme / Tekrar Stok Bildirimleri',
+      intro:'Sitede şu an sold-out ürünler var — kayıp talebi doğrudan satışa çevirecek otomatik bildirim akışı.',
+      scenarios:[
+        ['Daily Glow Mirror stok bildirimi',[
+          ['Tetikleyici','Ürün stoğa girdiğinde (şu an "Stokta Yok")'],
+          ['Segment','"Haber ver" opt-in yapan ziyaretçiler'],
+          ['Aksiyon','Stok geldiği an otomatik email + SMS bildirimi, sınırlı stok vurgusu'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Kayıp satışın doğrudan geri kazanılması, talebin ölçülmesi'],
+          ['Gerekli Veri','Stok webhook’u, opt-in listesi'],
+        ]],
+        ['Varyant bazlı bildirim — Lip Definer tonları',[
+          ['Tetikleyici','Belirli bir ton tükendiğinde ilgi gösteren kullanıcı için, o ton stoğa girdiğinde'],
+          ['Segment','Belirli varyantı bekleyen kullanıcılar'],
+          ['Aksiyon','Sadece ilgili tona özel bildirim (genel ürün değil)'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Yüksek alaka düzeyi ile yüksek tıklama/dönüşüm oranı'],
+          ['Gerekli Veri','Varyant seviyesinde stok verisi ve opt-in eşleşmesi'],
+        ]],
+      ]},
+
+    { title:'VIP / Yüksek Değerli Müşteri Segmentleri',
+      intro:'LTV’si en yüksek küçük grubu tanımlayıp elde tutmaya odaklanan farklılaştırılmış deneyim.',
+      scenarios:[
+        ['VIP erken erişim + numune',[
+          ['Tetikleyici','3+ sipariş VEYA toplam harcama 2.000₺ üzeri'],
+          ['Segment','VIP'],
+          ['Aksiyon','Yeni ürün/renk lansmanlarına (ör. Sunlight & Moondust Lip Balm koleksiyonu) 48 saat erken erişim + sürpriz numune + öncelikli WhatsApp destek hattı'],
+          ['Kanal','Email + WhatsApp'],
+          ['Beklenen Fayda','En yüksek LTV’li %10-20’lik grubu elde tutma, marka elçisine dönüştürme'],
+          ['Gerekli Veri','Toplam harcama, sipariş sayısı, RFM skoru'],
+        ]],
+        ['VIP’te erken risk müdahalesi',[
+          ['Tetikleyici','VIP müşteride 45 gün sessizlik (normal segmentte eşik 90 gün)'],
+          ['Segment','Risk altındaki VIP'],
+          ['Aksiyon','Standart win-back yerine kişisel not + WhatsApp üzerinden doğrudan iletişim, indirim kodu yerine öncelik/ayrıcalık sunumu'],
+          ['Kanal','WhatsApp + Email'],
+          ['Beklenen Fayda','En değerli segmentte churn’ü indirim vermeden, daha erken önleme'],
+          ['Gerekli Veri','VIP etiketi, son etkileşim tarihi'],
+        ]],
+      ]},
+
+    { title:'Müşteri Yaşam Döngüsü Otomasyonları',
+      intro:'Tüm senaryoları tek bir döngüde birleştiren üst çerçeve.',
+      lifecycle:['Onboarding','Aktivasyon','Büyüme','Sadakat','Risk','Win-back / Reaktivasyon'],
+      scenarios:[
+        ['İlk kullanım sonrası aktivasyon anketi',[
+          ['Tetikleyici','İlk siparişin teslimatından 5 gün sonra'],
+          ['Segment','Yeni müşteri, ilk siparişini almış'],
+          ['Aksiyon','Kısa memnuniyet anketi + kullanım ipuçları; olumlu yanıt verene review talebi, olumsuz yanıta destek yönlendirmesi'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Erken sinyal ile memnuniyetsizliği churn’a dönüşmeden yakalama, review hacmini artırma'],
+          ['Gerekli Veri','Teslimat tarihi, anket yanıtı'],
+        ]],
+      ]},
+  ];
+
+  var cyRoot = document.getElementById('cy-root');
+  cyCategories.forEach(function(cat, i){
+    var count = cat.scenarios.length;
+    var extra = '';
+    if(cat.rfm){
+      extra += '<div class="rfm-wrap"><table class="rfm"><thead><tr><th>Segment</th><th>Tanım</th><th>Bağlı Otomasyon</th></tr></thead><tbody>'+
+        cat.rfm.map(function(r){return '<tr><td class="seg">'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('')+
+        '</tbody></table></div>';
+    }
+    if(cat.lifecycle){
+      extra += '<div class="lc-flow">'+cat.lifecycle.map(function(s,idx){
+        return (idx?'<span class="lc-arrow">→</span>':'')+'<div class="lc-step"><div class="t">'+s+'</div></div>';
+      }).join('')+'</div>';
+    }
+    var cardsHtml = '<div class="scen-grid">'+cat.scenarios.map(function(s){return scenCard(s[0], s[1]);}).join('')+'</div>';
+    cyRoot.insertAdjacentHTML('beforeend',
+      '<details class="cy-cat"'+(i===0?' open':'')+'>'+
+        '<summary><div class="cy-num">'+String(i+1).padStart(2,'0')+'</div><h3>'+cat.title+'</h3><span class="cy-count">'+count+' senaryo</span><span class="chev"></span></summary>'+
+        '<div class="cy-body"><p class="cy-intro">'+cat.intro+'</p>'+extra+cardsHtml+'</div>'+
+      '</details>');
+  });
+
+  document.getElementById('toggleAll').addEventListener('click', function(){
+    var all = document.querySelectorAll('.cy-cat');
+    var anyClosed = Array.prototype.some.call(all, function(d){return !d.open;});
+    all.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? 'Tümünü Daralt' : 'Tümünü Genişlet';
+  });
+
+  /* ================= 03 Opportunities ================= */
+  var groups = [
+    {key:'ai', name:'AI & Müşteri Deneyimi', color:'var(--s1)', soft:'var(--s1-soft)'},
+    {key:'growth', name:'Büyüme & Pazarlama Otomasyonu', color:'var(--s2)', soft:'var(--s2-soft)'},
+    {key:'data', name:'Sadakat, Veri & Analitik', color:'var(--s3)', soft:'var(--s3-soft)'},
+  ];
+  var opportunities = [
+    {g:'ai', name:'AI Müşteri Destek Asistanı', desc:'WhatsApp ve web üzerinde ürün/sipariş sorularını yanıtlayan, canlı satış asistanına dönüşebilen AI destek katmanı.', impact:5, ease:3, sales:4},
+    {g:'ai', name:'WhatsApp Otomasyonları', desc:'Mevcut WhatsApp destek hattını sepet terk, kargo takibi ve katalog paylaşımına genişletme.', impact:4, ease:4, sales:4},
+    {g:'ai', name:'Ton/Renk Eşleştirme Quiz’i', desc:'BB Cream, Kiss’n Blush ve Lip Definer için AI destekli ton eşleştirme — iade oranını da azaltır.', impact:4, ease:3, sales:4},
+    {g:'growth', name:'Review / UGC Toplama Otomasyonu', desc:'Post-purchase otomatik yorum talebi + fotoğraflı yorum karşılığı küçük indirim; sosyal kanıtı artırır.', impact:3, ease:5, sales:3},
+    {g:'growth', name:'Kampanya Optimizasyonu (AI/ML)', desc:'Hangi üründe hangi indirimin en yüksek marjlı dönüşümü sağladığını öğrenen dinamik kampanya motoru.', impact:4, ease:2, sales:4},
+    {g:'growth', name:'İçerik / Blog & SEO Otomasyonu', desc:'Şu an tamamen boş olan blog için AI destekli içerik üretimi — organik trafik ve email içerik kaynağı.', impact:3, ease:4, sales:3},
+    {g:'growth', name:'Mobil Uygulama Push Stratejisi', desc:'Zaten yayında olan Kremi app için segment bazlı push bildirim planı.', impact:3, ease:4, sales:3},
+    {g:'data', name:'Sadakat / Puan Sistemi', desc:'Harcamaya dayalı puan + kademe sistemi; şu an hiçbir sadakat mekaniği yok.', impact:5, ease:2, sales:5},
+    {g:'data', name:'RFM / Segmentasyon Altyapısı', desc:'Tüm otomasyonların beslendiği merkezi müşteri veri katmanı (CDP/BI).', impact:4, ease:3, sales:3},
+    {g:'data', name:'Churn Tahmin Modeli', desc:'90 gün içinde kaybedilme olasılığı yüksek müşterileri proaktif işaretleyen ML modeli.', impact:4, ease:2, sales:3},
+    {g:'data', name:'Satış & Müşteri Analitik Paneli', desc:'Kohort, LTV, ürün bazlı tekrar satın alma oranı ve kampanya ROI’si tek panelde.', impact:3, ease:4, sales:3},
+    {g:'data', name:'Dinamik Bundle Fiyatlama Motoru', desc:'Tespit edilen set fiyatlama tutarsızlığını (tekliden pahalı set) otomatik düzelten fiyatlama mantığı.', impact:3, ease:3, sales:3},
+  ];
+
+  var legend = document.getElementById('quadLegend');
+  groups.forEach(function(g){ legend.insertAdjacentHTML('beforeend','<span><i style="background:'+g.color+'"></i>'+g.name+'</span>'); });
+
+  var svg = document.getElementById('quadChart');
+  var W=640,H=380, padL=54,padR=24,padT=20,padB=44;
+  var plotW=W-padL-padR, plotH=H-padT-padB;
+  function xPos(v){ return padL + (v-1)/4*plotW; }
+  function yPos(v){ return padT + (5-v)/4*plotH; }
+  var svgns = 'http://www.w3.org/2000/svg';
+  function el(tag,attrs){ var e=document.createElementNS(svgns,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); return e; }
+
+  svg.appendChild(el('rect',{x:padL,y:padT,width:plotW,height:plotH,fill:'none',stroke:'var(--border)'}));
+  svg.appendChild(el('line',{x1:xPos(3),x2:xPos(3),y1:padT,y2:padT+plotH,stroke:'var(--border)','stroke-dasharray':'3,4'}));
+  svg.appendChild(el('line',{x1:padL,x2:padL+plotW,y1:yPos(3),y2:yPos(3),stroke:'var(--border)','stroke-dasharray':'3,4'}));
+
+  [1,2,3,4,5].forEach(function(v){
+    var t1=el('text',{x:xPos(v),y:H-padB+18,'text-anchor':'middle','font-size':'9.5','fill':'var(--muted)','font-family':'IBM Plex Mono'}); t1.textContent=v; svg.appendChild(t1);
+    var t2=el('text',{x:padL-10,y:yPos(v)+3,'text-anchor':'end','font-size':'9.5','fill':'var(--muted)','font-family':'IBM Plex Mono'}); t2.textContent=v; svg.appendChild(t2);
+  });
+  var xl=el('text',{x:padL+plotW/2,y:H-8,'text-anchor':'middle','font-size':'11','fill':'var(--ink-2)','font-weight':'700'}); xl.textContent='Uygulama Kolaylığı →'; svg.appendChild(xl);
+  var yl=el('text',{x:14,y:padT+plotH/2,'text-anchor':'middle','font-size':'11','fill':'var(--ink-2)','font-weight':'700','transform':'rotate(-90 14 '+(padT+plotH/2)+')'}); yl.textContent='Etki →'; svg.appendChild(yl);
+  svg.insertAdjacentHTML('beforeend','<text x="'+(padL+8)+'" y="'+(padT+14)+'" font-size="9.5" fill="var(--muted)" font-style="italic">yüksek etki / zor uygulama</text><text x="'+(padL+plotW-8)+'" y="'+(padT+14)+'" text-anchor="end" font-size="9.5" fill="var(--muted)" font-style="italic">yüksek etki / kolay uygulama</text>');
+
+  var tooltip = document.getElementById('tooltip');
+  var jitter = {}; // dedupe overlapping coords
+  opportunities.forEach(function(o){
+    var key = o.ease+','+o.impact;
+    jitter[key] = (jitter[key]||0);
+    var jx = jitter[key]*10, jy = jitter[key]*8;
+    jitter[key]++;
+    var cx = xPos(o.ease)+jx, cy = yPos(o.impact)-jy;
+    var r = 6 + o.sales*2.4;
+    var g = groups.filter(function(gr){return gr.key===o.g;})[0];
+    var c = el('circle',{cx:cx,cy:cy,r:r,fill:g.color,'fill-opacity':'0.78',stroke:g.color,'stroke-width':'1.5'});
+    c.style.cursor='pointer';
+    c.addEventListener('mousemove', function(e){
+      tooltip.style.opacity=1;
+      tooltip.style.left=(e.clientX+14)+'px';
+      tooltip.style.top=(e.clientY+14)+'px';
+      tooltip.innerHTML='<b>'+o.name+'</b>'+o.desc+'<br><span class="mono" style="opacity:.7">Etki '+o.impact+'/5 · Kolaylık '+o.ease+'/5 · Satış Katkısı '+o.sales+'/5</span>';
+    });
+    c.addEventListener('mouseleave', function(){ tooltip.style.opacity=0; });
+    svg.appendChild(c);
+  });
+
+  var oppRoot = document.getElementById('opp-root');
+  groups.forEach(function(g){
+    var items = opportunities.filter(function(o){return o.g===g.key;});
+    var html = '<div class="opp-group"><h4><i style="background:'+g.color+'"></i>'+g.name+'</h4><div class="opp-grid">'+
+      items.map(function(o){
+        return '<div class="opp"><h5>'+o.name+'</h5><p>'+o.desc+'</p><div class="opp-metrics">'+
+          '<span class="met">Etki '+o.impact+'/5</span><span class="met">Kolaylık '+o.ease+'/5</span><span class="met">Satış Katkısı '+o.sales+'/5</span></div></div>';
+      }).join('')+'</div></div>';
+    oppRoot.insertAdjacentHTML('beforeend', html);
+  });
+
+  /* ================= 04 Roadmap ================= */
+  var road1 = ['Sepet terk email/SMS serisi (genel + yüksek tutarlı sepet)','Hoşgeldin serisi (email + SMS)','Post-purchase review isteme otomasyonu','"3 Al 2 Öde" sepet eşiği bildirimi','Sold-out ürünler için stok bildirimi opt-in’i'];
+  var road2 = ['Ürün/kategori bazlı browse abandonment akışları','Sarf ürünlerde tekrar satın alma zamanı tahmini','RFM segmentasyonu + kademeli win-back akışları','Satın alma sonrası cross-sell/upsell otomasyonları','WhatsApp otomasyon genişletmesi (sepet terk + destek)','Doğum günü / yıl dönümü kampanyası'];
+  var road3 = ['Davranışsal kişiselleştirilmiş öneri motoru','AI ton/renk eşleştirme quiz’i','Sadakat / puan sistemi','Churn tahmin modeli','Dinamik kampanya & bundle fiyatlama optimizasyonu','Uçtan uca AI müşteri destek asistanı'];
+  function fillRoad(id, items){ var ul=document.getElementById(id); items.forEach(function(t){ ul.insertAdjacentHTML('beforeend','<li>'+t+'</li>'); }); }
+  fillRoad('road1', road1); fillRoad('road2', road2); fillRoad('road3', road3);
+
+  /* ================= 05 Questions ================= */
+  var qGroups = [
+    {h:'Teknik & Altyapı', items:[
+      'Callypso entegrasyonu için Shopify API/webhook erişimi hangi kapsamda sağlanabilir?',
+      'Mevcut email/SMS altyapısı (Shopify Email, Klaviyo vb.) ne ve geçmiş kampanya/segment verisi taşınabilir mi?',
+      'WhatsApp Business API kurulu mu, hangi sağlayıcı üzerinden çalışıyor?',
+      'Kremi mobil uygulamasının aktif kullanıcı sayısı ve push bildirim altyapısı nasıl?',
+    ]},
+    {h:'Veri Olgunluğu', items:[
+      'Sipariş/müşteri verisine ne kadar geriye dönük erişim sağlanabilir?',
+      'Ürün bazlı ortalama tüketim/tekrar sipariş süresine dair iç veri var mı, yoksa varsayımla mı başlanmalı?',
+      'Sepet terk oranı, email açılma/tıklama, tekrar satın alma oranı gibi KPI’lar bugün ölçülüyor mu?',
+    ]},
+    {h:'İş & Strateji', items:[
+      'Şu an planlanan bir sadakat/puan programı var mı?',
+      '"3 Al 2 Öde" ve set fiyatlamasının mantığı nasıl belirleniyor — bazı setlerin tekliden pahalı olması bilinçli bir tercih mi?',
+      'Hedef pazar yalnızca Türkiye mi, yoksa /en/ locale ile uluslararası satış da hedefleniyor mu?',
+      'Otomasyonlarda ekstra indirim kodu verme konusunda marj esnekliği ne kadar?',
+      'İade oranı en çok hangi ürünlerde yüksek — özellikle ton/renk seçimi olanlarda?',
+    ]},
+    {h:'Öncelik', items:[
+      'Toplantıda hangi 2-3 otomasyonun pilot olarak başlatılması önceliklendiriliyor?',
+    ]},
+  ];
+  var qRoot = document.getElementById('q-root');
+  qGroups.forEach(function(g){
+    qRoot.insertAdjacentHTML('beforeend','<div class="q-group"><h4>'+g.h+'</h4><ol>'+g.items.map(function(i){return '<li>'+i+'</li>';}).join('')+'</ol></div>');
+  });
+
+})();
+</script>
