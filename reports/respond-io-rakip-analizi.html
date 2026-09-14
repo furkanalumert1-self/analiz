@@ -1,0 +1,467 @@
+<title>respond.io Rakip Analizi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,650;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#f4f6fb; --surface:#ffffff; --surface-2:#eaeff9; --surface-3:#dfe6f4;
+    --ink:#101425; --ink-2:#464f68; --muted:#7a8199; --border:#dde3f0; --border-strong:#c7d0e6;
+    --brand:#2545d1; --brand-ink:#ffffff; --brand-2:#5470ea; --brand-soft:#e6ebfd; --brand-soft-strong:#d3dcfa;
+    --gold:#b1731f; --gold-soft:#f5e6cf;
+    --good:#128a3e; --warn:#b1731f; --crit:#c23a3a;
+    --s1:#2545d1; --s1-soft:#e6ebfd; --s2:#ea5f2e; --s2-soft:#fce4d8; --s3:#0e9e6f; --s3-soft:#d9f4ea;
+    --shadow: 0 1px 2px rgba(16,20,37,.06), 0 8px 24px -12px rgba(16,20,37,.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1120; --surface:#161a2c; --surface-2:#1c2136; --surface-3:#242a41;
+      --ink:#eef0f9; --ink-2:#c4c9dd; --muted:#8b93ac; --border:#2a3049; --border-strong:#363d5a;
+      --brand:#7f97f5; --brand-ink:#0e1120; --brand-2:#6d86ee; --brand-soft:#1f2745; --brand-soft-strong:#293258;
+      --gold:#e0ac5d; --gold-soft:#332512;
+      --good:#3fc27a; --warn:#e0ac5d; --crit:#e57979;
+      --s1:#7f97f5; --s1-soft:#1f2745; --s2:#f0895a; --s2-soft:#3a2417; --s3:#3fc29a; --s3-soft:#123328;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1120; --surface:#161a2c; --surface-2:#1c2136; --surface-3:#242a41;
+    --ink:#eef0f9; --ink-2:#c4c9dd; --muted:#8b93ac; --border:#2a3049; --border-strong:#363d5a;
+    --brand:#7f97f5; --brand-ink:#0e1120; --brand-2:#6d86ee; --brand-soft:#1f2745; --brand-soft-strong:#293258;
+    --gold:#e0ac5d; --gold-soft:#332512;
+    --good:#3fc27a; --warn:#e0ac5d; --crit:#e57979;
+    --s1:#7f97f5; --s1-soft:#1f2745; --s2:#f0895a; --s2-soft:#3a2417; --s3:#3fc29a; --s3-soft:#123328;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;padding-inline:20px;}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;text-wrap:balance;margin:0;color:var(--ink);}
+  p{margin:0;color:var(--ink-2);line-height:1.6;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .wrap{max-width:1180px;margin-inline:auto;}
+  a{color:var(--brand);}
+  ::selection{background:var(--brand-soft-strong);}
+
+  .topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-block:12px;margin-inline:-20px;padding-inline:20px;}
+  .topbar-row{max-width:1180px;margin-inline:auto;display:flex;align-items:center;gap:18px;}
+  .brandmark{display:flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-weight:650;font-size:16px;white-space:nowrap;}
+  .brandmark .x{color:var(--muted);font-weight:400;font-style:italic;}
+  .navchips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;}
+  .navchips::-webkit-scrollbar{display:none;}
+  .navchips a{flex:none;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:100px;color:var(--ink-2);text-decoration:none;border:1px solid transparent;white-space:nowrap;}
+  .navchips a:hover{border-color:var(--border-strong);background:var(--surface);}
+
+  .hero{padding-block:52px 36px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);border:1px solid var(--brand-soft-strong);padding:6px 12px;border-radius:100px;}
+  .hero h1{font-size:clamp(28px,4.4vw,46px);line-height:1.08;margin-top:16px;max-width:20ch;font-weight:650;}
+  .hero p.lede{font-size:17px;max-width:66ch;margin-top:14px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13px;color:var(--muted);}
+  .hero-meta b{color:var(--ink-2);font-weight:600;}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:32px;}
+  .stat{background:var(--surface);padding:18px 18px 16px;}
+  .stat .n{font-family:'Fraunces',serif;font-size:26px;font-weight:650;font-variant-numeric:tabular-nums;}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  @media (max-width:760px){.stat-row{grid-template-columns:repeat(2,1fr);}}
+
+  section{padding-block:52px;border-top:1px solid var(--border);}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px;}
+  .sec-head .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+  .sec-head h2{font-size:clamp(22px,3vw,32px);margin-top:6px;}
+  .sec-head p{max-width:60ch;font-size:14.5px;margin-top:8px;}
+
+  .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;}
+  @media (max-width:860px){.grid2{grid-template-columns:1fr;}}
+
+  .card{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:20px 22px;box-shadow:var(--shadow);}
+  .quote{border-left:3px solid var(--brand);background:var(--surface-2);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14px;color:var(--ink-2);font-style:italic;margin:10px 0;}
+  .quote cite{display:block;margin-top:8px;font-style:normal;font-size:11.5px;color:var(--muted);}
+  .quote cite a{color:var(--muted);}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+  .pillar{border:1px solid var(--border);border-radius:14px;padding:18px;background:var(--surface);}
+  .pillar .tag{font-family:'IBM Plex Mono';font-size:11px;font-weight:600;color:var(--brand);}
+  .pillar h4{font-size:15.5px;margin-top:8px;}
+  .pillar p{font-size:12.8px;margin-top:6px;}
+  @media (max-width:860px){.pillars{grid-template-columns:1fr;}}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px;}
+  .cat-card{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--surface);}
+  .cat-card .n{font-family:'Fraunces',serif;font-size:24px;font-weight:650;}
+  .cat-card .l{font-size:13px;font-weight:600;margin-top:2px;}
+  .cat-card .d{font-size:12px;color:var(--muted);margin-top:6px;}
+  @media (max-width:760px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+
+  table.prod{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.prod thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:0 12px 10px;border-bottom:1px solid var(--border-strong);}
+  table.prod td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+  table.prod tbody tr:hover{background:var(--surface-2);}
+  table.prod td.num{font-family:'IBM Plex Mono';font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pname{font-weight:700;}
+  .psub{font-size:11.5px;color:var(--muted);}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap;}
+  .b-off{background:var(--brand-soft);color:var(--brand);}
+  .b-good{background:var(--s3-soft);color:var(--s3);}
+  .b-out{background:var(--surface-3);color:var(--muted);}
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:6px 4px;}
+
+  .findings{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px;}
+  .finding{border:1px solid var(--border);border-radius:14px;padding:16px 18px;background:var(--surface);display:flex;gap:12px;}
+  .finding .ico{flex:none;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-size:12px;font-weight:700;background:var(--gold-soft);color:var(--gold);}
+  .finding h4{font-size:14px;font-weight:700;}
+  .finding p{font-size:12.8px;margin-top:4px;}
+  @media (max-width:760px){.findings{grid-template-columns:1fr;}}
+
+  .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .tag-cloud span{font-size:12px;font-weight:600;padding:6px 12px;border-radius:100px;background:var(--surface-2);border:1px solid var(--border);color:var(--ink-2);}
+
+  .locale-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .locale-grid span{font-family:'IBM Plex Mono';font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--surface-3);color:var(--ink-2);}
+
+  .steps{counter-reset:step;display:grid;gap:10px;margin-top:18px;}
+  .step{display:flex;gap:14px;border:1px solid var(--border);border-radius:14px;padding:14px 16px;background:var(--surface);}
+  .step .num{counter-increment:step;flex:none;width:26px;height:26px;border-radius:8px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-weight:700;font-size:12px;}
+  .step .num::before{content:counter(step);}
+  .step h4{font-size:13.8px;}
+  .step p{font-size:12.6px;margin-top:3px;}
+
+  .reco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px;}
+  .reco{border:1px solid var(--border);border-radius:16px;padding:18px 20px;background:var(--surface);}
+  .reco .lvl{font-family:'IBM Plex Mono';font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:100px;display:inline-block;}
+  .lvl-hi{background:var(--s3-soft);color:var(--s3);}
+  .lvl-mid{background:var(--gold-soft);color:var(--gold);}
+  .reco h4{font-size:15.5px;margin-top:10px;}
+  .reco p{font-size:13px;margin-top:8px;}
+  @media (max-width:860px){.reco-grid{grid-template-columns:1fr;}}
+
+  .limits{border:1px dashed var(--border-strong);border-radius:14px;padding:16px 18px;background:var(--surface-2);margin-top:18px;}
+  .limits h4{font-size:13.5px;}
+  .limits ul{margin:8px 0 0;padding-left:18px;font-size:12.8px;color:var(--ink-2);}
+  .limits li{margin-bottom:6px;}
+
+  footer{padding-block:40px 60px;border-top:1px solid var(--border);}
+  footer p{font-size:12px;color:var(--muted);max-width:70ch;}
+  .src-list{margin-top:14px;font-size:11.5px;color:var(--muted);columns:2;column-gap:24px;}
+  .src-list a{color:var(--muted);}
+  @media (max-width:700px){.src-list{columns:1;}}
+
+  ul.plain{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2);}
+  ul.plain li{margin-bottom:6px;}
+</style>
+
+<div class="topbar">
+  <div class="topbar-row">
+    <div class="brandmark">respond.io <span class="x">/ analiz</span></div>
+    <nav class="navchips">
+      <a href="#ozet">Özet</a>
+      <a href="#konumlandirma">Konumlandırma</a>
+      <a href="#hedef-kitle">Hedef Kitle</a>
+      <a href="#sektorler">Sektörler</a>
+      <a href="#fiyat">Fiyatlandırma</a>
+      <a href="#reklam">Reklam Stratejisi</a>
+      <a href="#rakipler">Rakip Kıyası</a>
+      <a href="#inboxly">Inboxly İçin Çıkarımlar</a>
+      <a href="#metodoloji">Metodoloji</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <span class="eyebrow">Rakip İstihbaratı · Apify ile Toplandı</span>
+    <h1>respond.io Pazar &amp; Hedef Kitle Analizi</h1>
+    <p class="lede">Inboxly'nin doğrudan rakibi respond.io'nun web sitesi, 48 müşteri vaka çalışması, fiyatlandırma yapısı ve Google reklam envanteri; Apify'ın <span class="mono">website-content-crawler</span> aktörü ve Google Ads Transparency Center üzerinden programatik olarak tarandı. Aşağıda hangi müşteri profiline, hangi sektörlere ve hangi coğrafyalara ulaşmaya çalıştıkları — ve bunda ne kadar başarılı oldukları — kanıt bazlı olarak özetleniyor.</p>
+    <div class="hero-meta">
+      <span><b>Tarama tarihi:</b> 14 Eylül 2026</span>
+      <span><b>Taranan sayfa:</b> 55</span>
+      <span><b>Yöntem:</b> apify/website-content-crawler (playwright + cheerio)</span>
+      <span><b>Ek kaynak:</b> Google Ads Transparency Center</span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="n">10.000+</div><div class="l">180+ ülkede aktif "marka" (respond.io'nun kendi iddiası)</div></div>
+      <div class="stat"><div class="n">21 × 13</div><div class="l">sektöre özel açılış sayfası × dil/lokal versiyonu (~270 sayfa)</div></div>
+      <div class="stat"><div class="n">48</div><div class="l">yayınlanmış müşteri vaka çalışması, somut % / x metrikleriyle</div></div>
+      <div class="stat"><div class="n">~300</div><div class="l">Google reklam ağı kaydı — "Rocketbots Limited" (Hong Kong) adına, küresel ölçekte</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section id="ozet">
+  <div class="sec-head">
+    <div>
+      <div class="k">Yönetici Özeti</div>
+      <h2>respond.io kim için var, kim için değil?</h2>
+      <p>Sitenin kendi diliyle: "orta-ölçekli (mid-market) B2C işletmeler" — yani artık WhatsApp/Instagram/Facebook/TikTok üzerinden gelen mesaj hacmi, kişisel telefon veya tek kişilik bir gelen kutusuyla yönetilemeyecek kadar büyümüş; ama kurumsal bir CRM+contact-center paketi almaya henüz hazır olmayan işletmeler.</p>
+    </div>
+  </div>
+
+  <div class="findings">
+    <div class="finding"><div class="ico">01</div><div><h4>Kesin ICP ifadesi sitede yazılı</h4><p>"Respond.io is the customer conversation platform built for mid-market B2C businesses that drive revenue from high-volume customer conversations." — /about sayfası, birebir alıntı.</p></div></div>
+    <div class="finding"><div class="ico">02</div><div><h4>Kurucu hikâyesi = reklam kaynaklı lead patlaması</h4><p>2017'de kurulmuş; kurucular "ad-driven inbound enquiries scaled" (reklamdan gelen talep patladıkça) sorununu çözmek için yola çıktıklarını açıkça belirtiyor. Ürünün DNA'sı reklam+mesajlaşma kesişimi.</p></div></div>
+    <div class="finding"><div class="ico">03</div><div><h4>Öz sermaye: dağıtım, ürün değil</h4><p>21 sektöre özel + 13 dile özel programatik SEO sayfası (~270 URL), 48 vaka çalışması, "alternatives" ve rakip-karşılaştırma sayfaları — büyümenin büyük kısmı içerik/SEO ve doğrudan reklam motoruna dayanıyor.</p></div></div>
+    <div class="finding"><div class="ico">04</div><div><h4>Fiyat girişi düşük, üst tarafı açık uçlu</h4><p>Self-servis planlar 79 – 279 $/ay aralığında başlıyor; Enterprise özel fiyatlandırmayla üste taşınıyor. Bu, hem küçük ekipleri hem de çok şubeli kurumsal hesapları aynı huniye çekme stratejisi.</p></div></div>
+  </div>
+</section>
+
+<section id="konumlandirma">
+  <div class="sec-head">
+    <div>
+      <div class="k">Site &amp; Ürün Konumlandırması</div>
+      <h2>"Conversation-Led Growth™" anlatısı</h2>
+      <p>Ana sayfa ve /omnichannel-ai-crm-conversation-platform sayfaları, ürünü bir "inbox" değil bir <b>gelir platformu</b> olarak konumlandırıyor: Yakala → Dönüştür → Elde tut (Capture / Convert / Retain) döngüsü.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4 style="font-size:15px;margin-bottom:10px;">Ana sayfa açılış kancası</h4>
+      <div class="quote">"Customers ask on chat. Call for details. Confirm by email. Can you keep up? Most platforms can't."
+        <cite>respond.io/ — hero başlığı</cite>
+      </div>
+      <div class="quote">"Leads come from everywhere — WhatsApp chats, TikTok ads, Facebook messages or even store visits."
+        <cite>respond.io/ — "Capture" bölümü</cite>
+      </div>
+      <div class="quote">"A lead reaches out on WhatsApp, follows up on Instagram and calls the next day. By the time an agent pieces the conversation together, the lead has chosen a competitor."
+        <cite>respond.io/omnichannel-ai-crm-conversation-platform</cite>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-size:15px;margin-bottom:10px;">Güven / otorite sinyalleri</h4>
+      <ul class="plain">
+        <li>G2'de <b>4,8/5</b>, 500+ yorum, "highest ROI" kategorisinde lider</li>
+        <li><b>ISO 27001</b>, GDPR, SSO — "enterprise-grade without the bloat" mesajı</li>
+        <li>%99,999 uptime SLA iddiası</li>
+        <li>Resmi <b>Meta Business Partner</b> ve <b>TikTok Marketing Partner</b> — yeni reklam/mesajlaşma özelliklerine erken erişim</li>
+        <li>OpenAI ve AWS ile ortaklık; çeyrekte <b>2 milyar+ mesaj</b> işlediği iddiası</li>
+        <li>Kuruluş: 2017, kurucular Gerardo Salandra, Iaroslav Kudritskiy, Hassan Ahmed; merkez <b>Kuala Lumpur</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar"><div class="tag">CAPTURE</div><h4>Yakala</h4><p>WhatsApp, Instagram, Messenger, TikTok, e-posta, form ve mağaza ziyaretlerinden gelen tüm temas noktalarını tek gelen kutusunda birleştirir; CRM ile senkronlar.</p></div>
+    <div class="pillar"><div class="tag">CONVERT</div><h4>Dönüştür</h4><p>Çok dilli AI Agent'lar reklam kaynaklı soruları yanıtlar, gerçek alıcıyı ekibe yönlendirir; ürün önerir, randevu alır, ödeme linki paylaşır.</p></div>
+    <div class="pillar"><div class="tag">RETAIN</div><h4>Elde Tut</h4><p>Promosyon/yenileme broadcast'leri, CSAT anketleri ve yaşam döngüsü segmentasyonu ile tekrar satın almayı hedefler.</p></div>
+  </div>
+</section>
+
+<section id="hedef-kitle">
+  <div class="sec-head">
+    <div>
+      <div class="k">Hedef Müşteri Profili (ICP)</div>
+      <h2>Kimi kovalıyorlar?</h2>
+      <p>Vaka çalışmaları, fiyatlandırma dili ve "alternatives" sayfası üst üste konduğunda net bir profil çıkıyor.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4 style="font-size:15px;">Şirket profili</h4>
+      <ul class="plain">
+        <li><b>Segment:</b> Küçük ekip → orta ölçek B2C (self-servis $79-279/ay), kurumsal çok şubeli hesaplar için özel fiyatlı Enterprise katmanı</li>
+        <li><b>Satın alma modeli:</b> PLG (7 gün ücretsiz deneme, kredi kartsız) + satış destekli demo/"talk to sales" — ikisi birden çalışıyor</li>
+        <li><b>Hacim tetikleyicisi:</b> "Reklamdan/organikten gelen talep, mevcut ekip veya araçla (kişisel telefon, Manychat, temel CRM) yönetilemez hale geldiğinde" satın alma tetikleniyor</li>
+        <li><b>Coğrafya:</b> APAC, Latin Amerika, Orta Doğu ağırlıklı; HQ Malezya. 13 dilde lokalize sayfalar: <span class="mono">es, ar, zh, tw, fr, de, id, it, pt, ru, th, vi</span></li>
+        <li><b>Kanal önceliği:</b> WhatsApp Business API birincil kanal; Instagram/Messenger/TikTok/VoIP ikincil</li>
+      </ul>
+      <div class="locale-grid">
+        <span>ES</span><span>AR</span><span>ZH</span><span>TW</span><span>FR</span><span>DE</span><span>ID</span><span>IT</span><span>PT</span><span>RU</span><span>TH</span><span>VI</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-size:15px;">/about ve /pricing sayfalarından birebir kanıt</h4>
+      <div class="quote">"Today, over 10,000 brands across 180+ countries run their customer conversations on respond.io... with a strong presence in Asia Pacific, Latin America, North America, Europe, the Middle East, and Africa."
+        <cite><a href="https://respond.io/about" target="_blank" rel="noopener">respond.io/about</a></cite>
+      </div>
+      <div class="quote">"[28 Days Onboarding Program is] designed for B2C companies aiming to enhance revenue from inbound leads over WhatsApp and other instant messaging channels."
+        <cite><a href="https://respond.io/pricing" target="_blank" rel="noopener">respond.io/pricing</a> — SSS</cite>
+      </div>
+      <div class="quote">"Respond.io gives mid-market B2C teams the speed and context to turn every sales opportunity into revenue."
+        <cite><a href="https://respond.io/omnichannel-ai-crm-conversation-platform" target="_blank" rel="noopener">respond.io/omnichannel-ai-crm-conversation-platform</a></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sektorler">
+  <div class="sec-head">
+    <div>
+      <div class="k">Sektörler &amp; Kanıt Vakaları</div>
+      <h2>Hangi dikeyler özellikle kovalanıyor?</h2>
+      <p>Sitemap'te tespit edilen <b>21 ayrı sektör açılış sayfası</b> (her biri 13 dile çevrilmiş) ve 48 müşteri vaka çalışması, hedeflenen dikeyleri doğrudan gösteriyor.</p>
+    </div>
+  </div>
+
+  <div class="cat-grid">
+    <div class="cat-card"><div class="n">6</div><div class="l">Perakende &amp; E-ticaret</div><div class="d">retail, fashion-apparel, jewelry, furniture, electronics, auto-part-retailer</div></div>
+    <div class="cat-card"><div class="n">5</div><div class="l">Sağlık &amp; Estetik</div><div class="d">healthcare, medical-clinic, dental-clinic, beauty-center, sports-fitness</div></div>
+    <div class="cat-card"><div class="n">4</div><div class="l">Eğitim</div><div class="d">education, academic-tutoring, afterschool-activities + öğrenci alımı vakaları</div></div>
+    <div class="cat-card"><div class="n">4</div><div class="l">Otomotiv</div><div class="d">automotive, car-dealership + iMotorbike, Automax vakaları</div></div>
+    <div class="cat-card"><div class="n">3</div><div class="l">Seyahat &amp; Turizm</div><div class="d">travel, travel-agency-tour-operator + medikal turizm (Emrah Cinik)</div></div>
+    <div class="cat-card"><div class="n">2</div><div class="l">Profesyonel Hizmetler</div><div class="d">professional-services, home-cleaning-maid-services</div></div>
+    <div class="cat-card"><div class="n">n</div><div class="l">Fintech / Sigorta</div><div class="d">sigorta brokerliği, muhasebe (ContableApp), emlak/kiralama vakaları</div></div>
+    <div class="cat-card"><div class="n">n</div><div class="l">İçerik / Yaratıcı Ekonomi</div><div class="d">ShareChat, Moj for Creators — 15 dilde 50-200 bin yaratıcıya destek</div></div>
+  </div>
+
+  <div class="tbl-scroll">
+    <table class="prod">
+      <thead><tr><th>Vaka</th><th>Sektör / Ülke</th><th>İddia Edilen Sonuç</th><th>Not</th></tr></thead>
+      <tbody>
+        <tr><td class="pname">Lamarsa Coffee</td><td>Perakende (kahve ekipmanı) · Malezya + 6 ülke</td><td class="num">Satışlarda %50 artış</td><td class="psub">B2B+B2C, çok ülkeli WhatsApp broadcast</td></tr>
+        <tr><td class="pname">Emrah Cinik Kliniği</td><td>Sağlık / Medikal Turizm · <b>Türkiye</b></td><td class="num">34 kanal, 15+ dil, 10bin+ hasta/ay</td><td class="psub">Hasta yolculuğu Meta/Google/TikTok reklamıyla başlıyor — birebir alıntılanan vaka</td></tr>
+        <tr><td class="pname">iMotorbike</td><td>Otomotiv (2. el motosiklet) · Malezya/Vietnam</td><td class="num">2x daha fazla lead</td><td class="psub">Niyet bazlı yönlendirme (al/sat/sigorta/tamir)</td></tr>
+        <tr><td class="pname">CUHK</td><td>Eğitim (MBA başvuruları) · Hong Kong</td><td class="num">Soruların %98'i otomatik yanıtlandı</td><td class="psub">Kurumsal/akademik segment</td></tr>
+        <tr><td class="pname">Öğrenci Ajansı vakası</td><td>Eğitim / Öğrenci Alımı</td><td class="num">%60 dönüşüm artışı</td><td class="psub">AI Agent ile lead kalifikasyonu</td></tr>
+        <tr><td class="pname">Kiralama İşletmesi</td><td>Emlak / Kiralama</td><td class="num">Dönüşüm oranında artış</td><td class="psub">AI lead qualification vakası</td></tr>
+        <tr><td class="pname">Moj / ShareChat</td><td>İçerik Platformu · Hindistan</td><td class="num">50-200bin yaratıcıya 15 dilde destek</td><td class="psub">Çok büyük ölçekli B2C platform vakası</td></tr>
+        <tr><td class="pname">Ju Productions</td><td>Rakip geçişi</td><td class="num">ManyChat'ten geçiş</td><td class="psub">"Neden respond.io" — rakip değiştirme vakası</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px;font-size:12.5px;">Toplam 48 vaka çalışması taranan sitemap'te tespit edildi; yukarıdaki tablo Apify taramasıyla içeriği çekilen örnek bir kesittir.</p>
+</section>
+
+<section id="fiyat">
+  <div class="sec-head">
+    <div>
+      <div class="k">Fiyatlandırma &amp; Büyüme Motoru</div>
+      <h2>Giriş ucuz, ölçek pahalı</h2>
+      <p>Fiyatlandırma "Monthly Active Contact" (aylık konuşulan benzersiz kişi) bazlı — WhatsApp/Meta ücretleri hariç, ayrı faturalanıyor.</p>
+    </div>
+  </div>
+  <div class="tbl-scroll">
+    <table class="prod">
+      <thead><tr><th>Plan</th><th>Fiyat</th><th>Kullanıcı</th><th>Kapsam</th><th>Hedef</th></tr></thead>
+      <tbody>
+        <tr><td class="pname">Starter</td><td class="num">$79/ay</td><td class="num">5 kullanıcı</td><td>Team/Custom Inbox, mobil, temel AI Assist, temel raporlar</td><td><span class="badge b-out">Küçük ekip</span></td></tr>
+        <tr><td class="pname">Growth <span class="badge b-off">En popüler</span></td><td class="num">$159/ay</td><td class="num">10 kullanıcı</td><td>+ Broadcast, Workflow otomasyonu, AI Agents, gelişmiş rapor, Zapier/Make, API</td><td><span class="badge b-good">Büyüyen ekip</span></td></tr>
+        <tr><td class="pname">Advanced</td><td class="num">$279/ay</td><td class="num">10 kullanıcı</td><td>+ Çoklu workspace, webhook, SSO, özel kanal</td><td><span class="badge b-off">"Tech-savvy" ekip</span></td></tr>
+        <tr><td class="pname">Enterprise</td><td class="num">Özel</td><td class="num">Sınırsız</td><td>Advanced'ın tamamı + özel API limiti, öncelikli destek</td><td><span class="badge b-off">Büyük / çok şubeli</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="ico">$</div><div><h4>Aşım ücretlendirmesi agresif</h4><p>Kontak limiti aşıldığında Growth'ta 100 kişi başına $12, Advanced'ta $15 — "geçici" kullanım için tasarlanmış, kalıcı artış için üst plana geçiş öneriliyor (upsell motoru).</p></div></div>
+    <div class="finding"><div class="ico">AI</div><div><h4>AI kredisi "ücretsiz" ama şartlı</h4><p>AI Agent/Assist/Summary krediyle çalışıyor; aşımda 1000 kredi $15. "%99 kullanıcı hiç aşmaz" deniyor — fiyat şeffaflığı sınırlı.</p></div></div>
+    <div class="finding"><div class="ico">7d</div><div><h4>Sürtünmesiz deneme</h4><p>Kredi kartsız 7 günlük deneme, Growth planının tüm özellikleriyle (broadcast hariç) — klasik PLG hunisi.</p></div></div>
+    <div class="finding"><div class="ico">28</div><div><h4>28 Günlük Onboarding Programı</h4><p>Ücretli, rehberli geçiş programı özellikle "B2C, WhatsApp'tan gelir artırmak isteyen" şirketler için konumlandırılmış — yüksek işlem hacimli hesapları elde tutma taktiği.</p></div></div>
+  </div>
+</section>
+
+<section id="reklam">
+  <div class="sec-head">
+    <div>
+      <div class="k">Reklam Stratejisi Bulguları</div>
+      <h2>Apify ile reklam envanteri taraması</h2>
+      <p>Apify'ın <span class="mono">website-content-crawler</span> aktörü hem respond.io sitesine hem de Google Ads Transparency Center ve Meta Ad Library'nin herkese açık sayfalarına yönlendirildi.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4 style="font-size:15px;">Google reklam ağı (doğrulandı ✅)</h4>
+      <p style="font-size:13px;">Google Ads Transparency Center'da <span class="mono">domain=respond.io</span> sorgusu, reklamların <b>"Rocketbots Limited"</b> (respond.io'nun Hong Kong merkezli kurucu/hukuki tüzel kişiliği, kimliği doğrulanmış reklamveren) adına yayınlandığını gösterdi.</p>
+      <ul class="plain">
+        <li><b>~300 aktif/arşivlenmiş reklam kreatifi</b> tüm platformlarda ("All platforms": arama, display, YouTube dahil)</li>
+        <li>Coğrafi kapsam <b>"Ads in anywhere"</b> — tek bir ülkeyle sınırlı değil, çoklu pazar hedeflemesi</li>
+        <li>Reklamveren kimliği Google tarafından doğrulanmış ("Verified")</li>
+      </ul>
+      <div class="quote">"~300 ads · Ads In anywhere · Rocketbots Limited · Based in Hong Kong · Advertiser has verified their identity"
+        <cite>Google Ads Transparency Center, adstransparency.google.com/advertiser/AR11434094388184088577</cite>
+      </div>
+    </div>
+    <div class="card">
+      <h4 style="font-size:15px;">Meta / TikTok reklamları (dolaylı kanıt)</h4>
+      <p style="font-size:13px;">Meta Ad Library'nin arama arayüzü JS-korumalı ve oturum gerektiriyor; genel amaçlı web crawler ile kreatif verisi çekilemedi (0 sonuç döndü). Ancak sitedeki ürün tasarımı, Meta/TikTok reklamlarının stratejinin merkezinde olduğunu doğruluyor:</p>
+      <ul class="plain">
+        <li>Ayrı, özel açılış sayfaları: <span class="mono">/capture-leads-from-ads</span>, <span class="mono">/capture-facebook-leads</span>, <span class="mono">/capture-instagram-leads</span>, <span class="mono">/capture-tiktok-leads</span></li>
+        <li>"Click-to-WhatsApp Ads" ve Meta Katalog entegrasyonu birebir ürün özelliği</li>
+        <li>Resmi <b>Meta Business Partner</b> ve <b>TikTok Marketing Partner</b> rozetleri</li>
+        <li>Emrah Cinik (Türkiye) vakasında hasta yolculuğu birebir "paid ads on Meta, Google and TikTok" ile başlıyor</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="num"></div><div><h4>Uygulanan yöntem</h4><p><span class="mono">POST /v2/acts/apify~website-content-crawler/run-sync-get-dataset-items</span> — respond.io ana alan adı için 2 aşamalı tarama (adaptive playwright + hedefli cheerio, toplam 50 URL) ve Google Ads Transparency Center için ek playwright taraması.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Sonuç</h4><p>Google tarafı tam veri (reklamveren kimliği + envanter büyüklüğü) döndü; Meta tarafı sadece dolaylı/ürün-tabanlı kanıtla desteklenebildi.</p></div></div>
+  </div>
+
+  <div class="limits">
+    <h4>Metodolojik sınırlama (şeffaflık için belirtilmelidir)</h4>
+    <ul>
+      <li>Meta Ad Library ve TikTok Creative Center, genel amaçlı bir içerik crawler'ının kolayca render edemediği oturum/JS duvarlarına sahip; bu yüzden gerçek reklam metni/görseli/harcama tahmini bu iki kanaldan <b>alınamadı</b>. Bunun için özel bir "Facebook Ads Library Scraper" aktörü gerekir.</li>
+      <li>Google tarafında da tekil kreatiflerin tam metni/görseli (sadece thumbnail URL'leri) çekilebildi; harcama tutarı Google tarafından hiçbir zaman kamuya açıklanmıyor.</li>
+      <li>"~300 reklam" rakamı Google'ın kendi arayüzünde gösterdiği yaklaşık, kümülatif (aktif+arşiv) sayıdır; anlık aktif kampanya sayısı değildir.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="rakipler">
+  <div class="sec-head">
+    <div>
+      <div class="k">Rakip Konumlandırması</div>
+      <h2>respond.io kendini kime karşı satıyor?</h2>
+      <p>/alternatives sayfası doğrudan ManyChat, SleekFlow, Wati ve Trengo'yu adlandırıyor — Inboxly bu setin neresinde konumlanıyorsa rekabet doğrudan orada.</p>
+    </div>
+  </div>
+  <div class="tbl-scroll">
+    <table class="prod">
+      <thead><tr><th>Rakip</th><th>respond.io'nun iddia ettiği eksiği</th><th>Kaçış senaryosu (vaka)</th></tr></thead>
+      <tbody>
+        <tr><td class="pname">ManyChat</td><td>Chatbot-öncelikli, CRM/omnichannel derinliği yok — "büyüyünce aşılıyor"</td><td class="psub">Ju Productions vakası: "chose respond.io over ManyChat"</td></tr>
+        <tr><td class="pname">Wati</td><td>Sadece WhatsApp+Instagram'a odaklı, 2 kanalla sınırlı workflow, kısıtlı AI kredisi</td><td class="psub">"Good starting point... may limit flexibility as needs expand"</td></tr>
+        <tr><td class="pname">SleekFlow</td><td>WhatsApp Business Calling API desteği yok</td><td class="psub">Ju Productions vakası "sleekflow-alternative-review"</td></tr>
+        <tr><td class="pname">Trengo</td><td>TikTok, LINE, Viber desteği eksik → "belirli pazarlarda erişimi kısıtlıyor"</td><td class="psub">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px;font-size:12.5px;">Ortak vurgu: respond.io kendini "en eksiksiz omnichannel yığın" ve "sesli aramayı da (VoIP + WhatsApp Calling) içeren tek platform" olarak konumlandırıyor.</p>
+</section>
+
+<section id="inboxly">
+  <div class="sec-head">
+    <div>
+      <div class="k">Inboxly İçin Çıkarımlar</div>
+      <h2>Nerede boşluk var, nerede doğrudan çarpışma riski var?</h2>
+    </div>
+  </div>
+
+  <div class="reco-grid">
+    <div class="reco"><span class="lvl lvl-hi">Fırsat</span><h4>Türkiye/MENA'da yerel derinlik</h4><p>respond.io'nun 13 dilinden biri Arapça ama Türkçe yok; Türkiye vakası (Emrah Cinik) İngilizce sitede tek örnek. Yerel dil, yerel ödeme, yerel destek ve mevzuata (KVKK vb.) uyum ile net bir konumlandırma boşluğu var.</p></div>
+    <div class="reco"><span class="lvl lvl-hi">Fırsat</span><h4>Fiyat şeffaflığı</h4><p>respond.io'nun MAC-bazlı aşım ücreti ve AI kredi sistemi karmaşık/öngörülemez olarak algılanabilir. Sabit, basit fiyatlandırma mesajı ile "respond.io'dan gelenler için" karşılaştırma sayfası güçlü bir SEO/dönüşüm hamlesi olur.</p></div>
+    <div class="reco"><span class="lvl mid">Orta Öncelik</span><h4>Programatik SEO'yu kopyala, dikeyi daralt</h4><p>21×13'lük sektör/dil matrisini birebir taklit etmek yerine, Inboxly'nin en güçlü olduğu 3-5 dikeyde (ör. e-ticaret, sağlık/klinik, eğitim) çok daha derin, yerel örnek/vaka içeren sayfalar üretmek daha savunulabilir bir SEO stratejisi olur.</p></div>
+    <div class="reco"><span class="lvl mid">Orta Öncelik</span><h4>"Reklamdan gelen lead" mesajını öne çıkar</h4><p>respond.io'nun kuruluş hikâyesinin merkezinde "ad-driven inbound enquiries" var. Inboxly, Meta/Google/TikTok reklamı veren KOBİ'lere doğrudan "reklam harcamanı boşa çıkarma" mesajıyla hitap eden bir açılış sayfası ailesi kurabilir.</p></div>
+    <div class="reco"><span class="lvl lvl-hi">Dikkat</span><h4>Sosyal kanıt açığını kapat</h4><p>48 vaka çalışması + G2 4,8/500 yorum, respond.io'nun güven inşasının belkemiği. Inboxly'nin karşılaştırmalı pazarlamada güvenilir olması için benzer yoğunlukta (sayısal metrikli) vaka çalışması ve bağımsız yorum hacmi şart.</p></div>
+    <div class="reco"><span class="lvl mid">Orta Öncelik</span><h4>Sesli arama (VoIP/WhatsApp Calling) bir konumlandırma silahı</h4><p>respond.io bunu SleekFlow/Wati/Trengo'ya karşı öne çıkarıyor. Inboxly için de sesli kanal desteği (varsa) veya bunun yol haritasında olması, aynı karşılaştırma tablosunda öne çıkarılabilecek bir fark noktası.</p></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <h4 style="font-size:14px;margin-bottom:8px;">Metodoloji &amp; Kaynaklar</h4>
+    <p id="metodoloji">Veri, Apify platformu üzerinden <span class="mono">apify/website-content-crawler</span> aktörünün REST API'si (<span class="mono">run-sync-get-dataset-items</span> uç noktası) ile toplanmıştır. Toplam 3 tarama koşusu yapılmıştır: (1) respond.io ana alan adında 30 sayfalık adaptive-playwright taraması, (2) fiyatlandırma/alternatifler/vaka çalışmaları için 20 URL'lik hedefli cheerio taraması, (3) Google Ads Transparency Center ve Meta Ad Library'nin herkese açık sayfaları için playwright taraması. Ayrıca respond.io'nun genel sitemap.xml dosyası indirilerek toplam sayfa envanteri (sektör sayfaları, müşteri vakaları, dil versiyonları) çıkarılmıştır. Fiyatlandırma tablosu, JS ile render edilen plan kartlarının ham HTML'de kaybolması nedeniyle ayrıca doğrulanmıştır.</p>
+    <p style="margin-top:10px;">Bu rapor kamuya açık, respond.io'nun kendi yayınladığı içeriklere ve Google'ın kamuya açık reklam şeffaflık kayıtlarına dayanmaktadır. Hiçbir özel/gizli veri kullanılmamıştır.</p>
+    <div class="src-list">
+      <a href="https://respond.io/" target="_blank" rel="noopener">respond.io/</a>
+      <a href="https://respond.io/about" target="_blank" rel="noopener">respond.io/about</a>
+      <a href="https://respond.io/pricing" target="_blank" rel="noopener">respond.io/pricing</a>
+      <a href="https://respond.io/alternatives" target="_blank" rel="noopener">respond.io/alternatives</a>
+      <a href="https://respond.io/why-choose-respondio" target="_blank" rel="noopener">respond.io/why-choose-respondio</a>
+      <a href="https://respond.io/omnichannel-ai-crm-conversation-platform" target="_blank" rel="noopener">respond.io/omnichannel-ai-crm-conversation-platform</a>
+      <a href="https://respond.io/capture-leads-from-ads" target="_blank" rel="noopener">respond.io/capture-leads-from-ads</a>
+      <a href="https://respond.io/customers" target="_blank" rel="noopener">respond.io/customers</a>
+      <a href="https://respond.io/customers/clinic-manages-10k-monthly-patients-with-ai-agents" target="_blank" rel="noopener">Vaka: Emrah Cinik Kliniği (Türkiye)</a>
+      <a href="https://respond.io/customers/how-lamarsa-coffee-used-chat-commerce-to-boost-sales-across-6-countries-by-50" target="_blank" rel="noopener">Vaka: Lamarsa Coffee</a>
+      <a href="https://respond.io/customers/imotorbike-handles-2x-more-leads-with-ai-agents-on-respond-io" target="_blank" rel="noopener">Vaka: iMotorbike</a>
+      <a href="https://respond.io/customers/ju-productions-chose-respond-io-over-manychat" target="_blank" rel="noopener">Vaka: Ju Productions (ManyChat'ten geçiş)</a>
+      <a href="https://adstransparency.google.com/advertiser/AR11434094388184088577?region=anywhere" target="_blank" rel="noopener">Google Ads Transparency Center — Rocketbots Limited</a>
+      <a href="https://apify.com/apify/website-content-crawler" target="_blank" rel="noopener">Apify — website-content-crawler aktörü</a>
+    </div>
+  </div>
+</footer>

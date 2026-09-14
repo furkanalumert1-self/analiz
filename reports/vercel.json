@@ -1,5 +1,7 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/kremi-callypso-engage-analizi.html" }
+    { "source": "/", "destination": "/respond-io-rakip-analizi.html" },
+    { "source": "/respond-io", "destination": "/respond-io-rakip-analizi.html" },
+    { "source": "/kremi-callypso", "destination": "/kremi-callypso-engage-analizi.html" }
   ]
 }
