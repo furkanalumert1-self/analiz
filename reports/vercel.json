@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/kremi-callypso-engage-analizi.html" }
+    { "source": "/", "destination": "/divona-home-callypso-engage-analizi.html" },
+    { "source": "/kremi", "destination": "/kremi-callypso-engage-analizi.html" }
   ]
 }

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divona Home × Callypso Engage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,650;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#f7f5ee; --surface:#ffffff; --surface-2:#efeade; --surface-3:#e6dfcd;
+    --ink:#1e2419; --ink-2:#49543f; --muted:#87927c; --border:#e1dbc7; --border-strong:#cec5a9;
+    --brand:#33513a; --brand-ink:#ffffff; --brand-2:#5c7a52; --brand-soft:#e7efe1; --brand-soft-strong:#d3e2c8;
+    --gold:#a9702e; --gold-soft:#f3e3cc;
+    --good:#0ca30c; --warn:#b8863b; --crit:#b23a3a;
+    --s1:#2a78d6; --s1-soft:#e3edfb; --s2:#c4622f; --s2-soft:#f7e4d8; --s3:#2f7d5a; --s3-soft:#dcf0e5; --s4:#7a5a9e; --s4-soft:#ece3f5;
+    --shadow: 0 1px 2px rgba(30,36,25,.06), 0 8px 24px -12px rgba(30,36,25,.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161a13; --surface:#1f2419; --surface-2:#262c1e; --surface-3:#2e3524;
+      --ink:#eef1e6; --ink-2:#cdd6c2; --muted:#8fa082; --border:#333a29; --border-strong:#414a32;
+      --brand:#8fc39a; --brand-ink:#122016; --brand-2:#6fae7d; --brand-soft:#243024; --brand-soft-strong:#2c3d2c;
+      --gold:#d9a25b; --gold-soft:#3a2e1a;
+      --good:#3fc23f; --warn:#d9a85b; --crit:#e07a7a;
+      --s1:#3987e5; --s1-soft:#1b2a3d; --s2:#de7a48; --s2-soft:#3a2417; --s3:#3fa679; --s3-soft:#153327; --s4:#a486cf; --s4-soft:#2c2338;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161a13; --surface:#1f2419; --surface-2:#262c1e; --surface-3:#2e3524;
+    --ink:#eef1e6; --ink-2:#cdd6c2; --muted:#8fa082; --border:#333a29; --border-strong:#414a32;
+    --brand:#8fc39a; --brand-ink:#122016; --brand-2:#6fae7d; --brand-soft:#243024; --brand-soft-strong:#2c3d2c;
+    --gold:#d9a25b; --gold-soft:#3a2e1a;
+    --good:#3fc23f; --warn:#d9a85b; --crit:#e07a7a;
+    --s1:#3987e5; --s1-soft:#1b2a3d; --s2:#de7a48; --s2-soft:#3a2417; --s3:#3fa679; --s3-soft:#153327; --s4:#a486cf; --s4-soft:#2c2338;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;padding-inline:20px;}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;text-wrap:balance;margin:0;color:var(--ink);}
+  p{margin:0;color:var(--ink-2);line-height:1.55;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .wrap{max-width:1180px;margin-inline:auto;}
+  a{color:inherit;}
+  ::selection{background:var(--brand-soft-strong);}
+
+  /* ---------- top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-block:12px;margin-inline:-20px;padding-inline:20px;}
+  .topbar-row{max-width:1180px;margin-inline:auto;display:flex;align-items:center;gap:18px;}
+  .brandmark{display:flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-weight:650;font-size:16px;white-space:nowrap;}
+  .brandmark .x{color:var(--muted);font-weight:400;font-style:italic;}
+  .navchips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;}
+  .navchips::-webkit-scrollbar{display:none;}
+  .navchips a{flex:none;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:100px;color:var(--ink-2);text-decoration:none;border:1px solid transparent;white-space:nowrap;}
+  .navchips a:hover{border-color:var(--border-strong);background:var(--surface);}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:52px 36px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);border:1px solid var(--brand-soft-strong);padding:6px 12px;border-radius:100px;}
+  .hero h1{font-size:clamp(28px,4.4vw,46px);line-height:1.08;margin-top:16px;max-width:18ch;font-weight:650;}
+  .hero p.lede{font-size:17px;max-width:66ch;margin-top:14px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13px;color:var(--muted);}
+  .hero-meta b{color:var(--ink-2);font-weight:600;}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:32px;}
+  .stat{background:var(--surface);padding:18px 18px 16px;}
+  .stat .n{font-family:'Fraunces',serif;font-size:26px;font-weight:650;font-variant-numeric:tabular-nums;}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  @media (max-width:760px){.stat-row{grid-template-columns:repeat(2,1fr);}}
+
+  section{padding-block:52px;border-top:1px solid var(--border);}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px;}
+  .sec-head .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+  .sec-head h2{font-size:clamp(22px,3vw,32px);margin-top:6px;}
+  .sec-head p{max-width:58ch;font-size:14.5px;margin-top:8px;}
+
+  /* ---------- catalog ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px;}
+  .cat-card{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--surface);}
+  .cat-card .n{font-family:'Fraunces',serif;font-size:24px;font-weight:650;}
+  .cat-card .l{font-size:13px;font-weight:600;margin-top:2px;}
+  .cat-card .d{font-size:12px;color:var(--muted);margin-top:6px;}
+  @media (max-width:760px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+
+  table.prod{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.prod thead th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:0 12px 10px;border-bottom:1px solid var(--border-strong);}
+  table.prod td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+  table.prod tbody tr:hover{background:var(--surface-2);}
+  table.prod td.num{font-family:'IBM Plex Mono';font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pname{font-weight:700;}
+  .psub{font-size:11.5px;color:var(--muted);}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap;}
+  .b-off{background:var(--brand-soft);color:var(--brand);}
+  .b-out{background:var(--surface-3);color:var(--muted);}
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:6px 4px;}
+
+  .findings{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px;}
+  .finding{border:1px solid var(--border);border-radius:14px;padding:16px 18px;background:var(--surface);display:flex;gap:12px;}
+  .finding .ico{flex:none;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-size:12px;font-weight:700;background:var(--gold-soft);color:var(--gold);}
+  .finding h4{font-size:14px;font-weight:700;}
+  .finding p{font-size:12.8px;margin-top:4px;}
+  @media (max-width:760px){.findings{grid-template-columns:1fr;}}
+
+  /* ---------- callypso categories / scenario cards ---------- */
+  .cy-toolbar{display:flex;justify-content:flex-end;margin-bottom:10px;}
+  .btn-ghost{font-family:'Manrope';font-size:12.5px;font-weight:700;background:var(--surface);border:1px solid var(--border-strong);color:var(--ink-2);padding:8px 14px;border-radius:100px;cursor:pointer;}
+  .btn-ghost:hover{background:var(--surface-2);}
+
+  .cy-cat{border:1px solid var(--border);border-radius:16px;background:var(--surface);margin-bottom:12px;overflow:hidden;}
+  .cy-cat > summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px;}
+  .cy-cat > summary::-webkit-details-marker{display:none;}
+  .cy-num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-weight:600;font-size:13px;}
+  .cy-cat summary h3{font-size:16.5px;flex:1;}
+  .cy-count{font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap;}
+  .chev{width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .15s;flex:none;}
+  .cy-cat[open] .chev{transform:rotate(45deg);}
+  .cy-body{padding:2px 18px 20px;border-top:1px solid var(--border);}
+  .cy-intro{font-size:13px;padding:14px 0 6px;max-width:76ch;}
+  .scen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:8px;}
+  .scen{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--surface-2);}
+  .scen h4{font-size:14.5px;font-weight:700;font-family:'Manrope';margin-bottom:10px;line-height:1.3;}
+  .scen dl{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:12.5px;margin:0;}
+  .scen dt{font-weight:700;color:var(--brand);white-space:nowrap;}
+  .scen dd{margin:0;color:var(--ink-2);}
+  .chan{display:inline-flex;gap:4px;flex-wrap:wrap;}
+  .chan span{font-size:10.5px;font-weight:700;background:var(--surface);border:1px solid var(--border-strong);padding:1px 7px;border-radius:100px;}
+
+  .rfm-wrap{overflow-x:auto;margin-top:10px;}
+  table.rfm{border-collapse:collapse;width:100%;min-width:640px;font-size:12.8px;}
+  table.rfm th,table.rfm td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top;}
+  table.rfm th{background:var(--surface-3);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);}
+  table.rfm td.seg{font-weight:700;color:var(--brand);white-space:nowrap;}
+
+  .lc-flow{display:flex;align-items:center;gap:6px;overflow-x:auto;padding:14px 2px;margin-top:6px;}
+  .lc-step{flex:none;min-width:118px;border:1px solid var(--border-strong);background:var(--surface);border-radius:12px;padding:10px 12px;text-align:center;}
+  .lc-step .t{font-size:12.5px;font-weight:700;}
+  .lc-step .d{font-size:10.5px;color:var(--muted);margin-top:2px;}
+  .lc-arrow{flex:none;color:var(--muted);font-size:16px;}
+
+  /* ---------- opportunities ---------- */
+  .quad-wrap{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:20px 20px 8px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:10px;padding-top:12px;border-top:1px solid var(--border);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-weight:600;}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  #tooltip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:8px 11px;border-radius:8px;max-width:230px;opacity:0;transition:opacity .1s;z-index:60;line-height:1.4;box-shadow:var(--shadow);}
+  #tooltip b{display:block;font-size:12.5px;margin-bottom:2px;}
+
+  .opp-groups{display:flex;flex-direction:column;gap:22px;margin-top:30px;}
+  .opp-group h4{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .opp-group h4 i{width:10px;height:10px;border-radius:50%;}
+  .opp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
+  .opp{border:1px solid var(--border);border-radius:14px;padding:15px 16px;background:var(--surface);}
+  .opp h5{font-size:14px;font-weight:700;font-family:'Manrope';margin-bottom:6px;}
+  .opp p{font-size:12.3px;}
+  .opp-metrics{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .met{font-size:10.3px;font-weight:700;padding:3px 8px;border-radius:100px;background:var(--surface-3);color:var(--ink-2);}
+
+  /* ---------- roadmap ---------- */
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .road-col{border-radius:16px;border:1px solid var(--border);overflow:hidden;background:var(--surface);}
+  .road-head{padding:14px 16px;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:space-between;}
+  .road-head span{font-size:11px;font-weight:700;opacity:.75;}
+  .road-h1{background:var(--s3-soft);color:var(--s3);}
+  .road-h2{background:var(--gold-soft);color:var(--gold);}
+  .road-h3{background:var(--brand-soft);color:var(--brand);}
+  .road-list{list-style:none;margin:0;padding:12px 16px 18px;display:flex;flex-direction:column;gap:9px;}
+  .road-list li{font-size:13px;color:var(--ink-2);padding-left:16px;position:relative;line-height:1.4;}
+  .road-list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--border-strong);}
+  @media (max-width:820px){.road{grid-template-columns:1fr;}}
+
+  /* ---------- questions ---------- */
+  .q-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .q-group{border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:16px 18px;}
+  .q-group h4{font-size:13px;color:var(--brand);margin-bottom:10px;}
+  .q-group ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:9px;}
+  .q-group li{font-size:13px;color:var(--ink-2);line-height:1.4;padding-left:2px;}
+  .q-group li::marker{font-family:'IBM Plex Mono';font-weight:600;color:var(--muted);font-size:12px;}
+  @media (max-width:760px){.q-groups{grid-template-columns:1fr;}}
+
+  footer{padding-block:34px 60px;border-top:1px solid var(--border);}
+  footer p{font-size:12px;color:var(--muted);}
+
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact;}
+    body{padding-inline:12px;background:var(--bg);}
+    .topbar,#tooltip,.btn-ghost,.chev{display:none !important;}
+    section{border-top:1px solid var(--border);padding-block:26px;}
+    .wrap{max-width:100%;}
+    .cy-cat > summary{cursor:default;}
+    details.cy-cat > *:not(summary){display:block !important;}
+    .cy-body{border-top:1px solid var(--border);}
+    .scen,.opp,.finding,.cat-card,.q-group,.road-col,.cy-cat{break-inside:avoid;page-break-inside:avoid;}
+    .hero{padding-top:8px;}
+    a[href]{color:inherit;text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="tooltip"></div>
+
+<div class="topbar">
+  <div class="topbar-row">
+    <div class="brandmark">Divona Home <span class="x">×</span> Callypso Engage</div>
+    <nav class="navchips">
+      <a href="#genel-bakis">Genel Bakış</a>
+      <a href="#katalog">Site & Katalog</a>
+      <a href="#callypso">Callypso Senaryoları</a>
+      <a href="#firsatlar">Diğer Fırsatlar</a>
+      <a href="#yol-haritasi">Yol Haritası</a>
+      <a href="#sorular">Toplantı Soruları</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero" id="genel-bakis" style="border-top:none;padding-top:44px;">
+    <span class="eyebrow">Müşteri Toplantısı Hazırlığı · divonahome.com</span>
+    <h1>Divona Home için otomasyon &amp; büyüme fırsat analizi</h1>
+    <p class="lede">Divona Home'un canlı sitesi (122 sayfa; kategori, ürün, blog ve kurumsal sayfalar) Apify website-content-crawler ile taranarak, kamuya açık pazaryeri ve sosyal medya varlığıyla birlikte incelendi. Aşağıdaki Callypso Engage senaryoları gerçek ürün adı, fiyat aralığı, teslimat/garanti koşulu ve marka mekaniğine dayanıyor — genel geçer öneriler değil.</p>
+    <div class="hero-meta">
+      <span><b>Şirket:</b> Sırma Ahşap Mobilya Halıcılık Dayanıklı Tüketim Malları San. ve Tic. A.Ş. — üretici firma</span>
+      <span><b>Kanallar:</b> Web (divonahome.com), showroom ağı, bayi ağı, WhatsApp, Instagram (134K takipçi), Trendyol / Koçtaş / Vivense pazaryerleri</span>
+      <span><b>Analiz tarihi:</b> 15 Eylül 2026</span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="n">35+</div><div class="l">Canlı ürün kategorisi — bahçe oturma grubu, şezlong, pergola, şemsiye, barbekü, dekor, aydınlatma vb.</div></div>
+      <div class="stat"><div class="n">~31K–300K ₺</div><div class="l">Bahçe oturma grubu fiyat aralığı — yüksek AOV, uzun karar süreçli satın alma</div></div>
+      <div class="stat"><div class="n">3+2</div><div class="l">Bilinen pazaryeri (Trendyol, Koçtaş, Vivense) + showroom + bayi ağı — parçalı müşteri verisi riski</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Tespit edilen: sepet terk otomasyonu, sadakat/puan sistemi, garanti-sonu hatırlatma, omnichannel görünüm</div></div>
+    </div>
+  </section>
+
+  <section id="katalog">
+    <div class="sec-head">
+      <div>
+        <div class="k">01 · Site &amp; Katalog Analizi</div>
+        <h2>Divona Home bugün ne satıyor, nasıl satıyor?</h2>
+        <p>Otomasyon senaryolarının dayandığı gerçek zemin: kategori dağılımı, fiyatlama/teslimat mantığı ve sitenin bugün otomatikleştirmediği noktalar.</p>
+      </div>
+    </div>
+
+    <div class="cat-grid" id="cat-grid"></div>
+
+    <div class="tbl-scroll">
+      <table class="prod">
+        <thead><tr><th>Ürün</th><th>Kategori</th><th>Fiyat / Not</th><th>Kampanya</th><th>Detay</th><th>Durum</th></tr></thead>
+        <tbody id="prod-body"></tbody>
+      </table>
+    </div>
+
+    <div class="findings" id="findings"></div>
+  </section>
+
+  <section id="callypso">
+    <div class="sec-head">
+      <div>
+        <div class="k">02 · Callypso Engage Senaryo Kütüphanesi</div>
+        <h2>12 başlıkta, gerçek ürünlerle kurgulanmış otomasyonlar</h2>
+        <p>Her senaryo: Tetikleyici → Segment → Aksiyon → Kanal → Beklenen Fayda → Gerekli Veri formatında. Kategori başlığına tıklayarak senaryoları açabilirsiniz.</p>
+      </div>
+      <div class="cy-toolbar"><button class="btn-ghost" id="toggleAll">Tümünü Genişlet</button></div>
+    </div>
+    <div id="cy-root"></div>
+  </section>
+
+  <section id="firsatlar">
+    <div class="sec-head">
+      <div>
+        <div class="k">03 · Callypso Engage Dışındaki Fırsatlar</div>
+        <h2>Callypso'yu tamamlayacak diğer AI &amp; e-ticaret yatırımları</h2>
+        <p>Etki, uygulama kolaylığı ve satışa katkı potansiyeline göre haritalandı. Baloncuk büyüklüğü satışa katkı potansiyelini gösterir.</p>
+      </div>
+    </div>
+    <div class="quad-wrap">
+      <svg id="quadChart" viewBox="0 0 640 380" style="width:100%;height:auto;display:block;" role="img" aria-label="Etki ve uygulama kolaylığına göre fırsat haritası"></svg>
+      <div class="legend" id="quadLegend"></div>
+    </div>
+    <div class="opp-groups" id="opp-root"></div>
+  </section>
+
+  <section id="yol-haritasi">
+    <div class="sec-head">
+      <div>
+        <div class="k">04 · Toplantıda Önerilecek Yol Haritası</div>
+        <h2>Quick Win → Orta Vadeli → İleri Seviye</h2>
+        <p>Uygulama karmaşıklığı ve veri olgunluğuna göre kademelendirilmiş, Callypso ve Callypso-dışı önerileri birleştiren yol haritası.</p>
+      </div>
+    </div>
+    <div class="road">
+      <div class="road-col">
+        <div class="road-head road-h1">Quick Win <span>0–4 hafta</span></div>
+        <ul class="road-list" id="road1"></ul>
+      </div>
+      <div class="road-col">
+        <div class="road-head road-h2">Orta Vadeli <span>1–3 ay</span></div>
+        <ul class="road-list" id="road2"></ul>
+      </div>
+      <div class="road-col">
+        <div class="road-head road-h3">İleri Seviye <span>3–6+ ay</span></div>
+        <ul class="road-list" id="road3"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sorular">
+    <div class="sec-head">
+      <div>
+        <div class="k">05 · Toplantı Öncesi Kritik Sorular</div>
+        <h2>Müşteriye sorulacak sorular</h2>
+        <p>Doğru önceliklendirme ve teklif kapsamı için toplantıda netleştirilmesi gereken teknik, veri ve strateji soruları.</p>
+      </div>
+    </div>
+    <div class="q-groups" id="q-root"></div>
+  </section>
+
+  <footer>
+    <p>Divona Home (divonahome.com) sitesinin Apify website-content-crawler ile taranan 122 genel erişilebilir sayfası ve kamuya açık pazaryeri/sosyal medya varlığı üzerinden hazırlanmıştır — 15 Eylül 2026. İç veri (gerçek sepet terk oranı, email/SMS performansı, showroom/bayi CRM verisi, pazaryeri sipariş hacmi) paylaşıldıkça senaryolar kalibre edilecektir. Yalnızca müşteri toplantısı hazırlığı amacıyla hazırlanmıştır.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+  /* ================= 01 Catalog ================= */
+  var categories = [
+    {n:'40+', l:'Bahçe Oturma Grupları', d:'Havana, Atlas, Atlantis, Aura, Lujo, Domino, Moon, Cross, Toledo, Capella...'},
+    {n:'15+', l:'Şezlong & Salıncak', d:'Next, Camellia, Capri (Bodrum/Gümbet/Junda), Caracas, Falcon, Defne'},
+    {n:'10+', l:'Şemsiye & Pergola', d:'Manuel/motorlu pergola, 210–400cm şemsiye modelleri, ayak/aksesuar'},
+    {n:'12+', l:'Dekor & Aksesuar', d:'Kırlent (Audrey Hepburn, Benjamin Franklin...), dekoratif şömine, aydınlatma'},
+    {n:'8+', l:'Barbekü & Ateş', d:'Cookout, Basic Kömürlü Mangal, Avusturya Ateş Çukuru + kılıf setleri'},
+    {n:'8+', l:'Cooler Box', d:'Polarbox taşınabilir soğutucu — çok renkli varyant serisi'},
+    {n:'B2B', l:'Proje & Bayi Kanalı', d:'Mimarlık hizmeti, bayi ol / tedarikçi ol / taşıyıcı ol programları'},
+    {n:'0', l:'Halı (Canlı Kategori Yok)', d:'20+ şehir bazlı SEO blog yazısı var, satın alınabilir kategori sayfası yok'},
+  ];
+  var catGrid = document.getElementById('cat-grid');
+  categories.forEach(function(c){
+    catGrid.insertAdjacentHTML('beforeend','<div class="cat-card"><div class="n">'+c.n+'</div><div class="l">'+c.l+'</div><div class="d">'+c.d+'</div></div>');
+  });
+
+  var products = [
+    ['Havana Midi Bahçe Oturma Grubu (3+1+1+M)','Bahçe Oturma Grubu','102.960,00 ₺','Kampanyalı fiyat','3 yorum · alüminyum + İroko detay','Stokta'],
+    ['Next Alüminyum Kolsuz Şezlong Cappucino','Şezlong','7.990,00 ₺','−19% (9.900₺→7.990₺)','"Yıldızlı ürün" etiketi','Stokta'],
+    ['Monte Carlo 6 Kişilik Yuvarlak Masa Takımı','Masa Takımı','Fiyat sitede dinamik yükleniyor','Planlanan teslimat: 01–07 Ekim','FSC sertifikalı akasya, 2 yıl garanti','Lojistik firma ile teslim'],
+    ['Capella Modern Bahçe Oturma Grubu','Bahçe Oturma Grubu','Varyant bazlı fiyat','—','Bronz / Krem — 2 renk varyantı','Renk bazlı stok riski'],
+    ['Manuel Pergola / Motorlu Pergola','Pergola','Varyant bazlı fiyat','—','Aynı aile içinde giriş/üst segment çifti','Upsell çifti'],
+    ['Audrey Hepburn Yastık (EY288)','Kırlent / Dekor','Düşük bütçeli','—','Sık yenilenen, dekoratif dekor kategorisi','Stokta'],
+    ['Polarbox Taşınabilir Soğutucu Çanta','Cooler Box','12L / 20L varyant','—','4+ renk kombinasyonu (Amarillo, Azul, Celeste, Lima...)','Stokta'],
+    ['Karp Ultra Tam Set Barbekü Kılıf Önlük','Barbekü Aksesuarı','Düşük bütçeli','—','50cm / 75cm — mevcut mangal alıcısına doğal cross-sell','Stokta'],
+    ['Aspendos Kademeli Bahçe/Balkon Şemsiyesi 300x300','Şemsiye','Orta segment','—','Kademeli açılım mekanizması','Stokta'],
+    ['Ruby Tall Lambader','Aydınlatma','Düşük SKU sayılı kategori','—','Kategoride sadece 2 ürün — büyüme fırsatı','Stokta'],
+  ];
+  var pbody = document.getElementById('prod-body');
+  products.forEach(function(p){
+    var offBadge = p[3]==='—' ? '<span class="psub">—</span>' : '<span class="badge b-off">'+p[3]+'</span>';
+    var statusBadge = p[5].indexOf('risk')>-1 || p[5].indexOf('lojistik')>-1
+      ? '<span class="badge b-out">'+p[5]+'</span>'
+      : '<span class="psub">'+p[5]+'</span>';
+    pbody.insertAdjacentHTML('beforeend',
+      '<tr><td><div class="pname">'+p[0]+'</div></td><td>'+p[1]+'</td>'+
+      '<td class="num">'+p[2]+'</td><td class="num">'+offBadge+'</td>'+
+      '<td class="psub">'+p[4]+'</td><td>'+statusBadge+'</td></tr>');
+  });
+
+  var findings = [
+    ['①','Onlarca model, isim-bazlı ayırt etme zor','Bahçe oturma grubu kategorisinde Atlas, Atlantis, Aura, Havana, Arte, Lujo, Domino, Moon, Onyx, Orlando gibi görsel olarak benzer 40+ model var — hiçbir karşılaştırma/filtre destekli rehber yok, karar sürtünmesi ve terk oranı yüksek olmalı.'],
+    ['②','Teslimat süreci insan-bağımlı, proaktif bildirim yok','Ürün sayfasında "Bu ürün lojistik firma ile teslim edilir, ürün gönderime hazır olduğunda iletişime geçilip teslimat planlanır" ifadesi var — üretim/lojistik güncellemesi otomatik SMS/WhatsApp yerine manuel telefon temasına bağlı görünüyor.'],
+    ['③','Marka koruma kılıfı öneriyor ama upsell akışı yok','Ürün açıklamasında "Divona Home dış mekan mobilya koruma kılıfları kullanılması önerilir" cümlesi geçiyor — bu tavsiye satın alma sonrası otomatik bir cross-sell teklifine hiç dönüştürülmüyor.'],
+    ['④','SEO/blog ile canlı katalog uyumsuzluğu','Eskişehir, Bozüyük, Afyon, Bilecik, Kütahya gibi şehirler için 20+ ayrı "halı" (carpet) blog yazısı var; sitede canlı bir Halı kategorisi/ürün sayfası bulunmuyor — bu trafik dönüşümsüz kayboluyor ya da yalnızca telefonla yönleniyor.'],
+    ['⑤','Çok kanallı, muhtemelen parçalı müşteri verisi','Kendi site + showroom ağı + bayi ağı + en az 3 pazaryeri (Trendyol, Koçtaş, Vivense) üzerinden satış yapılıyor; aynı müşterinin farklı kanallardaki geçmişinin tek bir CRM/Callypso görünümünde birleştiğine dair bir sinyal yok.'],
+    ['⑥','E-posta bülteni var, otomasyon serisi görünmüyor','Ana sayfada "E-Posta Bülteni" kayıt formu aktif, fakat hoşgeldin serisi veya segment bazlı bir email akışının izine rastlanmadı.'],
+    ['⑦','2 yıl garanti var, garanti-sonu/bakım hatırlatma yok','Ürünlerde 2 yıllık Divona Home garantisi standart; garanti kaydı, bakım tavsiyesi (minder yıkama, kılıf değişimi) veya garanti sonu yenileme teklifi otomasyonu tespit edilmedi.'],
+    ['⑧','WhatsApp hattı hazır, pazarlamaya bağlı değil','wa.me üzerinden aktif bir WhatsApp destek hattı var — sepet terk, teslimat güncellemesi veya VIP danışmanlık gibi pazarlama otomasyonlarına genişletilmemiş, yalnızca destek amaçlı kullanılıyor gibi görünüyor.'],
+    ['⑨','Yüksek sezonsallık, proaktif kampanya takvimi görünmüyor','Bahçe/balkon mobilyası talebi Türkiye\'de bahar-yaz döneminde yoğunlaşır; sitede sezon başı/sonu için otomatikleştirilmiş bir win-back veya erken rezervasyon kampanyası sinyali yok — yalnızca statik SEO metinlerinde "kampanyalı fiyat" ifadesi geçiyor.'],
+  ];
+  var fWrap = document.getElementById('findings');
+  findings.forEach(function(f){
+    fWrap.insertAdjacentHTML('beforeend','<div class="finding"><div class="ico">'+f[0]+'</div><div><h4>'+f[1]+'</h4><p>'+f[2]+'</p></div></div>');
+  });
+
+  /* ================= 02 Callypso scenarios ================= */
+  function field(dt,dd){ return '<dt>'+dt+'</dt><dd>'+dd+'</dd>'; }
+  function chans(list){ return '<span class="chan">'+list.map(function(c){return '<span>'+c+'</span>';}).join('')+'</span>'; }
+  function scenCard(title, rows){
+    var html = '<div class="scen"><h4>'+title+'</h4><dl>';
+    rows.forEach(function(r){ html += field(r[0], r[0]==='Kanal' ? chans(r[1].split(' + ')) : r[1]); });
+    html += '</dl></div>';
+    return html;
+  }
+
+  var cyCategories = [
+    { title:'Sepet Terk Otomasyonları',
+      intro:'Yüksek AOV\'li mobilyada tek bir email şablonu yetmez — sepet tutarına göre farklılaşan, insan destekli bir kurtarma serisi.',
+      scenarios:[
+        ['Genel / düşük tutarlı sepet terkı (aksesuar)',[
+          ['Tetikleyici','Kırlent, şemsiye kılıfı, aydınlatma gibi düşük tutarlı ürün sepete eklenip 60 dk içinde ödeme tamamlanmaması'],
+          ['Segment','E-posta/telefonu bilinen tüm sepet sahipleri'],
+          ['Aksiyon','T+1sa ürün görselli hatırlatma → T+24s taksit seçenekleri vurgulu 2. e-posta → T+48s SMS son uyarı'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Sektör ortalaması sepet terk serilerinde %5-11 kurtarma; ek gelir, sıfır reklam maliyeti'],
+          ['Gerekli Veri','Sepet içeriği (SKU, varyant, tutar), iletişim izni, sepet zaman damgası'],
+        ]],
+        ['Yüksek tutarlı sepet — bahçe oturma grubu (30K–300K ₺)',[
+          ['Tetikleyici','Sepette Havana Midi veya benzeri bir oturma grubu var, ödeme tamamlanmadı'],
+          ['Segment','Sepet tutarı 25.000₺ üzeri terk edenler'],
+          ['Aksiyon','Standart indirim yerine kişisel danışman araması teklifi + taksit/kredi kartı avantajı hatırlatması + WhatsApp üzerinden ürün ölçü/uyum sorularını yanıtlama teklifi'],
+          ['Kanal','Email + WhatsApp + Telefon (satış danışmanı)'],
+          ['Beklenen Fayda','Yüksek tutarlı sepetler orantısız gelir payı taşır — bu segmentte indirim yerine "danışmanlık" dönüşümü artırır, marj korunur'],
+          ['Gerekli Veri','Sepet tutarı eşiği, WhatsApp/telefon opt-in, ürün/varyant bilgisi, satış ekibi CRM erişimi'],
+        ]],
+        ['Fabrikadan teslim / adres seçimi yapılmış, ödeme yarım kalmış',[
+          ['Tetikleyici','Checkout\'ta "Adrese Teslim" veya "Fabrikadan Teslim" seçildi, ödeme ekranına gelindi, 30 dk içinde tamamlanmadı'],
+          ['Segment','"Checkout-started" kullanıcılar'],
+          ['Aksiyon','Sepeti koruyan direkt ödeme linkiyle tek adımlık SMS hatırlatma, taksit seçeneklerini yineleme'],
+          ['Kanal','SMS'],
+          ['Beklenen Fayda','3D Secure/kart hatası veya taksit tereddüdü kaynaklı kayıpların hızlı kurtarımı'],
+          ['Gerekli Veri','Checkout event verisi, telefon numarası, ödeme adım durumu'],
+        ]],
+      ]},
+
+    { title:'Ürün Görüntüleyip Satın Almayan Müşteriler',
+      intro:'40+ benzer görünümlü model arasında karar veremeyip ayrılan trafiği — karşılaştırma ve stil rehberiyle geri kazanma.',
+      scenarios:[
+        ['Tekil model görüntüleme — ör. Havana Midi',[
+          ['Tetikleyici','Ürün sayfası 2+ kez ziyaret / 90sn+ kalma, sepete eklenmedi, 48 saat içinde'],
+          ['Segment','Ürünü görüntüleyip eklemeyen tanımlı ziyaretçiler'],
+          ['Aksiyon','Ürünün malzeme/garanti detayları (İroko + alüminyum, 2 yıl garanti) + benzer 2 modelle karşılaştırma tablosu içeren e-posta'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Karar sürtünmesini azaltarak düşük maliyetli, yüksek hacimli trafiği (sepete girmeyenler) satışa çevirme'],
+          ['Gerekli Veri','Ürün görüntüleme event\'i, email (varsa identify), zaman damgası'],
+        ]],
+        ['Kategori gezinme — çoklu oturma grubu karşılaştırma',[
+          ['Tetikleyici','Bahçe oturma grupları kategorisinde 3+ farklı model görüntülendi, hiçbiri sepete eklenmedi'],
+          ['Segment','Karşılaştırma yapan, karar aşamasındaki ziyaretçi'],
+          ['Aksiyon','"Size en uygun modeli bulalım" — malzeme (alüminyum/ahşap/rattan), bütçe ve kişi sayısına göre kısa quiz sonucu 2-3 model önerisi'],
+          ['Kanal','Email + Web (öneri modülü)'],
+          ['Beklenen Fayda','Geniş kataloğun karar sürtünmesini azaltarak dönüşüm oranını artırma'],
+          ['Gerekli Veri','Kategori/ürün görüntüleme geçmişi, varsa quiz yanıtı'],
+        ]],
+        ['Halı SEO trafiği — canlı ürün yok',[
+          ['Tetikleyici','Şehir bazlı halı blog yazısı (ör. "Eskişehir Halı Modelleri") ziyareti, sitede ilgili ürün sayfası yok'],
+          ['Segment','Halı arayan ama alışveriş yapamayan blog ziyaretçisi'],
+          ['Aksiyon','Blog sayfasına "Halı seçenekleri için bizimle iletişime geçin" WhatsApp/telefon CTA\'sı + email ile bilgilendirme talebi formu'],
+          ['Kanal','WhatsApp + Email'],
+          ['Beklenen Fayda','Bugüne kadar dönüşümsüz kaybolan güçlü SEO trafiğini lead\'e çevirme — düşük ek maliyetli, yüksek hacimli fırsat'],
+          ['Gerekli Veri','Blog sayfası ziyaret event\'i, form/WhatsApp opt-in'],
+        ]],
+        ['Showroom ziyareti sonrası online\'da tamamlanmayan karar',[
+          ['Tetikleyici','Showroom\'da iletişim bilgisi bırakan ziyaretçi, 7 gün içinde online sipariş vermedi'],
+          ['Segment','Showroom lead\'i, online\'da dönüşmemiş'],
+          ['Aksiyon','Showroom\'da baktığı modelin online linki + taksit/teslimat bilgisiyle kişisel takip e-postası/SMS\'i'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Fiziksel-dijital köprüyü kapatarak showroom yatırımının online\'a sızmasını sağlama'],
+          ['Gerekli Veri','Showroom lead formu/CRM kaydı, ilgilenilen ürün bilgisi'],
+        ]],
+      ]},
+
+    { title:'Satın Alma Sonrası Cross-sell / Upsell',
+      intro:'Teslimat sonrası "outdoor yaşam alanını tamamlama" anını yakalayan, marka tarafından zaten önerilen ama otomasyona hiç bağlanmamış teklifler.',
+      scenarios:[
+        ['Oturma grubu alıcısına dekor + koruma kılıfı teklifi',[
+          ['Tetikleyici','Teslimattan 10 gün sonra — bir bahçe oturma grubu teslim edildi, kırlent/kılıf sepette yok'],
+          ['Segment','Oturma grubu alıcıları, aksesuar sahibi olmayan'],
+          ['Aksiyon','"Yeni bahçenizi tamamlayın" e-postası — ürün açıklamasında zaten önerilen dış mekan koruma kılıfı + kırlent seçkisi, kombine %10 kod'],
+          ['Kanal','Email + SMS (kod hatırlatması)'],
+          ['Beklenen Fayda','Markanın kendi ürün metninde zaten yaptığı bir öneriyi otomasyona bağlayarak düşük efor / yüksek etkili ek gelir'],
+          ['Gerekli Veri','SKU bazlı sipariş geçmişi, teslimat tarihi, kod kullanım durumu'],
+        ]],
+        ['Barbekü alıcısına kılıf + önlük seti',[
+          ['Tetikleyici','Cookout veya Basic Kömürlü Mangal siparişi onaylandı, kılıf/önlük sepette yok'],
+          ['Segment','Barbekü sahibi, kılıf/önlük sahibi olmayan'],
+          ['Aksiyon','Sipariş onayında tek tıkla Karp Ultra Tam Set Kılıf Önlük ekleme teklifi (50/75cm ölçü eşleşmesiyle)'],
+          ['Kanal','Email + site içi post-purchase teklif ekranı'],
+          ['Beklenen Fayda','Düşük fiyatlı aksesuar kategorisinde ek gelir, ürünün hava koşullarından korunmasıyla memnuniyet artışı'],
+          ['Gerekli Veri','Sipariş içeriği, ürün ölçüsü, aksesuar sahiplik durumu'],
+        ]],
+        ['Şezlong/salıncak alıcısına tamamlayıcı ürün',[
+          ['Tetikleyici','Next Şezlong veya salıncak alındıktan 14 gün sonra'],
+          ['Segment','Şezlong/salıncak sahibi, sehpası/cooler box\'ı olmayan'],
+          ['Aksiyon','"Rahatınızı tamamlayın" e-postası — şezlong sehpası + Polarbox taşınabilir soğutucu önerisi'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Düşük fiyatlı ek ürünlerle sepet dışı ikinci satın alma, kullanım deneyimini bütünleme'],
+          ['Gerekli Veri','Ürün kategorisi bazlı satın alma geçmişi'],
+        ]],
+        ['Manuel pergola alıcısına motorlu üst segment upsell',[
+          ['Tetikleyici','Manuel Pergola satın alımından 12 ay sonra (yeni sezon başlangıcı)'],
+          ['Segment','Manuel pergola sahibi'],
+          ['Aksiyon','"Konforu bir üst seviyeye taşıyın" — Motorlu Pergola\'ya geçiş / ikinci alan için teklif, eski ürün takas/indirim seçeneği değerlendirilebilir'],
+          ['Kanal','Email + Telefon (yüksek tutar nedeniyle)'],
+          ['Beklenen Fayda','Aynı ürün ailesinde üst segmente geçişle AOV artışı'],
+          ['Gerekli Veri','Satın alma geçmişi, ürün ailesi/segment hiyerarşisi'],
+        ]],
+      ]},
+
+    { title:'Tekrar Satın Alma Zamanı Tahmini',
+      intro:'Mobilyanın kendisi yıllarca kullanılsa da, minder kılıfı, şemsiye kılıfı gibi dış mekan sarf/yıpranan parçaları düzenli yenileme ihtiyacı doğurur.',
+      scenarios:[
+        ['Minder/kılıf yenileme tahmini',[
+          ['Tetikleyici','Satın alımdan +18-24 ay (su itici kumaş + UV maruziyetiyle tipik dış mekan yıpranma süresi)'],
+          ['Segment','Bahçe oturma grubu / şezlong sahipleri, ikinci siparişi olmayan'],
+          ['Aksiyon','"Minderleriniz yenilenme zamanında olabilir" hatırlatma + aynı modelin minder/kılıf setine direkt link + sadakat indirimi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Düşük görünürlüklü yedek parça kategorisinde öngörülebilir tekrar gelir, marka bakım öneri metnini otomasyona bağlama'],
+          ['Gerekli Veri','Ürün bazlı ortalama dış mekan kullanım ömrü (gerçek reorder verisiyle kalibre edilir), satın alma tarihi, malzeme/kumaş tipi'],
+        ]],
+        ['Sezon öncesi aksesuar tazeleme — kırlent/dekor',[
+          ['Tetikleyici','Bir önceki sezonda (12 ay önce) kırlent/dekor kategorisinden alışveriş yapıldı, yeni sezon (Mart-Nisan) yaklaşıyor'],
+          ['Segment','Dekor/aksesuar alıcıları'],
+          ['Aksiyon','"Bahçenizi yeni sezona hazırlayın" — yeni desen/koleksiyon kırlent önerisi'],
+          ['Kanal','Email + Instagram/WhatsApp kataloğu'],
+          ['Beklenen Fayda','Düşük fiyatlı, yüksek marjlı dekor kategorisinde sezonluk tekrar satın alma döngüsü yaratma'],
+          ['Gerekli Veri','Kategori bazlı satın alma geçmişi, sezon takvimi'],
+        ]],
+        ['Garanti sonu (2. yıl) bakım/yenileme teklifi',[
+          ['Tetikleyici','Teslimattan +23 ay (2 yıllık garantinin bitişine 1 ay kala)'],
+          ['Segment','Garanti süresi dolmak üzere olan tüm alıcılar'],
+          ['Aksiyon','Garanti durumu bilgilendirmesi + bakım tavsiyeleri (minder yıkama, metal aksam bakımı) + uzatılmış garanti veya yedek parça teklifi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Bugün hiç kullanılmayan garanti verisini hem memnuniyet hem de ek satış anına çevirme'],
+          ['Gerekli Veri','Teslimat/garanti başlangıç tarihi, ürün tipi'],
+        ]],
+      ]},
+
+    { title:'Win-back / Kaybedilen Müşteri Kazanımı',
+      intro:'Mobilyada tekrar satın alma döngüsü yıllara yayılır — bu yüzden win-back, "outdoor yaşam alanını tamamlama" ve yeni sezon çerçevesiyle kurgulanmalı.',
+      scenarios:[
+        ['Sezonu tamamlamayan müşteri — 12+ ay sessiz',[
+          ['Tetikleyici','12 ay önce tek bir ürün (ör. sadece oturma grubu) alındı, tamamlayıcı kategori (şemsiye/pergola/dekor) hiç alınmadı, yeni sezon başlıyor'],
+          ['Segment','Tek kategori alıcısı, "bahçesi tamamlanmamış" etiketli'],
+          ['Aksiyon','"Bahçenizi tamamlamaya ne dersiniz?" — yeni sezon koleksiyonu + kişiye özel %10-15 kod'],
+          ['Kanal','Email, yanıt yoksa 7 gün sonra SMS'],
+          ['Beklenen Fayda','Düşük tekrar satın alma sıklığı olan kategoride mevcut müşteri tabanından ek gelir; yeni müşteri edinmekten daha düşük maliyetli'],
+          ['Gerekli Veri','Sahip olunan/olunmayan kategori kırılımı, son sipariş tarihi'],
+        ]],
+        ['Showroom/online lead — 18+ ay dönüşmemiş',[
+          ['Tetikleyici','Showroom ziyareti veya online form/quiz bıraktı, 18 ay içinde hiç sipariş vermedi'],
+          ['Segment','Derin pasif lead'],
+          ['Aksiyon','Yeni koleksiyon/kampanya duyurusu + "sizi showroom\'da tekrar görmek isteriz" daveti; yanıt yoksa gönderim sıklığını düşür'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Reaktivasyon ya da liste hijyeni ile genel açılma oranı/teslim edilebilirlik iyileşmesi'],
+          ['Gerekli Veri','Lead kaynağı ve tarihi, e-posta etkileşim geçmişi'],
+        ]],
+        ['Yüksek tutarlı sepet terk sonrası uzun süreli sessizlik',[
+          ['Tetikleyici','25.000₺ üzeri sepet terk etti, 60 gün içinde dönmedi, danışman araması sonuçsuz kaldı'],
+          ['Segment','Yüksek niyetli ama kaybedilmiş lead'],
+          ['Aksiyon','Kişisel not + sınırlı süreli özel teklif (indirim yerine ücretsiz montaj/kılıf hediyesi) son çare denemesi'],
+          ['Kanal','Email + Telefon'],
+          ['Beklenen Fayda','En yüksek potansiyel gelirli segmentte son bir kurtarma denemesi'],
+          ['Gerekli Veri','Sepet tutarı, danışman görüşme kaydı, iletişim geçmişi'],
+        ]],
+      ]},
+
+    { title:'Müşteri Segmentasyonu',
+      intro:'RFM\'in yanına kanal (site/showroom/bayi/pazaryeri) ve alıcı tipi (B2C/B2B) katmanının eklendiği, çok kanallı bir segmentasyon modeli.',
+      rfm:[
+        ['Yeni Müşteri (B2C)','İlk 0-30 gün, 1 sipariş, online/showroom','Hoşgeldin serisi, aksesuar tamamlama teklifi'],
+        ['Tek Kategori Alıcısı','Sadece oturma grubu/şezlong aldı, aksesuar yok','Cross-sell — koruma kılıfı, dekor, sezonluk tamamlama'],
+        ['Sadık / Çok Kategorili','2+ farklı kategoriden alışveriş yaptı','VIP erken erişim, öncelikli montaj/teslimat'],
+        ['Bayi / Proje Müşterisi (B2B)','Bayi ol / mimarlık hizmeti / proje ürünler kanalından','Ayrı B2B iletişim akışı, toplu sipariş teşviki'],
+        ['Pazaryeri Alıcısı','Trendyol/Koçtaş/Vivense üzerinden alışveriş yaptığı bilinen','Kendi sitesine/CRM\'e taşıma teşviki (ilk sipariş kodu)'],
+        ['Risk Altında','12-18 ay sessiz, önceden aktif','Win-back — sezon/kategori tamamlama'],
+        ['Kayıp','18+ ay pasif veya dönüşmemiş lead','Win-back — son çare / liste hijyeni'],
+      ],
+      scenarios:[
+        ['Yeni segment: "Tamamlanmamış Bahçe" etiketi',[
+          ['Tetikleyici','Oturma grubu/şezlong alındı ama şemsiye, pergola, dekor kategorilerinden hiçbiri alınmadı — sipariş sonrası otomatik etiketleme'],
+          ['Segment','Tek kategori alıcıları'],
+          ['Aksiyon','Farklı bir cross-sell/win-back mantığı uygulanır — genel indirim yerine "bahçeni tamamla" temalı, tamamlayıcı kategori odaklı teklifler'],
+          ['Kanal','Email'],
+          ['Beklenen Fayda','Segment bazlı doğru teklif ile dönüşüm oranı artışı, gereksiz indirim erozyonunun önlenmesi'],
+          ['Gerekli Veri','Sipariş satır kalemleri (kategori seviyesinde eşleşme)'],
+        ]],
+      ]},
+
+    { title:'Email ve SMS Otomasyonları',
+      intro:'Mevcut newsletter kaydı ve üretim/lojistik sürecinin üzerine oturacak, bugün otomasyona bağlı olmayan omurga akışlar.',
+      scenarios:[
+        ['Hoşgeldin serisi',[
+          ['Tetikleyici','Yeni e-posta bülteni aboneliği (ana sayfadaki "E-Posta Bülteni" formu)'],
+          ['Segment','Yeni abone, henüz sipariş vermemiş'],
+          ['Aksiyon','3 e-postalık seri: (1) üretici marka hikayesi (FSC sertifikalı ahşap, kendi üretim) + ilk sipariş indirimi (2) en çok tercih edilen modeller (Havana, Atlas) tanıtımı (3) showroom davetiyle güven artırıcı sosyal kanıt'],
+          ['Kanal','Email + SMS (indirim kodu hatırlatması)'],
+          ['Beklenen Fayda','İlk satın almaya dönüşüm oranında artış, marka güveni oluşturma (yüksek tutarlı ürün için kritik)'],
+          ['Gerekli Veri','Opt-in zaman damgası, ilk sipariş durumu'],
+        ]],
+        ['Üretim → lojistik → teslimat yaşam döngüsü',[
+          ['Tetikleyici','Sipariş onayı → üretim başladı → gönderime hazır → lojistik firma teslimat planlaması → teslim edildi adımları'],
+          ['Segment','Tüm alıcılar'],
+          ['Aksiyon','Bugün manuel telefonla yapılan "gönderime hazır, teslimat planlayalım" temasını SMS/WhatsApp\'a taşıma; teslimat sonrası bakım rehberi ve garanti kaydı e-postası ekleme'],
+          ['Kanal','Email + SMS + WhatsApp'],
+          ['Beklenen Fayda','Operasyonel telefon yükünü azaltma, müşteri beklenti yönetimini iyileştirme, zaten açılan işlemsel mesajlardan ek pazarlama değeri'],
+          ['Gerekli Veri','Sipariş/üretim/lojistik durum event\'leri (OMS/ERP entegrasyonu)'],
+        ]],
+        ['Showroom randevu onay & hatırlatma',[
+          ['Tetikleyici','Online\'dan showroom randevusu talep edildi'],
+          ['Segment','Randevu talep eden ziyaretçiler'],
+          ['Aksiyon','Anında onay SMS\'i + randevudan 1 gün önce hatırlatma + randevu sonrası takip e-postası'],
+          ['Kanal','SMS + Email'],
+          ['Beklenen Fayda','No-show oranını azaltma, showroom-online veri bağını güçlendirme'],
+          ['Gerekli Veri','Randevu formu verisi, showroom takvim entegrasyonu'],
+        ]],
+      ]},
+
+    { title:'Kişiselleştirilmiş Ürün Önerileri',
+      intro:'40+ benzer görünümlü modelin bulunduğu bir katalogda, stil/ihtiyaç bazlı rehberlik en düşük efor / en yüksek etkili boşluk.',
+      scenarios:[
+        ['Stil & malzeme quiz\'i',[
+          ['Tetikleyici','Bahçe oturma grupları kategorisi ilk ziyareti veya "hangi model bana uygun" arama sorgusu'],
+          ['Segment','Karar aşamasındaki tüm ziyaretçiler'],
+          ['Aksiyon','Kısa quiz (alüminyum/ahşap/rattan tercihi, kişi sayısı, bütçe, iklim/bölge) sonucunda 2-3 model önerisi; sonuç email\'de de hatırlatılır'],
+          ['Kanal','Web + Email'],
+          ['Beklenen Fayda','Karar sürtünmesinin azalmasıyla dönüşüm artışı, yanlış model seçiminden kaynaklı iade/şikayet azalması'],
+          ['Gerekli Veri','Quiz yanıtları, ürün varyant/malzeme metadatası'],
+        ]],
+        ['"Birlikte tamamlayın" — kategori-arası öneri',[
+          ['Tetikleyici','Bir oturma grubu sepete eklendi veya satın alındı'],
+          ['Segment','Tüm oturma grubu alıcı/adayları'],
+          ['Aksiyon','Aynı stil ailesinden şemsiye, sehpa, dekoratif ürün önerisi — "outdoor yaşam alanınızı tamamlayın" temalı'],
+          ['Kanal','Web (sepet/ürün sayfası) + Email'],
+          ['Beklenen Fayda','Sepet büyüklüğü ve müşteri başına ürün adedinde artış'],
+          ['Gerekli Veri','Ürün stil/koleksiyon etiketleme, birlikte satın alma matrisi'],
+        ]],
+        ['Bölge/iklime göre malzeme önerisi',[
+          ['Tetikleyici','Teslimat adresi girildiğinde (özellikle sahil/nem oranı yüksek bölgeler)'],
+          ['Segment','Belirli bölgelerdeki alıcılar'],
+          ['Aksiyon','Sahil bölgesi için paslanmaz alüminyum/rattan, iç kesim için ahşap serisi önerisi ve bakım bilgisi'],
+          ['Kanal','Web + Email'],
+          ['Beklenen Fayda','Yanlış malzeme seçiminden kaynaklı erken yıpranma/şikayetin azalması, memnuniyet artışı'],
+          ['Gerekli Veri','Teslimat adresi/bölge verisi, malzeme-iklim uyum tablosu'],
+        ]],
+      ]},
+
+    { title:'Kampanya ve İndirim Otomasyonları',
+      intro:'Statik "kampanyalı fiyat" SEO metinlerinin ötesine geçip, sezon ve segment bazlı otomatik tetiklenen kampanyalar kurmak.',
+      scenarios:[
+        ['Sezon başı "bahçeni hazırla" kampanyası',[
+          ['Tetikleyici','Mart ayı başlangıcı — yıllık talep sezonunun açılışı'],
+          ['Segment','Tüm aktif e-posta/SMS listesi, geçmiş yıl sezon öncesi satın alanlar öncelikli'],
+          ['Aksiyon','Erken sezon rezervasyon indirimi + üretim/teslimat süresinin sezon yoğunluğundan önce planlanması gerektiği mesajı'],
+          ['Kanal','Email + SMS + Instagram/WhatsApp'],
+          ['Beklenen Fayda','Talebi sezon zirvesinden önceye çekerek üretim/lojistik yükünü dengeleme, erken rezervasyonla gelir öngörülebilirliği'],
+          ['Gerekli Veri','Geçmiş yıl sezon bazlı satış verisi, üretim kapasite takvimi'],
+        ]],
+        ['Sepette montaj/kargo eşiği bildirimi',[
+          ['Tetikleyici','Sepet tutarı, ücretsiz montaj veya kargo eşiğine yakın'],
+          ['Segment','Eşiğe yakın sepet sahipleri'],
+          ['Aksiyon','"X ₺ daha ekle, montaj/kargo bizden" bildirimi — site içi + terk sepeti e-postasında'],
+          ['Kanal','Web + Email'],
+          ['Beklenen Fayda','AOV artışı, kampanya kullanım oranının yükselmesi'],
+          ['Gerekli Veri','Sepet içeriği, kampanya kuralı'],
+        ]],
+        ['Sezon sonu stok temizliği (Ekim-Kasım)',[
+          ['Tetikleyici','Sezon sonu, önceki sezonlarda satın alanlar veya sepet terk edenler'],
+          ['Segment','Fiyat hassasiyeti yüksek, sezon dışı alıma açık segment'],
+          ['Aksiyon','Sezon sonu model temizliği indirimi + gelecek sezon için erken rezervasyon teşviki'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Sezon dışı talep yaratarak stok/nakit akışını dengeleme'],
+          ['Gerekli Veri','Stok/model bazlı sezon sonu envanteri'],
+        ]],
+      ]},
+
+    { title:'Stok Yenilenme / Tekrar Stok Bildirimleri',
+      intro:'Renk/varyant çeşitliliği yüksek kategorilerde (Capella Bronz/Krem, Polarbox renkleri), kayıp talebi doğrudan satışa çevirecek bildirim akışı.',
+      scenarios:[
+        ['Varyant bazlı bildirim — renk/model',[
+          ['Tetikleyici','Capella Modern Bahçe Oturma Grubu Bronz veya Krem varyantı stok dışı kaldığında'],
+          ['Segment','Belirli renk/varyantı görüntüleyen kullanıcılar'],
+          ['Aksiyon','Sadece ilgili varyanta özel "stoğa girdi" bildirimi (genel ürün değil)'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Yüksek alaka düzeyi ile yüksek tıklama/dönüşüm oranı, gerçek talebin ölçülmesi'],
+          ['Gerekli Veri','Varyant seviyesinde stok verisi ve opt-in eşleşmesi'],
+        ]],
+        ['Popüler model yoğun sezon stok bildirimi',[
+          ['Tetikleyici','Havana/Atlas gibi popüler bir model sezon zirvesinde stoğu tükendiğinde'],
+          ['Segment','"Haber ver" opt-in yapan ziyaretçiler'],
+          ['Aksiyon','Stok geldiği an otomatik email + SMS bildirimi + benzer alternatif model önerisi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Kayıp satışın doğrudan geri kazanılması, sezonluk kapasite planlamasına veri sağlama'],
+          ['Gerekli Veri','Stok/üretim durumu, opt-in listesi'],
+        ]],
+      ]},
+
+    { title:'VIP / Yüksek Değerli Müşteri Segmentleri',
+      intro:'Yüksek biletli tekli alımların ötesinde, birden fazla kategoriden alışveriş yapan ve B2B kanaldaki en değerli müşterileri farklılaştırma.',
+      scenarios:[
+        ['Çok kategorili / yüksek harcamalı VIP',[
+          ['Tetikleyici','Toplam harcama 150.000₺ üzeri VEYA 3+ farklı kategoriden alışveriş (oturma grubu + pergola + dekor gibi)'],
+          ['Segment','VIP'],
+          ['Aksiyon','Yeni koleksiyon lansmanlarına 48 saat erken erişim + öncelikli montaj/teslimat randevusu + mimarlık hizmeti danışmanlığına ücretsiz erişim'],
+          ['Kanal','Email + WhatsApp + Telefon'],
+          ['Beklenen Fayda','En yüksek LTV\'li grubu elde tutma, marka elçisine ve referans kaynağına dönüştürme'],
+          ['Gerekli Veri','Toplam harcama, kategori çeşitliliği, RFM skoru'],
+        ]],
+        ['Bayi / proje (B2B) kademe programı',[
+          ['Tetikleyici','Bayi ol veya mimarlık hizmeti / proje ürünler kanalından tekrarlayan sipariş'],
+          ['Segment','B2B bayi ve proje müşterileri'],
+          ['Aksiyon','Hacme dayalı kademeli iskonto + öncelikli üretim sırası + özel bayi portalı/katalog erişimi'],
+          ['Kanal','Email + Telefon (bayi temsilcisi)'],
+          ['Beklenen Fayda','Büyüyen bayi ağını (marka vizyonunda vurgulanan) elde tutma ve sipariş sıklığını artırma'],
+          ['Gerekli Veri','Bayi sipariş geçmişi, hacim/kademe tanımı'],
+        ]],
+      ]},
+
+    { title:'Müşteri Yaşam Döngüsü Otomasyonları',
+      intro:'Uzun karar süreçli, çok kanallı (online + showroom + bayi + pazaryeri) bir mobilya markasına özel genişletilmiş döngü.',
+      lifecycle:['Farkındalık','Karşılaştırma','Karar/Satın Alma','Üretim & Teslimat','Kurulum & Bakım','Sezonluk Tamamlama','Win-back / Yeni Sezon'],
+      scenarios:[
+        ['Teslimat sonrası kurulum & memnuniyet anketi',[
+          ['Tetikleyici','Montaj/teslimattan 5 gün sonra'],
+          ['Segment','Yeni teslimat almış tüm müşteriler'],
+          ['Aksiyon','Kısa memnuniyet anketi + bakım ipuçları (minder yıkama, metal aksam bakımı); olumlu yanıt verene review talebi, olumsuz yanıta destek yönlendirmesi'],
+          ['Kanal','Email + SMS'],
+          ['Beklenen Fayda','Erken sinyal ile memnuniyetsizliği büyümeden yakalama, review hacmini artırma (mevcut sitede yorum sayıları düşük görünüyor)'],
+          ['Gerekli Veri','Teslimat/montaj tarihi, anket yanıtı'],
+        ]],
+      ]},
+  ];
+
+  var cyRoot = document.getElementById('cy-root');
+  cyCategories.forEach(function(cat, i){
+    var count = cat.scenarios.length;
+    var extra = '';
+    if(cat.rfm){
+      extra += '<div class="rfm-wrap"><table class="rfm"><thead><tr><th>Segment</th><th>Tanım</th><th>Bağlı Otomasyon</th></tr></thead><tbody>'+
+        cat.rfm.map(function(r){return '<tr><td class="seg">'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('')+
+        '</tbody></table></div>';
+    }
+    if(cat.lifecycle){
+      extra += '<div class="lc-flow">'+cat.lifecycle.map(function(s,idx){
+        return (idx?'<span class="lc-arrow">→</span>':'')+'<div class="lc-step"><div class="t">'+s+'</div></div>';
+      }).join('')+'</div>';
+    }
+    var cardsHtml = '<div class="scen-grid">'+cat.scenarios.map(function(s){return scenCard(s[0], s[1]);}).join('')+'</div>';
+    cyRoot.insertAdjacentHTML('beforeend',
+      '<details class="cy-cat"'+(i===0?' open':'')+'>'+
+        '<summary><div class="cy-num">'+String(i+1).padStart(2,'0')+'</div><h3>'+cat.title+'</h3><span class="cy-count">'+count+' senaryo</span><span class="chev"></span></summary>'+
+        '<div class="cy-body"><p class="cy-intro">'+cat.intro+'</p>'+extra+cardsHtml+'</div>'+
+      '</details>');
+  });
+
+  document.getElementById('toggleAll').addEventListener('click', function(){
+    var all = document.querySelectorAll('.cy-cat');
+    var anyClosed = Array.prototype.some.call(all, function(d){return !d.open;});
+    all.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? 'Tümünü Daralt' : 'Tümünü Genişlet';
+  });
+
+  /* ================= 03 Opportunities ================= */
+  var groups = [
+    {key:'ai', name:'AI & Müşteri Deneyimi', color:'var(--s1)', soft:'var(--s1-soft)'},
+    {key:'growth', name:'Büyüme & Pazarlama Otomasyonu', color:'var(--s2)', soft:'var(--s2-soft)'},
+    {key:'data', name:'Sadakat, Veri & Analitik', color:'var(--s3)', soft:'var(--s3-soft)'},
+    {key:'omni', name:'Omnichannel & Operasyon', color:'var(--s4)', soft:'var(--s4-soft)'},
+  ];
+  var opportunities = [
+    {g:'ai', name:'AI Müşteri Destek Asistanı', desc:'WhatsApp ve web üzerinde ürün karşılaştırma, ölçü/malzeme soruları ve teslimat sürecini yanıtlayan, gerektiğinde satış danışmanına yönlendiren AI katmanı.', impact:5, ease:3, sales:4},
+    {g:'ai', name:'WhatsApp Otomasyonları', desc:'Mevcut destek hattını sepet terk (yüksek tutarlı), teslimat/üretim güncellemesi ve showroom randevusuna genişletme.', impact:4, ease:4, sales:4},
+    {g:'ai', name:'Stil & Malzeme Öneri Motoru', desc:'40+ benzer modeli bütçe/malzeme/kişi sayısına göre filtreleyen AI destekli seçim asistanı.', impact:4, ease:3, sales:4},
+    {g:'ai', name:'AR / 3D Görselleştirme', desc:'"Bu oturma grubu benim bahçemde nasıl durur" — ürünü müşterinin kendi mekanında görselleştirme; yüksek tutarlı, geri dönüşü zor kararlarda güven artırır.', impact:4, ease:2, sales:4},
+    {g:'growth', name:'Review / UGC Toplama Otomasyonu', desc:'Post-teslimat otomatik yorum/fotoğraf talebi + küçük teşvik; sitede yorum sayıları bugün düşük görünüyor.', impact:3, ease:5, sales:3},
+    {g:'growth', name:'Kampanya Optimizasyonu (AI/ML)', desc:'Hangi modelde, hangi sezonda, hangi indirimin en yüksek marjlı dönüşümü sağladığını öğrenen dinamik kampanya motoru.', impact:4, ease:2, sales:4},
+    {g:'growth', name:'SEO-Katalog Uyumu & İçerik Otomasyonu', desc:'Halı gibi güçlü SEO trafiği olan ama canlı ürünü olmayan alanları ya kataloğa bağlama ya da lead-capture\'a dönüştürme; blog içerik üretimini otomasyonla ölçekleme.', impact:3, ease:4, sales:3},
+    {g:'growth', name:'Reels/Instagram İçerik-Satış Köprüsü', desc:'Sitede zaten var olan "Reels" bölümünü ürün etiketleme ve doğrudan satın alma linkleriyle satışa bağlama.', impact:3, ease:4, sales:3},
+    {g:'data', name:'Sadakat / Bayi Puan Sistemi', desc:'B2C\'de harcamaya dayalı ayrıcalık, B2B bayi ağında hacme dayalı kademe sistemi; şu an hiçbir sadakat mekaniği yok.', impact:5, ease:2, sales:5},
+    {g:'data', name:'Churn / Sezon Kaybı Tahmini', desc:'Yeni sezona "tamamlanmamış bahçe" ile giren veya geçen sezon aktifken bu sezon sessiz kalma olasılığı yüksek müşterileri işaretleyen model.', impact:4, ease:2, sales:3},
+    {g:'data', name:'Satış & Müşteri Analitik Paneli', desc:'Kanal bazlı (site/showroom/bayi/pazaryeri) satış kırılımı, kohort, LTV ve kampanya ROI\'sini tek panelde birleştirme.', impact:4, ease:4, sales:3},
+    {g:'omni', name:'Omnichannel Müşteri Veri Platformu (CDP)', desc:'Site + showroom + bayi ağı + Trendyol/Koçtaş/Vivense siparişlerini tek müşteri görünümünde birleştirme — Callypso\'nun tam güç kazanması için önkoşul.', impact:5, ease:2, sales:4},
+    {g:'omni', name:'Showroom-Dijital CRM Köprüsü', desc:'Showroom ziyaretçi/lead verisini dijital pazarlama akışlarına (email/SMS/WhatsApp) otomatik aktarma.', impact:4, ease:3, sales:3},
+    {g:'omni', name:'Üretim & Lojistik Durum Entegrasyonu', desc:'Bugün telefonla yürütülen "gönderime hazır, teslimat planlayalım" sürecini OMS/ERP\'den beslenen otomatik SMS/WhatsApp güncellemelerine bağlama.', impact:4, ease:3, sales:2},
+  ];
+
+  var legend = document.getElementById('quadLegend');
+  groups.forEach(function(g){ legend.insertAdjacentHTML('beforeend','<span><i style="background:'+g.color+'"></i>'+g.name+'</span>'); });
+
+  var svg = document.getElementById('quadChart');
+  var W=640,H=380, padL=54,padR=24,padT=20,padB=44;
+  var plotW=W-padL-padR, plotH=H-padT-padB;
+  function xPos(v){ return padL + (v-1)/4*plotW; }
+  function yPos(v){ return padT + (5-v)/4*plotH; }
+  var svgns = 'http://www.w3.org/2000/svg';
+  function el(tag,attrs){ var e=document.createElementNS(svgns,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); return e; }
+
+  svg.appendChild(el('rect',{x:padL,y:padT,width:plotW,height:plotH,fill:'none',stroke:'var(--border)'}));
+  svg.appendChild(el('line',{x1:xPos(3),x2:xPos(3),y1:padT,y2:padT+plotH,stroke:'var(--border)','stroke-dasharray':'3,4'}));
+  svg.appendChild(el('line',{x1:padL,x2:padL+plotW,y1:yPos(3),y2:yPos(3),stroke:'var(--border)','stroke-dasharray':'3,4'}));
+
+  [1,2,3,4,5].forEach(function(v){
+    var t1=el('text',{x:xPos(v),y:H-padB+18,'text-anchor':'middle','font-size':'9.5','fill':'var(--muted)','font-family':'IBM Plex Mono'}); t1.textContent=v; svg.appendChild(t1);
+    var t2=el('text',{x:padL-10,y:yPos(v)+3,'text-anchor':'end','font-size':'9.5','fill':'var(--muted)','font-family':'IBM Plex Mono'}); t2.textContent=v; svg.appendChild(t2);
+  });
+  var xl=el('text',{x:padL+plotW/2,y:H-8,'text-anchor':'middle','font-size':'11','fill':'var(--ink-2)','font-weight':'700'}); xl.textContent='Uygulama Kolaylığı →'; svg.appendChild(xl);
+  var yl=el('text',{x:14,y:padT+plotH/2,'text-anchor':'middle','font-size':'11','fill':'var(--ink-2)','font-weight':'700','transform':'rotate(-90 14 '+(padT+plotH/2)+')'}); yl.textContent='Etki →'; svg.appendChild(yl);
+  svg.insertAdjacentHTML('beforeend','<text x="'+(padL+8)+'" y="'+(padT+14)+'" font-size="9.5" fill="var(--muted)" font-style="italic">yüksek etki / zor uygulama</text><text x="'+(padL+plotW-8)+'" y="'+(padT+14)+'" text-anchor="end" font-size="9.5" fill="var(--muted)" font-style="italic">yüksek etki / kolay uygulama</text>');
+
+  var tooltip = document.getElementById('tooltip');
+  var jitter = {}; // dedupe overlapping coords
+  opportunities.forEach(function(o){
+    var key = o.ease+','+o.impact;
+    jitter[key] = (jitter[key]||0);
+    var jx = jitter[key]*10, jy = jitter[key]*8;
+    jitter[key]++;
+    var cx = xPos(o.ease)+jx, cy = yPos(o.impact)-jy;
+    var r = 6 + o.sales*2.4;
+    var g = groups.filter(function(gr){return gr.key===o.g;})[0];
+    var c = el('circle',{cx:cx,cy:cy,r:r,fill:g.color,'fill-opacity':'0.78',stroke:g.color,'stroke-width':'1.5'});
+    c.style.cursor='pointer';
+    c.addEventListener('mousemove', function(e){
+      tooltip.style.opacity=1;
+      tooltip.style.left=(e.clientX+14)+'px';
+      tooltip.style.top=(e.clientY+14)+'px';
+      tooltip.innerHTML='<b>'+o.name+'</b>'+o.desc+'<br><span class="mono" style="opacity:.7">Etki '+o.impact+'/5 · Kolaylık '+o.ease+'/5 · Satış Katkısı '+o.sales+'/5</span>';
+    });
+    c.addEventListener('mouseleave', function(){ tooltip.style.opacity=0; });
+    svg.appendChild(c);
+  });
+
+  var oppRoot = document.getElementById('opp-root');
+  groups.forEach(function(g){
+    var items = opportunities.filter(function(o){return o.g===g.key;});
+    var html = '<div class="opp-group"><h4><i style="background:'+g.color+'"></i>'+g.name+'</h4><div class="opp-grid">'+
+      items.map(function(o){
+        return '<div class="opp"><h5>'+o.name+'</h5><p>'+o.desc+'</p><div class="opp-metrics">'+
+          '<span class="met">Etki '+o.impact+'/5</span><span class="met">Kolaylık '+o.ease+'/5</span><span class="met">Satış Katkısı '+o.sales+'/5</span></div></div>';
+      }).join('')+'</div></div>';
+    oppRoot.insertAdjacentHTML('beforeend', html);
+  });
+
+  /* ================= 04 Roadmap ================= */
+  var road1 = ['Yüksek tutarlı sepet terk için danışman aramalı email/SMS/WhatsApp serisi','Hoşgeldin serisi (email + SMS)','Post-teslimat review/yorum talebi otomasyonu','Sepette montaj/kargo eşiği bildirimi','Halı SEO trafiği için WhatsApp/telefon lead-capture CTA\'sı'];
+  var road2 = ['Kategori/model bazlı browse abandonment ve karşılaştırma akışları','Oturma grubu alıcısına koruma kılıfı/dekor cross-sell serisi','Kanal-katmanlı RFM segmentasyonu + sezonluk win-back akışları','Varyant bazlı stok bildirim otomasyonu','Showroom randevu & lead-CRM köprüsü','Üretim/lojistik durumunu SMS/WhatsApp\'a taşıma'];
+  var road3 = ['Omnichannel müşteri veri platformu (site + showroom + bayi + pazaryeri)','Stil/malzeme öneri motoru + AR görselleştirme','Sadakat / bayi kademe programı','Sezon/kampanya talep tahmini (AI/ML)','Uçtan uca AI müşteri destek asistanı','Churn / sezon kaybı tahmin modeli'];
+  function fillRoad(id, items){ var ul=document.getElementById(id); items.forEach(function(t){ ul.insertAdjacentHTML('beforeend','<li>'+t+'</li>'); }); }
+  fillRoad('road1', road1); fillRoad('road2', road2); fillRoad('road3', road3);
+
+  /* ================= 05 Questions ================= */
+  var qGroups = [
+    {h:'Teknik & Altyapı', items:[
+      'Callypso entegrasyonu için mevcut e-ticaret altyapısının (sipariş/stok/OMS) API veya webhook erişimi hangi kapsamda sağlanabilir?',
+      'Mevcut email/SMS gönderim altyapısı ve geçmiş kampanya/segment verisi taşınabilir mi?',
+      'WhatsApp hattı (wa.me) hangi sağlayıcı üzerinden çalışıyor, Business API\'ye ve otomasyona açık mı?',
+      'Trendyol, Koçtaş, Vivense gibi pazaryeri siparişleri merkezi bir sistemde (ERP/OMS) birleşiyor mu, yoksa ayrı paneller mi?',
+      'Showroom/bayi satışları herhangi bir CRM\'e işleniyor mu?',
+    ]},
+    {h:'Veri Olgunluğu', items:[
+      'Sipariş/müşteri verisine ne kadar geriye dönük erişim sağlanabilir?',
+      'Ürün bazlı iade, garanti ve servis talebi verisi tutuluyor mu?',
+      'Sepet terk oranı, showroom-online dönüşüm oranı, sezon bazlı talep gibi KPI\'lar bugün ölçülüyor mu?',
+      'Bayi/proje (B2B) müşterilerinin verisi B2C müşteri verisinden ayrı mı tutuluyor?',
+    ]},
+    {h:'İş & Strateji', items:[
+      'Sezonsallık (bahar-yaz zirve) otomasyon takviminde nasıl planlanıyor, geçen yılların sezon verisi mevcut mu?',
+      'Bayi ağı ve mimarlık hizmeti (B2B/proje) için ayrı bir otomasyon/CRM stratejisi mi, yoksa B2C ile birleşik mi düşünülüyor?',
+      'Halı gibi güçlü SEO trafiği olan ama canlı katalogda yer almayan ürün gruplarıyla ilgili plan nedir?',
+      'Üretim ve lojistik firma sürecini (teslimat planlama) otomasyona açma konusunda operasyonel bir kısıt var mı?',
+      'divonahome.ae (uluslararası) için ayrı bir otomasyon/segmentasyon stratejisi düşünülüyor mu?',
+      'Otomasyonlarda ekstra indirim/kod verme konusunda marj esnekliği ne kadar — yüksek tutarlı üründe indirim yerine hizmet (ücretsiz montaj/kılıf) tercih edilir mi?',
+    ]},
+    {h:'Öncelik', items:[
+      'Toplantıda hangi 2-3 otomasyonun pilot olarak başlatılması önceliklendiriliyor?',
+    ]},
+  ];
+  var qRoot = document.getElementById('q-root');
+  qGroups.forEach(function(g){
+    qRoot.insertAdjacentHTML('beforeend','<div class="q-group"><h4>'+g.h+'</h4><ol>'+g.items.map(function(i){return '<li>'+i+'</li>';}).join('')+'</ol></div>');
+  });
+
+})();
+</script>
+</body>
+</html>
