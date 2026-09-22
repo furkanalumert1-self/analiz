@@ -60,7 +60,7 @@ summary{cursor:pointer;font-weight:600}
 </div>
 <p class="count" id="count"></p>
 <div class="tbl"><table>
-<thead><tr><th data-k="Company Name">Şirket</th><th data-k="Country">Ülke / Şehir</th><th data-k="Industry">Sektör</th><th data-k="E-commerce Platform">Platform</th><th data-k="Priority">Öncelik</th><th data-k="Engage Fit">Engage Fit</th><th data-k="Confidence Score">Güven</th><th data-k="Primary Decision Maker">Karar verici</th><th>Türk bağlantısı kanıtı</th></tr></thead>
+<thead><tr><th data-k="Company Name">Şirket / e-posta</th><th data-k="Country">Ülke / Şehir</th><th data-k="Industry">Sektör</th><th data-k="E-commerce Platform">Platform</th><th data-k="Priority">Öncelik</th><th data-k="Engage Fit">Engage Fit</th><th data-k="Confidence Score">Güven</th><th data-k="Primary Decision Maker">Karar verici</th><th>Türk bağlantısı kanıtı</th></tr></thead>
 <tbody id="tb"></tbody>
 </table></div>
 <details><summary>Yöntem ve notlar</summary>
@@ -72,7 +72,7 @@ const DATA=__DATA__;
 const S=DATA.stats, R=DATA.rows;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return u}};
-document.getElementById("kpis").innerHTML=[["Taranan aday domain",S.candidates],["Mağaza benzeri site",S.shoplike],["Doğrulanmış şirket",S.verified],["HIGH / MEDIUM güven",S.high_conf+" / "+S.medium_conf],["HIGH öncelik",S.high_priority],["Karar verici bulunan",S.with_dm],["Manuel inceleme",S.review]].map(([l,v])=>`<div class="kpi"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+document.getElementById("kpis").innerHTML=[["Taranan aday domain",S.candidates],["Mağaza benzeri site",S.shoplike],["Doğrulanmış şirket",S.verified],["HIGH / MEDIUM güven",S.high_conf+" / "+S.medium_conf],["HIGH öncelik",S.high_priority],["Karar verici bulunan",S.with_dm],["Şirket e-postası",S.with_company_email],["Kişi e-postası",S.with_person_email],["Manuel inceleme",S.review]].map(([l,v])=>`<div class="kpi"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
 const uniq=k=>[...new Set(R.map(r=>r[k]))].sort();
 for(const [id,k] of [["fc","Country"],["fi","Industry"]]) document.getElementById(id).insertAdjacentHTML("beforeend",uniq(k).map(v=>`<option>${esc(v)}</option>`).join(""));
 let sortK=null,dir=1;
@@ -82,9 +82,9 @@ function render(){
  if(sortK) rows=[...rows].sort((a,b)=>String(a[sortK]).localeCompare(String(b[sortK]))*dir);
  document.getElementById("count").textContent=rows.length+" / "+R.length+" şirket gösteriliyor";
  document.getElementById("tb").innerHTML=rows.map(r=>{
-  const dm=[1,2].map(i=>{const p=i===1?"Primary":"Secondary";return r[p+" Decision Maker"]?`<div><a href="${esc(r[p+" LinkedIn URL"])}" target="_blank" rel="noopener">${esc(r[p+" Decision Maker"])}</a><div class="small">${esc(r[p+" Job Title"])}</div></div>`:""}).join("")||'<span class="small">Bulunamadı</span>';
+  const dm=[1,2].map(i=>{const p=i===1?"Primary":"Secondary";return r[p+" Decision Maker"]?`<div><a href="${esc(r[p+" LinkedIn URL"])}" target="_blank" rel="noopener">${esc(r[p+" Decision Maker"])}</a><div class="small">${esc(r[p+" Job Title"])}</div>${r[p+" Email"]?`<div class="small"><a href="mailto:${esc(r[p+" Email"])}">${esc(r[p+" Email"])}</a> · ${esc(r[p+" Email Source"].split(" (")[0])}</div>`:""}</div>`:""}).join("")||'<span class="small">Bulunamadı</span>';
   const li=r["LinkedIn Company URL"]?` · <a href="${esc(r["LinkedIn Company URL"])}" target="_blank" rel="noopener">LinkedIn</a>`:"";
-  return `<tr><td><div class="name">${esc(r["Company Name"])}</div><div class="small"><a href="${esc(r.Website)}" target="_blank" rel="noopener">${esc(host(r.Website))}</a>${li}</div><div class="small">${esc(r["Company Size"])}</div></td>
+  return `<tr><td><div class="name">${esc(r["Company Name"])}</div><div class="small"><a href="${esc(r.Website)}" target="_blank" rel="noopener">${esc(host(r.Website))}</a>${li}</div><div class="small">${esc(r["Company Size"])}</div>${r["Company Email"]?`<div class="small">${r["Company Email"].split(", ").map(e=>`<a href="mailto:${esc(e)}">${esc(e)}</a>`).join("<br>")}</div>`:""}</td>
   <td>${esc(r.Country)}<div class="small">${esc(r.City)}</div></td><td>${esc(r.Industry)}</td><td>${esc(r["E-commerce Platform"])}</td>
   <td><span class="pill ${esc(r.Priority)}">${esc(r.Priority)}</span></td><td><span class="pill ${esc(r["Engage Fit"])}">${esc(r["Engage Fit"])}</span></td>
   <td><span class="pill ${esc(r["Confidence Score"])}">${esc(r["Confidence Score"])}</span></td><td>${dm}</td>

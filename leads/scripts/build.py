@@ -1,5 +1,6 @@
 """Step 7: build final XLSX files + JSON for the web page (deterministic scoring)."""
 import json, os, re, sys
+from urllib.parse import unquote
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
@@ -14,6 +15,27 @@ CT = json.load(open(os.path.join(C, "contact.json")))
 LI = json.load(open(os.path.join(C, "linkedin_matched.json")))
 DM = json.load(open(os.path.join(C, "dm_validated.json")))
 DISC = json.load(open(os.path.join(C, "discovered_domains.json")))
+CE = json.load(open(os.path.join(C, "company_emails.json")))
+PROF = [p for p in json.load(open(os.path.join(C, "dm_profiles_raw.json"))) if "error" not in p]
+SKIP_EMAIL = re.compile(r"^(nfo|bewerbung|jobs?|karriere|careers?|privacy|datenschutz)@")
+
+
+def company_emails(d):
+    return [(e, u) for e, u in CE.get(d, {}).get("emails", []) if not SKIP_EMAIL.search(e)]
+
+
+def person_email(name, url, d):
+    """Email from Apify LinkedIn email search, or the person's own address published on the company site."""
+    for p in PROF:
+        slug = lambda u: unquote((u or "").rstrip("/").split("/in/")[-1].split("/")[0]).lower()
+        if slug((p.get("query") or p.get("originalQuery") or {}).get("url")) == slug(url):
+            for e in p.get("emails") or []:
+                return e["email"], f"Apify LinkedIn email search: {e.get('status')} (score {e.get('qualityScore')})"
+    first = name.split()[0].lower()
+    for e, u in company_emails(d):
+        if e.split("@")[0].startswith(first):
+            return e, f"Published on company site ({u})"
+    return "", ""
 
 CC = {"Germany": "DE", "Netherlands": "NL", "Belgium": "BE", "Austria": "AT", "France": "FR", "United Kingdom": "GB", "Switzerland": "CH"}
 COUNTRY_FIX = {"bakkal.eu": ("Estonia", "Tallinn"), "istanbul-market.com": ("France", "Mantes-la-Jolie"),
@@ -25,7 +47,8 @@ EXTRA_CITY = {d: v.get("locations") for d, v in LI.items()}
 COLS = ["Company Name", "Website", "Country", "City", "Industry", "Company Size", "E-commerce Confirmed", "E-commerce Platform",
         "Turkish Connection", "Turkish Connection Evidence", "Turkish Evidence URL", "LinkedIn Company URL", "Engage Fit", "Priority",
         "Primary Decision Maker", "Primary Job Title", "Primary LinkedIn URL", "Secondary Decision Maker", "Secondary Job Title",
-        "Secondary LinkedIn URL", "Main Source URL", "Confidence Score", "Notes"]
+        "Secondary LinkedIn URL", "Main Source URL", "Confidence Score", "Notes",
+        "Company Email", "Company Email Source URL", "Primary Email", "Primary Email Source", "Secondary Email", "Secondary Email Source"]
 
 
 def city_for(d, country):
@@ -81,6 +104,10 @@ def main():
             "Primary Decision Maker": dms[0]["name"] if dms else "", "Primary Job Title": dms[0]["title"] if dms else "",
             "Primary LinkedIn URL": dms[0]["url"] if dms else "", "Secondary Decision Maker": dms[1]["name"] if len(dms) > 1 else "",
             "Secondary Job Title": dms[1]["title"] if len(dms) > 1 else "", "Secondary LinkedIn URL": dms[1]["url"] if len(dms) > 1 else "",
+            "Company Email": ", ".join(e for e, _ in company_emails(d)[:2]),
+            "Company Email Source URL": company_emails(d)[0][1] if company_emails(d) else "",
+            **{f"{k} Email": person_email(dms[i]["name"], dms[i]["url"], d)[0] if len(dms) > i else "" for i, k in enumerate(["Primary", "Secondary"])},
+            **{f"{k} Email Source": person_email(dms[i]["name"], dms[i]["url"], d)[1] if len(dms) > i else "" for i, k in enumerate(["Primary", "Secondary"])},
             "Main Source URL": src, "Confidence Score": "HIGH" if t == "H" else "MEDIUM", "Notes": "; ".join(notes), "_score": engage_score(d, fit)})
     # Priority HIGH = top third by deterministic Engage score (target was 50 of 150)
     n_high = round(len(rows) / 3)
@@ -127,6 +154,7 @@ def main():
              "verified": len(rows), "high_conf": sum(r["Confidence Score"] == "HIGH" for r in rows),
              "medium_conf": sum(r["Confidence Score"] == "MEDIUM" for r in rows), "high_priority": n_high,
              "with_dm": sum(1 for r in rows if r["Primary Decision Maker"]), "with_li": sum(1 for r in rows if r["LinkedIn Company URL"]),
+             "with_company_email": sum(1 for r in rows if r["Company Email"]), "with_person_email": sum(1 for r in rows if r["Primary Email"] or r["Secondary Email"]),
              "review": len(rev), "excluded_big": len(big)}
     json.dump({"stats": stats, "rows": [{k: v for k, v in r.items() if not k.startswith("_")} for r in rows], "review": rev},
               open(os.path.join(OUT, "leads-data.json"), "w"), ensure_ascii=False)
