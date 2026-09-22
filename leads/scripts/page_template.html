@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Türk E-ticaret Lead Listesi</title>
+<meta name="description" content="Callypso Engage için Avrupa'da e-ticaret yapan Türk/Türk kökenli KOBİ lead listesi">
+<style>
+:root{--bg:#f7f7f5;--surface:#fff;--ink:#1c1f24;--muted:#5f6670;--line:#e3e3df;--accent:#1f5fbf;--accent-soft:#e7effb;--hi:#0f7b4f;--hi-soft:#e3f4ec;--mid:#8a5a00;--mid-soft:#fbf1dc;--lo:#8b2c2c;--lo-soft:#f8e6e6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121416;--surface:#1b1e22;--ink:#e8eaed;--muted:#a0a7b1;--line:#2c3137;--accent:#7aa7ff;--accent-soft:#1d2a40;--hi:#5fd3a0;--hi-soft:#15302a;--mid:#e6b85c;--mid-soft:#352b17;--lo:#f08c8c;--lo-soft:#3a1f1f}}
+:root[data-theme="dark"]{--bg:#121416;--surface:#1b1e22;--ink:#e8eaed;--muted:#a0a7b1;--line:#2c3137;--accent:#7aa7ff;--accent-soft:#1d2a40;--hi:#5fd3a0;--hi-soft:#15302a;--mid:#e6b85c;--mid-soft:#352b17;--lo:#f08c8c;--lo-soft:#3a1f1f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:28px 16px 60px}
+h1{font-size:24px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 20px;max-width:820px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:12px}
+.dl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:13px}
+.btn.alt{background:var(--accent-soft);color:var(--accent)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filters input,.filters select{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;min-width:0}
+.filters input{flex:1 1 220px}
+.count{color:var(--muted);font-size:12px;margin:0 0 8px}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--surface);cursor:pointer;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td a{color:var(--accent);text-decoration:none}
+td a:hover{text-decoration:underline}
+.name{font-weight:600}
+.small{color:var(--muted);font-size:12px}
+.pill{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11px;font-weight:600;white-space:nowrap}
+.HIGH{background:var(--hi-soft);color:var(--hi)}.MEDIUM{background:var(--mid-soft);color:var(--mid)}.LOW{background:var(--lo-soft);color:var(--lo)}.NORMAL{background:var(--accent-soft);color:var(--accent)}
+details{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+.method li{margin:4px 0}
+.ev{max-width:320px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Avrupa'da E-ticaret Yapan Türk KOBİ'leri</h1>
+<p class="sub">Callypso Engage outreach listesi. Apify ile keşfedildi, siteler kod ile tarandı (sepet/checkout/platform), Türk bağlantısı kanıt URL'si ile işaretlendi. Kullanıcı talebiyle çok büyük/bilinen markalar (LC Waikiki, Mavi, Modanisa, Karaca vb.) ana listeden çıkarıldı.</p>
+<div class="kpis" id="kpis"></div>
+<div class="dl">
+<a class="btn" href="callypso_engage_europe_turkish_ecommerce_leads.xlsx" download>Lead listesi (.xlsx)</a>
+<a class="btn alt" href="needs_manual_review.xlsx" download>Manuel inceleme (.xlsx)</a>
+</div>
+<div class="filters">
+<input id="q" placeholder="Şirket, şehir, kişi ara…" aria-label="Ara">
+<select id="fc" aria-label="Ülke"><option value="">Tüm ülkeler</option></select>
+<select id="fi" aria-label="Sektör"><option value="">Tüm sektörler</option></select>
+<select id="fp" aria-label="Öncelik"><option value="">Tüm öncelikler</option><option>HIGH</option><option>NORMAL</option></select>
+<select id="fd" aria-label="Karar verici"><option value="">Karar verici: hepsi</option><option value="1">Bulunanlar</option><option value="0">Bulunmayanlar</option></select>
+</div>
+<p class="count" id="count"></p>
+<div class="tbl"><table>
+<thead><tr><th data-k="Company Name">Şirket</th><th data-k="Country">Ülke / Şehir</th><th data-k="Industry">Sektör</th><th data-k="E-commerce Platform">Platform</th><th data-k="Priority">Öncelik</th><th data-k="Engage Fit">Engage Fit</th><th data-k="Confidence Score">Güven</th><th data-k="Primary Decision Maker">Karar verici</th><th>Türk bağlantısı kanıtı</th></tr></thead>
+<tbody id="tb"></tbody>
+</table></div>
+<details><summary>Yöntem ve notlar</summary>
+<ul class="method" id="method"></ul>
+</details>
+</div>
+<script>
+const DATA=__DATA__;
+const S=DATA.stats, R=DATA.rows;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return u}};
+document.getElementById("kpis").innerHTML=[["Taranan aday domain",S.candidates],["Mağaza benzeri site",S.shoplike],["Doğrulanmış şirket",S.verified],["HIGH / MEDIUM güven",S.high_conf+" / "+S.medium_conf],["HIGH öncelik",S.high_priority],["Karar verici bulunan",S.with_dm],["Manuel inceleme",S.review]].map(([l,v])=>`<div class="kpi"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+const uniq=k=>[...new Set(R.map(r=>r[k]))].sort();
+for(const [id,k] of [["fc","Country"],["fi","Industry"]]) document.getElementById(id).insertAdjacentHTML("beforeend",uniq(k).map(v=>`<option>${esc(v)}</option>`).join(""));
+let sortK=null,dir=1;
+function render(){
+ const q=document.getElementById("q").value.toLowerCase(),fc=fc_.value,fi=fi_.value,fp=fp_.value,fd=fd_.value;
+ let rows=R.filter(r=>(!fc||r.Country===fc)&&(!fi||r.Industry===fi)&&(!fp||r.Priority===fp)&&(!fd||(fd==="1")===!!r["Primary Decision Maker"])&&(!q||JSON.stringify(r).toLowerCase().includes(q)));
+ if(sortK) rows=[...rows].sort((a,b)=>String(a[sortK]).localeCompare(String(b[sortK]))*dir);
+ document.getElementById("count").textContent=rows.length+" / "+R.length+" şirket gösteriliyor";
+ document.getElementById("tb").innerHTML=rows.map(r=>{
+  const dm=[1,2].map(i=>{const p=i===1?"Primary":"Secondary";return r[p+" Decision Maker"]?`<div><a href="${esc(r[p+" LinkedIn URL"])}" target="_blank" rel="noopener">${esc(r[p+" Decision Maker"])}</a><div class="small">${esc(r[p+" Job Title"])}</div></div>`:""}).join("")||'<span class="small">Bulunamadı</span>';
+  const li=r["LinkedIn Company URL"]?` · <a href="${esc(r["LinkedIn Company URL"])}" target="_blank" rel="noopener">LinkedIn</a>`:"";
+  return `<tr><td><div class="name">${esc(r["Company Name"])}</div><div class="small"><a href="${esc(r.Website)}" target="_blank" rel="noopener">${esc(host(r.Website))}</a>${li}</div><div class="small">${esc(r["Company Size"])}</div></td>
+  <td>${esc(r.Country)}<div class="small">${esc(r.City)}</div></td><td>${esc(r.Industry)}</td><td>${esc(r["E-commerce Platform"])}</td>
+  <td><span class="pill ${esc(r.Priority)}">${esc(r.Priority)}</span></td><td><span class="pill ${esc(r["Engage Fit"])}">${esc(r["Engage Fit"])}</span></td>
+  <td><span class="pill ${esc(r["Confidence Score"])}">${esc(r["Confidence Score"])}</span></td><td>${dm}</td>
+  <td class="ev small">${esc(r["Turkish Connection Evidence"])} <a href="${esc(r["Turkish Evidence URL"])}" target="_blank" rel="noopener">kanıt</a></td></tr>`}).join("");
+}
+const fc_=document.getElementById("fc"),fi_=document.getElementById("fi"),fp_=document.getElementById("fp"),fd_=document.getElementById("fd");
+for(const el of ["q","fc","fi","fp","fd"]) document.getElementById(el).addEventListener("input",render);
+document.querySelectorAll("th[data-k]").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;dir=sortK===k?-dir:1;sortK=k;render()}));
+document.getElementById("method").innerHTML=__METHOD__.map(m=>`<li>${esc(m)}</li>`).join("");
+render();
+</script>
+</body>
+</html>

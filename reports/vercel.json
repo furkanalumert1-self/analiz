@@ -1,5 +1,16 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/kremi-callypso-engage-analizi.html" }
+    {
+      "source": "/",
+      "destination": "/turk-ecommerce-leads.html"
+    },
+    {
+      "source": "/leads",
+      "destination": "/turk-ecommerce-leads.html"
+    },
+    {
+      "source": "/kremi-callypso",
+      "destination": "/kremi-callypso-engage-analizi.html"
+    }
   ]
 }
