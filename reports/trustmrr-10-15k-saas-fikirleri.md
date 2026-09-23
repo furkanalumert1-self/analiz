@@ -99,3 +99,34 @@ Bu ürünler 10–15 bin $ aralığının biraz altında ya da üstünde kalıyo
 - **Şu anda büyüyenler:** 1ClickWebsite (+14,5%) ve Glossa (+7,4%).
 - **Genel çıkarım:** 10–15 bin $ bandındaki başarılı SaaS'ların çoğu **dar bir dikeye** odaklanıyor (kiliseler, mortgage uzmanları, Substack yazarları, WordPress ajansları). Genel amaçlı araçlar yerine, dizinlerden listelenebilen niş bir kitleye yönelik araç yapmak hem kurulumu hem satışı kolaylaştırıyor.
 - **Dikkat:** DM Champ (-26%), Taja (-14%) ve WriteStack (-12%) son 30 günde MRR kaybetmiş. Bu, ilgili pazarlarda rekabetin arttığına işaret ediyor olabilir.
+
+---
+
+# B2B odaklı SaaS'lar: müşteri adayları (lead) kolay bulunanlar
+
+**Seçim kriteri:** Müşteri bir işletme olmalı. Hedef kitle herkese açık bir kayıttan, dizinden, pazaryerinden ya da topluluktan **listelenebilmeli**. Ürün Claude Code ile makul sürede kurulabilmeli. MRR aralığı burada 5–30 bin $ tutuldu.
+
+| # | Ürün | Doğrulanmış MRR | 30 günlük MRR değişimi | Ne yapıyor | Lead kaynağı (nereden listelenir) | Kurulum |
+|---|------|-----------------|------------------------|------------|-----------------------------------|---------|
+| B1 | [LocalRank](https://localrank.so) | $26.0K | +8,6% | Yerel SEO paketi: Google Haritalar sıralama takibi (grid), dizin kayıtları (citation), Google Business Profile otomasyonu. 500'den fazla ajans kullanıyor. $47'den başlıyor | Yerel SEO ajansları (Facebook "Local SEO" grupları, LinkedIn), Google Maps'teki işletmeler | Orta |
+| B2 | [ChatSEO](https://chatseo.app) | $29.2K | **+19,5%** | Search Console, Analytics ve CMS'e bağlanıp siteyi denetleyen, içerik yazıp yayınlayan yapay zekâ SEO asistanı | WordPress, Webflow ve Shopify site sahipleri; BuiltWith/Wappalyzer ile CMS'e göre listelenebilir | Orta |
+| B3 | [Pushouse](https://pushouse.com) | $24.8K | +3,5% | E-ticaret için WhatsApp otomasyonu: sepet hatırlatma, sipariş takibi, site içi pazarlama. **Ticimax, İdeasoft ve Shopify** ile entegre | Türk e-ticaret siteleri: Ticimax ve İdeasoft altyapısındaki mağazalar BuiltWith ile listelenebilir | Orta |
+| B4 | [Calendesk](https://calendesk.com) | $21.5K | +0,9% | Terapist, psikolog ve hizmet işletmeleri için randevu, ödeme ve danışan yönetimi | Psychology Today dizini, ülkelerin psikolog ve terapist sicilleri, Google Maps | Kolay |
+| B5 | [Lancer.app](https://www.lancer.app) | $21.6K | +6,8% | Upwork'te yeni işleri tarayıp yapay zekâ ile kişiselleştirilmiş teklif (proposal) yazan araç; freelancer ve ajanslar için | Upwork ajans profilleri, freelancer toplulukları | Kolay |
+| B6 | [ControlResell](https://controlresell.com) | $21.5K | +10,4% | İkinci el satıcılar (Vinted, eBay vb.) için alış, satış, stok ve kâr takibi | Vinted ve eBay mağazaları, reseller Discord ve Facebook grupları | Kolay |
+| B7 | [LeadShark](https://leadshark.io) | $21.3K | -1,8% | LinkedIn'de "yorum yapana rehber gönderiyorum" gönderilerini otomatikleştiriyor: yorum yapanlara otomatik DM | LinkedIn içerik üreticileri ve B2B kurucular (görünür, doğrudan ulaşılabilir) | Orta |
+| B8 | [Walead](http://www.walead.ai) | $23.2K | -9,4% | LinkedIn'de yapay zekâ ile kişiselleştirilmiş outreach ve satış otomasyonu | B2B satış ekipleri, SDR'lar, ajanslar (LinkedIn Sales Navigator ile) | Orta |
+| B9 | [JourneyFuse](https://journeyfuse.com) | $6.8K | **+21,7%** | Seyahat danışmanları için hepsi bir arada CRM: lead, teklif, rota planı, ödeme, komisyon. Koltuk başına $25/ay. **Mart 2026'da kuruldu** | Seyahat acentesi dernekleri, bağımsız seyahat danışmanı ağları, Facebook grupları | Kolay |
+| B10 | [Book the Move](https://www.bookthemove.com) | $5.6K | -26% | Nakliye firmalarına, bölgelerinde evini satışa çıkaran ev sahiplerini bulup onlara kişiselleştirilmiş e-posta gönderiyor. $397–$1.197/ay | ABD'de her nakliye firması **FMCSA** kamu kaydında listeli; Google Maps | Kolay–Orta |
+| B11 | [Harper](https://askharper.ai) | $6.2K | -1,1% | İngiltere'deki resmî kamu kayıtlarını (tapu ve şirket sicili) uzman kredi kuruluşları ve müteahhitler için yatırım fırsatı listelerine dönüştürüyor | Kredi kuruluşları, broker'lar, geliştiriciler (Companies House kaydı) | Orta |
+| B12 | [Karma](https://karmabot.chat) | $6.1K | 0% | Slack ve Teams için çalışan takdir ve ödül botu | Slack App Directory ve Teams mağazası sayesinde organik dağıtım; LinkedIn'deki İK yöneticileri | Kolay |
+| B13 | [ConvertLabs](https://convertlabs.io) | $26.3K | -29% | Yerel hizmet işletmeleri için randevu ve pazarlama yazılımı | Google Maps'teki yerel hizmet işletmeleri | Orta |
+
+### Dikkat çeken bulgu: Glossa'nın ikiz ürünü
+trustmrr'da **"freetcf"** adıyla listelenen girişim, Glossa.live ile birebir aynı açıklamayı kullanıyor ("#1 Real-time AI Translation for Churches..."). Bu ürün **$25.8K MRR** yapıyor. Yani kilise çeviri nişinde toplam gelir 38 bin $'ı aşıyor. Bu, nişin gerçek ve büyüyen bir pazar olduğunu doğruluyor.
+
+### B2B listesi için öneri
+- **Leadlere en kolay ulaşılanlar (kamu kaydı veya dizin var):** Book the Move (FMCSA), Calendesk (terapist dizinleri), Harper (Companies House), JourneyFuse (seyahat acentesi dernekleri), Pushouse (BuiltWith ile Ticimax/İdeasoft mağazaları). Bu kitleler tek tek listelenip doğrudan soğuk e-postayla ulaşılabilir.
+- **Türkiye'de hemen uygulanabilecekler:** Pushouse modeli zaten Türk e-ticaret altyapılarına entegre ve rakipleri az. Calendesk ve JourneyFuse benzeri dikey CRM'ler, Türkiye'deki psikologlar, diyetisyenler ve seyahat acenteleri için de yapılabilir (TÜRSAB üye listesi herkese açık).
+- **Şu an büyüyenler:** ChatSEO (+19,5%), JourneyFuse (+21,7%, yalnızca 6 aylık), ControlResell (+10,4%), LocalRank (+8,6%).
+- **En hızlı MVP:** Lancer.app, Karma, Calendesk ve JourneyFuse. Bunlar CRUD, randevu ve bot ağırlıklı ürünler; Claude Code ile 1–2 haftada ilk sürüme ulaşılabilir.
