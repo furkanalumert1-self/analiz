@@ -130,3 +130,68 @@ trustmrr'da **"freetcf"** adıyla listelenen girişim, Glossa.live ile birebir a
 - **Türkiye'de hemen uygulanabilecekler:** Pushouse modeli zaten Türk e-ticaret altyapılarına entegre ve rakipleri az. Calendesk ve JourneyFuse benzeri dikey CRM'ler, Türkiye'deki psikologlar, diyetisyenler ve seyahat acenteleri için de yapılabilir (TÜRSAB üye listesi herkese açık).
 - **Şu an büyüyenler:** ChatSEO (+19,5%), JourneyFuse (+21,7%, yalnızca 6 aylık), ControlResell (+10,4%), LocalRank (+8,6%).
 - **En hızlı MVP:** Lancer.app, Karma, Calendesk ve JourneyFuse. Bunlar CRUD, randevu ve bot ağırlıklı ürünler; Claude Code ile 1–2 haftada ilk sürüme ulaşılabilir.
+
+---
+
+# Nihai liste: 25 B2B SaaS (satış artıran, faydası tek cümlede anlaşılan, müşterisi Apollo'da bulunabilen)
+
+**Seçim kriterleri:**
+1. **Fayda tek cümlede anlatılabilmeli:** "Daha fazla randevu, daha fazla müşteri, daha fazla satış" gibi ölçülebilir bir sonuç vaat etmeli.
+2. **Satışı doğrudan artırmalı:** Yalnızca zaman kazandıran verimlilik araçları listeye alınmadı.
+3. **Apollo'da hedeflenebilmeli:** Müşteri kitlesi Apollo'nun *Industry*, *Job Title*, *# Employees* ve *Technologies* filtreleriyle net biçimde tanımlanabilmeli.
+
+Tüketici uygulamaları, tek kişilik yaratıcılara yönelik araçlar (Substack, reseller vb.) ve Apollo'da zayıf temsil edilen kitleler (kiliseler, bireysel terapistler) bu listeye alınmadı.
+
+**Sütunlar:** MRR = trustmrr'da doğrulanmış aylık gelir; Δ30g = son 30 günlük MRR değişimi.
+
+| # | Ürün | MRR | Δ30g | Müşteriye tek cümlelik fayda (satış mesajı) | Apollo filtresi (Industry · Title · Çalışan sayısı · Technologies) |
+|---|------|-----|------|---------------------------------------------|------------------------------------------------------------------|
+| 1 | [PipeLime](https://pipelime.ai) | $19.7K | **+298%** | "Yapay zekâ SDR'ınız 7/24, 40 dilde potansiyel müşteri bulur, kişiselleştirilmiş mesaj atar ve toplantı ayarlar." | Computer Software, Marketing & Advertising, Staffing · Founder, CEO, Head of Sales · 5–200 |
+| 2 | [Traxy](https://www.traxy.ai) | $43.3K | **+91%** | "LinkedIn'de sektörünüzdeki içeriklerle etkileşime giren alıcıları bulur, e-posta ve telefonlarını çıkarıp HubSpot'a aktarır." | Computer Software, IT Services · Founder, VP Sales, Head of Growth · 10–500 · HubSpot |
+| 3 | [Adspirer](https://www.adspirer.com) | $54.7K | **+30%** | "Reklam ajansı tutmadan Google ve Meta reklamlarınızı yapay zekâ yönetir, reklam harcamasının getirisini (ROAS) artırır." | E-commerce, Retail, Consumer Goods · Founder, Marketing Manager · 1–50 · Google Ads, Facebook Ads |
+| 4 | [Rank Prompt](https://rankprompt.com) | $38.2K | **+26,5%** | "ChatGPT ve Perplexity müşterilerinize markanızı mı yoksa rakibinizi mi öneriyor? Ölçün ve düzeltin." | Computer Software, E-commerce, Marketing Agencies · CMO, Head of SEO, Marketing Director · 11–500 |
+| 5 | [ChatSEO](https://chatseo.app) | $29.2K | **+19,5%** | "Search Console'a bağlanır, siteyi denetler, içerik yazıp yayınlar: SEO ajansı maliyeti olmadan organik trafik." | Marketing & Advertising, E-commerce · Founder, Marketing Manager · 1–50 · WordPress, Webflow, Shopify |
+| 6 | [LeadX](https://leadx.com) | $19.1K | **+18,7%** | "Hedeflediğiniz şirketleri ve karar vericileri sürekli güncellenen verilerle belirler ve satış ekibinize iletir." | Computer Software, Professional Services · VP Sales, RevOps, Head of Growth · 20–1000 · Salesforce, HubSpot |
+| 7 | [LocalRank](https://localrank.so) | $26.0K | +8,6% | "Müşterilerinizi Google Haritalar'da ilk 3'e taşır; 90 günde yükselmezse para iadesi." | Marketing & Advertising (Local SEO agency) · Owner, Founder, SEO Manager · 1–50 |
+| 8 | [Pushouse](https://pushouse.com) | $24.8K | +3,5% | "Terk edilen sepetleri WhatsApp ile geri kazanır, sipariş bildirimleriyle tekrar satışı artırır." | Retail, Apparel & Fashion, Cosmetics · E-commerce Manager, Founder · 5–200 · Shopify, Ticimax, İdeasoft, WooCommerce |
+| 9 | [Orion AI](https://orionaisolutions.ai) | $39.1K | -46% | "Yapay zekâ asistanı hayat sigortası leadlerinizi arar, randevu alır ve üç hatlı otomatik arama yapar." $149/acente/ay | **Insurance** · Agency Owner, Principal, Insurance Agent · 1–200 |
+| 10 | [Book the Move](https://www.bookthemove.com) | $5.6K | -26% | "Bölgenizde evini satışa çıkaranları bulur ve onlara sizin adınıza kişiselleştirilmiş e-posta gönderir: özel nakliye leadleri." | Transportation/Trucking (Moving & Storage) · Owner, General Manager · 5–100 |
+| 11 | [DM Champ](https://dmchamp.com) | $14.1K | -26% | "WhatsApp ve Instagram'dan gelen her mesaja saniyeler içinde yanıt verir, itirazları karşılar ve randevu alır." | Marketing & Advertising, Medical Practice, Health & Wellness · Owner, Founder · 1–50 |
+| 12 | [Converti](https://www.converti.ai) | $11.9K | -5% | "Reklamdan gelen leadi 60 saniye içinde arar, SMS ile takip eder ve satış görüşmesine dönüştürür." | Marketing & Advertising (Ad agency) · Owner, Founder, Head of Performance · 1–50 · Facebook Ads |
+| 13 | [1ClickWebsite.ai](https://1clickwebsite.ai) | $13.8K | +14,5% | "Tek tıkla SEO uyumlu WordPress sitesi: ajansınız ayda 10 kat daha fazla site teslim edebilir." | Marketing & Advertising, Web Design · Owner, Founder · 1–20 · WordPress |
+| 14 | [Stack Influence](https://stackinfluence.com) | $26.8K | -4% | "Yüzlerce mikro influencer ile ürününüz için otomatik UGC ve satış getiren kampanyalar kurar." | E-commerce, Consumer Goods, Cosmetics · Founder, Marketing Director, Amazon Manager · 5–200 · Shopify, Amazon |
+| 15 | [Walead](http://www.walead.ai) | $23.2K | -9% | "LinkedIn'de yapay zekâ ile kişiselleştirilmiş outreach: satış ekibi başına haftalık toplantı sayısını artırır." | Computer Software, Staffing, Consulting · Head of Sales, SDR Manager, Founder · 5–200 |
+| 16 | [LeadShark](https://leadshark.io) | $21.3K | -2% | "LinkedIn gönderinize yorum yapan herkese otomatik DM gönderir; etkileşimi leade çevirir." | Management Consulting, Marketing, Coaching · Founder, CEO, Consultant · 1–20 |
+| 17 | [Coldsire](https://coldsire.com) | $16.6K | -6% | "Hazır ve ısıtılmış soğuk e-posta kutuları: spam klasörüne düşmeden daha fazla yanıt." | Marketing & Advertising (Lead gen agency) · Founder, Head of Outbound · 1–50 · Instantly, Smartlead |
+| 18 | [Lancer.app](https://www.lancer.app) | $21.6K | +6,8% | "Upwork'te yeni ilanlara dakikalar içinde yapay zekâ ile kişiselleştirilmiş teklif gönderir; daha fazla iş kazandırır." | IT Services, Software Development, Design · Founder, Business Development · 2–50 |
+| 19 | [JourneyFuse](https://journeyfuse.com) | $6.8K | **+21,7%** | "Lead, teklif, rota planı ve ödeme tek yerde: seyahat acenteniz teklifleri daha hızlı satışa çevirir." | Leisure, Travel & Tourism · Owner, Travel Advisor, Agency Manager · 1–100 |
+| 20 | [HotelHero.ai](http://www.hotelhero.ai) | $2.5K | -6% | "OTA komisyonu ödemeden, sosyal medya ve itibar yönetimiyle doğrudan rezervasyonları artırır." | Hospitality · General Manager, Revenue Manager, Owner · 10–200 |
+| 21 | [ConvertLabs](https://convertlabs.io) | $26.3K | -29% | "Yerel hizmet işletmeleri için online randevu ve otomatik pazarlama: boş saatleri doldurur." | Consumer Services, Health & Wellness, Cosmetics (salon/spa) · Owner, Manager · 1–50 |
+| 22 | [Harper](https://askharper.ai) | $6.2K | -1% | "İngiltere kamu kayıtlarından her hafta yeni kredi ve yatırım fırsatı listesi, iletişim bilgileriyle birlikte." | Financial Services, Real Estate (UK) · Director, Broker, BDM · 1–200 |
+| 23 | [Juiced Leads](https://usejuiced.com) | $9.75K | +2,6% | "Satın aldığınız leadleri otomatik olarak en uygun satıcıya yönlendirir; lead başına satış oranını artırır." | Insurance, Renewables & Environment (Solar), Construction · Owner, Sales Manager · 5–200 |
+| 24 | [ChatDash](https://chat-dash.com) | $20.1K | -46% | "Ajansınızın markasıyla yapay zekâ chatbot paneli: müşterilerinize aylık ek gelir getiren yeni bir hizmet." | Marketing & Advertising · Agency Owner, Founder · 1–50 |
+| 25 | [Blabla](https://www.blabla.ai) | $5.7K | -39% | "Instagram ve TikTok'taki her yorum ve DM'i yapay zekâ ile yanıtlar ve satışa dönüştürür." | E-commerce, Consumer Goods, Cosmetics · Social Media Manager, Founder · 5–200 · Shopify |
+
+**Yedek adaylar:** [Aila](https://www.withaila.com) (mortgage uzmanları; Apollo'da *Loan Officer* unvanıyla çok iyi bulunuyor, ama asıl faydası zaman tasarrufu), [Magnetic Funnels](https://go.magneticfunnels.io) ($9.6K), [Dooken](https://www.dooken.de) ($2.5K; e-ticaret için statik reklam görselleri), [ReddGrow](https://reddgrow.ai) ($7K; B2B Reddit pazarlaması).
+
+> Not: trustmrr'da "Stealth Company" adıyla listelenen başka bir girişim, Orion AI ile birebir aynı açıklamayı kullanıyor ve $39.9K MRR (+5,5%) yapıyor. Sigorta acentelerine yapay zekâ ile satış CRM'i nişinde toplam gelir yaklaşık 79 bin $. Bu, pazarın büyük olduğunu gösteriyor.
+
+## Apollo'da en kolay hedeflenen 8 aday
+
+Aşağıdaki adaylarda Apollo'nun *Industry* ve *Job Title* filtreleri tek başına yeterince net bir liste çıkarıyor. Bunlar soğuk e-posta ile satışa en uygun olanlar:
+
+| Aday | Apollo'da tahmini hedef kitle | Neden kolay |
+|------|-------------------------------|-------------|
+| Orion AI (sigorta) | Insurance + "Agency Owner/Principal" → on binlerce kişi | Tek bir sektör ve tek bir unvan; acentelerin ağrısı (leadleri geri arayamamak) net |
+| Book the Move (nakliye) | Moving & Storage + "Owner" | Firma sahibi kararı tek başına veriyor, satış döngüsü kısa |
+| HotelHero (otel) | Hospitality + "General Manager/Revenue Manager" | "OTA komisyonu" acısı evrensel ve kolay anlaşılıyor |
+| JourneyFuse (seyahat) | Leisure, Travel & Tourism + "Owner" | Küçük acenteler, hızlı karar |
+| LocalRank / 1ClickWebsite / ChatDash / Converti (ajanslar) | Marketing & Advertising + 1–50 çalışan + "Owner" | Apollo'nun en yoğun segmenti; ajanslar ürünü kendi müşterilerine yeniden satabiliyor |
+| Pushouse / Stack Influence / Blabla / Adspirer (e-ticaret) | *Technologies* = Shopify/WooCommerce + Retail/Apparel | Teknoloji filtresi tam isabet sağlıyor; mağazanın gelirine göre de filtrelenebiliyor |
+| PipeLime / Traxy / LeadX / Walead (B2B satış) | Computer Software + "Head of Sales/Founder" + 10–200 çalışan | Alıcı Apollo kullanıcısıyla aynı profilde; outbound'un değerini zaten biliyor |
+| Harper (UK finans) | Financial Services + UK + "Broker/Director" | Coğrafya ve sektör filtresiyle dar ve net bir liste |
+
+## Pazarlama önerisi
+- **Mesaj formülü:** "[Sektör] firmaları [sorun] yüzünden [kayıp] yaşıyor. [Ürün], [ölçülebilir sonuç] sağlıyor." Örnek: *"Sigorta acenteleri leadlerin %60'ını 5 dakika içinde arayamadığı için kaybediyor. Asistanımız her leadi 60 saniyede arıyor ve randevu alıyor."*
+- **Önce doğrulama:** Kodlamaya başlamadan önce Apollo'dan seçtiğin segmentte 200 kişilik bir liste çıkar ve 3 farklı mesajla soğuk e-posta gönder. Yanıt oranı %3'ün üzerindeyse o nişe gir.
+- **Önceliğim:** (1) Sigorta acenteleri için yapay zekâ ile satış (Orion modeli). Niş kanıtlanmış (iki ürün toplam ~79 bin $) ve Apollo'da tam isabetle hedeflenebiliyor. (2) Otel doğrudan rezervasyon (HotelHero). Rakip az, acı net. (3) Nakliye veya ev hizmetleri lead üretimi (Book the Move). Firma sahibine doğrudan ulaşılıyor, satış döngüsü kısa.
