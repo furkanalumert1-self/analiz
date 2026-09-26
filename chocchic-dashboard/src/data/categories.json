@@ -1,0 +1,314 @@
+[
+ {
+  "slug": "atistirmalik-cikolata",
+  "url": "https://www.chocchic.com/kategori/atistirmalik-cikolata",
+  "name": "ATIŞTIRMALIK ÇİKOLATA",
+  "listedProducts": 4,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "hediye-gonder",
+  "url": "https://www.chocchic.com/kategori/hediye-gonder",
+  "name": "HEDİYE GÖNDER",
+  "listedProducts": 30,
+  "hasMetaDescription": true,
+  "hasH1": false
+ },
+ {
+  "slug": "urun-yelpazemiz",
+  "url": "https://www.chocchic.com/kategori/urun-yelpazemiz",
+  "name": "ÜRÜN YELPAZEMİZ",
+  "listedProducts": 30,
+  "hasMetaDescription": true,
+  "hasH1": false
+ },
+ {
+  "slug": "kurumsal-hediye",
+  "url": "https://www.chocchic.com/kategori/kurumsal-hediye",
+  "name": "KURUMSAL HEDİYE",
+  "listedProducts": 30,
+  "hasMetaDescription": true,
+  "hasH1": false
+ },
+ {
+  "slug": "babalar-gunu-hediye",
+  "url": "https://www.chocchic.com/kategori/babalar-gunu-hediye",
+  "name": "BABALAR GÜNÜ HEDİYE",
+  "listedProducts": 13,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "kadinlar-gunu-hediye",
+  "url": "https://www.chocchic.com/kategori/kadinlar-gunu-hediye",
+  "name": "KADINLAR GÜNÜ HEDİYE",
+  "listedProducts": 26,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "bayram-hediye",
+  "url": "https://www.chocchic.com/kategori/bayram-hediye",
+  "name": "BAYRAM HEDİYE",
+  "listedProducts": 29,
+  "hasMetaDescription": true,
+  "hasH1": false
+ },
+ {
+  "slug": "dogum-gunu-hediye",
+  "url": "https://www.chocchic.com/kategori/dogum-gunu-hediye",
+  "name": "DOĞUM GÜNÜ HEDİYE",
+  "listedProducts": 22,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "bebek-hediye",
+  "url": "https://www.chocchic.com/kategori/bebek-hediye",
+  "name": "BEBEK HEDİYE",
+  "listedProducts": 21,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "yeni-is-hediye",
+  "url": "https://www.chocchic.com/kategori/yeni-is-hediye",
+  "name": "YENİ İŞ HEDİYE",
+  "listedProducts": 1,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "yildonumu-hediye",
+  "url": "https://www.chocchic.com/kategori/yildonumu-hediye",
+  "name": "YILDÖNÜMÜ HEDİYE",
+  "listedProducts": 9,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "doktoruma-hediye",
+  "url": "https://www.chocchic.com/kategori/doktoruma-hediye",
+  "name": "DOKTORUMA HEDİYE",
+  "listedProducts": 3,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "gecmis-olsun-hediye",
+  "url": "https://www.chocchic.com/kategori/gecmis-olsun-hediye",
+  "name": "GEÇMİŞ OLSUN HEDİYE",
+  "listedProducts": 1,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "ozur-hediye",
+  "url": "https://www.chocchic.com/kategori/ozur-hediye",
+  "name": "ÖZÜR HEDİYE",
+  "listedProducts": 3,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "sevgiliye-hediye",
+  "url": "https://www.chocchic.com/kategori/sevgiliye-hediye",
+  "name": "SEVGİLİYE HEDİYE",
+  "listedProducts": 30,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "avukatlar-gunu-hediye",
+  "url": "https://www.chocchic.com/kategori/avukatlar-gunu-hediye",
+  "name": "AVUKATLAR GÜNÜ HEDİYE",
+  "listedProducts": 1,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "muhendisler-gunu",
+  "url": "https://www.chocchic.com/kategori/muhendisler-gunu",
+  "name": "MÜHENDİSLER GÜNÜ",
+  "listedProducts": 1,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "tesekkur-hediye",
+  "url": "https://www.chocchic.com/kategori/tesekkur-hediye",
+  "name": "TEŞEKKÜR HEDİYE",
+  "listedProducts": 3,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "icimden-geldi",
+  "url": "https://www.chocchic.com/kategori/icimden-geldi",
+  "name": "İÇİMDEN GELDİ",
+  "listedProducts": 3,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "paskalya-hediye",
+  "url": "https://www.chocchic.com/kategori/paskalya-hediye",
+  "name": "PASKALYA HEDİYE",
+  "listedProducts": 7,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "anneler-gunu-hediye",
+  "url": "https://www.chocchic.com/kategori/anneler-gunu-hediye",
+  "name": "ANNELER GÜNÜ HEDİYE",
+  "listedProducts": 19,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "logolu-cikolata",
+  "url": "https://www.chocchic.com/kategori/logolu-cikolata",
+  "name": "LOGOLU ÇİKOLATA",
+  "listedProducts": 5,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "taraftar-cikolata",
+  "url": "https://www.chocchic.com/kategori/taraftar-cikolata",
+  "name": "TARAFTAR ÇİKOLATA",
+  "listedProducts": 7,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "cikolatali-cicek",
+  "url": "https://www.chocchic.com/kategori/cikolatali-cicek",
+  "name": "ÇİKOLATALI ÇİÇEK",
+  "listedProducts": 6,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "mesajli-cikolata",
+  "url": "https://www.chocchic.com/kategori/mesajli-cikolata",
+  "name": "MESAJLI ÇİKOLATA",
+  "listedProducts": 12,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "fotografli-cikolata",
+  "url": "https://www.chocchic.com/kategori/fotografli-cikolata",
+  "name": "FOTOĞRAFLI ÇİKOLATA",
+  "listedProducts": 4,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "muzikli-cikolata",
+  "url": "https://www.chocchic.com/kategori/muzikli-cikolata",
+  "name": "MÜZİKLİ ÇİKOLATA",
+  "listedProducts": 2,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "cocuk-hediye",
+  "url": "https://www.chocchic.com/kategori/cocuk-hediye",
+  "name": "ÇOCUK HEDİYE",
+  "listedProducts": 3,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "kurumsal-kucuk-hediyeler",
+  "url": "https://www.chocchic.com/kategori/kurumsal-kucuk-hediyeler",
+  "name": "KURUMSAL KÜÇÜK HEDİYELER",
+  "listedProducts": 4,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "yeni-yil-hediye",
+  "url": "https://www.chocchic.com/kategori/yeni-yil-hediye",
+  "name": "YENİ YIL HEDİYE",
+  "listedProducts": 30,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "kutulu-kurumsal-urunler",
+  "url": "https://www.chocchic.com/kategori/kutulu-kurumsal-urunler",
+  "name": "KUTULU KURUMSAL ÜRÜNLER",
+  "listedProducts": 25,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "ogretmenler-gunu-hediye",
+  "url": "https://www.chocchic.com/kategori/ogretmenler-gunu-hediye",
+  "name": "ÖĞRETMENLER GÜNÜ HEDİYE",
+  "listedProducts": 12,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "konusan-cikolatalar",
+  "url": "https://www.chocchic.com/kategori/konusan-cikolatalar",
+  "name": "KONUŞAN ÇİKOLATALAR",
+  "listedProducts": 20,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "kina-gecesi-bekarliga-veda",
+  "url": "https://www.chocchic.com/kategori/kina-gecesi-bekarliga-veda",
+  "name": "KINA GECESİ & BEKARLIĞA VEDA",
+  "listedProducts": 0,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "mevlit",
+  "url": "https://www.chocchic.com/kategori/mevlit",
+  "name": "MEVLİT",
+  "listedProducts": 0,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "nikah-dugun",
+  "url": "https://www.chocchic.com/kategori/nikah-dugun",
+  "name": "NİKAH & DÜĞÜN",
+  "listedProducts": 0,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "soz-nisan",
+  "url": "https://www.chocchic.com/kategori/soz-nisan",
+  "name": "SÖZ & NİŞAN",
+  "listedProducts": 1,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "bebek-cikolata-1",
+  "url": "https://www.chocchic.com/kategori/bebek-cikolata-1",
+  "name": "BEBEK ÇİKOLATA",
+  "listedProducts": 1,
+  "hasMetaDescription": false,
+  "hasH1": false
+ },
+ {
+  "slug": "bebek-cikolata",
+  "url": "https://www.chocchic.com/kategori/bebek-cikolata",
+  "name": "BEBEK ÇİKOLATA",
+  "listedProducts": 0,
+  "hasMetaDescription": false,
+  "hasH1": false
+ }
+]

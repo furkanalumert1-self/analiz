@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --surface: #fbf8f4;
+  --card: #ffffff;
+  --ink: #1d1814;
+  --ink-2: #57504a;
+  --ink-3: #8a827a;
+  --line: #ece4db;
+  --chart-1: #8b4a26;
+  --chart-2: #d09a2a;
+  --chart-grid: #efe7de;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--surface);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card { @apply min-w-0 rounded-2xl border border-[var(--line)] bg-white shadow-card; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-cocoa-500; }
+  .h-section { @apply font-serif text-3xl leading-tight text-ink sm:text-4xl; }
+  .h-card { @apply text-[15px] font-semibold text-ink; }
+  .muted { @apply text-ink-2; }
+  .table-wrap { @apply -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0; }
+  .tbl { @apply w-full min-w-[720px] border-separate border-spacing-0 text-left text-[13px]; }
+  .tbl th { @apply sticky top-0 border-b border-[var(--line)] bg-cocoa-50 px-3 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-ink-2; }
+  .tbl td { @apply border-b border-[var(--line)] px-3 py-3 align-top text-ink; }
+  .tbl tr:last-child td { @apply border-b-0; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium leading-5; }
+  .btn-filter { @apply rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-medium text-ink-2 transition hover:border-cocoa-300 hover:text-ink; }
+  .btn-filter[aria-pressed="true"] { @apply border-cocoa-700 bg-cocoa-700 text-white; }
+}
+
+.recharts-tooltip-wrapper { outline: none; }
+.recharts-surface:focus { outline: none; }
+
+@media print {
+  aside, .no-print { display: none !important; }
+  main { margin: 0 !important; }
+}

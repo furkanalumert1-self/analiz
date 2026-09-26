@@ -1,0 +1,1825 @@
+{
+ "actor": "apify/website-content-crawler",
+ "runId": "F5b1nvfYAJOWOQtrN",
+ "crawledAt": "2026-09-26",
+ "requests": 434,
+ "pagesStored": 360,
+ "byType": {
+  "urun": 255,
+  "kategori": 78,
+  "marka": 9,
+  "sayfa": 8,
+  "home": 1,
+  "kategoriler": 1,
+  "iletisim-formu": 1,
+  "kargo-takibi": 1,
+  "siparis-sorgula": 1,
+  "iletisim": 1,
+  "arama": 1,
+  "blog": 1,
+  "sayfalar": 1,
+  "channel": 1
+ },
+ "pages": [
+  {
+   "url": "https://www.chocchic.com/",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 2045
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kadinlar-gunu-hediye",
+   "title": "KADINLAR GÜNÜ HEDİYE ",
+   "chars": 5971
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/icimden-geldi",
+   "title": "İÇİMDEN GELDİ",
+   "chars": 1213
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/gecmis-olsun-hediye",
+   "title": "GEÇMİŞ OLSUN HEDİYE",
+   "chars": 590
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/muhendisler-gunu",
+   "title": "MÜHENDİSLER GÜNÜ",
+   "chars": 558
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/ozur-hediye",
+   "title": "ÖZÜR HEDİYE",
+   "chars": 1397
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/paskalya-hediye",
+   "title": "PASKALYA HEDİYE",
+   "chars": 1813
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/tesekkur-hediye",
+   "title": "TEŞEKKÜR HEDİYE",
+   "chars": 1171
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yildonumu-hediye",
+   "title": "YILDÖNÜMÜ HEDİYE",
+   "chars": 2075
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/atistirmalik-cikolata",
+   "title": "ATIŞTIRMALIK ÇİKOLATA",
+   "chars": 1453
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yeni-is-hediye",
+   "title": "YENİ İŞ HEDİYE",
+   "chars": 536
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic",
+   "title": "ChocChic ",
+   "chars": 7603
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kir-kalbimi-tatli-surpriz-cikolata",
+   "title": "Kır Kalbimi Tatlı Sürprizli Çikolata",
+   "chars": 2725
+  },
+  {
+   "url": "https://www.chocchic.com/urun/muzikli-pinyata-kalp-cikolata",
+   "title": "Müzikli Pinyata Kalp Çikolata",
+   "chars": 2744
+  },
+  {
+   "url": "https://www.chocchic.com/urun/citir-but-cikolata",
+   "title": "Çıtır But Çikolata ChocChic",
+   "chars": 1797
+  },
+  {
+   "url": "https://www.chocchic.com/urun/melek-sacli-cikolata-1",
+   "title": "Melek Saçlı Çikolata",
+   "chars": 1602
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-cikolata-ikram-kutusu",
+   "title": "Logolu Çikolata İkram Kutusu",
+   "chars": 2490
+  },
+  {
+   "url": "https://www.chocchic.com/urun/lezzet-hazinesi-cikolata",
+   "title": "Lezzet hazinesi çikolata",
+   "chars": 3967
+  },
+  {
+   "url": "https://www.chocchic.com/urun/rengarenk-sargili-spesiyal-cikolata",
+   "title": "Rengarenk Sargılı Spesiyal Çikolata",
+   "chars": 3755
+  },
+  {
+   "url": "https://www.chocchic.com/urun/aromali-spesiyal-cikolata",
+   "title": "Aromalı Spesiyal Çikolata",
+   "chars": 2938
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mesajli-cikolata-sisesi",
+   "title": "Mesajlı Çikolata Şişesi",
+   "chars": 3582
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurumsal-imza-spesiyal-cikolata",
+   "title": "Kurumsal İmza Spesiyal Çikolata",
+   "chars": 3751
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mini-happy-birthday-cikolata",
+   "title": "Mini Happy Birthday Çikolata",
+   "chars": 3820
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gul-buketi-cikolata",
+   "title": "Gül Buketi Çikolata Hediye",
+   "chars": 3417
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gurme-cikolata",
+   "title": "Güllü Gurme Çikolata",
+   "chars": 3861
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bayram-prestiji-cikolata",
+   "title": "Bayram Prestiji Çikolata",
+   "chars": 3954
+  },
+  {
+   "url": "https://www.chocchic.com/kategoriler",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 70
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/urun-yelpazemiz",
+   "title": "ÜRÜN YELPAZEMİZ",
+   "chars": 6929
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/cikolatali-cicek",
+   "title": "ÇİKOLATALI ÇİÇEK",
+   "chars": 1465
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/fotografli-cikolata",
+   "title": "FOTOĞRAFLI ÇİKOLATA",
+   "chars": 1841
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/konusan-cikolatalar",
+   "title": "KONUŞAN ÇİKOLATALAR",
+   "chars": 5040
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/muzikli-cikolata",
+   "title": "MÜZİKLİ ÇİKOLATA",
+   "chars": 992
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/taraftar-cikolata",
+   "title": "TARAFTAR ÇİKOLATA",
+   "chars": 1667
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/mesajli-cikolata",
+   "title": "MESAJLI ÇİKOLATA ",
+   "chars": 2718
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kurumsal-hediye",
+   "title": "KURUMSAL HEDİYE",
+   "chars": 7375
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kutulu-kurumsal-urunler",
+   "title": "KUTULU KURUMSAL ÜRÜNLER",
+   "chars": 6358
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kurumsal-kucuk-hediyeler",
+   "title": "KURUMSAL KÜÇÜK HEDİYELER",
+   "chars": 1666
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/logolu-cikolata",
+   "title": "LOGOLU ÇİKOLATA",
+   "chars": 2328
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/anneler-gunu-hediye",
+   "title": "ANNELER GÜNÜ HEDİYE",
+   "chars": 4536
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/bayram-hediye",
+   "title": "BAYRAM HEDİYE",
+   "chars": 7239
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/ogretmenler-gunu-hediye",
+   "title": "ÖĞRETMENLER GÜNÜ HEDİYE",
+   "chars": 2779
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/sevgiliye-hediye",
+   "title": "SEVGİLİYE HEDİYE",
+   "chars": 7171
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/dogum-gunu-hediye",
+   "title": "DOĞUM GÜNÜ HEDİYE",
+   "chars": 5485
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder",
+   "title": "HEDİYE GÖNDER",
+   "chars": 7170
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yeni-yil-hediye",
+   "title": "YENİ YIL HEDİYE",
+   "chars": 7300
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/avukatlar-gunu-hediye",
+   "title": "AVUKATLAR GÜNÜ HEDİYE",
+   "chars": 576
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/bebek-hediye",
+   "title": "BEBEK HEDİYE",
+   "chars": 5149
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/doktoruma-hediye",
+   "title": "DOKTORUMA HEDİYE",
+   "chars": 1290
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/cocuk-hediye",
+   "title": "ÇOCUK HEDİYE",
+   "chars": 1351
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/babalar-gunu-hediye",
+   "title": "BABALAR GÜNÜ HEDİYE ",
+   "chars": 3122
+  },
+  {
+   "url": "https://www.chocchic.com/iletisim-formu",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 11496
+  },
+  {
+   "url": "https://www.chocchic.com/kargo-takibi",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 70
+  },
+  {
+   "url": "https://www.chocchic.com/siparis-sorgula",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 70
+  },
+  {
+   "url": "https://www.chocchic.com/iletisim",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 681
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/gizlilik-ve-guvenlik",
+   "title": "Gizlilik ve Güvenlik",
+   "chars": 9463
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/iptal-ve-iade-sartlari",
+   "title": "İptal ve İade Şartları",
+   "chars": 7952
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/mesafeli-satis-sozlesmesi",
+   "title": "Mesafeli Satış Sözleşmesi",
+   "chars": 17060
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/kisisel-veriler-politikasi",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 168
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seffaf-kutuda-fiyonklu-renkli-kalpler",
+   "title": "Şeffaf Kutuda Fiyonklu Renkli Kalpler",
+   "chars": 3539
+  },
+  {
+   "url": "https://www.chocchic.com/urun/8-mart-kadinlar-gunu-kutlama-cikolatasi",
+   "title": "8 Mart Kadınlar Günü Kutlama Çikolatası",
+   "chars": 3621
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tutkulu-renkler-cikolata",
+   "title": "Tutkulu Renkler Çikolata",
+   "chars": 3506
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cantali-bayan-ayakkabi-cikolata",
+   "title": "Ayakkabı Çikolata ChocChic",
+   "chars": 3549
+  },
+  {
+   "url": "https://www.chocchic.com/urun/elbiseli-kalpli-kadinlar-gunu-cikolata",
+   "title": "Elbiseli Kalpli Kadınlar Günü Çikolata",
+   "chars": 3602
+  },
+  {
+   "url": "https://www.chocchic.com/urun/marshmallow-lolipop",
+   "title": "Marshmallow Lolipop ChocChic",
+   "chars": 3376
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-kutuda-kadinlar-gunu-cikolata",
+   "title": "Çiçekli Kalp Kutuda Kadınlar Günü Çikolata",
+   "chars": 3591
+  },
+  {
+   "url": "https://www.chocchic.com/urun/harfli-kadinlar-gunu-cikolata",
+   "title": "Harfli Kadınlar Günü Çikolata",
+   "chars": 3595
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cikolatali-yilbasi-cami",
+   "title": "Çikolatalı Yılbaşı Çamı",
+   "chars": 3249
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-kurumsal-cikolata",
+   "title": "Konuşan Kurumsal Çikolata",
+   "chars": 4175
+  },
+  {
+   "url": "https://www.chocchic.com/urun/metal-kutuda-kadinlar-gunu-cikolata",
+   "title": "Metal kutuda Kadınlar Günü Çikolata",
+   "chars": 2128
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/ses-kaydi",
+   "title": "Ses Kaydı",
+   "chars": 115
+  },
+  {
+   "url": "https://www.chocchic.com/arama",
+   "title": "",
+   "chars": 165
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/yardim",
+   "title": "Yardım",
+   "chars": 1826
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/kurumsal",
+   "title": "kurumsal",
+   "chars": 114
+  },
+  {
+   "url": "https://www.chocchic.com/blog/kategori/genel",
+   "title": "Genel",
+   "chars": 48
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bahar-dokunusu-cikolata",
+   "title": "Bahar Dokunuşu Çikolata",
+   "chars": 3666
+  },
+  {
+   "url": "https://www.chocchic.com/sayfalar",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 1067
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-cikolata-buketi",
+   "title": "Kalp Çikolata Buketi İkili",
+   "chars": 3623
+  },
+  {
+   "url": "https://www.chocchic.com/sayfa/hakkimizda",
+   "title": "Hakkımızda",
+   "chars": 116
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tek-gul-cikolata",
+   "title": "Tek Gül Çikolata ChocChic",
+   "chars": 3612
+  },
+  {
+   "url": "https://www.chocchic.com/urun/feminen-isiltili-cikolata",
+   "title": "Feminen Işıltılı Çikolata",
+   "chars": 3788
+  },
+  {
+   "url": "https://www.chocchic.com/urun/dort-renkli-gul-cikolata",
+   "title": "Dört Renkli Gül Çikolata",
+   "chars": 3817
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seffaf-kutuda-kadinlar-gunu-cikolata",
+   "title": "Şeffaf Kutuda Kadınlar Günü Çikolata",
+   "chars": 3299
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mor-kalpli-kadinlar-gunu-cikolata",
+   "title": "Mor Kalpli Kadınlar Günü Çikolata",
+   "chars": 3494
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ortanca-dekorlu-kadinlar-gunu-cikolata-1",
+   "title": "Ortanca Dekorlu Kadınlar Günü Çikolata",
+   "chars": 3532
+  },
+  {
+   "url": "https://www.chocchic.com/urun/altin-opucuk-cikolata",
+   "title": "Altın Öpücük Çikolata",
+   "chars": 3468
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kirmizi-kalpler-kadinlar-gunu-cikolata",
+   "title": "Kırmızı Kalpler Kadınlar Günü Çikolata",
+   "chars": 3519
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kadinlara-ozel-cikolata",
+   "title": "Kadınlara Özel Çikolata",
+   "chars": 3510
+  },
+  {
+   "url": "https://www.chocchic.com/urun/opucukler-ve-kalpler-cikolata",
+   "title": "Öpücükler ve Kalpler Çikolata",
+   "chars": 3529
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kadinlar-gunu-mesajli-cikolata",
+   "title": "Kadınlar Günü Mesajlı Çikolata",
+   "chars": 3544
+  },
+  {
+   "url": "https://www.chocchic.com/urun/oyuncu-cikolatasi",
+   "title": "Oyuncu Çikolatası ChocChic",
+   "chars": 2908
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mesajli-kalpli-cikolata",
+   "title": "Sevgiliye Mesajlı Çikolata",
+   "chars": 3510
+  },
+  {
+   "url": "https://www.chocchic.com/urun/nazar-boncuklu-cikolata",
+   "title": "Nazar Boncuklu Çikolata",
+   "chars": 3337
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gecmis-olsun-hediyelik-cikolata",
+   "title": "Geçmiş Olsun Hediyelik Çikolata",
+   "chars": 3177
+  },
+  {
+   "url": "https://www.chocchic.com/urun/pudra-kutuda-logolu-cikolata",
+   "title": "Pudra Kutuda Logolu Çikolata",
+   "chars": 1789
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-ozur-dilerim",
+   "title": "Konuşan Çikolata '' Özür Dilerim''",
+   "chars": 4216
+  },
+  {
+   "url": "https://www.chocchic.com/urun/i-m-sorry-mesajli-cikolata",
+   "title": "I'm Sorry Mesajlı Çikolata",
+   "chars": 3104
+  },
+  {
+   "url": "https://www.chocchic.com/urun/celenk-paskalya-cikolata",
+   "title": "Çelenk Paskalya Çikolata",
+   "chars": 2410
+  },
+  {
+   "url": "https://www.chocchic.com/urun/rengarenk-paskalya-yumurta-cikolatasi",
+   "title": "Rengarenk Paskalya Yumurta Çikolatası",
+   "chars": 2672
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kus-yuvasi-paskalya-cikolata",
+   "title": "Kuş Yuvası Paskalya Çikolata",
+   "chars": 2800
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cicekli-cikolatalar",
+   "title": "Çiçekli Çikolatalar ChocChic",
+   "chars": 2155
+  },
+  {
+   "url": "https://www.chocchic.com/urun/paskalya-yumurtasi-cikolata",
+   "title": "Paskalya Yumurtası Çikolata",
+   "chars": 2338
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tesekkur-cikolatasi-1",
+   "title": "Teşekkür Çikolatası ChocChic",
+   "chars": 3197
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ozur-dilerim-mesajli-cikolata",
+   "title": "Özür Dilerim Mesajlı Çikolata",
+   "chars": 3173
+  },
+  {
+   "url": "https://www.chocchic.com/urun/uymc532",
+   "title": "Teşekkürler Mesajlı Çikolata",
+   "chars": 3118
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yildonumu-cikolata",
+   "title": "Yıldönümü Çikolata ChocChic",
+   "chars": 2904
+  },
+  {
+   "url": "https://www.chocchic.com/urun/buyuk-askima",
+   "title": "Büyük Aşkıma Çikolata",
+   "chars": 3484
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fotografli-cikolata-pasta",
+   "title": "Fotoğraflı Çikolata Pasta",
+   "chars": 3686
+  },
+  {
+   "url": "https://www.chocchic.com/urun/simsicak-kalpler-cikolata",
+   "title": "Sımsıcak Kalpler Çikolata",
+   "chars": 3360
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-6-dilde-ask",
+   "title": "Konuşan Çikolata ''6 Dilde Aşk''",
+   "chars": 4055
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kare-kutuda-fotografli-cikolata",
+   "title": "Kare Kutuda Fotoğraflı Çikolata",
+   "chars": 3157
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cokostick-sicak-cikolata-cubugu",
+   "title": "ÇokoStick Sıcak Çikolata Çubuğu",
+   "chars": 1782
+  },
+  {
+   "url": "https://www.chocchic.com/urun/i-love-you-cikolata",
+   "title": "ChocChic I Love You Çikolata",
+   "chars": 3457
+  },
+  {
+   "url": "https://www.chocchic.com/urun/just-for-you-cikolata",
+   "title": "Just For You Çikolata",
+   "chars": 3434
+  },
+  {
+   "url": "https://www.chocchic.com/urun/citir-kadayifli-dubai-cikolatasi",
+   "title": "Çıtır Kadayıflı Dubai Çikolatası",
+   "chars": 1887
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-melekler",
+   "title": "Konuşan Çikolata - Melekler",
+   "chars": 4374
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=2",
+   "title": "2. Sayfa - ChocChic",
+   "chars": 7009
+  },
+  {
+   "url": "https://www.chocchic.com/urun/premium-logolu-spesiyal-cikolata",
+   "title": "Premium Logolu Spesiyal Çikolata",
+   "chars": 3925
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yeni-is-tebrigi-cikolata",
+   "title": "Yeni İş Tebriği Çikolata",
+   "chars": 957
+  },
+  {
+   "url": "https://www.chocchic.com/urun/altin-kalpler-ve-guller-cikolata",
+   "title": "Altın Kalp ve Güller Çikolata",
+   "chars": 3333
+  },
+  {
+   "url": "https://www.chocchic.com/urun/isimli-dogum-gunu-pastasi-formlu-dubai-cikolatasi",
+   "title": "Kişiye Özel Doğum Günü Pasta Formlu Dubai Çikolatası",
+   "chars": 3340
+  },
+  {
+   "url": "https://www.chocchic.com/urun/beyaz-kup-kutuda-logolu-madlen-bayram-cikolata",
+   "title": "Beyaz Küp Kutuda Logolu Madlen Bayram Çikolata",
+   "chars": 3882
+  },
+  {
+   "url": "https://www.chocchic.com/urun/lezzet-vitrini-kurumsal-cikolata",
+   "title": "Lezzet Vitrini Kurumsal Çikolata",
+   "chars": 3727
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yildizli-dubai-spesiyal-cikolata",
+   "title": "Yıldızlı Dubai Spesiyal Çikolata",
+   "chars": 3424
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-ahsap-kutuda-kurumsal-cikolata",
+   "title": "Logolu Ahşap Kutuda Kurumsal Çikolata",
+   "chars": 3703
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kitap-kutuda-bayram-cikolatasi",
+   "title": "Kitap Kutuda Bayram Çikolatası",
+   "chars": 3606
+  },
+  {
+   "url": "https://www.chocchic.com/urun/premium-karma-logolu-cikolata",
+   "title": "Premium Karma Logolu Çikolata",
+   "chars": 3866
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-prestij-kurumsal-cikolata",
+   "title": "Logolu Prestij Kurumsal Çikolata",
+   "chars": 3872
+  },
+  {
+   "url": "https://www.chocchic.com/urun/zarif-ikram-kurumsal-cikolata",
+   "title": "Zarif İkram Kurumsal Çikolata",
+   "chars": 3719
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kup-kutuda-madlen-cikolata",
+   "title": "Küp Kutuda Madlen Çikolata",
+   "chars": 3657
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=3",
+   "title": "3. Sayfa - ChocChic",
+   "chars": 7155
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurumsal-bayram-ozel-koleksiyon-609",
+   "title": "Kurdeleli Kutuda Kurumsal Çikolata",
+   "chars": 3752
+  },
+  {
+   "url": "https://www.chocchic.com/urun/askin-en-tatli-hali-cikolata",
+   "title": "Aşkın En Tatlı Hali Çikolata",
+   "chars": 2537
+  },
+  {
+   "url": "https://www.chocchic.com/urun/futbol-surprizli-kalp-cikolata",
+   "title": "Futbol Sürprizli Pinyata Kalp Çikolata",
+   "chars": 4314
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=4",
+   "title": "4. Sayfa - ChocChic",
+   "chars": 7402
+  },
+  {
+   "url": "https://www.chocchic.com/urun/pelus-ayicikli-cikolata-hediye",
+   "title": "Peluş Ayıcıklı Çikolata Hediye",
+   "chars": 3183
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=8",
+   "title": "8. Sayfa - ChocChic",
+   "chars": 5507
+  },
+  {
+   "url": "https://www.chocchic.com/channel/UC5AP8M_r9RfarMMm9lFEByQ",
+   "title": "Chocchic.com Online Çikolata Mağazası",
+   "chars": 184
+  },
+  {
+   "url": "https://www.chocchic.com/urun/isme-ozel-dogum-gunu-sarkili-cikolata",
+   "title": "İsme Özel Doğum Günü Şarkılı Çikolata",
+   "chars": 3612
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kipkirmizi-ask-cikolata",
+   "title": "Kıpkırmızı Aşk Çikolata",
+   "chars": 3679
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mutlu-bayramlar-logolu-spesiyal-cikolata",
+   "title": "Mutlu Bayramlar Logolu Spesiyal Çikolata",
+   "chars": 3746
+  },
+  {
+   "url": "https://www.chocchic.com/urun/isme-ozel-harfli-dogum-gunu-cikolatasi",
+   "title": "İsme Özel Harfli Doğum Günü Çikolatası",
+   "chars": 3628
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cikolata-pastasi",
+   "title": "Çikolata Pastası ChocChic",
+   "chars": 3922
+  },
+  {
+   "url": "https://www.chocchic.com/urun/happy-new-year-konusan-cikolata",
+   "title": "Happy New Year Konuşan Çikolata",
+   "chars": 4193
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/urun-yelpazemiz?tp=2",
+   "title": "2. Sayfa - ÜRÜN YELPAZEMİZ",
+   "chars": 5729
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bjk-askina-ozel-cikolata",
+   "title": "BJK Aşkına Özel Çikolata",
+   "chars": 2378
+  },
+  {
+   "url": "https://www.chocchic.com/urun/dunyanin-en-iyi-babasi-cikolata",
+   "title": "Dünyanın En İyi Babası Çikolata",
+   "chars": 3665
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gs-askina-ozel-cikolata",
+   "title": "GS Aşkına Özel Çikolata",
+   "chars": 3229
+  },
+  {
+   "url": "https://www.chocchic.com/urun/spor-tutkunu-cikolatasi",
+   "title": "Spor Tutkunu Çikolatası",
+   "chars": 3605
+  },
+  {
+   "url": "https://www.chocchic.com/urun/muzikli-taraftar-cikolata-bjk",
+   "title": "Müzikli Taraftar Çikolata BJK",
+   "chars": 3575
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fb-askina-ozel-cikolata",
+   "title": "FB Aşkına Özel Çikolata",
+   "chars": 3284
+  },
+  {
+   "url": "https://www.chocchic.com/urun/muzikli-taraftar-cikolatasi-fb",
+   "title": "Müzikli Taraftar Çikolata FB",
+   "chars": 3546
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kiz-bebek-buketi-cikolatali-cicek",
+   "title": "Kız Bebek Buketi Çikolatalı Çiçek",
+   "chars": 3419
+  },
+  {
+   "url": "https://www.chocchic.com/urun/sans-dilegi-cikolatali-cicek",
+   "title": "Şans Dileği Çikolatalı Çiçek",
+   "chars": 3424
+  },
+  {
+   "url": "https://www.chocchic.com/urun/muzikli-taraftar-cikolatasi-gs",
+   "title": "Müzikli Taraftar Çikolata GS",
+   "chars": 3554
+  },
+  {
+   "url": "https://www.chocchic.com/urun/erkek-bebek-cikolatali-cicek",
+   "title": "Erkek Bebek Çikolatalı Çiçek",
+   "chars": 3366
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-cikolatali-yilbasi-cami",
+   "title": "Logolu Çikolatalı Yılbaşı Çamı",
+   "chars": 3464
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mesajli-kup-kutuda-cikolata",
+   "title": "Mesajlı Küp Kutuda Çikolata",
+   "chars": 3381
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gokkusagi-cikolatali-cicek",
+   "title": "Gökkuşağı Çikolatalı Çiçek",
+   "chars": 2035
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ilan-i-ask-cikolata",
+   "title": "İlan-ı Aşk Çikolata ChocChic",
+   "chars": 3501
+  },
+  {
+   "url": "https://www.chocchic.com/urun/dogum-gunune-ozel-cikolata",
+   "title": "Doğum Gününe Özel Çikolata",
+   "chars": 3355
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yenilebilir-fotografli-cikolata-pencereli-kutuda",
+   "title": "Yenilebilir Fotoğraflı Çikolata",
+   "chars": 3791
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tesekkur-cikolatasi",
+   "title": "Doktor Teşekkür Çikolatası",
+   "chars": 3098
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-gold",
+   "title": "Konuşan Çikolata ''Gold''",
+   "chars": 3955
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fotografli-madlen-cikolata",
+   "title": "Fotoğraflı Madlen Çikolata",
+   "chars": 3798
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-sevimli-dostlar",
+   "title": "Konuşan Çikolata - Sevimli Dostlar",
+   "chars": 4225
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-telefonum",
+   "title": "Konuşan Çikolata - Telefonum",
+   "chars": 4177
+  },
+  {
+   "url": "https://www.chocchic.com/urun/chocchic-konusan-cikolata-anneler-gunu",
+   "title": "Konuşan Çikolata ''Anneler Günü''",
+   "chars": 3804
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-korsan",
+   "title": "Konuşan Çikolata - Korsan",
+   "chars": 4201
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-seni-seviyorum",
+   "title": "Konuşan Çikolata ''Seni Seviyorum''",
+   "chars": 4183
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-i-miss-you",
+   "title": "Konuşan Çikolata ''I Miss You''",
+   "chars": 4201
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-anneler-gunu",
+   "title": "Konuşan Çikolata ''Anneler Günü''",
+   "chars": 3933
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-mesajiniz-var",
+   "title": "Konuşan Çikolata ''Mesajınız Var''",
+   "chars": 4233
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-iyi-ki-dogdun",
+   "title": "Konuşan Çikolata ''İyi ki Doğdun''",
+   "chars": 4285
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-birtanesin",
+   "title": "Konuşan Çikolata ''Birtanesin''",
+   "chars": 4250
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-mutlu-yillar",
+   "title": "Konuşan Çikolata ''Mutlu Yıllar''",
+   "chars": 3966
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolata-neseli-yillar",
+   "title": "Konuşan Çikolata ''Neşeli Yıllar''",
+   "chars": 4136
+  },
+  {
+   "url": "https://www.chocchic.com/urun/chocchic-konusan-cikolata-babalar-gunu",
+   "title": "Konuşan Çikolata ''Babalar Günü''",
+   "chars": 3595
+  },
+  {
+   "url": "https://www.chocchic.com/urun/konusan-cikolatalar-i-love-you",
+   "title": "Konuşan Çikolata ''I Love You''",
+   "chars": 4212
+  },
+  {
+   "url": "https://www.chocchic.com/urun/altin-kuslar-yeni-yil-konusan-cikolata",
+   "title": "Altın Kuşlar Yeni Yıl Konuşan Çikolata",
+   "chars": 3284
+  },
+  {
+   "url": "https://www.chocchic.com/urun/love-story-muzikli-cikolata",
+   "title": "Love Story Müzikli Çikolata",
+   "chars": 3574
+  },
+  {
+   "url": "https://www.chocchic.com/urun/happy-birthday-muzikli-cikolata",
+   "title": "Happy Birthday Müzikli Çikolata",
+   "chars": 3701
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurdeleli-alcak-kutuda-logolu-cikolata",
+   "title": "Kurdeleli Alçak Kutuda Logolu Çikolata",
+   "chars": 4328
+  },
+  {
+   "url": "https://www.chocchic.com/urun/buyuk-boy-kitap-kutuda-logolu-cikolata",
+   "title": "Büyük Boy Kitap Kutuda Logolu Çikolata",
+   "chars": 4303
+  },
+  {
+   "url": "https://www.chocchic.com/urun/firma-logolu-karma-cikolata",
+   "title": "Firma Logolu Karma Çikolata",
+   "chars": 4217
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurdeleli-buyuk-kutuda-madlen-cikolata",
+   "title": "Kurdeleli Büyük Kutuda Madlen Çikolata",
+   "chars": 3995
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-kartvizit-cikolata",
+   "title": "Logolu Kartvizit Çikolata",
+   "chars": 1881
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kurumsal-hediye?tp=2",
+   "title": "2. Sayfa - KURUMSAL HEDİYE",
+   "chars": 2334
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-madlen-cikolata-250-adet",
+   "title": "Logolu Madlen Çikolata",
+   "chars": 1670
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurumsal-yilbasi-ozel-koleksiyon",
+   "title": "Kurumsal Yılbaşı Özel Koleksiyon",
+   "chars": 4239
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kucuk-kare-kutu-cikolata",
+   "title": "Küçük Kare Kutu Çikolata",
+   "chars": 2007
+  },
+  {
+   "url": "https://www.chocchic.com/urun/firma-logolu-kalin-kare-cikolata-50-adet",
+   "title": "Firma Logolu Kalın Kare Çikolata",
+   "chars": 1879
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-kurabiye",
+   "title": "Logolu Kurabiye ChocChic",
+   "chars": 1674
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-lolipop",
+   "title": "Logolu Lolipop ChocChic",
+   "chars": 1635
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-beyaz-kup-kutuda-acik-madlen-cikolata",
+   "title": "Logolu Beyaz Küp Kutuda Açık Madlen Çikolata",
+   "chars": 3751
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-yilbasi-cikolatasi",
+   "title": "Logolu Yılbaşı Çikolatası",
+   "chars": 3373
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seffaf-kapakli-kutuda-logolu-spesiyal-cikolata",
+   "title": "Şeffaf Kapaklı Kutuda Logolu Spesiyal Çikolata",
+   "chars": 4114
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-kutuda-cikolata",
+   "title": "Logolu Kutuda Çikolata",
+   "chars": 3510
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kitap-kutuda-logolu-spesiyal-cikolata",
+   "title": "Kitap Kutuda Logolu Kalın Çikolata",
+   "chars": 4574
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-kutuda-lokum-1",
+   "title": "Logolu Kutuda Lokum ChocChic",
+   "chars": 3699
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-ve-spesiyal-karma-cikolata",
+   "title": "Logolu ve Spesiyal Karma Çikolata",
+   "chars": 4011
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-kare-kutuda-acik-madlen-cikolata",
+   "title": "Logolu Küp Kutuda Logolu Madlen Çikolata",
+   "chars": 3773
+  },
+  {
+   "url": "https://www.chocchic.com/urun/piramit-kutuda-kurumsal-cikolata",
+   "title": "Piramit Kutuda Kurumsal Çikolata",
+   "chars": 3668
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tokali-kutuda-kurumsal-cikolata",
+   "title": "Tokalı Kutuda Kurumsal Çikolata",
+   "chars": 3835
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurdeleli-kurumsal-cikolata",
+   "title": "Kurdeleli Kurumsal Çikolata",
+   "chars": 4297
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-madlen-cikolata-24lu",
+   "title": "Logolu Madlen Çikolata 24'lü",
+   "chars": 4227
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-madlen-cikolata-48li",
+   "title": "Logolu Madlen Çikolata 48'li",
+   "chars": 3981
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-konusan-cikolata",
+   "title": "Logolu Konuşan Çikolata",
+   "chars": 4549
+  },
+  {
+   "url": "https://www.chocchic.com/urun/pencereli-kutuda-kurumsal-cikolata",
+   "title": "Pencereli Kutuda Kurumsal Çikolata",
+   "chars": 3967
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurdeleli-buyuk-kutuda-logolu-kalin-cikolata",
+   "title": "Kurdeleli Büyük Kutuda Logolu Kalın Çikolata",
+   "chars": 4050
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kurdeleli-buyuk-kutuda-logolu-cikolata",
+   "title": "Kurdeleli Büyük Kutuda Logolu Çikolata",
+   "chars": 3547
+  },
+  {
+   "url": "https://www.chocchic.com/urun/varak-baskili-kutuda-cikolata",
+   "title": "Varak Baskılı Kutuda Çikolata",
+   "chars": 3712
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-spesiyal-cikolata",
+   "title": "Logolu Spesiyal Çikolata",
+   "chars": 2024
+  },
+  {
+   "url": "https://www.chocchic.com/urun/annemi-seviyorum-cikolata",
+   "title": "Annemi Seviyorum Çikolata",
+   "chars": 3288
+  },
+  {
+   "url": "https://www.chocchic.com/urun/anneler-gunu-kutlama-cikolatasi",
+   "title": "Anneler Günü Kutlama Çikolatası",
+   "chars": 3548
+  },
+  {
+   "url": "https://www.chocchic.com/urun/pembe-kalpli-anne-cikolatasi",
+   "title": "Pembe Kalpli Anne Çikolatası",
+   "chars": 3290
+  },
+  {
+   "url": "https://www.chocchic.com/urun/en-guzel-anneye-cikolata",
+   "title": "En Güzel Anneye Çikolata",
+   "chars": 3297
+  },
+  {
+   "url": "https://www.chocchic.com/urun/anneler-gunu-mesajli-drajeli-cikolata",
+   "title": "Anneler Günü Mesajlı Drajeli Çikolata",
+   "chars": 3432
+  },
+  {
+   "url": "https://www.chocchic.com/urun/canim-annem-cikolata",
+   "title": "Canım Annem Çikolata",
+   "chars": 3277
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ne-cektin-be-annem",
+   "title": "Ne Çektin Be Annem Çikolata",
+   "chars": 3332
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kup-kutuda-kurumsal-cikolata",
+   "title": "Küp Kutuda Kurumsal Çikolata",
+   "chars": 2590
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-lokum",
+   "title": "Logolu Lokum ChocChic",
+   "chars": 1631
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bayram-ozel-dekorlu-madlen-cikolata",
+   "title": "Bayram Özel Dekorlu Madlen Çikolata",
+   "chars": 3598
+  },
+  {
+   "url": "https://www.chocchic.com/urun/inci-tanem-canim-annem",
+   "title": "İnci Tanem Canım Annem",
+   "chars": 3276
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bayram-ozel-spesiyal-cikolata",
+   "title": "Bayram Özel Spesiyal Çikolata",
+   "chars": 3746
+  },
+  {
+   "url": "https://www.chocchic.com/urun/sik-spesiyal-bayram-cikolata",
+   "title": "Şık Spesiyal Bayram Çikolata",
+   "chars": 3525
+  },
+  {
+   "url": "https://www.chocchic.com/urun/sirin-bayram-cikolatasi",
+   "title": "Şirin Bayram Çikolatası",
+   "chars": 3487
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bayram-dekorlu-kutuda-madlen-cikolata",
+   "title": "Bayram Dekorlu Kutuda Madlen Çikolata",
+   "chars": 3571
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seker-bayrami-mesajli-cikolata",
+   "title": "Şeker Bayramı Mesajlı Çikolata",
+   "chars": 3617
+  },
+  {
+   "url": "https://www.chocchic.com/urun/otantik-dekorlu-spesiyal-cikolata",
+   "title": "Otantik Dekorlu Spesiyal Çikolata",
+   "chars": 3558
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mutlu-bayramlar-madlen-cikolata",
+   "title": "Mutlu Bayramlar Madlen Çikolata",
+   "chars": 3555
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ogretmenler-gunu-kutlama-cikolatasi",
+   "title": "Öğretmenler Günü Kutlama Çikolatası",
+   "chars": 3470
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gul-dekorlu-kutuda-ogretmen-cikolata",
+   "title": "Gül Dekorlu Kutuda Öğretmen Çikolata",
+   "chars": 3448
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mesajini-kendin-olustur-ogretmene-cikolata",
+   "title": "Öğretmene Mesajını Kendin Oluştur Çikolata",
+   "chars": 3787
+  },
+  {
+   "url": "https://www.chocchic.com/urun/24-kasim-mesajli-cikolata",
+   "title": "24 Kasım Mesajlı Çikolata",
+   "chars": 3440
+  },
+  {
+   "url": "https://www.chocchic.com/urun/sevgili-ogretmenime-cikolata",
+   "title": "Sevgili Öğretmenime Çikolata",
+   "chars": 3461
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cicek-desenli-ogretmenler-gunu-cikolata",
+   "title": "Çiçek Desenli Öğretmenler Günü Çikolatası",
+   "chars": 3479
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ogretmene-klasik-spesiyal-cikolata",
+   "title": "Öğretmene Klasik Spesiyal Çikolata",
+   "chars": 3482
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seker-ogretmenler-gunu-cikolatasi",
+   "title": "Öğretmene Şekerli Çikolata",
+   "chars": 2201
+  },
+  {
+   "url": "https://www.chocchic.com/urun/gullu-ogretmenler-gunu-kutlama-cikolatasi",
+   "title": "Güllü Öğretmenler Günü Kutlama Çikolatası",
+   "chars": 3449
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yazi-tahtasi-gorselli-ogretmen-cikolata",
+   "title": "Yazı Tahtası Görselli Öğretmenler Günü Çikolata",
+   "chars": 3273
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalpli-ayicikli-cikolata",
+   "title": "Kalpli Ayıcıklı Çikolata",
+   "chars": 3357
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalbimin-sahibine-cikolata",
+   "title": "Kalbimin Sahibine Çikolata",
+   "chars": 3359
+  },
+  {
+   "url": "https://www.chocchic.com/urun/hersey-seninle-guzel-cikolata",
+   "title": "Herşey Seninle Güzel Çikolata",
+   "chars": 3428
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/sevgiliye-hediye?tp=2",
+   "title": "2. Sayfa - SEVGİLİYE HEDİYE",
+   "chars": 3246
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fiyonklu-renkli-kalpler-cikolata",
+   "title": "Fiyonklu Renkli Kalpler Çikolata",
+   "chars": 3381
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-icinde-kalp-cikolata",
+   "title": "Kalp İçinde Kalp Çikolata",
+   "chars": 3443
+  },
+  {
+   "url": "https://www.chocchic.com/urun/isildayan-kalpler-cikolata",
+   "title": "Işıldayan Kalpler Çikolata",
+   "chars": 3323
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seni-seviyorum-harfli-cikolata",
+   "title": "Seni Seviyorum Harfli Çikolata",
+   "chars": 3404
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cikolata-eritme-macerasi",
+   "title": "Çikolata Eritme Macerası",
+   "chars": 3552
+  },
+  {
+   "url": "https://www.chocchic.com/urun/buyukanne-cikolata",
+   "title": "Büyükanne Çikolata ChocChic",
+   "chars": 2131
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bir-sen-bir-ben-cikolata",
+   "title": "Bir Sen Bir Ben Çikolata",
+   "chars": 2132
+  },
+  {
+   "url": "https://www.chocchic.com/urun/balon-dekorlu-dogum-gunu-cikolatasi",
+   "title": "Balon Dekorlu Doğum Günü Çikolatası",
+   "chars": 3310
+  },
+  {
+   "url": "https://www.chocchic.com/urun/love-you-sevgililer-gunu-cikolata",
+   "title": "Love You Sevgililer Günü Çikolata",
+   "chars": 3387
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-kutuda-spesiyal-cikolata",
+   "title": "Kalp Kutuda Spesiyal Sevgililer Günü Çikolata",
+   "chars": 3427
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cizgili-kalpler-sevgililer-gunu-cikolata",
+   "title": "Çizgili Kalpler Sevgililer Günü Çikolata",
+   "chars": 3434
+  },
+  {
+   "url": "https://www.chocchic.com/urun/happy-birthday-mesajli-cikolata",
+   "title": "Happy Birthday Mesajlı Çikolata",
+   "chars": 3314
+  },
+  {
+   "url": "https://www.chocchic.com/urun/isme-ozel-dogum-gunu-cikolata",
+   "title": "İsme Özel Doğum Günü Çikolata",
+   "chars": 3661
+  },
+  {
+   "url": "https://www.chocchic.com/urun/seker-dekorlu-yeni-yil-madlen",
+   "title": "Şeker Dekorlu Yeni Yıl Madlen",
+   "chars": 3418
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=2",
+   "title": "2. Sayfa - HEDİYE GÖNDER",
+   "chars": 7363
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cizme-kutuda-yilbasi-cikolatasi",
+   "title": "Çizme Kutuda Yılbaşı Çikolatası",
+   "chars": 3372
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-cikolata-pasta",
+   "title": "Kalp Çikolata Pasta ChocChic",
+   "chars": 2033
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bas-harfli-kisiye-ozel-cikolata",
+   "title": "Baş Harfli Kişiye Özel Çikolata",
+   "chars": 2174
+  },
+  {
+   "url": "https://www.chocchic.com/urun/noel-baba-yilbasi-cikolatasi",
+   "title": "Noel Baba Yılbaşı Çikolatası",
+   "chars": 3400
+  },
+  {
+   "url": "https://www.chocchic.com/urun/renkli-kartaneli-cikolata",
+   "title": "Renkli Kartaneli Çikolata",
+   "chars": 3349
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yilbasi-susu-cikolata",
+   "title": "Yılbaşı Süsü Çikolata",
+   "chars": 3217
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yeni-yil-spesiyal-cikolata",
+   "title": "Yıldızlı Kartaneli Spesiyal 9 lu",
+   "chars": 3527
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yildiz-dekorlu-yeni-yil-cikolata-1",
+   "title": "Yıldız Dekorlu Yeni Yıl Çikolata",
+   "chars": 3405
+  },
+  {
+   "url": "https://www.chocchic.com/urun/pencereli-kutuda-yilbasi-cikolatasi",
+   "title": "Pencereli Kutuda Yılbaşı Çikolatası",
+   "chars": 3833
+  },
+  {
+   "url": "https://www.chocchic.com/urun/uc-boyutlu-yilbasi-cami-cikolata",
+   "title": "Üç Boyutlu Yılbaşı Çamı Çikolata",
+   "chars": 3575
+  },
+  {
+   "url": "https://www.chocchic.com/urun/altin-cam-yilbasi-cikolata",
+   "title": "Altın Çam Yılbaşı Çikolata",
+   "chars": 3369
+  },
+  {
+   "url": "https://www.chocchic.com/urun/nalbur-seti-cikolata",
+   "title": "Nalbur Seti Çikolata",
+   "chars": 3695
+  },
+  {
+   "url": "https://www.chocchic.com/urun/biyikli-babalar-gunu-cikolata",
+   "title": "Bıyıklı Babalar Günü Çikolata",
+   "chars": 3300
+  },
+  {
+   "url": "https://www.chocchic.com/urun/super-baba-cikolata",
+   "title": "Süper Baba Çikolata ChocChic",
+   "chars": 3282
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=4",
+   "title": "4. Sayfa - HEDİYE GÖNDER",
+   "chars": 7122
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=3",
+   "title": "3. Sayfa - HEDİYE GÖNDER",
+   "chars": 7426
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kardanadam-yildiz-dekorlu-cikolata",
+   "title": "Kardanadam Yıldız Dekorlu Çikolata",
+   "chars": 2287
+  },
+  {
+   "url": "https://www.chocchic.com/urun/dubai-cikolatali-logolu-yeni-yil-cikolata",
+   "title": "Dubai Çikolatalı Logolu VIP YIlbaşı Çikolata",
+   "chars": 3223
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-dubai-cikolatali-yilbasi-cikolata",
+   "title": "Logolu Dubai Çikolatalı Yılbaşı Çikolata",
+   "chars": 3453
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yeni-yil-hediye?tp=2",
+   "title": "2. Sayfa - YENİ YIL HEDİYE",
+   "chars": 1319
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=8",
+   "title": "8. Sayfa - HEDİYE GÖNDER",
+   "chars": 3172
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cam",
+   "title": "Çam Dekorlu Yeni Yıl Çikolata",
+   "chars": 3367
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-yilbasi-dubai-cikolata",
+   "title": "Logolu Yılbaşı Dubai Çikolatası",
+   "chars": 3263
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yilbasi-dekorlu-madlen-cikolata",
+   "title": "Yılbaşı Dekorlu Madlen Çikolata",
+   "chars": 3401
+  },
+  {
+   "url": "https://www.chocchic.com/urun/sik-yeni-yil-cikolata",
+   "title": "Şık Yeni Yıl Çikolata",
+   "chars": 3327
+  },
+  {
+   "url": "https://www.chocchic.com/urun/logolu-dubai-spesiyalli-yilbasi-cikolata",
+   "title": "Logolu Dubai Spesiyalli Yılbaşı Çikolata",
+   "chars": 3195
+  },
+  {
+   "url": "https://www.chocchic.com/urun/metal-cam-dekorlu-cikolata",
+   "title": "Metal Çam Dekorlu Çikolata",
+   "chars": 3376
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yeni-yil-spesiyal-cikolata-pencereli-kutuda",
+   "title": "Yıldızlı Kartaneli Spesiyal 16 lı",
+   "chars": 3578
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yilbasi-dekorlu-madlen-cikolata-1",
+   "title": "Yılbaşı Dekorlu Madlen Çikolata",
+   "chars": 3445
+  },
+  {
+   "url": "https://www.chocchic.com/urun/avukatlar-gunu-mesajli-cikolata",
+   "title": "Avukatlar Günü Mesajlı Çikolata",
+   "chars": 950
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bebek-arabasi-figurlu-cikolata-mavi-1",
+   "title": "Bebek Arabası Figürlü Çikolata Mavi",
+   "chars": 3580
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yilbasi-dekorlu-spesiyal-cikolata",
+   "title": "Yılbaşı Dekorlu Spesiyal Çikolata",
+   "chars": 2126
+  },
+  {
+   "url": "https://www.chocchic.com/urun/corapli-yilbasi-cikolatasi",
+   "title": "Çoraplı Yılbaşı Çikolatası",
+   "chars": 2217
+  },
+  {
+   "url": "https://www.chocchic.com/urun/civcivli-kutuda-bebek-cikolata",
+   "title": "Civcivli Kutuda Bebek Çikolata",
+   "chars": 2199
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fiyonklu-kiz-bebek-canta-cikolata",
+   "title": "Fiyonklu Kız Bebek Çanta Çikolata",
+   "chars": 3166
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tulumlu-kutuda-erkek-bebek-cikolata",
+   "title": "Tulumlu Kutuda Erkek Bebek Çikolata",
+   "chars": 3349
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kadife-kutuda-ikiz-bebek-cikolata",
+   "title": "Kadife Kutuda İkiz Bebek Çikolata",
+   "chars": 3384
+  },
+  {
+   "url": "https://www.chocchic.com/urun/mavi-ugur-bocekli-bebek-cikolata",
+   "title": "Mavi Emzikli Bebek Çikolata",
+   "chars": 3317
+  },
+  {
+   "url": "https://www.chocchic.com/urun/patik-cikolata-mavi-1",
+   "title": "Patik Çikolata Mavi ChocChic",
+   "chars": 3143
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fiyonklu-nazar-boncuklu-erkek-bebek-cikolata",
+   "title": "Fiyonklu Nazar Boncuklu Erkek Bebek Çikolata ",
+   "chars": 2248
+  },
+  {
+   "url": "https://www.chocchic.com/urun/pembe-emzikli-bebek-cikolata",
+   "title": "Pembe Emzikli Bebek Çikolata",
+   "chars": 2146
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-icinde-kalp-bebek-cikolata-pembe",
+   "title": "Kalp İçinde Kalp Bebek Çikolata Pembe",
+   "chars": 3605
+  },
+  {
+   "url": "https://www.chocchic.com/urun/patik-cikolata",
+   "title": "Patik Çikolata Pembe",
+   "chars": 3122
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bebek-arabasi-figurlu-cikolata-pembe-1",
+   "title": "Bebek Arabası Figürlü Çikolata Pembe",
+   "chars": 3643
+  },
+  {
+   "url": "https://www.chocchic.com/urun/elbiseli-kutuda-kiz-bebek-cikolata",
+   "title": "Elbiseli Kutuda Kız Bebek Çikolata",
+   "chars": 3406
+  },
+  {
+   "url": "https://www.chocchic.com/urun/hayvancikli-cikolatalar",
+   "title": "Hayvancıklı Çikolata",
+   "chars": 3361
+  },
+  {
+   "url": "https://www.chocchic.com/urun/bebek-kutusunda-isme-ozel-cikolata",
+   "title": "Bebek Kutusunda İsme Özel Çikolata",
+   "chars": 3824
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fiyonklu-nazar-boncuklu-kiz-bebek-cikolata",
+   "title": "Fiyonklu Nazar Boncuklu Kız Bebek Çikolata",
+   "chars": 3550
+  },
+  {
+   "url": "https://www.chocchic.com/urun/fiyonklu-erkek-bebek-canta-cikolata",
+   "title": "Fiyonklu Erkek Bebek Çanta Çikolata",
+   "chars": 3222
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kalp-icinde-kalp-bebek-cikolata-mavi",
+   "title": "Kalp İçinde Kalp Bebek Çikolata Mavi",
+   "chars": 2400
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=1",
+   "title": "ChocChic",
+   "chars": 7603
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/urun-yelpazemiz?marka=chocchic&tp=1",
+   "title": "ÜRÜN YELPAZEMİZ",
+   "chars": 6929
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kurumsal-hediye?marka=chocchic&tp=1",
+   "title": "KURUMSAL HEDİYE",
+   "chars": 7467
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?marka=chocchic&tp=1",
+   "title": "HEDİYE GÖNDER",
+   "chars": 7212
+  },
+  {
+   "url": "https://www.chocchic.com/urun/love-cikolata",
+   "title": "LOVE Çikolata ChocChic",
+   "chars": 3318
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=5",
+   "title": "5. Sayfa - ChocChic",
+   "chars": 7104
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=7",
+   "title": "7. Sayfa - ChocChic",
+   "chars": 7468
+  },
+  {
+   "url": "https://www.chocchic.com/urun/tavsanli-bebek-cikolata-25-adet",
+   "title": "Tavşanlı Bebek Çikolata(25 Adet)",
+   "chars": 1213
+  },
+  {
+   "url": "https://www.chocchic.com/urun/ozel-tasarim-yilbasi-logolu-spesiyal",
+   "title": "Özel Tasarım Yılbaşı Logolu Spesiyal",
+   "chars": 3503
+  },
+  {
+   "url": "https://www.chocchic.com/urun/cerceveli-yeni-yil-cikolata",
+   "title": "Çerçeveli Yeni Yıl Çikolata",
+   "chars": 3467
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yilbasi-ozel-dekorlu-cikolata",
+   "title": "Özel Dekorlu Yeni Yıl Çikolata",
+   "chars": 2448
+  },
+  {
+   "url": "https://www.chocchic.com/marka/chocchic?tp=6",
+   "title": "6. Sayfa - ChocChic",
+   "chars": 7283
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/taraftar-cikolata?tp=1",
+   "title": "TARAFTAR ÇİKOLATA",
+   "chars": 1667
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/cikolatali-cicek?tp=1",
+   "title": "ÇİKOLATALI ÇİÇEK",
+   "chars": 1465
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/konusan-cikolatalar?tp=1",
+   "title": "KONUŞAN ÇİKOLATALAR",
+   "chars": 5040
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/muzikli-cikolata?tp=1",
+   "title": "MÜZİKLİ ÇİKOLATA",
+   "chars": 997
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/fotografli-cikolata?tp=1",
+   "title": "FOTOĞRAFLI ÇİKOLATA",
+   "chars": 1846
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kiz-isteme-cikolatasi",
+   "title": "'Kız İsteme Çikolatası",
+   "chars": 1017
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/mesajli-cikolata?tp=1",
+   "title": "MESAJLI ÇİKOLATA ",
+   "chars": 2718
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/logolu-cikolata?tp=1",
+   "title": "LOGOLU ÇİKOLATA",
+   "chars": 2333
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/sevgiliye-hediye?tp=1",
+   "title": "SEVGİLİYE HEDİYE",
+   "chars": 7171
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kutulu-kurumsal-urunler?tp=1",
+   "title": "KUTULU KURUMSAL ÜRÜNLER",
+   "chars": 6358
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kurumsal-kucuk-hediyeler?tp=1",
+   "title": "KURUMSAL KÜÇÜK HEDİYELER ",
+   "chars": 1671
+  },
+  {
+   "url": "https://www.chocchic.com/urun/sevgi-agaci-cikolata",
+   "title": "Sevgi Ağacı Çikolata",
+   "chars": 3162
+  },
+  {
+   "url": "https://www.chocchic.com/urun/i-love-you-spesiyal-cikolata",
+   "title": "I Love You Spesiyal Çikolata",
+   "chars": 2238
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/dogum-gunu-hediye?tp=1",
+   "title": "DOĞUM GÜNÜ HEDİYE",
+   "chars": 5485
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/kadinlar-gunu-hediye?tp=1",
+   "title": "KADINLAR GÜNÜ HEDİYE",
+   "chars": 5971
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/bebek-hediye?tp=1",
+   "title": "BEBEK HEDİYE",
+   "chars": 5149
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/babalar-gunu-hediye?tp=1",
+   "title": "BABALAR GÜNÜ HEDİYE",
+   "chars": 3122
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/bayram-hediye?tp=1",
+   "title": "BAYRAM HEDİYE",
+   "chars": 7239
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/ogretmenler-gunu-hediye?tp=1",
+   "title": "ÖĞRETMENLER GÜNÜ HEDİYE",
+   "chars": 2779
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yeni-yil-hediye?tp=1",
+   "title": "YENİ YIL HEDİYE ",
+   "chars": 7300
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/paskalya-hediye?tp=1",
+   "title": "PASKALYA HEDİYE",
+   "chars": 1813
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/cocuk-hediye?tp=1",
+   "title": "ÇOCUK HEDİYE",
+   "chars": 1356
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yildonumu-hediye?tp=1",
+   "title": "YILDÖNÜMÜ HEDİYE",
+   "chars": 2075
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/anneler-gunu-hediye?tp=1",
+   "title": "ANNELER GÜNÜ HEDİYE",
+   "chars": 4536
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/ozur-hediye?tp=1",
+   "title": "ÖZÜR HEDİYE",
+   "chars": 1402
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/doktoruma-hediye?tp=1",
+   "title": "DOKTORUMA HEDİYE",
+   "chars": 1295
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/gecmis-olsun-hediye?tp=1",
+   "title": "GEÇMİŞ OLSUN HEDİYE",
+   "chars": 595
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/tesekkur-hediye?tp=1",
+   "title": "TEŞEKKÜR HEDİYE",
+   "chars": 1176
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/icimden-geldi?tp=1",
+   "title": "İÇİMDEN GELDİ",
+   "chars": 1218
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=5",
+   "title": "5. Sayfa - HEDİYE GÖNDER",
+   "chars": 7394
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/muhendisler-gunu?tp=1",
+   "title": "MÜHENDİSLER GÜNÜ",
+   "chars": 563
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/avukatlar-gunu-hediye?tp=1",
+   "title": "AVUKATLAR GÜNÜ HEDİYE",
+   "chars": 581
+  },
+  {
+   "url": "https://www.chocchic.com/urun/yilbasi-spesiyal-cikolata",
+   "title": "Yılbaşı Spesiyal Çikolata",
+   "chars": 3408
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/yeni-is-hediye?tp=1",
+   "title": "YENİ İŞ HEDİYE",
+   "chars": 541
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=7",
+   "title": "7. Sayfa - HEDİYE GÖNDER",
+   "chars": 6683
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/hediye-gonder?tp=6",
+   "title": "6. Sayfa - HEDİYE GÖNDER",
+   "chars": 7369
+  },
+  {
+   "url": "https://www.chocchic.com/urun/kirmizi-kutuda-spesiyal-cikolata",
+   "title": "Kırmızı Kutuda Spesiyal Çikolata",
+   "chars": 1079
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/soz-nisan",
+   "title": "SÖZ & NİŞAN",
+   "chars": 503
+  },
+  {
+   "url": "https://www.chocchic.com/kategori/bebek-cikolata-1",
+   "title": "BEBEK ÇİKOLATA",
+   "chars": 544
+  }
+ ]
+}
