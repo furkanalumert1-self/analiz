@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "crawl": "node scripts/crawl-chocchic.mjs"
+    "crawl": "node scripts/crawl-chocchic.mjs",
+    "export": "rm -rf .next out && STATIC_EXPORT=1 next build"
   },
   "dependencies": {
     "clsx": "^2.1.1",
