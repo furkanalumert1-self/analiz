@@ -31,10 +31,10 @@ DOCTOR_RE = re.compile(r"\b(?:Prof\.?|Doç\.?|Doc\.?|Op\.?|Opr\.?|Uzm\.?|Dr\.?|D
 SECTOR_WORD = [("dis", "diş"), ("sac", "saç"), ("estetik", "estetik"), ("guzellik", "güzellik"), ("lazer", "lazer")]
 
 ROLE_PATTERNS = [
-    ("Kurucu / Sahip", r"kurucu|founder|co-founder|sahibi|owner|partner|ortak"),
+    ("Kurucu / Sahip", r"kurucu|founder|sahibi|\bowner\b|\bpartner\b|sirket ortagi|ortak (dis hekimi|hekim)"),
     ("Üst yönetim", r"\bceo\b|genel mudur|general manager|managing director|yonetim kurulu|chairman|\bcoo\b"),
     ("Başhekim / Mesul müdür", r"bashekim|mesul mudur|medical director|chief medical|tibbi direktor"),
-    ("Klinik / Operasyon müdürü", r"klinik mudur|clinic manager|operasyon|operations|isletme mudur|idari mudur|practice manager"),
+    ("Klinik / Operasyon müdürü", r"klinik mudur|clinic (manager|director)|klinik direktor|operasyon\w*(\s+\w+){0,3}\s+(mudur|yonetici|sorumlu)|operations manager|isletme mudur|idari mudur|practice manager"),
     ("Hasta ilişkileri / Sağlık turizmi", r"hasta (iliskileri|koordinator)|patient (relations|coordinator)|saglik turizmi|health tourism|international patient|call center|cagri merkezi"),
     ("Pazarlama", r"pazarlama|marketing|dijital|digital|sosyal medya|growth"),
 ]
@@ -44,7 +44,9 @@ def norm(s):
     return (s or "").translate(TR_MAP).lower()
 
 
-SECTOR_TOKENS = ("dis", "dent", "sac", "hair", "estetik", "aesthetic", "plastik", "klinik", "clinic",
+# Not: normalize edilince "dış" ile "diş" aynı ("dis") olur; "Vizyon Dış Ticaret" eşleşmesin diye
+# tek başına "dis" yerine diş hekimliğine özgü ifadeler kullanılır.
+SECTOR_TOKENS = ("agiz", "dis hekim", "dis sag", "dis klin", "dis polik", "dis tedavi", "dent", "sac", "hair", "estetik", "aesthetic", "plastik", "klinik", "clinic",
                  "poliklinik", "guzellik", "beauty", "lazer", "laser", "saglik", "hekim", "doktor", "dr.", "surgeon")
 
 
@@ -94,6 +96,22 @@ def build_query(row):
     return core, f'site:tr.linkedin.com/in "{core}" {sector}'.strip()
 
 
+# LinkedIn'in her profilde gösterdiği kalıp metinler ("Ortak bağlantılarınızı görün" = mutual connections).
+BOILERPLATE = re.compile(r"ortak baglantilarinizi gorun|view mutual connections[^.]*|adli (uyenin|kisinin) (tam )?profilini[^.]*"
+                         r"|linkedin'de \S+ baglanti|\d+\S* takipci|\d+\S* baglanti|1 milyar uyenin[^.]*")
+MEDICAL = ("dr.", "doktor", "doctor", "hekim", "cerrah", "surgeon", "plastic", "plastik", "dermatolog",
+           "tip fakultesi", "physician", "dentist", "ortodont", "uzman dr")
+
+
+def company_match(blob, key):
+    """Klinik çekirdeği hemen ardından sektör kelimesiyle geçmeli ("Yalı Ağız ve Diş", "Loya Clinic").
+
+    Böylece "Tuncay Yalı - mermer firması" gibi soyadı çakışmaları elenir.
+    """
+    k = re.escape(norm(key))
+    return re.search(k + r"\W+(\w+\W+){0,3}?(" + "|".join(re.escape(t) for t in SECTOR_TOKENS) + ")", blob) is not None
+
+
 def role_of(text):
     t = norm(text)
     for label, rx in ROLE_PATTERNS:
@@ -131,11 +149,14 @@ def cmd_parse(args):
             for res in page.get("organicResults", []):
                 url = res.get("url", "").split("?")[0]
                 title, desc = res.get("title", ""), res.get("description", "")
-                blob = norm(title + " " + desc)
+                blob = BOILERPLATE.sub(" ", norm(title + " " + desc))
                 if "/in/" not in url or norm(key) not in blob:
                     continue  # anahtar kelime snippet'te yoksa başka biridir
-                if not any(t in blob for t in SECTOR_TOKENS):
-                    continue  # aynı isimli başka sektörden bir şirket
+                if is_doc:
+                    if not any(t in blob for t in MEDICAL):
+                        continue  # aynı isimli doktor olmayan biri
+                elif not company_match(blob, key):
+                    continue  # soyadı ya da başka sektörden aynı isimli şirket
                 name = title.split(" - ")[0].split(" | ")[0].strip()
                 if is_doc:
                     # Doktor adlı klinikte sadece o doktorun kendi profili
@@ -143,7 +164,7 @@ def cmd_parse(args):
                         continue
                     role = "Kurucu / Sahip (klinik adı)"
                 else:
-                    role = role_of(title + " " + desc)
+                    role = role_of(blob)
                     if not role and not args.all:
                         continue
                 ident = (clinic["isletme"], url)
