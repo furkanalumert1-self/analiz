@@ -1,0 +1,19 @@
+{
+  "id": "mock-scrape-2",
+  "results": {
+    "html": {"data": ["<html><head><script src=\"https://cdn.shopify.com/s/files/theme.js\"></script><script src=\"https://embed.tawk.to/abc\"></script></head><body>Kadın giyim</body></html>"]},
+    "links": {"data": ["https://denemegiyim.test/pages/contact"]},
+    "json": {"data": {
+      "company_name": "Deneme Giyim",
+      "short_description": "Kadın giyim markası",
+      "sector": "moda / giyim",
+      "is_ecommerce": true,
+      "estimated_product_count": 40,
+      "has_whatsapp": false,
+      "has_campaigns": false,
+      "contact_emails": [],
+      "phones": []
+    }}
+  },
+  "metadata": {"contentType": "text/html"}
+}

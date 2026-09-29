@@ -1,0 +1,69 @@
+{
+  "_readme": "config.json olarak kopyalayıp ICP'nize göre düzenleyin. Tüm alanlar README.md'de açıklanmıştır.",
+
+  "icp": {
+    "name": "Türkiye D2C e-ticaret markaları (WhatsApp / conversational commerce otomasyonu için)",
+    "description": "Kendi web sitesinden satış yapan, Instagram/WhatsApp üzerinden müşteriyle konuşan, 50+ ürünlü Türk kozmetik, moda, ev-yaşam ve anne-bebek markaları.",
+    "country": "tr",
+    "target_sectors": ["kozmetik", "cilt bakım", "moda", "giyim", "ayakkabı", "takı", "ev dekorasyon", "anne bebek", "gıda", "evcil hayvan"],
+    "excluded_domains": ["trendyol.com", "hepsiburada.com", "amazon.com.tr", "n11.com", "ciceksepeti.com", "instagram.com", "facebook.com", "linkedin.com", "youtube.com", "tiktok.com", "wikipedia.org", "sikayetvar.com", "eksisozluk.com", "google.com"]
+  },
+
+  "discovery": {
+    "results_per_query": 10,
+    "time_range": null,
+    "_queries_note": "Liste içerikleri ('en iyi 20 yerli ... markası') tek sonuçtan çok sayıda marka çıkardığı için kredi başına en verimli sorgulardır.",
+    "queries": [
+      "en iyi yerli cilt bakım markaları listesi",
+      "en popüler yerli giyim markaları listesi",
+      "yerli cilt bakım markası online mağaza",
+      "Türk kozmetik markası resmi web sitesi kargo bedava",
+      "yerli kadın giyim markası online alışveriş sitesi",
+      "el yapımı takı markası online satış Türkiye",
+      "yerli ev tekstili markası online mağaza",
+      "doğal sabun markası online satış",
+      "organik bebek ürünleri yerli marka online mağaza",
+      "ikas ile kurulmuş e-ticaret markaları",
+      "Shopify kullanan Türk markaları"
+    ],
+    "seed_urls": [],
+    "_seed_urls_note": "Dizin / liste sayfaları (ör. e-ticaret ödül listeleri, altyapı sağlayıcıların 'referanslarımız' sayfaları). Her URL'den /extract ile şirket listesi çıkarılır."
+  },
+
+  "enrichment": {
+    "max_companies_per_run": 40,
+    "contact_page_fallback": true,
+    "contact_paths": ["/iletisim", "/pages/iletisim", "/contact", "/pages/contact", "/bize-ulasin"],
+    "fetch_config": {"mode": "auto", "timeout": 30000, "country": "tr"}
+  },
+
+  "scoring": {
+    "hot_threshold": 70,
+    "warm_threshold": 45,
+    "rules": [
+      {"field": "is_ecommerce",            "op": "true",     "points": 20, "label": "Kendi sitesinden satış yapıyor"},
+      {"field": "sector_match",            "op": "true",     "points": 15, "label": "Hedef sektörde"},
+      {"field": "has_whatsapp",            "op": "true",     "points": 15, "label": "WhatsApp'ı satış/destek kanalı olarak kullanıyor"},
+      {"field": "has_live_chat",           "op": "false",    "points": 10, "label": "Canlı destek / chatbot yok → otomasyon boşluğu"},
+      {"field": "instagram_url",           "op": "nonempty", "points": 10, "label": "Instagram'da aktif"},
+      {"field": "estimated_product_count", "op": "gte", "value": 50, "points": 10, "label": "50+ ürün (katalog otomasyonuna uygun)"},
+      {"field": "ecommerce_platform",      "op": "in", "value": ["ikas", "shopify", "ticimax", "ideasoft", "t-soft", "woocommerce"], "points": 5, "label": "Entegrasyonu kolay altyapı"},
+      {"field": "has_campaigns",           "op": "true",     "points": 5,  "label": "Aktif kampanya/indirim iletişimi var"},
+      {"field": "contact_emails",          "op": "nonempty", "points": 5,  "label": "Kurumsal e-posta bulundu"},
+      {"field": "phones",                  "op": "nonempty", "points": 5,  "label": "Telefon bulundu"}
+    ]
+  },
+
+  "output": {
+    "db_path": "data/leads.db",
+    "csv_path": "data/leads.csv",
+    "webhook_url_env": "LEADGEN_WEBHOOK_URL",
+    "_webhook_note": "Ortam değişkeni doluysa her yeni sıcak/ılık lead JSON olarak POST edilir (n8n / Make / Zapier / Slack / HubSpot)."
+  },
+
+  "monitors": {
+    "interval": "0 8 * * 1",
+    "webhook_url_env": "LEADGEN_MONITOR_WEBHOOK_URL",
+    "urls": []
+  }
+}

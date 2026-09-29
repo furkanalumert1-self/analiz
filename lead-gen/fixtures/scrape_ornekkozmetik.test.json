@@ -1,0 +1,23 @@
+{
+  "id": "mock-scrape-1",
+  "results": {
+    "html": {"data": ["<html><head><script src=\"https://cdn.myikas.com/sf/app.js\"></script><script>fbq('init','1')</script></head><body><a href=\"https://wa.me/905551112233\">WhatsApp</a> info@ornekkozmetik.test ayse.yilmaz@ornekkozmetik.test</body></html>"]},
+    "links": {"data": ["https://ornekkozmetik.test/iletisim", "https://instagram.com/ornekkozmetik"]},
+    "json": {"data": {
+      "company_name": "Örnek Kozmetik",
+      "short_description": "Doğal içerikli yerli cilt bakım ürünleri satan D2C marka",
+      "sector": "kozmetik / cilt bakım",
+      "is_ecommerce": true,
+      "estimated_product_count": 120,
+      "has_whatsapp": true,
+      "has_live_chat": false,
+      "has_campaigns": true,
+      "instagram_url": "https://instagram.com/ornekkozmetik",
+      "contact_emails": [],
+      "phones": ["+90 212 000 00 00"],
+      "city": "İstanbul",
+      "sales_hook": "120 ürünlük cilt bakım kataloğunuzda WhatsApp'tan gelen 'hangi serum bana uygun?' sorularını otomatik yanıtlayabiliriz."
+    }}
+  },
+  "metadata": {"contentType": "text/html"}
+}

@@ -1,0 +1,274 @@
+<title>ScrapeGraphAI Lead Motoru</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,650&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  /* Layout: tek kolon rapor; akış şeridi + tablo/kart blokları. Token'lar Kremi raporuyla aynı aileden, vurgu mürekkep mavisi. */
+  :root{
+    --bg:#f6f5f1; --surface:#ffffff; --surface-2:#eeece5; --ink:#161a22; --ink-2:#4a5160; --muted:#7c8290;
+    --border:#e2dfd6; --border-strong:#cfcabd;
+    --brand:#1f4fa3; --brand-ink:#ffffff; --brand-soft:#e4ecf8; --brand-soft-strong:#c8d7f0;
+    --hot:#b8452e; --hot-soft:#f8e3dc; --warm:#9a6b12; --warm-soft:#f5ead2; --cold:#5a6474; --cold-soft:#e7e9ee;
+    --good:#1c7c4a; --good-soft:#ddf1e5;
+    --display:'Fraunces',Georgia,serif; --body:'Manrope',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12151b; --surface:#1a1e26; --surface-2:#222733; --ink:#eef0f4; --ink-2:#c3c8d2; --muted:#8d94a3;
+      --border:#2c3240; --border-strong:#3a4152;
+      --brand:#8fb1ec; --brand-ink:#0d1a33; --brand-soft:#1c2a44; --brand-soft-strong:#28395a;
+      --hot:#ec8a74; --hot-soft:#3a2019; --warm:#dcb466; --warm-soft:#352a14; --cold:#a3acbb; --cold-soft:#262b35;
+      --good:#5cc68d; --good-soft:#15301f;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12151b; --surface:#1a1e26; --surface-2:#222733; --ink:#eef0f4; --ink-2:#c3c8d2; --muted:#8d94a3;
+    --border:#2c3240; --border-strong:#3a4152;
+    --brand:#8fb1ec; --brand-ink:#0d1a33; --brand-soft:#1c2a44; --brand-soft-strong:#28395a;
+    --hot:#ec8a74; --hot-soft:#3a2019; --warm:#dcb466; --warm-soft:#352a14; --cold:#a3acbb; --cold-soft:#262b35;
+    --good:#5cc68d; --good-soft:#15301f;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);padding-inline:20px;padding-block:0 60px;font-size:15px;}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;color:var(--ink);}
+  p{margin:0;color:var(--ink-2);line-height:1.6;max-width:68ch;}
+  code,.mono{font-family:var(--mono);font-size:.88em;}
+  code{background:var(--surface-2);padding:1px 5px;border-radius:4px;}
+  a{color:var(--brand);}
+  .wrap{max-width:1080px;margin-inline:auto;}
+
+  .hero{padding-block:48px 32px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+  .hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.1;margin-top:12px;max-width:20ch;font-weight:650;}
+  .hero .lede{font-size:17px;margin-top:14px;}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:18px;font-size:13px;color:var(--muted);}
+  .meta b{color:var(--ink-2);font-weight:600;}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:28px;}
+  .stat{background:var(--surface);padding:16px 18px;}
+  .stat .n{font-family:var(--display);font-size:26px;font-weight:650;font-variant-numeric:tabular-nums;}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  @media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr);}}
+
+  section{padding-block:44px;border-top:1px solid var(--border);display:grid;gap:22px;}
+  .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+  section h2{font-size:clamp(21px,2.8vw,29px);margin-top:6px;}
+  .head p{margin-top:8px;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:820px){.grid2,.grid3{grid-template-columns:1fr;}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;display:grid;gap:8px;align-content:start;min-width:0;}
+  .card h3{font-size:17px;font-weight:560;}
+  .card p,.card li{font-size:14px;}
+  .card ul{margin:0;padding-left:18px;color:var(--ink-2);line-height:1.6;}
+  .card.rec{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand) inset;}
+  .tag{justify-self:start;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:100px;background:var(--brand-soft);color:var(--brand);}
+
+  /* akış şeridi */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);}
+  .step{padding:18px 16px;border-right:1px solid var(--border);display:grid;gap:6px;align-content:start;min-width:0;}
+  .step:last-child{border-right:none;}
+  .step .no{font-family:var(--mono);font-size:12px;color:var(--brand);font-weight:600;}
+  .step h3{font-size:16px;font-weight:600;}
+  .step .ep{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);background:var(--surface-2);border-radius:6px;padding:4px 7px;justify-self:start;word-break:break-word;}
+  .step p{font-size:13px;line-height:1.5;}
+  @media (max-width:900px){.flow{grid-template-columns:1fr;}.step{border-right:none;border-bottom:1px solid var(--border);}.step:last-child{border-bottom:none;}}
+
+  .tbl{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface);}
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px;}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface-2);}
+  tr:last-child td{border-bottom:none;}
+  td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);white-space:nowrap;}
+  td{color:var(--ink-2);}
+  td b{color:var(--ink);}
+
+  .tier{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:100px;}
+  .t-hot{background:var(--hot-soft);color:var(--hot);}
+  .t-warm{background:var(--warm-soft);color:var(--warm);}
+  .t-cold{background:var(--cold-soft);color:var(--cold);}
+
+  .mail{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;font-size:14px;line-height:1.65;color:var(--ink-2);white-space:pre-wrap;font-family:var(--body);}
+  .mail .var{background:var(--brand-soft);color:var(--brand);border-radius:4px;padding:0 4px;font-family:var(--mono);font-size:.86em;}
+
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:820px){.road{grid-template-columns:1fr;}}
+  .note{font-size:13px;color:var(--muted);}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Lead üretim kurgusu · ScrapeGraphAI v2</div>
+    <h1>Web'den her hafta nitelikli marka listesi çıkaran otomatik hat</h1>
+    <p class="lede">İsa Nur Doğdu'nun ScrapeGraphAI kaynak sayfası ve resmi dokümantasyon incelendi. Önerilen yöntem: arama sonuçlarından markaları bulmak, her markanın sitesini tek çağrıda profillemek, kurallarla skorlamak ve sıcak lead'leri CRM'e düşürmek. Çalışan kodu repodaki <code>lead-gen/</code> klasöründe.</p>
+    <div class="meta">
+      <span><b>Varsayılan ICP:</b> Türk D2C e-ticaret markaları (WhatsApp / conversational commerce otomasyonu)</span>
+      <span><b>Çalışma sıklığı:</b> Haftalık, pazartesi 09:00</span>
+      <span><b>Tarih:</b> Eylül 2026</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">4 adım</div><div class="l">Keşif → zenginleştirme → skor → CRM</div></div>
+      <div class="stat"><div class="n">~900</div><div class="l">kredi / hafta (varsayılan config)</div></div>
+      <div class="stat"><div class="n">17 $</div><div class="l">aylık Starter planı yeterli (10.000 kredi)</div></div>
+      <div class="stat"><div class="n">~160</div><div class="l">profillenmiş şirket / ay</div></div>
+    </div>
+  </header>
+
+  <section id="kaynaklar">
+    <div class="head">
+      <div class="k">İncelenen kaynaklar</div>
+      <h2>İki kaynak ne söylüyor?</h2>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">isanurdogdu.com / kaynaklar</span>
+        <h3>Kısa kullanım rehberi</h3>
+        <p>ScrapeGraphAI'yi "herkese açık web verisini doğal dil talimatıyla tabloya dönüştüren" açık kaynak araç olarak tanıtıyor. Üç adım öneriyor:</p>
+        <ul>
+          <li>Kurulum ve model sağlayıcısı seçimi</li>
+          <li>Hedef profili ve toplanacak herkese açık alanları tanımlama</li>
+          <li>Otomasyona geçmeden önce test edip veri kurallarını kontrol etme</li>
+        </ul>
+        <p class="note">Kod, fiyat ve iş akışı detayı yok. Kurgu bu üç adımı iskelet olarak kullanıyor: ICP config'i, KVKK filtresi ve <code>--mock</code> test modu.</p>
+      </div>
+      <div class="card">
+        <span class="tag">docs.scrapegraphai.com</span>
+        <h3>Barındırılan v2 API</h3>
+        <p>Tek host (<code>v2-api.scrapegraphai.com/api</code>), <code>SGAI-APIKEY</code> başlığı, JSON Schema ile tipli çıktı. Lead için doğrudan kullanılan servisler:</p>
+        <ul>
+          <li><b>Search</b>: web araması + sonuçlardan yapılandırılmış çıkarım</li>
+          <li><b>Scrape</b>: tek çağrıda HTML, linkler ve JSON çıkarımı</li>
+          <li><b>Extract</b>: tek sayfadan prompt + şemayla veri</li>
+          <li><b>Monitor</b>: cron ile sayfa izleme, değişince webhook</li>
+        </ul>
+        <p class="note">Dokümanda hazır bir "Lead Generation" örneği de var (Search → Extract zinciri); kurgu bunu genişletiyor.</p>
+      </div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Servis</th><th>Lead hattındaki görevi</th><th>Kredi</th></tr></thead>
+        <tbody>
+          <tr><td><b>Search</b> + prompt</td><td>"En iyi yerli cilt bakım markaları" gibi sorgulardan marka adı ve resmi site listesi</td><td class="num">5 / sonuç</td></tr>
+          <tr><td><b>Scrape</b> html + links + json</td><td>Ana sayfadan firma profili, altyapı ve widget parmak izi, iletişim sayfası linki</td><td class="num">≈ 7 / site</td></tr>
+          <tr><td><b>Extract</b></td><td>İletişim sayfası yedeği; dizin/liste sayfalarından toplu marka çıkarma</td><td class="num">5 / sayfa</td></tr>
+          <tr><td><b>Monitor</b></td><td>Liste sayfalarını haftalık izleyip yeni markayı webhook'la bildirme</td><td class="num">tick + 5 değişimde</td></tr>
+          <tr><td><b>Crawl</b></td><td>Gerekirse çok sayfalı dizinleri taramak (ilk sürümde kullanılmıyor)</td><td class="num">2 + sayfa başı</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="yontem">
+    <div class="head">
+      <div class="k">Belirlenen yöntem</div>
+      <h2>Beş aşamalı otomatik hat</h2>
+      <p>Her aşama ayrı komut olarak da çalışır. SQLite veritabanı alan adına göre tekilleştirir; aynı marka ikinci kez kredi harcatmaz.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="no">1 · discover</span><h3>Keşif</h3><span class="ep">POST /api/search</span><p>Türkiye lokasyonlu sorgular. LLM sonuçlardan markayı ve resmi sitesini çıkarır; pazaryerleri ve sosyal ağlar elenir.</p></div>
+      <div class="step"><span class="no">2 · enrich</span><h3>Profilleme</h3><span class="ep">POST /api/scrape</span><p>Tek çağrı: sektör, ürün sayısı, WhatsApp, canlı destek, Instagram, kurumsal e-posta ve kişiselleştirilmiş giriş cümlesi.</p></div>
+      <div class="step"><span class="no">3 · fingerprint</span><h3>Parmak izi</h3><span class="ep">ücretsiz, HTML'den</span><p>ikas / Shopify / Ticimax, tawk.to / Intercom, Meta Pixel, wa.me linki gibi sinyaller regex ile doğrulanır.</p></div>
+      <div class="step"><span class="no">4 · score</span><h3>ICP skoru</h3><span class="ep">config.json kuralları</span><p>0–100 puan ve gerekçeler. 70+ sıcak, 45–69 ılık, altı soğuk.</p></div>
+      <div class="step"><span class="no">5 · export</span><h3>CRM'e aktarım</h3><span class="ep">CSV + webhook</span><p>Sıcak ve ılık lead'ler bir kez n8n / Make / Zapier webhook'una gider; CSV her çalışmada yenilenir.</p></div>
+    </div>
+    <div class="grid3">
+      <div class="card"><h3>Neden liste sorguları?</h3><p>"En iyi 20 yerli ... markası" içerikleri tek arama sonucundan 10–20 marka çıkarır. Kredi başına en verimli keşif kaynağı bunlar.</p></div>
+      <div class="card"><h3>Neden tek scrape çağrısı?</h3><p>HTML, link ve JSON aynı fetch'te döner. LLM'in kaçırdığı chat widget'ı veya altyapıyı HTML parmak izi yakalar; ayrıca kredi harcanmaz.</p></div>
+      <div class="card"><h3>Neden Monitor?</h3><p>Altyapı sağlayıcıların referans sayfaları ve ödül listeleri güncellendikçe yeni markalar kendiliğinden hatta girer.</p></div>
+    </div>
+  </section>
+
+  <section id="skor">
+    <div class="head">
+      <div class="k">Skorlama</div>
+      <h2>Varsayılan ICP kuralları</h2>
+      <p>Kurallar <code>config.json → scoring.rules</code> içinde. İlk 100 lead'i elle kontrol edip puanları kapanan fırsatlara göre ayarlamak önerilir.</p>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Sinyal</th><th>Kaynak</th><th>Puan</th></tr></thead>
+        <tbody>
+          <tr><td><b>Kendi sitesinden satış yapıyor</b></td><td>LLM (sepet / ödeme var mı)</td><td class="num">20</td></tr>
+          <tr><td><b>Hedef sektörde</b></td><td>Sektör + açıklama eşleşmesi</td><td class="num">15</td></tr>
+          <tr><td><b>WhatsApp kullanıyor</b></td><td>LLM + <code>wa.me</code> linki</td><td class="num">15</td></tr>
+          <tr><td><b>Canlı destek / chatbot yok</b></td><td>LLM + widget parmak izi</td><td class="num">10</td></tr>
+          <tr><td><b>Instagram'da aktif</b></td><td>LLM</td><td class="num">10</td></tr>
+          <tr><td><b>50+ ürün</b></td><td>LLM tahmini</td><td class="num">10</td></tr>
+          <tr><td><b>Entegrasyonu kolay altyapı</b></td><td>HTML parmak izi</td><td class="num">5</td></tr>
+          <tr><td><b>Kampanya iletişimi</b>, <b>kurumsal e-posta</b>, <b>telefon</b></td><td>LLM + regex</td><td class="num">5 + 5 + 5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid3">
+      <div class="card"><span class="tier t-hot">Sıcak · 70+</span><p>Aynı hafta kişiselleştirilmiş e-posta ve Instagram DM. <code>sales_hook</code> alanı ilk cümle olarak kullanılır.</p></div>
+      <div class="card"><span class="tier t-warm">Ilık · 45–69</span><p>Nurture listesi: vaka çalışması, webinar daveti. 30 gün sonra yeniden skorlanır.</p></div>
+      <div class="card"><span class="tier t-cold">Soğuk · 45 altı</span><p>CRM'e gönderilmez, veritabanında kalır. ICP genişlerse tekrar değerlendirilir.</p></div>
+    </div>
+  </section>
+
+  <section id="arac">
+    <div class="head">
+      <div class="k">Çalıştırma seçenekleri</div>
+      <h2>Hangi ortamda çalışsın?</h2>
+    </div>
+    <div class="grid3">
+      <div class="card rec"><span class="tag">Önerilen</span><h3>Python + GitHub Actions</h3><p>Repodaki <code>lead-gen/</code> kodu, haftalık cron workflow'u ile. Ek sunucu yok, bağımlılık yok, kurallar versiyonlanır. CSV artifact olarak iner, sıcak lead'ler webhook'a gider.</p></div>
+      <div class="card"><h3>n8n community node</h3><p><code>n8n-nodes-scrapegraphai</code> tüm v2 servislerini sunar. Kodsuz kurulur ama yalnızca self-hosted n8n'de çalışır. Webhook alıcı tarafı olarak yine önerilir.</p></div>
+      <div class="card"><h3>Make / Zapier</h3><p>Resmi entegrasyonları var. Küçük hacimli, tek adımlı akışlar için uygun; skorlama ve tekilleştirme mantığı burada zorlaşır.</p></div>
+    </div>
+    <p>n8n alıcı akışı: <b>Webhook</b> → <b>IF</b> (<code>tier == "sıcak"</code>) → HubSpot / Pipedrive şirket oluştur-güncelle → Slack <code>#yeni-lead</code> bildirimi → ılık lead'ler Google Sheets nurture listesine.</p>
+  </section>
+
+  <section id="outreach">
+    <div class="head">
+      <div class="k">İlk temas</div>
+      <h2>Toplanan veriyle kişiselleştirilmiş mesaj</h2>
+      <p>Mavi alanlar pipeline'ın ürettiği sütunlardan otomatik dolar. Her mesajda ret (opt-out) seçeneği bulunmalı.</p>
+    </div>
+    <div class="mail">Konu: <span class="var">company_name</span> için WhatsApp'tan gelen soruları otomatik yanıtlamak
+
+Merhaba <span class="var">company_name</span> ekibi,
+
+<span class="var">sales_hook</span>
+
+<span class="var">ecommerce_platform</span> altyapınıza entegre bir asistanla ürün önerisi, kargo takibi ve sepet hatırlatmalarını WhatsApp ve Instagram DM üzerinden otomatikleştiriyoruz. Benzer ölçekte bir markada ilk ay sonuçlarını 15 dakikalık bir görüşmede paylaşabilirim.
+
+Uygun olduğunuz bir zaman var mı?
+
+Bu tür e-postaları almak istemiyorsanız "çıkar" yazmanız yeterli.</div>
+  </section>
+
+  <section id="uyum">
+    <div class="head">
+      <div class="k">KVKK ve riskler</div>
+      <h2>Veri toplama sınırları</h2>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Kodda uygulanan kurallar</h3><ul>
+        <li>Yalnızca rol tabanlı adresler tutulur (info@, destek@, satis@ …); <code>ad.soyad@</code> tipi kişisel adresler elenir.</li>
+        <li>LinkedIn gibi giriş gerektiren, kişisel profil barındıran kaynaklar hedeflenmez.</li>
+        <li>Lead verisi repoya commit edilmez; CSV 30 gün saklanan artifact olarak iner.</li>
+      </ul></div>
+      <div class="card"><h3>Operasyonel notlar</h3><ul>
+        <li>6563 sayılı Kanun, tacir ve esnafa belirli koşullarda önceden onaysız ticari ileti gönderimine izin verir; ret hakkı her iletide sunulmalı. Kampanya öncesi hukuki teyit alın.</li>
+        <li>LLM alanları (ürün sayısı, sektör) tahmindir; ilk haftalarda örneklem kontrolü yapın.</li>
+        <li>Engelleyen sitelerde <code>stealth</code> proxy +4–5 kredi ekler; varsayılan kapalı.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="head">
+      <div class="k">Devreye alma</div>
+      <h2>Üç haftalık kurulum planı</h2>
+    </div>
+    <div class="road">
+      <div class="card"><span class="tag">1. hafta</span><h3>Deneme</h3><ul><li><code>--mock</code> ile akışı doğrula</li><li>Free plan (500 kredi): 2 sorgu × 5 sonuç, 10 şirket</li><li>ICP ve sorguları ekiple netleştir</li></ul></div>
+      <div class="card"><span class="tag">2. hafta</span><h3>Kalibrasyon</h3><ul><li>Starter plana geç, ilk tam çalıştırma</li><li>100 lead'i elle etiketle, skor ağırlıklarını ayarla</li><li><code>excluded_domains</code> listesini büyüt</li></ul></div>
+      <div class="card"><span class="tag">3. hafta</span><h3>Otomasyon</h3><ul><li>GitHub secret'ları ve haftalık workflow'u aç</li><li>n8n webhook → CRM + Slack</li><li>Liste sayfaları için Monitor kur</li></ul></div>
+    </div>
+  </section>
+</div>

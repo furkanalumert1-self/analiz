@@ -1,0 +1,8 @@
+{
+  "id": "mock-scrape-3",
+  "results": {
+    "html": {"data": "<html><body>ERP çözümleri</body></html>"},
+    "links": {"data": []},
+    "json": {"data": {"company_name": "Kurumsal Yazılım AŞ", "short_description": "ERP yazılımı", "sector": "yazılım", "is_ecommerce": false, "contact_emails": ["bilgi@kurumsalyazilim.test"], "phones": []}}
+  }
+}

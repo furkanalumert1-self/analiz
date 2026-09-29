@@ -1,0 +1,16 @@
+{
+  "id": "mock-search",
+  "results": [
+    {"url": "https://www.trendyol.com/sr?q=cilt-bakim", "title": "Trendyol", "content": "..."},
+    {"url": "https://ornekkozmetik.test/", "title": "Örnek Kozmetik", "content": "..."}
+  ],
+  "json": {
+    "companies": [
+      {"name": "Örnek Kozmetik", "website": "https://www.ornekkozmetik.test", "sector": "cilt bakım", "city": "İstanbul"},
+      {"name": "Deneme Giyim", "website": "denemegiyim.test", "sector": "kadın giyim"},
+      {"name": "Kurumsal Yazılım AŞ", "website": "https://kurumsalyazilim.test", "sector": "yazılım"},
+      {"name": "Trendyol", "website": "https://www.trendyol.com", "sector": "pazaryeri"}
+    ]
+  },
+  "metadata": {"pages": {"requested": 10, "scraped": 10}}
+}

@@ -1,0 +1,42 @@
+name: lead-gen
+
+# Her pazartesi 06:00 UTC (09:00 TR) çalışır; elle de tetiklenebilir.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lead-gen
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # leads.db dedup hafızasıdır; önbellekte tutulur, repoya commit edilmez (KVKK).
+      - uses: actions/cache@v4
+        with:
+          path: lead-gen/data/leads.db
+          key: leads-db-${{ github.run_id }}
+          restore-keys: leads-db-
+
+      - name: Pipeline
+        env:
+          SGAI_API_KEY: ${{ secrets.SGAI_API_KEY }}
+          LEADGEN_WEBHOOK_URL: ${{ secrets.LEADGEN_WEBHOOK_URL }}
+        run: |
+          CONFIG=config.json
+          [ -f "$CONFIG" ] || CONFIG=config.example.json
+          python leadgen.py run --config "$CONFIG"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: leads-${{ github.run_number }}
+          path: lead-gen/data/leads.csv
+          retention-days: 30
