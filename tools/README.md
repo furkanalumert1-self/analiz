@@ -26,3 +26,24 @@ Skor = 2 × eşleşen yorum + farklı sinyal sayısı + son 90 günde şikâyet 
 
 Kalıplar `PATTERNS` sözlüğündedir; yeni ifade eklemek için oraya bir regex ekle
 (metin küçük harfe ve ASCII'ye çevrilmiş olarak eşleşir: "ulaşamadım" → "ulasamadim").
+
+## Uçtan uca akış (API ile)
+
+```bash
+export APIFY_TOKEN=...   # asla dosyaya/commit'e yazma
+
+# 1) İşletmeler (şehir başına bir run, yorum çekmeden: işletme başı ~$0.004)
+python3 tools/apify_run.py compass~crawler-google-places in_istanbul.json places_istanbul.json --max-usd 0.75
+
+# 2) Yorumlar: reviewsFilterString TAM KELİME eşleştirir ve sadece eşleşen yorum ücretlenir.
+#    Bu yüzden her çekimli kelime için ayrı run aç (telefonu, telefonlara, açmıyor, ulaşamadım,
+#    ulaşılamıyor, dönüş, cevap, aradım, whatsapp, answer ...). 26 kelime x 255 işletme ≈ $0.80.
+python3 tools/apify_run.py compass~google-maps-reviews-scraper in_kw00.json rev_kw00.json --max-usd 0.5
+
+# 3) Filtre (sadece ≤3 yıldızlı yorumlar) + site iletişim bilgisi (ücretsiz)
+python3 tools/maps_unreachable_filter.py places_*.json rev_kw*.json -o sicak.csv --months 36
+python3 tools/site_contacts.py base.csv -o base_contacts.csv
+```
+
+Notlar: Free planda aynı anda en fazla 5 run çalışır ve run başı harcama tavanı en az $0.50 olmalıdır.
+Regex eşleşmeleri yine de elle okunmalı; `leads/` altındaki liste elle doğrulanmıştır.

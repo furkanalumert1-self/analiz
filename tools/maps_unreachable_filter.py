@@ -25,10 +25,13 @@ NEG_VERMEK = r"verm(iyor|edi|ez|eyen)"
 
 PATTERNS = {
     "telefon_acilmiyor": r"telefon\w*\s+(\w+\s+){0,3}(ac(m|il?m)|acan\s+yok|bakm)",
-    "kimse_acmiyor": r"(kimse|hic\s*kimse)\s+(\w+\s+){0,2}(acm|cevap|bakm)",
-    "ulasilamiyor": r"ulas(il)?am(a|i)|ulasilm(a|i)|ulasmak\s+(imkansiz|mumkun\s+degil|zor)",
+    "kimse_acmiyor": r"(kimse|hic\s*kimse)\s+(\w+\s+){0,2}(acm|cevap\s+verm|donus\s+yapm)",
+    # Edilgen "ulaşılamıyor" hep iletişimdir; etken "ulaşamadım" ise ancak yanında
+    # telefon/arama/kişi bağlamı varsa sayılır ("istediğim sonuca ulaşamadım" sayılmaz).
+    "ulasilamiyor": r"ulasilam(a|i)|ulasilm(a|i)|ulasmak\s+(imkansiz|mumkun\s+degil|zor)"
+                    r"|(telefon|arad|ariyor|arama|mesaj|kendiler|kendisine|size|sizlere|klinig|hekim|doktor|yetkili|haftalarca|gunlerce|bir\s+turlu)\w*\W+(\w+\W+){0,3}ulasam(a|i)",
     "cevap_yok": r"(cevap|yanit)\s+(\w+\s+){0,2}(" + NEG_VERMEK + r"|alam|yok)",
-    "donus_yok": r"(geri\s+)?donus\s+(\w+\s+){0,2}(yapm|olmad|yok|alam)|geri\s+donm",
+    "donus_yok": r"(geri\s+)?donus\s+(\w+\s+){0,2}(yapm(ad|iyor|ay|az|aks|aktan)|olmad|yok|alam)|geri\s+donm(ed|iyor|uyor|ez)",
     "mesgul": r"(surekli|hep|hat)\s+mesgul|mesgule\s+(atiyor|dusuyor)",
     "defalarca_aradim": r"(defalarca|kac\s+kere|birc?ok\s+kez|onlarca\s+kez|\d+\s+kez)\s+(\w+\s+){0,2}aradi",
     "randevu_alamadim": r"randevu\s+(\w+\s+){0,2}(alam|" + NEG_VERMEK + r"|olusturam)",
@@ -73,6 +76,7 @@ def main():
     ap.add_argument("-o", "--output", default="sicak_leadler.csv")
     ap.add_argument("--months", type=int, default=12, help="Sadece son N aydaki yorumlar (0 = hepsi)")
     ap.add_argument("--min-hits", type=int, default=1, help="İşletme başına en az kaç eşleşen yorum")
+    ap.add_argument("--max-stars", type=int, default=3, help="Sadece bu puan ve altındaki yorumlar (övgü yorumlarını eler)")
     args = ap.parse_args()
 
     items = []
@@ -106,6 +110,10 @@ def main():
 
         date = parse_date(review.get("publishedAtDate"))
         if cutoff and date and date < cutoff:
+            continue
+
+        stars = review.get("stars")
+        if stars is not None and stars > args.max_stars:
             continue
 
         text = review.get("text") or review.get("textTranslated") or ""
