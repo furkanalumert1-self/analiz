@@ -47,3 +47,15 @@ python3 tools/site_contacts.py base.csv -o base_contacts.csv
 
 Notlar: Free planda aynı anda en fazla 5 run çalışır ve run başı harcama tavanı en az $0.50 olmalıdır.
 Regex eşleşmeleri yine de elle okunmalı; `leads/` altındaki liste elle doğrulanmıştır.
+
+## LinkedIn karar vericileri (giriş yapmadan)
+
+```bash
+python3 tools/linkedin_xray.py queries base_contacts.csv -o in_linkedin.json          # klinik başına 1 Google sorgusu
+python3 tools/apify_run.py apify~google-search-scraper in_linkedin.json serp.json --max-usd 1.5   # ~$0.0045/sorgu
+python3 tools/linkedin_xray.py parse base_contacts.csv serp.json -o karar.csv          # rol + şirket eşleşmesi
+```
+
+E-posta için `harvestapi~linkedin-profile-scraper` ("Profile details + email search", ~$0.01/profil).
+Free planda run başına en fazla 10 profil; `urls` alanına düz URL string'leri ver. Bulunan adresler
+çoğunlukla catch-all alan adlarında "risky" döner — göndermeden önce doğrula.
