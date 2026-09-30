@@ -1,0 +1,514 @@
+<title>GEO + ChatGPT Ads Yapım Kılavuzu</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  /* Layout: "ChatGPT Ads Fırsat Haritası" ile aynı sistem. Tek kolon, 1080px; akış şeması → otomasyon kataloğu → mimari → maliyet hesabı → yapım sırası. */
+  :root{
+    --bg:#f2f4f7; --surface:#ffffff; --surface-2:#e8ecf2; --code:#0f1622; --code-ink:#dbe3f0; --code-c:#8b98ad;
+    --ink:#101722; --ink-2:#435063; --muted:#6c7889; --line:#d7dde6; --line-2:#c3ccd8;
+    --accent:#2442c9; --accent-soft:#e3e8fb;
+    --geo:#0f7a6c; --geo-soft:#dcf1ec;
+    --amber:#9a6200; --amber-soft:#fbefd8;
+    --good:#127a3e; --good-soft:#ddf2e5; --crit:#b42f2f; --crit-soft:#f8e1e1;
+    --f-display:'Familjen Grotesk', 'Helvetica Neue', Arial, sans-serif;
+    --f-body:'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --f-mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e131b; --surface:#161d28; --surface-2:#1e2735; --code:#0a0f16; --code-ink:#dbe3f0; --code-c:#8b98ad;
+      --ink:#eef2f8; --ink-2:#b7c1d0; --muted:#8793a5; --line:#2a3445; --line-2:#3a4659;
+      --accent:#8ea2ff; --accent-soft:#1f2a4d;
+      --geo:#5fd0bd; --geo-soft:#123029;
+      --amber:#e8b45a; --amber-soft:#3a2d15;
+      --good:#5cc98a; --good-soft:#15301f; --crit:#ef8a8a; --crit-soft:#3a1a1a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e131b; --surface:#161d28; --surface-2:#1e2735; --code:#0a0f16; --code-ink:#dbe3f0; --code-c:#8b98ad;
+    --ink:#eef2f8; --ink-2:#b7c1d0; --muted:#8793a5; --line:#2a3445; --line-2:#3a4659;
+    --accent:#8ea2ff; --accent-soft:#1f2a4d;
+    --geo:#5fd0bd; --geo-soft:#123029;
+    --amber:#e8b45a; --amber-soft:#3a2d15;
+    --good:#5cc98a; --good-soft:#15301f; --crit:#ef8a8a; --crit-soft:#3a1a1a;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;padding-inline:20px}
+  .wrap{max-width:1080px;margin-inline:auto}
+  h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15;color:var(--ink)}
+  h1{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:700;letter-spacing:-.02em}
+  h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-.01em}
+  h3{font-size:1.1rem;font-weight:600}
+  p{margin:0;color:var(--ink-2)}
+  a{color:var(--accent)}
+  a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  code{font-family:var(--f-mono);font-size:.86em;background:var(--surface-2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+  .eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .prose{max-width:68ch;display:grid;gap:12px}
+  section{padding-block:56px;border-top:1px solid var(--line);display:grid;gap:24px}
+  .head{display:grid;gap:8px}
+  .note{font-size:.84rem;color:var(--muted)}
+
+  header{padding-block:48px 40px;display:grid;gap:24px}
+  .lede{font-size:1.14rem;color:var(--ink-2);max-width:64ch}
+  .insight{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;display:grid;gap:10px;max-width:820px}
+  .insight b{color:var(--ink)}
+  .quote{font-family:var(--f-display);font-size:1.35rem;font-weight:600;color:var(--ink);line-height:1.3}
+
+  /* Loop diagram */
+  .loop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;align-items:stretch}
+  .step{position:relative;background:var(--surface);border:1px solid var(--line);padding:16px 14px;display:grid;gap:6px;align-content:start}
+  .step + .step{border-left:0}
+  .step:first-child{border-radius:10px 0 0 10px}
+  .step:last-child{border-radius:0 10px 10px 0}
+  .step .k{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+  .step p{font-size:.86rem;line-height:1.45}
+  .step.geo{box-shadow:inset 0 3px 0 var(--geo)} .step.geo .k{color:var(--geo)}
+  .step.ads{box-shadow:inset 0 3px 0 var(--accent)} .step.ads .k{color:var(--accent)}
+  .step.both{box-shadow:inset 0 3px 0 var(--amber)} .step.both .k{color:var(--amber)}
+  .step:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:14px;z-index:1;background:var(--bg);color:var(--muted);font-family:var(--f-mono);font-size:.8rem;width:18px;text-align:center;border-radius:9px}
+  .back{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);text-align:center;border:1px dashed var(--line-2);border-radius:10px;padding:8px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.84rem;color:var(--ink-2)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:12px;height:4px;border-radius:2px;display:inline-block}
+
+  /* Automation catalogue */
+  .group-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .autos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .auto{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+  .auto-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .code-id{font-family:var(--f-mono);font-size:.75rem;padding:2px 7px;border-radius:5px;font-weight:600}
+  .id-geo{background:var(--geo-soft);color:var(--geo)}
+  .id-ads{background:var(--accent-soft);color:var(--accent)}
+  .id-both{background:var(--amber-soft);color:var(--amber)}
+  dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 14px;font-size:.88rem}
+  dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  dd{margin:0;color:var(--ink-2)}
+  .pill{display:inline-block;font-family:var(--f-mono);font-size:.7rem;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .p-good{background:var(--good-soft);color:var(--good)}
+  .p-warn{background:var(--amber-soft);color:var(--amber)}
+  .p-crit{background:var(--crit-soft);color:var(--crit)}
+  .auto.star{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber)}
+
+  /* Tables */
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:.9rem}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--surface-2)}
+  tr:last-child td{border-bottom:0}
+  td{color:var(--ink-2)} td b{color:var(--ink)}
+
+  /* Stack columns */
+  .stacks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .stack{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:12px;align-content:start}
+  .layer{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;font-size:.9rem;padding-block:8px;border-top:1px solid var(--line)}
+  .layer:first-of-type{border-top:0}
+  .layer span:first-child{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .layer span:last-child{color:var(--ink-2)}
+
+  /* Code */
+  .codes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  figure.code{margin:0;display:grid;gap:8px;min-width:0}
+  figure.code figcaption{font-size:.86rem;color:var(--ink-2)}
+  pre{margin:0;background:var(--code);color:var(--code-ink);border-radius:10px;padding:16px;overflow-x:auto;font-family:var(--f-mono);font-size:.8rem;line-height:1.55}
+  pre .c{color:var(--code-c)}
+
+  /* Calculator */
+  .calc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px}
+  .row{display:grid;gap:4px}
+  .row label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;color:var(--ink-2)}
+  .row output{font-family:var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  .result{display:grid;gap:12px;align-content:start}
+  .kv{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px;font-size:.92rem;color:var(--ink-2)}
+  .kv b{font-family:var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600}
+  .big{font-family:var(--f-display);font-size:2.4rem;font-weight:700;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  /* Build order */
+  .build{display:grid;gap:10px;counter-reset:b;margin:0;padding:0;list-style:none}
+  .build li{counter-increment:b;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .build li::before{content:counter(b);font-family:var(--f-display);font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1.2}
+  .build li div{display:grid;gap:4px}
+  .build b{color:var(--ink)}
+
+  .sources{font-size:.85rem;display:grid;gap:4px;padding-left:1.1em;margin:0;color:var(--ink-2)}
+  footer{padding-block:32px 48px;border-top:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .loop{grid-template-columns:1fr}
+    .step + .step{border-left:1px solid var(--line);border-top:0}
+    .step:first-child{border-radius:10px 10px 0 0}
+    .step:last-child{border-radius:0 0 10px 10px}
+    .step:not(:last-child)::after{content:"↓";right:auto;left:14px;top:auto;bottom:-10px}
+    .autos,.stacks,.codes,.calc{grid-template-columns:1fr}
+  }
+  @media print{ body{padding-inline:0} section{break-inside:avoid-page} input[type=range]{display:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Yapım kılavuzu · Eylül 2026 · <a href="https://claude.ai/artifact/JSjF8nK4S8qrmzVehs8Rma" target="_blank" rel="noopener">Fırsat Haritası</a>'nın devamı</span>
+    <h1>GEO ve ChatGPT Ads için hangi otomasyonlar ve SaaS'lar kurulur?</h1>
+    <p class="lede">GEO (Generative Engine Optimization), markanın ChatGPT, Gemini ve Perplexity cevaplarında organik olarak geçmesini sağlama işidir. ChatGPT Ads ise aynı cevapların altına ücretli reklam koyar. İkisi aynı soruları ve aynı müşteriyi hedefler. Bu yüzden en güçlü ürün, ikisini tek döngüde birleştirendir.</p>
+    <div class="insight">
+      <span class="eyebrow">Ürünün ana fikri</span>
+      <p class="quote">"Organik olarak görünmediğin soruda reklam ver, göründüğün soruda reklam bütçeni kıs."</p>
+      <p>Piyasadaki GEO araçları (Peec AI, Profound, Otterly) sadece ölçüyor. Reklam araçları ise sadece reklamı yönetiyor. <b>İki veriyi birleştirip "bu soruda organik yoksun, reklam aç" diyen bir ürün şu an Türkiye'de yok.</b> Müşteriye tek cümleyle anlatılabilir ve ölçülebilir bir fayda sunar.</p>
+    </div>
+  </header>
+
+  <section id="dongu">
+    <div class="head">
+      <span class="eyebrow">Sistem</span>
+      <h2>Tek döngü, beş adım</h2>
+      <p class="prose">Tüm otomasyonlar bu döngünün bir adımıdır. MVP'de ilk iki adımla başlanır, diğerleri üzerine eklenir.</p>
+    </div>
+    <div class="loop">
+      <div class="step geo"><span class="k">1 · Sor</span><h3>Soru seti</h3><p>Müşterinin ChatGPT'ye soracağı 50–200 Türkçe soru. Kategori, ürün ve rakiplerden üretilir.</p></div>
+      <div class="step geo"><span class="k">2 · Ölç</span><h3>Tarama</h3><p>Her soru ChatGPT, Gemini ve Perplexity'de düzenli sorulur. Marka geçti mi, kaçıncı sırada, hangi kaynak gösterildi?</p></div>
+      <div class="step both"><span class="k">3 · Karar</span><h3>Boşluk analizi</h3><p>Soru bazında organik görünürlük ve reklam performansı yan yana konur: "Organik yok" ya da "reklam boşa".</p></div>
+      <div class="step both"><span class="k">4 · Aksiyon</span><h3>İçerik + reklam</h3><p>Görünmeyen sorular için içerik taslağı, SSS, schema ve feed düzeltmesi. Aynı sorular için reklam grubu ve 16/32 karakterlik metin.</p></div>
+      <div class="step ads"><span class="k">5 · Kanıtla</span><h3>Ölçüm</h3><p>Pixel ve Conversions API ile satışlar reklama bağlanır. Haftalık rapor: görünürlük %, ROAS, sipariş.</p></div>
+    </div>
+    <div class="back">↺ Rapor bir sonraki haftanın soru setini ve bütçesini günceller</div>
+    <div class="legend">
+      <span><i style="background:var(--geo)"></i>GEO (organik)</span>
+      <span><i style="background:var(--accent)"></i>ChatGPT Ads (ücretli)</span>
+      <span><i style="background:var(--amber)"></i>İkisini birleştiren katman: rakiplerde olmayan kısım</span>
+    </div>
+  </section>
+
+  <section id="katalog">
+    <div class="head">
+      <span class="eyebrow">Otomasyon kataloğu</span>
+      <h2>Kurulabilecek 12 otomasyon</h2>
+      <p class="prose">Her biri tek başına küçük bir ürün ya da hizmet paketi olabilir. "Erişim" satırı, bugün herkesin kurabileceğini veya OpenAI partner onayı gerektirdiğini gösterir.</p>
+    </div>
+
+    <div class="group-h"><span class="code-id id-geo">GEO</span><h3>Organik görünürlük</h3></div>
+    <div class="autos">
+      <article class="auto">
+        <div class="auto-h"><h3>G1 · Soru seti üretici</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Yeni müşteri eklenince ve ayda bir</dd>
+          <dt>Adımlar</dt><dd>Site kategorileri, ürün adları, Search Console sorguları ve rakip listesi → LLM ile "alıcı niyetli" Türkçe sorular (ör. "hassas cilt için en iyi güneş kremi hangisi") → tekrarları temizle, niyete göre etiketle</dd>
+          <dt>Araç</dt><dd>OpenAI/Claude API, Search Console API</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>G2 · Haftalık görünürlük taraması</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Haftalık zamanlayıcı</dd>
+          <dt>Adımlar</dt><dd>Her soruyu her motorda 2–3 kez sor (cevaplar değişken) → markanın geçip geçmediğini, sırasını, rakipleri, duyguyu ve alıntılanan URL'leri çıkar → veritabanına yaz</dd>
+          <dt>Araç</dt><dd>DataForSEO AI Optimization API (ChatGPT, Gemini, AI Overviews), Perplexity API; ayrıştırma için ucuz bir LLM</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>G3 · Kaynak / atıf haritası</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>G2 bitince</dd>
+          <dt>Adımlar</dt><dd>Cevaplarda alıntılanan siteleri say (blog, forum, pazar yeri, şikâyet sitesi, YouTube) → "rakibin geçtiği ama senin olmadığın kaynaklar" listesi → PR ve içerik iş birliği hedefleri</dd>
+          <dt>Satış cümlesi</dt><dd>"ChatGPT hangi sitelere bakarak rakibinizi öneriyor, gösteriyoruz."</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>G4 · Site hazırlık denetimi</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>URL girilince (ücretsiz lead aracı)</dd>
+          <dt>Kontroller</dt><dd>robots.txt'de OpenAI ve diğer AI tarayıcılarına izin, sayfaların JavaScript olmadan okunabilmesi, Product/FAQ/Organization schema, ürün sayfasında fiyat-stok-yorum, llms.txt, karşılaştırma ve SSS sayfalarının varlığı</dd>
+          <dt>Araç</dt><dd>Crawler (Playwright/Firecrawl/Apify) + kural motoru + LLM özet</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>G5 · İçerik boşluğu → taslak</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>G2'de markanın görünmediği her soru</dd>
+          <dt>Adımlar</dt><dd>Kazanan cevapların ortak noktalarını çıkar → markanın ürünleriyle karşılaştırma sayfası, SSS bloğu veya rehber taslağı üret → editör onayına gönder</dd>
+          <dt>Not</dt><dd>Otomatik yayın yerine onaylı taslak; kalitesiz toplu içerik görünürlüğü düşürür</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>G6 · Ürün feed'i düzeltici</h3><span class="pill p-warn">Kısmen</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Günlük</dd>
+          <dt>Adımlar</dt><dd>E-ticaret ürünlerini ChatGPT Shopping feed kurallarına göre denetle (görsel, fiyat, stok, açıklama, yorum) → eksik açıklamaları LLM ile tamamla → feed'i yayınla</dd>
+          <dt>Erişim</dt><dd>Feed dokümantasyonu açık; yükleme kanalı ve pazar kapsamı doğrulanmalı</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="group-h"><span class="code-id id-ads">ADS</span><h3>ChatGPT Ads</h3></div>
+    <div class="autos">
+      <article class="auto">
+        <div class="auto-h"><h3>A1 · Dönüşüm köprüsü (CAPI)</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>E-ticaret sipariş webhook'u</dd>
+          <dt>Adımlar</dt><dd>Reklam tıklamasındaki <code>oppref</code> değerini oturumda sakla ve siparişe yaz → sipariş gelince e-posta ve telefonu SHA-256 ile hashle → <code>order_created</code> olayını Conversions API'ye gönder → pixel ile aynı <code>id</code>'yi kullanarak tekrar saymayı önle</dd>
+          <dt>Neden önemli</dt><dd>CPA teklif stratejisi doğru dönüşüm verisi olmadan çalışmaz</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>A2 · Türkçe reklam metni fabrikası</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Yeni ürün / kampanya</dd>
+          <dt>Adımlar</dt><dd>Ürün sayfası → başlık (≈16) ve metin (≈32 karakter) varyantları → yasaklı sektör ve iddia kontrolü (sağlık vaadi, "en iyi" gibi) → açılış sayfası ile tutarlılık puanı</dd>
+          <dt>Çıktı</dt><dd>Ads Manager'a yüklenecek CSV veya API varsa doğrudan taslak reklam</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>A3 · Açılış sayfası uyum kontrolü</h3><span class="pill p-good">Herkes kurabilir</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Reklam yayına girmeden önce</dd>
+          <dt>Adımlar</dt><dd>ChatGPT reklamları konuşmayla açılış sayfası içeriğini eşleştirir. Sayfada hedeflenen konunun, fiyatın ve güçlü bir çağrının net geçip geçmediğini kontrol et, eksikleri listele</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>A4 · Birleşik performans raporu</h3><span class="pill p-warn">API partner onayı</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Günlük</dd>
+          <dt>Adımlar</dt><dd>ChatGPT Ads Insights + Google Ads + Meta → tek tablo (harcama, tıklama, sipariş, ROAS) → Looker Studio veya kendi panelin → WhatsApp/e-posta özeti</dd>
+          <dt>Erişim</dt><dd>Ads API ve Insights belgeleri var, ama hesap bazında API anahtarı partner programıyla açılıyor. Onaya kadar panelden alınan veriyle yarı otomatik çalışır</dd>
+        </dl>
+      </article>
+      <article class="auto">
+        <div class="auto-h"><h3>A5 · Bütçe ve teklif bekçisi</h3><span class="pill p-crit">API gerekli</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Saatlik</dd>
+          <dt>Kurallar</dt><dd>ROAS hedefin altındaysa uyar veya bütçeyi düşür, stok biten ürünün reklamını durdur, harcama anormal artarsa uyar</dd>
+          <dt>Erişim</dt><dd>Campaigns ve Bulk API ile mümkün; partner onayı gerekir</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="group-h"><span class="code-id id-both">GEO × ADS</span><h3>Birleştiren katman</h3></div>
+    <div class="autos">
+      <article class="auto star">
+        <div class="auto-h"><h3>K1 · "Organik boşluk → reklam" motoru</h3><span class="pill p-good">Farklılaştırıcı</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>G2 taraması bitince</dd>
+          <dt>Mantık</dt><dd>Organik görünürlüğü %20'nin altındaki yüksek niyetli sorular → konu kümelerine ayır → her küme için reklam grubu, bağlam ipucu ve A2 metinleri öner. Organik görünürlüğü %60'ın üstündeki sorularda reklamı azaltmayı öner</dd>
+          <dt>Satış cümlesi</dt><dd>"Reklam bütçenizi ChatGPT'nin sizi zaten önermediği sorulara harcıyoruz."</dd>
+        </dl>
+      </article>
+      <article class="auto star">
+        <div class="auto-h"><h3>K2 · AI pazar payı karnesi</h3><span class="pill p-good">Farklılaştırıcı</span></div>
+        <dl>
+          <dt>Tetik</dt><dd>Haftalık / aylık</dd>
+          <dt>İçerik</dt><dd>Tek sayfa: organik görünürlük %, rakiplerle pazar payı (share of voice), reklamla eklenen görünürlük, ChatGPT kaynaklı sipariş ve ciro. Yöneticinin okuyacağı tek rapor</dd>
+          <dt>Kullanım</dt><dd>Hem SaaS panelinin ana ekranı hem de ajansların müşteriye gönderdiği beyaz etiketli PDF</dd>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section id="mimari">
+    <div class="head">
+      <span class="eyebrow">Mimari</span>
+      <h2>İki yol: kodsuz başla, SaaS'a geç</h2>
+      <p class="prose">İlk 5–10 müşteriyi kodsuz akışlarla hizmet olarak yönet. Tekrar eden adımlar netleşince aynı akışı SaaS olarak yeniden yaz.</p>
+    </div>
+    <div class="stacks">
+      <div class="stack">
+        <span class="eyebrow">Yol 1 · Kodsuz / az kodlu · 1–2 hafta</span>
+        <div class="layer"><span>Akış</span><span>n8n (kendi sunucunda ucuz) veya Make</span></div>
+        <div class="layer"><span>Veri</span><span>Google Sheets veya Airtable: soru seti, tarama sonuçları, müşteri listesi</span></div>
+        <div class="layer"><span>GEO verisi</span><span>DataForSEO AI Optimization API (kullandıkça öde, abonelik yok)</span></div>
+        <div class="layer"><span>Analiz</span><span>OpenAI/Claude API: cevaptan marka, sıra, duygu ve kaynak çıkarma</span></div>
+        <div class="layer"><span>Ölçüm</span><span>n8n webhook → Conversions API (A1)</span></div>
+        <div class="layer"><span>Rapor</span><span>Looker Studio + e-posta/WhatsApp özeti</span></div>
+        <p class="note">Uygun olduğu durum: hizmet satışı, ilk müşteriler, fikri test etmek.</p>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Yol 2 · SaaS · 6–10 hafta</span>
+        <div class="layer"><span>Ön yüz</span><span>Next.js; panel, onboarding, beyaz etiket rapor</span></div>
+        <div class="layer"><span>Veritabanı</span><span>Postgres (Supabase); müşteri, soru, tarama, olay tabloları</span></div>
+        <div class="layer"><span>İş kuyruğu</span><span>Trigger.dev / Inngest / BullMQ; zamanlı taramalar, yeniden deneme</span></div>
+        <div class="layer"><span>Entegrasyon</span><span>ikas, Ticimax, IdeaSoft, Shopify webhook'ları; Search Console; Ads API (onay sonrası)</span></div>
+        <div class="layer"><span>Ödeme</span><span>Stripe veya iyzico; paket ve kullanım (soru sayısı) bazlı</span></div>
+        <div class="layer"><span>Güvenlik</span><span>API anahtarları gizli yönetimde; kişisel veri sadece hashli; KVKK aydınlatma metni</span></div>
+        <p class="note">Uygun olduğu durum: 20+ müşteri, uygulama pazarı listelemesi, ajans ortaklıkları.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kod">
+    <div class="head">
+      <span class="eyebrow">Çekirdek kod</span>
+      <h2>İki kritik parça nasıl görünür?</h2>
+    </div>
+    <div class="codes">
+      <figure class="code">
+        <figcaption><b>A1 · Siparişi ChatGPT Ads'e bildirme.</b> Uç nokta ve alan adları OpenAI'nin Conversions API belgesinden alınmıştır.</figcaption>
+<pre><span class="c">// Sipariş webhook'u geldiğinde çalışır</span>
+async function sendOrder(order) {
+  const event = {
+    id: `order_${order.id}`,   <span class="c">// pixel event_id ile aynı → çift sayım yok</span>
+    type: 'order_created',
+    timestamp_ms: Date.parse(order.createdAt), <span class="c">// son 7 gün</span>
+    action_source: 'web',
+    source_url: order.thankYouUrl,
+    oppref: order.oppref,      <span class="c">// reklam tıklamasında yakalanıp saklanır</span>
+    data: buildData(order)     <span class="c">// tutar, para birimi, SHA-256 e-posta/telefon</span>
+  };
+  await fetch(
+    `https://bzr.openai.com/v1/events?pid=${PIXEL_ID}`,
+    { method: 'POST',
+      headers: { Authorization: `Bearer ${CAPI_KEY}`,
+                 'Content-Type': 'application/json' },
+      body: JSON.stringify({ events: [event] }) });
+}</pre>
+      </figure>
+      <figure class="code">
+        <figcaption><b>G2 + K1 · Tarama ve boşluk kararı.</b> Sözde kod; motor çağrısı DataForSEO veya benzeri bir veri API'si üzerinden yapılır.</figcaption>
+<pre>for soru in soru_seti:                 <span class="c"># 50–200 soru</span>
+  for motor in [chatgpt, gemini, perplexity]:
+    for i in range(3):                 <span class="c"># cevaplar değişken</span>
+      cevap = veri_api(motor, soru, dil="tr", konum="TR")
+      kaydet(soru, motor, ayristir(cevap))
+      <span class="c"># → marka_gecti, sira, rakipler, kaynaklar, duygu</span>
+
+gorunurluk = marka_gecen_cevap / toplam_cevap   <span class="c"># soru bazında</span>
+
+if niyet == "satın alma" and gorunurluk &lt; 0.20:
+    oner("reklam_grubu_ac", soru_kumesi)
+    oner("icerik_taslagi", soru)       <span class="c"># G5</span>
+elif gorunurluk &gt; 0.60:
+    oner("reklam_butcesini_azalt", soru_kumesi)</pre>
+      </figure>
+    </div>
+  </section>
+
+  <section id="maliyet">
+    <div class="head">
+      <span class="eyebrow">Birim ekonomisi</span>
+      <h2>Bir müşterinin aylık veri maliyeti ne kadar?</h2>
+      <p class="prose">GEO SaaS'ında ana değişken maliyet, yapay zekâ motorlarına sorulan soru sayısıdır. Sorgu başı maliyet tahminidir. DataForSEO'da görev ücreti çok düşük, ağırlık motorun kendi ücretinde. Kendi hesabınızda birkaç yüz sorguyla gerçek rakamı ölçün.</p>
+    </div>
+    <div class="calc">
+      <div style="display:grid;gap:16px">
+        <div class="row"><label for="q">Soru sayısı <output id="oq">60</output></label><input type="range" id="q" min="10" max="300" step="10" value="60"></div>
+        <div class="row"><label for="e">Yapay zekâ motoru <output id="oe">3</output></label><input type="range" id="e" min="1" max="5" value="3"></div>
+        <div class="row"><label for="r">Her sorunun tekrar sayısı <output id="or">2</output></label><input type="range" id="r" min="1" max="5" value="2"></div>
+        <div class="row"><label for="f">Aylık tarama sayısı <output id="of">4</output></label><input type="range" id="f" min="1" max="30" value="4"></div>
+        <div class="row"><label for="u">Sorgu başı maliyet (tahmini, analiz dahil) <output id="ou">0,02 $</output></label><input type="range" id="u" min="0.005" max="0.06" step="0.005" value="0.02"></div>
+        <div class="row"><label for="p">Paket fiyatı <output id="op">149 $</output></label><input type="range" id="p" min="29" max="499" step="10" value="149"></div>
+      </div>
+      <div class="result" aria-live="polite">
+        <span class="eyebrow">Müşteri başı aylık</span>
+        <div class="kv"><span>Sorgu</span><b id="rq">—</b></div>
+        <div class="kv"><span>Veri maliyeti</span><b id="rc">—</b></div>
+        <div class="kv"><span>Brüt kâr</span><b id="rg">—</b></div>
+        <span class="eyebrow">Brüt marj</span>
+        <span class="big" id="rm">—</span>
+        <span class="note" id="rn">—</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="paket">
+    <div class="head">
+      <span class="eyebrow">Paketleme</span>
+      <h2>Otomasyonlar nasıl ürüne dönüşür?</h2>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Paket</th><th>İçindeki otomasyonlar</th><th>Kime</th><th>Fiyat önerisi</th><th>10K $/ay için</th></tr></thead>
+        <tbody>
+          <tr><td><b>Ücretsiz Hazırlık Puanı</b></td><td>G4 + 5 soruluk mini G2</td><td>Herkes (lead toplama)</td><td>0 $</td><td>—</td></tr>
+          <tr><td><b>GEO Takip</b></td><td>G1, G2, G3, haftalık rapor</td><td>Markalar, SEO ajansları</td><td>49–149 $/ay</td><td>≈ 100 × 99 $</td></tr>
+          <tr><td><b>GEO + Ads</b></td><td>GEO Takip + A1, A2, A3, K1, K2</td><td>ChatGPT'de reklam veren e-ticaret</td><td>199–299 $/ay</td><td>≈ 40 × 249 $</td></tr>
+          <tr><td><b>Ajans (beyaz etiket)</b></td><td>Hepsi, 10 müşteri alanı, kendi logolu rapor</td><td>Dijital ajanslar</td><td>499–799 $/ay</td><td>≈ 15 ajans × 699 $</td></tr>
+          <tr><td><b>Yönetilen hizmet</b></td><td>Hepsi + G5 içerik + kampanya yönetimi (insan)</td><td>Bütçesi 1.000 $+ markalar</td><td>750–1.500 $/ay</td><td>≈ 10 × 1.000 $</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="sira">
+    <div class="head">
+      <span class="eyebrow">Yapım sırası</span>
+      <h2>Sıfırdan ilk satışa 6 adım</h2>
+    </div>
+    <ol class="build">
+      <li><div><b>Kendi reklam hesabını aç, bir kampanya yayınla.</b><p>Türkiye'de faturalama para birimini, Türkçe reklam onayını ve Conversions API anahtarı oluşturmayı kendin gör. Satarken "denedik" diyebilmek en büyük güven kaynağı.</p></div></li>
+      <li><div><b>G4 hazırlık denetimini ücretsiz araç olarak yayınla.</b><p>Tek sayfa: URL gir, puan ve düzeltme listesi al. E-posta karşılığında detaylı rapor.</p></div></li>
+      <li><div><b>n8n ile G1 + G2 + K2'yi kur, 3 markaya elle sun.</b><p>İlk rapor, satış toplantısının kendisidir: "Rakibiniz 60 sorunun 38'inde geçiyor, siz 7'sinde."</p></div></li>
+      <li><div><b>İlk ödeyen müşteride A1 dönüşüm köprüsünü kur.</b><p>Ölçüm olmadan reklamın değeri kanıtlanamaz. Bir altyapıyla (ikas) başla.</p></div></li>
+      <li><div><b>K1 "organik boşluk → reklam" motorunu ekle.</b><p>Artık hem organik hem ücretli tarafı tek raporda satıyorsun. Rakiplerden ayrıştığın nokta burası.</p></div></li>
+      <li><div><b>10 müşteriden sonra SaaS'a geç ve partner başvurusu yap.</b><p>Tekrar eden akışları Next.js + kuyruk yapısına taşı; OpenAI Ads API partner erişimi için başvur ve A4/A5'i aç.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="tuzak">
+    <div class="head">
+      <span class="eyebrow">Dikkat</span>
+      <h2>Kurarken düşülen tuzaklar</h2>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Tuzak</th><th>Ne olur</th><th>Doğrusu</th></tr></thead>
+        <tbody>
+          <tr><td><b>Ham API cevabını ChatGPT sanmak</b></td><td>chatgpt.com web araması yapar ve kaynak gösterir; ham model API'si bunu yapmayabilir. Ölçüm gerçeği yansıtmaz</td><td>Arama açık cevabı veren veri API'si veya motorun arama özellikli modu</td></tr>
+          <tr><td><b>Her soruyu tek kez sormak</b></td><td>Cevaplar değişken; tek ölçüm yanıltır</td><td>2–3 tekrar, ortalama ve güven aralığı</td></tr>
+          <tr><td><b>Kendi kazıyıcını yazmak</b></td><td>Kullanım koşulları riski, sürekli kırılma, proxy maliyeti</td><td>Lisanslı veri sağlayıcısı; kazıyıcıyı yalnızca yedek olarak düşün</td></tr>
+          <tr><td><b>Hashlenmemiş kişisel veri göndermek</b></td><td>KVKK ve OpenAI kuralları ihlali</td><td>E-posta/telefonu normalleştir ve SHA-256 ile hashle; aydınlatma metnine ekle</td></tr>
+          <tr><td><b>Otomatik toplu içerik yayını</b></td><td>Düşük kalite, marka riski, görünürlük kaybı</td><td>Taslak üret, insan onayıyla yayınla</td></tr>
+          <tr><td><b>Kampanya otomasyonuna API'siz başlamak</b></td><td>Panel otomasyonu kırılgan ve kurallara aykırı olabilir</td><td>Önce ölçüm ve öneri; API onayı gelince yönetim</td></tr>
+          <tr><td><b>Pixel ve CAPI'de farklı olay ID'si</b></td><td>Siparişler iki kez sayılır, ROAS şişer</td><td>Aynı <code>id</code>, aynı olay adı, aynı Pixel ID</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="kaynaklar">
+    <div class="head"><span class="eyebrow">Kaynaklar</span><h2>Dayanaklar</h2></div>
+    <ol class="sources">
+      <li><a href="https://developers.openai.com/ads/conversions-api" target="_blank" rel="noopener">Conversions API, OpenAI Developers</a></li>
+      <li><a href="https://developers.openai.com/ads/measurement-pixel" target="_blank" rel="noopener">Measurement Pixel, OpenAI Developers</a></li>
+      <li><a href="https://developers.openai.com/ads/api-reference/conversion-setup" target="_blank" rel="noopener">Conversion Setup API Reference, OpenAI Developers</a></li>
+      <li><a href="https://developers.openai.com/ads" target="_blank" rel="noopener">ChatGPT Ads developer docs (Campaigns, Insights, Bulk API, Product Feeds)</a></li>
+      <li><a href="https://help.openai.com/en/articles/20001409-conversion-measurement" target="_blank" rel="noopener">Conversion Measurement, OpenAI Help Center</a></li>
+      <li><a href="https://dataforseo.com/ai-optimization-api" target="_blank" rel="noopener">AI Optimization API, DataForSEO</a></li>
+      <li><a href="https://dataforseo.com/pricing/ai-optimization/llm-responses" target="_blank" rel="noopener">LLM Responses pricing, DataForSEO</a></li>
+      <li><a href="https://dataforseo.com/help-center/finding-analyzing-sources-llms-cite-with-ai-optimization-api" target="_blank" rel="noopener">Finding the sources LLMs cite, DataForSEO</a></li>
+      <li><a href="https://anakin.io/blog/chatgpt-scraper-api" target="_blank" rel="noopener">ChatGPT UI vs API for GEO tracking, Anakin</a></li>
+      <li><a href="https://brightdata.com/blog/ai/ai-visibility-tracker" target="_blank" rel="noopener">Open-source AI visibility tracker, Bright Data</a></li>
+      <li><a href="https://discoveredlabs.com/blog/profound-vs-peec-vs-otterly-which-ai-visibility-platform-should-you-buy" target="_blank" rel="noopener">Profound vs Peec vs Otterly, Discovered Labs</a></li>
+      <li><a href="https://www.webfx.com/blog/ai/chatgpt-ads-manager/" target="_blank" rel="noopener">ChatGPT Ads Manager, WebFX</a></li>
+    </ol>
+  </section>
+
+  <footer><p class="note">Hazırlanma tarihi: 30 Eylül 2026. Sorgu maliyetleri tahminidir. OpenAI Ads API erişim koşulları değişebilir.</p></footer>
+</div>
+
+<script>
+(function(){
+  var ids = ['q','e','r','f','u','p'];
+  var usd = function(n, d){ return n.toLocaleString('tr-TR', {minimumFractionDigits:d||0, maximumFractionDigits:d||0}) + ' $'; };
+  function update(){
+    var v = {}; ids.forEach(function(id){ v[id] = +document.getElementById(id).value; });
+    document.getElementById('oq').textContent = v.q;
+    document.getElementById('oe').textContent = v.e;
+    document.getElementById('or').textContent = v.r;
+    document.getElementById('of').textContent = v.f;
+    document.getElementById('ou').textContent = usd(v.u, 3);
+    document.getElementById('op').textContent = usd(v.p);
+    var queries = v.q * v.e * v.r * v.f;
+    var cost = queries * v.u;
+    var gross = v.p - cost;
+    var margin = v.p > 0 ? gross / v.p * 100 : 0;
+    document.getElementById('rq').textContent = queries.toLocaleString('tr-TR');
+    document.getElementById('rc').textContent = usd(cost, 2);
+    document.getElementById('rg').textContent = usd(gross, 2);
+    document.getElementById('rm').textContent = '%' + Math.round(margin);
+    document.getElementById('rn').textContent = margin >= 75 ? 'Sağlıklı SaaS marjı (%75 ve üstü).'
+      : margin >= 50 ? 'Kabul edilebilir; soru sayısını veya tekrar sayısını pakete göre sınırla.'
+      : 'Zararlı veya çok düşük; fiyatı artır ya da tarama sıklığını düşür.';
+  }
+  ids.forEach(function(id){ document.getElementById(id).addEventListener('input', update); });
+  update();
+})();
+</script>
