@@ -1,0 +1,516 @@
+<title>ChatGPT Ads Fırsat Haritası</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  /* Layout: tek kolon rapor, 1080px; üstte "kısa cevap", ardından kanıt tablosu, ürün kartları, hesaplayıcı, plan. */
+  :root{
+    --bg:#f2f4f7; --surface:#ffffff; --surface-2:#e8ecf2;
+    --ink:#101722; --ink-2:#435063; --muted:#6c7889; --line:#d7dde6; --line-2:#c3ccd8;
+    --accent:#2442c9; --accent-ink:#ffffff; --accent-soft:#e3e8fb;
+    --amber:#9a6200; --amber-soft:#fbefd8;
+    --good:#127a3e; --good-soft:#ddf2e5; --warn:#9a6200; --crit:#b42f2f; --crit-soft:#f8e1e1;
+    --f-display:'Familjen Grotesk', 'Helvetica Neue', Arial, sans-serif;
+    --f-body:'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --f-mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e131b; --surface:#161d28; --surface-2:#1e2735;
+      --ink:#eef2f8; --ink-2:#b7c1d0; --muted:#8793a5; --line:#2a3445; --line-2:#3a4659;
+      --accent:#8ea2ff; --accent-ink:#0e131b; --accent-soft:#1f2a4d;
+      --amber:#e8b45a; --amber-soft:#3a2d15;
+      --good:#5cc98a; --good-soft:#15301f; --warn:#e8b45a; --crit:#ef8a8a; --crit-soft:#3a1a1a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e131b; --surface:#161d28; --surface-2:#1e2735;
+    --ink:#eef2f8; --ink-2:#b7c1d0; --muted:#8793a5; --line:#2a3445; --line-2:#3a4659;
+    --accent:#8ea2ff; --accent-ink:#0e131b; --accent-soft:#1f2a4d;
+    --amber:#e8b45a; --amber-soft:#3a2d15;
+    --good:#5cc98a; --good-soft:#15301f; --warn:#e8b45a; --crit:#ef8a8a; --crit-soft:#3a1a1a;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;padding-inline:20px}
+  .wrap{max-width:1080px;margin-inline:auto}
+  h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15;color:var(--ink)}
+  h1{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:700;letter-spacing:-.02em}
+  h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-.01em}
+  h3{font-size:1.15rem;font-weight:600}
+  p{margin:0;color:var(--ink-2)}
+  a{color:var(--accent)}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .mono{font-family:var(--f-mono)}
+  .eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .prose{max-width:68ch;display:grid;gap:12px}
+  section{padding-block:56px;border-top:1px solid var(--line);display:grid;gap:24px}
+  .head{display:grid;gap:8px}
+
+  /* Hero */
+  header{padding-block:48px 40px;display:grid;gap:28px}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:start}
+  .lede{font-size:1.14rem;color:var(--ink-2);max-width:60ch}
+  .verdict{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;display:grid;gap:10px}
+  .verdict b{color:var(--ink)}
+
+  /* Chat ad mock */
+  .chat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:12px;font-size:.92rem}
+  .bubble-user{justify-self:end;background:var(--surface-2);border-radius:14px;padding:8px 14px;max-width:85%;color:var(--ink)}
+  .answer{color:var(--ink-2);display:grid;gap:6px}
+  .answer .skel{height:9px;border-radius:5px;background:var(--surface-2)}
+  .ad{border:1px solid var(--line-2);border-radius:10px;padding:12px;display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:center}
+  .ad-img{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent-soft),var(--amber-soft))}
+  .ad-meta{font-size:.72rem;color:var(--muted);font-family:var(--f-mono)}
+  .ad-title{font-weight:700;color:var(--ink)}
+  .ad-copy{color:var(--ink-2);font-size:.86rem}
+  .limits{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--f-mono);font-size:.72rem;padding:3px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+
+  /* Facts strip */
+  .facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+  .fact{padding:16px;border-left:1px solid var(--line);display:grid;gap:4px;align-content:start}
+  .fact:first-child{border-left:0}
+  .fact .v{font-family:var(--f-display);font-size:1.5rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .fact .k{font-size:.82rem;color:var(--ink-2);line-height:1.4}
+
+  /* Tables */
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:.9rem}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--surface-2)}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--ink)}
+  td{color:var(--ink-2)}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .pill{display:inline-block;font-family:var(--f-mono);font-size:.7rem;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .p-good{background:var(--good-soft);color:var(--good)}
+  .p-warn{background:var(--amber-soft);color:var(--amber)}
+  .p-crit{background:var(--crit-soft);color:var(--crit)}
+  .p-acc{background:var(--accent-soft);color:var(--accent)}
+
+  /* Product cards */
+  .products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .prod{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:12px;align-content:start}
+  .prod.top{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .prod-h{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .pitch{font-style:italic;color:var(--ink)}
+  dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 14px;font-size:.88rem}
+  dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  dd{margin:0;color:var(--ink-2)}
+  .meter{display:flex;gap:3px}
+  .meter i{width:14px;height:6px;border-radius:2px;background:var(--line-2)}
+  .meter i.on{background:var(--accent)}
+
+  /* Featured recommendation */
+  .feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:12px;align-content:start}
+  ul.clean{margin:0;padding-left:1.1em;display:grid;gap:6px;color:var(--ink-2)}
+  ul.clean b{color:var(--ink)}
+  .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .tier{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--surface);display:grid;gap:6px;align-content:start}
+  .tier .price{font-family:var(--f-display);font-size:1.6rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .tier small{color:var(--muted)}
+
+  /* Calculator */
+  .calc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px}
+  .row{display:grid;gap:4px}
+  .row label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;color:var(--ink-2)}
+  .row output{font-family:var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  .result{display:grid;gap:10px;align-content:start}
+  .big{font-family:var(--f-display);font-size:2.6rem;font-weight:700;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+  .bar{height:10px;border-radius:5px;background:var(--surface-2);overflow:hidden}
+  .bar span{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+  .goal{font-size:.86rem;color:var(--ink-2)}
+
+  /* Plan */
+  .plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .phase{border-top:3px solid var(--accent);background:var(--surface);border-radius:0 0 10px 10px;padding:18px;display:grid;gap:10px;align-content:start;border-inline:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .phase:nth-child(2){border-top-color:var(--amber)}
+  .phase:nth-child(3){border-top-color:var(--good)}
+
+  .channels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .ch{display:grid;gap:6px;align-content:start;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  .ch p{font-size:.9rem}
+
+  .sources{font-size:.85rem;display:grid;gap:4px;padding-left:1.1em;margin:0;color:var(--ink-2)}
+  .note{font-size:.84rem;color:var(--muted)}
+  footer{padding-block:32px 48px;border-top:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .hero-grid,.feature,.calc{grid-template-columns:1fr}
+    .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .fact{border-left:0;border-top:1px solid var(--line)}
+    .fact:nth-child(-n+2){border-top:0}
+    .fact:nth-child(even){border-left:1px solid var(--line)}
+    .products,.plan,.channels{grid-template-columns:1fr}
+    .tiers{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){ .bar span{transition:none} }
+  @media print{
+    body{padding-inline:0}
+    section{break-inside:avoid-page}
+    input[type=range]{display:none}
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Fırsat analizi · Eylül 2026</span>
+    <div class="hero-grid">
+      <div style="display:grid;gap:18px">
+        <h1>ChatGPT Ads üzerine ayda 10–15 bin $ getirecek ürün nasıl kurulur?</h1>
+        <p class="lede">ChatGPT'nin reklam platformu Mayıs 2026'da herkese açıldı, 16 Eylül 2026'da Türkiye'ye geldi. Bu rapor pazarda bugün kimin para kazandığını, boş kalan yerleri ve Türk markalarına kolay anlatılıp kolay satılabilecek ürün fikirlerini gelir hesabıyla birlikte ortaya koyuyor.</p>
+        <div class="verdict">
+          <span class="eyebrow">Kısa cevap</span>
+          <p><b>Sadece ChatGPT Ads yöneten ve kamuya açık şekilde ayda 10–15 bin $ kazandığı doğrulanmış bir SaaS henüz yok.</b> Platform çok yeni; kendi kendine reklam verme sadece 5 aylık. Ama hemen yanındaki kategori, yani markanın ChatGPT'deki görünürlüğünü ölçen araçlar, bu gelir seviyesini çoktan geçti: Peec AI 10 ayda 4 milyon $ yıllık gelire ulaştı.</p>
+          <p><b>Fırsat:</b> Türkiye'de platform iki haftalık. Shopify ve HubSpot'un resmi entegrasyonu var, ikas, Ticimax ve IdeaSoft'un yok. İlk hareket eden, "ChatGPT'de reklam + görünürlük" işini yerelde sahiplenebilir.</p>
+        </div>
+      </div>
+
+      <figure class="chat" style="margin:0" aria-label="ChatGPT içinde reklam biriminin örnek görünümü">
+        <span class="eyebrow">Reklam nerede çıkıyor?</span>
+        <div class="bubble-user">Kuru cilt için hafif bir nemlendirici önerir misin?</div>
+        <div class="answer" aria-hidden="true">
+          <div class="skel" style="width:96%"></div>
+          <div class="skel" style="width:88%"></div>
+          <div class="skel" style="width:92%"></div>
+          <div class="skel" style="width:60%"></div>
+        </div>
+        <div class="ad">
+          <div class="ad-img" aria-hidden="true"></div>
+          <div style="min-width:0">
+            <div class="ad-meta">Sponsorlu · ornekmarka.com</div>
+            <div class="ad-title">Hafif Nem Jeli</div>
+            <div class="ad-copy">Yağsız formül, 24 saat nem.</div>
+          </div>
+        </div>
+        <div class="limits">
+          <span class="tag">başlık ≈ 16 karakter</span>
+          <span class="tag">metin ≈ 32 karakter</span>
+          <span class="tag">cevabın altında, en fazla 2 reklam</span>
+        </div>
+        <figcaption class="note">Temsili örnektir. Reklam cevabın içine karışmaz, altında etiketli bir birim olarak çıkar. Anahtar kelime yoktur; eşleşmeyi konuşmanın bağlamı yapar.</figcaption>
+      </figure>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><span class="v">5 May 2026</span><span class="k">ABD'de kendi kendine reklam paneli (Ads Manager) açıldı</span></div>
+      <div class="fact"><span class="v">16 Eyl 2026</span><span class="k">Türkiye listeye "Available" olarak eklendi</span></div>
+      <div class="fact"><span class="v">63 ülke</span><span class="k">Eylül 2026 itibarıyla reklam verebilen ülke sayısı</span></div>
+      <div class="fact"><span class="v">3–5 $</span><span class="k">Önerilen tıklama başı teklif (CPC)</span></div>
+      <div class="fact"><span class="v">25 $/gün</span><span class="k">Türkiye'deki ajansların belirttiği en düşük günlük bütçe</span></div>
+    </div>
+  </header>
+
+  <section id="nedir">
+    <div class="head">
+      <span class="eyebrow">60 saniyede ChatGPT Ads</span>
+      <h2>Müşteriye tek cümleyle anlatılışı</h2>
+    </div>
+    <div class="prose">
+      <p><b>"Google'da insanlar arama yapar, ChatGPT'de insanlar karar verir. Artık o karar anında markanızı gösterebilirsiniz."</b></p>
+      <p>Reklamlar ücretsiz ve Go planındaki yetişkin kullanıcılara gösteriliyor, ücretli planlarda (Plus, Pro, Business) gösterilmiyor. Hedefleme anahtar kelimeyle değil, konuşmanın bağlamı, reklam metni ve açılış sayfasının içeriğiyle yapılıyor. Reklamveren kullanıcıların sohbetlerini göremiyor, sadece toplu rapor alıyor.</p>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Başlık</th><th>Bugünkü durum</th><th>Ürün fikri için anlamı</th></tr></thead>
+        <tbody>
+          <tr><td><b>Teklif modeli</b></td><td>CPM (varsayılan tavan 60 $), CPC, Temmuz 2026'dan itibaren CPA</td><td>Dönüşüm verisi doğru gitmezse CPA kullanılamaz; ölçüm kurulumu satılabilir bir iş</td></tr>
+          <tr><td><b>Ölçüm</b></td><td>Pixel, Conversions API, UTM; satış değeri ve ROAS raporu</td><td>Türk e-ticaret altyapılarından Conversions API'ye olay gönderen bağlayıcı açığı var</td></tr>
+          <tr><td><b>Kitleler</b></td><td>E-posta/telefon listesiyle özel kitle, en az 25.000 eşleşme</td><td>Küçük markalar için bağlamsal hedefleme ve metin kalitesi daha kritik</td></tr>
+          <tr><td><b>Resmi entegrasyonlar</b></td><td>Shopify uygulaması (23 Eylül'den itibaren uluslararası), HubSpot (ilk CRM ortağı)</td><td>Shopify'da rekabet OpenAI'nin kendisi; yerel platformlar boşta</td></tr>
+          <tr><td><b>API</b></td><td>Bulk API ve teknoloji ortağı programı var, ama sadece seçili ad-tech firmalarına açık</td><td>Kampanyayı otomatik yöneten SaaS bugün kurmak zor; ölçüm, hazırlık ve içerik tarafı açık</td></tr>
+          <tr><td><b>Yeni formatlar</b></td><td>Sponsored Agents (markanın kendi sohbet ajanı) ABD'de test ediliyor; panelde yapay zekâ ile reklam üretimi</td><td>6–12 ay içinde "markanın ChatGPT ajanını hazırlama" ayrı bir hizmet olur</td></tr>
+          <tr><td><b>Kısıtlar (Türkiye)</b></td><td>Alkol, tütün, kumar, yetişkin, siyaset yasak; ABD dışında sağlık, finans ve hukuk hizmetleri kapalı. Yeni hesaplar önce sadece kendi ülkesine reklam verebiliyor. TL faturalama belgelenmemiş</td><td>Uygunluk kontrolü ürünün ilk adımı olmalı; kozmetik, moda, ev, eğitim ve B2B yazılım uygun dikeyler</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="kanit">
+    <div class="head">
+      <span class="eyebrow">Pazar kanıtı</span>
+      <h2>Bugün bu alanda kim, ne kadar kazanıyor?</h2>
+      <p class="prose">Gelir rakamları şirketlerin açıkladığı veya basında geçen değerlerdir. Güven sütunu kaynağın sağlamlığını gösterir.</p>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Ürün</th><th>Ne yapıyor</th><th>Fiyat</th><th>Gelir / büyüklük</th><th>Güven</th></tr></thead>
+        <tbody>
+          <tr><td><b>Peec AI</b> (Berlin)</td><td>Markanın ChatGPT, Perplexity, Gemini cevaplarında ne sıklıkla geçtiğini izler</td><td class="num">89 €/ay'dan</td><td class="num">10 ayda 4M $+ ARR, 29M $ yatırım</td><td><span class="pill p-good">Yüksek</span></td></tr>
+          <tr><td><b>Profound</b></td><td>Kurumsal AI görünürlük platformu</td><td class="num">499 $/ay'dan</td><td class="num">155M $ yatırım, 1B $ değerleme</td><td><span class="pill p-good">Yüksek</span></td></tr>
+          <tr><td><b>Otterly.AI</b></td><td>Uygun fiyatlı AI arama izleme, ajanslara uygun</td><td class="num">29 $/ay'dan</td><td>Açıklanmadı</td><td><span class="pill p-warn">Fiyat net</span></td></tr>
+          <tr><td><b>Mentions</b></td><td>AI cevaplarında marka takibi, tek kurucu</td><td>—</td><td class="num">≈ 20K $ MRR</td><td><span class="pill p-warn">İkincil kaynak</span></td></tr>
+          <tr><td><b>Adspirer</b></td><td>Reklam hesaplarını ChatGPT/Claude içinden doğal dille yönetme (MCP)</td><td class="num">49–199 $/ay</td><td>Açıklanmadı</td><td><span class="pill p-warn">Fiyat net</span></td></tr>
+          <tr><td><b>groas</b></td><td>Google + ChatGPT Ads yönetimi, insan stratejist dahil</td><td class="num">999 $/ay</td><td>Açıklanmadı</td><td><span class="pill p-warn">Fiyat net</span></td></tr>
+          <tr><td><b>Ryze AI</b></td><td>Yapay zekâ ile çok kanallı reklam yönetimi, ChatGPT Ads dahil ettiğini söylüyor</td><td class="num">497 $/ay'dan</td><td>2.000+ pazarlamacı (şirket beyanı)</td><td><span class="pill p-warn">Şirket beyanı</span></td></tr>
+          <tr><td><b>Türk ajanslar</b> (Vera Bilişim, enextware vb.)</td><td>ChatGPT Ads kurulum ve yönetim hizmeti</td><td>Teklif usulü</td><td>Yeni başladılar</td><td><span class="pill p-acc">Rakip sinyali</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p><b>Çıkarım:</b> Para şu an üç yerde: (1) markanın ChatGPT'de nasıl göründüğünü ölçmek, (2) reklam yönetimini hizmet olarak satmak (ayda 500–1.000 $), (3) kurulumu ve ölçümü kolaylaştırmak. Kampanyayı tamamen otomatik yöneten SaaS, API kapalı olduğu için bugün riskli.</p>
+    </div>
+  </section>
+
+  <section id="urunler">
+    <div class="head">
+      <span class="eyebrow">Ürün fikirleri</span>
+      <h2>Kurulabilecek 6 ürün, kolaydan zora</h2>
+      <p class="prose">Her kart; kime satılacağını, müşteriye söylenecek cümleyi, fiyatı ve ayda 10.000 $'a kaç müşteriyle ulaşılacağını gösterir. Çubuklar yapım zorluğudur.</p>
+    </div>
+    <div class="products">
+      <article class="prod top">
+        <div class="prod-h"><h3>A · ChatGPT Ads Hazırlık Tarayıcısı</h3><span class="pill p-acc">Önerilen giriş</span></div>
+        <p class="pitch">"Sitenizi girin, 2 dakikada ChatGPT'de reklam vermeye hazır mısınız görün."</p>
+        <dl>
+          <dt>Ne yapar</dt><dd>Sektör uygunluğu, açılış sayfası kalitesi, pixel/Conversions API kurulumu, ürün feed'i ve ChatGPT'de organik görünürlüğü puanlar; düzeltme listesi verir.</dd>
+          <dt>Kime</dt><dd>Türk e-ticaret markaları ve ajanslar</dd>
+          <dt>Fiyat</dt><dd>Ücretsiz tarama → 49–99 $ detaylı rapor → kurulum hizmeti</dd>
+          <dt>10K $/ay</dt><dd class="num">Tek başına zor; asıl işi müşteri bulmak (lead mıknatısı)</dd>
+          <dt>Zorluk</dt><dd><span class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></span></dd>
+        </dl>
+      </article>
+
+      <article class="prod top">
+        <div class="prod-h"><h3>B · ikas / Ticimax / IdeaSoft Dönüşüm Köprüsü</h3><span class="pill p-acc">Önerilen ana ürün</span></div>
+        <p class="pitch">"Shopify'da tek tık olan ChatGPT Ads ölçümünü sizin mağazanıza da getiriyoruz."</p>
+        <dl>
+          <dt>Ne yapar</dt><dd>Sipariş, sepete ekleme, ürün görüntüleme olaylarını Conversions API'ye gönderir; ChatGPT Ads, Google ve Meta sonuçlarını tek panelde toplar; ürün başlıklarından 16/32 karakterlik Türkçe reklam metni önerir.</dd>
+          <dt>Kime</dt><dd>Türk altyapılarındaki orta ölçekli e-ticaret siteleri</dd>
+          <dt>Fiyat</dt><dd class="num">99–249 $/ay</dd>
+          <dt>10K $/ay</dt><dd class="num">≈ 70 müşteri × 149 $</dd>
+          <dt>Zorluk</dt><dd><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></dd>
+        </dl>
+      </article>
+
+      <article class="prod">
+        <div class="prod-h"><h3>C · Türkçe AI Görünürlük Takibi</h3><span class="pill p-good">Kanıtlı model</span></div>
+        <p class="pitch">"Müşterileriniz ChatGPT'ye sizin kategorinizi sorduğunda kimi öneriyor, her hafta görün."</p>
+        <dl>
+          <dt>Ne yapar</dt><dd>Türkçe sorularla ChatGPT, Gemini, Perplexity cevaplarını tarar; marka ve rakip payını, kaynak gösterilen siteleri raporlar. Peec AI modelinin yerel sürümü.</dd>
+          <dt>Kime</dt><dd>Markalar, SEO ajansları</dd>
+          <dt>Fiyat</dt><dd class="num">39–199 $/ay, ajans paketi 399 $</dd>
+          <dt>10K $/ay</dt><dd class="num">≈ 100 müşteri × 99 $</dd>
+          <dt>Zorluk</dt><dd><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></dd>
+        </dl>
+      </article>
+
+      <article class="prod">
+        <div class="prod-h"><h3>D · Paketli ChatGPT Ads Yönetim Hizmeti</h3><span class="pill p-good">En hızlı nakit</span></div>
+        <p class="pitch">"ChatGPT reklamlarınızı sabit aylık ücretle biz kurar, biz yönetiriz."</p>
+        <dl>
+          <dt>Ne yapar</dt><dd>Hesap açma, kimlik doğrulama, kampanya kurulumu, haftalık optimizasyon ve rapor. B ve C ürünleri iç araç olarak kullanılır.</dd>
+          <dt>Kime</dt><dd>Reklam bütçesi 1.000 $/ay üstü markalar</dd>
+          <dt>Fiyat</dt><dd class="num">500–1.000 $/ay + kurulum</dd>
+          <dt>10K $/ay</dt><dd class="num">≈ 12–15 müşteri × 750 $</dd>
+          <dt>Zorluk</dt><dd><span class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></span> <span class="note">yazılım az, emek çok</span></dd>
+        </dl>
+      </article>
+
+      <article class="prod">
+        <div class="prod-h"><h3>E · Sponsored Agent Hazırlık Kiti</h3><span class="pill p-warn">6–12 ay sonra</span></div>
+        <p class="pitch">"ChatGPT içinde markanızı anlatacak ajanın bilgi tabanını şimdiden hazırlayalım."</p>
+        <dl>
+          <dt>Ne yapar</dt><dd>Katalog, SSS, iade koşulları ve ürün karşılaştırmalarını ajan için yapılandırılmış bilgiye çevirir; sohbet testleri yapar.</dd>
+          <dt>Kime</dt><dd>Önce ABD'de satan Türk markaları, sonra yerel pazar</dd>
+          <dt>Fiyat</dt><dd class="num">Kurulum 1.500–3.000 $ + 200 $/ay bakım</dd>
+          <dt>10K $/ay</dt><dd class="num">≈ 4 kurulum + 20 bakım</dd>
+          <dt>Zorluk</dt><dd><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></dd>
+        </dl>
+      </article>
+
+      <article class="prod">
+        <div class="prod-h"><h3>F · Tam Otomatik Kampanya Yöneticisi</h3><span class="pill p-crit">Şimdilik bekle</span></div>
+        <p class="pitch">"Bütçenizi girin, yapay zekâ ChatGPT reklamlarınızı 7/24 yönetsin."</p>
+        <dl>
+          <dt>Ne yapar</dt><dd>Kampanya açma, teklif ve bütçe optimizasyonu, kreatif testleri.</dd>
+          <dt>Kime</dt><dd>Ajanslar, performans ekipleri</dd>
+          <dt>Fiyat</dt><dd class="num">299–999 $/ay</dd>
+          <dt>Engel</dt><dd>API sadece seçili ortaklara açık; OpenAI panele kendi yapay zekâ araçlarını ekliyor.</dd>
+          <dt>Zorluk</dt><dd><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section id="oneri">
+    <div class="head">
+      <span class="eyebrow">Önerilen yol</span>
+      <h2>Hizmetle başla, yazılıma dönüştür</h2>
+    </div>
+    <div class="feature">
+      <div class="panel">
+        <h3>Neden bu sıra?</h3>
+        <ul class="clean">
+          <li><b>Nakit ilk ay gelir.</b> D (yönetim hizmeti) ilk 3–5 müşteriyle ayda 2.500–4.000 $ getirir ve yazılımın parasını öder.</li>
+          <li><b>Müşteri bulmak ucuzlar.</b> A (ücretsiz tarayıcı) her gün yeni potansiyel müşteri toplar.</li>
+          <li><b>Rakip yok denecek kadar az.</b> Shopify'ın resmi uygulaması var; Türk altyapılarının yok. B bu boşluğu doldurur.</li>
+          <li><b>Kanıtlı talep.</b> C, Peec AI ve Profound'un doğruladığı talebin Türkçe sürümü; reklam müşterisine ek satış olarak eklenir.</li>
+          <li><b>API gelirse hazırsın.</b> Ölçüm verisi ve müşteri tabanı elindeyse F'ye geçiş kolaylaşır.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Müşteriye anlatım (satış metni)</h3>
+        <p>"ChatGPT'yi Türkiye'de milyonlarca kişi alışveriş kararı için kullanıyor ve 16 Eylül'den beri burada reklam verilebiliyor. Rakipleriniz henüz yok. Biz üç şey yapıyoruz: sitenizin hazır olup olmadığını ölçüyoruz, reklamınızı kurup yönetiyoruz, satışlarınızı Google ve Meta ile yan yana raporluyoruz. İlk ay sonuç görmezseniz yönetim ücreti almıyoruz."</p>
+        <p class="note">Son cümledeki garanti isteğe bağlıdır. Yeni bir kanalda güven kurmanın en hızlı yolu budur, ama sadece ölçüm kurulumu tamamlanmış hesaplarda verilmeli.</p>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier"><span class="eyebrow">Başlangıç · SaaS</span><span class="price">99 $<small>/ay</small></span><p>Dönüşüm köprüsü, tek panel rapor, Türkçe reklam metni önerisi. Tek mağaza.</p></div>
+      <div class="tier"><span class="eyebrow">Büyüme · SaaS</span><span class="price">249 $<small>/ay</small></span><p>Başlangıç + haftalık AI görünürlük takibi (50 soru), rakip karşılaştırması, 3 mağaza.</p></div>
+      <div class="tier"><span class="eyebrow">Yönetilen · Hizmet</span><span class="price">750 $<small>/ay</small></span><p>Büyüme + hesap kurulumu, kampanya yönetimi, aylık strateji görüşmesi.</p></div>
+    </div>
+  </section>
+
+  <section id="hesap">
+    <div class="head">
+      <span class="eyebrow">Gelir hesaplayıcı</span>
+      <h2>10–15 bin $'a hangi karışımla ulaşılır?</h2>
+      <p class="prose">Varsayılan değerler 12. ay için gerçekçi bir karışımdır. Kaydırıcıları değiştirerek kendi senaryonu dene.</p>
+    </div>
+    <div class="calc">
+      <div style="display:grid;gap:16px">
+        <div class="row"><label for="c1">Başlangıç müşterisi (99 $) <output id="o1">30</output></label><input type="range" id="c1" min="0" max="150" value="30"></div>
+        <div class="row"><label for="c2">Büyüme müşterisi (249 $) <output id="o2">12</output></label><input type="range" id="c2" min="0" max="80" value="12"></div>
+        <div class="row"><label for="c3">Yönetilen hizmet müşterisi (750 $) <output id="o3">6</output></label><input type="range" id="c3" min="0" max="30" value="6"></div>
+        <div class="row"><label for="c4">Aylık kayıp oranı <output id="o4">%4</output></label><input type="range" id="c4" min="0" max="15" value="4"></div>
+      </div>
+      <div class="result" aria-live="polite">
+        <span class="eyebrow">Aylık tekrarlayan gelir</span>
+        <span class="big" id="mrr">—</span>
+        <div class="bar"><span id="barfill"></span></div>
+        <span class="goal" id="goal">—</span>
+        <span class="note" id="churn">—</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="kanallar">
+    <div class="head">
+      <span class="eyebrow">Müşteriye ulaşma</span>
+      <h2>Müşteri nerede, nasıl bulunur?</h2>
+    </div>
+    <div class="channels">
+      <div class="ch"><h3>Altyapı uygulama pazarları</h3><p>ikas, Ticimax ve IdeaSoft uygulama/partner programlarına başvur. Mağaza sahipleri çözümü zaten orada arıyor. Tek listeleme sürekli müşteri getirir.</p></div>
+      <div class="ch"><h3>Ücretsiz tarayıcı + LinkedIn</h3><p>Her hafta tanınmış bir Türk markasının "ChatGPT hazırlık puanını" paylaş. Merak ettiren içerik, taramaya trafik getirir.</p></div>
+      <div class="ch"><h3>Ajans ortaklığı</h3><p>Google/Meta ajanslarına beyaz etiketli rapor ve %20–30 gelir payı ver. Tek ajans 5–10 müşteri getirebilir.</p></div>
+      <div class="ch"><h3>Canlı yayın ve webinar</h3><p>"ChatGPT'de ilk reklamımı kurdum" başlıklı 30 dakikalık canlı kurulum. Platform yeni olduğu için ilgi yüksek.</p></div>
+      <div class="ch"><h3>Doğrudan dikey liste</h3><p>Kozmetik, moda, ev, bebek, eğitim gibi reklam kısıtı olmayan dikeylerde Meta'da aktif reklam veren markaları listele, tarama sonucuyla yaz.</p></div>
+      <div class="ch"><h3>E-ticaret toplulukları</h3><p>E-ticaret Slack/Discord/Telegram grupları, e-ticaret etkinlikleri ve podcast'ler. İlk 10 müşteri çoğunlukla buradan gelir.</p></div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="head">
+      <span class="eyebrow">90 günlük plan</span>
+      <h2>İlk üç ay adım adım</h2>
+    </div>
+    <div class="plan">
+      <div class="phase">
+        <span class="eyebrow">Gün 1–30 · Doğrula</span>
+        <ul class="clean">
+          <li>Kendi ChatGPT Ads hesabını aç; Türkiye'de faturalama para birimini, minimum bütçeyi ve Türkçe reklam onayını gerçekte test et.</li>
+          <li>Ücretsiz Hazırlık Tarayıcısı'nın basit sürümünü yayınla (A).</li>
+          <li>3–5 markaya yönetim hizmeti sat (D). Her birinde ölçümü elle kur.</li>
+          <li>Elle yaptığın işleri not al; hangisi tekrar ediyorsa o yazılıma dönüşecek.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="eyebrow">Gün 31–60 · Otomatikleştir</span>
+        <ul class="clean">
+          <li>İlk altyapı için dönüşüm köprüsünü yaz (B). İkas ile başla: uygulama pazarı ve API'si en erişilebilir olanı.</li>
+          <li>Tek panel raporu ekle: ChatGPT Ads + Google + Meta.</li>
+          <li>Hizmet müşterilerini bu araca taşı; ilk 10 SaaS müşterisini ücretsiz deneme ile al.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="eyebrow">Gün 61–90 · Büyüt</span>
+        <ul class="clean">
+          <li>Türkçe AI görünürlük takibini (C) Büyüme paketine ekle.</li>
+          <li>2–3 ajansla beyaz etiket anlaşması yap.</li>
+          <li>Ticimax ve IdeaSoft entegrasyonlarını ekle.</li>
+          <li>Hedef: 90. günde 3.000–5.000 $ MRR; 12. ayda 10.000–15.000 $.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="risk">
+    <div class="head">
+      <span class="eyebrow">Riskler</span>
+      <h2>Neler ters gidebilir, nasıl korunulur?</h2>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Risk</th><th>Olasılık</th><th>Önlem</th></tr></thead>
+        <tbody>
+          <tr><td><b>OpenAI aynı özelliği kendisi yapar</b> (panelde AI reklam üretimi, resmi entegrasyonlar)</td><td><span class="pill p-crit">Yüksek</span></td><td>OpenAI'nin girmeyeceği yere odaklan: yerel altyapılar, Türkçe, çok kanallı rapor, insan desteği</td></tr>
+          <tr><td><b>Türkiye'de reklam hacmi düşük kalır</b> (sadece ücretsiz/Go kullanıcılar)</td><td><span class="pill p-warn">Orta</span></td><td>Görünürlük takibini (C) reklamdan bağımsız sat; aynı aracı Google ve Meta ile birlikte konumla</td></tr>
+          <tr><td><b>API erişimi uzun süre kapalı kalır</b></td><td><span class="pill p-warn">Orta</span></td><td>Ürünü ölçüm (Conversions API) ve hazırlık üzerine kur; kampanya yönetimini hizmet olarak tut</td></tr>
+          <tr><td><b>Sektör kısıtları</b> (sağlık, finans, hukuk kapalı)</td><td><span class="pill p-warn">Orta</span></td><td>Uygunluk kontrolünü ilk adım yap; uygun dikeylere hedefle</td></tr>
+          <tr><td><b>Rakip ajanslar hızla çoğalır</b></td><td><span class="pill p-warn">Orta</span></td><td>Ajanslarla rekabet etme, onlara araç sat</td></tr>
+          <tr><td><b>Kurallar ve belgeler hızla değişir</b> (TL faturalama, ülke listesi)</td><td><span class="pill p-acc">Sürekli</span></td><td>Değişiklik bültenini içerik pazarlaması olarak kullan; güncel kalan kazanır</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Doğrulanması gerekenler: Conversions API'nin Türkiye hesaplarına açık olup olmadığı, Türkçe reklam onay süreci, TL faturalama ve ikas/Ticimax/IdeaSoft'un sipariş webhook erişimi. Bu dört konu 1. ayda gerçek bir hesapla test edilmeli.</p>
+  </section>
+
+  <section id="kaynaklar">
+    <div class="head"><span class="eyebrow">Kaynaklar</span><h2>Dayanaklar</h2></div>
+    <ol class="sources">
+      <li><a href="https://easyinsights.ai/blog/openai-launches-self-serve-ads-manager-for-chatgpt/" target="_blank" rel="noopener">OpenAI Launches Self-Serve Ads Manager for ChatGPT, EasyInsights</a></li>
+      <li><a href="https://www.webfx.com/blog/ai/chatgpt-ads-manager/" target="_blank" rel="noopener">ChatGPT Ads Manager: How It Works, WebFX</a></li>
+      <li><a href="https://digiday.com/marketing/openai-opens-up-chatgpt-ads-manager-to-the-u-s-while-promising-third-party-measurement-cpa-bidding/" target="_blank" rel="noopener">OpenAI opens up ChatGPT ads manager, Digiday</a></li>
+      <li><a href="https://digiday.com/marketing/openais-chatgpt-ads-get-their-first-measurement-partner-in-liveramp/" target="_blank" rel="noopener">ChatGPT ads get first conversion API partner in LiveRamp, Digiday</a></li>
+      <li><a href="https://www.marketingdive.com/news/openai-solidifies-ad-platform-ambitions-with-chatgpt-ads-manager/819801/" target="_blank" rel="noopener">OpenAI solidifies ad platform ambitions, Marketing Dive</a></li>
+      <li><a href="https://soku.ai/blog/chatgpt-ads-israel-saudi-turkey-uae-expansion" target="_blank" rel="noopener">ChatGPT Ads self-service opens in Turkey, Soku</a></li>
+      <li><a href="https://detartech.com/en/blog/chatgpt-ads-turkiye-openai-advertising-guide" target="_blank" rel="noopener">ChatGPT Ads Is Now Open in Türkiye, Detartech</a></li>
+      <li><a href="https://verabilisim.com/en/chatgpt-ads-turkey" target="_blank" rel="noopener">ChatGPT Ads in Turkey: Ad Management Service, Vera Bilişim</a></li>
+      <li><a href="https://ppc.land/openai-gains-7-asian-markets-for-chatgpt-ads-passing-60-countries/" target="_blank" rel="noopener">OpenAI passes 60 countries for ChatGPT ads, PPC Land</a></li>
+      <li><a href="https://enterprisedna.co/resources/news/openai-sponsored-agents-chatgpt-hubspot-shopify-2026/" target="_blank" rel="noopener">OpenAI Launches Sponsored Agents Inside ChatGPT, Enterprise DNA</a></li>
+      <li><a href="https://www.unite.ai/openai-tests-sponsored-agents-and-rolls-out-ai-tools-for-chatgpt-ads/" target="_blank" rel="noopener">OpenAI Tests Sponsored Agents, Unite.AI</a></li>
+      <li><a href="https://www.get-ryze.ai/blog/chatgpt-ads-api-developers-agencies" target="_blank" rel="noopener">ChatGPT Ads API in 2026, Ryze AI</a></li>
+      <li><a href="https://discoveredlabs.com/blog/profound-vs-peec-vs-otterly-which-ai-visibility-platform-should-you-buy" target="_blank" rel="noopener">Profound vs Peec vs Otterly, Discovered Labs</a></li>
+      <li><a href="https://otterly.ai/blog/best-ai-search-monitoring-and-llm-monitoring-solutions/" target="_blank" rel="noopener">Best AI Search Monitoring Tools, Otterly</a></li>
+      <li><a href="https://www.adspirer.com/pricing" target="_blank" rel="noopener">Adspirer Pricing</a></li>
+      <li><a href="https://www.adspirer.com/blog/best-ai-ad-management-platform-2026" target="_blank" rel="noopener">Best AI Ad Management Platform 2026, Adspirer</a></li>
+      <li><a href="https://medium.com/@tamimbuilds/8-solo-founders-who-quietly-hit-20k-62k-mrr-in-the-last-6-months-5032e610badc" target="_blank" rel="noopener">8 Solo Founders Who Hit $20K–$62K MRR, Medium</a></li>
+      <li><a href="https://www.eesel.ai/blog/chatgpt-instant-checkout" target="_blank" rel="noopener">ChatGPT Instant Checkout in 2026, eesel</a></li>
+    </ol>
+  </section>
+
+  <footer><p class="note">Hazırlanma tarihi: 30 Eylül 2026. Platform kuralları hızla değişiyor; rakamlar yayın tarihindeki kaynaklara dayanır.</p></footer>
+</div>
+
+<script>
+(function(){
+  var P = [99, 249, 750];
+  var ids = ['c1','c2','c3','c4'];
+  var fmt = function(n){ return Math.round(n).toLocaleString('tr-TR') + ' $'; };
+  function update(){
+    var v = ids.map(function(id){ return +document.getElementById(id).value; });
+    document.getElementById('o1').textContent = v[0];
+    document.getElementById('o2').textContent = v[1];
+    document.getElementById('o3').textContent = v[2];
+    document.getElementById('o4').textContent = '%' + v[3];
+    var mrr = v[0]*P[0] + v[1]*P[1] + v[2]*P[2];
+    var customers = v[0] + v[1] + v[2];
+    document.getElementById('mrr').textContent = fmt(mrr);
+    document.getElementById('barfill').style.width = Math.min(100, mrr/15000*100) + '%';
+    var goal = mrr >= 15000 ? 'Üst hedef (15.000 $) aşıldı.'
+      : mrr >= 10000 ? 'Hedef aralığında (10.000–15.000 $).'
+      : 'Hedefe ' + fmt(10000 - mrr) + ' kaldı.';
+    document.getElementById('goal').textContent = goal + ' Çubuk 15.000 $ ölçeğindedir.';
+    var lost = customers * v[3] / 100;
+    document.getElementById('churn').textContent = customers + ' müşteri. Bu seviyeyi korumak için ayda yaklaşık ' + lost.toFixed(1).replace('.', ',') + ' yeni müşteri gerekir.';
+  }
+  ids.forEach(function(id){ document.getElementById(id).addEventListener('input', update); });
+  update();
+})();
+</script>
