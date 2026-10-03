@@ -1,3 +1,4 @@
-# Kremi Beauty × Callypso Engage Analizi
+# Reports
 
-`kremi-callypso-engage-analizi.html` dosyasını tarayıcıda açarak görüntüleyebilirsiniz. Rapor; site/katalog analizi, 12 başlıkta Callypso Engage otomasyon senaryoları, Callypso dışı AI/e-ticaret fırsatları, yol haritası ve toplantı sorularını içerir.
+- `/` → `aydin-endustri/index.html` – Aydın Endüstri (Homedius & Sleeptown) × Callypso Engage Growth Analysis Dashboard
+- `/kremi` → `kremi-callypso-engage-analizi.html` – Kremi Beauty × Callypso Engage analizi

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aydın Endüstri Growth Analysis</title>
+<meta name="description" content="Aydın Endüstri / Planet Entegre – Homedius ve Sleeptown e-ticaret, CRM ve Callypso Engage büyüme analizi">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/aydin-endustri/styles.css">
+</head>
+<body>
+<div id="tip" class="tip" role="tooltip" hidden></div>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brandmark">
+      <span class="logo" aria-hidden="true">AE</span>
+      <div>
+        <div class="tb-title">Aydın Endüstri · Growth Analysis</div>
+        <div class="tb-sub">Homedius &amp; Sleeptown × Callypso Engage · <span id="asof"></span></div>
+      </div>
+    </div>
+    <div class="tb-actions">
+      <div class="conf-filter" role="group" aria-label="Veri güven filtresi">
+        <span class="cf-label">Veri güveni:</span>
+        <button data-cf="all" class="on">Tümü</button>
+        <button data-cf="V"><span class="cb cb-V">✓</span><span class="hide-sm">Verified</span></button>
+        <button data-cf="I"><span class="cb cb-I">≈</span><span class="hide-sm">Inferred</span></button>
+        <button data-cf="R"><span class="cb cb-R">🔒</span><span class="hide-sm">Requires Access</span></button>
+      </div>
+      <button id="themeBtn" class="icon-btn" aria-label="Tema değiştir" title="Tema değiştir">◐</button>
+    </div>
+  </div>
+  <nav class="nav" id="nav" aria-label="Bölümler"></nav>
+</header>
+
+<main id="main">
+
+<!-- 1. EXECUTIVE OVERVIEW -->
+<section id="overview" data-title="Executive Overview">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">01 · Executive Overview</p>
+    <h1>Mevcut ürün ve davranış verinizle bugün hangi müşteri yolculuklarını otomatikleştirebiliriz?</h1>
+    <p class="lead">Aydın Endüstri grubunun B2C kolu <b>Planet Entegre Yatak Mobilya A.Ş.</b> iki kendi e-ticaret sitesi işletiyor: <b>Homedius</b> (katlanır koltuk ve ev yaşamı) ve <b>Sleeptown</b> (yatak ve uyku). Bu dashboard, iki sitenin gerçek katalog, fiyat, stok, kampanya, reklam ve tracking verisinden çıkarıldı. Her bulgu <b>Observation → Opportunity → Automation → Expected Impact</b> sırasıyla verildi.</p>
+  </div>
+  <div class="legend-strip">
+    <span><span class="badge b-V">✓ Verified</span> Website veya public kaynakta doğrulandı</span>
+    <span><span class="badge b-I">≈ Inferred</span> Gerçek veriye dayanan analiz / tahmin</span>
+    <span><span class="badge b-R">🔒 Requires Access</span> CRM, analytics veya reklam hesabı gerekir</span>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <details class="method">
+    <summary>Veri toplama yöntemi ve kapsam</summary>
+    <ul id="method"></ul>
+  </details>
+  <h2 class="h2">En güçlü 8 fırsat</h2>
+  <p class="muted small">Etki seviyeleri nitel ve tahminidir (Low / Medium / High). Sipariş verisi olmadan TL gelir veya dönüşüm artışı tahmini verilmemiştir.</p>
+  <div class="opp-grid" id="topOpps"></div>
+</section>
+
+<!-- 2. BRAND ECOSYSTEM -->
+<section id="ecosystem" data-title="Brand Ecosystem">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">02 · Brand Ecosystem</p>
+    <h2>Aydın Endüstri → Şirket → Marka → Site → Kategori → Fırsat</h2>
+    <p class="lead">İlişkiler; footer linkleri, yönlendirmeler, satış sözleşmelerindeki satıcı ünvanı ve vergi numarasıyla doğrulandı.</p>
+  </div>
+  <div class="eco" id="eco"></div>
+  <div class="two">
+    <div class="card">
+      <h3>Pazaryeri varlığı</h3>
+      <ul class="plain" id="mkt"></ul>
+      <p class="muted small">Pazaryeri satış verisi ve müşteri verisi bu çalışmada kullanılmadı. Pazaryerinden gelen müşteri, markanın CRM'ine düşmez (Requires Access).</p>
+    </div>
+    <div class="card">
+      <h3>Kapsam dışı bırakılan</h3>
+      <p id="excluded"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WEBSITE ANALYSIS -->
+<section id="websites" data-title="Website Analysis">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">03 · Website Analysis</p>
+    <h2>Site bazında analiz</h2>
+    <p class="lead">Ana sayfa, kategori, ürün, arama, sepet, kampanya, üyelik, SSS, teslimat, iade, iletişim, hakkımızda ve blog sayfaları incelendi.</p>
+  </div>
+  <div class="tabs" role="tablist" id="siteTabs">
+    <button role="tab" data-site="Homedius" class="on">Homedius</button>
+    <button role="tab" data-site="Sleeptown">Sleeptown</button>
+  </div>
+  <div id="sitePanel"></div>
+</section>
+
+<!-- 4. PRODUCT INTELLIGENCE -->
+<section id="products" data-title="Product Intelligence">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">04 · Product Intelligence</p>
+    <h2>Gerçek ürünler, fiyatlar, stok ve kategoriler</h2>
+    <p class="lead">231 benzersiz ürün (URL + SKU bazında deduplicate). Fiyatlar 3 Ekim 2026 itibarıyla KDV dahil satış fiyatıdır. Stok adetleri sitenin kendi kodunda görünen değerlerdir.</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Sleeptown yatak fiyat merdiveni <span class="badge b-V">✓ Verified</span></h3>
+      <p class="muted small">90x190 cm satış fiyatı · upsell basamakları</p>
+      <div id="ladder" class="hbars"></div>
+    </div>
+    <div class="card">
+      <h3>Homedius model aileleri: fiyat aralığı <span class="badge b-V">✓ Verified</span></h3>
+      <p class="muted small">Mobilya · min–max satış fiyatı (TL) · renk varyantları dahil</p>
+      <div id="famRange" class="ranges"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Product intelligence (model ailesi bazında) <span class="badge b-I">≈ Inferred</span></h3>
+    <p class="muted small">Kullanım amacı, hedef müşteri ve segment analiz sonucudur. Fiyatlar doğrulanmıştır.</p>
+    <div class="table-wrap"><table class="tbl" id="pi"></table></div>
+  </div>
+  <div class="card">
+    <div class="tbl-tools">
+      <h3>Katalog <span class="badge b-V">✓ Verified</span></h3>
+      <div class="filters">
+        <select id="fBrand" aria-label="Marka"><option value="">Tüm markalar</option><option>Homedius</option><option>Sleeptown</option></select>
+        <select id="fCat" aria-label="Kategori"><option value="">Tüm kategoriler</option></select>
+        <select id="fStock" aria-label="Stok"><option value="">Tüm stok durumları</option><option value="oos">Tükendi / varyantı tükendi</option><option value="low">Az stok (≤3)</option></select>
+        <input id="fQ" type="search" placeholder="Ürün ara…" aria-label="Ürün ara">
+      </div>
+    </div>
+    <p class="muted small" id="catCount"></p>
+    <div class="table-wrap tall"><table class="tbl" id="cat"></table></div>
+  </div>
+</section>
+
+<!-- 5. CUSTOMER JOURNEY -->
+<section id="journey" data-title="Customer Journey">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">05 · Customer Journey</p>
+    <h2>Discovery → Product → Cart → Purchase → Retention</h2>
+    <p class="lead">Her aşamada sitede görülen durum, eksik olan ve Callypso Engage ile kapatılabilecek boşluk.</p>
+  </div>
+  <div class="journey" id="jr"></div>
+</section>
+
+<!-- 6. AUTOMATIONS -->
+<section id="automations" data-title="Automation Opportunities">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">06 · Callypso Engage Opportunities</p>
+    <h2>Gerçek ürünlerle kurulan 15 otomasyon senaryosu</h2>
+    <p class="lead">Tetikleyici, zamanlama, gerçek ürün ve fiyatlar, neden mantıklı olduğu ve gereken veri/entegrasyon.</p>
+  </div>
+  <div class="tabs small-tabs" id="autoTabs">
+    <button data-ab="" class="on">Tümü</button><button data-ab="Homedius">Homedius</button><button data-ab="Sleeptown">Sleeptown</button><button data-ab="Her iki marka">Her iki marka</button>
+  </div>
+  <div class="autos" id="autos"></div>
+</section>
+
+<!-- 7. CROSS-SELL MAP -->
+<section id="crosssell" data-title="Cross-Sell Map">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">07 · Cross-Sell Map</p>
+    <h2>Gerçek ürün ilişkileri</h2>
+    <p class="lead">Bir model ailesi seçin: tamamlayıcı (cross-sell), üst segment (upsell) ve alternatif ürünler.</p>
+  </div>
+  <div class="chips" id="xChips"></div>
+  <div id="xMap" class="xmap"></div>
+</section>
+
+<!-- 8. CROSS-BRAND -->
+<section id="crossbrand" data-title="Cross-Brand">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">08 · Cross-Brand Opportunities</p>
+    <h2>Potential Cross-Brand Opportunity</h2>
+    <p class="lead">İki marka aynı şirket tarafından işletiliyor. Ancak ortak CRM ya da veri paylaşımı varsayılmadı; aşağıdaki akışlar <b>potansiyel</b> fırsatlardır.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>İlişki kanıtı</h3><div class="table-wrap"><table class="tbl" id="xbProof"></table></div></div>
+    <div class="card"><h3>Aynı model, iki sitede farklı fiyat <span class="badge b-V">✓ Verified</span></h3><div class="table-wrap"><table class="tbl" id="xbOverlap"></table></div><p class="muted small" id="xbNote"></p></div>
+  </div>
+  <div class="xb-flows" id="xbFlows"></div>
+</section>
+
+<!-- 9. ADVERTISING -->
+<section id="ads" data-title="Advertising Intelligence">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">09 · Advertising Intelligence</p>
+    <h2>Public reklam sinyalleri</h2>
+    <p class="lead">Kaynak: Meta Reklam Kütüphanesi (Türkiye, aktif reklamlar, 3 Ekim 2026). Harcama, ROAS, CPA ve dönüşüm verisi <span class="badge b-R">🔒 Requires Ad Account Access</span>.</p>
+  </div>
+  <div class="card"><div class="table-wrap"><table class="tbl" id="adTbl"></table></div></div>
+  <div class="two">
+    <div class="card"><h3>Kreatif temaları ve bulgular</h3><div class="table-wrap"><table class="tbl" id="adThemes"></table></div><p class="small" id="agency"></p></div>
+    <div class="card"><h3>Diğer kanallar</h3><div class="table-wrap"><table class="tbl" id="adOther"></table></div></div>
+  </div>
+  <div class="card">
+    <h3>Ad → CRM: reklamdan gelip almayan ziyaretçi <span class="badge b-I">≈ Inferred</span></h3>
+    <p class="muted small">Gerçek reklam örneği: Homedius · Kütüphane kodu 3642332985905021 · "Gündüz KOLTUK, gece YATAK" · Mocca Fitilli Kadife Tek Kişilik Gri</p>
+    <div class="flow" id="adFlow"></div>
+    <div class="two tight">
+      <div class="note"><b>Retargeting tek başına:</b> herkes aynı kreatifi görür; satın alan da reklam görmeye devam edebilir; e-posta/SMS/WhatsApp kanalı kullanılmaz.</div>
+      <div class="note"><b>Retargeting + Engage:</b> Engage segmenti reklam kitlesine senkronlanır; kimliği bilinen ziyaretçiye kişisel mesaj gider; satın alan reklam kitlesinden çıkarılır; tükenen renk yerine stoktaki renk önerilir.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. TRACKING -->
+<section id="tracking" data-title="Tracking / MarTech">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">10 · Tracking / MarTech</p>
+    <h2>Public olarak tespit edilen teknolojiler</h2>
+    <p class="lead">Sayfa kaynak kodu (231 ürün sayfası) ve mobil tarayıcı ağ istekleri incelendi. Tespit edilemeyen teknoloji tahmin edilmedi; GTM içinden ya da server-side çalışan araçlar burada görünmez.</p>
+  </div>
+  <div class="card"><div class="table-wrap"><table class="tbl" id="trk"></table></div></div>
+</section>
+
+<!-- 11. AI -->
+<section id="ai" data-title="AI Opportunities">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">11 · AI / Automation Opportunities</p>
+    <h2>Callypso Engage dışındaki fırsatlar</h2>
+  </div>
+  <div class="ai-grid" id="aiGrid"></div>
+</section>
+
+<!-- 12. SEGMENTS -->
+<section id="segments" data-title="Customer Segments">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">12 · Customer Segments</p>
+    <h2>Katalog ve davranıştan türetilen segmentler</h2>
+    <p class="lead">Segment tanımları katalogdan türetildi. Segment büyüklükleri müşteri verisi olmadan üretilmedi.</p>
+  </div>
+  <div class="seg-grid" id="segs"></div>
+</section>
+
+<!-- 13. SCORING -->
+<section id="scoring" data-title="Opportunity Scoring">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">13 · Opportunity Scoring</p>
+    <h2>Tüm fırsatlar</h2>
+    <p class="lead">Beklenen iş etkisi nitel ve tahminidir. Sütun başlığına tıklayarak sıralayın.</p>
+  </div>
+  <div class="card"><div class="table-wrap"><table class="tbl" id="score"></table></div></div>
+</section>
+
+<!-- 14. ROADMAP -->
+<section id="roadmap" data-title="Growth Roadmap">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">14 · Growth Roadmap</p>
+    <h2>0–30 · 30–60 · 60–90 gün</h2>
+  </div>
+  <div class="road" id="road"></div>
+</section>
+
+<!-- 15. SIMULATOR -->
+<section id="simulator" data-title="What Callypso Could Do">
+  <div class="sec-head">
+    <p class="eyebrow" lang="en">15 · What Callypso Could Do With Your Data</p>
+    <h2>Gerçek katalogdan bir ürün seçin, müşteri yolculuğunu izleyin</h2>
+  </div>
+  <div class="sim-warn" role="note"><b>SİMÜLASYON.</b> Ürün, fiyat, varyant ve stok bilgileri gerçek katalogdan gelir. Müşteri davranışı, mesaj zamanlaması ve sonuç adımları <b>örnektir</b>; gerçek dönüşüm veya gelir sonucu değildir.</div>
+  <div class="sim">
+    <div class="sim-ctrl card">
+      <label>Marka
+        <select id="sBrand"><option>Homedius</option><option>Sleeptown</option></select></label>
+      <label>Ürün (stokta)
+        <select id="sProd"></select></label>
+      <label id="sVarWrap">Ölçü / varyant
+        <select id="sVar"></select></label>
+      <div class="sim-btns">
+        <button id="sPlay" class="btn primary">▶ Simülasyonu oynat</button>
+        <button id="sStep" class="btn">Adım adım ›</button>
+        <button id="sReset" class="btn ghost">Sıfırla</button>
+      </div>
+      <div class="sim-prod" id="sCard"></div>
+    </div>
+    <div class="sim-stage">
+      <ol class="steps" id="sSteps"></ol>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Hazırlayan: Callypso · Kaynaklar: homedius.com, sleeptown.com.tr, aydinendustri.com, novasunger.com, aydinmensucat.com.tr, planetmobilya.com (yönlendirme), Meta Ad Library. Veri tarihi: 3 Ekim 2026. Bu dashboard'da sipariş, CRM, analytics veya reklam hesabı verisi kullanılmamıştır.</p>
+</footer>
+</main>
+
+<script src="/aydin-endustri/catalog.js"></script>
+<script src="/aydin-endustri/content.js"></script>
+<script src="/aydin-endustri/app.js"></script>
+</body>
+</html>

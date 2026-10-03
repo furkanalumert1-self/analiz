@@ -1,0 +1,9 @@
+{
+  "actor": "apify/website-content-crawler",
+  "attemptedAt": "2026-10-03T10:11:00Z",
+  "startUrls": ["https://www.aydinendustri.com/", "https://www.homedius.com/", "https://www.sleeptown.com.tr/"],
+  "result": "rejected",
+  "error": {"type": "platform-feature-disabled", "message": "Monthly usage hard limit exceeded"},
+  "accountPlan": "FREE (maxMonthlyUsageUsd 5; current cycle usage ~5.45 USD; cycle ends 2026-10-09)",
+  "fallback": "scripts/crawl.py (sitemap-driven crawler with the same output shape: url, title, meta, headings, text, JSON-LD product, tracking signals); scripts/enrich_products.py for T-Soft product JSON and variant/stock data"
+}

@@ -1,0 +1,80 @@
+{
+ "homedius_home": {
+  "title": "",
+  "vw": 390,
+  "sw": 390,
+  "fixed": [
+   "Çerez Kullanımı\nKişisel verileriniz, hizmetlerimizin daha iyi bir şekilde sunulması için mevzuata uygun bir şekilde topl"
+  ],
+  "hosts": [
+   "analytics.tsoftapps.com",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "homedius.tsoft.biz",
+   "homedius.tsoftstatic.com",
+   "pagead2.googlesyndication.com",
+   "public.tsoftstatic.com",
+   "static.cloudflareinsights.com",
+   "www.google-analytics.com",
+   "www.googletagmanager.com",
+   "www.homedius.com"
+  ]
+ },
+ "homedius_pdp": {
+  "title": "Mocca Tek Kişilik Katlanır Yatak Uzanma Koltuğu Petrol Yeşili En uygun fiyatlarla",
+  "vw": 390,
+  "sw": 390,
+  "fixed": [
+   "9.999,00 TL\n7.499,00 TL\n%\n25\nSepete Ekle",
+   "Çerez Kullanımı\nKişisel verileriniz, hizmetlerimizin daha iyi bir şekilde sunulması için mevzuata uygun bir şekilde topl"
+  ],
+  "hosts": [
+   "analytics.tsoftapps.com",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "homedius.tsoftstatic.com",
+   "pagead2.googlesyndication.com",
+   "public.tsoftstatic.com",
+   "static.cloudflareinsights.com",
+   "www.google-analytics.com",
+   "www.googletagmanager.com",
+   "www.homedius.com"
+  ]
+ },
+ "sleeptown_home": {
+  "title": "Sleeptown Comfort For You",
+  "vw": 390,
+  "sw": 390,
+  "fixed": [
+   "Çerez Kullanımı\nKişisel verileriniz, hizmetlerimizin daha iyi bir şekilde sunulması için mevzuata uygun bir şekilde topl"
+  ],
+  "hosts": [
+   "analytics.tsoftapps.com",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "pagead2.googlesyndication.com",
+   "www.google-analytics.com",
+   "www.googletagmanager.com",
+   "www.sleeptown.com.tr"
+  ]
+ },
+ "sleeptown_pdp": {
+  "title": "Hybrid Pocket Yaylı Yatak | Sleeptown",
+  "vw": 390,
+  "sw": 390,
+  "fixed": [
+   "15.399,00 TL\n11.499,00 TL\n4\nSepete Ekle",
+   "Air-Pass Fabric\n\nUzun ömürlü ipliklerden örülmüş air-pass yatak kumaşı vücut ısısını dengeleyerek yumuşak bir uyku kalit",
+   "Çerez Kullanımı\nKişisel verileriniz, hizmetlerimizin daha iyi bir şekilde sunulması için mevzuata uygun bir şekilde topl"
+  ],
+  "hosts": [
+   "analytics.tsoftapps.com",
+   "fonts.googleapis.com",
+   "fonts.gstatic.com",
+   "pagead2.googlesyndication.com",
+   "www.google-analytics.com",
+   "www.googletagmanager.com",
+   "www.sleeptown.com.tr"
+  ]
+ }
+}

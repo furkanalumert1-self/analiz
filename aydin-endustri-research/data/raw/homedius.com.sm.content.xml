@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+    <loc>https://www.homedius.com/garanti-ve-iade-kosullari</loc>
+    <lastmod>2026-07-17T16:21:15+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+            </url>
+    <url>
+    <loc>https://www.homedius.com/satis-sozlesmesi</loc>
+    <lastmod>2026-07-09T12:21:33+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+            </url>
+    <url>
+    <loc>https://www.homedius.com/uyelik-sozlesmesi</loc>
+    <lastmod>2026-07-09T12:19:19+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+            </url>
+    <url>
+    <loc>https://www.homedius.com/gizlilik-ve-guvenlik</loc>
+    <lastmod>2026-07-09T12:16:03+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+            </url>
+    <url>
+    <loc>https://www.homedius.com/teslimat-kosullari</loc>
+    <lastmod>2026-07-09T12:10:14+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+            </url>
+</urlset>
