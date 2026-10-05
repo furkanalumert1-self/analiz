@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Long Hair Center × CallypsoTech</title>
+<meta name="description" content="Long Hair Center için CallypsoTech ürün uyum analizi: Engage, AI Voice Agent, Inboxly, Studio, Decor — kanıta dayalı Fit Score, hasta yolculuğu ve önerilen çözüm mimarisi.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{
+  --bg:#f5f7f8;--surface:#fff;--surface-2:#eef2f4;--surface-3:#e3e9ec;
+  --ink:#0f1b22;--ink-2:#41525c;--muted:#748690;--border:#dde4e8;--border-strong:#c7d2d8;
+  --brand:#0e8f86;--brand-ink:#fff;--brand-soft:#dff3f1;--brand-soft-strong:#bfe7e3;
+  --engage:#7b4bd6;--engage-soft:#eee7fb;
+  --voice:#2a6fd6;--voice-soft:#e2ecfb;
+  --inbox:#0e8f5a;--inbox-soft:#ddf3e8;
+  --clinic:#b8742a;--clinic-soft:#f8ead8;
+  --acq:#5c6b74;--acq-soft:#e8edf0;
+  --good:#12855a;--good-soft:#dcf2e7;--warn:#a86a12;--warn-soft:#f8ebd3;--crit:#b33b3b;--crit-soft:#f7e0e0;
+  --shadow:0 1px 2px rgba(15,27,34,.05),0 10px 28px -14px rgba(15,27,34,.22);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1418;--surface:#131e24;--surface-2:#19272e;--surface-3:#213139;
+  --ink:#e9f1f4;--ink-2:#b5c5cc;--muted:#83969f;--border:#24353d;--border-strong:#33474f;
+  --brand:#38c2b6;--brand-ink:#04211e;--brand-soft:#123532;--brand-soft-strong:#1a4a45;
+  --engage:#a787f0;--engage-soft:#2a2142;--voice:#6ea2f0;--voice-soft:#1a2a44;--inbox:#45c08a;--inbox-soft:#143428;
+  --clinic:#e0a25c;--clinic-soft:#3a2a17;--acq:#9aaab2;--acq-soft:#22313a;
+  --good:#45c08a;--good-soft:#143428;--warn:#e0a25c;--warn-soft:#3a2a17;--crit:#e57b7b;--crit-soft:#3d1f22;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0c1418;--surface:#131e24;--surface-2:#19272e;--surface-3:#213139;
+  --ink:#e9f1f4;--ink-2:#b5c5cc;--muted:#83969f;--border:#24353d;--border-strong:#33474f;
+  --brand:#38c2b6;--brand-ink:#04211e;--brand-soft:#123532;--brand-soft-strong:#1a4a45;
+  --engage:#a787f0;--engage-soft:#2a2142;--voice:#6ea2f0;--voice-soft:#1a2a44;--inbox:#45c08a;--inbox-soft:#143428;
+  --clinic:#e0a25c;--clinic-soft:#3a2a17;--acq:#9aaab2;--acq-soft:#22313a;
+  --good:#45c08a;--good-soft:#143428;--warn:#e0a25c;--warn-soft:#3a2a17;--crit:#e57b7b;--crit-soft:#3d1f22;
+  color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;padding-inline:16px;font-size:15px}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;margin:0;color:var(--ink);text-wrap:balance;font-weight:650}
+p{margin:0;color:var(--ink-2);line-height:1.6}
+a{color:var(--brand)}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.wrap{max-width:1180px;margin-inline:auto}
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);margin-inline:-16px;padding:10px 16px}
+.topbar-row{max-width:1180px;margin-inline:auto;display:flex;align-items:center;gap:16px}
+.brandmark{font-family:'Fraunces',serif;font-weight:650;white-space:nowrap}
+.brandmark i{color:var(--muted);font-weight:400}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:99px;color:var(--ink-2);text-decoration:none;border:1px solid transparent}
+.nav a:hover{border-color:var(--border-strong);background:var(--surface)}
+.themebtn{border:1px solid var(--border-strong);background:var(--surface);color:var(--ink-2);border-radius:99px;padding:6px 10px;font:600 12px 'Manrope';cursor:pointer}
+section{padding-block:52px;border-top:1px solid var(--border)}
+.k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.sec-head{margin-bottom:26px;max-width:780px}
+.sec-head h2{font-size:clamp(22px,3vw,31px);margin-top:6px}
+.sec-head p{margin-top:10px}
+.hero{padding-block:44px 30px;border-top:none}
+.hero h1{font-size:clamp(28px,4.4vw,46px);line-height:1.08;margin-top:14px;max-width:20ch}
+.hero .lede{font-size:17px;max-width:66ch;margin-top:14px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:99px;border:1px solid var(--border-strong);background:var(--surface);color:var(--ink-2);white-space:nowrap}
+.pill.brand{background:var(--brand-soft);border-color:var(--brand-soft-strong);color:var(--brand)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}
+.kv .tag,.ev-item .tag{white-space:normal}
+.t-ver{background:var(--good-soft);color:var(--good)}
+.t-gap{background:var(--warn-soft);color:var(--warn)}
+.t-vgap{background:var(--crit-soft);color:var(--crit)}
+.t-str{background:var(--brand-soft);color:var(--brand)}
+.t-unk{background:var(--surface-3);color:var(--muted)}
+.t-engage{background:var(--engage-soft);color:var(--engage)}
+.t-voice{background:var(--voice-soft);color:var(--voice)}
+.t-inbox{background:var(--inbox-soft);color:var(--inbox)}
+.t-clinic{background:var(--clinic-soft);color:var(--clinic)}
+.t-acq{background:var(--acq-soft);color:var(--acq)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:900px){.g3,.g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.g2,.g3,.g4,.g5{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:28px}
+.stat{background:var(--surface);padding:16px}
+.stat .n{font-family:'Fraunces',serif;font-size:26px;font-weight:650;font-variant-numeric:tabular-nums}
+.stat .l{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
+/* best match */
+.best{margin-top:26px;display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+@media(max-width:860px){.best{grid-template-columns:1fr}}
+.rank-row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+.rank-row:last-child{border-bottom:none}
+.rank-n{font-family:'Fraunces',serif;font-size:20px;color:var(--muted)}
+.rank-row.top .rank-n{color:var(--brand)}
+.rank-name{font-weight:700}
+.rank-bar{height:7px;border-radius:99px;background:var(--surface-3);margin-top:6px;overflow:hidden}
+.rank-bar i{display:block;height:100%;border-radius:99px;transition:width .5s}
+.rank-score{font-family:'Fraunces',serif;font-size:24px;font-variant-numeric:tabular-nums}
+.rank-score small{font-size:12px;color:var(--muted);font-family:'Manrope',system-ui,sans-serif}
+.note{font-size:12.5px;color:var(--muted);line-height:1.5}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 14px;border-radius:0 10px 10px 0;font-size:13.5px;color:var(--ink);line-height:1.55}
+.callout.ok{border-color:var(--brand);background:var(--brand-soft)}
+/* product inventory */
+.prod h3{font-size:19px;display:flex;align-items:center;gap:8px}
+.prod ul{margin:10px 0 0;padding-left:18px;color:var(--ink-2);font-size:13.5px;line-height:1.55}
+.prod .src{margin-top:10px;font-size:12px}
+/* evidence */
+.ev{display:flex;flex-direction:column;gap:8px}
+.ev h4{font-family:'Manrope',system-ui,sans-serif;font-size:14px;font-weight:800}
+.ev-item{font-size:13.5px;color:var(--ink-2);line-height:1.5;display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.fbtn{border:1px solid var(--border-strong);background:var(--surface);color:var(--ink-2);border-radius:99px;padding:6px 12px;font:600 12.5px 'Manrope';cursor:pointer}
+.fbtn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+/* score */
+.weights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 18px;margin-bottom:18px}
+@media(max-width:760px){.weights{grid-template-columns:1fr 1fr}}
+.weights label{font-size:12.5px;font-weight:700;display:flex;justify-content:space-between}
+.weights input{width:100%;accent-color:var(--brand)}
+.sc-table{width:100%;border-collapse:collapse;font-size:13px}
+.sc-table th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--border-strong)}
+.sc-table td{padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:middle}
+.sc-table td.num{font-variant-numeric:tabular-nums;text-align:center;font-weight:700}
+.sc-table tr.clickable{cursor:pointer}
+.sc-table tr.clickable:hover{background:var(--surface-2)}
+.cell-bar{display:inline-block;width:38px;height:6px;border-radius:9px;background:var(--surface-3);vertical-align:middle;margin-left:6px;overflow:hidden}
+.cell-bar i{display:block;height:100%;background:var(--brand)}
+.tablewrap{overflow-x:auto}
+.detail{margin-top:14px}
+.detail .crit{display:grid;grid-template-columns:170px 50px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+@media(max-width:620px){.detail .crit{grid-template-columns:1fr 40px}.detail .crit p{grid-column:1/-1}}
+/* match chain */
+.match{padding:0;overflow:hidden}
+.match-head{padding:14px 18px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.match-head h3{font-size:17px}
+.chain{display:grid;grid-template-columns:repeat(6,1fr)}
+@media(max-width:980px){.chain{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.chain{grid-template-columns:1fr}}
+.link{padding:14px 16px;border-right:1px solid var(--border);position:relative}
+.link:last-child{border-right:none}
+@media(max-width:980px){.link{border-bottom:1px solid var(--border)}}
+.link .lk{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.link p{font-size:13px;line-height:1.5}
+/* timezone */
+.tz-ctrl{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.tz-ctrl input{flex:1;min-width:200px;accent-color:var(--voice)}
+.tz-time{font-family:'Fraunces',serif;font-size:30px;font-variant-numeric:tabular-nums}
+.tz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:760px){.tz-grid{grid-template-columns:repeat(2,1fr)}}
+.tz{border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--surface)}
+.tz .c{font-size:12px;font-weight:700;color:var(--ink-2)}
+.tz .t{font-family:'IBM Plex Mono';font-size:18px;margin-top:2px}
+.tz .s{font-size:11px;margin-top:4px}
+.tz.awake{border-color:var(--voice);background:var(--voice-soft)}
+/* flow */
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.fnode{border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:10px 14px;font-size:13.5px}
+.farrow{text-align:center;color:var(--muted);font-size:14px;line-height:1;padding:3px 0}
+.fnode b{font-weight:800}
+/* journey */
+.jlayout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
+@media(max-width:900px){.jlayout{grid-template-columns:minmax(0,1fr)}.jdetail{position:static}.jsteps{max-height:420px}}
+.jsteps{display:flex;flex-direction:column;gap:0;max-height:640px;overflow:auto;padding-right:4px}
+.jlayer{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:12px 0 6px}
+.jstep{display:flex;align-items:center;gap:10px;border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:9px 12px;margin-bottom:4px;cursor:pointer;font-size:13.5px;font-weight:600;text-align:left;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;width:100%}
+.jstep .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.jstep.on{outline:2px solid var(--brand);outline-offset:1px}
+.jstep.done{opacity:.72}
+.jdetail{position:sticky;top:70px;align-self:start}
+.jctrl{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.btn{border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 14px;font:700 13px 'Manrope';cursor:pointer}
+.btn.primary{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.kv{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:6px 12px;font-size:13.5px;margin-top:12px}
+.kv dt{color:var(--muted);font-weight:700;font-size:12px;padding-top:2px}
+.kv dd{margin:0;color:var(--ink-2);line-height:1.5}
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.cmp{grid-template-columns:1fr}}
+.cmp h3{font-size:18px;margin-bottom:12px}
+.cnode{border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+.cnode .gaps{display:flex;gap:4px;flex-wrap:wrap}
+.cnode.new{border-color:var(--brand-soft-strong);background:var(--brand-soft)}
+/* matrix */
+.mx{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+.mx th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:8px;border-bottom:1px solid var(--border-strong);text-align:center}
+.mx th:first-child{text-align:left}
+.mx td{padding:9px 8px;border-bottom:1px solid var(--border);text-align:center}
+.mx td:first-child{text-align:left;font-weight:600}
+.mx td.c{cursor:pointer;font-size:16px}
+.mx td.c:hover{background:var(--surface-2)}
+.lv2{color:var(--good)}.lv1{color:var(--warn)}.lv0{color:var(--muted)}
+.mx-note{min-height:52px;margin-top:12px}
+/* architecture */
+.arch{display:flex;flex-direction:column;gap:0;max-width:820px;margin-inline:auto}
+.layer{border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:14px 18px;display:grid;grid-template-columns:190px 1fr;gap:14px}
+@media(max-width:620px){.layer{grid-template-columns:1fr}}
+.layer .ln{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.layer h4{font-size:17px;margin-top:4px}
+.layer ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.layer.hl{border-width:2px}
+/* priority */
+.prio{display:grid;grid-template-columns:1fr 150px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+.prio:last-child{border-bottom:none}
+.prio .pv{text-align:right}
+.pr-must{background:var(--good-soft);color:var(--good)}
+.pr-high{background:var(--voice-soft);color:var(--voice)}
+.pr-opt{background:var(--warn-soft);color:var(--warn)}
+.pr-no{background:var(--surface-3);color:var(--muted)}
+.phase{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:820px){.phase{grid-template-columns:1fr}}
+.phase .card h4{font-size:17px;margin:6px 0 8px}
+.phase ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+ol.reasons{margin:10px 0 0;padding-left:20px;line-height:1.6;color:var(--ink-2)}
+.sources li{font-size:13px;color:var(--ink-2);line-height:1.6}
+footer{padding-block:30px;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
+@media print{.topbar,.jctrl,.themebtn,.weights{display:none}section{break-inside:avoid-page}.jsteps{max-height:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-row">
+  <div class="brandmark">Long Hair Center <i>×</i> CallypsoTech</div>
+  <nav class="nav">
+    <a href="#best">Best Match</a><a href="#urunler">Ürünler</a><a href="#bulgular">Bulgular</a><a href="#skor">Fit Score</a><a href="#eslesmeler">Eşleşmeler</a><a href="#voice">Voice Agent</a><a href="#intl">International</a><a href="#journey">Combined Journey</a><a href="#karsilastirma">Current vs Callypso</a><a href="#matrix">Matrix</a><a href="#cozum">Çözüm</a><a href="#oncelik">Öncelik</a><a href="#kaynaklar">Kaynaklar</a>
+  </nav>
+  <button class="themebtn" id="themeBtn" type="button">Tema</button>
+</div></div>
+
+<main class="wrap">
+<!-- HERO -->
+<section class="hero" id="best">
+  <span class="pill brand">22 · CallypsoTech Product Fit Analysis</span>
+  <h1>Long Hair Center hangi CallypsoTech ürünlerinden gerçekten faydalanabilir?</h1>
+  <p class="lede">callypsotech.com üzerindeki 5 ürünün (Voice Agent, Inboxly, Engage, Studio, Decor) doğrulanmış yetenekleri, longhaircenter.com'un 8 dilli yapısı, formları, iletişim kanalları ve kamuya açık hasta yorumlarıyla karşılaştırıldı. Yalnızca gerçek eşleşmeler önerilir; kanıtı olmayan problemler <span class="tag t-gap">Potential Gap</span> olarak işaretlenir.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">36+</div><div class="l">ülkeden hasta (site: About Us)</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">site dili: EN, TR, DE, FR, IT, RU, AR, KO</div></div>
+    <div class="stat"><div class="n">2.200+</div><div class="l">operasyon / 13 yıl (site beyanı)</div></div>
+    <div class="stat"><div class="n">≤2</div><div class="l">operasyon / gün kapasite politikası</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">uluslararası telefon = WhatsApp hattı (+90 534…)</div></div>
+    <div class="stat"><div class="n">88</div><div class="l">Trustpilot yorumu · 4.7 TrustScore</div></div>
+  </div>
+
+  <div class="best">
+    <div class="card">
+      <div class="k">Best CallypsoTech Match</div>
+      <p class="note" style="margin-top:4px">Skorlar <b>tahminidir</b>; aşağıdaki 6 kriterin kanıta dayalı alt puanlarından ve ağırlıklarından canlı hesaplanır. Ağırlıkları <a href="#skor">Fit Score</a> bölümünde değiştirebilirsiniz.</p>
+      <div id="rankList" style="margin-top:8px"></div>
+    </div>
+    <div class="card">
+      <div class="k">Tek cümlelik sonuç</div>
+      <h3 style="font-size:21px;margin-top:8px" id="verdictTitle"></h3>
+      <p style="margin-top:10px" id="verdictText"></p>
+      <div class="callout" style="margin-top:14px">Kullanıcı hipotezi “#1 Engage, #2 AI Voice Agent” idi. Kanıt bunu kısmen değiştiriyor: Long Hair Center'ın birincil hasta kanalı <b>telefon değil WhatsApp</b> (her sayfada wa.me butonu, yorumlarda “fast WhatsApp communication”). Bu yüzden konuşma katmanında Voice Agent'tan önce <b>Inboxly</b> geliyor; Engage ise yolculuğun omurgası olarak kalıyor.</div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="metod" style="padding-block:34px">
+  <div class="grid g3">
+    <div class="card"><div class="k">Taranan kaynaklar</div><p style="margin-top:8px;font-size:13.5px">callypsotech.com (TR) + ürün siteleri: callypso-engage, callypso-inbox, callypso-studio, callypso-decor (vercel.app). longhaircenter.com: ana sayfa (8 dil), contact, hotel, transfer, payment, about-us, clinic, blog, before-after; HTML form & script analizi. Trustpilot, ClinicAdvisor.</p></div>
+    <div class="card"><div class="k">Kanıt etiketleri</div><p style="margin-top:8px;font-size:13.5px;line-height:2"><span class="tag t-ver">Verified</span> kaynakta doğrudan görüldü · <span class="tag t-vgap">Verified Gap</span> sorun kaynakta görüldü · <span class="tag t-gap">Potential Gap</span> olası, doğrulanmadı · <span class="tag t-str">Strength</span> mevcut güçlü yön · <span class="tag t-unk">Not verified</span> veri yok</p></div>
+    <div class="card"><div class="k">Veri sınırları</div><p style="margin-top:8px;font-size:13.5px">Apify hesabının aylık limiti dolu olduğundan (5,45 $ / 5 $, döngü 9 Ekim'de yenilenir) Google Maps yorum taraması ve Meta Ads Library çekimi yapılamadı. Reklam harcaması, çağrı hacmi, yanıt süresi ve CRM altyapısı <b>doğrulanmadı</b> — bunlar keşif görüşmesi sorusudur.</p></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="urunler">
+  <div class="sec-head"><div class="k">CallypsoTech ürün envanteri</div><h2>Sitede doğrulanan 5 ürün ve yetenekleri</h2><p>Ana sitede “5 ürün” yazıyor (hero metninde “dört AI platformu” ifadesi de geçiyor — site içi tutarsızlık). Yetenekler yalnızca site metinlerinden alındı; pazarlama metriklerini (ör. “%94 ilk çözüm”) bağımsız doğrulanmış kabul etmedik.</p></div>
+  <div class="grid g5" id="prodGrid"></div>
+</section>
+
+<!-- EVIDENCE -->
+<section id="bulgular">
+  <div class="sec-head"><div class="k">Long Hair Center bulguları</div><h2>11 alanda gözlenen kanıt</h2><p>Her bulgu kaynağıyla birlikte. Güçlü yönler de gösterildi: yorumlar mevcut insan odaklı iletişimi övüyor — öneri bu ekibi değiştirmek değil, ölçeklemek olmalı.</p></div>
+  <div class="filters" id="evFilters"></div>
+  <div class="grid g3" id="evGrid"></div>
+</section>
+
+<!-- SCORE -->
+<section id="skor">
+  <div class="sec-head"><div class="k">Product Fit Score</div><h2>0–100 uyum skoru (tahmini)</h2><p>Her kriter 0–10 arası, kanıt gerekçesiyle puanlandı; toplam skor ağırlıklı ortalamadan hesaplanır. “Implementation Complexity” ters puanlanır: 10 = en kolay kurulum. Bir satıra tıklayarak gerekçeleri görün.</p></div>
+  <div class="card">
+    <div class="weights" id="weights"></div>
+    <div class="tablewrap"><table class="sc-table" id="scTable"></table></div>
+    <div class="detail" id="scDetail"></div>
+  </div>
+</section>
+
+<!-- MATCHES -->
+<section id="eslesmeler">
+  <div class="sec-head"><div class="k">Gerçek eşleşmeler</div><h2>Need → Evidence → Product → Use Case → Integration → Effect</h2><p>Yalnızca kanıtla desteklenen eşleşmeler. Studio ve Decor için anlamlı eşleşme bulunamadı (bkz. Fit Score).</p></div>
+  <div class="filters" id="mFilters"></div>
+  <div class="grid" id="mList"></div>
+</section>
+
+<!-- VOICE -->
+<section id="voice">
+  <div class="sec-head"><div class="k">23 · AI Voice Agent Fit Analysis</div><h2>Voice Agent Long Hair Center için ne kadar anlamlı?</h2><p>Voice Agent sitede mevcut: &lt;1 sn yanıt, niyet analizi, randevu + CRM, 50+ dil, 7/24, transkript, insana devir. Soru şu: Long Hair Center'ın hastaları gerçekten <i>arıyor</i> mu?</p></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="k" style="color:var(--voice)">Inbound Patient Calls</div>
+      <div class="flow" style="margin-top:12px" id="voiceFlow"></div>
+    </div>
+    <div class="card">
+      <div class="k" style="color:var(--voice)">Değerlendirme</div>
+      <div class="ev" style="margin-top:10px" id="voiceEval"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="k" style="color:var(--voice)">24/7 Lead Capture — “23:40” senaryosu gerçekten anlamlı mı?</div>
+    <p style="margin-top:8px;font-size:13.5px">Sitede çalışma saati yayınlanmıyor; klinik saatlerini <b>09:00–19:00 (İstanbul) varsayım</b> olarak aldık. Ülkeler, Trustpilot'taki son 20 yorumun yorumcu ülkeleri ve sitenin dil seçeneklerinden seçildi. Saatler tarayıcınızın saat dilimi veritabanından canlı hesaplanır.</p>
+    <div class="tz-ctrl" style="margin-top:14px">
+      <div><div class="note">İstanbul saati</div><div class="tz-time mono" id="tzIst">23:40</div></div>
+      <input type="range" min="0" max="1435" step="5" value="1420" id="tzSlider" aria-label="İstanbul saati">
+      <span class="tag" id="tzClinic"></span>
+    </div>
+    <div class="tz-grid" id="tzGrid"></div>
+    <p class="note" style="margin-top:12px" id="tzSummary"></p>
+    <div class="callout" style="margin-top:12px" id="tzVerdict"></div>
+  </div>
+</section>
+
+<!-- INTERNATIONAL -->
+<section id="intl">
+  <div class="sec-head"><div class="k">24 · International Patient + Multilingual AI</div><h2>Uluslararası hasta trafiği kamuya açık kanıtla doğrulandı</h2><p>Ülkeler ve diller yalnızca kaynakta görüldüğü kadarıyla listelendi; hasta dağılımı (yüzdeler) bilinmiyor.</p></div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="k">Doğrulanan diller (site)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px" id="langList"></div>
+      <p class="note" style="margin-top:10px">Kaynak: longhaircenter.com/{en,tr,de,fr,it,ru,ar,ko} — her dil sürümü ayrı çevrilmiş içerik sunuyor. Clinic sayfası: “medical experts who speak foreign languages”. Yorumlar: çevirmen desteği (US, IE, FI), “native language support” (SK).</p>
+    </div>
+    <div class="card">
+      <div class="k">Doğrulanan hasta ülkeleri (Trustpilot, son 20 yorum)</div>
+      <div id="countryBars" style="margin-top:10px"></div>
+      <p class="note" style="margin-top:8px">Ek: ClinicAdvisor; USA, Canada, Australia, UK, India, Dubai, Germany, Netherlands, France, Poland. Site: “36+ ülke”.</p>
+    </div>
+    <div class="card">
+      <div class="k">Paket yapısı (lojistik yoğun)</div>
+      <ul style="margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.6">
+        <li>5 yıldızlı otel dahil, 1 refakatçi ücretsiz, sadece kahvaltı</li>
+        <li>6 dahil transfer: havalimanı → otel → klinik → otel → <b>yıkama günü</b> → havalimanı</li>
+        <li>Ödeme sayfası: <b>Euro</b> bazlı</li>
+        <li>Form telefon alanı: intl-tel-input + IP ile ülke tespiti, öncelikli ülkeler TR / US</li>
+      </ul>
+      <p class="note" style="margin-top:8px">Bu lojistik, varış öncesi çok dilli hatırlatma ve bilgilendirme ihtiyacını doğrudan doğuruyor.</p>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card">
+      <div class="k" style="color:var(--voice)">Multilingual AI — telefon akışı</div>
+      <div class="flow" style="margin-top:12px" id="intlFlow"></div>
+    </div>
+    <div class="card">
+      <div class="k">Dil kapsamı karşılaştırması</div>
+      <div class="tablewrap" style="margin-top:10px"><table class="sc-table" id="langTable"></table></div>
+      <p class="note" style="margin-top:10px">Voice Agent: “50+ dil” (site beyanı). Inboxly: “müşteri hangi dilde yazarsa AI o dilde yanıtlar; Türkçe, İngilizce ve daha fazlası”. Engage: çok dilli otomatik üretim belirtilmemiş — şablonlar dil bazında hazırlanmalı. Korece/Arapça kalite testi pilot öncesi şart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="sec-head"><div class="k">25 · Callypso Engage + AI Voice Agent Combined Journey</div><h2>İki ürün birlikte: reklamdan referansa kadar tek akış</h2><p>Adımlara tıklayın ya da “Oynat”a basın. Her adımda hangi ürünün çalıştığı, Long Hair Center'a özgü içerik ve özelliğin doğrulanma durumu gösterilir. WhatsApp konuşma adımı, LHC'nin gerçek kanal yapısı nedeniyle Inboxly ile işaretlendi (opsiyonel katman).</p></div>
+  <div class="jctrl">
+    <button class="btn primary" id="jPlay" type="button">▶ Oynat</button>
+    <button class="btn" id="jPrev" type="button">← Geri</button>
+    <button class="btn" id="jNext" type="button">İleri →</button>
+    <label class="pill" style="cursor:pointer"><input type="checkbox" id="jInbox" checked style="accent-color:var(--inbox)"> Inboxly katmanını göster</label>
+  </div>
+  <div class="jlayout">
+    <div class="jsteps" id="jSteps"></div>
+    <div class="card jdetail" id="jDetail"></div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="karsilastirma">
+  <div class="sec-head"><div class="k">26 · Current Journey vs Callypso Journey</div><h2>Bugünkü yolculuk ve CallypsoTech ile yolculuk</h2><p>Sorun etiketleri kanıt seviyesine göre renklendirildi. Kanıtı olmayan sorun kesin gerçek gibi gösterilmedi.</p></div>
+  <div class="cmp">
+    <div class="card"><h3>CURRENT JOURNEY</h3><div class="flow" id="curFlow"></div></div>
+    <div class="card"><h3>WITH CALLYPSOTECH</h3><div class="flow" id="newFlow"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="k">Gap kanıt tablosu</div>
+    <div class="tablewrap" style="margin-top:10px"><table class="sc-table" id="gapTable"></table></div>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section id="matrix">
+  <div class="sec-head"><div class="k">27 · Product × Patient Journey Matrix</div><h2>Hangi ürün yolculuğun hangi adımını karşılıyor?</h2><p>Hücreler elle yazılmadı: her ürünün sitede doğrulanan yetenek kataloğundan, her yolculuk adımının gerektirdiği yeteneklere göre hesaplandı. <span class="lv2">●</span> doğrulanmış tam karşılık · <span class="lv1">◐</span> kısmi / özel kurulum gerekir · <span class="lv0">—</span> yok. Hücreye tıklayın.</p></div>
+  <div class="card">
+    <div class="tablewrap"><table class="mx" id="mxTable"></table></div>
+    <div class="mx-note callout ok" id="mxNote">Bir hücreye tıklayarak hangi yeteneğe ve hangi kaynağa dayandığını görün.</div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="cozum">
+  <div class="sec-head"><div class="k">28 · Recommended CallypsoTech Solution</div><h2>Recommended Solution for Long Hair Center</h2><p>Ürün listesi değil, katmanlı mimari. Her katman bir LHC ihtiyacına bağlandı; yalnızca Fit Score'u yeterli ürünler mimaride yer aldı.</p></div>
+  <div class="arch" id="arch"></div>
+</section>
+
+<!-- PRIORITY -->
+<section id="oncelik">
+  <div class="sec-head"><div class="k">29 · Commercial Priority</div><h2>Must Have · High Value · Optional · Not Recommended</h2><p>Sınıflandırma Fit Score'dan ve ticari koşullardan türetildi; CallypsoTech ürünü olması otomatik “Must Have” anlamına gelmiyor.</p></div>
+  <div class="grid g2">
+    <div class="card" id="prioList"></div>
+    <div class="card">
+      <div class="k">If Long Hair Center Starts With Only One Solution</div>
+      <h3 style="font-size:24px;margin-top:8px" id="oneTitle"></h3>
+      <ol class="reasons" id="oneReasons"></ol>
+    </div>
+  </div>
+  <div class="phase" style="margin-top:14px" id="phases"></div>
+</section>
+
+<!-- SOURCES -->
+<section id="kaynaklar">
+  <div class="sec-head"><div class="k">Kaynaklar</div><h2>Bulguların dayandığı sayfalar</h2></div>
+  <ul class="sources">
+    <li><a href="https://www.callypsotech.com/" target="_blank" rel="noopener">callypsotech.com</a> — ürünler, “Nasıl çalışır”, özellikler, entegrasyonlar</li>
+    <li><a href="https://callypso-engage.vercel.app" target="_blank" rel="noopener">Callypso Engage</a> · <a href="https://callypso-inbox.vercel.app" target="_blank" rel="noopener">Inboxly</a> · <a href="https://callypso-studio.vercel.app" target="_blank" rel="noopener">Studio</a> · <a href="https://callypso-decor.vercel.app" target="_blank" rel="noopener">Decor</a></li>
+    <li><a href="https://www.longhaircenter.com/en" target="_blank" rel="noopener">longhaircenter.com/en</a> (+ tr, de, fr, it, ru, ar, ko) — formlar, WhatsApp, LiveChat, GA4</li>
+    <li><a href="https://www.longhaircenter.com/en/about-us" target="_blank" rel="noopener">About Us</a> · <a href="https://www.longhaircenter.com/en/clinic" target="_blank" rel="noopener">Clinic</a> · <a href="https://www.longhaircenter.com/en/hotel" target="_blank" rel="noopener">Hotel</a> · <a href="https://www.longhaircenter.com/en/transfer" target="_blank" rel="noopener">Transfer</a> · <a href="https://www.longhaircenter.com/en/payment" target="_blank" rel="noopener">Payment</a> · <a href="https://www.longhaircenter.com/en/blog" target="_blank" rel="noopener">Blog</a></li>
+    <li><a href="https://www.trustpilot.com/review/longhaircenter.com" target="_blank" rel="noopener">Trustpilot — longhaircenter.com</a> (88 yorum, 4.7)</li>
+    <li><a href="https://www.clinicadvisor.com/long-hair-center-istanbul" target="_blank" rel="noopener">ClinicAdvisor — Long Hair Center İstanbul</a></li>
+    <li><a href="https://www.hairrestorationnetwork.com/topic/66407-long-hair-centre-istanbul/" target="_blank" rel="noopener">Hair Restoration Network forumu</a> — bağımsız, karışık görüşler (itibar bağlamı)</li>
+  </ul>
+</section>
+<footer>Long Hair Center × CallypsoTech Product Fit Analysis · Ekim 2026 · Skorlar tahminidir ve kamuya açık verilere dayanır; çağrı hacmi, yanıt süresi, CRM ve reklam verisi keşif görüşmesinde doğrulanmalıdır.</footer>
+</main>
+
+<script>
+/* ================= DATA ================= */
+const PRODUCTS = {
+  engage:{name:'Callypso Engage',short:'Engage',color:'var(--engage)',tag:'t-engage',url:'https://callypso-engage.vercel.app',
+    tagline:'WhatsApp · SMS · Email otomasyonu, segment & Customer 360',
+    caps:['WhatsApp kampanyaları ve otomatik mesaj dizileri (ana site)','SMS + sürükle-bırak e-posta, A/B testi','Davranışsal, kendini güncelleyen segmentler','Kanal bağımsız akış: Send Email/SMS, Wait, Condition, Consent check','Davranış olayları + Customer 360 profili','Hoş geldin, terk & 180 gün geri kazanım akışları','Gömülü form / popup / landing page','İYS uyumlu onay takibi; Shopify, Resend, Supabase, webhook'],
+    caveat:'Konumlandırma e-ticaret retention; “lead scoring” ayrı bir özellik olarak listelenmiyor. Klinik olayları (treatment_viewed vb.) özel entegrasyon ister.'},
+  voice:{name:'AI Voice Agent',short:'Voice Agent',color:'var(--voice)',tag:'t-voice',url:'https://www.callypsotech.com/',
+    tagline:'Telefonları AI yanıtlar, randevu oluşturur, CRM\'e yazar',
+    caps:['Her aramayı <1 sn\'de karşılar, sınırsız hat kapasitesi','Doğal dil anlama, niyet analizi, yönlendirme','Takvim entegrasyonu ile canlı müsaitlik + SMS bildirimi','CRM kaydı (Salesforce, HubSpot, Zendesk, Twilio, Zapier listelenmiş)','50+ dil, 7/24 mesai dışı hizmet','Bilgi tabanından SSS yanıtları','Transkript, özet, analitik; gerekirse insana devir'],
+    caveat:'Sitede yalnızca gelen (inbound) arama tarif ediliyor; giden arama ve WhatsApp sesli arama desteği belirtilmemiş.'},
+  inbox:{name:'Inboxly',short:'Inboxly',color:'var(--inbox)',tag:'t-inbox',url:'https://callypso-inbox.vercel.app',
+    tagline:'WhatsApp, Instagram DM, web chat — AI destekli tek gelen kutusu',
+    caps:['WhatsApp, Instagram DM, web sohbet, e-posta tek kutuda','Bilgi tabanından beslenen, kaynak gösteren AI yanıt taslakları','Tekrarlayan soruları kurallarla otomatik kapatma','Çok dilli yanıt','Ekip ataması, not, etiket; SLA ve yanıt süresi takibi','“Klinik & randevu” kullanım senaryosu açıkça listelenmiş','WhatsApp Business, Instagram, Zendesk, Slack, Google Sheets, Webhook'],
+    caveat:'Takvim/randevu oluşturma doğrudan değil, “randevu önerir”. CRM senkronu webhook/Zendesk üzerinden.'},
+  studio:{name:'Callypso Studio',short:'Studio',color:'var(--acq)',tag:'t-acq',url:'https://callypso-studio.vercel.app',
+    tagline:'1 ürün fotoğrafından 12+ e-ticaret görseli',
+    caps:['Ürün fotoğrafından AI sahne üretimi','Shopify senkronu','Instagram / banner formatları'],
+    caveat:'Fiziksel ürün için tasarlanmış. Saç ekimi sonuç görsellerinde AI üretimi tıbbi yanıltma riski taşır.'},
+  decor:{name:'Callypso Decor',short:'Decor',color:'var(--acq)',tag:'t-acq',url:'https://callypso-decor.vercel.app',
+    tagline:'Oda fotoğrafından AI iç mekan tasarımı',
+    caps:['Stil bazlı oda yeniden tasarımı','Öncesi/sonrası galeri','Alışveriş listesi & maliyet tahmini'],
+    caveat:'Long Hair Center iş modeliyle ilişkisi yok.'}
+};
+
+const CRITERIA = [
+  {id:'problem',name:'Problem Fit',w:25},
+  {id:'journey',name:'Patient Journey Fit',w:20},
+  {id:'auto',name:'Automation Potential',w:15},
+  {id:'integ',name:'Integration Feasibility',w:15},
+  {id:'comm',name:'Commercial Impact',w:20},
+  {id:'ease',name:'Implementation Complexity (ters)',w:5}
+];
+
+/* criterion sub-scores (0-10) with evidence-based rationale */
+const SCORES = {
+  inbox:{
+    problem:[9,'WhatsApp her sayfada birincil CTA (wa.me/905347046142); TR & KO sayfalarında ikinci numara (905526496142); ayrıca LiveChat aktif. Konuşmalar 2 WhatsApp hattı + web chat arasında bölünmüş.'],
+    journey:[9,'İlk temas, fiyat/greft soruları, fotoğraf değerlendirmesi, varış koordinasyonu ve post-op sorular WhatsApp\'ta yaşanıyor (Trustpilot: “Fast WhatsApp communication”, ClinicAdvisor: post-op sorular WhatsApp\'tan).'],
+    auto:[8,'Tekrarlayan sorular (fiyat, greft sayısı, otel/transfer dahil mi, iyileşme süreci) site içeriğinde zaten yazılı → bilgi tabanına dönüştürülebilir.'],
+    integ:[8,'WhatsApp Business ve web chat doğrudan destekli; LiveChat yerine ya da yanında konumlanabilir. WhatsApp Business API geçişi gerekir.'],
+    comm:[8,'Yüksek bilet değerli, ≤2 operasyon/gün kapasiteli bir klinikte her kaçan nitelikli konuşma doğrudan gelir kaybı; mesai dışı ve çok dilli ilk yanıt dönüşümü korur.'],
+    ease:[7,'Kanal bağlama “dakikalar”; asıl iş bilgi tabanı (8 dil) ve tıbbi soru sınırlarının tanımlanması.']
+  },
+  engage:{
+    problem:[8,'Uzun karar süreli, yüksek bedelli tedavi: lead takibi, varış öncesi lojistik (otel, 6 transfer, yıkama günü) ve post-op takvim (10. gün kabuk, şok dökülme) tekrarlanabilir iletişim gerektiriyor.'],
+    journey:[9,'Lead → konsültasyon → varış → operasyon → yıkama günü → 12 aylık sonuç → yorum → referans; yolculuğun en uzun bölümünü kapsıyor.'],
+    auto:[9,'Kanal bağımsız akış (Wait/Condition), WhatsApp dizileri, 180 gün geri kazanım şablonu doğrudan uygulanabilir.'],
+    integ:[6,'Site Laravel tabanlı (CSRF _token, $.post /hair-analysis). Shopify olmadığı için form ve “tedavi tamamlandı” olayları webhook/API ile özel bağlanmalı; formlar e-posta toplamıyor.'],
+    comm:[8,'2.200+ operasyona karşın 88 Trustpilot yorumu → yorum/referans akışı ve uyuyan lead\'lerin geri kazanımı ölçülebilir gelir etkisi yaratır.'],
+    ease:[6,'E-ticaret odaklı ürünün klinik yolculuğuna uyarlanması (özel olaylar, çok dilli şablonlar, WhatsApp şablon onayları) orta düzey kurulum ister.']
+  },
+  voice:{
+    problem:[6,'Tek uluslararası telefon numarası aynı zamanda WhatsApp hattı ve mobil numara. Çalışma saati yayınlanmıyor. Ancak yorumlarda telefon değil WhatsApp öne çıkıyor; çağrı hacmi doğrulanamadı.'],
+    journey:[7,'İlk temas ve konsültasyon planlaması için uygun; yolculuğun geri kalanında (post-op) sitede yalnızca inbound arama tarif edildiği için sınırlı.'],
+    auto:[8,'Dil tespiti, niyet, SSS, randevu ve CRM kaydı uçtan uca otomatik.'],
+    integ:[5,'Mevcut hat kişisel/mobil WhatsApp numarası; AI\'ın karşılaması için sabit/VoIP hat ya da “cevapsızsa yönlendir” kurgusu (Twilio) gerekir. WhatsApp sesli arama desteği belirtilmemiş.'],
+    comm:[7,'Arayan uluslararası hasta yüksek niyetlidir; ABD/Avustralya saat farkıyla gelen çağrılar mesai dışına düşebilir. Etki çağrı hacmine bağlı.'],
+    ease:[5,'Telefon altyapısı değişikliği + tıbbi SSS sınırları + 8 dilde ses kalitesi testi.']
+  },
+  studio:{
+    problem:[1,'LHC fiziksel ürün satmıyor; görsel ihtiyacı gerçek hasta öncesi/sonrası fotoğraflarına dayalı.'],
+    journey:[1,'Hasta yolculuğunda karşılığı yok.'],
+    auto:[2,'Sosyal medya için marka görselleri üretilebilir; sınırlı.'],
+    integ:[3,'Shopify odaklı; LHC\'de Shopify yok.'],
+    comm:[1,'AI ile üretilmiş “sonuç” görselleri tıbbi reklam açısından yanıltıcı ve riskli.'],
+    ease:[6,'Teknik olarak kolay ama değer yok.']
+  },
+  decor:{
+    problem:[0,'İç mekan tasarımı ihtiyacı yok.'],
+    journey:[0,'Karşılığı yok.'],
+    auto:[1,'—'],
+    integ:[2,'—'],
+    comm:[0,'—'],
+    ease:[5,'—']
+  }
+};
+
+/* evidence */
+const EVIDENCE = [
+ {area:'Website yapısı',items:[
+  ['t-ver','8 dil sürümü: EN, TR, DE, FR, IT, RU, AR, KO; her biri çevrilmiş içerik.'],
+  ['t-ver','Tedavi sayfaları: Hair, Beard, Eyebrow, Unshaved, Women, Afro; DHI/FUE adım sayfaları; PRP, Laser, Mesotherapy.'],
+  ['t-ver','Güven içeriği: Before-After galerisi, video galeri, 360° sanal tur, 24 influencer/ünlü vitrini.'],
+  ['t-ver','Ölçüm: yalnızca GA4 (G-RSM91WL6C9) bulundu; Meta Pixel / GTM görülmedi.']]},
+ {area:'Lead toplama',items:[
+  ['t-ver','3 form: “Free Consultation”, “Hair Analysis” (cinsiyet → kayıp seviyesi görseli → ad + telefon) ve sayfa altı “Consultation” formu.'],
+  ['t-vgap','“Free Consultation” formunda E-Mail alanı <span class="mono">name="phone"</span> ve aynı <span class="mono">id</span> ile tanımlı: e-posta, telefon alanıyla aynı adla gönderiliyor → veri kaybı riski.'],
+  ['t-vgap','Çevrilmemiş i18n anahtarları görünür: “home.Phone”, “home.Chat with us”.'],
+  ['t-ver','Hair Analysis e-posta toplamıyor; kanal olarak telefon/WhatsApp\'a bağımlı. Newsletter / e-posta aboneliği yok.']]},
+ {area:'Telefon trafiği',items:[
+  ['t-ver','Tek görünür numara: +90 534 704 61 42 (tel: ve wa.me aynı numara), tüm dil sürümlerinde.'],
+  ['t-unk','Çalışma saatleri sitede yayınlanmıyor; çağrı hacmi, cevapsız çağrı oranı bilinmiyor.'],
+  ['t-gap','Mobil/WhatsApp numarası olduğundan mesai dışı çağrıların karşılanması bir kişiye bağlı olabilir.']]},
+ {area:'WhatsApp iletişimi',items:[
+  ['t-ver','Her sayfada sabit WhatsApp butonu. TR ve KO sayfalarında ikinci numara: +90 552 649 61 42.'],
+  ['t-str','Trustpilot (SK): “Fast WhatsApp communication”, ana dilde destek. ClinicAdvisor: post-op sorular WhatsApp\'tan yanıtlanıyor.'],
+  ['t-ver','Web chat: LiveChat (lisans 18972252) aktif; Tawk.to kodu yorum satırına alınmış (eski araç).']]},
+ {area:'Konsültasyon süreci',items:[
+  ['t-ver','“Free Consultation” teklifi; Hair Analysis ile uzaktan ön değerlendirme; yüz yüze konsültasyon operasyon günü (Step 1).'],
+  ['t-str','Yorumlarda isimle anılan danışman (“Consultant Kübra guided throughout”) — insan odaklı satış.'],
+  ['t-gap','Uzaktan ön değerlendirme sonrası takip sıklığı/zamanlaması bilinmiyor.']]},
+ {area:'Randevu süreci',items:[
+  ['t-ver','“Get an Appointment” butonları form gönderir; online takvim / self-booking yok.'],
+  ['t-ver','Kapasite: günde en fazla 2 operasyon (nadiren 3–4) → slot planlaması kritik.'],
+  ['t-ver','Ödeme sayfası Euro bazlı.']]},
+ {area:'Uluslararası hasta süreci',items:[
+  ['t-ver','“36+ ülkeden 2.200+ operasyon” (About Us). Trustpilot son 20 yorum: US 6, TR 3, FI 2, AU 2, SK, BE, CA, NG, LK, IE, GB.'],
+  ['t-ver','Paket: 5★ otel, refakatçi ücretsiz, 6 dahil transfer (havalimanı, operasyon günü, yıkama günü).'],
+  ['t-str','Yorumlar: havalimanı karşılama, sürücü dakikliği, çevirmenler sürekli övülüyor.']]},
+ {area:'Çok dilli iletişim',items:[
+  ['t-ver','Klinikte yabancı dil konuşan tıbbi personel ve çevirmen (Clinic sayfası, yorumlar).'],
+  ['t-gap','8 site diline karşılık telefon/WhatsApp\'ta 7/24 aynı dil kapsamı olup olmadığı doğrulanamadı.']]},
+ {area:'Satış / danışman ekibi',items:[
+  ['t-str','Danışman + çevirmen + sürücü + doktor rolü yorumlarda ayrışıyor; organize ekip.'],
+  ['t-unk','CRM kullanımı görünür değil (site formları kendi backend\'ine POST ediyor).'],
+  ['t-gap','İki WhatsApp numarası + LiveChat → tek müşteri görünümü olmayabilir.']]},
+ {area:'Post-treatment iletişimi',items:[
+  ['t-ver','Blog: 10. gün kabuk temizliği, şok dökülme, alkol, cinsel hayat — post-op soruların içerikleşmiş hali.'],
+  ['t-str','Yorumlar: “monthly check-ins”, “ongoing post-op support”, 17 ay sonra memnuniyet.'],
+  ['t-gap','Aylık kontrollerin manuel yürüdüğü tahmin ediliyor; ekip büyüdükçe tutarlılık riski.']]},
+ {area:'İtibar / yorum',items:[
+  ['t-ver','Trustpilot 88 yorum, 4.7; dağılım %86 5★ / %14 1★. Şirket yorumlara yanıt veriyor.'],
+  ['t-vgap','2.200+ operasyona karşın 88 Trustpilot yorumu (~%4). Bağımsız forumlarda “az sayıda bağımsız yorum” eleştirisi var.'],
+  ['t-ver','ClinicAdvisor: tekil “sorularıma yanıt vermeyi bıraktılar” şikayeti (istisna).']]}
+];
+
+/* matches: need -> evidence -> product -> use case -> integration -> effect */
+const MATCHES = [
+ {p:'inbox',title:'WhatsApp + web chat konuşmalarını tek, çok dilli AI gelen kutusunda toplamak',
+  need:'Tüm dillerde gelen ilk temas mesajlarına tutarlı ve hızlı yanıt; tek hasta görünümü.',
+  ev:'2 WhatsApp numarası (EN/DE/FR/IT/RU/AR: 534…, TR/KO: 552…) + aktif LiveChat. Yorumlar WhatsApp\'ı birincil kanal olarak anıyor.',
+  use:'Mesaj hangi dilde gelirse AI o dilde, bilgi tabanından (paket, otel, transfer, yöntem) kaynaklı taslak hazırlar; danışman onaylar. Fiyat/tıbbi uygunluk insana devredilir.',
+  integ:'WhatsApp Business API (2 numara), LiveChat → Inboxly web chat, Instagram DM, bilgi tabanı (8 dil), webhook → CRM/Sheets.',
+  eff:'İlk yanıt süresi ve mesai dışı yanıtlama ölçülebilir hale gelir; danışmanlar tekrarlayan sorular yerine nitelikli hastaya odaklanır.'},
+ {p:'inbox',title:'Mesai dışı ve saat farkı olan ülkelerden gelen mesajları kaybetmemek',
+  need:'ABD/Kanada/Avustralya hastaları kendi gündüz saatlerinde yazıyor.',
+  ev:'Trustpilot son 20 yorumun 6\'sı ABD, 2\'si AU, 1\'i CA. Çalışma saati yayınlanmıyor.',
+  use:'Gece gelen mesaja anında ilk yanıt + Hair Analysis için fotoğraf isteme + sabah danışmana hazır özet.',
+  integ:'Inboxly otomasyon kuralları + SLA uyarıları.',
+  eff:'<span class="tag t-gap">Potential Gap</span> giderilir: “sabaha kalan” lead oranı ölçülür ve düşürülür.'},
+ {p:'engage',title:'Form lead\'lerini otomatik takip dizisine almak',
+  need:'Hair Analysis / Free Consultation formu sonrası tutarlı takip.',
+  ev:'Formlar sadece “Success” uyarısı verip sayfayı yeniliyor; e-posta toplanmıyor; Free Consultation formunda e-posta alanı “phone” adıyla gönderiliyor.',
+  use:'Gün 0 WhatsApp: teşekkür + fotoğraf talebi → Gün 2: yöntem (DHI/FUE) içeriği → Gün 5: before/after + paket → Gün 10: danışman çağrısı. Yanıt gelirse dizi durur (Condition).',
+  integ:'Form → webhook → Engage profil; form alan hatası düzeltilmeli; WhatsApp şablon onayları (8 dil).',
+  eff:'Takip tutarlılığı ve form→konsültasyon dönüşümü ölçülebilir olur.'},
+ {p:'engage',title:'Varış öncesi lojistik iletişimini otomatikleştirmek',
+  need:'Otel, 6 transfer, yıkama günü ve refakatçi bilgisinin doğru zamanda iletilmesi.',
+  ev:'Hotel & Transfer sayfaları; yorumlarda havalimanı karşılama ve sürücü koordinasyonu öne çıkıyor.',
+  use:'Tarih kesinleşince: T-7 hazırlık listesi (alkol yasağı blog içeriği), T-2 uçuş bilgisi teyidi, T-1 sürücü & otel bilgisi, operasyon sabahı hatırlatma.',
+  integ:'Randevu/operasyon tarihi olayı (CRM veya Google Sheets → webhook).',
+  eff:'Operasyon koordinasyonu manuel mesajdan çıkar; no-show ve son dakika karışıklığı riski azalır.'},
+ {p:'engage',title:'Post-op takvimini ve 12 aylık sonuç takibini sistemleştirmek',
+  need:'Aylık kontrol ve iyileşme süreci soruları.',
+  ev:'Blog: 10. gün kabuk, şok dökülme. Yorumlar: “monthly check-ins”, “ongoing post-op support”.',
+  use:'Gün 1 yıkama talimatı → Gün 10 kabuk rehberi → Ay 1–3 şok dökülme bilgilendirmesi → Ay 3/6/12 fotoğraf talebi.',
+  integ:'“Treatment completed” olayı + dil bazlı şablonlar; gelen fotoğraf yanıtları Inboxly\'ye düşer.',
+  eff:'Hasta memnuniyeti korunur, kontrol hatırlatmaları kişiden bağımsız olur; sonuç fotoğrafı arşivi büyür.'},
+ {p:'engage',title:'Yorum ve referans akışı',
+  need:'Bağımsız yorum hacmini artırmak ve memnun hastadan referans almak.',
+  ev:'2.200+ operasyon vs 88 Trustpilot yorumu; forumlarda “bağımsız yorum azlığı” eleştirisi.',
+  use:'Ay 3 ve Ay 12 (sonuç görünürken) dilinde yorum talebi; memnun hastaya referans mesajı.',
+  integ:'Engage akışı + Trustpilot/Google yorum linkleri. Teşvikli yorum yasaktır — yalnızca talep.',
+  eff:'Yorum hacmi ve güncelliği artar → uluslararası güven sinyali güçlenir.'},
+ {p:'engage',title:'Uyuyan lead geri kazanımı',
+  need:'Karar süreci uzun; konsültasyon alıp operasyona gelmeyenler.',
+  ev:'Sitede tekrar temas mekanizması (newsletter, e-posta) yok.',
+  use:'90/180 gün sessiz lead\'e dilinde yeni vaka/video içeriği, sezonluk müsaitlik bilgisi.',
+  integ:'Engage geri kazanım akışı; WhatsApp onay (opt-in) ve İYS/GDPR uyumu şart.',
+  eff:'<span class="tag t-gap">Potential Gap</span> — mevcut uyuyan lead havuzu büyüklüğü keşifte doğrulanmalı.'},
+ {p:'voice',title:'Uluslararası çağrıları 7/24, hastanın dilinde karşılamak',
+  need:'Çağrıların kaybolmaması ve ilk temasta nitelendirme.',
+  ev:'Tek numara (mobil, WhatsApp ile ortak), çalışma saati yok; 36+ ülke, 8 dil.',
+  use:'AI çağrıyı karşılar → dil tespiti → tedavi ilgisi (saç/sakal/kaş/kadın/afro) → SSS (otel, transfer dahil mi) → ad, ülke, tarih aralığı → online konsültasyon slotu → CRM.',
+  integ:'Twilio/VoIP numara veya cevapsız çağrı yönlendirme, takvim, CRM; tıbbi soru → insana devir kuralı.',
+  eff:'Çağrı hacmi varsa: mesai dışı kayıp çağrı sıfıra yaklaşır. <span class="tag t-unk">Çağrı hacmi doğrulanmadı</span>'}
+];
+
+/* matrix capability catalogue: level 2=full,1=partial,0=none + source */
+const CAPS = {
+ web_events:{label:'Web davranış olayları / Customer 360',engage:[1,'Engage: product_viewed, add_to_cart vb. olaylar + Customer 360 doğrulandı; klinik olayları (treatment_viewed, before_after_viewed) özel kurulum.'],voice:[0,''],inbox:[0,'']},
+ web_chat:{label:'Web chat',engage:[0,''],voice:[0,''],inbox:[2,'Inboxly: web sohbet kanalı doğrulandı.']},
+ web_forms:{label:'Form / popup / landing',engage:[2,'Engage: gömülü formlar, açılır pencereler, açılış sayfaları.'],voice:[0,''],inbox:[0,'']},
+ segmentation:{label:'Segmentasyon',engage:[2,'Engage: davranışsal, kendini güncelleyen segmentler.'],voice:[0,''],inbox:[1,'Inboxly: etiket sistemi (segment değil).']},
+ scoring:{label:'Lead nitelendirme / skor',engage:[1,'Engage: ayrı “lead scoring” özelliği listelenmiyor; segment kurallarıyla skor benzeri yapı kurulabilir.'],voice:[1,'Voice: niyet analizi ile nitelendirme; sayısal skor belirtilmemiş.'],inbox:[1,'Inboxly: AI kategorize eder, etiketler.']},
+ inbound_call:{label:'Gelen arama',engage:[0,''],voice:[2,'Voice: her aramayı <1 sn karşılar.'],inbox:[0,'']},
+ wa_conv:{label:'WhatsApp iki yönlü konuşma',engage:[1,'Engage: WhatsApp kampanya & dizileri (giden); konuşma yönetimi değil.'],voice:[0,'Voice: WhatsApp belirtilmemiş.'],inbox:[2,'Inboxly: WhatsApp gelen kutusu + AI yanıt.']},
+ multilingual:{label:'Çok dilli otomatik iletişim',engage:[1,'Engage: çok dilli üretim belirtilmemiş; şablonlar dil başına hazırlanır.'],voice:[2,'Voice: 50+ dil.'],inbox:[2,'Inboxly: çok dilli yanıt.']},
+ faq:{label:'Bilgi tabanından SSS',engage:[0,''],voice:[2,'Voice: akıllı soru & cevap.'],inbox:[2,'Inboxly: bilgi tabanı, kaynaklı yanıt.']},
+ booking:{label:'Takvim / randevu oluşturma',engage:[0,''],voice:[2,'Voice: canlı müsaitlik + randevu + SMS.'],inbox:[1,'Inboxly: “randevu önerir”.']},
+ reminders:{label:'Hatırlatma / ön bilgilendirme dizisi',engage:[2,'Engage: WhatsApp → SMS → e-posta dizileri, Wait adımları.'],voice:[1,'Voice: randevu sonrası SMS bildirimi.'],inbox:[0,'']},
+ crm:{label:'CRM kaydı',engage:[1,'Engage: kendi Customer 360 profili; dış CRM senkronu webhook ile.'],voice:[2,'Voice: CRM entegrasyonu açıkça listelenmiş.'],inbox:[1,'Inboxly: webhook, Zendesk, Sheets.']},
+ winback:{label:'Yanıtsız / uyuyan lead geri kazanımı',engage:[2,'Engage: 180 gün pasif → geri kazanım akışı.'],voice:[0,'Voice: giden arama belirtilmemiş.'],inbox:[0,'']},
+ followup:{label:'Zamanlanmış post-op dizisi',engage:[2,'Engage: olay tetiklemeli, beklemeli akışlar.'],voice:[0,'Voice: yalnızca inbound tarif edilmiş.'],inbox:[1,'Inboxly: hastanın post-op sorularını yanıtlar (reaktif).']},
+ review:{label:'Yorum talebi',engage:[2,'Engage: akış içinde link içeren mesaj.'],voice:[0,''],inbox:[0,'']},
+ referral:{label:'Referans programı',engage:[1,'Engage: mesaj gönderebilir; referans takibi özelliği yok.'],voice:[0,''],inbox:[0,'']}
+};
+const JOURNEY_ROWS = [
+ ['Website Visitor',['web_events','web_chat']],
+ ['Treatment Interest',['web_events','segmentation']],
+ ['Lead Capture',['web_forms','inbound_call','wa_conv','web_chat']],
+ ['Lead Qualification',['scoring']],
+ ['Phone Calls',['inbound_call']],
+ ['WhatsApp Conversation',['wa_conv']],
+ ['International Patient',['multilingual']],
+ ['FAQ (paket, otel, transfer)',['faq']],
+ ['Consultation',['booking','faq']],
+ ['Appointment / Pre-arrival',['booking','reminders']],
+ ['No Response / Dormant',['winback']],
+ ['Post-Treatment',['followup']],
+ ['Review',['review']],
+ ['Referral',['referral']],
+ ['CRM / Unified Profile',['crm']]
+];
+
+/* combined journey */
+const JOURNEY = [
+ {layer:'Acquisition',p:'acq',t:'Instagram / Google / Influencer',d:'Hasta, influencer içeriği (sitede 24 isim) ya da arama ile gelir.',lhc:'Sitede 24 influencer/ünlü vitrini, YouTube vaka videoları. Ücretli reklam varlığı doğrulanmadı (Meta Pixel yok, yalnızca GA4).',st:['t-ver','Kanal kanıtı: influencer + organik']},
+ {layer:'Acquisition',p:'acq',t:'Long Hair Center Website (8 dil)',d:'Ziyaretçi kendi dilinde siteye iner.',lhc:'/en /de /fr /it /ru /ar /ko /tr',st:['t-ver','Doğrulandı']},
+ {layer:'Acquisition',p:'acq',t:'Treatment Viewed',d:'Hair / Beard / Eyebrow / Women / Afro / Unshaved sayfası.',lhc:'Tedavi ilgisi segmentin ilk sinyali.',st:['t-ver','Sayfalar mevcut']},
+ {layer:'Acquisition',p:'acq',t:'Before / After + Video Viewed',d:'Güven içeriği tüketimi = yüksek niyet sinyali.',lhc:'/gallery/before-after, video galeri, 360° tur.',st:['t-ver','Sayfalar mevcut']},
+ {layer:'Acquisition',p:'acq',t:'WhatsApp / Form / Phone',d:'Hasta temas kurar.',lhc:'wa.me (2 numara), 3 form, tel:+90 534…, LiveChat.',st:['t-ver','Doğrulandı']},
+ {layer:'Inboxly',p:'inbox',inbox:true,t:'WhatsApp konuşması AI ile karşılanır',d:'Mesaj hastanın dilinde, bilgi tabanından yanıtlanır; fotoğraf istenir; tıbbi değerlendirme danışmana devredilir.',lhc:'İki WhatsApp hattı + LiveChat tek kutuda.',st:['t-ver','Inboxly yeteneği doğrulandı']},
+ {layer:'Callypso Engage',p:'engage',t:'Behavior detected',d:'Görüntülenen tedavi, before/after, form başlangıcı olay olarak kaydedilir.',lhc:'Örn. women_hair_transplant_viewed + before_after_viewed.',st:['t-gap','Özel olay kurulumu gerekir']},
+ {layer:'Callypso Engage',p:'engage',t:'Lead profile created / updated',d:'Ad, ülke (intl-tel-input ISO kodu), dil, tedavi ilgisi, kayıp seviyesi (Hair Analysis görseli).',lhc:'hairAnalysisCountry alanı zaten ülke kodu topluyor.',st:['t-ver','Customer 360 doğrulandı']},
+ {layer:'Callypso Engage',p:'engage',t:'Lead Score calculated',d:'Kural tabanlı: before/after izleme + form + ülke + tarih aralığı = puan.',lhc:'Kapasite ≤2/gün → yüksek niyetli lead\'i önceliklendirmek kritik.',st:['t-gap','Segment kuralıyla; ayrı özellik değil']},
+ {layer:'Callypso Engage',p:'engage',t:'High Intent Lead detected',d:'“Yüksek niyet” segmentine girer; danışmana bildirim ya da Voice/Inboxly önceliği.',lhc:'Danışman (ör. yorumlarda anılan koordinatör) sıcak lead\'e önce döner.',st:['t-ver','Dinamik segment doğrulandı']},
+ {layer:'AI Voice Agent',p:'voice',t:'Inbound call answered',d:'Hasta ararsa (mesai dışı dahil) AI <1 sn\'de, kendi dilinde karşılar.',lhc:'Giden (outbound) arama sitede tarif edilmediği için “lead contacted” adımı Voice ile değil, Engage WhatsApp mesajı + danışmanla yapılır.',st:['t-ver','Inbound doğrulandı · outbound değil']},
+ {layer:'AI Voice Agent',p:'voice',t:'Treatment interest confirmed',d:'Saç/sakal/kaş, yöntem tercihi, tarih aralığı.',lhc:'DHI / FUE / Unshaved / Afro ayrımı.',st:['t-ver','Niyet analizi doğrulandı']},
+ {layer:'AI Voice Agent',p:'voice',t:'Questions answered',d:'Paket (otel + refakatçi + 6 transfer), süreç, iyileşme.',lhc:'Fiyat ve tıbbi uygunluk → insana devir.',st:['t-ver','Bilgi tabanı + devir doğrulandı']},
+ {layer:'AI Voice Agent',p:'voice',t:'Consultation scheduled',d:'Online ön konsültasyon / danışman görüşmesi takvime yazılır, SMS gider, CRM\'e kaydedilir.',lhc:'Operasyon slotu değil, ön görüşme slotu (operasyon tarihi danışman onayı ister).',st:['t-ver','Randevu + CRM doğrulandı']},
+ {layer:'Callypso Engage',p:'engage',t:'Appointment reminder',d:'Görüşme öncesi WhatsApp/SMS hatırlatma.',lhc:'Hastanın dilinde, kendi saat diliminde.',st:['t-ver','Dizi doğrulandı']},
+ {layer:'Callypso Engage',p:'engage',t:'Pre-treatment communication',d:'T-7 hazırlık, T-2 uçuş teyidi, T-1 sürücü & otel bilgisi.',lhc:'Otel, refakatçi, 6 transfer, alkol yasağı (blog).',st:['t-ver','Akış doğrulandı']},
+ {layer:'Clinic',p:'clinic',t:'Treatment',d:'Konsültasyon, saç çizgisi, operasyon, yıkama günü.',lhc:'Çevirmen + doktor + acil hekim; günde ≤2 operasyon.',st:['t-str','Mevcut güçlü yön']},
+ {layer:'Callypso Engage',p:'engage',t:'Post-treatment journey',d:'Gün 1, Gün 10, Ay 1–3, Ay 3/6/12 fotoğraf talebi.',lhc:'Blog: kabuk, şok dökülme içerikleri hazır. Gelen yanıtlar Inboxly\'de.',st:['t-ver','Akış doğrulandı']},
+ {layer:'Callypso Engage',p:'engage',t:'Review request',d:'Ay 3 ve 12\'de dilinde yorum talebi.',lhc:'88 Trustpilot / 2.200+ operasyon.',st:['t-ver','Akış doğrulandı']},
+ {layer:'Callypso Engage',p:'engage',t:'Referral journey',d:'Memnun hastaya referans mesajı.',lhc:'Referans takibi için harici kod/UTM gerekir.',st:['t-gap','Kısmi']}
+];
+
+const CURRENT = [
+ ['Ad / Google / Social / Influencer',[]],
+ ['Website (8 dil)',[]],
+ ['Visitor',[['t-unk','davranış ölçümü yalnızca GA4']]],
+ ['WhatsApp / Form / Phone / LiveChat',[['t-vgap','form alan hatası'],['t-ver','2 WA numarası']]],
+ ['Manual Follow-Up',[['t-gap','after-hours'],['t-gap','inconsistent follow-up']]],
+ ['Consultation',[['t-str','danışman + çevirmen']]],
+ ['Appointment',[['t-ver','self-booking yok']]],
+ ['Post-Treatment (manuel kontroller)',[['t-gap','ölçeklenme'],['t-vgap','düşük yorum oranı']]],
+ ['(Lead geri kazanımı yok)',[['t-gap','dormant leads']]]
+];
+const WITHC = [
+ ['Ad / Google / Social / Influencer',0],
+ ['Website',0],
+ ['Behavior Tracking','engage'],
+ ['Lead Capture (form düzeltilmiş + WhatsApp + web chat)','inbox'],
+ ['Callypso Engage — profil & segment','engage'],
+ ['Lead Scoring (segment kuralı)','engage'],
+ ['AI Voice Agent — inbound çağrılar','voice'],
+ ['Consultation (danışman)','clinic'],
+ ['Appointment + reminders','engage'],
+ ['Automated Patient Journey (varış lojistiği)','engage'],
+ ['Post-Treatment','engage'],
+ ['Review / Referral','engage']
+];
+const GAPS = [
+ ['Delayed response','t-str','Kanıt tersini söylüyor: “Fast WhatsApp communication”. Tekil olumsuz yorum (ClinicAdvisor) istisna.','Inboxly SLA ile ölçülür hale gelir'],
+ ['Lost leads (form)','t-vgap','Free Consultation formunda e-posta alanı name="phone" + çift id.','Form düzeltme + Engage webhook'],
+ ['Manual follow-up','t-gap','Online takvim / otomatik dizi görünmüyor; süreç danışmana bağlı.','Engage dizileri'],
+ ['Inconsistent follow-up','t-gap','Doğrulanamadı; ekip büyüklüğü bilinmiyor.','Engage + Inboxly SLA'],
+ ['After-hours leads','t-gap','Çalışma saati yok; US/CA/AU hastaları saat farkıyla yazıyor/arıyor.','Inboxly (mesaj) + Voice (çağrı)'],
+ ['International communication','t-str','8 dil, çevirmenler, ana dil desteği yorumlarda övülüyor.','Ölçekleme: Inboxly/Voice çok dilli ilk temas'],
+ ['Dormant leads','t-gap','Newsletter/e-posta toplama yok → geri kazanım kanalı yok.','Engage geri kazanım akışı'],
+ ['Fragmented channels','t-ver','2 WhatsApp numarası + LiveChat (+ eski Tawk kodu).','Inboxly tek kutu'],
+ ['Review volume','t-vgap','2.200+ operasyon / 88 Trustpilot yorumu.','Engage yorum akışı']
+];
+
+const PRIORITY = {
+ inbox:{cls:'pr-must',label:'Must Have',why:'Birincil kanal WhatsApp; 2 numara + web chat dağınık; çok dilli & mesai dışı ilk yanıt doğrudan gelir korur.'},
+ engage:{cls:'pr-high',label:'High Value',why:'Varış lojistiği, post-op, yorum ve geri kazanım için en geniş kapsama; ancak klinik olaylarına özel entegrasyon ister ve ilk temas sorununu tek başına çözmez.'},
+ voice:{cls:'pr-opt',label:'Optional',why:'Uluslararası tek hat ve saat farkı gerçek; fakat çağrı hacmi doğrulanmadı ve hastalar ağırlıkla WhatsApp kullanıyor. Çağrı log\'u incelendikten sonra karar.'},
+ studio:{cls:'pr-no',label:'Not Recommended',why:'Fiziksel ürün yok; AI üretimi tedavi sonucu görselleri tıbbi yanıltma riski.'},
+ decor:{cls:'pr-no',label:'Not Recommended',why:'İş modeliyle ilişkisi yok.'}
+};
+
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s);
+let weights = Object.fromEntries(CRITERIA.map(c=>[c.id,c.w]));
+function score(pid){
+  const tot = Object.values(weights).reduce((a,b)=>a+b,0)||1;
+  let s=0; for(const c of CRITERIA){ s += SCORES[pid][c.id][0]*10*weights[c.id]; }
+  return Math.round(s/tot);
+}
+function ranking(){ return Object.keys(PRODUCTS).map(p=>({p,s:score(p)})).sort((a,b)=>b.s-a.s); }
+
+/* theme */
+(function(){
+  const root=document.documentElement;
+  try{const t=localStorage.getItem('lhc-theme'); if(t) root.dataset.theme=t;}catch(e){}
+  $('#themeBtn').onclick=()=>{
+    const dark = root.dataset.theme ? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark?'light':'dark';
+    try{localStorage.setItem('lhc-theme',root.dataset.theme);}catch(e){}
+  };
+})();
+
+/* ================= RENDER: ranking & verdict ================= */
+function renderRank(){
+  const r=ranking();
+  $('#rankList').innerHTML = r.map((x,i)=>{const P=PRODUCTS[x.p];return `<div class="rank-row ${i===0?'top':''}">
+    <div class="rank-n">#${i+1}</div>
+    <div><div class="rank-name">${P.name} <span class="tag ${PRIORITY[x.p].cls}" style="margin-left:4px">${PRIORITY[x.p].label}</span></div>
+    <div class="rank-bar"><i style="width:${x.s}%;background:${P.color}"></i></div></div>
+    <div class="rank-score">${x.s}<small>/100</small></div></div>`}).join('');
+  const a=r[0],b=r[1],c=r[2];
+  $('#verdictTitle').textContent = `${PRODUCTS[a.p].short} ile başla, ${PRODUCTS[b.p].short} ile yolculuğu otomatikleştir.`;
+  $('#verdictText').innerHTML = `Long Hair Center'ın gerçek boşluğu ilk temas ve sonrasındaki tutarlı, çok dilli takip. <b>${PRODUCTS[a.p].name} (${a.s})</b> WhatsApp ağırlıklı ilk teması, <b>${PRODUCTS[b.p].name} (${b.s})</b> konsültasyondan referansa kadar yolculuğu kapsıyor. <b>${PRODUCTS[c.p].name} (${c.s})</b> çağrı hacmi doğrulanırsa üçüncü katman. Studio ve Decor için anlamlı eşleşme yok.`;
+}
+
+/* products */
+function renderProducts(){
+  $('#prodGrid').innerHTML = Object.entries(PRODUCTS).map(([k,P])=>`<div class="card prod">
+    <span class="tag ${P.tag}">${P.short}</span>
+    <h3 style="margin-top:8px">${P.name}</h3>
+    <p style="font-size:13px;margin-top:4px">${P.tagline}</p>
+    <ul>${P.caps.map(c=>`<li>${c}</li>`).join('')}</ul>
+    <p class="note" style="margin-top:10px"><b>Not:</b> ${P.caveat}</p>
+    <div class="src"><a href="${P.url}" target="_blank" rel="noopener">Kaynak ↗</a></div></div>`).join('');
+}
+
+/* evidence */
+const EVF=[['all','Tümü'],['t-ver','Verified'],['t-vgap','Verified Gap'],['t-gap','Potential Gap'],['t-str','Strength'],['t-unk','Not verified']];
+const EVLBL={'t-ver':'Verified','t-vgap':'Verified Gap','t-gap':'Potential Gap','t-str':'Strength','t-unk':'Not verified'};
+let evf='all';
+function renderEvidence(){
+  $('#evFilters').innerHTML = EVF.map(([k,l])=>`<button class="fbtn ${evf===k?'on':''}" data-k="${k}" type="button">${l}</button>`).join('');
+  $('#evFilters').querySelectorAll('button').forEach(b=>b.onclick=()=>{evf=b.dataset.k;renderEvidence();});
+  $('#evGrid').innerHTML = EVIDENCE.map(g=>{
+    const items=g.items.filter(i=>evf==='all'||i[0]===evf); if(!items.length) return '';
+    return `<div class="card ev"><h4>${g.area}</h4>${items.map(i=>`<div class="ev-item"><span class="tag ${i[0]}">${EVLBL[i[0]]}</span><span>${i[1]}</span></div>`).join('')}</div>`}).join('');
+}
+
+/* score table */
+let selP='inbox';
+function renderWeights(){
+  $('#weights').innerHTML = CRITERIA.map(c=>`<div><label for="w-${c.id}"><span>${c.name}</span><span class="mono" id="wv-${c.id}">${weights[c.id]}%</span></label><input type="range" id="w-${c.id}" min="0" max="40" value="${weights[c.id]}"></div>`).join('');
+  CRITERIA.forEach(c=>{ $('#w-'+c.id).oninput=e=>{weights[c.id]=+e.target.value; $('#wv-'+c.id).textContent=weights[c.id]+'%'; renderScores(); renderRank(); renderMatches(); renderPriority();}; });
+}
+function renderScores(){
+  const r=ranking();
+  $('#scTable').innerHTML = `<thead><tr><th>Ürün</th>${CRITERIA.map(c=>`<th style="text-align:center">${c.name.replace(' (ters)','')}</th>`).join('')}<th style="text-align:center">Fit Score</th></tr></thead><tbody>`+
+  r.map(x=>`<tr class="clickable" data-p="${x.p}" ${x.p===selP?'style="background:var(--surface-2)"':''}><td><b>${PRODUCTS[x.p].name}</b></td>${CRITERIA.map(c=>{const v=SCORES[x.p][c.id][0];return `<td class="num">${v}<span class="cell-bar"><i style="width:${v*10}%;background:${PRODUCTS[x.p].color}"></i></span></td>`}).join('')}<td class="num" style="font-size:17px">${x.s}</td></tr>`).join('')+'</tbody>';
+  $('#scTable').querySelectorAll('tr.clickable').forEach(tr=>tr.onclick=()=>{selP=tr.dataset.p;renderScores();});
+  const P=PRODUCTS[selP];
+  $('#scDetail').innerHTML = `<div class="k" style="color:${P.color}">${P.name} — kriter gerekçeleri · Fit Score ${score(selP)}/100 (tahmini)</div>`+
+   CRITERIA.map(c=>`<div class="crit"><b>${c.name}</b><span class="mono">${SCORES[selP][c.id][0]}/10</span><p style="font-size:13px">${SCORES[selP][c.id][1]}</p></div>`).join('');
+}
+
+/* matches */
+let mf='all';
+function renderMatches(){
+  const opts=[['all','Tümü'],['inbox','Inboxly'],['engage','Engage'],['voice','Voice Agent']];
+  $('#mFilters').innerHTML=opts.map(([k,l])=>`<button class="fbtn ${mf===k?'on':''}" data-k="${k}" type="button">${l} ${k==='all'?'':'('+MATCHES.filter(m=>m.p===k).length+')'}</button>`).join('');
+  $('#mFilters').querySelectorAll('button').forEach(b=>b.onclick=()=>{mf=b.dataset.k;renderMatches();});
+  $('#mList').innerHTML = MATCHES.filter(m=>mf==='all'||m.p===mf).map(m=>{const P=PRODUCTS[m.p];return `<div class="card match">
+    <div class="match-head"><h3>${m.title}</h3><span class="tag ${P.tag}">${P.name} · ${score(m.p)}/100</span></div>
+    <div class="chain">
+      <div class="link"><div class="lk">Long Hair Center Need</div><p>${m.need}</p></div>
+      <div class="link"><div class="lk">Observed Evidence</div><p>${m.ev}</p></div>
+      <div class="link" style="background:color-mix(in srgb, ${P.color} 9%, transparent)"><div class="lk">Matching Product</div><p><b>${P.name}</b></p></div>
+      <div class="link"><div class="lk">Use Case</div><p>${m.use}</p></div>
+      <div class="link"><div class="lk">Required Integration</div><p>${m.integ}</p></div>
+      <div class="link"><div class="lk">Expected Business Effect</div><p>${m.eff}</p></div>
+    </div></div>`}).join('');
+}
+
+/* flows */
+function flow(el,nodes){ $(el).innerHTML = nodes.map((n,i)=>`${i?'<div class="farrow">↓</div>':''}<div class="fnode">${n}</div>`).join(''); }
+
+/* voice eval */
+function renderVoice(){
+  flow('#voiceFlow',[
+   '<b>Potansiyel hasta arar</b> — +90 534 704 61 42 (sitedeki tek numara)',
+   '<b>AI aramayı karşılar</b> &lt;1 sn <span class="tag t-ver">Verified</span>',
+   '<b>Dilini tespit eder</b> — EN / DE / FR / IT / RU / AR / KO / TR <span class="tag t-ver">50+ dil</span>',
+   '<b>Treatment ilgisi</b> — saç / sakal / kaş / kadın / afro / traşsız',
+   '<b>Temel sorular</b> — otel + refakatçi + 6 transfer dahil mi, DHI vs FUE, iyileşme',
+   '<b>Lead bilgisi</b> — ad, ülke, WhatsApp, tarih aralığı, fotoğraf için WhatsApp linki SMS ile',
+   '<b>CRM\'e kaydeder</b> <span class="tag t-ver">Verified</span>',
+   '<b>Konsültasyon slotu</b> (online ön görüşme) — operasyon tarihi danışman onayıyla'
+  ]);
+  const items=[
+   ['t-ver','Telefon numarası tektir ve aynı zamanda WhatsApp hattıdır → çağrı ve mesaj aynı kişide toplanıyor olabilir.'],
+   ['t-ver','Uluslararası hasta tabanı geniş (36+ ülke) ve ABD ağırlıklı; saat farkı nedeniyle İstanbul gecesi = hastanın gündüzü.'],
+   ['t-str','Ancak yorumlarda “arama” değil “WhatsApp” iletişimi öne çıkıyor. Uluslararası hastalar Türk mobil numarasını aramak yerine çoğunlukla WhatsApp yazar ya da WhatsApp üzerinden arar.'],
+   ['t-unk','WhatsApp sesli arama desteği CallypsoTech sitesinde belirtilmemiş — LHC için kritik keşif sorusu.'],
+   ['t-unk','Çağrı hacmi, cevapsız çağrı oranı ve mesai saatleri bilinmiyor.'],
+   ['t-gap','Giden (outbound) arama tarif edilmediği için “high-intent lead\'i AI arasın” senaryosu sitede doğrulanmadı.']
+  ];
+  $('#voiceEval').innerHTML = items.map(i=>`<div class="ev-item"><span class="tag ${i[0]}">${EVLBL[i[0]]}</span><span>${i[1]}</span></div>`).join('')+
+   `<div class="callout" style="margin-top:6px"><b>Sonuç:</b> Voice Agent teknik olarak LHC'nin inbound akışına uyuyor, fakat ticari önceliği <b>çağrı hacmine</b> bağlı. Öneri: 2 haftalık çağrı log'u (cevapsız çağrılar, saat dağılımı, ülke kodu) incelenmeden Voice Agent “Must Have” değil, <b>Optional / Phase 3</b>.</div>`;
+}
+
+/* timezone */
+const TZS=[['ABD — New York','America/New_York','US'],['ABD — Los Angeles','America/Los_Angeles','US'],['Kanada — Toronto','America/Toronto','CA'],['Avustralya — Sidney','Australia/Sydney','AU'],['Birleşik Krallık','Europe/London','GB'],['Almanya','Europe/Berlin','DE'],['Finlandiya','Europe/Helsinki','FI'],['Güney Kore','Asia/Seoul','KO'],['BAE — Dubai','Asia/Dubai','AE'],['Suudi Arabistan','Asia/Riyadh','AR'],['Nijerya','Africa/Lagos','NG'],['İrlanda','Europe/Dublin','IE']];
+function renderTZ(){
+  const mins=+$('#tzSlider').value; const hh=Math.floor(mins/60), mm=mins%60;
+  const pad=n=>String(n).padStart(2,'0');
+  $('#tzIst').textContent=`${pad(hh)}:${pad(mm)}`;
+  // build instant: today in Istanbul (UTC+3, no DST since 2016) at hh:mm
+  const now=new Date(); const y=now.getUTCFullYear(), mo=now.getUTCMonth(), d=now.getUTCDate();
+  const inst=new Date(Date.UTC(y,mo,d,hh-3,mm));
+  const open = hh>=9 && hh<19;
+  $('#tzClinic').className='tag '+(open?'t-ver':'t-vgap');
+  $('#tzClinic').textContent= open?'Klinik açık (varsayım)':'Klinik kapalı (varsayım)';
+  let awake=0;
+  $('#tzGrid').innerHTML=TZS.map(([n,z])=>{
+    const f=new Intl.DateTimeFormat('tr-TR',{timeZone:z,hour:'2-digit',minute:'2-digit',hour12:false}).format(inst);
+    const h=+new Intl.DateTimeFormat('en-GB',{timeZone:z,hour:'2-digit',hour12:false}).format(inst)%24;
+    const day = h>=8 && h<22; if(day && !open) awake++;
+    return `<div class="tz ${day&&!open?'awake':''}"><div class="c">${n}</div><div class="t">${f}</div><div class="s" style="color:${day?'var(--voice)':'var(--muted)'}">${day?'hasta aktif saatte':'gece'}</div></div>`}).join('');
+  $('#tzSummary').textContent = open ? 'Klinik açık: tüm talepler ekip tarafından karşılanabilir.' : `Klinik kapalıyken ${awake} / ${TZS.length} pazarda hasta aktif saatte (08–22). Bu pazarlardan gelen talepler ilk yanıtı ertesi sabaha bekleyebilir.`;
+  $('#tzVerdict').innerHTML = `<b>Değerlendirme:</b> 24/7 lead capture senaryosu LHC için <b>anlamlı</b> — çünkü en çok yorum bırakan pazar ABD ve İstanbul 23:40 = New York öğleden sonra. Ancak bu talebin çoğunun <b>WhatsApp mesajı</b> olarak geldiğine dair kanıt var; bu yüzden mesai dışı yakalamanın ilk aracı <b>Inboxly</b>, telefon çağrıları için tamamlayıcı araç <b>Voice Agent</b>.`;
+}
+
+/* international */
+function renderIntl(){
+  const langs=[['EN','English'],['TR','Türkçe'],['DE','Deutsch'],['FR','Français'],['IT','Italiano'],['RU','Русский'],['AR','العربية'],['KO','한국어']];
+  $('#langList').innerHTML=langs.map(l=>`<span class="pill"><b class="mono">${l[0]}</b> ${l[1]}</span>`).join('');
+  const cs=[['ABD',6],['Türkiye',3],['Finlandiya',2],['Avustralya',2],['Slovakya',1],['Belçika',1],['Kanada',1],['Nijerya',1],['Sri Lanka',1],['İrlanda',1],['Birleşik Krallık',1]];
+  $('#countryBars').innerHTML=cs.map(([c,n])=>`<div style="display:grid;grid-template-columns:110px 1fr 24px;gap:8px;align-items:center;font-size:12.5px;margin-bottom:4px"><span>${c}</span><span class="rank-bar" style="margin:0"><i style="width:${n/6*100}%;background:var(--brand)"></i></span><span class="mono">${n}</span></div>`).join('');
+  flow('#intlFlow',[
+   '<b>International Patient</b> — ör. Almanya, Arapça konuşan Körfez hastası, Kore',
+   '<b>Calls Long Hair Center</b> (+90 534…)',
+   '<b>Language Detection</b> — sitede doğrulanan 8 dil öncelikli test edilir',
+   '<b>AI Conversation</b> — hastanın dilinde',
+   '<b>Treatment Interest</b> — tedavi sayfalarıyla aynı taksonomi',
+   '<b>FAQ</b> — paket, otel, transfer, yıkama günü, Euro ödeme',
+   '<b>Lead Qualification</b> — tarih aralığı, kayıp seviyesi, fotoğraf',
+   '<b>Consultation</b> — danışman / çevirmenli online görüşme',
+   '<b>CRM</b> — dil + ülke alanlı tek profil (Engage Customer 360)'
+  ]);
+  const rows=[['EN','●','●','◐'],['TR','●','●','◐'],['DE','●','●','◐'],['FR','●','●','◐'],['IT','●','●','◐'],['RU','●','●','◐'],['AR','●','●','◐'],['KO','●','●','◐']];
+  $('#langTable').innerHTML=`<thead><tr><th>Site dili</th><th style="text-align:center">Voice Agent</th><th style="text-align:center">Inboxly</th><th style="text-align:center">Engage</th></tr></thead><tbody>`+rows.map(r=>`<tr><td><b class="mono">${r[0]}</b></td>${r.slice(1).map(v=>`<td class="num ${v==='●'?'lv2':'lv1'}">${v}</td>`).join('')}</tr>`).join('')+'</tbody>';
+}
+
+/* journey */
+let jIdx=0, jTimer=null;
+function jVisible(){ return JOURNEY.map((s,i)=>({s,i})).filter(x=>$('#jInbox').checked || !x.s.inbox); }
+const LAYERCLR={acq:'var(--acq)',engage:'var(--engage)',voice:'var(--voice)',inbox:'var(--inbox)',clinic:'var(--clinic)'};
+const LAYERTAG={acq:'t-acq',engage:'t-engage',voice:'t-voice',inbox:'t-inbox',clinic:'t-clinic'};
+function renderJourney(){
+  const vis=jVisible(); if(!vis.find(v=>v.i===jIdx)) jIdx=vis[0].i;
+  let html='',last='';
+  vis.forEach(({s,i})=>{
+    if(s.layer!==last){ html+=`<div class="jlayer" style="color:${LAYERCLR[s.p]}">${s.layer}</div>`; last=s.layer; }
+    const pos=vis.findIndex(v=>v.i===i), cur=vis.findIndex(v=>v.i===jIdx);
+    html+=`<button class="jstep ${i===jIdx?'on':''} ${pos<cur?'done':''}" data-i="${i}" type="button"><span class="dot" style="background:${LAYERCLR[s.p]}"></span>${s.t}</button>`;
+  });
+  $('#jSteps').innerHTML=html;
+  $('#jSteps').querySelectorAll('.jstep').forEach(b=>b.onclick=()=>{stopPlay();jIdx=+b.dataset.i;renderJourney();});
+  const s=JOURNEY[jIdx], pos=vis.findIndex(v=>v.i===jIdx);
+  $('#jDetail').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span class="tag ${LAYERTAG[s.p]}">${s.layer}</span><span class="note mono">Adım ${pos+1} / ${vis.length}</span></div>
+   <h3 style="font-size:22px;margin-top:10px">${s.t}</h3>
+   <p style="margin-top:8px">${s.d}</p>
+   <dl class="kv"><dt>Long Hair Center</dt><dd>${s.lhc}</dd><dt>Durum</dt><dd><span class="tag ${s.st[0]}">${s.st[1]}</span></dd></dl>
+   <div class="rank-bar" style="margin-top:16px"><i style="width:${(pos+1)/vis.length*100}%;background:${LAYERCLR[s.p]}"></i></div>`;
+}
+function step(dir){ const vis=jVisible(); const pos=vis.findIndex(v=>v.i===jIdx); const n=Math.min(vis.length-1,Math.max(0,pos+dir)); jIdx=vis[n].i; renderJourney(); return n<vis.length-1; }
+function stopPlay(){ if(jTimer){clearInterval(jTimer);jTimer=null;$('#jPlay').textContent='▶ Oynat';} }
+$('#jPlay').onclick=()=>{ if(jTimer){stopPlay();return;} const vis=jVisible(); if(vis.findIndex(v=>v.i===jIdx)===vis.length-1){jIdx=vis[0].i;renderJourney();} $('#jPlay').textContent='❚❚ Durdur'; jTimer=setInterval(()=>{ if(!step(1)) stopPlay(); },1700); };
+$('#jPrev').onclick=()=>{stopPlay();step(-1);};
+$('#jNext').onclick=()=>{stopPlay();step(1);};
+$('#jInbox').onchange=renderJourney;
+
+/* compare */
+function renderCompare(){
+  $('#curFlow').innerHTML=CURRENT.map((c,i)=>`${i?'<div class="farrow">↓</div>':''}<div class="cnode"><span>${c[0]}</span><span class="gaps">${c[1].map(g=>`<span class="tag ${g[0]}">${g[1]}</span>`).join('')}</span></div>`).join('');
+  $('#newFlow').innerHTML=WITHC.map((c,i)=>`${i?'<div class="farrow">↓</div>':''}<div class="cnode ${c[1]?'new':''}"><span>${c[0]}</span>${c[1]?`<span class="tag ${LAYERTAG[c[1]]}">${c[1]==='clinic'?'Ekip':PRODUCTS[c[1]].short}</span>`:''}</div>`).join('');
+  $('#gapTable').innerHTML=`<thead><tr><th>Problem</th><th>Kanıt seviyesi</th><th>Gözlem</th><th>CallypsoTech karşılığı</th></tr></thead><tbody>`+GAPS.map(g=>`<tr><td><b>${g[0]}</b></td><td><span class="tag ${g[1]}">${EVLBL[g[1]]}</span></td><td>${g[2]}</td><td>${g[3]}</td></tr>`).join('')+'</tbody>';
+}
+
+/* matrix (computed) */
+function cell(pids,caps){
+  let best=0,notes=[];
+  for(const c of caps){ for(const p of pids){ const v=CAPS[c][p]; if(v[0]>0){ notes.push(`<b>${CAPS[c].label}</b> → ${v[1]}`);} best=Math.max(best,v[0]); } }
+  return {lv:best,notes};
+}
+function renderMatrix(){
+  const cols=[['Engage',['engage']],['Voice Agent',['voice']],['Inboxly',['inbox']],['Engage + Voice',['engage','voice']],['Engage + Voice + Inboxly',['engage','voice','inbox']]];
+  const sym=['—','◐','●'];
+  let h=`<thead><tr><th>Patient Journey</th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>`;
+  const store=[];
+  JOURNEY_ROWS.forEach(([row,caps],ri)=>{
+    h+=`<tr><td>${row}</td>`+cols.map(([cn,pids],ci)=>{const r=cell(pids,caps); store.push({row,cn,r}); return `<td class="c lv${r.lv}" data-k="${store.length-1}">${sym[r.lv]}</td>`}).join('')+'</tr>';
+  });
+  const cov=cols.map(([cn,pids])=>{const full=JOURNEY_ROWS.filter(([r,caps])=>cell(pids,caps).lv===2).length; return full;});
+  h+=`<tr><td><b>Tam karşılanan adım</b></td>${cov.map(n=>`<td class="mono"><b>${n}/${JOURNEY_ROWS.length}</b></td>`).join('')}</tr></tbody>`;
+  $('#mxTable').innerHTML=h;
+  $('#mxTable').querySelectorAll('td.c').forEach(td=>td.onclick=()=>{const x=store[+td.dataset.k];
+    $('#mxNote').innerHTML=`<b>${x.row} × ${x.cn}</b> — ${x.r.lv===2?'tam karşılık':x.r.lv===1?'kısmi / özel kurulum':'karşılık yok'}<br>${x.r.notes.length?x.r.notes.join('<br>'):'Bu ürünlerde ilgili yetenek sitede doğrulanmadı.'}`;});
+}
+
+/* architecture */
+function renderArch(){
+  const L=[
+   ['Acquisition Layer','Instagram · Google · Influencer · Organik SEO',['24 influencer/ünlü vitrini, YouTube vaka videoları, 8 dilli SEO içeriği (doğrulandı)','Google/Meta reklamları doğrulanmadı — UTM + Meta Pixel eksikliği keşifte sorulmalı'],'acq'],
+   ['Conversation Layer — Text','Inboxly',['2 WhatsApp numarası + web chat + Instagram DM tek kutuda','8 dilde bilgi tabanından kaynaklı yanıt taslağı','Mesai dışı ilk yanıt, fotoğraf talebi, danışmana devir','SLA / ilk yanıt süresi ölçümü'],'inbox'],
+   ['Lead Intelligence Layer','Callypso Engage',['Form + web olayları → Customer 360 (dil, ülke, tedavi, kayıp seviyesi)','Tedavi ve niyet segmentleri; kural tabanlı lead önceliği','Otomatik takip dizileri (WhatsApp → SMS → e-posta)','Uyuyan lead geri kazanımı'],'engage'],
+   ['Conversation Layer — Voice','CallypsoTech AI Voice Agent (koşullu)',['7/24 inbound çağrı, dil tespiti, SSS','Lead nitelendirme + ön konsültasyon randevusu','Çağrı log\'u hacmi doğrularsa devreye alınır'],'voice'],
+   ['CRM','Unified patient / lead profile',['Engage Customer 360 + Voice CRM kaydı + Inboxly webhook','Mevcut CRM varsa (bilinmiyor) HubSpot/Salesforce/Zapier üzerinden'],'acq'],
+   ['Conversion','Consultation → Appointment → Treatment',['Danışman + çevirmen (mevcut güçlü yön korunur)','≤2 operasyon/gün slot yönetimi','Varış öncesi otel/transfer hatırlatmaları (Engage)'],'clinic'],
+   ['Retention','Post-treatment · Review · Referral',['Gün 1 / 10, Ay 1–3, 3/6/12 fotoğraf takibi (Engage)','Post-op soruları Inboxly\'de, gerekirse doktora devir','Ay 3 & 12 yorum talebi, referans mesajı'],'engage']
+  ];
+  $('#arch').innerHTML=L.map((l,i)=>`${i?'<div class="farrow">↓</div>':''}<div class="layer ${l[3]!=='acq'&&l[3]!=='clinic'?'hl':''}" style="border-color:${LAYERCLR[l[3]]}"><div><div class="ln">${l[0]}</div><h4 style="color:${LAYERCLR[l[3]]}">${l[1]}</h4></div><ul>${l[2].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+}
+
+/* priority */
+function renderPriority(){
+  const r=ranking();
+  $('#prioList').innerHTML=`<div class="k">Sınıflandırma</div>`+r.map(x=>`<div class="prio"><div><b>${PRODUCTS[x.p].name}</b> <span class="note mono">· ${x.s}/100</span><p style="font-size:13px;margin-top:4px">${PRIORITY[x.p].why}</p></div><div class="pv"><span class="tag ${PRIORITY[x.p].cls}" style="font-size:12.5px;padding:5px 10px">${PRIORITY[x.p].label}</span></div></div>`).join('');
+  $('#oneTitle').textContent='Inboxly';
+  $('#oneReasons').innerHTML=[
+   'Long Hair Center\'ın gerçek ön kapısı WhatsApp: her sayfada birincil CTA, iki ayrı numara ve yorumlarda “fast WhatsApp communication”. Değer en hızlı burada üretilir.',
+   'Çok dilli ve mesai dışı ilk yanıtı, mevcut övülen danışman ekibini değiştirmeden ölçekler (AI taslak → insan onayı).',
+   'Tek kutuda toplanan konuşmalar, Phase 2\'de Engage\'in segment ve takip akışlarını besleyecek temiz lead verisini (dil, ülke, tedavi) üretir.'
+  ].map(x=>`<li>${x}</li>`).join('');
+  const ph=[
+   ['Phase 1 · 0–6. hafta','Inboxly','inbox',['2 WhatsApp numarası + LiveChat → Inboxly','8 dilde bilgi tabanı (paket, otel, transfer, yöntem, post-op)','Tıbbi/fiyat soruları için zorunlu insana devir','Paralel: Free Consultation form hatası düzeltilir','KPI: ilk yanıt süresi, mesai dışı yanıt oranı, konuşma → konsültasyon']],
+   ['Phase 2 · 6–12. hafta (Inboxly verisi oturunca)','Callypso Engage','engage',['Form + Inboxly webhook → Customer 360','Takip dizisi, varış öncesi lojistik, post-op takvimi','Ay 3/12 yorum talebi, 90/180 gün geri kazanım','Ne zaman: konuşmalar tek kutuda etiketlenip dil/tedavi alanları tutarlı hale geldiğinde','KPI: form → konsültasyon, no-show, yorum sayısı/ay']],
+   ['Phase 3 · koşullu','AI Voice Agent','voice',['Önce 2 haftalık çağrı log\'u: cevapsız çağrı, saat, ülke kodu','Mesai dışı cevapsız çağrı anlamlıysa: cevapsızsa yönlendir modeliyle pilot','Pilot dilleri: EN + AR + DE (yorum ve site kanıtına göre test)','Karar kriteri: çağrı hacmi ve WhatsApp sesli arama desteği','KPI: kayıp çağrı, çağrı → konsültasyon']]
+  ];
+  $('#phases').innerHTML=ph.map(p=>`<div class="card" style="border-top:3px solid ${LAYERCLR[p[2]]}"><div class="k" style="color:${LAYERCLR[p[2]]}">${p[0]}</div><h4>${p[1]}</h4><ul>${p[3].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+}
+
+/* init */
+renderRank();renderProducts();renderEvidence();renderWeights();renderScores();renderMatches();renderVoice();
+$('#tzSlider').oninput=renderTZ;renderTZ();renderIntl();renderJourney();renderCompare();renderMatrix();renderArch();renderPriority();
+</script>
+</body>
+</html>
