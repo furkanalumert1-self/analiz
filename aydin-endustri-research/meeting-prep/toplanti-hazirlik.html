@@ -64,25 +64,31 @@
   .compact table { margin-bottom: 2mm; }
   .compact h3 { margin-top: 2mm !important; }
   .compact p { margin-bottom: 1.4mm; }
+  .step { display:flex; align-items:center; gap:3mm; margin: 0 0 3mm; }
+  .step .pill { background: var(--accent); color:#fff; font-weight:700; font-size:9pt; padding:1mm 3mm; border-radius:99px; white-space:nowrap; }
+  .step .ttl { font-size: 13pt; font-weight:700; color: var(--accent); }
+  .step .scr { margin-left:auto; font-size:8pt; color: var(--muted); white-space:nowrap; }
+  .stepsec { border-top: 2px solid var(--accent); padding-top: 3mm; margin-bottom: 4mm; }
+  .ok { color: var(--v); font-weight:700; } .no { color:#b3261e; font-weight:700; } .part { color: var(--i); font-weight:700; }
 </style>
 </head>
 <body>
 
-<!-- PAGE 1 -->
-<section class="page">
+<!-- ============ HAZIRLIK ============ -->
+<section class="page compact">
   <div class="cover">
     <div class="eyebrow">TOPLANTI HAZIRLIK ŞABLONU · DAHİLİ KULLANIM</div>
     <h1>Aydın Endüstri × Callypso Engage</h1>
-    <p class="sub">Homedius &amp; Sleeptown (Planet Entegre Yatak Mobilya A.Ş.) · Süre: 15–20 dk · Veri tarihi: 3 Ekim 2026</p>
+    <p class="sub">Homedius &amp; Sleeptown (Planet Entegre Yatak Mobilya A.Ş.) · Süre: 15–20 dk · Veri tarihi: 3 Ekim 2026 · Sayfalar toplantı sırasına göre dizilmiştir</p>
   </div>
 
   <div class="box accent">
     <h3>Toplantının amacı</h3>
-    <p>"Sitenizde şu eksikler var" demek değil. Müşterinin şu sonuca <b>kendisinin</b> varması: <b>"Elimizde ürün, stok ve sipariş verisi var ama bununla müşteriye otomatik hiçbir şey yapmıyoruz."</b> Sonuç: <b>Sleeptown'da 30 günlük pilot</b> için onay ve bir sonraki teknik görüşmenin tarihi.</p>
+    <p>"Sitenizde şu eksikler var" demek değil. Müşterinin şu sonuca <b>kendisinin</b> varması: <b>"Elimizde ürün, stok ve sipariş verisi var ama bununla müşteriye otomatik hiçbir şey yapmıyoruz."</b> Hedef: <b>Sleeptown'da 30 günlük pilot</b> için onay ve bir sonraki teknik görüşmenin tarihi.</p>
   </div>
 
   <h2>Elinde olması gereken kanıtlar</h2>
-  <div class="grid3" style="margin-bottom:3mm">
+  <div class="grid3" style="margin-bottom:2.5mm">
     <div class="kpi"><div class="v">231</div><div class="k">ürün analiz edildi (Homedius 192 · Sleeptown 39)</div></div>
     <div class="kpi"><div class="v">19</div><div class="k">aktif Meta reklamı (Homedius ~14 · Sleeptown ~5)</div></div>
     <div class="kpi"><div class="v">0 / 192</div><div class="k">Homedius'ta yorumlu ürün (Sleeptown: 22 üründe 83 yorum)</div></div>
@@ -91,222 +97,264 @@
     <div class="kpi"><div class="v">Kapalı</div><div class="k">pop-up / lead formu (iki sitede de)</div></div>
   </div>
   <table>
-    <tr><th>Doğrulanmış gerçek</th><th>Detay</th></tr>
-    <tr><td><b>Aynı şirket</b> <span class="badge V">Verified</span></td><td>İki sitenin satıcısı Planet Entegre Yatak Mobilya A.Ş., vergi no 7300347804. planetmobilya.com → homedius.com yönlendiriyor.</td></tr>
-    <tr><td><b>Üyeliksiz satış</b> <span class="badge V">Verified</span></td><td>Homedius doğrudan ödeme sayfasına geçiyor; Sleeptown'da "Üye olmadan devam et" seçeneği var. Ödeme sayfasının ilk alanı <b>E-Posta*</b>, sonra <b>Cep Telefonu*</b> (Homedius'ta T.C. Kimlik No da zorunlu).</td></tr>
-    <tr><td><b>Altyapı</b> <span class="badge V">Verified</span></td><td>T-Soft · Homedius: GA4 + Meta Pixel (çerez onayı sonrası) · Sleeptown: Google Ads etiketi; public HTML'de Meta Pixel bulunamadı · e-posta/CRM aracı tespit edilmedi.</td></tr>
-    <tr><td><b>Ajans</b> <span class="badge V">Verified</span></td><td>Iyzads, Homedius'u referans gösteren bir reklam yayınlıyor.</td></tr>
+    <tr><td style="width:34mm"><b>Aynı şirket</b> <span class="badge V">Verified</span></td><td>İki sitenin satıcısı Planet Entegre Yatak Mobilya A.Ş., vergi no 7300347804. planetmobilya.com → homedius.com yönlendiriyor.</td></tr>
+    <tr><td><b>Üyeliksiz satış</b> <span class="badge V">Verified</span></td><td>Ödeme sayfasının ilk alanı <b>E-Posta*</b>, sonra <b>Cep Telefonu*</b>. Homedius doğrudan ödemeye geçiyor; Sleeptown'da "Üye olmadan devam et" var.</td></tr>
+    <tr><td><b>Altyapı</b> <span class="badge V">Verified</span></td><td>T-Soft · Homedius: GA4 + Meta Pixel (çerez onayı sonrası) · Sleeptown: Google Ads etiketi · e-posta/CRM aracı tespit edilmedi · Ajans: Iyzads.</td></tr>
   </table>
 
-  <h2>Toplantı öncesi kontrol listesi</h2>
+  <h2>Engage özellik kontrolü (demo panelinden, 4 Ekim 2026)</h2>
+  <table>
+    <tr><th>Konu</th><th style="width:20mm">Durum</th><th>Not</th></tr>
+    <tr><td>Form / pop-up</td><td class="ok">Var</td><td>Popup, gömülü, açılış sayfası · segmente hedefleme · aydınlatma onayı + pazarlama izni kutusu. <b>Gösterim kuralı (çıkış niyeti, gecikme, sayfa) görünmedi.</b></td></tr>
+    <tr><td>SMS / WhatsApp</td><td class="ok">Var</td><td>SMS: Twilio, Netgsm · WhatsApp: Meta Cloud API, Netgsm, 360dialog, Twilio · Meta onaylı şablonlar</td></tr>
+    <tr><td>İYS</td><td class="part">Kısmi</td><td>İzin müşteri bazında tutuluyor, akışta "Onay kontrolü" adımı var · İYS bağlantısı "hazır" deniyor; destek Scale planında</td></tr>
+    <tr><td>Web bildirimi</td><td class="no">Yok</td><td>Sleeptown'daki bildirim izni T-Soft'un özelliği; Engage'in özelliği gibi sunma</td></tr>
+    <tr><td>T-Soft bağlantısı</td><td class="no">Görünmüyor</td><td>Sadece "Shopify tarzı admin API" bağlantısı listeleniyor</td></tr>
+    <tr><td>Ödeme sayfası e-posta yakalama</td><td class="no">Görünmüyor</td><td><code>checkout_started</code> olayı var; sitede çalışan takip kodu / alan yakalama ayarı yok</td></tr>
+  </table>
+  <h3>Toplantı öncesi</h3>
   <div class="grid2">
     <ul class="chk-list">
       <li><span class="chk"></span>Vercel <b>Share</b> linki oluşturuldu, gizli pencerede test edildi</li>
       <li><span class="chk"></span>Simülatör provası: <i>Mocca Tek Kişilik Kiremit</i> + <i>Hybrid 5 Zone 160x200</i></li>
       <li><span class="chk"></span>Katılımcılar: e-ticaret, pazarlama, T-Soft sorumlusu, karar verici</li>
-      <li><span class="chk"></span>Takip e-postası taslağı hazır (hızlı düzeltmeler + pilot önerisi)</li>
     </ul>
     <ul class="chk-list">
-      <li><span class="chk"></span>Callypso ürün ekibinden teyit: <b>form/pop-up modülü</b> var mı?</li>
-      <li><span class="chk"></span>Teyit: ödeme sayfasındaki <b>e-posta alanını</b> yakalayabiliyor mu?</li>
-      <li><span class="chk"></span>Teyit: <b>İYS</b> entegrasyonu, SMS / WhatsApp / web push kanalları</li>
-      <li><span class="chk"></span>Projeksiyon girdi tablosu (s. 7) yanında açık</li>
+      <li><span class="chk"></span>Ürün ekibine sor: <b>T-Soft bağlantısı</b> ve sitede çalışan <b>takip kodu</b></li>
+      <li><span class="chk"></span>Ürün ekibine sor: pop-up <b>gösterim kuralları</b> · <b>stok/fiyat tetikleyicisi</b> · mesajda <b>ölçü/renk</b></li>
+      <li><span class="chk"></span>Takip e-postası taslağı hazır (Ek A)</li>
     </ul>
   </div>
 </section>
 
-<!-- PAGE 2 -->
+<!-- ============ AKIŞ ÖZETİ ============ -->
 <section class="page">
-  <h2>Toplantı akışı (~18 dk)</h2>
+  <h2>Toplantı akışı – tek bakışta (~18 dk)</h2>
   <table>
-    <tr><th style="width:15mm">Süre</th><th style="width:30mm">Konu · Ekran</th><th>Söyle / sor</th><th style="width:26mm">Amaç</th></tr>
-    <tr><td class="t">0–2</td><td><b>Açılış</b><br><span class="small">Executive Overview</span></td>
-      <td><div class="say">"İki sitenizi uçtan uca inceledik: 231 ürün, ölçü bazında stok, 19 aktif Meta reklamı, ödeme akışı. Bugün bir satış sunumu değil, verinizle neler yapılabileceğini göstereceğim."</div></td><td>Ciddiyet ve emek</td></tr>
-    <tr><td class="t">2–6</td><td><b>Soru turu 1</b><br><span class="small">Ekran kapalı</span></td>
-      <td>S1–S5 (s. 6). Önce dinle; cevapları s. 6'daki boşluklara not al.</td><td>Boşluğu onlara söyletmek</td></tr>
-    <tr><td class="t">6–11</td><td><b>3 bulgu + çözüm</b><br><span class="small">Top fırsatlar · Automations</span></td>
-      <td><b>B1</b> Satın almadan önceki ziyaretçi tanınmıyor → lead capture + ödeme terk<br><b>B2</b> Tükenen ürüne gelen talep kayboluyor → stok gelince / az stok<br><b>B3</b> Sepet büyütülmüyor + yorum yok → ölçü/renk eşleşmeli çapraz satış + yorum isteği<br><span class="small">Zaman kalırsa B4 (reklam → CRM). Detaylar s. 3–5.</span></td><td>"Bu veri sizde zaten var"</td></tr>
-    <tr><td class="t">11–15</td><td><b>Simülatör</b><br><span class="small">What Callypso Could Do</span></td>
-      <td>Önce <b>Verified</b> filtresine bas: "Gördüğünüz her şey sitenizden." Ürün seç, <b>Adım adım</b> ilerle. "Bu bir simülasyon, sonuç rakamı yok" cümlesini kendin söyle.</td><td>"Wow" anı</td></tr>
-    <tr><td class="t">15–18</td><td><b>Soru turu 2 + kapanış</b><br><span class="small">Roadmap 0–30 gün</span></td>
-      <td>S6–S9 (s. 6) · Pilot önerisi:<div class="say">"Sleeptown'da 30 günlük pilot: ödeme/sepet terk + stok gelince bildirimi + ölçüye göre ped/nevresim önerisi. 30. günde gerçek oranlarınızla projeksiyonu birlikte güncelleriz."</div></td><td>Pilot + sonraki tarih</td></tr>
+    <tr><th style="width:15mm">Süre</th><th style="width:34mm">Adım · Ekran</th><th>Ne yapılır</th><th style="width:12mm">Sayfa</th></tr>
+    <tr><td class="t">0–2</td><td><b>1 · Açılış</b><br><span class="small">Executive Overview</span></td><td>Engage'i tanıt → bugünkü amacı söyle → gündemi ver</td><td>3</td></tr>
+    <tr><td class="t">2–6</td><td><b>2 · Soru turu 1</b><br><span class="small">Ekran kapalı</span></td><td>S1–S5: bugün nasıl çalışıyorlar? Önce dinle, not al</td><td>3</td></tr>
+    <tr><td class="t">6–11</td><td><b>3 · Bulgular</b><br><span class="small">Top fırsatlar · Automations</span></td><td>B1 → B2 → B3 (+ cross-sell/upsell örnekleri) · zaman kalırsa B4</td><td>4–6</td></tr>
+    <tr><td class="t">11–15</td><td><b>4 · Simülatör</b><br><span class="small">What Callypso Could Do</span></td><td>Verified filtresi → ürün seç → adım adım anlat</td><td>6</td></tr>
+    <tr><td class="t">15–18</td><td><b>5 · Soru turu 2 + kapanış</b><br><span class="small">Roadmap 0–30 gün</span></td><td>S6–S9 (rakamlar, karar) → netleşmesi gerekenler → pilot önerisi</td><td>7</td></tr>
+    <tr><td class="t">Ek</td><td colspan="2">A · İtiraz cevapları, hızlı düzeltmeler, toplantı sonrası · B · Projeksiyon çerçevesi</td><td>8–9</td></tr>
   </table>
 
   <div class="grid2">
     <div class="box warn">
       <h3>Toplantıda söyleme</h3>
       <ul>
-        <li>Site hataları (Lorem Ipsum, boş title, /test, "Yaza özel" bandı) → takip e-postasına bırak (s. 4)</li>
-        <li>TL gelir veya dönüşüm vaadi → rakamı onların verisiyle sonra hesapla (s. 7)</li>
-        <li>Engage özelliği olarak teyit edilmemiş bir şey (pop-up, alan yakalama, kanal)</li>
+        <li>Site hataları (Lorem Ipsum, boş title, /test, "Yaza özel" bandı) → takip e-postasına bırak</li>
+        <li>TL gelir veya dönüşüm vaadi → rakamı onların verisiyle sonra hesapla (Ek B)</li>
+        <li>Teyit edilmemiş Engage özelliği: T-Soft'a hazır bağlantı, web bildirimi, ödeme sayfasında alan yakalama, tam İYS entegrasyonu</li>
+        <li>Engage demosundaki rakamlar ve müşteri yorumları (%18,7, 14x ROI, "2.400+ marka") – örnek veri</li>
       </ul>
     </div>
     <div class="box soft">
-      <h3>Nazikçe aç ("netleşmesi gereken konu" olarak)</h3>
+      <h3>Konuşma ilkeleri</h3>
       <ul>
-        <li><b>Fiyat farkı:</b> Mocca Çift Kişilik Antrasit Homedius'ta 9.999 TL, Sleeptown'da 13.999 TL. "Markalar arası öneride hangi fiyat görünmeli?"</li>
-        <li><b>Deneme süresi:</b> sitede 120 gece, reklamda 120 gün, iade sayfasında 15 gün. "Mesajlarda hangisini kullanalım?"</li>
+        <li>Önce soru, sonra bulgu: boşluğu onlar söylesin</li>
+        <li>Her bulgu tek cümle + tek otomasyon</li>
+        <li>Hata değil, "netleşmesi gereken konu"</li>
+        <li>Rakam yerine formül; rakamı onlar versin</li>
+        <li>Her cevabı not al: projeksiyonun girdisi olacak</li>
       </ul>
     </div>
   </div>
   <div class="note tall">Notlar:</div>
 </section>
 
-<!-- PAGE 3 -->
-<section class="page">
-  <h2>Bulgular ve çözümler (1/2)</h2>
+<!-- ============ ADIM 1 + 2 ============ -->
+<section class="page compact">
+  <div class="step"><span class="pill">0–2 dk</span><span class="ttl">Adım 1 · Açılış</span><span class="scr">Ekran: Executive Overview</span></div>
+
+  <h3>a) Callypso Engage tanıtımı</h3>
+  <div class="say">"Callypso Engage, e-ticaret markalarının mevcut müşterileriyle ilişkisini yöneten bir platform. Sitedeki davranışı ve sipariş verisini kullanarak müşterileri (ilk kez alanlar, sepeti bırakanlar, uzun süredir gelmeyenler, VIP'ler) otomatik segmentlere ayırıyor. Her birine doğru zamanda e-posta, SMS ya da WhatsApp ile kişiye özel mesaj gönderiyor. Bu akışları bir kez kuruyorsunuz, sonra kendiliğinden çalışıyor. Her mesajın ne kadar satış getirdiğini de aynı panelde görüyorsunuz.<br><br><b>Özetlemek gerekirse: doğru kişiye, doğru zamanda e-posta, SMS ve WhatsApp kanallarıyla ulaşıyoruz.</b>"</div>
+
+  <h3>b) Bugünkü amacımız</h3>
+  <div class="say">"Bugün size genel bir ürün sunumu yapmayacağım. Homedius ve Sleeptown'u uçtan uca inceledik: 231 ürününüzü, ölçü bazında stoklarınızı, aktif Meta reklamlarınızı ve ödeme akışınızı. Amacımız tek bir soruya cevap bulmak: <b>Elinizdeki ürün, stok ve müşteri verisiyle bugün hangi müşteri yolculuklarını otomatik hale getirebiliriz?</b> Örneğin sepete yatak ekleyip çıkan müşteriyi geri çağırmak, tükenmiş rengi bekleyen müşteriye stok geldiğinde haber vermek, yatak alana aynı ölçüde ped önermek."</div>
+
+  <h3>c) Gündem</h3>
+  <div class="say">"Önce birkaç soruyla bugün nasıl çalıştığınızı anlamak istiyorum. Sonra bulduklarımızı ve canlı bir müşteri yolculuğu örneğini göstereceğim. Sonunda hangi adımla başlamanın mantıklı olduğunu birlikte konuşalım. Yaklaşık 15 dakika sürecek."</div>
+
+  <div class="stepsec">
+    <div class="step"><span class="pill">2–6 dk</span><span class="ttl">Adım 2 · Soru turu 1: bugün nasıl çalışıyorlar?</span><span class="scr">Ekran kapalı</span></div>
+    <table>
+      <tr><th style="width:8mm">#</th><th>Soru</th><th style="width:60mm">Cevap</th></tr>
+      <tr><td class="t">S1</td><td>"Bugün sepete ürün ekleyip almadan çıkan bir müşteriye ne oluyor?"</td><td><div class="note">&nbsp;</div></td></tr>
+      <tr><td class="t">S2</td><td>"Ödeme sayfasında e-postasını ve telefonunu yazıp ödemeyi bitirmeyenleri görebiliyor musunuz? Bu kişilere bir şey gidiyor mu?"</td><td><div class="note">&nbsp;</div></td></tr>
+      <tr><td class="t">S3</td><td>"Stok alarmı kuranlara ürün gelince kim, nasıl haber veriyor? Listede kaç kişi var?"</td><td><div class="note">&nbsp;</div></td></tr>
+      <tr><td class="t">S4</td><td>"E-posta / SMS / WhatsApp için hangi aracı kullanıyorsunuz? En son ne zaman, kime gönderdiniz?"</td><td><div class="note">&nbsp;</div></td></tr>
+      <tr><td class="t">S5</td><td>"Meta reklamından gelip almayan kişiyle reklam dışında iletişime geçebiliyor musunuz? (Iyzads ne yapıyor?)"</td><td><div class="note">&nbsp;</div></td></tr>
+    </table>
+    <p class="small"><b>Geçiş cümlesi:</b> "Teşekkürler, tam da bu konularda sitenizde gördüklerimizi göstermek istiyorum."</p>
+  </div>
+</section>
+
+<!-- ============ ADIM 3 (1/3) ============ -->
+<section class="page compact">
+  <div class="step"><span class="pill">6–11 dk</span><span class="ttl">Adım 3 · Bulgular ve çözümler (1/3)</span><span class="scr">Ekran: Top fırsatlar · Automations</span></div>
 
   <div class="finding">
     <div class="fh"><b>B1 · Satın almadan önceki ziyaretçi tanınmıyor</b><span class="badge V">Verified</span></div>
     <div class="fb">
-      <span class="lab">Kanıt</span><div>Siparişte e-posta + telefon alınıyor; ama ürüne bakan ve sepete ekleyen kişi tanınmıyor. İki sitede pop-up kapalı. Sleeptown'un "Üye ol, ilk siparişinde 500 TL" teklifi sadece kampanya sayfasında. Ödeme sayfasının ilk alanı e-posta.</div>
+      <span class="lab">Bağla</span><div>S2 ve S4 cevaplarına bağla.</div>
+      <span class="lab">Kanıt</span><div>Siparişte e-posta ve telefon alınıyor, ama ürüne bakan ve sepete ekleyen kişi tanınmıyor. İki sitede pop-up kapalı. Sleeptown'un "Üye ol, ilk siparişinde 500 TL" teklifi sadece kampanya sayfasında. Ödeme sayfasının ilk alanı e-posta.</div>
       <span class="lab">Söyle</span><div class="say" style="margin:0">"Meta'ya para verip insanları getiriyorsunuz. Bakıp çıkanı geri getirmenin tek yolu yine reklam parası. E-postası sizde olsa aynı kişiye bedava ulaşırdınız."</div>
-      <span class="lab">Çözüm</span><div><b>1) Tanınabilecek kişiyi tanı:</b> eski müşteri, üye girişi, e-posta linkine tıklayan → önceki anonim gezinme de kişiye bağlanır.<br>
-        <b>2) Fayda karşılığı bilgi al:</b> "gelince haber verelim", "fiyat düşünce haber verelim", "bu ürünü ve 7 taksit tablosunu e-postama gönder", "WhatsApp'tan sor", Sleeptown "sana uygun yatağı bul" testi + 500 TL. Çerez bandından sonra, ilk saniyede değil, tanınana gösterme.<br>
-        <b>3) Ödeme terk akışı:</b> e-postasını yazıp bırakan → 30–60 dk e-posta · 4 sa yardım (WhatsApp) · 24 sa güven içeriği · 72 sa gerçek stok bilgisi. Satın alınca dur, reklam kitlesinden çıkar.<br>
-        <b>4) İzin:</b> e-posta/telefon alanının altına ticari ileti izin kutusu (İYS). Hukuk teyidi gerekli.</div>
-      <span class="lab">Sor</span><div class="ask" style="margin:0"><b>S2</b> "Ödeme sayfasında e-postasını yazıp bitirmeyenleri görebiliyor musunuz?" · <b>S7</b> "Siparişte ticari ileti izni alıyor musunuz?"</div>
+      <span class="lab">Çözüm</span><div><b>1) Tanınabilecek kişiyi tanı:</b> eski müşteri, üye girişi, e-posta linkine tıklayan. Önceki anonim gezinme de kişiye bağlanır.<br>
+        <b>2) Fayda karşılığı bilgi al:</b> Engage pop-up / gömülü form (aydınlatma onayı + pazarlama izni kutusu). Teklifler: "gelince haber verelim", "fiyat düşünce haber verelim", "7 taksit tablosunu e-postama gönder", Sleeptown'da "ilk siparişinde 500 TL".<br>
+        <b>3) Ödeme terk akışı:</b> 30–60 dk e-posta · 4 sa WhatsApp/SMS (izin varsa) · 24 sa güven içeriği · 72 sa gerçek stok bilgisi. Satın alınca dur.<br>
+        <b>4) İzin:</b> ödeme sayfasına ticari ileti izin kutusu; Engage'de "Onay kontrolü" adımı. Hukuk teyidi gerekli.</div>
+      <span class="lab">Dikkat</span><div class="small">Ödeme sayfasındaki e-posta alanını yakalama ve T-Soft bağlantısı Engage'de görünmüyor; "entegrasyonla kurulur" de.</div>
     </div>
   </div>
 
   <div class="finding">
     <div class="fh"><b>B2 · Tükenen ürüne gelen talep kayboluyor</b><span class="badge V">Verified</span></div>
     <div class="fb">
-      <span class="lab">Kanıt</span><div>Base Visco 180x200 stok 0 (diğer ölçüler var) · Homedius'ta 23 tükenmiş ürün · Mocca Fitilli Kadife Çift Kişilik Gri ve Çağla Yeşil tükendi; <b>aynı serinin Meta reklamı yayında</b> · Az stok: Organic Comfort Yastık 1, Latex Pocket 140x190 1. "Gelince Haber Ver" butonu var; butona basana ne gittiği bilinmiyor <span class="badge R">Requires Access</span>.</div>
-      <span class="lab">Söyle</span><div class="say" style="margin:0">"180x200 arayan müşteri ölçüyü seçiyor, stok yok görüyor ve çıkıyor. Bu, alışverişin son adımındaki müşteri. Stok gelince ona ulaşabiliyor musunuz?"</div>
-      <span class="lab">Çözüm</span><div>Tükenen ürün/ölçüye <b>bakan herkesi</b> kaydet (sadece butona basanı değil) → stok gelince ürün + ölçü + fiyat + 7 taksit ile mesaj; açılmazsa hatırlatma. Beklerken stoktaki renk/ölçüyü öner. Az stokta gerçek veriyle "son 1 adet". Tükenen ürünün reklam kitlesini ayır, ajansa bildir. <span class="small">(Sadece tanınan kişiye gider → B1'e bağlanır.)</span></div>
-      <span class="lab">Sor</span><div class="ask" style="margin:0"><b>S3</b> "Stok alarmı kuranlara ürün gelince ne gidiyor? Listede kaç kişi var?"</div>
+      <span class="lab">Bağla</span><div>S3 cevabına bağla.</div>
+      <span class="lab">Kanıt</span><div>Base Visco 180x200 stok 0 (diğer ölçüler var) · Homedius'ta 23 tükenmiş ürün · Mocca Fitilli Kadife Çift Kişilik Gri ve Çağla Yeşil tükendi; <b>aynı serinin Meta reklamı yayında</b> · Az stok: Organic Comfort Yastık 1, Latex Pocket 140x190 1.</div>
+      <span class="lab">Söyle</span><div class="say" style="margin:0">"180x200 arayan müşteri ölçüyü seçiyor, stok yok görüyor ve çıkıyor. Alışverişin son adımındaki müşteri bu. Stok gelince ona ulaşabiliyor musunuz?"</div>
+      <span class="lab">Çözüm</span><div>Tükenen ürüne/ölçüye bakan herkesi kaydet (sadece butona basanı değil). Stok gelince ürün + ölçü + fiyat + 7 taksit içeren mesaj gönder; açılmazsa hatırlat. Beklerken stoktaki renk/ölçüyü öner. Az stokta gerçek veriyle "son 1 adet". <span class="small">Engage'de hazır şablon değil; ürün/stok verisi akınca kurulabilecek akış.</span></div>
     </div>
   </div>
 </section>
 
-<!-- PAGE 4 -->
-<section class="page">
-  <h2>Bulgular ve çözümler (2/2)</h2>
+<!-- ============ ADIM 3 (2/3) ============ -->
+<section class="page compact">
+  <div class="step"><span class="pill">6–11 dk</span><span class="ttl">Adım 3 · Bulgular ve çözümler (2/3)</span></div>
 
   <div class="finding">
     <div class="fh"><b>B3 · Sepet büyütülmüyor ve sosyal kanıt yok</b><span class="badge V">Verified</span></div>
     <div class="fb">
-      <span class="lab">Kanıt</span><div>Ürün sayfasında sadece "Benzer Ürünler" (aynı modelin diğer renkleri) var. Sleeptown: ped ve nevresim yatakla aynı ölçülerde satılıyor (HyperSoft Ped 3.999–6.699 TL · Visco Gell 5.499–9.499 TL · Celia 1.499/1.899 TL). Homedius: Sırt Dayama Aparatı 499 TL, Papatya Kırlent 619–799 TL, Visco Yastık 649–1.549 TL aynı sitede. "Birlikte al %10" bloğu sadece 31 Mocca/Magic sayfasında. Homedius'ta 0 yorum.</div>
-      <span class="lab">Çözüm</span><div><b>Sleeptown uyku seti:</b> yatak +3 gün aynı ölçüde ped → +14 gün nevresim + yastık → +45 gün kaz tüyü yorgan.<br>
-        <b>Homedius misafir kiti:</b> sepette Sırt Dayama Aparatı → +5 gün yastık + yorgan → +20 gün koltuk rengine göre kırlent.<br>
-        <b>Upsell:</b> Base Visco 7.999 → Base 7 Zone 8.999 (+1.000 TL) · Magic Tek 5.399 → Magic Çift 6.699–8.999.<br>
-        <b>Yorum isteği:</b> teslimat +10 gün; fotoğraflı yorum hatırlatması. Sipariş verisi zaten var → ilk günden çalışır.</div>
-      <span class="lab">Örnekler</span><div>Gerçek ürünlerle 2 cross-sell + 2 upsell örneği bir sonraki sayfada (CS1, CS2, US1, US2).</div>
-      <span class="lab">Sor</span><div class="ask" style="margin:0"><b>S8</b> "Yatak alanların kaçı ped/nevresim de alıyor, takip edebiliyor musunuz?"</div>
+      <span class="lab">Kanıt</span><div>Ürün sayfasında sadece "Benzer Ürünler" (aynı modelin diğer renkleri) var. Sleeptown'da ped ve nevresim yatakla aynı ölçülerde satılıyor. Homedius'ta sırt aparatı, kırlent ve yastık aynı sitede ama birbirine önerilmiyor. "Birlikte al %10" bloğu sadece 31 Mocca/Magic sayfasında. Homedius'ta 0 yorum.</div>
+      <span class="lab">Söyle</span><div class="say" style="margin:0">"Müşteri 160x200 yatak aldıysa, ona 3 gün sonra tam 160x200 ped öneriyoruz; tahmin değil, siparişteki ölçüyle."</div>
+      <span class="lab">Çözüm</span><div>Engage'in "İkinci satın alma" ve "Tekrar alım zamanı" yapılarıyla ölçü/renk eşleşmeli çapraz satış · Teslimat +10 gün yorum isteği (sipariş verisi zaten var, ilk günden çalışır) · Örnekler aşağıda.</div>
     </div>
   </div>
 
+  <h3>Cross-sell: tamamlayıcı ürün <span class="badge I">Inferred</span> <span class="small">· fiyatlar 3 Ekim 2026, Verified</span></h3>
+  <table>
+    <tr><th style="width:9mm"></th><th style="width:48mm">Satın alınan</th><th>Akış</th><th style="width:48mm">Neden</th></tr>
+    <tr><td class="t">CS1</td><td><b>Sleeptown</b> · Hybrid 5 Zone Pocket Yaylı Yatak <b>160x200</b> – 21.999 TL</td><td><b>+3 gün:</b> HyperSoft Yatak Pedi 160x200 – 5.699 TL<br><b>+14 gün:</b> Celia nevresim Çift Kişilik – 1.899 TL<br><b>+45 gün:</b> Yorgan Kaztüyü Çift Kişilik – 6.499 TL</td><td>Ped yatağı korur; ölçü siparişte var, yanlış ölçü iadesini önler</td></tr>
+    <tr><td class="t">CS2</td><td><b>Homedius</b> · Mocca Tek Kişilik Katlanır Yatak Uzanma Koltuğu <b>Kiremit</b> – 7.499 TL</td><td><b>Sepette:</b> Sırt Dayama Destek Demiri Aparatı – 499 TL<br><b>+5 gün:</b> Visco yastık – 649 TL'den<br><b>+20 gün:</b> Papatya Kırlent <b>Kiremit</b> – 799 TL</td><td>Koltuk yatağa dönüşüyor; renk bilgisi siparişte var</td></tr>
+  </table>
+  <h3>Upsell: bir üst model <span class="badge I">Inferred</span></h3>
+  <table>
+    <tr><th style="width:9mm"></th><th style="width:48mm">İncelenen</th><th>Öneri</th><th style="width:48mm">Neden</th></tr>
+    <tr><td class="t">US1</td><td><b>Sleeptown</b> · Base Visco 90x190 – 7.999 TL</td><td><b>Base 7 Zone Visco 90x190</b> – 8.999 TL · fark <b>+1.000 TL</b>, 7 taksitte ayda <b>~143 TL</b></td><td>7 bölgeli destek; iki model de 7 yorum, 4,71/5</td></tr>
+    <tr><td class="t">US2</td><td><b>Homedius</b> · Magic Tek Kişilik Kiremit – 5.399 TL</td><td><b>Magic Çift Kişilik Kiremit</b> – 6.699 TL · fark <b>+1.300 TL</b>, 7 taksitte ayda <b>~186 TL</b></td><td>Aynı model ve renk; reklam mesajı da "çift kişilik yatağa dönüşür" diyor</td></tr>
+  </table>
+  <p class="small">Simülatörde aynı ürünleri seçerek gösterebilirsin (Adım 4).</p>
+</section>
+
+<!-- ============ ADIM 3 (3/3) + ADIM 4 ============ -->
+<section class="page compact">
+  <div class="step"><span class="pill">6–11 dk</span><span class="ttl">Adım 3 · Bulgular (3/3) – zaman kalırsa</span></div>
   <div class="finding">
     <div class="fh"><b>B4 · Reklamdan gelip almayan kişi CRM'e girmiyor</b><span class="badge I">Inferred</span></div>
     <div class="fb">
+      <span class="lab">Bağla</span><div>S5 cevabına bağla.</div>
       <span class="lab">Kanıt</span><div>19 aktif Meta reklamı (influencer + ürün + "NET %25"). Homedius'ta Meta Pixel var; Sleeptown'ın public HTML'inde bulunamadı. Harcama/ROAS verisi yok <span class="badge R">Requires Access</span>.</div>
-      <span class="lab">Çözüm</span><div>UTM'li ziyaret → ürün görüntüleme → 24 saatte sipariş yok → Engage segmenti → kişisel takip (stoktaki renk + 7 taksit) → satın alınca reklam kitlesinden çıkar. Engage segmenti Meta kitlesine senkronlanır.</div>
-      <span class="lab">Sor</span><div class="ask" style="margin:0"><b>S5</b> "Reklamdan gelip almayanla reklam dışında iletişime geçebiliyor musunuz?"</div>
+      <span class="lab">Çözüm</span><div>UTM'li ziyaret → ürün görüntüleme → 24 saatte sipariş yok → Engage segmenti → kişisel takip (stoktaki renk + 7 taksit) → satın alınca reklam kitlesinden çıkar.</div>
     </div>
   </div>
 
-  <div class="grid2">
-    <div class="box">
-      <h3>B5 · Netleşmesi gereken politikalar <span class="badge V">Verified</span></h3>
-      <ul>
-        <li><b>Kargo:</b> footer "1000 TL üzeri ücretsiz", teslimat sayfası "tüm siparişlerde ücretsiz"</li>
-        <li><b>İade / deneme:</b> 15 gün · 120 gece · 120 gün (reklam)</li>
-        <li><b>Teslimat:</b> SSS "5 iş günü", sayfa "2–7 iş günü"</li>
-        <li><b>Fiyat:</b> aynı model iki sitede farklı</li>
-      </ul>
-      <p class="small"><b>Çözüm:</b> tek doğru metin (hukuk onaylı) → otomasyon mesajları bu metni kullanır.</p>
-    </div>
-    <div class="box">
-      <h3>B6 · Hızlı düzeltmeler (takip e-postasında) <span class="badge V">Verified</span></h3>
-      <ul>
-        <li>Homedius ana sayfa &lt;title&gt; boş, meta description yok</li>
-        <li>Homedius ana sayfada "Lorem Ipsum" blog metni</li>
-        <li>Ekim'de "Yaza özel fırsatları kaçırma!" bandı (iki sitede)</li>
-        <li>Sleeptown /test sayfası yayında ve sitemap'te; ~50 sayfada aynı başlık</li>
-        <li>Boş SSS / müşteri hizmetleri sayfaları</li>
-      </ul>
-    </div>
+  <div class="stepsec">
+    <div class="step"><span class="pill">11–15 dk</span><span class="ttl">Adım 4 · Simülatör</span><span class="scr">Ekran: What Callypso Could Do</span></div>
+    <table>
+      <tr><th style="width:8mm">#</th><th>Ne yap</th><th>Ne söyle</th></tr>
+      <tr><td class="t">1</td><td>Üstte <b>Verified</b> filtresine bas</td><td>"Gördüğünüz her şey sitenizden: ürün, fiyat, ölçü, stok."</td></tr>
+      <tr><td class="t">2</td><td>Sleeptown → <b>Hybrid 5 Zone</b> → <b>160x200</b> seç</td><td>"Bu bir simülasyon; ürün gerçek, sonuç rakamı yok."</td></tr>
+      <tr><td class="t">3</td><td><b>Adım adım</b> ile ilerle: görüntüleme → sepet → çıkış</td><td>"Bugün bu noktada müşteri kayboluyor."</td></tr>
+      <tr><td class="t">4</td><td>Callypso adımları: davranış → segment → mesaj</td><td>"Engage burada devreye giriyor: segmente alır, 1 saat sonra ölçü ve taksitle mesaj gönderir."</td></tr>
+      <tr><td class="t">5</td><td>Satın alma → çapraz satış adımı</td><td>"Satın alınca reklamdan çıkar, 3 gün sonra aynı ölçüde ped önerilir." (CS1)</td></tr>
+      <tr><td class="t">6</td><td>Zaman varsa Homedius → <b>Mocca Kiremit</b></td><td>"Koltuk alana aynı renkte kırlent ve sırt aparatı." (CS2)</td></tr>
+    </table>
+    <p class="small"><b>Geçiş cümlesi:</b> "Bu akışların sizde ne kadar etki yaratacağını sizin rakamlarınızla hesaplamak istiyorum; birkaç rakam sorabilir miyim?"</p>
   </div>
 </section>
 
-<!-- PAGE 4b: cross-sell / upsell -->
+<!-- ============ ADIM 5 ============ -->
 <section class="page compact">
-  <h2>Cross-sell ve upsell örnekleri (gerçek ürünlerle)</h2>
-  <p class="small">Fiyatlar sitede 3 Ekim 2026'da görünen satış fiyatlarıdır <span class="badge V">Verified</span>. Ürün eşleştirmeleri ve zamanlamalar analiz önerisidir <span class="badge I">Inferred</span>. Toplantıda simülatörde aynı ürünleri seçerek gösterebilirsin.</p>
+  <div class="step"><span class="pill">15–18 dk</span><span class="ttl">Adım 5 · Soru turu 2 + kapanış</span><span class="scr">Ekran: Roadmap 0–30 gün</span></div>
 
-  <h3 style="margin-top:3mm">Cross-sell: tamamlayıcı ürün</h3>
-  <div class="finding">
-    <div class="fh"><b>CS1 · Sleeptown: yatağa aynı ölçüde uyku seti</b><span class="badge I">Inferred</span></div>
-    <div class="fb">
-      <span class="lab">Satın alınan</span><div><b>Hybrid 5 Zone Pocket Yaylı Yatak 160x200</b> – 21.999 TL</div>
-      <span class="lab">Akış</span><div><b>+3 gün:</b> HyperSoft Yatak Pedi <b>160x200</b> – 5.699 TL<br><b>+14 gün:</b> Celia Pamuk Luxury Nevresim <b>Çift Kişilik 200x220</b> – 1.899 TL<br><b>+45 gün:</b> Yorgan Kaztüyü Çift Kişilik – 6.499 TL (mevsim geçişi)</div>
-      <span class="lab">Neden</span><div>Ped yeni yatağı korur, nevresim ve yorgan doğal tamamlayıcıdır. Ölçü siparişte zaten var; yanlış ölçü iadesini önler. Bugün ürün sayfasında sadece "Benzer Ürünler" var.</div>
-      <span class="lab">Söyle</span><div class="say" style="margin:0">"Müşteri 160x200 yatak aldıysa, ona 3 gün sonra tam 160x200 ped öneriyoruz; tahmin değil, siparişteki ölçüyle."</div>
-    </div>
-  </div>
-  <div class="finding">
-    <div class="fh"><b>CS2 · Homedius: katlanır koltuğa "misafir kiti"</b><span class="badge I">Inferred</span></div>
-    <div class="fb">
-      <span class="lab">Satın alınan</span><div><b>Mocca Tek Kişilik Katlanır Yatak Uzanma Koltuğu Kiremit</b> – 7.499 TL</div>
-      <span class="lab">Akış</span><div><b>Sepette:</b> Yataklı Koltuk Sırt Dayama Destek Demiri Aparatı – 499 TL<br><b>+5 gün:</b> Visco yastık – 649 TL'den başlayan fiyatlarla<br><b>+20 gün:</b> Dekoratif Kadife Papatya Kırlent <b>Kiremit</b> – 799 TL (koltukla aynı renk)</div>
-      <span class="lab">Neden</span><div>Koltuk yatağa dönüşüyor: yatak modunda yastık, koltuk modunda sırt desteği, renk uyumu için kırlent gerekir. Hepsi aynı sitede satılıyor ama birbirine önerilmiyor.</div>
-      <span class="lab">Söyle</span><div class="say" style="margin:0">"Kiremit rengi Mocca alan müşteriye kiremit kırlent öneriyoruz. Renk bilgisi siparişte var."</div>
-    </div>
-  </div>
-
-  <h3 style="margin-top:3mm">Upsell: bir üst model</h3>
-  <div class="finding">
-    <div class="fh"><b>US1 · Sleeptown: Base Visco → Base 7 Zone</b><span class="badge I">Inferred</span></div>
-    <div class="fb">
-      <span class="lab">İncelenen</span><div><b>Base Visco Sünger Yatak 90x190</b> – 7.999 TL</div>
-      <span class="lab">Öneri</span><div><b>Base 7 Zone Visco Yatak 90x190</b> – 8.999 TL · fark <b>+1.000 TL</b>, 7 taksitte ayda <b>~143 TL</b></div>
-      <span class="lab">Zaman</span><div>Ürün sayfasında inceleme anında + sepet terk e-postasında karşılaştırma bloğu</div>
-      <span class="lab">Neden</span><div>Basamak küçük ve anlatması kolay: 7 bölgeli destek. Taksitle aylık fark çok düşük kalıyor. İki model de 7 yorum, 4,71/5.</div>
-    </div>
-  </div>
-  <div class="finding">
-    <div class="fh"><b>US2 · Homedius: Magic Tek Kişilik → Magic Çift Kişilik</b><span class="badge I">Inferred</span></div>
-    <div class="fb">
-      <span class="lab">İncelenen</span><div><b>Magic Katlanır Yataklı Koltuk Tek Kişilik Kiremit</b> – 5.399 TL</div>
-      <span class="lab">Öneri</span><div><b>Magic Çift Kişilik Katlanır Yataklı Koltuk Kiremit</b> – 6.699 TL · fark <b>+1.300 TL</b>, 7 taksitte ayda <b>~186 TL</b></div>
-      <span class="lab">Zaman</span><div>Ürün sayfasında + inceleme terk akışının 24. saatinde (tek ↔ çift kişilik karşılaştırma)</div>
-      <span class="lab">Neden</span><div>Aynı model ve aynı renk; tek fark çift kişilik yatağa dönüşmesi. Reklam mesajı da bunu söylüyor: "İhtiyaç olduğunda açılır, çift kişilik yatağa dönüşür."</div>
-    </div>
-  </div>
-</section>
-
-<!-- PAGE 5 -->
-<section class="page">
-  <h2>Soru bankası ve not alanları</h2>
+  <h3>a) Rakamlar ve karar süreci</h3>
   <table>
-    <tr><th style="width:9mm">#</th><th>Soru</th><th style="width:62mm">Cevap / rakam</th></tr>
-    <tr><td class="t">S1</td><td>"Sepete ekleyip almadan çıkan müşteriye bugün ne oluyor?"</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td class="t">S2</td><td>"Ödeme sayfasında e-postasını ve telefonunu yazıp ödemeyi bitirmeyenleri görebiliyor musunuz? Bu kişilere bir şey gidiyor mu?"</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td class="t">S3</td><td>"Stok alarmı kuranlara ürün gelince kim, nasıl haber veriyor? Listede kaç kişi var?"</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td class="t">S4</td><td>"E-posta / SMS / WhatsApp için hangi aracı kullanıyorsunuz? En son ne zaman, kime gönderdiniz?"</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td class="t">S5</td><td>"Meta reklamından gelip almayan kişiyle reklam dışında iletişime geçebiliyor musunuz? (Iyzads ne yapıyor?)"</td><td><div class="note">&nbsp;</div></td></tr>
+    <tr><th style="width:8mm">#</th><th>Soru</th><th style="width:60mm">Cevap / rakam</th></tr>
     <tr><td class="t">S6</td><td>"Aylık ziyaretçi ve sipariş sayınız? Siparişlerin ne kadarı kendi sitenizden, ne kadarı pazaryerinden?"</td><td><div class="note">&nbsp;</div></td></tr>
     <tr><td class="t">S7</td><td>"Kaç izinli (İYS) e-posta ve telefon kaydınız var? Siparişte ticari ileti izni alıyor musunuz?"</td><td><div class="note">&nbsp;</div></td></tr>
     <tr><td class="t">S8</td><td>"Yatak alanların kaçı ped/nevresim/yastık da alıyor? Tekrar alım oranını biliyor musunuz?"</td><td><div class="note">&nbsp;</div></td></tr>
     <tr><td class="t">S9</td><td>"Kasım indirim dönemi (11.11, Black Friday) hazırlığı başladı mı? Kararı kim veriyor, T-Soft entegrasyonunu kim yönetiyor?"</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td class="t">+</td><td>"WhatsApp hattınıza (0535 652 13 17) günde kaç mesaj geliyor, en çok ne soruluyor?" · "Sleeptown'daki web bildirimi iznini kaç kişi verdi?" · "Homedius ve Sleeptown müşteri listeleri aynı yerde mi; KVKK metni markalar arası iletişime izin veriyor mu?"</td><td><div class="note">&nbsp;</div></td></tr>
+    <tr><td class="t">+</td><td>"WhatsApp hattınıza günde kaç mesaj geliyor?" · "Homedius ve Sleeptown müşteri listeleri aynı yerde mi; KVKK metni markalar arası iletişime izin veriyor mu?"</td><td><div class="note">&nbsp;</div></td></tr>
   </table>
 
-  <h2>İtiraz cevapları</h2>
+  <h3>b) Netleşmesi gereken konular (nazikçe)</h3>
+  <div class="grid2">
+    <div class="box soft">
+      <ul>
+        <li><b>Fiyat farkı:</b> Mocca Çift Kişilik Antrasit Homedius'ta 9.999 TL, Sleeptown'da 13.999 TL. "Markalar arası öneride hangi fiyat görünmeli?"</li>
+        <li><b>Deneme süresi:</b> sitede 120 gece, reklamda 120 gün, iade sayfasında 15 gün. "Mesajlarda hangisini kullanalım?"</li>
+      </ul>
+    </div>
+    <div class="box soft">
+      <ul>
+        <li><b>Kargo:</b> footer "1000 TL üzeri ücretsiz", teslimat sayfası "tüm siparişlerde ücretsiz"</li>
+        <li><b>Teslimat:</b> SSS "5 iş günü", sayfa "2–7 iş günü"</li>
+        <li class="small">Çözüm: tek doğru metin (hukuk onaylı) → otomasyon mesajları bu metni kullanır.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>c) Pilot önerisi: Sleeptown · 30 gün</h3>
+  <div class="say">"Sleeptown'da 30 günlük bir pilotla başlayalım: ödeme/sepet terk, stok gelince bildirimi ve ölçüye göre ped/nevresim önerisi. İlk iş, ziyaretçiden izinli iletişim bilgisi toplamak. 30. günde gerçek oranlarınızla projeksiyonu birlikte güncelleriz."</div>
+  <p class="small">Neden Sleeptown: ölçü bazlı fiyat ve stok verisi, gerçek yorumlar, yüksek sepet tutarı (7.999–32.999 TL).</p>
+
+  <h3>d) Toplantı sonunda netleşmesi gerekenler</h3>
   <table>
-    <tr><th style="width:44mm">İtiraz</th><th>Cevap</th></tr>
-    <tr><td>"T-Soft'un e-bülteni var."</td><td>"Bülten herkese aynı mesajı atar. Biz ölçüye, renge, stoka ve davranışa göre kişiye özel mesaj gönderiyoruz; simülatördeki mesaj gibi."</td></tr>
-    <tr><td>"Iyzads bunu yapıyor."</td><td>"Reklamı değiştirmiyoruz, tamamlıyoruz: Engage segmentini reklam kitlesine aktarırız, satın alanı reklamdan çıkarırız. Bütçe daha verimli harcanır."</td></tr>
-    <tr><td>"Müşteri verimiz az."</td><td>"Sipariş veren herkesin e-postası ve telefonu sizde; satın alma sonrası akışlar ilk gün çalışır. Kimlik toplama da ilk ayın işi."</td></tr>
-    <tr><td>"Pop-up müşteriyi rahatsız eder."</td><td>"İlk saniyede indirim pop-up'ı değil; tükenen ürüne 'gelince haber verelim', kararsız müşteriye 'taksit tablosunu gönderelim' gibi o anda işine yarayan formlar."</td></tr>
-    <tr><td>"Şimdi zamanımız yok."</td><td>"Pilot tek markada (Sleeptown), 3 akışla başlıyor ve Kasım indirim dönemine yetişiyor."</td></tr>
+    <tr><td style="width:62mm">Karar verici ve teknik sorumlu (T-Soft)</td><td><div class="note">&nbsp;</div></td></tr>
+    <tr><td>Pilot markası ve başlangıç tarihi</td><td><div class="note">&nbsp;</div></td></tr>
+    <tr><td>Paylaşılacak veri (GA4, T-Soft panel/API, İYS) · hukuk/KVKK sorumlusu</td><td><div class="note">&nbsp;</div></td></tr>
+    <tr><td>Sonraki toplantı (teknik keşif) tarihi</td><td><div class="note">&nbsp;</div></td></tr>
   </table>
 </section>
 
-<!-- PAGE 6 -->
+<!-- ============ EK A ============ -->
 <section class="page compact">
-  <h2>Projeksiyon çerçevesi (toplantı sonrası)</h2>
+  <h2>Ek A · İtiraz cevapları, hızlı düzeltmeler, toplantı sonrası</h2>
+  <h3>İtiraz cevapları (gerektiğinde)</h3>
+  <table>
+    <tr><th style="width:44mm">İtiraz</th><th>Cevap</th></tr>
+    <tr><td>"T-Soft'un e-bülteni var."</td><td>"Bülten herkese aynı mesajı atar. Biz ölçüye, renge, stoka ve davranışa göre kişiye özel mesaj gönderiyoruz; simülatördeki mesaj gibi."</td></tr>
+    <tr><td>"Iyzads bunu yapıyor."</td><td>"Reklamı değiştirmiyoruz, tamamlıyoruz: satın almayanı e-posta, SMS ve WhatsApp ile geri çağırırız, satın alanı reklamdan çıkarırız."</td></tr>
+    <tr><td>"Müşteri verimiz az."</td><td>"Sipariş veren herkesin e-postası ve telefonu sizde; satın alma sonrası akışlar ilk gün çalışır. Kimlik toplama da ilk ayın işi."</td></tr>
+    <tr><td>"Pop-up müşteriyi rahatsız eder."</td><td>"İlk saniyede indirim pop-up'ı değil; tükenen ürüne 'gelince haber verelim', kararsız müşteriye 'taksit tablosunu gönderelim' gibi o anda işine yarayan formlar."</td></tr>
+    <tr><td>"T-Soft'a bağlanıyor mu?"</td><td>"Teknik ekibimizle entegrasyon yöntemini netleştirip size bir sonraki görüşmede somut planı getireceğiz." (Teyit edilmeden "hazır" deme.)</td></tr>
+    <tr><td>"Şimdi zamanımız yok."</td><td>"Pilot tek markada, 3 akışla başlıyor ve Kasım indirim dönemine yetişiyor."</td></tr>
+  </table>
+
+  <h3>Hızlı düzeltmeler (takip e-postasında, ücretsiz katkı olarak) <span class="badge V">Verified</span></h3>
+  <ul>
+    <li>Homedius ana sayfa &lt;title&gt; boş, meta description yok · ana sayfada "Lorem Ipsum" blog metni</li>
+    <li>Ekim'de "Yaza özel fırsatları kaçırma!" bandı (iki sitede)</li>
+    <li>Sleeptown /test sayfası yayında ve sitemap'te; ~50 sayfada aynı başlık ("Sleeptown Comfort For You")</li>
+    <li>Boş SSS / müşteri hizmetleri sayfaları</li>
+  </ul>
+
+  <h3>Toplantı sonrası (24 saat içinde)</h3>
+  <ul class="chk-list">
+    <li><span class="chk"></span>Teşekkür + dashboard Share linki</li>
+    <li><span class="chk"></span>Hızlı düzeltmeler listesi + netleşmesi gereken politikalar</li>
+    <li><span class="chk"></span>Projeksiyon (Ek B) – toplanan rakamlarla, 3 senaryo bandı</li>
+    <li><span class="chk"></span>Pilot kapsamı, gereken erişimler (T-Soft, GA4, İYS) ve takvim</li>
+    <li><span class="chk"></span>Ürün ekibinden T-Soft entegrasyon yöntemi teyidi</li>
+  </ul>
+  <div class="box soft" style="margin-top:3mm"><p class="small" style="margin:0"><span class="badge V">Verified</span> website / public kaynakta doğrulandı · <span class="badge I">Inferred</span> gerçek veriye dayanan analiz · <span class="badge R">Requires Access</span> CRM, analytics veya reklam hesabı gerekir. Sipariş, CRM veya reklam hesabı verisi kullanılmamıştır.</p></div>
+</section>
+
+<!-- ============ EK B ============ -->
+<section class="page compact">
+  <h2>Ek B · Projeksiyon çerçevesi (toplantı sonrası)</h2>
   <div class="box warn"><b>Kural:</b> Toplantıdan önce TL rakamı uydurma. Toplantıda girdileri topla; 1–2 gün sonra "sizin rakamlarınızla hesapladık" diye gönder.</div>
 
   <h3>1. Toplanacak başlangıç verisi</h3>
@@ -333,56 +381,17 @@
     <tr><td>Misafir kiti</td><td>Aylık koltuk siparişi</td><td>Aparat 499 + Visco yastık 649–1.549 TL</td></tr>
     <tr><td>Yorum isteği</td><td>Aylık teslimat</td><td>Doğrudan gelir değil, dönüşüm etkisi (ayrı göster)</td></tr>
   </table>
-  <p class="small">Oranlar: <b>muhafazakâr / baz / iyimser</b>. Kaynak: Callypso müşteri ortalamaları veya benzer sektör vakaları; kaynağı belirt. Grafikte tek çizgi değil, bant göster. Başarıyı kanıtlamak için her akışta küçük bir <b>kontrol grubu</b> (mesaj gönderilmeyen) tutulur.</p>
+  <p class="small">Oranlar: <b>muhafazakâr / baz / iyimser</b>; kaynağını belirt. Grafikte tek çizgi değil, bant göster. Her akışta küçük bir <b>kontrol grubu</b> (mesaj gönderilmeyen) tutulur.</p>
   <p><b>Katman 3: Reklam verimliliği</b> <span class="badge R">Requires Access</span>: satın alanı reklamdan çıkarma ve CRM ile geri kazanım; reklam hesabı verisi gelene kadar rakamsız göster.</p>
 
   <h3>3. Zaman çizelgesi</h3>
   <table>
     <tr><th style="width:24mm">Dönem</th><th>Kapsam</th><th style="width:52mm">Ölçülen KPI</th></tr>
-    <tr><td class="t">0–30 gün</td><td>SDK, ürün feed'i (fiyat + varyant stok), sipariş entegrasyonu · lead formu + izin kutusu · ödeme/sepet terk · stok gelince · yorum isteği</td><td>Tanınan ziyaretçi oranı, geri kazanılan sepet, toplanan yorum</td></tr>
-    <tr><td class="t">30–90 gün</td><td>Ölçü/renk eşleşmeli çapraz satış · inceleme terk · fiyat düşüşü · reklam ↔ CRM senkronu · Kasım kampanyası</td><td>Engage kaynaklı ciro payı, sepet başına ürün</td></tr>
-    <tr><td class="t">90–180 gün</td><td>Yenileme, geri kazanım, VIP, bebek &amp; çocuk yaşam döngüsü · AI asistan / WhatsApp botu · markalar arası pilot (izin varsa)</td><td>Tekrar alım oranı, müşteri yaşam boyu değeri, pazaryeri dışı sipariş payı</td></tr>
+    <tr><td class="t">0–30 gün</td><td>T-Soft entegrasyonu, ürün feed'i (fiyat + varyant stok) · lead formu + izin kutusu · ödeme/sepet terk · stok gelince · yorum isteği</td><td>Tanınan ziyaretçi oranı, geri kazanılan sepet, toplanan yorum</td></tr>
+    <tr><td class="t">30–90 gün</td><td>Ölçü/renk eşleşmeli çapraz satış · inceleme terk · fiyat düşüşü · reklam ↔ CRM · Kasım kampanyası</td><td>Engage kaynaklı ciro payı, sepet başına ürün</td></tr>
+    <tr><td class="t">90–180 gün</td><td>Tekrar alım, geri kazanım, VIP, bebek &amp; çocuk yaşam döngüsü · markalar arası pilot (izin varsa)</td><td>Tekrar alım oranı, müşteri yaşam boyu değeri, pazaryeri dışı sipariş payı</td></tr>
   </table>
   <div class="say">"Rakamları sizin verinizle hesapladık; oranlar muhafazakâr senaryodan. Pilotun ilk 30 gününde gerçek oranlarınızı ölçeceğiz, 60. günde projeksiyonu gerçek veriyle güncelleyeceğiz."</div>
-</section>
-
-<!-- PAGE 7 -->
-<section class="page">
-  <h2>Kapanış ve sonraki adımlar</h2>
-  <div class="box accent">
-    <h3>Pilot önerisi: Sleeptown · 30 gün</h3>
-    <p>Neden Sleeptown: ölçü bazlı fiyat ve stok verisi, gerçek yorumlar, yüksek sepet tutarı (7.999–32.999 TL).</p>
-    <ul>
-      <li>Ödeme / sepet terk akışı (ölçü + taksit + gerçek stok)</li>
-      <li>Stok gelince / az stok bildirimi (Base Visco 180x200 ile başla)</li>
-      <li>Yatak sonrası aynı ölçüde ped + nevresim önerisi</li>
-      <li>Lead formu: "İlk siparişinde 500 TL" + ödeme sayfasına izin kutusu</li>
-    </ul>
-  </div>
-
-  <h3>Toplantı sonunda netleşmesi gerekenler</h3>
-  <table>
-    <tr><th>Konu</th><th style="width:70mm">Cevap</th></tr>
-    <tr><td>Karar verici ve teknik sorumlu (T-Soft)</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td>Pilot markası ve başlangıç tarihi</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td>Paylaşılacak veri (GA4, T-Soft panel/API, İYS)</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td>Hukuk / KVKK teyidi kimde</td><td><div class="note">&nbsp;</div></td></tr>
-    <tr><td>Sonraki toplantı (teknik keşif) tarihi</td><td><div class="note">&nbsp;</div></td></tr>
-  </table>
-
-  <h3>Toplantı sonrası (24 saat içinde)</h3>
-  <ul class="chk-list">
-    <li><span class="chk"></span>Teşekkür + dashboard Share linki</li>
-    <li><span class="chk"></span>Hızlı düzeltmeler listesi (B6) – ücretsiz katkı olarak</li>
-    <li><span class="chk"></span>Netleşmesi gereken politikalar (B5)</li>
-    <li><span class="chk"></span>Projeksiyon (s. 7) – toplanan rakamlarla, 3 senaryo bandı</li>
-    <li><span class="chk"></span>Pilot kapsamı, gereken erişimler ve takvim</li>
-  </ul>
-
-  <div class="box soft" style="margin-top:4mm">
-    <h3>Etiketler</h3>
-    <p class="small"><span class="badge V">Verified</span> website / public kaynakta doğrulandı · <span class="badge I">Inferred</span> gerçek veriye dayanan analiz · <span class="badge R">Requires Access</span> CRM, analytics veya reklam hesabı erişimi gerekir. Kaynaklar: homedius.com, sleeptown.com.tr, aydinendustri.com, Meta Ad Library (3 Ekim 2026). Sipariş, CRM veya reklam hesabı verisi kullanılmamıştır.</p>
-  </div>
 </section>
 
 </body>
