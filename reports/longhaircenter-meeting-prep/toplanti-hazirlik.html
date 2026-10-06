@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Toplantı Hazırlık – Long Hair Center × CallypsoTech</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm 14mm; }
+  :root { --ink:#16181d; --ink2:#4b4d55; --muted:#74767e; --line:#dddcd5; --soft:#f3f3ef; --accent:#0e7a72; --accent-soft:#e3f3f1;
+          --v:#1d6b38; --vbg:#e6f3ea; --i:#8a5a00; --ibg:#fbf0dc; --r:#4a4766; --rbg:#ecebf3; --warn:#7a4b00; --warnbg:#fff4e5;
+          --inbox:#0e7a4c; --inboxbg:#e1f3ea; --engage:#6a3fc4; --engagebg:#eee7fb; --voice:#2560b8; --voicebg:#e3ecfa; --crit:#9b2c2c; --critbg:#f8e3e3; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 9.5pt/1.45 Inter, system-ui, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @media print { body { zoom: .86; } }
+  @media screen { body { max-width: 182mm; margin: 10mm auto; } .page { border-bottom: 1px dashed var(--line); padding-bottom: 8mm; margin-bottom: 8mm; } }
+  h1 { font-size: 19pt; margin: 0 0 2mm; letter-spacing: -.01em; }
+  h2 { font-size: 13pt; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 10.5pt; margin: 0 0 1.5mm; }
+  p { margin: 0 0 2mm; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .sub { color: var(--muted); font-size: 9pt; }
+  .eyebrow { font-size: 7.5pt; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
+  .box { border: 1px solid var(--line); border-radius: 6px; padding: 3mm 3.5mm; margin-bottom: 3mm; break-inside: avoid; }
+  .soft { background: var(--soft); border-color: var(--soft); }
+  .accent { background: var(--accent-soft); border-color: #bfe3df; }
+  .warn { background: var(--warnbg); border-color: #f0c98a; color: var(--warn); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.7pt; margin-bottom: 3mm; }
+  th { text-align: left; font-size: 7.4pt; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); border-bottom: 1.5px solid var(--ink2); padding: 1.5mm 1.8mm; }
+  td { border-bottom: 1px solid var(--line); padding: 1.7mm 1.8mm; vertical-align: top; }
+  tr { break-inside: avoid; }
+  td.n { text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .t { font-weight: 700; white-space: nowrap; color: var(--accent); }
+  .chk { display: inline-block; width: 3.4mm; height: 3.4mm; border: 1.2px solid var(--ink2); border-radius: 1px; margin-right: 1.8mm; vertical-align: -0.6mm; }
+  ul.chk-list { list-style: none; padding: 0; margin: 0; }
+  ul.chk-list li { margin-bottom: 1.5mm; padding-left: 5.5mm; text-indent: -5.5mm; }
+  ul { margin: 0 0 2mm; padding-left: 4.5mm; }
+  li { margin-bottom: .9mm; }
+  .say { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 2mm 3mm; margin: 1.5mm 0 2mm; font-style: italic; border-radius: 0 4px 4px 0; }
+  .ask { border-left: 3px solid var(--i); background: var(--ibg); padding: 2mm 3mm; margin: 1.5mm 0 2mm; border-radius: 0 4px 4px 0; }
+  .ask b { color: var(--i); }
+  .badge { display: inline-block; font-size: 7pt; font-weight: 700; padding: .3mm 1.8mm; border-radius: 99px; vertical-align: 1px; white-space: nowrap; }
+  .V { background: var(--vbg); color: var(--v); } .I { background: var(--ibg); color: var(--i); } .R { background: var(--rbg); color: var(--r); } .C { background: var(--critbg); color: var(--crit); }
+  .MH { background: var(--vbg); color: var(--v); } .HV { background: var(--voicebg); color: var(--voice); } .OP { background: var(--ibg); color: var(--i); } .NR { background: var(--soft); color: var(--muted); }
+  .note { border: 1px dashed #b9b8b0; border-radius: 4px; min-height: 9mm; margin-top: 1mm; padding: 1mm 2mm; color: #a3a29b; font-size: 7.6pt; }
+  .note.tall { min-height: 16mm; }
+  .fill { display: inline-block; min-width: 26mm; border-bottom: 1px solid var(--ink2); height: 4mm; }
+  .kpi { border: 1px solid var(--line); border-radius: 6px; padding: 2.2mm 3mm; }
+  .kpi .v { font-size: 15pt; font-weight: 700; line-height: 1.1; }
+  .kpi .k { font-size: 7.8pt; color: var(--ink2); }
+  .small { font-size: 8pt; color: var(--ink2); }
+  .cover { border-bottom: 1px solid var(--line); padding-bottom: 4mm; margin-bottom: 4mm; }
+  .score { display: grid; grid-template-columns: 9mm 1fr 30mm 26mm; gap: 3mm; align-items: center; padding: 2.2mm 0; border-bottom: 1px solid var(--line); }
+  .score:last-child { border-bottom: none; }
+  .score .rk { font-size: 14pt; font-weight: 700; color: var(--muted); }
+  .score .nm { font-weight: 700; font-size: 10.5pt; }
+  .bar { height: 2.4mm; border-radius: 9px; background: var(--soft); overflow: hidden; margin-top: 1.2mm; }
+  .bar i { display: block; height: 100%; border-radius: 9px; }
+  .score .sv { font-size: 16pt; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+  .score .sv small { font-size: 8pt; color: var(--muted); font-weight: 500; }
+  .prod { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin-bottom: 3.5mm; break-inside: avoid; }
+  .prod .ph { padding: 2.2mm 3.5mm; display: flex; justify-content: space-between; align-items: center; gap: 3mm; color: #fff; }
+  .prod .ph b { font-size: 11.5pt; }
+  .prod .ph .s { font-size: 13pt; font-weight: 700; }
+  .prod .pb { padding: 2.5mm 3.5mm; }
+  .prod.inbox .ph { background: var(--inbox); } .prod.engage .ph { background: var(--engage); } .prod.voice .ph { background: var(--voice); }
+  .crit td:first-child { width: 42mm; font-weight: 600; }
+  .crit td.n { width: 12mm; }
+  .lab { font-size: 7.4pt; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 2mm 0 1mm; }
+  .finding { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 3mm; break-inside: avoid; overflow: hidden; }
+  .finding .fh { background: var(--ink); color: #fff; padding: 1.8mm 3.5mm; display: flex; justify-content: space-between; align-items: center; gap: 3mm; }
+  .finding .fh b { font-size: 10pt; }
+  .finding .fb { padding: 2.2mm 3.5mm; display: grid; grid-template-columns: 24mm 1fr; gap: 1.2mm 3mm; }
+  .finding .fb .lab { margin: 0; padding-top: .5mm; }
+  .sens td { font-size: 8.4pt; }
+  .delta-up { color: var(--v); font-weight: 700; } .delta-down { color: var(--crit); font-weight: 700; }
+  .compact { font-size: 8.8pt; line-height: 1.38; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page">
+  <div class="cover">
+    <div class="eyebrow">TOPLANTI HAZIRLIK DOSYASI · DAHİLİ KULLANIM</div>
+    <h1>Long Hair Center × CallypsoTech</h1>
+    <p class="sub">Saç ekimi kliniği · Bahçelievler / İstanbul · Süre: 25–30 dk · Veri tarihi: 5 Ekim 2026 · Dayanak: Product Fit Analysis dashboard'u (Vercel önizleme)</p>
+  </div>
+
+  <div class="box accent">
+    <h3>Toplantının amacı</h3>
+    <p>Beş ürün satmak değil. Klinik yönetiminin şu sonuca <b>kendisinin</b> varması: <b>"Hastalarımız bize 8 dilde, gece gündüz WhatsApp'tan yazıyor; bu konuşmaları ve sonrasındaki takibi kişilere bağlı yürütüyoruz."</b> Kapanış hedefi: <b>Inboxly ile 6 haftalık pilot</b> + Engage için Phase 2 takvimi + Voice Agent kararı için 2 haftalık çağrı verisi.</p>
+  </div>
+
+  <h2>Puanlama — toplantının omurgası</h2>
+  <div class="box" style="padding:1.5mm 3.5mm">
+    <div class="score"><div class="rk" style="color:var(--inbox)">1</div><div><div class="nm">Inboxly</div><div class="bar"><i style="width:84%;background:var(--inbox)"></i></div></div><div><span class="badge MH">Must Have</span> <span class="small">Phase 1</span></div><div class="sv">84<small>/100</small></div></div>
+    <div class="score"><div class="rk" style="color:var(--engage)">2</div><div><div class="nm">Callypso Engage</div><div class="bar"><i style="width:80%;background:var(--engage)"></i></div></div><div><span class="badge HV">High Value</span> <span class="small">Phase 2</span></div><div class="sv">80<small>/100</small></div></div>
+    <div class="score"><div class="rk" style="color:var(--voice)">3</div><div><div class="nm">AI Voice Agent</div><div class="bar"><i style="width:65%;background:var(--voice)"></i></div></div><div><span class="badge OP">Optional</span> <span class="small">Phase 3 · koşullu</span></div><div class="sv">65<small>/100</small></div></div>
+    <p class="small" style="margin:1.5mm 0 0">Skorlar <b>tahminidir</b>: 6 kriter × 0–10 puan, ağırlıklar Problem 25 · Journey 20 · Automation 15 · Integration 15 · Commercial 20 · Complexity (ters) 5. Studio (17) ve Decor (7) <span class="badge NR">Not Recommended</span> — toplantıda gündeme getirilmez. Toplantının işi bu üç skoru <b>klinikten alınacak cevaplarla doğrulamak ya da düzeltmek</b> (s. 4 duyarlılık tablosu).</p>
+  </div>
+
+  <h2>Elinde olması gereken kanıtlar</h2>
+  <div class="grid3" style="margin-bottom:3mm">
+    <div class="kpi"><div class="v">8 dil</div><div class="k">EN · TR · DE · FR · IT · RU · AR · KO site sürümü</div></div>
+    <div class="kpi"><div class="v">36+ ülke</div><div class="k">2.200+ operasyon / 13 yıl (About Us beyanı)</div></div>
+    <div class="kpi"><div class="v">2 + 1</div><div class="k">WhatsApp numarası (534… / 552…) + LiveChat</div></div>
+    <div class="kpi"><div class="v">≤ 2 / gün</div><div class="k">operasyon kapasitesi → her lead değerli</div></div>
+    <div class="kpi"><div class="v">88</div><div class="k">Trustpilot yorumu (4.7) — operasyonların ~%4'ü</div></div>
+    <div class="kpi"><div class="v">6 / 20</div><div class="k">son 20 Trustpilot yorumunun ABD'den gelen payı</div></div>
+  </div>
+  <table>
+    <tr><th>Doğrulanmış gerçek</th><th>Detay ve kaynak</th></tr>
+    <tr><td><b>WhatsApp birincil kanal</b> <span class="badge V">Verified</span></td><td>Her sayfada sabit WhatsApp butonu. EN/DE/FR/IT/RU/AR → +90 534 704 61 42; TR ve KO sayfaları → +90 552 649 61 42. Telefon (tel:) numarası WhatsApp hattıyla aynı.</td></tr>
+    <tr><td><b>Form alan hatası</b> <span class="badge C">Verified Gap</span></td><td>"Free Consultation" formunda E-Mail kutusu <i>name="phone"</i> ve telefonla aynı id ile tanımlı → e-posta telefon adıyla gönderiliyor. Ayrıca "home.Phone", "home.Chat with us" çevrilmemiş metinleri görünüyor.</td></tr>
+    <tr><td><b>Paket lojistiği</b> <span class="badge V">Verified</span></td><td>5★ otel + ücretsiz refakatçi, 6 dahil transfer (havalimanı, operasyon günü, yıkama günü), Euro ödeme.</td></tr>
+    <tr><td><b>Güçlü yön</b> <span class="badge R">Strength</span></td><td>Yorumlar: "Fast WhatsApp communication", çevirmenler, isimle anılan danışman (Kübra), "monthly check-ins". <b>Yanıt hızını sorun olarak sunma.</b></td></tr>
+    <tr><td><b>Bilinmeyen</b> <span class="badge I">Not verified</span></td><td>Çalışma saatleri, çağrı hacmi, ilk yanıt süresi, CRM, reklam harcaması, ekip büyüklüğü — hepsi soru bankasında (s. 6).</td></tr>
+  </table>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <h2>Toplantı öncesi kontrol listesi</h2>
+  <div class="grid2" style="margin-bottom:3mm">
+    <ul class="chk-list">
+      <li><span class="chk"></span>Vercel önizleme için <b>Share</b> linki oluşturuldu (önizleme SSO korumalı), gizli pencerede test edildi</li>
+      <li><span class="chk"></span>Dashboard'da gösterilecek 3 ekran açık: <b>Best Match</b>, <b>24/7 saat dilimi</b>, <b>Combined Journey</b></li>
+      <li><span class="chk"></span>Katılımcılar: kurucu / klinik müdürü, hasta koordinatörü (danışman), pazarlama, site sorumlusu</li>
+      <li><span class="chk"></span>longhaircenter.com/en açık: form hatasını canlı gösterebilmek için</li>
+    </ul>
+    <ul class="chk-list">
+      <li><span class="chk"></span>CallypsoTech teyidi: Inboxly <b>birden fazla WhatsApp numarasını</b> tek kutuda yönetiyor mu?</li>
+      <li><span class="chk"></span>Teyit: Voice Agent <b>WhatsApp sesli aramayı</b> ve <b>giden aramayı</b> destekliyor mu?</li>
+      <li><span class="chk"></span>Teyit: Engage'de <b>özel olay (webhook)</b> ve <b>WhatsApp şablonlarının 8 dilde</b> yönetimi</li>
+      <li><span class="chk"></span>Teyit: sağlık verisi için KVKK/GDPR — veri konumu, saklama, DPA metni</li>
+    </ul>
+  </div>
+
+  <h2>Toplantı akışı (~28 dk)</h2>
+  <table class="compact">
+    <tr><th style="width:13mm">Süre</th><th style="width:30mm">Konu · Ekran</th><th>Söyle / sor</th><th style="width:25mm">Amaç</th></tr>
+    <tr><td class="t">0–3</td><td><b>Açılış</b><br><span class="small">Ekran kapalı</span></td>
+      <td><div class="say">"Sitenizi 8 dilde, formlarınızı, kanallarınızı ve 88 Trustpilot yorumunuzu inceledik. Yorumlarınız iletişiminizi övüyor; bugün bunu değiştirmeyi değil, büyürken nasıl korunacağını konuşmak istiyoruz."</div></td><td>Güven; övgüyle açmak</td></tr>
+    <tr><td class="t">3–9</td><td><b>Soru turu 1</b><br><span class="small">Ekran kapalı</span></td>
+      <td>S1–S6 (s. 6): kanal dağılımı, mesai dışı, iki numara, ekip. Önce dinle; cevapları s. 6'ya not al. <b>Inboxly skorunu</b> bu cevaplar doğrular.</td><td>Boşluğu onlara söyletmek</td></tr>
+    <tr><td class="t">9–14</td><td><b>Bulgular B1–B3</b><br><span class="small">Bulgular · Gap tablosu</span></td>
+      <td>B1 konuşmalar 3 kanala bölünmüş · B2 saat farkı (İstanbul 23:40 = New York 16:40) · B3 form alan hatası. Her birinde "bu sizde nasıl işliyor?" diye sor.</td><td>Kanıtı göstermek</td></tr>
+    <tr><td class="t">14–19</td><td><b>Puanlama</b><br><span class="small">Best Match · Fit Score</span></td>
+      <td><div class="say">"Üç ürünü sizin verinizle puanladık. Bilerek telefonu değil WhatsApp'ı öne koyduk, çünkü hastalarınız size orada yazıyor. Bu sıralamayı sizin cevaplarınız değiştirebilir."</div>Ağırlık sürgüsünü canlı oynat: "Komplekslik sizin için önemliyse…"</td><td>Şeffaflık; satış değil analiz</td></tr>
+    <tr><td class="t">19–23</td><td><b>Combined Journey</b><br><span class="small">Oynat</span></td>
+      <td>Reklamdan yoruma kadar akışı oynat. Engage adımlarında dur: varış öncesi otel/transfer, 10. gün, 3/6/12. ay fotoğraf, yorum talebi. S7–S10 (s. 6).</td><td>"Wow" anı; Phase 2 ihtiyacı</td></tr>
+    <tr><td class="t">23–28</td><td><b>Kapanış</b><br><span class="small">Öncelik · Phase</span></td>
+      <td>S11–S13 (Voice Agent) · Pilot önerisi:<div class="say">"6 haftalık Inboxly pilotu: iki WhatsApp numaranız ve web chat tek kutuda, 8 dilde bilgi tabanı, tıbbi ve fiyat soruları her zaman danışmanınızda. 6. haftada ilk yanıt süresi ve mesai dışı yanıt oranıyla birlikte bakalım."</div></td><td>Pilot + sonraki tarih</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="box warn">
+      <h3>Toplantıda söyleme</h3>
+      <ul>
+        <li>"Yanıtlarınız yavaş" — kanıt tersini söylüyor; sadece "ölçebiliyor musunuz?" diye sor</li>
+        <li>Dönüşüm/gelir vaadi — rakamı pilot verisiyle hesapla (s. 7)</li>
+        <li>"AI hastaya tıbbi tavsiye verir" — tıbbi uygunluk ve fiyat <b>her zaman</b> insana devredilir</li>
+        <li>Studio / Decor — klinik için anlamlı değil; AI ile üretilmiş "sonuç" görseli tıbbi reklamda yanıltıcıdır</li>
+        <li>Forum eleştirileri (sahte yorum iddiaları) — gündeme getirme; sorulursa s. 7'deki cevabı kullan</li>
+      </ul>
+    </div>
+    <div class="box soft">
+      <h3>Takip e-postasına bırak (hızlı kazanımlar)</h3>
+      <ul>
+        <li>Free Consultation formu: e-posta alanının <i>name</i> ve <i>id</i> değeri düzeltilmeli</li>
+        <li>Çevrilmemiş anahtarlar: "home.Phone", "home.Chat with us"</li>
+        <li>Yorum satırındaki eski Tawk.to kodu temizlenebilir</li>
+        <li>Hair Analysis formuna isteğe bağlı e-posta + dil alanı</li>
+        <li>Meta Pixel / UTM yok — reklam ölçümü konuşulmalı</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page compact">
+  <h2>Ürün değerlendirmesi (1/2) — puanlara göre</h2>
+
+  <div class="prod inbox">
+    <div class="ph"><b>#1 Inboxly — Must Have · Phase 1</b><span class="s">84 / 100</span></div>
+    <div class="pb">
+      <table class="crit">
+        <tr><th>Kriter</th><th style="text-align:center">Puan</th><th>Gerekçe</th></tr>
+        <tr><td>Problem Fit (25)</td><td class="n">9</td><td>2 WhatsApp numarası + LiveChat; konuşmalar 3 kanala bölünmüş, birincil CTA WhatsApp.</td></tr>
+        <tr><td>Patient Journey Fit (20)</td><td class="n">9</td><td>İlk temas, fotoğraf değerlendirme, varış koordinasyonu ve post-op sorular WhatsApp'ta.</td></tr>
+        <tr><td>Automation Potential (15)</td><td class="n">8</td><td>Paket, otel, transfer, yöntem soruları sitede zaten yazılı → bilgi tabanı hazır.</td></tr>
+        <tr><td>Integration Feasibility (15)</td><td class="n">8</td><td>WhatsApp Business + web chat doğrudan destekli; WhatsApp Business API geçişi gerekir.</td></tr>
+        <tr><td>Commercial Impact (20)</td><td class="n">8</td><td>≤2 operasyon/gün: kaçan her nitelikli konuşma doğrudan gelir kaybı.</td></tr>
+        <tr><td>Complexity — ters (5)</td><td class="n">7</td><td>Kanal bağlama hızlı; asıl iş 8 dilde bilgi tabanı ve tıbbi sınırlar.</td></tr>
+      </table>
+      <div class="grid2">
+        <div><div class="lab">Toplantıdaki değer cümlesi</div><div class="say" style="margin-top:0">"Danışmanlarınız sıfırdan yazmaz: AI hastanın dilinde, sizin bilgilerinizden kaynaklı bir taslak hazırlar; danışman onaylar. Gece gelen mesaj sabaha kalmaz."</div></div>
+        <div><div class="lab">Neden "Must Have"</div><ul><li>Değer en hızlı burada: kanal zaten var, sadece toplanıyor</li><li>Övülen insan iletişimini değiştirmeden ölçekler</li><li>Engage'i besleyecek temiz lead verisini (dil, ülke, tedavi) üretir</li></ul></div>
+      </div>
+      <div class="lab">Skoru düşürebilecek risk</div><p>Klinik zaten çok kullanıcılı bir WhatsApp CRM'i (respond.io, Kommo vb.) kullanıyorsa Problem Fit 9 → 6 düşer, skor ≈ 77 olur ve Engage öne geçer. <b>S3 ile doğrula.</b></p>
+    </div>
+  </div>
+
+  <div class="prod engage">
+    <div class="ph"><b>#2 Callypso Engage — High Value · Phase 2</b><span class="s">80 / 100</span></div>
+    <div class="pb">
+      <table class="crit">
+        <tr><th>Kriter</th><th style="text-align:center">Puan</th><th>Gerekçe</th></tr>
+        <tr><td>Problem Fit (25)</td><td class="n">8</td><td>Uzun karar süreci + varış lojistiği + post-op takvimi tekrarlanabilir iletişim istiyor.</td></tr>
+        <tr><td>Patient Journey Fit (20)</td><td class="n">9</td><td>Lead → varış → operasyon → 12. ay → yorum → referans: yolculuğun en uzun kısmı.</td></tr>
+        <tr><td>Automation Potential (15)</td><td class="n">9</td><td>Wait/Condition akışları, WhatsApp dizileri, 180 gün geri kazanım şablonu.</td></tr>
+        <tr><td>Integration Feasibility (15)</td><td class="n">6</td><td>Laravel site, Shopify yok → form ve "tedavi tamamlandı" olayları webhook ile özel bağlanır.</td></tr>
+        <tr><td>Commercial Impact (20)</td><td class="n">8</td><td>2.200+ operasyon / 88 yorum → yorum ve geri kazanım akışı ölçülebilir değer.</td></tr>
+        <tr><td>Complexity — ters (5)</td><td class="n">6</td><td>E-ticaret odaklı ürünün kliniğe uyarlanması; 8 dilde şablon onayı.</td></tr>
+      </table>
+      <div class="grid2">
+        <div><div class="lab">Toplantıdaki değer cümlesi</div><div class="say" style="margin-top:0">"Operasyon tarihi kesinleştiği anda hasta kendi dilinde otel, sürücü, yıkama günü ve 10. gün bilgilerini doğru zamanda alır; 3. ve 12. ayda sonuç fotoğrafı ve yorum talebi kendiliğinden gider."</div></div>
+        <div><div class="lab">Neden "High Value", Must Have değil</div><ul><li>İlk temas sorununu tek başına çözmez</li><li>Özel entegrasyon ister; Inboxly verisi oturmadan segmentler zayıf kalır</li><li>"Lead scoring" ayrı bir özellik değil, segment kuralıyla kurulur</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page compact">
+  <h2>Ürün değerlendirmesi (2/2) ve skor duyarlılığı</h2>
+
+  <div class="prod voice">
+    <div class="ph"><b>#3 AI Voice Agent — Optional · Phase 3 (koşullu)</b><span class="s">65 / 100</span></div>
+    <div class="pb">
+      <table class="crit">
+        <tr><th>Kriter</th><th style="text-align:center">Puan</th><th>Gerekçe</th></tr>
+        <tr><td>Problem Fit (25)</td><td class="n">6</td><td>Tek uluslararası hat aynı zamanda WhatsApp hattı; ama yorumlarda arama değil mesaj öne çıkıyor. Çağrı hacmi bilinmiyor.</td></tr>
+        <tr><td>Patient Journey Fit (20)</td><td class="n">7</td><td>İlk temas + ön konsültasyon randevusu için güçlü; post-op'ta sınırlı (yalnızca inbound tarif edilmiş).</td></tr>
+        <tr><td>Automation Potential (15)</td><td class="n">8</td><td>Dil tespiti, niyet, SSS, randevu, CRM uçtan uca.</td></tr>
+        <tr><td>Integration Feasibility (15)</td><td class="n">5</td><td>Mobil/WhatsApp numarası → VoIP hat ya da "cevapsızsa yönlendir" kurgusu gerekir.</td></tr>
+        <tr><td>Commercial Impact (20)</td><td class="n">7</td><td>Arayan uluslararası hasta yüksek niyetli; etki çağrı hacmine bağlı.</td></tr>
+        <tr><td>Complexity — ters (5)</td><td class="n">5</td><td>Telefon altyapısı + 8 dilde ses kalitesi testi + tıbbi sınırlar.</td></tr>
+      </table>
+      <div class="grid2">
+        <div><div class="lab">Toplantıdaki değer cümlesi</div><div class="say" style="margin-top:0">"İstanbul'da saat 23:40 iken New York 16:40. O saatte arayan hasta, kendi dilinde karşılanır, sorusu yanıtlanır, ön görüşmesi takvime yazılır."</div></div>
+        <div><div class="lab">Neden "Optional"</div><ul><li>Hastaların ağırlıkla WhatsApp kullandığına dair kanıt var</li><li>WhatsApp sesli arama desteği CallypsoTech sitesinde belirtilmemiş</li><li>Karar, 2 haftalık çağrı log'una bağlanmalı</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Skor duyarlılığı — hangi cevap neyi değiştirir?</h2>
+  <p class="small">Aynı ağırlıklarla yeniden hesaplandı. Toplantıda gelen cevaba göre sıralamayı yerinde güncelle.</p>
+  <table class="sens">
+    <tr><th style="width:52mm">Klinikten gelen cevap</th><th>Değişen kriter</th><th style="width:22mm;text-align:center">Yeni skor</th><th style="width:40mm">Sonuç</th></tr>
+    <tr><td>"Zaten çok kullanıcılı WhatsApp CRM'i kullanıyoruz" (S3)</td><td>Inboxly Problem 9→6</td><td class="n">84 → <span class="delta-down">77</span></td><td>Engage #1 olur; Inboxly yerine mevcut araca entegrasyon</td></tr>
+    <tr><td>"Mesaj sabaha kalmıyor, gece nöbetçi danışman var" (S2)</td><td>Inboxly Commercial 8→6</td><td class="n">84 → <span class="delta-down">80</span></td><td>Inboxly = Engage; pilotu Engage ile başlatmayı düşün</td></tr>
+    <tr><td>"HubSpot / CRM'imiz var, webhook açık" (S8)</td><td>Engage Integration 6→8</td><td class="n">80 → <span class="delta-up">83</span></td><td>Engage, Inboxly'ye yaklaşır; paralel başlatılabilir</td></tr>
+    <tr><td>"Hasta listemiz e-posta/WhatsApp onaysız" (S10)</td><td>Engage Integration 6→4, Commercial 8→7</td><td class="n">80 → <span class="delta-down">75</span></td><td>Önce onay (opt-in) toplama; Engage Phase 2'de kalır</td></tr>
+    <tr><td>"Günde çok sayıda arama geliyor, gece cevapsız kalıyor" (S11–S12)</td><td>Voice Problem 6→8, Commercial 7→8</td><td class="n">65 → <span class="delta-up">72</span></td><td>Voice Phase 2'ye çekilebilir (Engage ile birlikte)</td></tr>
+    <tr><td>+ "Sabit / VoIP hattımız var"</td><td>+ Voice Integration 5→7</td><td class="n">72 → <span class="delta-up">75</span></td><td>Voice, Engage ile aynı seviyeye gelir → "High Value"</td></tr>
+    <tr><td>"Bizi kimse aramıyor, hepsi WhatsApp" (S11)</td><td>Voice Problem 6→4, Commercial 7→5</td><td class="n">65 → <span class="delta-down">56</span></td><td>Voice "Not Recommended"</td></tr>
+  </table>
+  <div class="box accent"><b>Kural:</b> Sıralamayı cevaba göre değiştirmek güven kazandırır. "Analizimiz şunu söylüyordu, sizin cevabınızla şuna döndü" cümlesini kullan.</div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page compact">
+  <h2>Bulgular ve çözümler</h2>
+
+  <div class="finding"><div class="fh"><b>B1 · Konuşmalar üç kanala bölünmüş</b><span class="badge V">Verified</span></div>
+    <div class="fb"><div class="lab">Kanıt</div><div>WhatsApp 534… (6 dil), WhatsApp 552… (TR, KO), LiveChat web chat. Telefon numarası = WhatsApp hattı.</div>
+    <div class="lab">Sor</div><div class="ask" style="margin:0"><b>S1/S4</b> "Bu iki numarayı ve LiveChat'i kim, hangi cihazdan yönetiyor? Bir hastanın geçmişini tek yerde görebiliyor musunuz?"</div>
+    <div class="lab">Çözüm</div><div><b>Inboxly</b>: iki numara + web chat tek kutu, atama/etiket/not, SLA takibi.</div></div></div>
+
+  <div class="finding"><div class="fh"><b>B2 · Saat farkı: hastanın gündüzü kliniğin gecesi</b><span class="badge I">Potential Gap</span></div>
+    <div class="fb"><div class="lab">Kanıt</div><div>Son 20 Trustpilot yorumunun 6'sı ABD, 2'si Avustralya, 1'i Kanada. Sitede çalışma saati yok. İstanbul 23:40 = New York 16:40 = Los Angeles 13:40.</div>
+    <div class="lab">Sor</div><div class="ask" style="margin:0"><b>S2</b> "Gece 23:00'ten sonra gelen bir WhatsApp mesajına ilk yanıt ne zaman gidiyor?"</div>
+    <div class="lab">Çözüm</div><div><b>Inboxly</b> mesai dışı ilk yanıt + fotoğraf talebi + sabah özeti · çağrılar için koşullu <b>Voice Agent</b>.</div></div></div>
+
+  <div class="finding"><div class="fh"><b>B3 · Form alan hatası lead verisini bozuyor</b><span class="badge C">Verified Gap</span></div>
+    <div class="fb"><div class="lab">Kanıt</div><div>Free Consultation formunda e-posta kutusu <i>name="phone"</i> + aynı id. Hair Analysis formu e-posta toplamıyor; newsletter yok.</div>
+    <div class="lab">Sor</div><div class="ask" style="margin:0"><b>S5</b> "Formdan gelen kayıtlarda e-posta adresini görebiliyor musunuz?"</div>
+    <div class="lab">Çözüm</div><div>Ücretsiz düzeltme (takip e-postası) → ardından form → webhook → <b>Engage</b> profil ve takip dizisi.</div></div></div>
+
+  <div class="finding"><div class="fh"><b>B4 · Varış öncesi lojistik yoğun</b><span class="badge V">Verified</span></div>
+    <div class="fb"><div class="lab">Kanıt</div><div>5★ otel, refakatçi, 6 transfer (yıkama günü dahil), Euro ödeme. Yorumlarda havalimanı ve sürücü koordinasyonu öne çıkıyor.</div>
+    <div class="lab">Sor</div><div class="ask" style="margin:0"><b>S7</b> "Uçuş bilgisi, otel ve sürücü bilgisi hastaya bugün nasıl ve kim tarafından gönderiliyor?"</div>
+    <div class="lab">Çözüm</div><div><b>Engage</b>: T-7 hazırlık · T-2 uçuş teyidi · T-1 sürücü & otel · operasyon sabahı hatırlatma — hastanın dilinde.</div></div></div>
+
+  <div class="finding"><div class="fh"><b>B5 · Post-op takip kişiye bağlı</b><span class="badge I">Potential Gap</span></div>
+    <div class="fb"><div class="lab">Kanıt</div><div>Yorumlar: "monthly check-ins", "ongoing post-op support". Blog: 10. gün kabuk, şok dökülme içerikleri hazır.</div>
+    <div class="lab">Sor</div><div class="ask" style="margin:0"><b>S9</b> "Aylık kontrolleri kim takip ediyor? 12. ayda hastaların ne kadarından sonuç fotoğrafı alıyorsunuz?"</div>
+    <div class="lab">Çözüm</div><div><b>Engage</b>: Gün 1 / 10, Ay 1–3, 3/6/12 fotoğraf talebi; gelen yanıtlar <b>Inboxly</b>'de, gerekirse doktora.</div></div></div>
+
+  <div class="finding"><div class="fh"><b>B6 · Yorum hacmi operasyon hacminin çok altında</b><span class="badge C">Verified Gap</span></div>
+    <div class="fb"><div class="lab">Kanıt</div><div>2.200+ operasyon / 88 Trustpilot yorumu (~%4). Google'da üçüncü taraf dizine göre ~511 yorum (doğrulanmadı).</div>
+    <div class="lab">Sor</div><div class="ask" style="margin:0"><b>S10</b> "Yorumu bugün hangi anda istiyorsunuz — taburcu günü mü, sonuç görünürken mi?"</div>
+    <div class="lab">Çözüm</div><div><b>Engage</b>: Ay 3 ve Ay 12'de hastanın dilinde yorum talebi + referans mesajı. Teşvikli yorum yok, sadece talep.</div></div></div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page compact">
+  <h2>Soru bankası ve not alanları</h2>
+  <p class="small">Her soru bir skoru doğrular. Cevabı yaz, sonra s. 4'teki tabloya göre sıralamayı güncelle.</p>
+  <table>
+    <tr><th style="width:8mm">#</th><th>Soru</th><th style="width:24mm">Doğruladığı</th><th style="width:58mm">Not</th></tr>
+    <tr><td class="t">S1</td><td>Hasta talepleri yüzde olarak hangi kanaldan geliyor: WhatsApp, telefon, form, LiveChat, Instagram?</td><td><span class="badge MH">Inboxly</span> <span class="badge OP">Voice</span></td><td><div class="note">WA ___% · Tel ___% · Form ___% · Chat ___% · IG ___%</div></td></tr>
+    <tr><td class="t">S2</td><td>Mesai saatleriniz nedir? 23:00'ten sonra gelen mesaja ilk yanıt ne zaman gidiyor?</td><td><span class="badge MH">Inboxly</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S3</td><td>WhatsApp'ı hangi araçla yönetiyorsunuz (telefon uygulaması, Business App, bir CRM)?</td><td><span class="badge MH">Inboxly</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S4</td><td>İki WhatsApp numarası neden var? Kaç danışman, hangi dilleri konuşuyor?</td><td><span class="badge MH">Inboxly</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S5</td><td>Form kayıtları nereye düşüyor? E-posta adresini görebiliyor musunuz?</td><td><span class="badge HV">Engage</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S6</td><td>Aylık kaç yeni talep geliyor; bunların kaçı konsültasyona, kaçı operasyona dönüşüyor?</td><td>Tümü (baz çizgi)</td><td><div class="note">Talep ___ · Konsültasyon ___ · Operasyon ___</div></td></tr>
+    <tr><td class="t">S7</td><td>Operasyon tarihi kesinleşince hastaya hangi mesajlar, kim tarafından gidiyor?</td><td><span class="badge HV">Engage</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S8</td><td>Bir CRM ya da hasta takip tablosu kullanıyor musunuz? Webhook/API açılabilir mi?</td><td><span class="badge HV">Engage</span> <span class="badge OP">Voice</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S9</td><td>Post-op kontrolleri kim takip ediyor; 12. ayda kaç hastadan fotoğraf alıyorsunuz?</td><td><span class="badge HV">Engage</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S10</td><td>Eski lead ve hastalardan WhatsApp/e-posta için açık onay (opt-in) var mı? Yorumu hangi anda istiyorsunuz?</td><td><span class="badge HV">Engage</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S11</td><td>Günde kaç telefon araması geliyor? Uluslararası hastalar normal arama mı, WhatsApp araması mı yapıyor?</td><td><span class="badge OP">Voice</span></td><td><div class="note">Günlük ___ · WA arama ___%</div></td></tr>
+    <tr><td class="t">S12</td><td>Cevapsız çağrıları görebiliyor musunuz? 2 haftalık çağrı listesini paylaşabilir misiniz (saat, ülke kodu)?</td><td><span class="badge OP">Voice</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S13</td><td>Sabit / VoIP bir hat açmak ya da cevapsız çağrıyı yönlendirmek mümkün mü?</td><td><span class="badge OP">Voice</span></td><td><div class="note"></div></td></tr>
+    <tr><td class="t">S14</td><td>Karar kimde, bütçe ve başlangıç zamanı ne olur? Reklama ayda yaklaşık ne harcıyorsunuz?</td><td>Kapanış</td><td><div class="note"></div></td></tr>
+  </table>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page compact">
+  <h2>İtiraz cevapları</h2>
+  <table>
+    <tr><th style="width:52mm">İtiraz</th><th>Cevap</th></tr>
+    <tr><td><b>"Hastalarımız insanla konuşmak istiyor."</b></td><td>Katılıyoruz; yorumlarınız bunu gösteriyor. Inboxly önce <b>taslak modunda</b> çalışır: AI yazar, danışmanınız onaylar. Sadece tekrarlayan sorular (otel dahil mi, transfer kaç tane) otomatiğe alınır.</td></tr>
+    <tr><td><b>"AI yanlış tıbbi bilgi verirse?"</b></td><td>Yanıtlar yalnızca sizin bilgi tabanınızdan ve kaynak göstererek gelir. Greft sayısı, uygunluk, fiyat ve ilaç soruları kuralla <b>her zaman</b> insana devredilir.</td></tr>
+    <tr><td><b>"WhatsApp'ta zaten hızlıyız."</b></td><td>Doğru, yorumlar bunu söylüyor. Soru şu: bunu ölçebiliyor musunuz ve ekip büyüyünce, gece ve 8 dilde de aynı hız korunuyor mu? Pilotun ilk çıktısı bu ölçüm olur.</td></tr>
+    <tr><td><b>"Telefonu AI'ya bırakmak riskli."</b></td><td>Bu yüzden Voice Agent'ı ilk sıraya koymadık (65/100, Optional). Önce 2 haftalık çağrı verisi; sonra sadece <b>cevapsız kalan</b> çağrılar için pilot.</td></tr>
+    <tr><td><b>"KVKK / GDPR, sağlık verisi?"</b></td><td>CallypsoTech sitesi SOC 2 Type II, GDPR ve KVKK uyumu beyan ediyor; pilot öncesi DPA ve veri konumu yazılı teyit edilir. Pazarlama mesajları yalnızca açık onayla gönderilir.</td></tr>
+    <tr><td><b>"Engage e-ticaret aracı değil mi?"</b></td><td>Evet, konumlandırması e-ticaret. Bu yüzden 80 puan ve Phase 2: klinik olayları (form, operasyon tarihi, tedavi tamamlandı) webhook ile bağlanır. Önce Inboxly verisi oturmalı.</td></tr>
+    <tr><td><b>"Sahte yorum iddiaları var, yorum istemek risk."</b></td><td>Akış teşvik vermez, sadece gerçek hastaya sonuç görünürken (3. / 12. ay) talep gönderir. Doğal ve güncel yorum hacmi bu iddialara karşı en iyi cevaptır.</td></tr>
+  </table>
+
+  <h2>Pilot planı ve baz çizgi</h2>
+  <div class="grid3" style="margin-bottom:3mm">
+    <div class="box" style="border-top:3px solid var(--inbox)"><div class="eyebrow" style="color:var(--inbox)">PHASE 1 · 0–6. HAFTA</div><h3>Inboxly</h3><ul><li>2 WA numarası + LiveChat → tek kutu</li><li>8 dilde bilgi tabanı</li><li>Tıbbi/fiyat → zorunlu devir</li><li>Form hatası düzeltilir</li></ul></div>
+    <div class="box" style="border-top:3px solid var(--engage)"><div class="eyebrow" style="color:var(--engage)">PHASE 2 · 6–12. HAFTA</div><h3>Callypso Engage</h3><ul><li>Form + Inboxly webhook → profil</li><li>Varış öncesi lojistik dizisi</li><li>Post-op takvimi + yorum talebi</li><li>90/180 gün geri kazanım</li></ul></div>
+    <div class="box" style="border-top:3px solid var(--voice)"><div class="eyebrow" style="color:var(--voice)">PHASE 3 · KOŞULLU</div><h3>AI Voice Agent</h3><ul><li>Önce 2 haftalık çağrı log'u</li><li>Cevapsız çağrı yönlendirme pilotu</li><li>Diller: EN + AR + DE ile test</li><li>Karar: hacim + WA arama desteği</li></ul></div>
+  </div>
+  <table>
+    <tr><th>KPI (pilot öncesi doldur)</th><th style="width:30mm">Bugün</th><th style="width:30mm">6. hafta hedefi</th><th style="width:26mm">Ürün</th></tr>
+    <tr><td>İlk yanıt süresi (mesai içi / mesai dışı)</td><td><span class="fill"></span></td><td><span class="fill"></span></td><td>Inboxly</td></tr>
+    <tr><td>Mesai dışı mesajlarda 15 dk içinde yanıt oranı</td><td><span class="fill"></span></td><td><span class="fill"></span></td><td>Inboxly</td></tr>
+    <tr><td>Talep → konsültasyon oranı</td><td><span class="fill"></span></td><td><span class="fill"></span></td><td>Inboxly + Engage</td></tr>
+    <tr><td>Konsültasyon → operasyon oranı</td><td><span class="fill"></span></td><td><span class="fill"></span></td><td>Engage</td></tr>
+    <tr><td>Aylık yeni yorum sayısı</td><td><span class="fill"></span></td><td><span class="fill"></span></td><td>Engage</td></tr>
+    <tr><td>Günlük cevapsız çağrı</td><td><span class="fill"></span></td><td><span class="fill"></span></td><td>Voice (karar)</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="box accent"><h3>Kapanış cümlesi</h3><p style="margin:0"><i>"6 haftalık Inboxly pilotuyla başlayalım; 6. haftada ilk yanıt süresi ve mesai dışı yanıt oranıyla birlikte Engage takvimine karar verelim. Çağrı listesini paylaşırsanız Voice Agent'ı da veriye göre değerlendiririz."</i></p></div>
+    <div class="box soft"><h3>Sonraki adımlar</h3><ul class="chk-list" style="margin:0"><li><span class="chk"></span>24 saat içinde takip e-postası (hızlı düzeltmeler + pilot kapsamı)</li><li><span class="chk"></span>Bilgi tabanı için 8 dilde SSS listesi talebi</li><li><span class="chk"></span>2 haftalık çağrı log'u talebi</li><li><span class="chk"></span>Pilot başlangıç tarihi: <span class="fill"></span></li></ul></div>
+  </div>
+</section>
+
+</body>
+</html>
