@@ -54,6 +54,9 @@
   .pk tr.tot td:first-child { color: var(--ink); }
   table.tight td, table.tight th { padding: 1.3mm 2.2mm; }
   .steps div { font-size: 8.6pt; }
+  .proj td { padding-top: 1.35mm; padding-bottom: 1.35mm; }
+  .proj tr.sec td { background: var(--soft); font-weight: 700; color: var(--ink); text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: .04em; }
+  .src { display: block; font-size: 7pt; color: var(--muted); }
   ul, ol { margin: 0 0 2.5mm; padding-left: 4.6mm; }
   li { margin-bottom: 1.1mm; }
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin: 1mm 0 4mm; }
@@ -62,7 +65,7 @@
   .steps div em { font-style: normal; color: var(--accent); font-weight: 700; margin-right: 1mm; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
   .tag { display: inline-block; font-size: 7.2pt; font-weight: 600; padding: .4mm 1.6mm; border-radius: 1mm; background: var(--accent-soft); color: var(--accent); }
-  .sign { margin-top: 6mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; font-size: 8.2pt; color: var(--muted); }
+  .sign { margin-top: 4mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; font-size: 8.2pt; color: var(--muted); }
   .sign div { border-top: 1px solid var(--ink); padding-top: 1.5mm; }
 </style>
 </head>
@@ -96,19 +99,7 @@
   </div>
 
   <div class="row">
-    <div class="k">3 · Fiyat<small>önerilen: Büyüme paketi</small></div>
-    <div>
-      <div class="price">
-        <div class="main"><span>Kurulum · tek seferlik · iki site</span><b>300.000 TL</b></div>
-        <div class="main"><span>Aylık · platform + yönetim · iki site</span><b>65.000 TL / ay</b></div>
-      </div>
-      <div class="callout">Aylık ücret, ayda <b>9 terk edilmiş sepetin</b> geri kazanılmasıyla karşılanıyor. Bu, ayda terk edilen ~1.050 sepetin <b>%1'inden az</b>.</div>
-      <p class="note">Aşama 1 + 2 · tüm entegrasyonlar dahil · diğer paketler: sayfa 3</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="k">4 · Süre ve<br>sonraki adım</div>
+    <div class="k">3 · Süre ve<br>sonraki adım</div>
     <div>
       <p>Olur derseniz <b>12 Ekim Pazartesi</b> başlıyoruz.</p>
       <ul>
@@ -116,10 +107,11 @@
         <li><b>20 Kasım:</b> Aşama 2 canlı (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi), yani <b>Black Friday'den önce</b>.</li>
         <li>Ödeme her aşamanın <b>başında %50, tesliminde %50</b>. Aylık ücret 20 Kasım'dan sonra başlar.</li>
       </ul>
+      <p class="note">Tahmini fayda projeksiyonu: sayfa 3 · Fiyat ve paketler: sayfa 4</p>
     </div>
   </div>
 
-  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>1 / 4</span></div>
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>1 / 5</span></div>
 </section>
 
 <!-- ============ SAYFA 2: DURUM + ÇÖZÜM ============ -->
@@ -161,7 +153,61 @@
   <div class="callout"><b>Örnek akış, Sleeptown:</b> Hybrid 5 Zone 160x200 sepete eklendi, ödeme yok.<br>
   <b>1 saat:</b> e-posta (sepetteki yatak, seçilen ölçü, 7 taksit tutarı) · <b>24 saat:</b> yorumlar ve Oeko-Tex sertifikası · <b>72 saat:</b> gerçekten azaldıysa "bu ölçüde son X adet" · <b>satın aldı:</b> akış durur, 3 gün sonra aynı ölçüde yatak pedi önerisi.</div>
 
-  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>2 / 4</span></div>
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>2 / 5</span></div>
+</section>
+
+<!-- ============ SAYFA 3: PROJEKSİYON ============ -->
+<section class="page">
+  <div class="eyebrow">Tahmini fayda</div>
+  <h2>Entegrasyon sonrası projeksiyon: Aşama 1, yalnızca Homedius</h2>
+  <p>Hesap yalnızca sizin rakamlarınızdan ve Aşama 1'de canlıya çıkan iki akıştan (<b>sepet terk</b> ve <b>pop-up + hoş geldin</b>) yapıldı. Oranlar, e-posta / SMS / WhatsApp otomasyonlarında yaygın görülen aralıklardan seçilmiş varsayımlardır. Üç senaryo bant olarak verilmiştir.</p>
+
+  <table class="pk proj">
+    <thead><tr><th></th><th>Muhafazakâr</th><th class="rec">Baz</th><th>İyimser</th></tr></thead>
+    <tbody class="num">
+      <tr class="sec"><td colspan="4">Sepet terk akışı</td></tr>
+      <tr><td>Aylık terk edilen sepet <span class="src">sizin rakamınız</span></td><td>1.050</td><td class="rec">1.050</td><td>1.050</td></tr>
+      <tr><td>İletişim bilgisi alınan (tanınan) sepet</td><td>%20 · 210</td><td class="rec">%30 · 315</td><td>%40 · 420</td></tr>
+      <tr><td>Mesajla geri dönüp satın alan</td><td>%4 · <b>8</b></td><td class="rec">%6 · <b>19</b></td><td>%8 · <b>34</b></td></tr>
+      <tr class="sec"><td colspan="4">Pop-up + hoş geldin akışı</td></tr>
+      <tr><td>Aylık ziyaretçi <span class="src">746 × 30</span></td><td>22.380</td><td class="rec">22.380</td><td>22.380</td></tr>
+      <tr><td>Pop-up'tan izinli kayıt</td><td>%2 · 448</td><td class="rec">%3 · 671</td><td>%4 · 895</td></tr>
+      <tr><td>30 gün içinde ilk siparişe dönen</td><td>%1,5 · <b>7</b></td><td class="rec">%2,5 · <b>17</b></td><td>%3,5 · <b>31</b></td></tr>
+      <tr class="tot"><td>Aylık ek sipariş</td><td>15</td><td class="rec">36</td><td>65</td></tr>
+      <tr class="tot"><td>Aylık ek ciro*</td><td>~112.000 TL</td><td class="rec">~270.000 TL</td><td>~487.000 TL</td></tr>
+      <tr><td>12 aylık ek ciro*</td><td>~1,35 milyon TL</td><td class="rec"><b>~3,24 milyon TL</b></td><td>~5,85 milyon TL</td></tr>
+      <tr><td>Bugünkü siparişe göre artış <span class="src">~60 / ay</span></td><td>+%25</td><td class="rec"><b>+%60</b></td><td>+%108</td></tr>
+      <tr><td>3 ayda biriken izinli kitle (pop-up)</td><td>~1.340 kişi</td><td class="rec">~2.010 kişi</td><td>~2.690 kişi</td></tr>
+    </tbody>
+  </table>
+  <p class="note">* Ek sipariş × 7.499 TL (Mocca Tek Kişilik, sitenizdeki fiyat). Ortalama sepet tutarınız T-Soft'tan alındığında hesap güncellenecek. Bugünkü sipariş: günde 2 × 30. İki akışta aynı kişi olabilir. Bu küçük örtüşme düşülmemiştir.</p>
+
+  <div class="two" style="margin-top:3mm">
+    <div>
+      <h3>Bu hesaba katılmayanlar (ek fayda)</h3>
+      <ul style="font-size:8.4pt">
+        <li><b>Sleeptown:</b> Aynı tablo var, ama bu projeksiyona hiç dahil değil.</li>
+        <li><b>Ödeme terk:</b> Ödeme sayfasında e-posta ve telefonunu yazıp bırakan kişi.</li>
+        <li><b>Stok gelince:</b> Homedius'ta 23 tükenmiş ürün ve Sleeptown'da ölçü bazında stok dışı ürünler.</li>
+        <li><b>Fiyat düşüşü ve ürün inceleme terk</b> (Aşama 2).</li>
+        <li><b>Yorum toplama:</b> Homedius'ta 192 ürün sayfasında hiç yorum yok.</li>
+        <li><b>Çapraz satış:</b> Ölçüye göre ped ve nevresim, misafir kiti (Aşama 3).</li>
+        <li><b>Reklam verimliliği:</b> Satın alan kişiye reklam gösterilmeye devam edilmez.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Nasıl ölçülecek</h3>
+      <ul style="font-size:8.4pt">
+        <li>Her akışta mesaj gönderilmeyen <b>%10'luk bir kontrol grubu</b> tutulur. Ek satış, bu grupla karşılaştırılarak ölçülür.</li>
+        <li>Engage panelinde akış, kanal ve marka bazında ciro görünür.</li>
+        <li>İlk 30 gün sonunda gerçek oranlarınız ölçülür ve projeksiyon bu oranlarla güncellenir.</li>
+        <li>Takip edilen göstergeler: tanınan ziyaretçi oranı, geri kazanılan sepet, Engage kaynaklı ciro payı.</li>
+      </ul>
+      <p class="note">Bu bir tahmindir, garanti değildir. Sonuç; trafik, kampanya ve stok durumuna göre değişir.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>3 / 5</span></div>
 </section>
 
 <!-- ============ SAYFA 3: AŞAMALAR + PAKETLER ============ -->
@@ -190,8 +236,13 @@
   </table>
   <p class="note">Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.</p>
 
-  <div class="eyebrow" style="margin-top:3mm">Paketler</div>
-  <h2>Aynı sistemin üç hali</h2>
+  <div class="eyebrow" style="margin-top:3mm">Fiyat</div>
+  <h2>Önerilen: Büyüme paketi <span class="note" style="font-weight:400">· Aşama 1 + 2 · tüm entegrasyonlar dahil</span></h2>
+  <div class="price">
+    <div class="main"><span>Kurulum · tek seferlik · iki site</span><b>300.000 TL</b></div>
+    <div class="main"><span>Aylık · platform + yönetim · iki site</span><b>65.000 TL / ay</b></div>
+  </div>
+  <h3 style="margin-top:3mm">Paketler: aynı sistemin üç hali</h3>
   <table class="pk">
     <thead><tr><th></th><th>Başlangıç</th><th class="rec">Büyüme · önerilen</th><th>Tam</th></tr></thead>
     <tbody>
@@ -204,13 +255,10 @@
       <tr><td>Rapor ve görüşme</td><td>Aylık rapor</td><td class="rec"><b>Rapor + aylık görüşme</b></td><td>Rapor + 2 haftada bir</td></tr>
       <tr class="tot"><td>Kurulum (tek seferlik)</td><td class="num">180.000 TL</td><td class="rec num">300.000 TL</td><td class="num">440.000 TL</td></tr>
       <tr class="tot"><td>Aylık</td><td class="num">45.000 TL</td><td class="rec num">65.000 TL</td><td class="num">90.000 TL</td></tr>
-      <tr><td>Aylığı karşılayan sepet*</td><td>6</td><td class="rec"><b>9</b></td><td>12</td></tr>
     </tbody>
   </table>
-  <p class="note">* Aylık ücret ÷ 7.499 TL (Mocca Tek Kişilik). Ayda terk edilen ~1.050 sepetin yanında. Yalnızca Homedius, yalnızca sepet terk akışı.<br>
-  <b>Aylık ücrete dahil:</b> Callypso Engage platformu (iki marka, İYS desteği, kullanıcı rolleri) · sunucu, veritabanı ve e-posta gönderim altyapısı · akışların izlenmesi ve iyileştirilmesi · paketteki kampanya kurulumları · ciro raporu · teknik destek (iş günü, 1 iş günü içinde dönüş).</p>
 
-  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>3 / 4</span></div>
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>4 / 5</span></div>
 </section>
 
 <!-- ============ SAYFA 4: ENTEGRASYON, KAPSAM DIŞI, ŞARTLAR ============ -->
@@ -234,7 +282,7 @@
 
   <div class="two">
     <div>
-      <div class="eyebrow" style="margin-top:2mm">Kapsam dışı</div>
+      <div class="eyebrow" style="margin-top:0">Kapsam dışı</div>
       <ol style="font-size:8.4pt">
         <li><b>SMS ve WhatsApp ileti ücretleri</b>, Netgsm / Meta / 360dialog hesap ücretleri, İYS aboneliği. Operatöre doğrudan ödenir ya da maliyetine yansıtılır.</li>
         <li><b>Reklam yönetimi ve bütçesi.</b> Ajansınızda kalır. Biz kitle senkronunu kurarız.</li>
@@ -248,7 +296,7 @@
       </ol>
     </div>
     <div>
-      <div class="eyebrow" style="margin-top:2mm">Ödeme ve şartlar</div>
+      <div class="eyebrow" style="margin-top:0">Ödeme ve şartlar</div>
       <ul style="font-size:8.4pt">
         <li>Her aşamanın <b>başında %50, tesliminde %50</b>.<br>Büyüme: 12 Eki 90.000 · 30 Eki 90.000 · 2 Kas 60.000 · 20 Kas 60.000 TL.</li>
         <li><b>Aylık ücret</b> paketin son aşaması teslim edilince başlar (Büyüme: 20 Kasım), her ay başında faturalanır. İlk 6 ay sözleşmeli, sonra aylık devam eder.</li>
@@ -256,7 +304,8 @@
         <li>Takvim, erişimlerin başlangıç gününde verilmesine bağlıdır.</li>
         <li>Fiyatlar KDV hariçtir. Teklif <b>6 Kasım 2026</b>'ya kadar geçerlidir.</li>
       </ul>
-      <div class="eyebrow" style="margin-top:4mm">Başlamak için sizden</div>
+      <p style="font-size:8.4pt;margin-top:1mm"><b>Aylık ücrete dahil:</b> Callypso Engage platformu (iki marka, İYS desteği, kullanıcı rolleri) · sunucu, veritabanı ve e-posta altyapısı · akışların izlenmesi ve iyileştirilmesi · paketteki kampanya kurulumları · ciro raporu · teknik destek (1 iş günü içinde dönüş).</p>
+      <div class="eyebrow" style="margin-top:3mm">Başlamak için sizden</div>
       <ol style="font-size:8.4pt">
         <li>Paket seçimi ve onay (e-posta ile "olur" yeterli)</li>
         <li>T-Soft panel / API erişimi (iki mağaza)</li>
@@ -268,7 +317,7 @@
     </div>
   </div>
 
-  <div class="callout" style="margin-top:3mm"><b>Olur derseniz:</b> 12 Ekim Pazartesi başlıyorum. Aşama 1, 30 Ekim'de iki sitede canlı.</div>
+  <div class="callout" style="margin-top:1mm"><b>Olur derseniz:</b> 12 Ekim Pazartesi başlıyorum. Aşama 1, 30 Ekim'de iki sitede canlı.</div>
 
   <div class="sign">
     <div>Hazırlayan · Callypso Engage</div>
@@ -276,7 +325,7 @@
     <div>Tarih</div>
   </div>
 
-  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>4 / 4</span></div>
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>5 / 5</span></div>
 </section>
 
 </body>

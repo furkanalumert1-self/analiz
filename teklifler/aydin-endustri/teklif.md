@@ -13,16 +13,9 @@
 
 **Çözüm.** İki sitedeki ziyaretçiyi izinli olarak tanıyan, sepette veya üründe bırakan herkese ürün, ölçü, renk ve stok bilgisiyle e-posta, SMS ve WhatsApp'tan otomatik dönen bir Callypso Engage kurulumu. T-Soft dahil bütün entegrasyonlar bu kurulumun içinde.
 
-**Fiyat (önerilen: Büyüme paketi, Aşama 1 + 2, tüm entegrasyonlar dahil)**
-
-| | Tutar |
-|---|---|
-| Kurulum (tek seferlik, iki site) | **300.000 TL** |
-| Aylık (platform + yönetim, iki site) | **65.000 TL / ay** |
-
-Aylık ücret, ayda **9 terk edilmiş sepetin** geri kazanılmasıyla karşılanıyor. Bu, ayda terk edilen yaklaşık 1.050 sepetin %1'inden az.
-
 **Süre ve sonraki adım.** Olur derseniz **12 Ekim Pazartesi** başlıyoruz. Aşama 1 (pop-up, sepet terk, hoş geldin) **30 Ekim'de canlı**, yani 11.11'den önce. Aşama 2 (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi) **20 Kasım'da canlı**, yani Black Friday'den (27 Kasım) önce. Ödeme her aşamanın başında %50, tesliminde %50.
+
+Tahmini fayda projeksiyonu: bölüm 4 · Fiyat ve paketler: bölüm 6
 
 ---
 
@@ -57,7 +50,40 @@ Sitelerinizi incelerken gördüklerimiz (3 Ekim 2026, herkese açık sayfalar):
 3. **Geri çağır.** Her segmente doğru zamanda doğru kanaldan mesaj gider. Örnek: Sleeptown'da Hybrid 5 Zone 160x200 sepete eklendi, ödeme yok. 1 saat sonra e-posta: sepetteki yatak, seçilen ölçü, 7 taksit tutarı. 24 saat sonra yorumlar ve Oeko-Tex sertifikası. 72 saat sonra, gerçekten azaldıysa "bu ölçüde son X adet". Satın alınca akış durur.
 4. **Ölç.** Her akışın getirdiği ciro, marka ve kanal bazında tek panelde görünür. Her akışta mesaj gönderilmeyen küçük bir kontrol grubu tutulur, böylece ek satış gerçekten ölçülür.
 
-## 4. Aşamalar
+## 4. Tahmini fayda: entegrasyon sonrası projeksiyon
+
+Hesap yalnızca Homedius rakamlarınızdan ve Aşama 1'de canlıya çıkan iki akıştan yapıldı: **sepet terk** ve **pop-up + hoş geldin**. Oranlar, e-posta / SMS / WhatsApp otomasyonlarında yaygın görülen aralıklardan seçilmiş varsayımlardır.
+
+| | Muhafazakâr | **Baz** | İyimser |
+|---|---|---|---|
+| **Sepet terk akışı** | | | |
+| Aylık terk edilen sepet (sizin rakamınız) | 1.050 | 1.050 | 1.050 |
+| İletişim bilgisi alınan (tanınan) sepet | %20 · 210 | %30 · 315 | %40 · 420 |
+| Mesajla geri dönüp satın alan | %4 · 8 | %6 · 19 | %8 · 34 |
+| **Pop-up + hoş geldin akışı** | | | |
+| Aylık ziyaretçi (746 × 30) | 22.380 | 22.380 | 22.380 |
+| Pop-up'tan izinli kayıt | %2 · 448 | %3 · 671 | %4 · 895 |
+| 30 gün içinde ilk siparişe dönen | %1,5 · 7 | %2,5 · 17 | %3,5 · 31 |
+| **Aylık ek sipariş** | **15** | **36** | **65** |
+| **Aylık ek ciro\*** | **~112.000 TL** | **~270.000 TL** | **~487.000 TL** |
+| 12 aylık ek ciro\* | ~1,35 milyon TL | ~3,24 milyon TL | ~5,85 milyon TL |
+| Bugünkü siparişe göre artış (~60 / ay) | +%25 | +%60 | +%108 |
+| 3 ayda biriken izinli kitle (pop-up) | ~1.340 kişi | ~2.010 kişi | ~2.690 kişi |
+
+\* Ek sipariş × 7.499 TL (Mocca Tek Kişilik, sitenizdeki fiyat). Ortalama sepet tutarınız T-Soft'tan alındığında hesap güncellenecek. Bugünkü sipariş: günde 2 × 30. İki akışta aynı kişi olabilir. Bu küçük örtüşme düşülmemiştir.
+
+**Bu hesaba katılmayanlar (ek fayda):**
+- Sleeptown. Aynı tablo var, ama bu projeksiyona hiç dahil değil.
+- Ödeme terk: ödeme sayfasında e-posta ve telefonunu yazıp bırakan kişi.
+- Stok gelince: Homedius'ta 23 tükenmiş ürün ve Sleeptown'da ölçü bazında stok dışı ürünler.
+- Fiyat düşüşü ve ürün inceleme terk (Aşama 2).
+- Yorum toplama: Homedius'ta 192 ürün sayfasında hiç yorum yok.
+- Çapraz satış: ölçüye göre ped ve nevresim, misafir kiti (Aşama 3).
+- Reklam verimliliği: satın alan kişiye reklam gösterilmeye devam edilmez.
+
+**Nasıl ölçülecek:** Her akışta mesaj gönderilmeyen %10'luk bir kontrol grubu tutulur. Ek satış, bu grupla karşılaştırılarak ölçülür. Engage panelinde akış, kanal ve marka bazında ciro görünür. İlk 30 gün sonunda gerçek oranlarınız ölçülür ve projeksiyon bu oranlarla güncellenir. Bu bir tahmindir, garanti değildir.
+
+## 5. Aşamalar
 
 Her aşama iki site (Homedius + Sleeptown) için birlikte yapılır.
 
@@ -69,7 +95,16 @@ Her aşama iki site (Homedius + Sleeptown) için birlikte yapılır.
 
 Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 
-## 5. Paketler
+## 6. Fiyat ve paketler
+
+**Önerilen: Büyüme paketi** (Aşama 1 + 2, tüm entegrasyonlar dahil)
+
+| | Tutar |
+|---|---|
+| Kurulum (tek seferlik, iki site) | **300.000 TL** |
+| Aylık (platform + yönetim, iki site) | **65.000 TL / ay** |
+
+### Paketler
 
 | | Başlangıç | **Büyüme (önerilen)** | Tam |
 |---|---|---|---|
@@ -82,13 +117,10 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 | Aylık rapor ve görüşme | Rapor | **Rapor + aylık görüşme** | Rapor + 2 haftada bir görüşme |
 | **Kurulum (tek seferlik)** | **180.000 TL** | **300.000 TL** | **440.000 TL** |
 | **Aylık** | **45.000 TL** | **65.000 TL** | **90.000 TL** |
-| Aylık ücreti karşılayan sepet sayısı* | 6 | **9** | 12 |
-
-\* Aylık ücret ÷ 7.499 TL (Mocca Tek Kişilik). Ayda terk edilen yaklaşık 1.050 sepetin yanında. Yalnızca Homedius, yalnızca sepet terk akışı.
 
 **Aylık ücrete dahil:** Callypso Engage platformu (iki marka, İYS desteği, kullanıcı rolleri) · sunucu, veritabanı ve e-posta gönderim altyapısı · akışların izlenmesi ve iyileştirilmesi · paketteki kampanya kurulumları · ciro raporu · teknik destek (iş günü, 1 iş günü içinde dönüş).
 
-## 6. Entegrasyonlar: hepsi dahil
+## 7. Entegrasyonlar: hepsi dahil
 
 | Entegrasyon | Ne için | Aşama |
 |---|---|---|
@@ -102,7 +134,7 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 | Meta reklam kitlesi | Satın alanı reklamdan çıkarma, almayanı yeniden hedefleme | 2 |
 | Kargo / sipariş durumu (T-Soft üzerinden) | Teslimat sonrası akışlar | 2 |
 
-## 7. Kapsam dışı
+## 8. Kapsam dışı
 
 Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 
@@ -116,7 +148,7 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 8. Pakette yazan sayının üstündeki aylık kampanya kurulumları ve dahil e-posta adedinin üstündeki gönderimler.
 9. Markalar arası (Homedius ↔ Sleeptown) ortak müşteri iletişimi, KVKK metniniz buna izin vermiyorsa yapılmaz.
 
-## 8. Ödeme ve şartlar
+## 9. Ödeme ve şartlar
 
 - Her aşamanın **başında %50, tesliminde %50**. Büyüme paketi: 12 Ekim'de 90.000 TL, 30 Ekim'de 90.000 TL, 2 Kasım'da 60.000 TL, 20 Kasım'da 60.000 TL.
 - **Aylık ücret**, paketin son aşaması teslim edildiğinde başlar (Büyüme: 20 Kasım) ve her ay başında faturalanır. Sözleşme ilk 6 ay için geçerlidir, sonra aylık devam eder.
@@ -124,7 +156,7 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 - Takvim, erişimlerin başlangıç gününde verilmesine bağlıdır. Erişimdeki gecikme kadar teslim tarihi kayar.
 - Fiyatlar KDV hariçtir. Teklif 6 Kasım 2026'ya kadar geçerlidir.
 
-## 9. Başlamak için sizden gerekenler
+## 10. Başlamak için sizden gerekenler
 
 1. Paket seçimi ve onay (bu sayfaya imza ya da e-posta ile "olur" yeterli)
 2. T-Soft panel / API erişimi (iki mağaza)

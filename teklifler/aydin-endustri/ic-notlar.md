@@ -38,10 +38,23 @@ Rakam gelirse: Durum satırındaki 7.499 TL ve 1.050'yi güncelle, Sleeptown'u e
 |---|---|---|---|
 | Kurulum aylığın 3–5 katı | 180k / 45k = 4,0× | 300k / 65k = 4,6× | 440k / 90k = 4,9× |
 | Aylık < aylık kayıp (~7,9 M TL terk sepet) | ✓ | ✓ | ✓ |
-| Aylığı karşılayan sepet (÷ 7.499) | 6 | 9 | 12 |
+| Aylığı karşılayan sepet (÷ 7.499), sadece iç kontrol, teklifte yok | 6 | 9 | 12 |
 | Toplam > 5.000 $ (kurulum, 48 TL/$) | ~$3.750 | **~$6.250** | ~$9.170 |
 
 Başlangıç paketi tek başına 5.000 $ altında. O paket çapa (az hali), satılması beklenen Büyüme.
+
+## Projeksiyon varsayımları (teklif bölüm 4)
+
+| Varsayım | Muhafazakâr | Baz | İyimser |
+|---|---|---|---|
+| Terk sepetten tanınan pay | %20 | %30 | %40 |
+| Tanınan sepetten satın alan | %4 | %6 | %8 |
+| Pop-up kayıt oranı (ziyaretçi) | %2 | %3 | %4 |
+| Kayıttan 30 günde ilk sipariş | %1,5 | %2,5 | %3,5 |
+
+- Yalnızca Homedius ve Aşama 1. Sleeptown ile Aşama 2-3 bilerek dışarıda bırakıldı, projeksiyonu muhafazakâr tutuyor.
+- Sepet tutarı yine 7.499 TL referansı. Müşteri gerçek AOV'yi verince 4. bölümdeki ciro satırlarını güncelle.
+- Oranlar sektör aralığı varsayımı, müşteri verisi değil. Teklifte de bu şekilde yazıyor.
 
 ## Takvim riskleri
 
@@ -49,7 +62,7 @@ Başlangıç paketi tek başına 5.000 $ altında. O paket çapa (az hali), sat�
 - WhatsApp Business doğrulaması ve şablon onayı Meta tarafında birkaç gün sürebilir. Aşama 1'in ilk günü başvur.
 - Engage'de T-Soft için hazır bağlantı yok. Connector kurulumun içinde, biz geliştiriyoruz (toplantı hazırlığındaki özellik kontrolü, 4 Ekim 2026).
 - Engage'de web push yok, teklifte kapsam dışı olarak yazıldı.
-- "6 ay sözleşme" maddesi şablonda yoktu, ben ekledim. İstemezsen 8. bölümden çıkar.
+- "6 ay sözleşme" maddesi şablonda yoktu, ben ekledim. İstemezsen 9. bölümden çıkar.
 
 ## Takip
 
