@@ -13,7 +13,7 @@
 
 **Çözüm.** İki sitedeki ziyaretçiyi izinli olarak tanıyan, sepette veya üründe bırakan herkese ürün, ölçü, renk ve stok bilgisiyle e-posta, SMS ve WhatsApp'tan otomatik dönen bir Callypso Engage kurulumu. T-Soft dahil bütün entegrasyonlar bu kurulumun içinde.
 
-**Süre ve sonraki adım.** Teklifi kabul etmenizin ardından analizlerle başlıyoruz. **İlk 3 iş günü analiz**: T-Soft verileri, iki sitenin sepet ve ödeme akışı, mevcut izinli kayıtlar ve kampanya metinleri incelenir. **Analiz sonrası kurulum** başlar. Aşama 1 (pop-up, sepet terk, hoş geldin) onaydan itibaren **15 iş gününde** canlı. Aşama 2 (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi) sonraki **15 iş gününde** canlı. Ödeme her aşamanın başında %50, tesliminde %50. Aylık ücret Aşama 2 teslim edildikten sonra başlar.
+**Süre ve sonraki adım.** Teklifi kabul etmenizin ardından analizlerle başlıyoruz. **İlk 3 iş günü analiz**: T-Soft verileri, iki sitenin sepet ve ödeme akışı, mevcut izinli kayıtlar ve kampanya metinleri incelenir. **Analiz sonrası kurulum** başlar. Aşama 1 (pop-up, sepet terk, hoş geldin) onaydan sonra **15 iş gününde** canlı. Aşama 2 (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi) onaydan sonra **30 iş gününde** canlı. Ödeme her aşamanın başında %50, tesliminde %50. Aylık ücret Aşama 2 teslim edildikten sonra başlar.
 
 Tahmini fayda projeksiyonu: bölüm 4 · Fiyat ve paketler: bölüm 6
 
@@ -87,11 +87,11 @@ Hesap yalnızca Homedius rakamlarınızdan ve Aşama 1'de canlıya çıkan iki a
 
 Her aşama iki site (Homedius + Sleeptown) için birlikte yapılır.
 
-| Aşama | Süre | Kapsam |
+| Aşama | Canlıya çıkış | Kapsam |
 |---|---|---|
-| **1. Tanı ve geri çağır** (en hızlı sonuç) | 3 iş günü analiz + 12 iş günü kurulum | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu |
-| **2. Kaçan talebi yakala** | 15 iş günü | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · indirim dönemi kampanya segmentleri |
-| **3. Sepeti büyüt, geri getir** | 10 iş günü | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
+| **1. Tanı ve geri çağır** (en hızlı sonuç) | Onaydan sonra 15 iş günü (3 iş günü analiz dahil) | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu |
+| **2. Kaçan talebi yakala** | Onaydan sonra 30 iş günü | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · indirim dönemi kampanya segmentleri |
+| **3. Sepeti büyüt, geri getir** | Onaydan sonra 40 iş günü | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
 
 Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 
@@ -167,7 +167,7 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 5. İYS / Netgsm hesap bilgisi ve KVKK sorumlusunun adı
 6. Pop-up teklifinin onayı (ör. Sleeptown 500 TL, Homedius kargo kuponu) ve mesajlarda kullanılacak tek doğru kargo, iade ve deneme süresi metni
 
-**Olur derseniz:** 3 iş günü analiz, ardından kurulum. Aşama 1 onaydan 15 iş gününde canlı.
+**Olur derseniz:** 3 iş günü analiz, ardından kurulum. Aşama 1 onaydan sonra 15 iş gününde canlı.
 
 ---
 
