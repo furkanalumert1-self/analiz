@@ -110,7 +110,7 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 |---|---|---|---|
 | Kapsam | Aşama 1 | **Aşama 1 + 2** | Aşama 1 + 2 + 3 |
 | Bir öncekine göre ek | Pop-up, sepet terk, hoş geldin | **+6 akış · Meta reklam kitlesi · ödeme terk · stok gelince · fiyat düşüşü** | +7 akış · çapraz satış · geri kazanım · VIP |
-| Canlıya çıkış (onaydan sonra) | 15 iş günü | **30 iş günü** | 50 iş günü |
+| Canlıya çıkış | Onaydan sonra 15 iş günü | **Onaydan sonra 30 iş günü** | Onaydan sonra 50 iş günü |
 | Entegrasyonlar | T-Soft, e-posta, SMS, WhatsApp, İYS, GA4 | **Hepsi + Meta reklam kitlesi** | Hepsi + Meta reklam kitlesi |
 | Otomasyon akışı | 2 | **8** | 15 |
 | Aylık yeni kampanya kurulumu | 2 | **4** | 8 + A/B test |
@@ -128,7 +128,7 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 |---|---|---|
 | T-Soft (iki mağaza) | Ürün, fiyat, varyant stok, sipariş, üye, sepet ve ödeme olayları | 1 |
 | Web takip kodu + pop-up / form | Ziyaretçi davranışı, lead toplama, izin | 1 |
-| E-posta gönderimi (homedius.com, sleeptown.com.tr) | SPF, DKIM, DMARC, ısınma | 1 |
+| E-posta gönderimi (homedius.com, sleeptown.com.tr) | SPF, DKIM, DMARC kayıtları | 1 |
 | SMS (Netgsm) | Sepet terk, stok gelince | 1 |
 | WhatsApp Business API (Meta Cloud API / 360dialog) | Onaylı şablon mesajlar | 1 |
 | İYS ve izin yönetimi | Ticari ileti onayı, onay kontrolü adımı | 1 |
