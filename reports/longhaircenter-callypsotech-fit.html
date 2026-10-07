@@ -218,6 +218,13 @@ ol.reasons{margin:10px 0 0;padding-left:20px;line-height:1.6;color:var(--ink-2)}
 .say{border-left:3px solid var(--brand);background:var(--brand-soft);padding:10px 12px;border-radius:0 10px 10px 0;font-style:italic;color:var(--ink);font-size:14px;margin-top:12px}
 .say-big{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.5;color:var(--ink);margin-top:10px}
 .intro-card .note{margin-top:10px}
+.qlist{display:flex;flex-direction:column;gap:10px}
+.q{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
+.qn{width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:650}
+.qh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:15px}
+.q .say{margin-top:8px}
+.qa{font-size:13.5px;margin-top:8px}
+@media(max-width:520px){.q{grid-template-columns:1fr}}
 footer{padding-block:30px;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
 @media print{.topbar,.jctrl,.themebtn,.weights{display:none}section{break-inside:avoid-page}.jsteps{max-height:none}}
 </style>
@@ -263,7 +270,7 @@ footer{padding-block:30px;font-size:12px;color:var(--muted);border-top:1px solid
 
 <!-- MEETING INTRO -->
 <section id="giris">
-  <div class="sec-head"><div class="k">Toplantı girişi</div><h2>Nasıl açılır, ürünler nasıl tanıtılır?</h2><p>Sunum yapan kişi için konuşma notları. Sıra puan sıralamasıyla aynı: önce Inboxly, sonra Engage, en son Voice Agent. Studio ve Decor gündeme getirilmez.</p></div>
+  <div class="sec-head"><div class="k">Toplantı girişi</div><h2>Nasıl açılır, ürünler nasıl tanıtılır, ne sorulur?</h2><p>Sunum yapan kişi için konuşma notları. Sıra puan sıralamasıyla aynı: önce Inboxly, sonra Engage, en son Voice Agent. Studio ve Decor gündeme getirilmez.</p></div>
   <div class="grid g2">
     <div class="card">
       <div class="k">1 · Açılış cümlesi</div>
@@ -292,6 +299,41 @@ footer{padding-block:30px;font-size:12px;color:var(--muted);border-top:1px solid
       <p class="note"><b>Hemen ekleyin:</b> “Bunu çağrı verinize bakmadan önermiyoruz; iki haftalık arama listenizi görürsek birlikte karar veririz.”</p>
     </div>
   </div>
+  <div class="k" style="margin:22px 0 10px">4 · Sorulması gereken 5 önemli soru</div>
+  <p class="note" style="margin:-4px 0 12px">Sıralamayı en çok değiştirebilecek sorular. Sıra: kanal → Inboxly → Engage → Voice Agent. Skor değişimleri aynı ağırlıklarla hesaplandı.</p>
+  <div class="qlist">
+    <div class="card q">
+      <div class="qn">1</div>
+      <div><div class="qh"><b>Kanal dağılımı</b> <span class="tag t-acq">Tümü</span></div>
+      <p class="say">“Size ulaşan hastaların kabaca yüzde kaçı WhatsApp'tan, yüzde kaçı telefonla, form ya da web sohbetinden geliyor?”</p>
+      <p class="qa">Tüm puanlamanın temeli. WhatsApp baskınsa Inboxly'nin 1. sırası doğrulanır; telefon payı yüksekse Voice Agent yükselir.</p></div>
+    </div>
+    <div class="card q">
+      <div class="qn">2</div>
+      <div><div class="qh"><b>WhatsApp'ı nasıl yönettikleri</b> <span class="tag t-inbox">Inboxly</span></div>
+      <p class="say">“İki WhatsApp numaranızı ve web sohbetini kim, hangi araçla yönetiyor? Bir hastanın geçmiş yazışmalarını tek bir yerde görebiliyor musunuz?”</p>
+      <p class="qa">Inboxly için en büyük risk. Zaten çok kullanıcılı bir WhatsApp CRM'i varsa: <b>Inboxly 84 → 77</b>, Engage 1. sıraya geçer.</p></div>
+    </div>
+    <div class="card q">
+      <div class="qn">3</div>
+      <div><div class="qh"><b>Mesai dışı yanıt</b> <span class="tag t-inbox">Inboxly</span></div>
+      <p class="say">“Gece 23:00'ten sonra, örneğin Amerika'dan gelen bir mesaja ilk yanıt ne zaman gidiyor?”</p>
+      <p class="qa">“Sabaha kalıyor” → Inboxly'nin değeri kanıtlanır. “Nöbetçi danışmanımız var” → <b>Inboxly 84 → 80</b>, Engage ile eşit. Yorumlarda hızları övüldüğü için suçlayıcı değil, merakla sorun.</p></div>
+    </div>
+    <div class="card q">
+      <div class="qn">4</div>
+      <div><div class="qh"><b>Ameliyat öncesi ve sonrası iletişim</b> <span class="tag t-engage">Engage</span></div>
+      <p class="say">“Ameliyat tarihi kesinleşince otel, şoför, yıkama günü ve sonraki aylık kontroller için hastaya hangi mesajlar, kim tarafından gidiyor? Bunu bir CRM'de ya da tabloda mı takip ediyorsunuz?”</p>
+      <p class="qa">“Danışman elle gönderiyor” → ihtiyaç kanıtlanır. Webhook açılabilen CRM varsa <b>Engage 80 → 83</b>; hasta onayları (opt-in) yoksa <b>80 → 75</b>.</p></div>
+    </div>
+    <div class="card q">
+      <div class="qn">5</div>
+      <div><div class="qh"><b>Telefon trafiği</b> <span class="tag t-voice">Voice Agent</span></div>
+      <p class="say">“Günde kaç arama alıyorsunuz, kaçı cevapsız kalıyor? Yurt dışındaki hastalar normal mi arıyor, WhatsApp üzerinden mi? İki haftalık arama listenizi paylaşabilir misiniz?”</p>
+      <p class="qa">Gece cevapsız çağrı çoksa <b>Voice 65 → 72</b>; sabit/VoIP hat da varsa <b>→ 75</b>. “Kimse aramıyor, hepsi WhatsApp” → <b>65 → 56</b>, Voice Agent önerilmez.</p></div>
+    </div>
+  </div>
+  <div class="callout ok" style="margin-top:12px"><b>Kapanışta ayrıca sorun:</b> “Karar kimde ve pilot için en erken ne zaman başlayabiliriz?”</div>
   <div class="callout" style="margin-top:14px"><b>Söylerken dikkat:</b> CallypsoTech sitesindeki “%94 ilk çözüm”, “%60 maliyet azalma” gibi rakamları kullanmayın (bağımsız doğrulanmadı). “Yapay zekâ tıbbi tavsiye verir” demeyin; greft, uygunluk ve fiyat soruları her zaman danışmana gider. Engage'in e-ticaret için tasarlandığı sorulursa saklamayın: “Sizin sisteminize özel bağlantıyla kuruluyor, bu yüzden ikinci aşamada.”</div>
 </section>
 
