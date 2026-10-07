@@ -87,11 +87,11 @@ Hesap yalnızca Homedius rakamlarınızdan ve Aşama 1'de canlıya çıkan iki a
 
 Her aşama iki site (Homedius + Sleeptown) için birlikte yapılır.
 
-| Aşama | Tarih | Kapsam | Kurulum |
-|---|---|---|---|
-| **1. Tanı ve geri çağır** (en hızlı sonuç) | 12 Ekim – 30 Ekim (3 hafta) | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu | 180.000 TL |
-| **2. Kaçan talebi yakala** | 2 Kasım – 20 Kasım (3 hafta) | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · Kasım kampanya segmentleri | 120.000 TL |
-| **3. Sepeti büyüt, geri getir** | 23 Kasım – 18 Aralık (4 hafta) | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) | 140.000 TL |
+| Aşama | Tarih | Kapsam |
+|---|---|---|
+| **1. Tanı ve geri çağır** (en hızlı sonuç) | 12 Ekim – 30 Ekim (3 hafta) | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu |
+| **2. Kaçan talebi yakala** | 2 Kasım – 20 Kasım (3 hafta) | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · Kasım kampanya segmentleri |
+| **3. Sepeti büyüt, geri getir** | 23 Kasım – 18 Aralık (4 hafta) | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
 
 Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 
@@ -109,6 +109,7 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 | | Başlangıç | **Büyüme (önerilen)** | Tam |
 |---|---|---|---|
 | Kapsam | Aşama 1 | **Aşama 1 + 2** | Aşama 1 + 2 + 3 |
+| Bir öncekine göre ek | Pop-up, sepet terk, hoş geldin | **+6 akış · Meta reklam kitlesi · ödeme terk · stok gelince · Black Friday öncesi canlı** | +7 akış · çapraz satış · geri kazanım · VIP |
 | Canlıya çıkış | 30 Ekim | **20 Kasım** (Black Friday öncesi) | 18 Aralık |
 | Entegrasyonlar | T-Soft, e-posta, SMS, WhatsApp, İYS, GA4 | **Hepsi + Meta reklam kitlesi** | Hepsi + Meta reklam kitlesi |
 | Otomasyon akışı | 2 | **8** | 15 |
