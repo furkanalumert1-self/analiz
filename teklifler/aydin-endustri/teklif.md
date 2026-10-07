@@ -101,7 +101,7 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 
 | | Tutar |
 |---|---|
-| Kurulum (tek seferlik, iki site) | **300.000 TL** |
+| Size özel kurulum (tek seferlik, iki site) | ~~300.000 TL~~ **157.000 TL** |
 | Aylık (platform + yönetim, iki site) | **65.000 TL / ay** |
 
 ### Paketler
@@ -116,7 +116,8 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 | Aylık yeni kampanya kurulumu | 2 | **4** | 8 + A/B test |
 | Dahil e-posta gönderimi | 50.000 / ay | **150.000 / ay** | 300.000 / ay |
 | Aylık rapor ve görüşme | Rapor | **Rapor + aylık görüşme** | Rapor + 2 haftada bir görüşme |
-| **Kurulum (tek seferlik)** | **180.000 TL** | **300.000 TL** | **440.000 TL** |
+| Liste fiyatı (kurulum) | ~~180.000 TL~~ | ~~300.000 TL~~ | ~~440.000 TL~~ |
+| **Size özel kurulum (tek seferlik)** | **122.500 TL** | **157.000 TL** | **220.500 TL** |
 | **Aylık** | **45.000 TL** | **65.000 TL** | **90.000 TL** |
 
 **Aylık ücrete dahil:** Callypso Engage platformu (iki marka, İYS desteği, kullanıcı rolleri) · sunucu, veritabanı ve e-posta gönderim altyapısı · akışların izlenmesi ve iyileştirilmesi · paketteki kampanya kurulumları · ciro raporu · teknik destek (iş günü, 1 iş günü içinde dönüş).
@@ -151,7 +152,7 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 
 ## 9. Ödeme ve şartlar
 
-- Her aşamanın **başında %50, tesliminde %50**. Büyüme paketi: 12 Ekim'de 90.000 TL, 30 Ekim'de 90.000 TL, 2 Kasım'da 60.000 TL, 20 Kasım'da 60.000 TL.
+- Her aşamanın **başında %50, tesliminde %50**. Büyüme paketi: 12 Ekim'de 47.100 TL, 30 Ekim'de 47.100 TL, 2 Kasım'da 31.400 TL, 20 Kasım'da 31.400 TL.
 - **Aylık ücret**, paketin son aşaması teslim edildiğinde başlar (Büyüme: 20 Kasım) ve her ay başında faturalanır. Sözleşme ilk 6 ay için geçerlidir, sonra aylık devam eder.
 - "Teslim": aşamadaki akışların iki sitede canlıda çalışması ve ilk gerçek tetiklenmenin panelde görünmesi.
 - Takvim, erişimlerin başlangıç gününde verilmesine bağlıdır. Erişimdeki gecikme kadar teslim tarihi kayar.

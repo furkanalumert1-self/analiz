@@ -34,14 +34,23 @@ Rakam gelirse: Durum satırındaki 7.499 TL ve 1.050'yi güncelle, Sleeptown'u e
 
 ## Fiyat kontrolleri
 
-| Kural | Başlangıç | Büyüme | Tam |
-|---|---|---|---|
-| Kurulum aylığın 3–5 katı | 180k / 45k = 4,0× | 300k / 65k = 4,6× | 440k / 90k = 4,9× |
-| Aylık < aylık kayıp (~7,9 M TL terk sepet) | ✓ | ✓ | ✓ |
-| Aylığı karşılayan sepet (÷ 7.499), sadece iç kontrol, teklifte yok | 6 | 9 | 12 |
-| Toplam > 5.000 $ (kurulum, 48 TL/$) | ~$3.750 | **~$6.250** | ~$9.170 |
+Teklifte liste fiyatı (üstü çizili) ve "Size özel kurulum" gösteriliyor. İndirimin nedeni teklifte yazmıyor, müşteri sorarsa sözlü anlat.
 
-Başlangıç paketi tek başına 5.000 $ altında. O paket çapa (az hali), satılması beklenen Büyüme.
+| | Başlangıç | Büyüme | Tam |
+|---|---|---|---|
+| Liste kurulum | 180.000 TL | 300.000 TL | 440.000 TL |
+| **Size özel kurulum** | **122.500 TL ($2.500)** | **157.000 TL (~$3.200)** | **220.500 TL ($4.500)** |
+| İndirim | %32 | %48 | %50 |
+| Aylık (değişmedi) | 45.000 TL | 65.000 TL | 90.000 TL |
+| Kurulum / aylık (kural 3–5×) | 2,7× ✗ | 2,4× ✗ | 2,45× ✗ |
+| Aylık > maliyet × 5 | ✓ | ✓ | ✓ |
+
+- Kur: 1 $ ≈ 49 TL (1 Ekim 2026).
+- Kurulum/aylık kuralı bilerek bozuldu: indirim tek seferlik ücrette, tekrarlayan aylık gelir korunuyor. Aylıkları düşürme.
+- Büyüme kurulumu tek başına 5.000 $ altında (~$3.200). İlk yıl toplamı (kurulum + ~11 ay aylık) yaklaşık 872.000 TL, 5.000 $ çok üstünde.
+- Büyüme: 157.000 TL ÷ 210–260 saat ≈ 600–750 TL/saat. Bir sonraki T-Soft müşterisinde liste fiyatına (300.000 TL) dön.
+- Ödeme takvimi aşama oranıyla bölündü (Aşama 1 %60, Aşama 2 %40): 47.100 + 47.100 + 31.400 + 31.400 = 157.000 TL.
+- Pazarlıkta "size özel" fiyattan daha fazla indirim verme. İndirim istenirse kapsamı ayarla.
 
 ## Projeksiyon varsayımları (teklif bölüm 4)
 
