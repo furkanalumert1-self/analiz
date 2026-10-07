@@ -65,14 +65,16 @@ Teklifte liste fiyatı (üstü çizili) ve "Size özel kurulum" gösteriliyor. �
 - Sepet tutarı yine 7.499 TL referansı. Müşteri gerçek AOV'yi verince 4. bölümdeki ciro satırlarını güncelle.
 - Oranlar sektör aralığı varsayımı, müşteri verisi değil. Teklifte de bu şekilde yazıyor.
 
-## Takvim riskleri
+## Takvim (teklifte tarih yok, sadece iş günü)
 
-- 28 Ekim yarım gün, 29 Ekim resmi tatil. Aşama 1'de 13,5 iş günü var.
-- WhatsApp Business doğrulaması ve şablon onayı Meta tarafında birkaç gün sürebilir. Aşama 1'in ilk günü başvur.
-- Engage'de T-Soft için hazır bağlantı yok. Connector kurulumun içinde, biz geliştiriyoruz (toplantı hazırlığındaki özellik kontrolü, 4 Ekim 2026).
-- Engage'de web push yok, teklifte kapsam dışı olarak yazıldı.
-- "6 ay sözleşme" maddesi şablonda yoktu, ben ekledim. İstemezsen 9. bölümden çıkar.
+- Onaydan sonra: 3 iş günü analiz + 12 iş günü kurulum = Aşama 1, 15. iş gününde canlı. Aşama 2: +15 iş günü (onaydan 30 iş günü). Aşama 3: +20 iş günü (onaydan 50 iş günü).
+- 11.11 için onay en geç 19 Ekim'de gelmeli (Aşama 1 ~10 Kasım). Black Friday (27 Kasım) için Aşama 2'ye yetişmek isteniyorsa onay en geç 14 Ekim. Bunu teklifte yazmıyoruz, takip mesajında sözlü aciliyet olarak kullan.
+- 28 Ekim yarım gün, 29 Ekim resmi tatil, iş günü hesabına dikkat.
+- WhatsApp Business doğrulaması ve şablon onayı Meta tarafında birkaç gün sürebilir. Analiz günlerinde başvur.
+- Engage'de T-Soft için hazır bağlantı yok. Connector kurulumun içinde, biz geliştiriyoruz.
+- Engage'de web push yok, teklifte kapsam dışı.
+- "6 ay sözleşme" maddesi şablonda yoktu, ben ekledim. İstemezsen ödeme ve şartlar bölümünden çıkar.
 
 ## Takip
 
-Teklif 5.000 $ üstü. Karar 1–2 hafta sürebilir (ortak, muhasebe, karar verici). Haftada bir takip et: 14 Ekim, 21 Ekim. Aşama 1'in 11.11'e yetişmesi için son başlangıç tarihi 19 Ekim.
+Teklif 5.000 $ üstü. Karar 1–2 hafta sürebilir (ortak, muhasebe, karar verici). Haftada bir takip et: 14 Ekim, 21 Ekim. Aşama 1'in 11.11'e yetişmesi için son onay tarihi 19 Ekim.

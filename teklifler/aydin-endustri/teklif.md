@@ -13,7 +13,7 @@
 
 **Çözüm.** İki sitedeki ziyaretçiyi izinli olarak tanıyan, sepette veya üründe bırakan herkese ürün, ölçü, renk ve stok bilgisiyle e-posta, SMS ve WhatsApp'tan otomatik dönen bir Callypso Engage kurulumu. T-Soft dahil bütün entegrasyonlar bu kurulumun içinde.
 
-**Süre ve sonraki adım.** Olur derseniz **12 Ekim Pazartesi** başlıyoruz. Aşama 1 (pop-up, sepet terk, hoş geldin) **30 Ekim'de canlı**, yani 11.11'den önce. Aşama 2 (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi) **20 Kasım'da canlı**, yani Black Friday'den (27 Kasım) önce. Ödeme her aşamanın başında %50, tesliminde %50.
+**Süre ve sonraki adım.** Teklifi kabul etmenizin ardından analizlerle başlıyoruz. **İlk 3 iş günü analiz**: T-Soft verileri, iki sitenin sepet ve ödeme akışı, mevcut izinli kayıtlar ve kampanya metinleri incelenir. **Analiz sonrası kurulum** başlar. Aşama 1 (pop-up, sepet terk, hoş geldin) onaydan itibaren **15 iş gününde** canlı. Aşama 2 (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi) sonraki **15 iş gününde** canlı. Ödeme her aşamanın başında %50, tesliminde %50. Aylık ücret Aşama 2 teslim edildikten sonra başlar.
 
 Tahmini fayda projeksiyonu: bölüm 4 · Fiyat ve paketler: bölüm 6
 
@@ -32,7 +32,7 @@ Homedius, 1 günlük veri (toplantıda paylaştığınız):
 | Satın alma | 2 | sepetin %5,4'ü |
 | **Sepeti bırakan** | **35** | **sepetin %94,6'sı** |
 
-Aylık karşılığı (1 günlük tablo × 30): yaklaşık 1.050 terk edilmiş sepet. Gerçek ortalama sepet tutarı ve 30 günlük rakamlar T-Soft panelinden alınıp hesap Aşama 1'in ilk haftasında güncellenecek.
+Aylık karşılığı (1 günlük tablo × 30): yaklaşık 1.050 terk edilmiş sepet. Gerçek ortalama sepet tutarı ve 30 günlük rakamlar T-Soft panelinden alınıp hesap ilk 3 iş günündeki analizde güncellenecek.
 
 Sitelerinizi incelerken gördüklerimiz (3 Ekim 2026, herkese açık sayfalar):
 
@@ -87,11 +87,11 @@ Hesap yalnızca Homedius rakamlarınızdan ve Aşama 1'de canlıya çıkan iki a
 
 Her aşama iki site (Homedius + Sleeptown) için birlikte yapılır.
 
-| Aşama | Tarih | Kapsam |
+| Aşama | Süre | Kapsam |
 |---|---|---|
-| **1. Tanı ve geri çağır** (en hızlı sonuç) | 12 Ekim – 30 Ekim (3 hafta) | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu |
-| **2. Kaçan talebi yakala** | 2 Kasım – 20 Kasım (3 hafta) | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · Kasım kampanya segmentleri |
-| **3. Sepeti büyüt, geri getir** | 23 Kasım – 18 Aralık (4 hafta) | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
+| **1. Tanı ve geri çağır** (en hızlı sonuç) | 3 iş günü analiz + 12 iş günü kurulum | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu |
+| **2. Kaçan talebi yakala** | 15 iş günü | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · indirim dönemi kampanya segmentleri |
+| **3. Sepeti büyüt, geri getir** | 20 iş günü | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
 
 Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 
@@ -109,8 +109,8 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 | | Başlangıç | **Büyüme (önerilen)** | Tam |
 |---|---|---|---|
 | Kapsam | Aşama 1 | **Aşama 1 + 2** | Aşama 1 + 2 + 3 |
-| Bir öncekine göre ek | Pop-up, sepet terk, hoş geldin | **+6 akış · Meta reklam kitlesi · ödeme terk · stok gelince · Black Friday öncesi canlı** | +7 akış · çapraz satış · geri kazanım · VIP |
-| Canlıya çıkış | 30 Ekim | **20 Kasım** (Black Friday öncesi) | 18 Aralık |
+| Bir öncekine göre ek | Pop-up, sepet terk, hoş geldin | **+6 akış · Meta reklam kitlesi · ödeme terk · stok gelince · fiyat düşüşü** | +7 akış · çapraz satış · geri kazanım · VIP |
+| Canlıya çıkış (onaydan sonra) | 15 iş günü | **30 iş günü** | 50 iş günü |
 | Entegrasyonlar | T-Soft, e-posta, SMS, WhatsApp, İYS, GA4 | **Hepsi + Meta reklam kitlesi** | Hepsi + Meta reklam kitlesi |
 | Otomasyon akışı | 2 | **8** | 15 |
 | Aylık yeni kampanya kurulumu | 2 | **4** | 8 + A/B test |
@@ -152,8 +152,8 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 
 ## 9. Ödeme ve şartlar
 
-- Her aşamanın **başında %50, tesliminde %50**. Büyüme paketi: 12 Ekim'de 47.100 TL, 30 Ekim'de 47.100 TL, 2 Kasım'da 31.400 TL, 20 Kasım'da 31.400 TL.
-- **Aylık ücret**, paketin son aşaması teslim edildiğinde başlar (Büyüme: 20 Kasım) ve her ay başında faturalanır. Sözleşme ilk 6 ay için geçerlidir, sonra aylık devam eder.
+- Her aşamanın **başında %50, tesliminde %50**. Büyüme paketi: onayda 47.100 TL, Aşama 1 tesliminde 47.100 TL, Aşama 2 başında 31.400 TL, tesliminde 31.400 TL.
+- **Aylık ücret**, paketin son aşaması teslim edildiğinde başlar ve her ay başında faturalanır. Sözleşme ilk 6 ay için geçerlidir, sonra aylık devam eder.
 - "Teslim": aşamadaki akışların iki sitede canlıda çalışması ve ilk gerçek tetiklenmenin panelde görünmesi.
 - Takvim, erişimlerin başlangıç gününde verilmesine bağlıdır. Erişimdeki gecikme kadar teslim tarihi kayar.
 - Fiyatlar KDV hariçtir. Teklif 6 Kasım 2026'ya kadar geçerlidir.
@@ -167,7 +167,7 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 5. İYS / Netgsm hesap bilgisi ve KVKK sorumlusunun adı
 6. Pop-up teklifinin onayı (ör. Sleeptown 500 TL, Homedius kargo kuponu) ve mesajlarda kullanılacak tek doğru kargo, iade ve deneme süresi metni
 
-**Olur derseniz:** 12 Ekim Pazartesi başlıyorum. Aşama 1, 30 Ekim'de iki sitede canlı.
+**Olur derseniz:** 3 iş günü analiz, ardından kurulum. Aşama 1 onaydan 15 iş gününde canlı.
 
 ---
 
