@@ -67,7 +67,7 @@ Teklifte liste fiyatı (üstü çizili) ve "Size özel kurulum" gösteriliyor. �
 
 ## Takvim (teklifte tarih yok, sadece iş günü)
 
-- Onaydan sonra: 3 iş günü analiz + 12 iş günü kurulum = Aşama 1, 15. iş gününde canlı. Aşama 2: +15 iş günü (onaydan 30 iş günü). Aşama 3: +20 iş günü (onaydan 50 iş günü).
+- Onaydan sonra: 3 iş günü analiz + 12 iş günü kurulum = Aşama 1, 15. iş gününde canlı. Aşama 2: +15 iş günü (onaydan 30 iş günü). Aşama 3: +10 iş günü (onaydan 40 iş günü). 7 akış 10 iş gününe sıkışık, Aşama 1-2 altyapısı hazır olduğu için mümkün; gecikme riski burada.
 - 11.11 için onay en geç 19 Ekim'de gelmeli (Aşama 1 ~10 Kasım). Black Friday (27 Kasım) için Aşama 2'ye yetişmek isteniyorsa onay en geç 14 Ekim. Bunu teklifte yazmıyoruz, takip mesajında sözlü aciliyet olarak kullan.
 - 28 Ekim yarım gün, 29 Ekim resmi tatil, iş günü hesabına dikkat.
 - WhatsApp Business doğrulaması ve şablon onayı Meta tarafında birkaç gün sürebilir. Analiz günlerinde başvur.

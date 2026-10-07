@@ -91,7 +91,7 @@ Her aşama iki site (Homedius + Sleeptown) için birlikte yapılır.
 |---|---|---|
 | **1. Tanı ve geri çağır** (en hızlı sonuç) | 3 iş günü analiz + 12 iş günü kurulum | T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · **sepet terk** akışı (e-posta + SMS/WhatsApp) · **hoş geldin** serisi · panel ve ciro raporu |
 | **2. Kaçan talebi yakala** | 15 iş günü | **Ödeme terk** (ödeme sayfasında yazılan e-posta/telefon) · **stok gelince** (ölçü/renk bazında) ve **az stok** · **fiyat düşüşü** · **ürün inceleme terk** (ör. Mocca/Magic 2+ kez bakıldı) · **teslimat sonrası** kullanım rehberi ve **yorum isteği** · **Meta reklam kitlesi senkronu** (satın alanı reklamdan çıkar, almayanı ayrı kitleye al) · indirim dönemi kampanya segmentleri |
-| **3. Sepeti büyüt, geri getir** | 20 iş günü | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
+| **3. Sepeti büyüt, geri getir** | 10 iş günü | **Ölçü eşleşmeli çapraz satış** (yatak → aynı ölçüde ped, nevresim, yastık) · **misafir kiti** (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · **bir üst model** önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · **geri kazanım** (180 / 365 gün) · **VIP** segmenti · markalar arası öneri (KVKK izni varsa) |
 
 Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 
@@ -110,7 +110,7 @@ Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.
 |---|---|---|---|
 | Kapsam | Aşama 1 | **Aşama 1 + 2** | Aşama 1 + 2 + 3 |
 | Bir öncekine göre ek | Pop-up, sepet terk, hoş geldin | **+6 akış · Meta reklam kitlesi · ödeme terk · stok gelince · fiyat düşüşü** | +7 akış · çapraz satış · geri kazanım · VIP |
-| Canlıya çıkış | Onaydan sonra 15 iş günü | **Onaydan sonra 30 iş günü** | Onaydan sonra 50 iş günü |
+| Canlıya çıkış | Onaydan sonra 15 iş günü | **Onaydan sonra 30 iş günü** | Onaydan sonra 40 iş günü |
 | Entegrasyonlar | T-Soft, e-posta, SMS, WhatsApp, İYS, GA4 | **Hepsi + Meta reklam kitlesi** | Hepsi + Meta reklam kitlesi |
 | Otomasyon akışı | 2 | **8** | 15 |
 | Aylık yeni kampanya kurulumu | 2 | **4** | 8 + A/B test |
