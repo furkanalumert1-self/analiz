@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teklif – Homedius & Sleeptown × Callypso Engage</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #16181d; --muted: #5d6470; --line: #e3e6eb; --soft: #f5f6f8;
+    --accent: #2f5bea; --accent-soft: #eaf0ff; --warn: #c2410c; --ok: #15803d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; color: var(--ink); }
+  body { font-family: Inter, "DejaVu Sans", system-ui, sans-serif; font-size: 9.6pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 17mm 14mm; position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .foot { position: absolute; left: 17mm; right: 17mm; bottom: 9mm; display: flex; justify-content: space-between; color: var(--muted); font-size: 7.6pt; border-top: 1px solid var(--line); padding-top: 2.5mm; }
+  h1 { font-size: 21pt; line-height: 1.15; margin: 0 0 2mm; letter-spacing: -0.01em; }
+  h2 { font-size: 12.5pt; margin: 0 0 3mm; letter-spacing: -0.005em; }
+  h3 { font-size: 10pt; margin: 0 0 1.5mm; }
+  p { margin: 0 0 2.4mm; }
+  .eyebrow { font-size: 7.8pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 2mm; }
+  .meta { color: var(--muted); font-size: 8.6pt; margin-bottom: 7mm; }
+  .meta b { color: var(--ink); font-weight: 600; }
+  .row { display: grid; grid-template-columns: 30mm 1fr; gap: 6mm; padding: 4.2mm 0; border-top: 1px solid var(--line); }
+  .row:last-of-type { border-bottom: 1px solid var(--line); }
+  .row .k { font-weight: 700; font-size: 10.5pt; }
+  .row .k small { display: block; font-weight: 500; color: var(--muted); font-size: 7.6pt; margin-top: .6mm; letter-spacing: .02em; }
+  .big { font-size: 10.6pt; }
+  .num { font-variant-numeric: tabular-nums; }
+  .funnel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2mm; margin: 2.5mm 0 3mm; }
+  .funnel div { background: var(--soft); border-radius: 2mm; padding: 2.4mm 2.6mm; }
+  .funnel div b { display: block; font-size: 13pt; font-variant-numeric: tabular-nums; }
+  .funnel div span { color: var(--muted); font-size: 7.6pt; }
+  .funnel .hot { background: #fff1eb; }
+  .funnel .hot b { color: var(--warn); }
+  .price { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin: 1mm 0 2.5mm; }
+  .price div { border: 1px solid var(--line); border-radius: 2mm; padding: 3mm 3.5mm; }
+  .price div span { color: var(--muted); font-size: 8pt; display: block; }
+  .price div b { font-size: 15pt; font-variant-numeric: tabular-nums; }
+  .price .main { border-color: var(--accent); background: var(--accent-soft); }
+  .note { color: var(--muted); font-size: 8.2pt; }
+  .callout { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 2.6mm 3.5mm; border-radius: 0 2mm 2mm 0; margin: 2mm 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 1mm 0 3mm; }
+  th, td { text-align: left; vertical-align: top; padding: 1.9mm 2.2mm; border-bottom: 1px solid var(--line); }
+  th { font-size: 7.6pt; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; background: var(--soft); }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  .pk th, .pk td { text-align: center; padding-top: 1.5mm; padding-bottom: 1.5mm; }
+  .pk th:first-child, .pk td:first-child { text-align: left; color: var(--muted); }
+  .pk .rec { background: var(--accent-soft); }
+  .pk th.rec { color: var(--accent); }
+  .pk tr.tot td { font-weight: 700; font-size: 10pt; border-bottom: 1.5px solid var(--ink); }
+  .pk tr.tot td:first-child { color: var(--ink); }
+  table.tight td, table.tight th { padding: 1.3mm 2.2mm; }
+  .steps div { font-size: 8.6pt; }
+  ul, ol { margin: 0 0 2.5mm; padding-left: 4.6mm; }
+  li { margin-bottom: 1.1mm; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin: 1mm 0 4mm; }
+  .steps div { background: var(--soft); border-radius: 2mm; padding: 3mm; }
+  .steps div b { display: block; margin-bottom: 1mm; }
+  .steps div em { font-style: normal; color: var(--accent); font-weight: 700; margin-right: 1mm; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
+  .tag { display: inline-block; font-size: 7.2pt; font-weight: 600; padding: .4mm 1.6mm; border-radius: 1mm; background: var(--accent-soft); color: var(--accent); }
+  .sign { margin-top: 6mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; font-size: 8.2pt; color: var(--muted); }
+  .sign div { border-top: 1px solid var(--ink); padding-top: 1.5mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ SAYFA 1: ÖZET ============ -->
+<section class="page">
+  <div class="eyebrow">Proje Teklifi · Callypso Engage</div>
+  <h1>Homedius & Sleeptown:<br>sepete ekleyeni satışa çevirmek</h1>
+  <div class="meta"><b>Aydın Endüstri</b> · homedius.com · sleeptown.com.tr &nbsp;|&nbsp; 7 Ekim 2026 &nbsp;|&nbsp; Geçerlilik: <b>6 Kasım 2026</b> &nbsp;|&nbsp; Fiyatlar TL, KDV hariç</div>
+
+  <div class="row">
+    <div class="k">1 · Durum<small>sizin rakamınız</small></div>
+    <div>
+      <p class="big">Dün Homedius'a <b>746 kişi</b> geldi. 37 ürün sepete eklendi, <b>2 satış</b> oldu.</p>
+      <div class="funnel">
+        <div><b>1.038</b><span>oturum</span></div>
+        <div><b>746</b><span>ziyaretçi</span></div>
+        <div><b>796</b><span>ürün görüntüleme</span></div>
+        <div><b>37</b><span>sepete ekleme</span></div>
+        <div class="hot"><b>2</b><span>satış · 35 sepet terk</span></div>
+      </div>
+      <p>Sepete ekleyenlerin <b>%95'i almadan çıkıyor</b>. Bu tablo bir ay sürerse <b>ayda ~1.050 sepet</b> rafta kalıyor. En çok tanıttığınız ürünün fiyatıyla (Mocca Tek Kişilik, 7.499 TL) bu <b>ayda ~7,9 milyon TL</b>. Sleeptown'da da durumun aynı olduğunu söylediniz, ama bu hesaba dahil değil.</p>
+      <p class="note">İki sitede de pop-up yok. Sepeti bırakan kişinin e-postası ya da telefonu alınmıyor, o yüzden ona geri ulaşılamıyor.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="k">2 · Çözüm</div>
+    <div class="big">İki sitedeki ziyaretçiyi izinli olarak tanıyan ve sepette ya da üründe bırakan herkese <b>ürün, ölçü, renk ve stok bilgisiyle e-posta, SMS ve WhatsApp'tan otomatik dönen</b> bir Callypso Engage kurulumu. T-Soft dahil <b>bütün entegrasyonlar</b> bu kurulumun içinde.</div>
+  </div>
+
+  <div class="row">
+    <div class="k">3 · Fiyat<small>önerilen: Büyüme paketi</small></div>
+    <div>
+      <div class="price">
+        <div class="main"><span>Kurulum · tek seferlik · iki site</span><b>300.000 TL</b></div>
+        <div class="main"><span>Aylık · platform + yönetim · iki site</span><b>65.000 TL / ay</b></div>
+      </div>
+      <div class="callout">Aylık ücret, ayda <b>9 terk edilmiş sepetin</b> geri kazanılmasıyla karşılanıyor. Bu, ayda terk edilen ~1.050 sepetin <b>%1'inden az</b>.</div>
+      <p class="note">Aşama 1 + 2 · tüm entegrasyonlar dahil · diğer paketler: sayfa 3</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="k">4 · Süre ve<br>sonraki adım</div>
+    <div>
+      <p>Olur derseniz <b>12 Ekim Pazartesi</b> başlıyoruz.</p>
+      <ul>
+        <li><b>30 Ekim:</b> Aşama 1 canlı (pop-up, sepet terk, hoş geldin), yani <b>11.11'den önce</b>.</li>
+        <li><b>20 Kasım:</b> Aşama 2 canlı (stok gelince, fiyat düşüşü, ödeme terk, reklam kitlesi), yani <b>Black Friday'den önce</b>.</li>
+        <li>Ödeme her aşamanın <b>başında %50, tesliminde %50</b>. Aylık ücret 20 Kasım'dan sonra başlar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>1 / 4</span></div>
+</section>
+
+<!-- ============ SAYFA 2: DURUM + ÇÖZÜM ============ -->
+<section class="page">
+  <div class="eyebrow">Durum</div>
+  <h2>Rakamlarınız: Homedius, 1 gün</h2>
+  <table class="tight">
+    <thead><tr><th>Adım</th><th class="r">Sayı</th><th class="r">Bir önceki adıma göre</th></tr></thead>
+    <tbody class="num">
+      <tr><td>Oturum</td><td class="r">1.038</td><td class="r"></td></tr>
+      <tr><td>Ziyaretçi</td><td class="r">746</td><td class="r"></td></tr>
+      <tr><td>Ürün görüntüleme</td><td class="r">796</td><td class="r"></td></tr>
+      <tr><td>Sepete ekleme</td><td class="r">37</td><td class="r">görüntülemenin %4,6'sı</td></tr>
+      <tr><td>Satın alma</td><td class="r">2</td><td class="r">sepetin %5,4'ü</td></tr>
+      <tr><td><b>Sepeti bırakan</b></td><td class="r"><b>35</b></td><td class="r"><b>sepetin %94,6'sı</b></td></tr>
+    </tbody>
+  </table>
+  <p class="note">Aylık karşılığı (1 gün × 30): ~1.050 terk edilmiş sepet. Gerçek ortalama sepet tutarı ve 30 günlük rakamlar T-Soft panelinden alınıp hesap Aşama 1'in ilk haftasında güncellenecek.</p>
+
+  <h3 style="margin-top:2.5mm">Sitelerinizi incelerken gördüklerimiz <span class="note" style="font-weight:400">· 3 Ekim 2026, herkese açık sayfalar</span></h3>
+  <ul>
+    <li>İki sitede de <b>pop-up / lead formu kapalı</b>. E-bülten formu sadece sayfanın en altında. Sleeptown'un "Üye ol, ilk siparişinde 500 TL" teklifi yalnızca kampanya sayfasında duruyor.</li>
+    <li>Ödeme sayfasının ilk alanı e-posta, ikincisi telefon. Bu bilgiyi yazıp ödemeyi bitirmeyen kişiye bugün bir şey gitmiyor görünüyor.</li>
+    <li>Sitelerde bir <b>e-posta / SMS / CRM aracı tespit edilmedi</b>.</li>
+    <li><b>Homedius'ta 23 ürün tükenmiş</b> (ör. Mocca Fitilli Kadife Gri ve Çağla Yeşil). Sleeptown'da Base Visco 180x200 stokta yok. "Gelince haber ver" butonu var, ama stok gelince kimin nasıl haber verdiği belli değil.</li>
+    <li><b>Homedius'ta 192 üründe 0 yorum.</b> Sleeptown'da 22 üründe 83 yorum var (ortalama 4,56/5).</li>
+    <li>Homedius'ta ~14, Sleeptown'da ~5 aktif Meta reklamı var. Reklamla gelip almayan kişiye bugün yalnızca yeni reklam parasıyla ulaşılabiliyor.</li>
+  </ul>
+
+  <div class="eyebrow" style="margin-top:3mm">Çözüm</div>
+  <h2>Nasıl çalışıyor</h2>
+  <div class="steps">
+    <div><b><em>1</em>Tanı</b>Girişte ve çıkışta, işe yarayan bir teklifle açılan pop-up: Sleeptown'da "ilk siparişinde 500 TL", Homedius'ta kargo kuponu, tükenen üründe "gelince haber verelim", kararsız müşteriye "7 taksit tablosunu gönderelim". İzin kutusuyla.</div>
+    <div><b><em>2</em>Segmentle</b>T-Soft'tan ürün, fiyat, ölçü/renk stoku, sipariş ve sepet verisi Engage'e akar. Ziyaretçi "sepeti bıraktı", "ödemede bıraktı", "tükeneni bekliyor" gibi segmentlere kendiliğinden girer.</div>
+    <div><b><em>3</em>Geri çağır</b>Her segmente doğru zamanda doğru kanaldan mesaj gider: e-posta, SMS, WhatsApp. Satın alınca akış durur, kişi reklam kitlesinden çıkar.</div>
+    <div><b><em>4</em>Ölç</b>Her akışın getirdiği ciro marka ve kanal bazında tek panelde görünür. Mesaj gönderilmeyen küçük bir kontrol grubu ek satışı gerçekten ölçer.</div>
+  </div>
+
+  <div class="callout"><b>Örnek akış, Sleeptown:</b> Hybrid 5 Zone 160x200 sepete eklendi, ödeme yok.<br>
+  <b>1 saat:</b> e-posta (sepetteki yatak, seçilen ölçü, 7 taksit tutarı) · <b>24 saat:</b> yorumlar ve Oeko-Tex sertifikası · <b>72 saat:</b> gerçekten azaldıysa "bu ölçüde son X adet" · <b>satın aldı:</b> akış durur, 3 gün sonra aynı ölçüde yatak pedi önerisi.</div>
+
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>2 / 4</span></div>
+</section>
+
+<!-- ============ SAYFA 3: AŞAMALAR + PAKETLER ============ -->
+<section class="page">
+  <div class="eyebrow">Kapsam</div>
+  <h2>Üç aşama · her aşama iki site için birlikte</h2>
+  <table>
+    <thead><tr><th style="width:24%">Aşama · tarih</th><th>Kapsam</th><th class="r" style="width:15%">Kurulum</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>1 · Tanı ve geri çağır</b><br><span class="tag">en hızlı sonuç</span><br><span class="note">12 Ekim – 30 Ekim<br>3 hafta</span></td>
+        <td>T-Soft entegrasyonu (ürün, fiyat, varyant stok, sipariş, üye, sepet olayları) · e-posta altyapısı (iki alan adı için SPF/DKIM/DMARC) · SMS (Netgsm) · WhatsApp Business API ve onaylı şablonlar · izin ve İYS akışı · GA4 / UTM kaynağı · iki sitede pop-up ve gömülü form · <b>sepet terk</b> akışı (e-posta + SMS/WhatsApp) · <b>hoş geldin</b> serisi · panel ve ciro raporu</td>
+        <td class="r num"><b>180.000 TL</b></td>
+      </tr>
+      <tr>
+        <td><b>2 · Kaçan talebi yakala</b><br><span class="note">2 Kasım – 20 Kasım<br>3 hafta</span></td>
+        <td><b>Ödeme terk</b> (ödeme sayfasında yazılan e-posta/telefon) · <b>stok gelince</b> (ölçü/renk bazında) ve <b>az stok</b> · <b>fiyat düşüşü</b> · <b>ürün inceleme terk</b> (ör. Mocca/Magic 2+ kez bakıldı) · <b>teslimat sonrası</b> kullanım rehberi ve <b>yorum isteği</b> · <b>Meta reklam kitlesi senkronu</b> · Kasım kampanya segmentleri</td>
+        <td class="r num"><b>120.000 TL</b></td>
+      </tr>
+      <tr>
+        <td><b>3 · Sepeti büyüt, geri getir</b><br><span class="note">23 Kasım – 18 Aralık<br>4 hafta</span></td>
+        <td><b>Ölçü eşleşmeli çapraz satış</b> (yatak → aynı ölçüde ped, nevresim, yastık) · <b>misafir kiti</b> (katlanır koltuk → sırt aparatı, yastık, renk uyumlu kırlent) · <b>bir üst model</b> önerisi (Base Visco → Base 7 Zone, Magic Tek → Magic Çift) · yenileme hatırlatmaları · <b>geri kazanım</b> (180 / 365 gün) · <b>VIP</b> · markalar arası öneri (KVKK izni varsa)</td>
+        <td class="r num"><b>140.000 TL</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">Aylık ücret, alınan paketin son aşaması teslim edildikten sonra başlar.</p>
+
+  <div class="eyebrow" style="margin-top:3mm">Paketler</div>
+  <h2>Aynı sistemin üç hali</h2>
+  <table class="pk">
+    <thead><tr><th></th><th>Başlangıç</th><th class="rec">Büyüme · önerilen</th><th>Tam</th></tr></thead>
+    <tbody>
+      <tr><td>Kapsam</td><td>Aşama 1</td><td class="rec"><b>Aşama 1 + 2</b></td><td>Aşama 1 + 2 + 3</td></tr>
+      <tr><td>Canlıya çıkış</td><td>30 Ekim</td><td class="rec"><b>20 Kasım</b><br><span class="note">Black Friday öncesi</span></td><td>18 Aralık</td></tr>
+      <tr><td>Entegrasyonlar</td><td>T-Soft, e-posta, SMS, WhatsApp, İYS, GA4</td><td class="rec"><b>Hepsi + Meta reklam kitlesi</b></td><td>Hepsi + Meta reklam kitlesi</td></tr>
+      <tr><td>Otomasyon akışı</td><td>2</td><td class="rec"><b>8</b></td><td>15</td></tr>
+      <tr><td>Aylık yeni kampanya kurulumu</td><td>2</td><td class="rec"><b>4</b></td><td>8 + A/B test</td></tr>
+      <tr><td>Dahil e-posta gönderimi</td><td>50.000 / ay</td><td class="rec"><b>150.000 / ay</b></td><td>300.000 / ay</td></tr>
+      <tr><td>Rapor ve görüşme</td><td>Aylık rapor</td><td class="rec"><b>Rapor + aylık görüşme</b></td><td>Rapor + 2 haftada bir</td></tr>
+      <tr class="tot"><td>Kurulum (tek seferlik)</td><td class="num">180.000 TL</td><td class="rec num">300.000 TL</td><td class="num">440.000 TL</td></tr>
+      <tr class="tot"><td>Aylık</td><td class="num">45.000 TL</td><td class="rec num">65.000 TL</td><td class="num">90.000 TL</td></tr>
+      <tr><td>Aylığı karşılayan sepet*</td><td>6</td><td class="rec"><b>9</b></td><td>12</td></tr>
+    </tbody>
+  </table>
+  <p class="note">* Aylık ücret ÷ 7.499 TL (Mocca Tek Kişilik). Ayda terk edilen ~1.050 sepetin yanında. Yalnızca Homedius, yalnızca sepet terk akışı.<br>
+  <b>Aylık ücrete dahil:</b> Callypso Engage platformu (iki marka, İYS desteği, kullanıcı rolleri) · sunucu, veritabanı ve e-posta gönderim altyapısı · akışların izlenmesi ve iyileştirilmesi · paketteki kampanya kurulumları · ciro raporu · teknik destek (iş günü, 1 iş günü içinde dönüş).</p>
+
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>3 / 4</span></div>
+</section>
+
+<!-- ============ SAYFA 4: ENTEGRASYON, KAPSAM DIŞI, ŞARTLAR ============ -->
+<section class="page">
+  <div class="eyebrow">Entegrasyonlar</div>
+  <h2>Hepsi dahil</h2>
+  <table>
+    <thead><tr><th>Entegrasyon</th><th>Ne için</th><th class="r">Aşama</th></tr></thead>
+    <tbody>
+      <tr><td><b>T-Soft</b> (iki mağaza)</td><td>Ürün, fiyat, varyant stok, sipariş, üye, sepet ve ödeme olayları</td><td class="r">1</td></tr>
+      <tr><td>Web takip kodu + pop-up / form</td><td>Ziyaretçi davranışı, lead toplama, izin</td><td class="r">1</td></tr>
+      <tr><td>E-posta gönderimi (iki alan adı)</td><td>SPF, DKIM, DMARC, ısınma</td><td class="r">1</td></tr>
+      <tr><td>SMS (Netgsm)</td><td>Sepet terk, stok gelince</td><td class="r">1</td></tr>
+      <tr><td>WhatsApp Business API</td><td>Meta Cloud API / 360dialog, onaylı şablon mesajlar</td><td class="r">1</td></tr>
+      <tr><td>İYS ve izin yönetimi</td><td>Ticari ileti onayı, akışta onay kontrolü adımı</td><td class="r">1</td></tr>
+      <tr><td>GA4 / UTM</td><td>Reklam kaynağı ve ciro atfı</td><td class="r">1</td></tr>
+      <tr><td>Meta reklam kitlesi</td><td>Satın alanı reklamdan çıkarma, almayanı yeniden hedefleme</td><td class="r">2</td></tr>
+      <tr><td>Kargo / sipariş durumu (T-Soft)</td><td>Teslimat sonrası akışlar</td><td class="r">2</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two">
+    <div>
+      <div class="eyebrow" style="margin-top:2mm">Kapsam dışı</div>
+      <ol style="font-size:8.4pt">
+        <li><b>SMS ve WhatsApp ileti ücretleri</b>, Netgsm / Meta / 360dialog hesap ücretleri, İYS aboneliği. Operatöre doğrudan ödenir ya da maliyetine yansıtılır.</li>
+        <li><b>Reklam yönetimi ve bütçesi.</b> Ajansınızda kalır. Biz kitle senkronunu kurarız.</li>
+        <li><b>T-Soft tema / site tasarım değişiklikleri.</b> Takip kodu ve pop-up dışında. Gördüğümüz hızlı düzeltmeleri ayrı bir liste olarak iletiyoruz.</li>
+        <li><b>Pazaryeri verisi</b> (Trendyol, Hepsiburada, n11, Amazon, Koçtaş).</li>
+        <li><b>Hukuki danışmanlık:</b> KVKK aydınlatma ve açık rıza metinleri, kampanya şartlarının hukuki onayı.</li>
+        <li><b>Fotoğraf, video ve yeni içerik üretimi.</b> Mevcut görsel, yorum ve blog yazıları kullanılır.</li>
+        <li><b>Web push</b>, mobil uygulama, çağrı merkezi, sesli asistan.</li>
+        <li>Paketteki sayının üstündeki kampanya kurulumları ve e-posta gönderimleri.</li>
+        <li>Markalar arası ortak iletişim, KVKK metniniz izin vermiyorsa yapılmaz.</li>
+      </ol>
+    </div>
+    <div>
+      <div class="eyebrow" style="margin-top:2mm">Ödeme ve şartlar</div>
+      <ul style="font-size:8.4pt">
+        <li>Her aşamanın <b>başında %50, tesliminde %50</b>.<br>Büyüme: 12 Eki 90.000 · 30 Eki 90.000 · 2 Kas 60.000 · 20 Kas 60.000 TL.</li>
+        <li><b>Aylık ücret</b> paketin son aşaması teslim edilince başlar (Büyüme: 20 Kasım), her ay başında faturalanır. İlk 6 ay sözleşmeli, sonra aylık devam eder.</li>
+        <li><b>Teslim:</b> aşamadaki akışların iki sitede canlıda çalışması ve ilk gerçek tetiklenmenin panelde görünmesi.</li>
+        <li>Takvim, erişimlerin başlangıç gününde verilmesine bağlıdır.</li>
+        <li>Fiyatlar KDV hariçtir. Teklif <b>6 Kasım 2026</b>'ya kadar geçerlidir.</li>
+      </ul>
+      <div class="eyebrow" style="margin-top:4mm">Başlamak için sizden</div>
+      <ol style="font-size:8.4pt">
+        <li>Paket seçimi ve onay (e-posta ile "olur" yeterli)</li>
+        <li>T-Soft panel / API erişimi (iki mağaza)</li>
+        <li>İki alan adı için DNS erişimi</li>
+        <li>Meta Business hesabı ve WhatsApp numarası</li>
+        <li>İYS / Netgsm bilgisi ve KVKK sorumlusu</li>
+        <li>Pop-up teklifinin onayı ve tek doğru kargo, iade, deneme süresi metni</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:3mm"><b>Olur derseniz:</b> 12 Ekim Pazartesi başlıyorum. Aşama 1, 30 Ekim'de iki sitede canlı.</div>
+
+  <div class="sign">
+    <div>Hazırlayan · Callypso Engage</div>
+    <div>Onaylayan · Aydın Endüstri</div>
+    <div>Tarih</div>
+  </div>
+
+  <div class="foot"><span>Aydın Endüstri × Callypso Engage · Proje Teklifi</span><span>4 / 4</span></div>
+</section>
+
+</body>
+</html>
