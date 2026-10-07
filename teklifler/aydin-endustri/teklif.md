@@ -169,4 +169,7 @@ Aşağıdakiler teklife dahil değildir. İstenirse ayrıca fiyatlanır.
 
 ---
 
-Hazırlayan: Callypso Engage · Onay: ____________________ · Tarih: ____________
+**Hazırlayan:** Furkan Alumert  
+CallypsoTech
+
+**Onaylayan (Aydın Endüstri):** ____________________ · **Tarih:** ____________
