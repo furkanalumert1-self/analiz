@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/pushouse-callypso-engage/index.html" }
+  ]
+}
