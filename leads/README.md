@@ -89,3 +89,24 @@ _Çağrı merkezi, tele-satış veya tahsilat ekibi büyütüyor – tekrarlı a
 | 48 | **Doğuş Oto** | 994 | 1 | Müşteri Danışmanı (Doğuş Oto Ankara) | İngilizce | Ankara, Türkiye | [Web](http://www.dogusoto.com) · [LinkedIn](https://tr.linkedin.com/company/dogusoto) · [İlan](https://tr.linkedin.com/jobs/view/m%C3%BC%C5%9Fteri-dan%C4%B1%C5%9Fman%C4%B1-do%C4%9Fu%C5%9F-oto-ankara-at-do%C4%9Fu%C5%9F-oto-4477220164) |
 | 49 | **Borusan Otomotiv** | 1444 | 4 | Parça Satış Danışmanı | İngilizce | Istanbul, Türkiye | [Web](http://www.borusanotomotiv.com) · [LinkedIn](https://tr.linkedin.com/company/borusan-otomotiv) · [İlan](https://tr.linkedin.com/jobs/view/par%C3%A7a-sat%C4%B1%C5%9F-dan%C4%B1%C5%9Fman%C4%B1-at-borusan-otomotiv-4474255850) |
 | 50 | **Lalamove** | 7299 | 1 | Sürücü Operasyonları Çağrı Elemanı | İngilizce | Istanbul, Istanbul, Türkiye | [Web](https://www.lalamove.com) · [LinkedIn](https://hk.linkedin.com/company/lalamove) · [İlan](https://tr.linkedin.com/jobs/view/s%C3%BCr%C3%BCc%C3%BC-operasyonlar%C4%B1-%C3%A7a%C4%9Fr%C4%B1-eleman%C4%B1-at-lalamove-4468340582) |
+
+---
+
+# Karar Vericiler ve E-postalar
+
+Dosyalar:
+- `karar_vericiler_2026-10.csv`: 22 şirketten 79 karar verici (ad, ünvan, e-posta, e-posta durumu, şehir, LinkedIn, kaynak). Her şirkette en fazla 6 kişi var. Sıralama önceliği: CEO/kurucu/genel müdür, sonra müşteri deneyimi/çağrı merkezi/operasyon, sonra satış/pazarlama.
+- `sirket_iletisim_ozeti_2026-10.csv`: 50 şirketin her biri için kaç karar verici bulunduğu, web sitesinden toplanan genel e-posta ve telefon.
+
+Kaynaklar (Apify):
+1. `pipelinelabs/lead-scraper-apollo-zoominfo-lusha-ppe`: şirket alan adı + Türkiye'de yaşayan kişi + yönetici kademesi.
+2. `peakydev/leads-scraper-ppe`: aynı alan adlarıyla ek arama (global şirketlerde yurt dışı çalışanları elendi).
+3. `snipercoder/bulk-decision-makers-email-finder`: küçük ve orta ölçekli şirketlerde CEO/kurucu/sahip araması.
+4. `vdrmota/contact-info-scraper`: şirket web sitelerinden genel e-posta ve telefon.
+
+E-posta durumu:
+- **Doğrulanmış**: veri sağlayıcısı adresin aktif olduğunu doğrulamış.
+- **Kalıp tahmini**: şirketin e-posta formatından (ad.soyad@ vb.) türetilmiş.
+- **Doğrulanmamış / Doğrulanamadı**: veri tabanında var ama teslim edilebilirliği kontrol edilmemiş. Göndermeden önce bir doğrulama aracından (NeverBounce, ZeroBounce vb.) geçirin.
+
+Kapsama notu: Küçük klinikler (sağlık turizmi) ticari lead veri tabanlarında çok az yer alıyor. Bu şirketlerin çoğu için yalnızca genel adres (info@, sales@, randevu@) bulunabildi. Bunlara LinkedIn'den kurucuya doğrudan mesaj veya WhatsApp hattı daha etkili bir kanal.
