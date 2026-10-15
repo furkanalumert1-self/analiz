@@ -110,3 +110,17 @@ E-posta durumu:
 - **Doğrulanmamış / Doğrulanamadı**: veri tabanında var ama teslim edilebilirliği kontrol edilmemiş. Göndermeden önce bir doğrulama aracından (NeverBounce, ZeroBounce vb.) geçirin.
 
 Kapsama notu: Küçük klinikler (sağlık turizmi) ticari lead veri tabanlarında çok az yer alıyor. Bu şirketlerin çoğu için yalnızca genel adres (info@, sales@, randevu@) bulunabildi. Bunlara LinkedIn'den kurucuya doğrudan mesaj veya WhatsApp hattı daha etkili bir kanal.
+
+---
+
+# Küçük Ölçekli (≤50 çalışan) Şirketler – Klinik Öncelikli
+
+Dosya: `kucuk_klinikler_karar_vericiler_2026-10.csv`. Noktalı virgülle ayrılmış; sütunlar önceki karar verici dosyasıyla aynı. Sona üç sütun eklendi: çalışan sayısı, LinkedIn ilanı (sinyal), web sitesi.
+
+Sıralama:
+1. **Klinik – LinkedIn ilanı var**: son 30 günde hasta koordinatörü, satış veya resepsiyon ilanı açmış ve karar verici e-postası bulunan klinikler.
+2. **Klinik**: veri tabanında bulunan küçük klinikler. Sahibi, kurucusu ya da genel müdürü var.
+3. **Klinik – LinkedIn ilanı var (sadece genel e-posta)**: ilan açmış ama kişi bulunamamış klinikler. Web sitesindeki genel adres ve telefon verildi.
+4. **Diğer**: klinik dışında, 50 ve altı çalışanı olan, ilan açmış birkaç şirket.
+
+Çalışan sayıları LinkedIn şirket sayfasından veya lead veri tabanından alındı; yaklaşık değerlerdir.
