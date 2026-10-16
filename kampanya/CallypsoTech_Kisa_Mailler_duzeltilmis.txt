@@ -1,0 +1,90 @@
+CallypsoTech — Kısa Mail Taslakları (düzeltilmiş)
+
+KULLANIM
+- Varyantlar artık birer "seri": Mail 1'de hangi varyantı seçerseniz Mail 2 ve Mail 3'te aynı numaralı varyantı gönderin.
+  Varyant 1: kaçan çağrılar · Varyant 2: telefon yükü · Varyant 3: mesai sonrası / yabancı hastalar
+- Takipleri ilk mailin yanıt zincirinde gönderin (konu: "Re: <ilk mailin konusu>").
+- Önerilen aralık: Mail 1 → 3 gün sonra Mail 2 → 4 gün sonra Mail 3.
+- Hitap: Kişi adı varsa "Merhaba {{Ad}} {{Hitap}}," (ör. "Merhaba Özge Hanım,"). Sadece genel adres (info@ vb.) varsa "Merhaba," kullanın.
+- Karakter sayıları yalnızca mesaj cümlesini kapsar (hitap satırı ve imza hariç; boşluk ve noktalama dahil).
+- Her mailin sonuna aşağıdaki İMZA eklenmelidir. Gönderen kimliği ve ret (çıkış) seçeneği 6563 sayılı Kanun gereği zorunludur.
+
+İMZA (tüm maillerde)
+--
+{{Gönderen Ad Soyad}}
+CallypsoTech
+{{web sitesi}} | {{telefon}}
+Bu tür e-postaları almak istemiyorsanız "çıkar" yazarak yanıtlamanız yeterlidir.
+
+
+MAIL 1 — VARYANT 1
+Konu: Kaçan çağrılar
+Gövde: 97 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Kliniğinizde cevapsız kalan çağrıları yanıtlayan bir sesli yapay zekâ asistanı ilginizi çeker mi?
+
+MAIL 1 — VARYANT 2
+Konu: Hasta iletişimi
+Gövde: 117 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Kliniğinizin telefon yükünü, çağrıları 7/24 yanıtlayan bir sesli yapay zekâ asistanıyla hafifletmeyi düşünür müsünüz?
+
+MAIL 1 — VARYANT 3
+Konu: Mesai sonrası
+Gövde: 122 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Mesai sonrasında arayan hastalarınızı, kendi dillerinde konuşan bir sesli yapay zekâ asistanı karşılasa ilginizi çeker mi?
+
+MAIL 2 — VARYANT 1
+Konu: Re: Kaçan çağrılar (aynı zincirde)
+Gövde: 89 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Kısa bir hatırlatma: Cevapsız kalan çağrılar kliniğinize hasta kaybettiriyor olabilir mi?
+
+MAIL 2 — VARYANT 2
+Konu: Re: Hasta iletişimi (aynı zincirde)
+Gövde: 102 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Telefon yoğunluğunu hafifletmek gündeminizde mi? Uygunsanız 10 dakikalık kısa bir görüşme yapabiliriz.
+
+MAIL 2 — VARYANT 3
+Konu: Re: Mesai sonrası (aynı zincirde)
+Gövde: 108 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Mesai dışında gelen hasta çağrılarını şu an nasıl yönetiyorsunuz? Kısa bir fikir alışverişi yapabilir miyiz?
+
+MAIL 3 — VARYANT 1
+Konu: Re: Kaçan çağrılar (aynı zincirde)
+Gövde: 111 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Son mesajım: Asistanın bir hasta çağrısını nasıl karşıladığını gösteren kısa bir demo göndermemi ister misiniz?
+
+MAIL 3 — VARYANT 2
+Konu: Re: Hasta iletişimi (aynı zincirde)
+Gövde: 112 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Son mesajım: Kliniğinizin telefon yükünün nasıl azaltılabileceğine dair kısa bir örnek paylaşmamı ister misiniz?
+
+MAIL 3 — VARYANT 3
+Konu: Re: Mesai sonrası (aynı zincirde)
+Gövde: 101 karakter
+
+Merhaba {{Ad}} {{Hitap}},
+
+Son mesajım: Mesai dışı hasta çağrıları için önerdiğimiz çözümü 2-3 cümleyle anlatmamı ister misiniz?
