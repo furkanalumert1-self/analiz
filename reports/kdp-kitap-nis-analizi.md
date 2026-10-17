@@ -1,5 +1,7 @@
 # KDP Kurgu Dışı Kitap Niş Analizi
 
+> Güncel ve genişletilmiş sürüm (Apify ile çekilen 78 gerçek 3★ yorum dahil): `reports/kdp-kitap-nis-analizi.html`
+
 Tarih: 17 Ekim 2026 · Veri: Amazon.com ve Amazon.ca ürün sayfaları, headless tarayıcıyla canlı olarak çekildi (Apify hesabının aylık kotası dolduğu için Apify kullanılamadı).
 Ham veri: `reports/kdp-data/amazon-bsr-2026-10-17.csv` (50 arama sonucu), `reports/kdp-data/demans-elestirel-yorumlar.txt` (39 eleştirel yorum).
 

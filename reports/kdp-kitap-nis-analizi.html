@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KDP Niş Analizi</title>
+<meta name="description" content="Amazon BSR ve 3 yıldızlı yorum verisiyle kurgu dışı KDP kitap nişi analizi, 17 Ekim 2026.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  :root{
+    --bg:#f6f3ee; --surface:#ffffff; --surface-2:#efe9e0; --ink:#17201f; --ink-2:#47534f; --muted:#7c8783;
+    --border:#e2dbd0; --border-strong:#cfc6b8;
+    --brand:#0f5c56; --brand-soft:#dcece8; --accent:#b4562b; --accent-soft:#f6e3d8;
+    --good:#1f8a4c; --good-soft:#dcf1e3; --warn:#b07a12; --warn-soft:#f6ebcf; --crit:#b23a3a; --crit-soft:#f6dddd;
+    --shadow:0 1px 2px rgba(23,32,31,.05),0 10px 28px -16px rgba(23,32,31,.25);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121817; --surface:#18201f; --surface-2:#1f2927; --ink:#eef2f0; --ink-2:#c3ccc8; --muted:#8d9994;
+      --border:#2a3532; --border-strong:#3a4743;
+      --brand:#5cc2b6; --brand-soft:#173430; --accent:#e59266; --accent-soft:#3a251a;
+      --good:#4fc47e; --good-soft:#163323; --warn:#e0b14b; --warn-soft:#3a2f14; --crit:#e98080; --crit-soft:#3d1d1d;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121817; --surface:#18201f; --surface-2:#1f2927; --ink:#eef2f0; --ink-2:#c3ccc8; --muted:#8d9994;
+    --border:#2a3532; --border-strong:#3a4743;
+    --brand:#5cc2b6; --brand-soft:#173430; --accent:#e59266; --accent-soft:#3a251a;
+    --good:#4fc47e; --good-soft:#163323; --warn:#e0b14b; --warn-soft:#3a2f14; --crit:#e98080; --crit-soft:#3d1d1d;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;padding-inline:16px;line-height:1.5}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;margin:0;text-wrap:balance}
+  p{margin:0;color:var(--ink-2)}
+  a{color:var(--brand)}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+  .wrap{max-width:1120px;margin-inline:auto}
+  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  .topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);margin-inline:-16px;padding:10px 16px}
+  .topbar .wrap{display:flex;gap:16px;align-items:center}
+  .brandmark{font-family:'Fraunces',serif;font-weight:700;white-space:nowrap}
+  .nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:none;font-size:12.5px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:6px 11px;border-radius:99px}
+  .nav a:hover{background:var(--surface)}
+
+  .hero{padding-block:48px 28px}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);padding:5px 11px;border-radius:99px}
+  .hero h1{font-size:clamp(30px,5vw,50px);line-height:1.05;margin-top:16px;max-width:18ch;font-weight:700}
+  .lede{font-size:17px;max-width:64ch;margin-top:14px}
+  .verdict{margin-top:26px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);max-width:820px}
+  .verdict b{color:var(--ink)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:28px}
+  .stat{background:var(--surface);padding:16px}
+  .stat .n{font-family:'Fraunces',serif;font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:2px}
+  @media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  section{padding-block:48px;border-top:1px solid var(--border)}
+  .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+  section h2{font-size:clamp(22px,3vw,32px);margin-top:6px}
+  .sub{max-width:68ch;margin-top:8px;font-size:15px}
+  .head{margin-bottom:24px}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--surface-2);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--ink)}
+  .rank{font-family:'Fraunces',serif;font-weight:700;color:var(--muted)}
+  tr.top td{background:color-mix(in srgb,var(--brand-soft) 45%,transparent)}
+
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;font-family:'IBM Plex Mono',monospace}
+  .pill.good{background:var(--good-soft);color:var(--good)} .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.crit{background:var(--crit-soft);color:var(--crit)} .pill.none{background:var(--surface-2);color:var(--muted)}
+
+  /* BSR strips */
+  .strips{display:grid;gap:14px}
+  .strip-row{display:grid;grid-template-columns:260px 1fr 150px;gap:16px;align-items:center}
+  .strip-label b{display:block;font-size:14px}
+  .strip-label .kw{font-size:11.5px;color:var(--muted)}
+  .strip{position:relative;height:26px;border-radius:8px;overflow:hidden;display:flex}
+  .zone{height:100%}
+  .z1{background:var(--good-soft);width:67%} .z2{background:var(--warn-soft);width:22.3%} .z3{background:var(--crit-soft);flex:1}
+  .dot{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:2px solid var(--surface)}
+  .dot.good{background:var(--good)} .dot.warn{background:var(--warn)} .dot.crit{background:var(--crit)}
+  .strip-med{font-size:12.5px;color:var(--ink-2)}
+  .unr{display:block;color:var(--crit);font-size:11.5px}
+  .axis{display:grid;grid-template-columns:260px 1fr 150px;gap:16px;margin-top:6px}
+  .axis .ticks{position:relative;height:16px;font-size:11px;color:var(--muted)}
+  .axis .ticks span{position:absolute;transform:translateX(-50%)}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink-2);margin-top:14px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  @media (max-width:760px){.strip-row,.axis{grid-template-columns:1fr}.axis>div:first-child,.axis>div:last-child{display:none}}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+
+  .quote{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+  .quote .q{font-family:'Fraunces',serif;font-size:16px;line-height:1.4;color:var(--ink)}
+  .quote .src{font-size:12px;color:var(--muted)}
+  .quote .tag{align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:99px}
+  .quote .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brand);font-weight:500}
+
+  .bookcard{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:start}
+  .cover{aspect-ratio:2/3;border-radius:6px 12px 12px 6px;background:linear-gradient(160deg,#0f5c56,#0a3f3b);color:#f6f3ee;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);font-family:'Fraunces',serif}
+  .cover .t{font-size:21px;font-weight:700;line-height:1.1}
+  .cover .s{font-size:10.5px;font-family:'Manrope',sans-serif;opacity:.85;line-height:1.35}
+  .cover .a{font-size:11px;font-family:'Manrope',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+  @media (max-width:700px){.bookcard{grid-template-columns:1fr}.cover{max-width:200px}}
+  .kv{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;font-size:14px;margin-top:14px}
+  .kv dt{color:var(--muted);font-weight:600} .kv dd{margin:0}
+
+  .chapters{counter-reset:ch;display:grid;gap:10px}
+  .ch{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+  .ch::before{counter-increment:ch;content:counter(ch,decimal-leading-zero);font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--brand)}
+  .ch h3{font-size:16px}
+  .ch .open{font-style:italic;color:var(--ink-2);font-size:14px;margin-top:4px}
+  .ch .fix{font-size:12px;color:var(--accent);font-weight:700;margin-top:6px}
+
+  .scen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media (max-width:820px){.scen{grid-template-columns:repeat(2,1fr)}}
+  .sc{border-radius:14px;padding:16px;border:1px solid var(--border);background:var(--surface)}
+  .sc .v{font-family:'Fraunces',serif;font-size:24px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
+  .sc .l{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .sc p{font-size:13px;margin-top:6px}
+  .sc.b .l{color:var(--crit)} .sc.m .l{color:var(--warn)} .sc.g .l{color:var(--good)} .sc.x .l{color:var(--muted)}
+
+  ol.plan{margin:0;padding-left:20px;display:grid;gap:10px;color:var(--ink-2)}
+  ol.plan b{color:var(--ink)}
+  details{margin-top:14px} summary{cursor:pointer;font-weight:700;color:var(--brand)}
+  footer{padding-block:32px 48px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted)}
+  .note{font-size:12.5px;color:var(--muted);margin-top:12px}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brandmark">KDP Niş Analizi</div>
+  <nav class="nav">
+    <a href="#ozet">Özet</a><a href="#bsr">Amazon verisi</a><a href="#yorumlar">3★ yorumlar</a><a href="#kitap">Kitap</a><a href="#taslak">Taslak</a><a href="#gelir">Gelir</a><a href="#plan">Plan</a><a href="#20">20 sorun</a><a href="#veri">Ham veri</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+<header class="hero" id="ozet">
+  <span class="eyebrow">Kurgu dışı KDP · 17 Ekim 2026</span>
+  <h1>Hangi kitap satar ve bu yöntem para kazandırır mı?</h1>
+  <p class="lede">20 kalıcı sorun duygusal aciliyete göre sıralandı. İlk 5'i dar bir okuyucuya indirgendi ve Amazon'da canlı olarak test edildi: arama sonuçları, Best Sellers Rank (BSR) ve rakip kitapların 3 yıldızlı yorumları.</p>
+  <div class="verdict"><p><b>Karar:</b> Gelir elde edilebilir, ama “ayda 10.000 $ basit” iddiası verilerle tutmuyor. İyi yapılmış bir kitap gerçekçi olarak <b>ayda 50–400 $</b> getirir. Aynı nişte 6 kitapla orta senaryo <b>ayda 600–1.800 $</b>. Önerilen ilk niş: <b>evde demanslı ebeveynine bakan evlat</b>. Kaçınılması gereken: “boşanma sonrası bütçe” (talep yok).</p></div>
+  <div class="stats">
+    <div class="stat"><div class="n">60</div><div class="l">Amazon arama sonucu, BSR'leriyle</div></div>
+    <div class="stat"><div class="n">12</div><div class="l">test edilen arama ifadesi, 7 açıda</div></div>
+    <div class="stat"><div class="n">78</div><div class="l">gerçek 3★ yorum (Apify ile)</div></div>
+    <div class="stat"><div class="n">≈5,6 $</div><div class="l">kâğıt kapak başına gerçek telif (iddia: 7 $)</div></div>
+  </div>
+</header>
+
+<section id="bsr">
+  <div class="head"><div class="k">Adım 2 · Amazon testi</div><h2>Nişlerin satış gücü (BSR)</h2>
+  <p class="sub">Her açı için okuyucunun Amazon Books'a yazacağı ifade arandı. Sponsorsuz ilk 5 sonucun ürün sayfasından BSR okundu. Her nokta bir kitaptır. Ölçek logaritmiktir; solda olan daha çok satar.</p></div>
+  <div class="card">
+    <div class="strips">
+<div class="strip-row">
+  <div class="strip-label"><b>Demanslı ebeveyne bakan evlat</b><span class="mono kw">caring for parent with dementia · dementia caregiver book</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot good" style="left:65.0%" title="Daughters Caring for a Parent with Dementia: Understand Behaviors, Respond with  · BSR 81K"></span><span class="dot good" style="left:27.4%" title="The 36-Hour Day: A Family Guide to Caring for People with Alzheimer Disease, Oth · BSR 2K"></span><span class="dot good" style="left:63.3%" title="The Complete Family Guide to Dementia: Everything You Need to Know to Help Your  · BSR 68K"></span><span class="dot warn" style="left:72.1%" title="The Caregiver&#x27;s Guide to Dementia: Practical Advice for Caring for Yourself and  · BSR 169K"></span><span class="dot good" style="left:51.1%" title="Living in the Moment: A Guide to Overcoming Challenges and Finding Moments of Jo · BSR 19K"></span><span class="dot good" style="left:52.1%" title="The Dementia Caregiver&#x27;s Survival Guide: An 11-Step Plan to Understand the Disea · BSR 22K"></span><span class="dot good" style="left:62.3%" title="Dementia Caregiver Guide · BSR 62K"></span><span class="dot good" style="left:45.6%" title="The Dementia Care Toolkit: Real Help for Challenging Behaviors and Caregiving Ov · BSR 11K"></span></div>
+  <div class="strip-med mono">medyan 62K </div>
+</div>
+<div class="strip-row">
+  <div class="strip-label"><b>Narsist annenin kızları</b><span class="mono kw">healing from narcissistic mother · narcissistic abuse recovery</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot warn" style="left:77.8%" title="Narcissistic Abuse Recovery: The 11 Laws to Self-Mastery: How the Narcissist Get · BSR 305K"></span><span class="dot good" style="left:22.7%" title="It&#x27;s Not You: Identifying and Healing from Narcissistic People · BSR 1K"></span><span class="dot warn" style="left:67.7%" title="Narcissistic Abuse Recovery: The 11 Laws to Self-Mastery: Recover from Gaslighti · BSR 108K"></span><span class="dot warn" style="left:84.8%" title="Narcissistic Abuse Recovery: The 7-Step Plan to Heal from Gaslighting, Set Bound · BSR 626K"></span><span class="dot good" style="left:50.1%" title="Recovery from Narcissistic Abuse, Gaslighting, Codependency and Complex PTSD (4  · BSR 18K"></span><span class="dot good" style="left:45.3%" title="Will I Ever Be Good Enough?: Healing the Daughters of Narcissistic Mothers · BSR 11K"></span><span class="dot good" style="left:52.0%" title="Adult Daughters of Narcissistic Mothers: Quiet the Critical Voice in Your Head,  · BSR 21K"></span><span class="dot warn" style="left:71.2%" title="Adult Daughters Healing from Narcissistic Mothers: Break the Cycle of Emotional  · BSR 155K"></span><span class="dot good" style="left:8.7%" title="Adult Children of Emotionally Immature Parents: How to Heal from Distant, Reject · BSR 246"></span></div>
+  <div class="strip-med mono">medyan 21K </div>
+</div>
+<div class="strip-row">
+  <div class="strip-label"><b>Geç tanı DEHB, kadınlar</b><span class="mono kw">adhd women book · adult adhd book</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot good" style="left:29.0%" title="ADHD and Women: A Guide to Optimizing Your Hormones and Thriving with ADHD · BSR 2K"></span><span class="dot good" style="left:46.4%" title="A Radical Guide for Women with ADHD: Embrace Neurodiversity, Live Boldly, and Br · BSR 12K"></span><span class="dot good" style="left:37.6%" title="ADHD for Smart Ass Women: How to Fall in Love with Your Neurodivergent Brain · BSR 5K"></span><span class="dot good" style="left:51.9%" title="Invisible ADHD: Proven Mood and Life Management for Smart Yet Scattered Women · BSR 21K"></span><span class="dot good" style="left:37.5%" title="Your Brain&#x27;s Not Broken: Strategies for Navigating Your Emotions and Life with A · BSR 5K"></span><span class="dot good" style="left:40.3%" title="Taking Charge of Adult ADHD: Proven Strategies to Succeed at Work, at Home, and  · BSR 6K"></span><span class="dot good" style="left:29.9%" title="ADHD is Awesome: A Guide To (Mostly) Thriving With ADHD · BSR 2K"></span><span class="dot good" style="left:32.5%" title="The ADHD Field Guide for Adults · BSR 3K"></span><span class="dot good" style="left:49.3%" title="Scattered Minds: The Origins and Healing of Attention Deficit Disorder · BSR 16K"></span></div>
+  <div class="strip-med mono">medyan 5K </div>
+</div>
+<div class="strip-row">
+  <div class="strip-label"><b>Bebek uykusu, ilk kez ebeveyn</b><span class="mono kw">newborn sleep book for first time parents · sleep training book</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot good" style="left:29.5%" title="Twelve Hours&#x27; Sleep by Twelve Weeks Old: A Step-by-Step Plan for Baby Sleep Succ · BSR 2K"></span><span class="dot good" style="left:33.1%" title="Precious Little Sleep: The Complete Baby Sleep Guide for Modern Parents · BSR 3K"></span><span class="dot good" style="left:9.3%" title="Moms on Call Basic Baby Care 0-6 Months - Newborn Routine, Sleep &amp; Feeding Sched · BSR 260"></span><span class="dot good" style="left:34.4%" title="Babywise Sleep Solutions: Begin as You Mean to Go with (To the Point) · BSR 3K"></span><span class="dot good" style="left:48.5%" title="Solve Your Child&#x27;s Sleep Problems: New, Revised, and Expanded Edition · BSR 15K"></span><span class="dot good" style="left:23.6%" title="Go the F*ck to Sleep · BSR 1K"></span><span class="dot good" style="left:21.0%" title="The Simplest Baby Book in the World: The Illustrated, Grab-and-Do Guide for a He · BSR 870"></span><span class="dot good" style="left:23.1%" title="What to Expect the First Year: (Updated in 2026) · BSR 1K"></span><span class="dot good" style="left:39.8%" title="Mayo Clinic Guide to Your Baby&#x27;s First Years, 3rd Edition: Clear Answers and Exp · BSR 6K"></span></div>
+  <div class="strip-med mono">medyan 2K </div>
+</div>
+<div class="strip-row">
+  <div class="strip-label"><b>Boşanma sonrası para</b><span class="mono kw">budgeting after divorce · divorce finances for women</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot crit" style="left:91.9%" title="He Handled the Money: A Woman&#x27;s Guide to Divorce Finances (Divorce &amp; Money) · BSR 1,3M"></span><span class="dot warn" style="left:82.9%" title="Divorce: Think Financially, Not Emotionally® Volume I: What Women Need To Know A · BSR 514K"></span><span class="dot warn" style="left:74.9%" title="Divorce After 50: A Guide to the Unique Legal and Financial Challenges of Your D · BSR 225K"></span><span class="dot warn" style="left:85.5%" title="DIVORCE Financial Planner For Women, Volume I (Think Financially, Not Emotionall · BSR 675K"></span><span class="dot warn" style="left:75.5%" title="Divorce Prep Workbook: Checklists, Worksheets and Step-by-Step Planning · BSR 240K"></span><span class="dot crit" style="left:96.6%" title="THE FINANCIAL RESET AFTER DIVORCE: Rebuild Your Credit, Protect Your Money, and  · BSR 2,1M"></span><span class="dot crit" style="left:97.2%" title="Freeing Yourself Financially: A Woman’s Guide To Rebuilding Her Finances After D · BSR 2,2M"></span></div>
+  <div class="strip-med mono">medyan 675K <span class="unr">+2 sırasız</span></div>
+</div>
+<div class="strip-row">
+  <div class="strip-label"><b>Yaşlı narsist ebeveyne bakım</b><span class="mono kw">caring for aging narcissistic parent</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot crit" style="left:93.7%" title="CARING FOR THE NARCISSISTIC PARENT : How to Manage the Medical, Legal, and Emoti · BSR 1,6M"></span><span class="dot warn" style="left:74.6%" title="Caring for Yourself While Caring for Your Aging Parents, Third Edition: How to H · BSR 220K"></span><span class="dot warn" style="left:72.1%" title="Caring for Aging Parents Without Losing Your Mind! · BSR 169K"></span><span class="dot warn" style="left:80.8%" title="CARING for AGING PARENTS: Maintain Your Sanity &amp; Their Dignity Manage Emotional, · BSR 414K"></span><span class="dot warn" style="left:87.8%" title="CARING FOR AGING PARENTS: Your Compassionate Guide to Regain Sanity, Reclaim Pea · BSR 852K"></span></div>
+  <div class="strip-med mono">medyan 414K </div>
+</div>
+<div class="strip-row">
+  <div class="strip-label"><b>“Early stage dementia” araması</b><span class="mono kw">early stage dementia parent</span></div>
+  <div class="strip"><span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span><span class="dot warn" style="left:87.2%" title="Dementia - Early Stage: Simple Exercises to Enhance Memory and Well-being in Ear · BSR 800K"></span><span class="dot warn" style="left:73.3%" title="The Seven Stages of Dementia: A Caregiver&#x27;s Guide to Alzheimer&#x27;s and Dementia —  · BSR 191K"></span><span class="dot good" style="left:51.1%" title="Living in the Moment: A Guide to Overcoming Challenges and Finding Moments of Jo · BSR 19K"></span><span class="dot warn" style="left:84.8%" title="Dementia - Late stage: Gentle Activities for Comfort, Familiarity, and Meaningfu · BSR 624K"></span><span class="dot good" style="left:58.0%" title="When Memory Fades: What to Expect at Every Stage, from Early Signs to Full Suppo · BSR 39K"></span></div>
+  <div class="strip-med mono">medyan 191K </div>
+</div>
+    </div>
+    <div class="axis"><div></div><div class="ticks"><span style="left:0%">100</span><span style="left:22.3%">1K</span><span style="left:44.7%">10K</span><span style="left:67%">100K</span><span style="left:89.3%">1M</span></div><div></div></div>
+    <div class="legend"><span><i style="background:var(--good)"></i>&lt; 100K: satıyor</span><span><i style="background:var(--warn)"></i>100K–1M: zayıf</span><span><i style="background:var(--crit)"></i>&gt; 1M: neredeyse satmıyor</span></div>
+  </div>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><span class="pill good">Seçildi</span><h3 style="margin-top:8px;font-size:18px">Demans bakımı</h3><p style="margin-top:6px;font-size:14px">Talep derin: <i>The 36-Hour Day</i> 1.688. Bağımsız yazarlar da satıyor: <i>Daughters Caring for a Parent with Dementia</i> 21 Eylül 2026'da çıktı ve 1 ayda 81K'ya geldi; <i>Dementia Caregiver's Survival Guide</i> 21K'da.</p></div>
+    <div class="card"><span class="pill warn">Rekabet yüksek</span><h3 style="margin-top:8px;font-size:18px">Narsist anne</h3><p style="margin-top:6px;font-size:14px">Talep çok yüksek (246, 1.041), ancak ilk 5 sonucun 3'ü son 4 haftada çıkmış ve ikisi aynı başlıkta. Bir 3★ yorum: <i>“Almost like AI had written it.”</i></p></div>
+    <div class="card"><span class="pill crit">Kaçının</span><h3 style="margin-top:8px;font-size:18px">DEHB, bebek uykusu, boşanma-finans</h3><p style="margin-top:6px;font-size:14px">DEHB ve uyku: büyük yayınevleri ve 15–20 yıllık klasikler rafı tutuyor. Boşanma-finans: 2026'da çıkan bağımsız kitapların hepsi 1M+ sırada ya da sırasız, yani alıcı yok.</p></div>
+  </div>
+</section>
+
+<section id="yorumlar">
+  <div class="head"><div class="k">Adım 3 · 3 yıldızlı yorumlar</div><h2>Okuyucular tam olarak neyin eksik olduğunu yazıyor</h2>
+  <p class="sub">Apify (junglee/amazon-reviews-scraper) ile 12 demans ve bakım kitabından 42, 5 narsist-anne kitabından 36 adet 3★ yorum çekildi. Baskı ve kargo şikâyetleri ayıklandı. Kalan şikâyetler kümelendi; sayılar o temaya giren demans yorumlarının sayısıdır.</p></div>
+  <div class="grid2">
+    <div class="quote"><span class="tag">1 · Fazla basit, sadece giriş seviyesi</span><div class="q">“This book is for someone who doesn't know anything about Alzheimer's. So, for me it wasn't informative.”</div><div class="src">Alzheimer's Through the Stages · <span class="n">8 yorum bu temada</span></div></div>
+    <div class="quote"><span class="tag">2 · “Hayatta kalma kılavuzu” değil</span><div class="q">“I didn't find this to be a caregiver's survival guide, per se. Would have enjoyed seeing more practical and adaptable information.”</div><div class="src">The Dementia Caregiver's Survival Guide (bağımsız rakip) · <span class="n">4 yorum</span></div></div>
+    <div class="quote"><span class="tag">3 · Erken ve orta evre boşluğu</span><div class="q">“Not enough ideas to help caregivers in the early stages when the person is still functional day to day but [has] outbursts, paranoia and financial issues.”</div><div class="src">The Dementia Caregiver's Survival Guide · <span class="n">3 yorum</span></div></div>
+    <div class="quote"><span class="tag">4 · Evreden evreye yol haritası yok</span><div class="q">“Doesn't really guide you through the progression of early-stage dementia… to the final stages when they are mostly gone.”</div><div class="src">The Dementia Caregiver's Survival Guide · <span class="n">3 yorum</span></div></div>
+    <div class="quote"><span class="tag">5 · Bakım evi için yazılmış, evdeki ebeveyn için değil</span><div class="q">“Designed for a caregiver in a group home setting. Not for someone that is taking care of an elderly parent with dementia.”</div><div class="src">Creating Moments of Joy · <span class="n">2 yorum</span></div></div>
+    <div class="quote"><span class="tag">6 · Bakım verenin tükenmişliği yok</span><div class="q">“What is not discussed is how caregivers can help themselves in fighting fatigue, symptoms of burnout, and lack of sleep… it assumes that all caregivers have help. Not!”</div><div class="src">When Your Loved One Has Dementia · <span class="n">2 yorum</span></div></div>
+    <div class="quote"><span class="tag">7 · Şişirilmiş, kısaltılmalı</span><div class="q">“This could be condensed to 100 pages and be more useful.”</div><div class="src">The 36-Hour Day (nişin 1 numarası) · <span class="n">3 yorum</span></div></div>
+    <div class="quote"><span class="tag">8 · Aynı hikâye tekrar tekrar</span><div class="q">“I found this book to be telling you the same story over and over again.”</div><div class="src">Loving Someone Who Has Dementia · <span class="n">2 yorum</span></div></div>
+    <div class="quote"><span class="tag">9 · Doldurulabilir çalışma sayfası istiyorlar</span><div class="q">“The accompanying Caregiver Guide should be… a fillable PDF as well as printable.”</div><div class="src">The Dementia Caregiver's Survival Guide · <span class="n">1 yorum</span></div></div>
+    <div class="quote"><span class="tag">10 · Herkes aynı kalıba uymuyor</span><div class="q">“Unfortunately not everyone with Alzheimer's are the same. They don't [follow] a certain pattern. This was not helpful at all.”</div><div class="src">Alzheimer's Through the Stages · <span class="n">2 yorum</span>. Ayrıca: “Customers should pay attention to when a book is published.”</div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><p><b>Narsist-anne nişinden ders (her niş için geçerli):</b> Okuyucular yapay zekâ ile yazılmış metni (<i>“Almost like AI had written it”</i>), dil bilgisi hatalarını (<i>“Grammatical errors all throughout… whoever edited it did a poor job”</i>), aynı soruların tekrarlanmasıyla şişirilmiş sayfaları ve uzman görüşünün eksikliğini (<i>“Not a doctor's input”</i>) açıkça cezalandırıyor. Ayrıca kitapların sorunu tarif edip “nasıl iyileşirim” kısmını atladığını yazıyorlar.</p></div>
+</section>
+
+<section id="kitap">
+  <div class="head"><div class="k">Adım 2 + 4 · Okuyucu = başlık, ifade = anahtar kelime</div><h2>Önerilen ilk kitap</h2></div>
+  <div class="bookcard">
+    <div class="cover"><div class="t">Caring for a Parent with Dementia at Home</div><div class="s">A Practical Survival Guide for the Adult Child — Handle Outbursts, Paranoia, Money Problems and Refusals in the Early and Middle Stages, Without Losing Yourself</div><div class="a">Takma ad</div></div>
+    <div>
+      <p style="font-size:16px">3★ yorumlardaki en büyük boşluk: rakip kitaplar ya hastalığı sıfırdan anlatan giriş kitapları, ya da bakım evi ve geç evre için yazılmış. <b>Ebeveyn hâlâ evde, hâlâ kısmen kendi başına, ama öfkeli, şüpheci ve parasını yönetemiyor.</b> Bu ara dönem için bir “ne yaparım” el kitabı yok.</p>
+      <dl class="kv">
+        <dt>Okuyucu</dt><dd>45–65 yaş, çoğunlukla kız evlat; ebeveyni yeni tanı almış ya da orta evrede; çoğu zaman yardımı az</dd>
+        <dt>Ana anahtar kelime</dt><dd class="mono">caring for parent with dementia</dd>
+        <dt>Yan ifadeler</dt><dd class="mono">dementia care at home · dementia caregiver · caregiver burnout</dd>
+        <dt>Test edildi, zayıf</dt><dd><span class="mono">early stage dementia parent</span> (ilgili kitaplar 190K–800K) ve <span class="mono">caring for aging narcissistic parent</span> (1,6M). Bunlar başlık değil, alt başlık ve bölüm konusu olarak kullanılmalı.</dd>
+        <dt>Format</dt><dd>6×9 kâğıt kapak, 160–200 sayfa, 15,99 $; Kindle 4,99 $; indirilebilir ve doldurulabilir PDF çalışma sayfaları</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="taslak">
+  <div class="head"><div class="k">Adım 3 · Taslak</div><h2>10 bölüm, her biri bir şikâyeti kapatıyor</h2>
+  <p class="sub">Her bölüm okuyucunun hissettiği hayal kırıklığıyla açılıyor ve “bu gece yapacağın 3 şey” kutusuyla bitiyor. Hiçbir bölüm tekrar eden hikâyeyle şişirilmiyor (şikâyet 7 ve 8).</p></div>
+  <div class="chapters">
+    <div class="ch"><div><h3>Tanı konuldu, şimdi ne olacak: ilk 30 gün</h3><p class="open">“Doktor ‘herkes farklıdır’ dedi ve gitti.”</p><p class="fix">Şikâyet 1 ve 10: giriş seviyesini 10 sayfada bitirip hemen eyleme geçer</p></div></div>
+    <div class="ch"><div><h3>Evre haritası: erken evreden son evreye neyi, ne zaman beklemeli</h3><p class="open">“Bir sonraki adımın ne olduğunu bilmemek beni korkutuyor.”</p><p class="fix">Şikâyet 4: evre evre tablo ve “bu belirtiyi görürsen” işaretleri</p></div></div>
+    <div class="ch"><div><h3>“Ben hasta değilim”: inkâr, anosognozi ve doktora götürme</h3><p class="open">“Bana yalancı diyor.”</p><p class="fix">Şikâyet 3: hâlâ işlevsel olan ebeveyn</p></div></div>
+    <div class="ch"><div><h3>Öfke patlamaları ve paranoya: 60 saniyelik müdahale kartları</h3><p class="open">“Parasını benim çaldığımı söylüyor.”</p><p class="fix">Şikâyet 3: patlama ve paranoya senaryoları</p></div></div>
+    <div class="ch"><div><h3>Para, banka ve dolandırıcılar: vekâlet ve finansal güvenlik</h3><p class="open">“Telefondaki adama 4.000 dolar göndermiş.”</p><p class="fix">Şikâyet 3: finansal sorunlar (rakiplerde neredeyse hiç yok)</p></div></div>
+    <div class="ch"><div><h3>Banyo, ilaç, araba anahtarı: reddettiğinde hazır cümleler</h3><p class="open">“Duş yüzünden 40 dakika kavga ettik.”</p><p class="fix">Şikâyet 2: hayatta kalma kılavuzu olarak durum durum çözüm</p></div></div>
+    <div class="ch"><div><h3>Evde güvenlik ve 5 dakikalık günlük rutin</h3><p class="open">“Aktivite mi? Ayakta zor duruyorum.”</p><p class="fix">Şikâyet 5: bakım evi değil, ev ortamı</p></div></div>
+    <div class="ch"><div><h3>Kardeşler ve aile: işi yapmayan ama yorum yapanlar</h3><p class="open">“Kardeşim ayda bir arayıp beni eleştiriyor.”</p><p class="fix">Yardımın az olduğu gerçekliği</p></div></div>
+    <div class="ch"><div><h3>Kendini kaybetmeden: uyku, suçluluk, öfke ve tükenmişlik</h3><p class="open">“Bazen bitmesini istiyorum ve bundan nefret ediyorum.”</p><p class="fix">Şikâyet 6: bakım verenin kendisi</p></div></div>
+    <div class="ch"><div><h3>Kriz el kitabı ve çalışma sayfaları</h3><p class="open">“Kitap güzel ama gece 2'de ne yapacağımı bilmiyorum.”</p><p class="fix">Şikâyet 9: tek sayfalık listeler ve QR ile indirilebilir doldurulabilir PDF; US, UK, CA ve AU kaynak tabloları</p></div></div>
+  </div>
+</section>
+
+<section id="gelir">
+  <div class="head"><div class="k">Gerçeklik kontrolü</div><h2>Bu yöntemle gelir elde edebilir misiniz?</h2>
+  <p class="sub">Evet, ama iddiadaki rakamlar fazla iyimser. Satır satır:</p></div>
+  <div class="tablewrap"><table>
+    <tr><th>İddia</th><th>Gerçek</th></tr>
+    <tr><td>Kitap başı 7 $</td><td>200 sayfa, 14,99 $: baskı maliyeti yaklaşık 1,00 $ + 0,012 $ × 200 = 3,40 $. Telif %60 × 14,99 − 3,40 ≈ <b>5,59 $</b>. 7 $ için yaklaşık 17 $ fiyat ve kısa kitap gerekir.</td></tr>
+    <tr><td>4 pazarda günde 1'er kopya</td><td>US'te günde 1 kâğıt kapak satışı kabaca BSR 150–250K demek (tahmin). Bu yapılabilir. Ama US'te 81K'da olan bağımsız demans kitabının Kanada'da hiç sıralaması yok. UK, CA ve AU toplamda US'in yaklaşık %20–30'u kadar satış getirir.</td></tr>
+    <tr><td>12 kitap = ayda 10.080 $</td><td>Her kitabın ilk %5'e girmesini varsayıyor. Dağılım çok çarpık: genelde 1–2 kitap satar, gerisi neredeyse satmaz.</td></tr>
+    <tr><td>15–25 yorum yeterli</td><td>Yorum gerekli, ama Amazon tanıdıklardan gelen yorumları siler ve teşvikli yorum yasaktır. ARC (ücretsiz okuma kopyası) dağıtmak serbesttir, ancak olumlu yorum şartı koyulamaz.</td></tr>
+    <tr><td>0,99 $ ile başlat</td><td>Yalnızca Kindle için geçerli. Kâğıt kapağın asgari fiyatı baskı maliyetiyle sınırlı.</td></tr>
+    <tr><td>Reklam gerekmez</td><td>Yeni hesaplarda organik keşif yavaş işler. Günde 5–10 $ Amazon reklamı ilk 2–3 ayda neredeyse zorunlu.</td></tr>
+    <tr><td>Grammarly + Hemingway yeterli</td><td>3★ yorumlar yapay zekâ tonunu ve dil bilgisi hatalarını açıkça cezalandırıyor. Ana dili İngilizce olan bir editör (yaklaşık 150–400 $) en önemli yatırım. Sağlık konusunda bir uzmana okutmak ve sorumluluk reddi şart.</td></tr>
+  </table></div>
+  <h3 style="margin-top:28px;font-size:18px">Senaryo: 6 ayda 6 kitap, aynı demans ve bakım nişinde</h3>
+  <div class="scen" style="margin-top:12px">
+    <div class="sc b"><div class="l">Kötü (çoğunluk)</div><div class="v">0–100 $</div><p>Yapay zekâ tonu, zayıf kapak, yorum yok.</p></div>
+    <div class="sc m"><div class="l">Orta</div><div class="v">600–1.800 $</div><p>İyi editörlük, 20+ gerçek yorum, kitap başı ayda 100–300 $.</p></div>
+    <div class="sc g"><div class="l">İyi</div><div class="v">2.000–4.000 $</div><p>Bir kitap 20–40K BSR'ye oturur, seri birbirini önerir.</p></div>
+    <div class="sc x"><div class="l">İddia</div><div class="v">10.000 $</div><p>Mümkün ama nadir: 20+ kitap, sesli kitap ve reklam gerekir.</p></div>
+  </div>
+  <p class="note">Aylık tutarlar toplam gelirdir (kâğıt kapak + Kindle). BSR'den satışa çevirme rakamları sektör tahminleridir; Amazon bu veriyi yayınlamaz.</p>
+</section>
+
+<section id="plan">
+  <div class="head"><div class="k">Uygulama</div><h2>İlk 30 gün</h2></div>
+  <ol class="plan">
+    <li><b>1. hafta: Yazım.</b> Yukarıdaki taslak, bölüm başına 1.500–2.000 kelime. 1.000 kelime 160 sayfaya yetmez, rakiplere de “ince kitap” şikâyeti geliyor.</li>
+    <li><b>2. hafta: Düzenleme.</b> Tekrarları kesin. Ana dili İngilizce olan bir editör tutun. Tıbbi bilgileri kaynaklarla doğrulayın, mümkünse bir hemşire ya da bakım uzmanına okutun.</li>
+    <li><b>3. hafta: Kapak ve KDP.</b> Nişteki ilk 5 kitabın renk ve düzenine uyun, başlığınız farklı olsun. Takma ad kullanın, yapay zekâ beyanını işaretleyin. Kâğıt kapak 15,99 $, Kindle ilk hafta 0,99 $, sonra 4,99 $.</li>
+    <li><b>4. hafta: Lansman.</b> 20–30 ARC okuyucusu (BookSirens, bakım veren toplulukları; grup kurallarına uyarak), günde 5 $ reklam. 2. kitaba başlayın.</li>
+    <li><b>Seri (aynı niş):</b> <i>Dementia Sundowning & Outbursts Field Guide</i>, <i>Siblings and Dementia Care</i>, <i>Dementia Caregiver Daily Log</i> (düşük içerikli günlük, hızlı üretilir), <i>Moving a Parent with Dementia into Memory Care</i>.</li>
+  </ol>
+</section>
+
+<section id="20">
+  <div class="head"><div class="k">Adım 1</div><h2>10 yılı aşkın süredir çözülmeyen 20 sorun</h2><p class="sub">Duygusal aciliyete göre sıralandı. Vurgulanan satırlar Amazon'da test edildi.</p></div>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Sorun</th><th>Tam okuyucu</th><th>En büyük hayal kırıklıkları</th><th>Tek satırlık açı</th></tr>
+    <tr class="top"><td class="rank">1</td><td><b>Narsist ebeveyn veya partner istismarı</b></td><td>30–55 yaş kadınlar, narsist annesi olan kızlar</td><td>“Abartıyorum galiba” düşüncesi, temas kesince suçluluk, aynı tip partneri seçmek</td><td>Hâlâ temas halindeyken narsist anneyle nasıl sınır konur</td></tr>
+    <tr class="top"><td class="rank">2</td><td><b>Evde demanslı ebeveyne bakmak</b></td><td>45–65 yaş kız evlat</td><td>Öfke ve bakımı reddetme, kardeşler, tükenmişlik, para</td><td>Erken ve orta evrede evde bakan evlat için hayatta kalma kılavuzu</td></tr>
+    <tr class="top"><td class="rank">3</td><td><b>Bebek uykusu</b></td><td>İlk kez ebeveyn olanlar, bebek 0–12 ay</td><td>Uykusuzluk, çelişkili tavsiyeler, ağlatma suçluluğu</td><td>Ağlatmadan, adım adım ilk 12 ay uyku planı</td></tr>
+    <tr class="top"><td class="rank">4</td><td><b>Yetişkin DEHB</b></td><td>Geç tanı almış 30–50 yaş kadınlar</td><td>Utanç, yarım kalan işler, ilaç kararsızlığı</td><td>İlaçsız günlük sistemler, suçluluk duymadan</td></tr>
+    <tr class="top"><td class="rank">5</td><td><b>Boşanma sonrası para</b></td><td>40–60 yaş, evin parasını eşine bırakmış kadınlar</td><td>Panik, bütçe bilgisizliği, kredi notu</td><td>“Parayı hep o yönetirdi” diyen kadın için ilk 90 gün</td></tr>
+    <tr><td class="rank">6</td><td>Aldatılmanın ardından toparlanma</td><td>Evliliği sürdürmeye karar vermiş eşler</td><td>Takıntılı düşünceler, güvenin geri gelmemesi</td><td>Kalmaya karar verdikten sonra güveni yeniden kurmak</td></tr>
+    <tr><td class="rank">7</td><td>Panik atak ve kronik kaygı</td><td>25–45 yaş çalışanlar</td><td>İlaçtan korkmak, “ölüyorum” hissi</td><td>Toplantı ortasında panik atağı 90 saniyede durdurmak</td></tr>
+    <tr><td class="rank">8</td><td>Yas</td><td>Ebeveynini ya da eşini kaybeden yetişkinler</td><td>“Artık geçmeli” baskısı, yalnızlık</td><td>İlk yıl için gün gün yas eşlikçisi</td></tr>
+    <tr><td class="rank">9</td><td>Kronik bel ve boyun ağrısı</td><td>Masa başı çalışan 35–60 yaş</td><td>Fizyoterapi pahalı, egzersizler işe yaramıyor</td><td>Günde 10 dakikalık masa başı ağrı protokolü</td></tr>
+    <tr><td class="rank">10</td><td>Perimenopoz ve menopoz</td><td>40–55 yaş kadınlar</td><td>Doktorun ciddiye almaması, kilo, uykusuzluk</td><td>Doktora götürülecek semptom takip defteri</td></tr>
+    <tr><td class="rank">11</td><td>Öfkeli ya da içine kapanan ergen</td><td>12–17 yaş çocuğu olan ebeveynler</td><td>İletişimin kopması, ekran kavgaları</td><td>Konuşmayan ergenle 5 dakikalık konuşma senaryoları</td></tr>
+    <tr><td class="rank">12</td><td>Borç batağı</td><td>Maaştan maaşa yaşayan 30–50 yaş</td><td>Utanç, nereden başlayacağını bilmemek</td><td>Düşük gelirle borç kartopu planı</td></tr>
+    <tr><td class="rank">13</td><td>Yetişkinlerde uykusuzluk</td><td>Gece 3'te uyanan 35–60 yaş</td><td>Uyku ilacı bağımlılığı</td><td>İlaçsız 6 haftalık uykusuzluk programı (BDT-I)</td></tr>
+    <tr><td class="rank">14</td><td>40 yaş üstü kilo ve insülin direnci</td><td>40–60 yaş, diyetleri denemiş olanlar</td><td>Yo-yo etkisi, aç kalmak</td><td>Prediyabet tanısı sonrası ilk 30 gün yemek planı</td></tr>
+    <tr><td class="rank">15</td><td>Evlilikte kopukluk</td><td>10 yılı aşmış çiftler</td><td>Ev arkadaşı gibi yaşamak, cinsellik</td><td>Çocuklu çiftler için “oda arkadaşı” evliliğinden çıkış</td></tr>
+    <tr><td class="rank">16</td><td>Hayır diyememe, insanları memnun etme</td><td>25–50 yaş kadınlar</td><td>Sömürülmek, sınır koyunca suçluluk</td><td>Aile ve iş için hazır “hayır” cümleleri</td></tr>
+    <tr><td class="rank">17</td><td>Tükenmişlik</td><td>Sağlıkçılar, öğretmenler, bakım verenler</td><td>Tatil bile işe yaramıyor</td><td>Hemşireler için vardiyalar arası toparlanma</td></tr>
+    <tr><td class="rank">18</td><td>30 yaştan sonra yalnızlık</td><td>Yeni şehre taşınanlar, uzaktan çalışanlar</td><td>Arkadaşlığın zor kurulması</td><td>30 yaştan sonra 6 ayda arkadaş çevresi kurmak</td></tr>
+    <tr><td class="rank">19</td><td>50 yaşında emeklilik birikiminin olmaması</td><td>50–62 yaş, birikimi az olanlar</td><td>Panik, geç kaldım hissi</td><td>50 yaşında sıfırdan emeklilik planı</td></tr>
+    <tr><td class="rank">20</td><td>Erteleme ve disiplin</td><td>Öğrenciler, serbest çalışanlar</td><td>Motivasyon kitapları işe yaramıyor</td><td>Serbest çalışanlar için yapı kurmak</td></tr>
+  </table></div>
+</section>
+
+<section id="veri">
+  <div class="head"><div class="k">Yöntem ve ham veri</div><h2>Veriler nasıl toplandı</h2>
+  <p class="sub">Arama sonuçları ve BSR: Amazon.com, headless Chromium ile 17.10.2026'da çekildi; sponsorlu sonuçlar hariç tutuldu. 3★ yorumlar: Apify junglee/amazon-reviews-scraper, “helpful” sıralaması. Bazı ASIN'ler Kindle ya da sesli kitap baskısıdır; o durumda BSR o formatın mağazasına aittir. Tüm CSV dosyaları depoda: <span class="mono">reports/kdp-data/</span>.</p></div>
+  <details open><summary>60 arama sonucu: BSR, yorum sayısı, yayın tarihi, yayınevi</summary>
+  <div class="tablewrap" style="margin-top:12px"><table>
+    <tr><th>Açı</th><th>Arama ifadesi</th><th class="num">#</th><th>Kitap</th><th class="num">BSR</th><th class="num">Yorum</th><th>Yayın</th><th>Yayınevi</th></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">caring for parent with dementia</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/1965716059" target="_blank" rel="noopener">Daughters Caring for a Parent with Dementia: Understand Behaviors, Res</a></td><td class="num"><span class="pill good">81K</span></td><td class="num">44</td><td>September 21, 2026</td><td>Blue Sky Partners Publishing LLC</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">caring for parent with dementia</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/1421452464" target="_blank" rel="noopener">The 36-Hour Day: A Family Guide to Caring for People with Alzheimer Di</a></td><td class="num"><span class="pill good">2K</span></td><td class="num">339</td><td>September 16, 2025</td><td>Johns Hopkins University Press</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">caring for parent with dementia</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/146254942X" target="_blank" rel="noopener">The Complete Family Guide to Dementia: Everything You Need to Know to </a></td><td class="num"><span class="pill good">68K</span></td><td class="num">93</td><td>August 3, 2022</td><td>The Guilford Press</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">caring for parent with dementia</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B0CW18QZR5" target="_blank" rel="noopener">The Caregiver&#x27;s Guide to Dementia: Practical Advice for Caring for You</a></td><td class="num"><span class="pill warn">169K</span></td><td class="num">2,152</td><td>January 21, 2020</td><td>Callisto</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">caring for parent with dementia</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/0806541776" target="_blank" rel="noopener">Living in the Moment: A Guide to Overcoming Challenges and Finding Mom</a></td><td class="num"><span class="pill good">19K</span></td><td class="num">352</td><td>May 31, 2022</td><td>Citadel</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">dementia caregiver book</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/1960188003" target="_blank" rel="noopener">The Dementia Caregiver&#x27;s Survival Guide: An 11-Step Plan to Understand</a></td><td class="num"><span class="pill good">22K</span></td><td class="num">622</td><td>January 22, 2023</td><td>Unlimited Concepts</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">dementia caregiver book</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/1421452464" target="_blank" rel="noopener">The 36-Hour Day: A Family Guide to Caring for People with Alzheimer Di</a></td><td class="num"><span class="pill good">2K</span></td><td class="num">339</td><td>September 16, 2025</td><td>Johns Hopkins University Press</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">dementia caregiver book</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/B0CW18QZR5" target="_blank" rel="noopener">The Caregiver&#x27;s Guide to Dementia: Practical Advice for Caring for You</a></td><td class="num"><span class="pill warn">169K</span></td><td class="num">2,152</td><td>January 21, 2020</td><td>Callisto</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">dementia caregiver book</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/0615890113" target="_blank" rel="noopener">Dementia Caregiver Guide</a></td><td class="num"><span class="pill good">62K</span></td><td class="num">276</td><td>November 1, 2018</td><td>Positive Approach, LLC</td></tr>
+<tr><td>Demanslı ebeveyne bakan evlat</td><td class="mono">dementia caregiver book</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/1394389639" target="_blank" rel="noopener">The Dementia Care Toolkit: Real Help for Challenging Behaviors and Car</a></td><td class="num"><span class="pill good">11K</span></td><td class="num">–</td><td>October 27, 2026</td><td>Jossey-Bass</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">narcissistic abuse recovery</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/B0HFKZ4RVV" target="_blank" rel="noopener">Narcissistic Abuse Recovery: The 11 Laws to Self-Mastery: How the Narc</a></td><td class="num"><span class="pill warn">305K</span></td><td class="num">1</td><td>September 22, 2026</td><td>Hunter Publishing</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">narcissistic abuse recovery</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/B0C6YLS58Y" target="_blank" rel="noopener">It&#x27;s Not You: Identifying and Healing from Narcissistic People</a></td><td class="num"><span class="pill good">1K</span></td><td class="num">4,732</td><td>February 20, 2024</td><td>Penguin Audio</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">narcissistic abuse recovery</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/B0FRZMHMXT" target="_blank" rel="noopener">Narcissistic Abuse Recovery: The 11 Laws to Self-Mastery: Recover from</a></td><td class="num"><span class="pill warn">108K</span></td><td class="num">43</td><td>September 18, 2025</td><td>Hunter Publishing</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">narcissistic abuse recovery</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B0HH9343HT" target="_blank" rel="noopener">Narcissistic Abuse Recovery: The 7-Step Plan to Heal from Gaslighting,</a></td><td class="num"><span class="pill warn">626K</span></td><td class="num">3</td><td>September 28, 2026</td><td>B Harmony LLC</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">narcissistic abuse recovery</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/B0BGBCNJ7G" target="_blank" rel="noopener">Recovery from Narcissistic Abuse, Gaslighting, Codependency and Comple</a></td><td class="num"><span class="pill good">18K</span></td><td class="num">2,141</td><td>September 23, 2022</td><td>Independently published</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">healing from narcissistic mother</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/1439129436" target="_blank" rel="noopener">Will I Ever Be Good Enough?: Healing the Daughters of Narcissistic Mot</a></td><td class="num"><span class="pill good">11K</span></td><td class="num">6,736</td><td>September 8, 2009</td><td>Atria Books</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">healing from narcissistic mother</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/B0C6YLS58Y" target="_blank" rel="noopener">It&#x27;s Not You: Identifying and Healing from Narcissistic People</a></td><td class="num"><span class="pill good">1K</span></td><td class="num">4,732</td><td>February 20, 2024</td><td>Penguin Audio</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">healing from narcissistic mother</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/1648480098" target="_blank" rel="noopener">Adult Daughters of Narcissistic Mothers: Quiet the Critical Voice in Y</a></td><td class="num"><span class="pill good">21K</span></td><td class="num">606</td><td>November 1, 2022</td><td>New Harbinger Publications</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">healing from narcissistic mother</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B0H8TV7QYS" target="_blank" rel="noopener">Adult Daughters Healing from Narcissistic Mothers: Break the Cycle of </a></td><td class="num"><span class="pill warn">155K</span></td><td class="num">13</td><td>July 15, 2026</td><td>Emotional Abuse Recovery Press</td></tr>
+<tr><td>Narsist annenin kızları</td><td class="mono">healing from narcissistic mother</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/1626251703" target="_blank" rel="noopener">Adult Children of Emotionally Immature Parents: How to Heal from Dista</a></td><td class="num"><span class="pill good">246</span></td><td class="num">28,521</td><td>June 1, 2015</td><td>New Harbinger Publications</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adhd women book</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/059398160X" target="_blank" rel="noopener">ADHD and Women: A Guide to Optimizing Your Hormones and Thriving with </a></td><td class="num"><span class="pill good">2K</span></td><td class="num">21</td><td>October 6, 2026</td><td>Rodale Books</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adhd women book</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/168403261X" target="_blank" rel="noopener">A Radical Guide for Women with ADHD: Embrace Neurodiversity, Live Bold</a></td><td class="num"><span class="pill good">12K</span></td><td class="num">2,041</td><td>July 1, 2019</td><td>New Harbinger Publications</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adhd women book</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/B0BSS9R8LJ" target="_blank" rel="noopener">ADHD for Smart Ass Women: How to Fall in Love with Your Neurodivergent</a></td><td class="num"><span class="pill good">5K</span></td><td class="num">843</td><td>December 26, 2023</td><td>William Morrow</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adhd women book</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/1250891620" target="_blank" rel="noopener">Invisible ADHD: Proven Mood and Life Management for Smart Yet Scattere</a></td><td class="num"><span class="pill good">21K</span></td><td class="num">150</td><td>September 9, 2025</td><td>Flatiron Books</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adhd women book</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/0800739426" target="_blank" rel="noopener">Your Brain&#x27;s Not Broken: Strategies for Navigating Your Emotions and L</a></td><td class="num"><span class="pill good">5K</span></td><td class="num">1,441</td><td>September 21, 2021</td><td>Revell</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adult adhd book</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/1462546854" target="_blank" rel="noopener">Taking Charge of Adult ADHD: Proven Strategies to Succeed at Work, at </a></td><td class="num"><span class="pill good">6K</span></td><td class="num">1,236</td><td>November 3, 2021</td><td>The Guilford Press</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adult adhd book</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/0800739426" target="_blank" rel="noopener">Your Brain&#x27;s Not Broken: Strategies for Navigating Your Emotions and L</a></td><td class="num"><span class="pill good">5K</span></td><td class="num">1,441</td><td>September 21, 2021</td><td>Revell</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adult adhd book</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/1400338611" target="_blank" rel="noopener">ADHD is Awesome: A Guide To (Mostly) Thriving With ADHD</a></td><td class="num"><span class="pill good">2K</span></td><td class="num">1,821</td><td>April 30, 2024</td><td>Harper Horizon</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adult adhd book</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B0DVK3JWFC" target="_blank" rel="noopener">The ADHD Field Guide for Adults</a></td><td class="num"><span class="pill good">3K</span></td><td class="num">314</td><td>March 3, 2026</td><td>Simon &amp; Schuster Audio</td></tr>
+<tr><td>Geç tanı DEHB, kadınlar</td><td class="mono">adult adhd book</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/B0BQG2T1GY" target="_blank" rel="noopener">Scattered Minds: The Origins and Healing of Attention Deficit Disorder</a></td><td class="num"><span class="pill good">16K</span></td><td class="num">2,425</td><td>February 7, 2023</td><td>Avery</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">sleep training book</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/0525949593" target="_blank" rel="noopener">Twelve Hours&#x27; Sleep by Twelve Weeks Old: A Step-by-Step Plan for Baby </a></td><td class="num"><span class="pill good">2K</span></td><td class="num">3,209</td><td>January 19, 2006</td><td>Tarcher</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">sleep training book</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/0997580828" target="_blank" rel="noopener">Precious Little Sleep: The Complete Baby Sleep Guide for Modern Parent</a></td><td class="num"><span class="pill good">3K</span></td><td class="num">3,495</td><td>October 18, 2020</td><td>Lomhara Press</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">sleep training book</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/0985411422" target="_blank" rel="noopener">Moms on Call Basic Baby Care 0-6 Months - Newborn Routine, Sleep &amp; Fee</a></td><td class="num"><span class="pill good">260</span></td><td class="num">7,520</td><td>January 1, 2006</td><td>Moms on Call</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">sleep training book</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/1932740546" target="_blank" rel="noopener">Babywise Sleep Solutions: Begin as You Mean to Go with (To the Point)</a></td><td class="num"><span class="pill good">3K</span></td><td class="num">7,029</td><td>November 30, 2024</td><td>Hawksflight Publishing LLC</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">sleep training book</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/0743201639" target="_blank" rel="noopener">Solve Your Child&#x27;s Sleep Problems: New, Revised, and Expanded Edition</a></td><td class="num"><span class="pill good">15K</span></td><td class="num">2,579</td><td>May 23, 2006</td><td>Touchstone</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">newborn sleep book for first time parents</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/0985411422" target="_blank" rel="noopener">Moms on Call Basic Baby Care 0-6 Months - Newborn Routine, Sleep &amp; Fee</a></td><td class="num"><span class="pill good">260</span></td><td class="num">7,520</td><td>January 1, 2006</td><td>Moms on Call</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">newborn sleep book for first time parents</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/1617750255" target="_blank" rel="noopener">Go the F*ck to Sleep</a></td><td class="num"><span class="pill good">1K</span></td><td class="num">24,177</td><td>June 14, 2011</td><td>Akashic Books, Ltd.</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">newborn sleep book for first time parents</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/1736894706" target="_blank" rel="noopener">The Simplest Baby Book in the World: The Illustrated, Grab-and-Do Guid</a></td><td class="num"><span class="pill good">870</span></td><td class="num">3,632</td><td>November 16, 2021</td><td>The Simplest Company</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">newborn sleep book for first time parents</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/0761181504" target="_blank" rel="noopener">What to Expect the First Year: (Updated in 2026)</a></td><td class="num"><span class="pill good">1K</span></td><td class="num">14,130</td><td>October 7, 2014</td><td>Workman Publishing Company</td></tr>
+<tr><td>Bebek uykusu, ilk kez ebeveyn</td><td class="mono">newborn sleep book for first time parents</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/B0D7YWDK3K" target="_blank" rel="noopener">Mayo Clinic Guide to Your Baby&#x27;s First Years, 3rd Edition: Clear Answe</a></td><td class="num"><span class="pill good">6K</span></td><td class="num">225</td><td>April 1, 2025</td><td>Mayo Clinic Press</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">divorce finances for women</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/B0HFZ244T4" target="_blank" rel="noopener">He Handled the Money: A Woman&#x27;s Guide to Divorce Finances (Divorce &amp; M</a></td><td class="num"><span class="pill crit">1,3M</span></td><td class="num">10</td><td>August 21, 2026</td><td>Independently published</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">divorce finances for women</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/1937458490" target="_blank" rel="noopener">Divorce: Think Financially, Not Emotionally® Volume I: What Women Need</a></td><td class="num"><span class="pill warn">514K</span></td><td class="num">319</td><td>September 22, 2012</td><td>Sourced Media Books</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">divorce finances for women</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/1413332331" target="_blank" rel="noopener">Divorce After 50: A Guide to the Unique Legal and Financial Challenges</a></td><td class="num"><span class="pill warn">225K</span></td><td class="num">38</td><td>January 28, 2025</td><td>NOLO</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">divorce finances for women</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/1937458946" target="_blank" rel="noopener">DIVORCE Financial Planner For Women, Volume I (Think Financially, Not </a></td><td class="num"><span class="pill warn">675K</span></td><td class="num">19</td><td>October 1, 2015</td><td>Sourced Media Books</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">divorce finances for women</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/B0H2FFDR5G" target="_blank" rel="noopener">Divorce Prep Workbook: Checklists, Worksheets and Step-by-Step Plannin</a></td><td class="num"><span class="pill warn">240K</span></td><td class="num">3</td><td>May 18, 2026</td><td>Independently published</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">budgeting after divorce</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/B0HFZCFGLJ" target="_blank" rel="noopener">Financial Recovery After Divorce: A Woman&#x27;s Guide to Rebuilding Her Fi</a></td><td class="num"><span class="pill none">sırasız</span></td><td class="num">–</td><td>August 21, 2026</td><td>–</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">budgeting after divorce</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/B0HGWPCR6T" target="_blank" rel="noopener">THE FINANCIAL RESET AFTER DIVORCE: Rebuild Your Credit, Protect Your M</a></td><td class="num"><span class="pill crit">2,1M</span></td><td class="num">–</td><td>August 26, 2026</td><td>Independently published</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">budgeting after divorce</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/B0CW1PN737" target="_blank" rel="noopener">Budgeting After Divorce: Your Path to Financial Freedom</a></td><td class="num"><span class="pill none">sırasız</span></td><td class="num">–</td><td>February 19, 2024</td><td>–</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">budgeting after divorce</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B01N800697" target="_blank" rel="noopener">Freeing Yourself Financially: A Woman’s Guide To Rebuilding Her Financ</a></td><td class="num"><span class="pill crit">2,2M</span></td><td class="num">10</td><td>February 14, 2017</td><td>Purple Ribbon Publishing</td></tr>
+<tr><td>Boşanma sonrası para</td><td class="mono">budgeting after divorce</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/1413332331" target="_blank" rel="noopener">Divorce After 50: A Guide to the Unique Legal and Financial Challenges</a></td><td class="num"><span class="pill warn">225K</span></td><td class="num">38</td><td>January 28, 2025</td><td>NOLO</td></tr>
+<tr><td>Yaşlı narsist ebeveyne bakım</td><td class="mono">caring for aging narcissistic parent</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/B0DK4XKYVR" target="_blank" rel="noopener">CARING FOR THE NARCISSISTIC PARENT : How to Manage the Medical, Legal,</a></td><td class="num"><span class="pill crit">1,6M</span></td><td class="num">2</td><td>April 4, 2026</td><td>–</td></tr>
+<tr><td>Yaşlı narsist ebeveyne bakım</td><td class="mono">caring for aging narcissistic parent</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/0805079750" target="_blank" rel="noopener">Caring for Yourself While Caring for Your Aging Parents, Third Edition</a></td><td class="num"><span class="pill warn">220K</span></td><td class="num">29</td><td>December 27, 2005</td><td>Holt Paperbacks</td></tr>
+<tr><td>Yaşlı narsist ebeveyne bakım</td><td class="mono">caring for aging narcissistic parent</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/B0GHN4ZR46" target="_blank" rel="noopener">Caring for Aging Parents Without Losing Your Mind!</a></td><td class="num"><span class="pill warn">169K</span></td><td class="num">7</td><td>March 18, 2026</td><td>Transformative Legacy Consulting</td></tr>
+<tr><td>Yaşlı narsist ebeveyne bakım</td><td class="mono">caring for aging narcissistic parent</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B0CZ4BR1Y8" target="_blank" rel="noopener">CARING for AGING PARENTS: Maintain Your Sanity &amp; Their Dignity Manage </a></td><td class="num"><span class="pill warn">414K</span></td><td class="num">50</td><td>March 26, 2024</td><td>ACJ Publishing LLC</td></tr>
+<tr><td>Yaşlı narsist ebeveyne bakım</td><td class="mono">caring for aging narcissistic parent</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/B0C9S8NYKV" target="_blank" rel="noopener">CARING FOR AGING PARENTS: Your Compassionate Guide to Regain Sanity, R</a></td><td class="num"><span class="pill warn">852K</span></td><td class="num">108</td><td>July 11, 2023</td><td>Independently published</td></tr>
+<tr><td>“Early stage dementia” araması</td><td class="mono">early stage dementia parent</td><td class="num">1</td><td><a href="https://www.amazon.com/dp/B0HBMQV8BV" target="_blank" rel="noopener">Dementia - Early Stage: Simple Exercises to Enhance Memory and Well-be</a></td><td class="num"><span class="pill warn">800K</span></td><td class="num">1</td><td>July 23, 2026</td><td>Independently published</td></tr>
+<tr><td>“Early stage dementia” araması</td><td class="mono">early stage dementia parent</td><td class="num">2</td><td><a href="https://www.amazon.com/dp/B0H9XBK8FZ" target="_blank" rel="noopener">The Seven Stages of Dementia: A Caregiver&#x27;s Guide to Alzheimer&#x27;s and D</a></td><td class="num"><span class="pill warn">191K</span></td><td class="num">2</td><td>July 23, 2026</td><td>Independently published</td></tr>
+<tr><td>“Early stage dementia” araması</td><td class="mono">early stage dementia parent</td><td class="num">3</td><td><a href="https://www.amazon.com/dp/0806541776" target="_blank" rel="noopener">Living in the Moment: A Guide to Overcoming Challenges and Finding Mom</a></td><td class="num"><span class="pill good">19K</span></td><td class="num">352</td><td>May 31, 2022</td><td>Citadel</td></tr>
+<tr><td>“Early stage dementia” araması</td><td class="mono">early stage dementia parent</td><td class="num">4</td><td><a href="https://www.amazon.com/dp/B0HBPYPG15" target="_blank" rel="noopener">Dementia - Late stage: Gentle Activities for Comfort, Familiarity, and</a></td><td class="num"><span class="pill warn">624K</span></td><td class="num">–</td><td>July 24, 2026</td><td>Independently published</td></tr>
+<tr><td>“Early stage dementia” araması</td><td class="mono">early stage dementia parent</td><td class="num">5</td><td><a href="https://www.amazon.com/dp/1250400856" target="_blank" rel="noopener">When Memory Fades: What to Expect at Every Stage, from Early Signs to </a></td><td class="num"><span class="pill good">39K</span></td><td class="num">34</td><td>June 2, 2026</td><td>St. Martin&#x27;s Essentials</td></tr>
+  </table></div></details>
+</section>
+</div>
+<footer><div class="wrap">Hazırlayan: Claude Code · Veriler 17 Ekim 2026 itibarıyla anlık görüntüdür; BSR saatlik değişir.</div></footer>
+</body>
+</html>
