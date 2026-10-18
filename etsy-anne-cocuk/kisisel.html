@@ -1,0 +1,253 @@
+<title>Etsy Kişiselleştirme Haritası</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütun rapor, 1080px sayfa; bölümler ince çizgiyle ayrılır, veriler tablo + tek dağılım grafiği */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --ink:#1b2731; --ink-2:#4a5a66; --muted:#7a8a95;
+  --line:#dde4e2; --accent:#0e6b66; --accent-soft:#e0efed; --pop:#b8860b; --pop-soft:#f6edd4;
+  --good:#2f7d32; --warn:#b26a00; --crit:#b3261e; --crit-soft:#f9e3e1;
+  --f-display:"Young Serif", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121a1f; --surface:#19232a; --ink:#e7eef0; --ink-2:#b2c0c7; --muted:#83949d;
+  --line:#2b3a42; --accent:#5cc2b9; --accent-soft:#183634; --pop:#e2b84a; --pop-soft:#3a3018;
+  --good:#7cc47f; --warn:#e9a64a; --crit:#f08a80; --crit-soft:#3d2220; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#121a1f; --surface:#19232a; --ink:#e7eef0; --ink-2:#b2c0c7; --muted:#83949d;
+  --line:#2b3a42; --accent:#5cc2b9; --accent-soft:#183634; --pop:#e2b84a; --pop-soft:#3a3018;
+  --good:#7cc47f; --warn:#e9a64a; --crit:#f08a80; --crit-soft:#3d2220; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem)}
+h3{font-size:1.2rem}
+p{margin:0;max-width:68ch}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+section{display:flex;flex-direction:column;gap:20px;padding-top:28px;border-top:1px solid var(--line)}
+.lede{font-size:1.15rem;color:var(--ink-2)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:18px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:.92rem}
+.facts b{color:var(--ink);font-family:var(--f-mono);font-weight:500}
+.verdict{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:14px}
+.verdict ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.verdict li::marker{font-family:var(--f-mono);color:var(--accent)}
+.chart-box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;position:relative}
+.chart-box svg{display:block;width:100%;height:auto}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.82rem;padding:8px 10px;border-radius:6px;max-width:260px;line-height:1.4}
+.note{font-size:.85rem;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--ink-2);padding:6px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:820px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--ink-2);font-size:.78rem;letter-spacing:.03em;white-space:nowrap;cursor:pointer;user-select:none;background:var(--surface);position:sticky;top:0}
+th[data-k]:hover{color:var(--accent)}
+td.r,th.r{text-align:right}
+tr:last-child td{border-bottom:0}
+.kw{font-size:.78rem;color:var(--muted)}
+.score{display:inline-flex;align-items:center;gap:8px}
+.bar{width:54px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.risk{background:var(--crit-soft);color:var(--crit)}
+.pill.eu{background:var(--pop-soft);color:var(--pop)}
+.pill.ok{background:var(--accent-soft);color:var(--accent)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.deep{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.deep .head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:.8rem}
+.metrics div{display:flex;flex-direction:column;border-left:2px solid var(--line);padding-left:8px}
+.metrics b{font-family:var(--f-mono);font-weight:500;font-size:.95rem;color:var(--ink)}
+.metrics span{color:var(--muted)}
+.deep dl{margin:0;display:grid;gap:8px;font-size:.92rem}
+.deep dt{font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.deep dd{margin:0}
+.deep .idea{background:var(--accent-soft);border-radius:8px;padding:12px 14px}
+.deep .idea dt{color:var(--accent)}
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.theme{border-top:3px solid var(--crit);background:var(--surface);border-radius:0 0 10px 10px;padding:16px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.theme .cnt{font-family:var(--f-mono);font-size:.8rem;color:var(--crit)}
+blockquote{margin:0;font-size:.88rem;color:var(--ink-2);border-left:2px solid var(--line);padding-left:10px}
+blockquote cite{display:block;font-style:normal;font-size:.75rem;color:var(--muted);margin-top:2px}
+.stars{font-family:var(--f-mono);color:var(--crit)}
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px}
+.card p{font-size:.92rem}
+.card .why{font-size:.84rem;color:var(--ink-2)}
+.card .price{font-family:var(--f-mono);font-size:.85rem;color:var(--ink)}
+ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;max-width:75ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+.cols h3{margin-bottom:8px}
+footer{font-size:.85rem;color:var(--muted)}
+@media (max-width:560px){.metrics{grid-template-columns:repeat(2,1fr)}.wrap{padding-block:28px 56px;gap:48px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+<style>
+.cat{font-size:.72rem;color:var(--ink-2);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.mkt{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:.8rem}
+.mkt div{border-left:2px solid var(--line);padding-left:8px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.mkt b{font-family:var(--f-mono);font-weight:500;font-size:.9rem}
+.mkt span{color:var(--muted)}
+.mkt .lbl{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--accent)}
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.vs .card{gap:6px}
+.vs .row{display:flex;justify-content:space-between;gap:8px;font-size:.88rem;align-items:baseline}
+.vs .row b{font-family:var(--f-mono);font-weight:500}
+.vs .big{color:var(--accent)}
+.vs .small{color:var(--muted)}
+.how{background:var(--accent-soft);border-radius:8px;padding:10px 12px;font-size:.88rem}
+.how b{color:var(--accent)}
+#gap td:nth-child(2),#pt td:nth-child(2){min-width:200px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.steps .card h3{font-size:1.05rem}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Etsy kişiselleştirilmiş ürünler · ABD, Almanya, İngiltere · 18 Ekim 2026</span>
+  <h1>Kişiselleştirme nerede fark yaratır?</h1>
+  <p class="lede">20 yeni kişiselleştirilmiş ürün terimi Etsy'de tarandı. Önceki raporlardaki 60 ürünün kişiselleştirme oranları da yeniden hesaplandı. Ölçüt aynı: Google'da aylık arama, Etsy'deki rakip mağaza sayısı ve satış sinyali.</p>
+  <div class="facts" id="facts"></div>
+  <p class="note">Diğer raporlar: <a href="https://claude.ai/artifact/KDcAiCeDQLpwnrYTnjresY" target="_blank" rel="noopener">Etsy Anne-Bebek Fırsat Haritası</a> · <a href="https://claude.ai/artifact/T3gr1gPCWtT8Px7quh4sjw" target="_blank" rel="noopener">Etsy Talep Haritası</a></p>
+</header>
+
+<div class="verdict">
+  <span class="eyebrow">Ana bulgu</span>
+  <h3>Alıcılar "kişiye özel" diye aramıyor, ürünü arıyor</h3>
+  <p>"Personalized sauna hat" ABD'de ayda yalnızca <span class="num">20</span> kez aranıyor, "sauna hat" ise <span class="num">33.100</span> kez. "Personalized sleep sack" <span class="num">40</span>, "baby sleep sack" <span class="num">49.500</span>. Hazır "personalized/custom X" pazarları da doymuş durumda. 26 terimin 20'sinde ilanların en az %70'i zaten kişiselleştirme sunuyor. Arama hacmi ölçülen terimlerin hepsinde rakip mağaza başına düşen aylık arama 0,25'in altında.</p>
+  <p><b>Strateji:</b> Kişiselleştirmeyi ayrı bir niş olarak değil, talebi yüksek ve kişiselleştirmesi az olan ürünlerde fark yaratan bir özellik olarak kullanın. İlanı ana terimle (örneğin "sauna hat") açın, kişiselleştirmeyi başlıkta ve görselde öne çıkarın. Böylece hem yüksek arama hacminden pay alırsınız hem de kişiselleştirme sunmayan rakiplerin büyük çoğunluğundan ayrışırsınız.</p>
+</div>
+
+<section>
+  <span class="eyebrow">01 · Arama karşılaştırması</span>
+  <h2>Ana ürün ve "kişiye özel" versiyonu</h2>
+  <p>ABD'de aynı ürünün iki aramasının aylık Google hacmi karşılaştırıldı. Yanında Etsy'de kişiselleştirilmiş versiyonun kaç rakip mağazası olduğu da yer alıyor.</p>
+  <div class="vs" id="vs"></div>
+  <p class="note">Tek istisna ilaç kutusu. "Personalized pill box" araması küçük ama tıklama başı reklam maliyeti (CPC) <b>$5,38</b>, bu taramadaki en yüksek değer. Reklamverenler bu aramanın satışa çok iyi dönüştüğünü biliyor.</p>
+</section>
+
+<section>
+  <span class="eyebrow">02 · İlk 5 öneri</span>
+  <h2>Kişiselleştirme ile öne geçilebilecek 5 ürün</h2>
+  <p>Seçim ölçütleri: ana ürünün talebi yüksek, en az bir pazarda doymamış (rakip mağaza başına 2'den fazla arama) ve rakiplerin kişiselleştirme oranı düşük. Kartlardaki rakamlar ana ürüne ait.</p>
+  <div class="ideas" id="top5"></div>
+</section>
+
+<section>
+  <span class="eyebrow">03 · Kişiselleştirme boşluğu</span>
+  <h2>Talebi yüksek, kişiselleştirmesi az ürünler</h2>
+  <p>Tabloda rakip mağaza başına en az 1 aylık arama düşen ana ürünler var. "Boşluk puanı", mağaza başına arama sayısının kişiselleştirme sunmayan ilan oranıyla çarpımı. Puan yüksekse pazar doymamış ve rakiplerin çoğu kişiselleştirme sunmuyor demektir.</p>
+  <div class="tbl"><table id="gap" style="min-width:860px"><thead><tr>
+    <th class="r">Boşluk puanı</th><th>Ürün</th><th>Pazar</th><th class="r">Aylık arama</th><th class="r">Rakip mağaza (≤)</th><th class="r">Arama / mağaza</th><th class="r">Kişiselleştirme oranı</th><th class="r">Rozetli ilan</th><th class="r">Ortanca fiyat</th>
+  </tr></thead><tbody></tbody></table></div>
+  <p class="note">Yüzer raf ve monitör standı tabloda kalıyor ama önceki raporda anlatıldığı gibi bu aramaların çoğu IKEA ve Amazon'a gidiyor. Monitör standında Etsy satış sinyali neredeyse sıfır.</p>
+</section>
+
+<section>
+  <span class="eyebrow">04 · Doymuş kişiselleştirme pazarları</span>
+  <h2>26 kişiselleştirilmiş terimde rekabet</h2>
+  <div class="controls">
+    <span class="note">Pazar:</span>
+    <div class="seg" role="group" aria-label="Pazar seç" id="segPt">
+      <button type="button" data-m="US" aria-pressed="true">ABD</button>
+      <button type="button" data-m="DE" aria-pressed="false">Almanya</button>
+      <button type="button" data-m="GB" aria-pressed="false">İngiltere</button>
+    </div>
+    <span class="note">Rakip mağaza sayısına göre artan sırada.</span>
+  </div>
+  <div class="tbl"><table id="pt" style="min-width:860px"><thead><tr>
+    <th>Durum</th><th>Terim</th><th class="r">Etsy ilan</th><th class="r">Rakip mağaza (≤)</th><th class="r">Kişiselleştirme oranı</th><th class="r">Rozetli ilan</th><th class="r">Ortanca fiyat</th><th class="r">ABD aylık arama</th><th class="r">ABD CPC</th>
+  </tr></thead><tbody></tbody></table></div>
+  <p class="note">Durum etiketleri: rakip mağaza sayısı 10.000'in altındaysa "Girilebilir", 10.000-50.000 arasıysa "Kalabalık", 50.000'in üstündeyse "Doymuş". Rozetli ilan oranı yüksekse kategori satıyor ama rekabet de yoğun. ABD arama hacmi 16 terim için ölçülebildi.</p>
+</section>
+
+<section>
+  <span class="eyebrow">05 · Operasyon</span>
+  <h2>Kişiselleştirmede yorumları bozan hatalar</h2>
+  <p>Anne-bebek raporunda puanı düşük mağazaların olumsuz yorumlarının yaklaşık 6'sı doğrudan kişiselleştirme hatasıydı: yanlış renk, isim tek satıra sıkıştırılmış, isim hiç yazılmamış, sipariş ekranı kafa karıştırıcı. Bu hatalar kişiselleştirme sunan bir mağazanın en büyük riski.</p>
+  <div class="steps">
+    <article class="card"><h3>Dijital ön izleme ve onay</h3><p>İsim, renk ve yazı yerleşimini gösteren bir mockup'ı Etsy mesajıyla gönderin. Müşteri onaylamadan üretime başlamayın. Onay süresini işlem süresine dahil edin.</p></article>
+    <article class="card"><h3>Kısıtlı ve net giriş alanı</h3><p>Etsy'nin kişiselleştirme kutusuna karakter sınırı koyun. Örnek format verin ("İsim / Tarih / Renk kodu"). Seçimleri varyasyonlarla yapın, serbest metne bırakmayın.</p></article>
+    <article class="card"><h3>Gerçek ürün fotoğrafı</h3><p>Uzun ve kısa iki isimle çekilmiş gerçek fotoğraflar koyun. "Yazı ne kadar büyük olacak?" sorusunu görselle cevaplayın.</p></article>
+    <article class="card"><h3>İade politikası</h3><p>Kişiye özel ürünler Etsy'de genellikle iade dışıdır. Bunu ilanda açıkça yazın, ama mağaza hatalarında hızlı yeniden üretim garantisi verin.</p></article>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Yöntem ve sınırlar</span>
+  <h2>Veri nasıl toplandı?</h2>
+  <ul class="plain">
+    <li><b>Etsy:</b> 20 yeni kişiselleştirilmiş terim ABD, Almanya ve İngiltere'de ilk sayfa olarak tarandı (Apify, astravalabs/etsy-listings-scraper). Önceki raporların 60 terimlik verisiyle birleştirildi.</li>
+    <li><b>Google arama hacmi:</b> 10 yeni terim yalnızca ABD için ölçüldü (Apify, aitorsm/keyword-volume, Google Ads Keyword Planner). Apify'ın aylık $5 limiti bu ölçümle doldu. Almanya ve İngiltere'deki kişiselleştirilmiş arama hacimleri limit 9 Kasım'da yenilenince ölçülebilir.</li>
+    <li><b>Kişiselleştirme oranı:</b> İlk sayfa ilanları içinde Etsy'nin "kişiselleştirme" alanı açık olan ilanların payı. Ürün başlığında "custom" yazan ama bu alanı kullanmayan ilanlar sayılmadı.</li>
+    <li><b>Rakip mağaza (≤):</b> Toplam ilan sayısının, ilk sayfadaki farklı mağaza oranıyla çarpımı. Bu bir üst sınırdır, gerçek sayı muhtemelen daha düşüktür.</li>
+  </ul>
+</section>
+
+<footer>Kaynak veriler 18 Ekim 2026'da Apify üzerinden toplandı.</footer>
+</div>
+
+<script>
+const P = {"pterms": [{"kw": "personalized sleep sack", "tr": "İsimli uyku tulumu", "cat": "Anne-bebek", "US": {"res": 5366, "est": 4900, "seen": 10, "n": 12, "med": 33.49, "cur": "USD", "sig": 42, "pers": 42, "vol": 40, "cpc": 1.14}, "DE": {"res": 2442, "est": 2200, "seen": 11, "n": 12, "med": 47.75, "cur": "EUR", "sig": 0, "pers": 50}, "GB": {"res": 1556, "est": 1400, "seen": 11, "n": 11, "med": 20.99, "cur": "GBP", "sig": 45, "pers": 36}}, {"kw": "custom bread stamp", "tr": "Kişiye özel ekmek damgası", "cat": "Mutfak", "US": {"res": 5390, "est": 4600, "seen": 10, "n": 10, "med": 22.5, "cur": "USD", "sig": 70, "pers": 70, "vol": 210, "cpc": 1.47}, "DE": {"res": 719, "est": 620, "seen": 7, "n": 9, "med": 12.63, "cur": "EUR", "sig": 56, "pers": 89}, "GB": {"res": 2929, "est": 2500, "seen": 8, "n": 10, "med": 17.0, "cur": "GBP", "sig": 50, "pers": 90}}, {"kw": "personalized sauna hat", "tr": "İsimli sauna şapkası", "cat": "Wellness", "US": {"res": 6448, "est": 5200, "seen": 10, "n": 11, "med": 49.34, "cur": "USD", "sig": 36, "pers": 27, "vol": 20, "cpc": 0.89}, "DE": {"res": 2350, "est": 1900, "seen": 8, "n": 9, "med": 37.09, "cur": "EUR", "sig": 22, "pers": 44}, "GB": {"res": 2692, "est": 2200, "seen": 6, "n": 10, "med": 21.71, "cur": "GBP", "sig": 20, "pers": 50}}, {"kw": "name puzzle", "tr": "İsimli yapboz", "cat": "Anne-bebek", "US": {"res": 48805, "est": 44000, "seen": 10, "n": 10, "med": 14.14, "cur": "USD", "sig": 90, "pers": 80, "vol": null, "cpc": null}, "DE": {"res": 20552, "est": 19000, "seen": 10, "n": 12, "med": 12.1, "cur": "EUR", "sig": 75, "pers": 100}, "GB": {"res": 45184, "est": 41000, "seen": 11, "n": 12, "med": 11.93, "cur": "GBP", "sig": 92, "pers": 92}}, {"kw": "personalized cutting board", "tr": "İsimli kesme tahtası", "cat": "Mutfak", "US": {"res": 57171, "est": 54000, "seen": 9, "n": 9, "med": 26.9, "cur": "USD", "sig": 89, "pers": 100, "vol": null, "cpc": null}, "DE": {"res": 41577, "est": 39000, "seen": 10, "n": 12, "med": 35.75, "cur": "EUR", "sig": 42, "pers": 67}, "GB": {"res": 39624, "est": 37000, "seen": 11, "n": 11, "med": 16.99, "cur": "GBP", "sig": 91, "pers": 27}}, {"kw": "personalized pet bowl", "tr": "İsimli mama kabı", "cat": "Evcil hayvan", "US": {"res": 15516, "est": 15000, "seen": 12, "n": 12, "med": 20.49, "cur": "USD", "sig": 50, "pers": 83, "vol": 260, "cpc": 3.58}, "DE": {"res": 11893, "est": 12000, "seen": 11, "n": 12, "med": 22.36, "cur": "EUR", "sig": 33, "pers": 67}, "GB": {"res": 13619, "est": 13000, "seen": 12, "n": 12, "med": 11.6, "cur": "GBP", "sig": 50, "pers": 50}}, {"kw": "personalized christmas ornament", "tr": "İsimli yılbaşı süsü", "cat": "Sezonluk", "US": {"res": 721476, "est": 700000, "seen": 12, "n": 12, "med": 7.77, "cur": "USD", "sig": 100, "pers": 83, "vol": null, "cpc": null}, "DE": {"res": 414633, "est": 400000, "seen": 10, "n": 11, "med": 5.27, "cur": "EUR", "sig": 91, "pers": 55}, "GB": {"res": 522560, "est": 510000, "seen": 12, "n": 12, "med": 4.04, "cur": "GBP", "sig": 100, "pers": 75}}, {"kw": "personalized teacher gift", "tr": "Öğretmene kişisel hediye", "cat": "Hediye", "US": {"res": 355349, "est": 360000, "seen": 11, "n": 11, "med": 9.99, "cur": "USD", "sig": 64, "pers": 82, "vol": null, "cpc": null}, "DE": {"res": 190000, "est": 190000, "seen": 11, "n": 11, "med": 6.5, "cur": "EUR", "sig": 73, "pers": 73}, "GB": {"res": 207107, "est": 210000, "seen": 12, "n": 12, "med": 5.39, "cur": "GBP", "sig": 58, "pers": 50}}, {"kw": "personalized jewelry box", "tr": "İsimli takı kutusu", "cat": "Takı", "US": {"res": 58265, "est": 52000, "seen": 11, "n": 11, "med": 39.95, "cur": "USD", "sig": 82, "pers": 82, "vol": null, "cpc": null}, "DE": {"res": 99539, "est": 88000, "seen": 10, "n": 12, "med": 29.3, "cur": "EUR", "sig": 83, "pers": 67}, "GB": {"res": 56693, "est": 50000, "seen": 10, "n": 12, "med": 18.59, "cur": "GBP", "sig": 92, "pers": 75}}, {"kw": "personalized toy box", "tr": "İsimli oyuncak sandığı", "cat": "Anne-bebek", "US": {"res": 24222, "est": 23000, "seen": 10, "n": 11, "med": 159.2, "cur": "USD", "sig": 18, "pers": 100, "vol": 590, "cpc": 1.02}, "DE": {"res": 32067, "est": 30000, "seen": 9, "n": 10, "med": 69.72, "cur": "EUR", "sig": 50, "pers": 80}, "GB": {"res": 20662, "est": 19000, "seen": 11, "n": 11, "med": 98.1, "cur": "GBP", "sig": 55, "pers": 55}}, {"kw": "personalized dog bed", "tr": "İsimli köpek yatağı", "cat": "Evcil hayvan", "US": {"res": 15011, "est": 14000, "seen": 11, "n": 12, "med": 60.72, "cur": "USD", "sig": 17, "pers": 75, "vol": 1300, "cpc": 2.25}, "DE": {"res": 3569, "est": 3400, "seen": 11, "n": 11, "med": 98, "cur": "EUR", "sig": 27, "pers": 36}, "GB": {"res": 9851, "est": 9300, "seen": 11, "n": 12, "med": 34.28, "cur": "GBP", "sig": 25, "pers": 58}}, {"kw": "personalized recipe book", "tr": "Kişisel tarif defteri", "cat": "Mutfak", "US": {"res": 26745, "est": 24000, "seen": 12, "n": 12, "med": 25.19, "cur": "USD", "sig": 75, "pers": 100, "vol": 1300, "cpc": 1.33}, "DE": {"res": 4706, "est": 4200, "seen": 8, "n": 11, "med": 26.57, "cur": "EUR", "sig": 64, "pers": 100}, "GB": {"res": 6308, "est": 5600, "seen": 11, "n": 12, "med": 17.41, "cur": "GBP", "sig": 83, "pers": 67}}, {"kw": "personalized stocking", "tr": "İsimli yılbaşı çorabı", "cat": "Sezonluk", "US": {"res": 219581, "est": 210000, "seen": 12, "n": 12, "med": 13.99, "cur": "USD", "sig": 92, "pers": 92, "vol": null, "cpc": null}, "DE": {"res": 72159, "est": 68000, "seen": 11, "n": 12, "med": 5.23, "cur": "EUR", "sig": 83, "pers": 75}, "GB": {"res": 192748, "est": 180000, "seen": 11, "n": 12, "med": 5.22, "cur": "GBP", "sig": 92, "pers": 58}}, {"kw": "personalized apron", "tr": "İsimli önlük", "cat": "Mutfak", "US": {"res": 60945, "est": 57000, "seen": 11, "n": 11, "med": 14.97, "cur": "USD", "sig": 45, "pers": 91, "vol": null, "cpc": null}, "DE": {"res": 37679, "est": 35000, "seen": 10, "n": 11, "med": 13.73, "cur": "EUR", "sig": 91, "pers": 100}, "GB": {"res": 38077, "est": 36000, "seen": 10, "n": 11, "med": 11.99, "cur": "GBP", "sig": 100, "pers": 55}}, {"kw": "custom embroidered sweatshirt", "tr": "Nakışlı sweatshirt", "cat": "Giyim", "US": {"res": 275335, "est": 250000, "seen": 11, "n": 11, "med": 21.28, "cur": "USD", "sig": 91, "pers": 55, "vol": null, "cpc": null}, "DE": {"res": 178219, "est": 160000, "seen": 11, "n": 11, "med": 25.74, "cur": "EUR", "sig": 73, "pers": 45}, "GB": {"res": 192985, "est": 180000, "seen": 8, "n": 11, "med": 17.23, "cur": "GBP", "sig": 64, "pers": 36}}, {"kw": "personalized advent calendar", "tr": "Kişisel advent takvimi", "cat": "Sezonluk", "US": {"res": 7350, "est": 6700, "seen": 11, "n": 11, "med": 31.49, "cur": "USD", "sig": 73, "pers": 91, "vol": 1600, "cpc": 2.27}, "DE": {"res": 14093, "est": 13000, "seen": 9, "n": 11, "med": 28.12, "cur": "EUR", "sig": 91, "pers": 100}, "GB": {"res": 1802, "est": 1600, "seen": 11, "n": 12, "med": 16.59, "cur": "GBP", "sig": 50, "pers": 58}}, {"kw": "personalized kids backpack", "tr": "İsimli çocuk sırt çantası", "cat": "Anne-bebek", "US": {"res": 46838, "est": 41000, "seen": 10, "n": 11, "med": 16.67, "cur": "USD", "sig": 82, "pers": 100, "vol": null, "cpc": null}, "DE": {"res": 38667, "est": 34000, "seen": 9, "n": 10, "med": 16.86, "cur": "EUR", "sig": 90, "pers": 90}, "GB": {"res": 55859, "est": 49000, "seen": 10, "n": 12, "med": 9.99, "cur": "GBP", "sig": 100, "pers": 92}}, {"kw": "custom cake topper", "tr": "Kişisel pasta süsü", "cat": "Parti", "US": {"res": 351761, "est": 300000, "seen": 11, "n": 12, "med": 12.81, "cur": "USD", "sig": 100, "pers": 58, "vol": null, "cpc": null}, "DE": {"res": 272360, "est": 230000, "seen": 9, "n": 12, "med": 11.68, "cur": "EUR", "sig": 100, "pers": 75}, "GB": {"res": 107496, "est": 93000, "seen": 11, "n": 12, "med": 6.74, "cur": "GBP", "sig": 92, "pers": 8}}, {"kw": "custom house portrait", "tr": "Ev portresi", "cat": "Ev & dekor", "US": {"res": 37195, "est": 34000, "seen": 11, "n": 11, "med": 37.8, "cur": "USD", "sig": 91, "pers": 36, "vol": 390, "cpc": 3.24}, "DE": {"res": 27248, "est": 25000, "seen": 9, "n": 12, "med": 49.4, "cur": "EUR", "sig": 33, "pers": 50}, "GB": {"res": 14424, "est": 13000, "seen": 9, "n": 9, "med": 19.99, "cur": "GBP", "sig": 67, "pers": 22}}, {"kw": "personalized pill box", "tr": "İsimli ilaç kutusu", "cat": "Sağlık & bakım", "US": {"res": 8691, "est": 7500, "seen": 12, "n": 12, "med": 18.16, "cur": "USD", "sig": 75, "pers": 83, "vol": 590, "cpc": 5.38}, "DE": {"res": 4817, "est": 4100, "seen": 8, "n": 12, "med": 19.93, "cur": "EUR", "sig": 42, "pers": 67}, "GB": {"res": 2030, "est": 1700, "seen": 11, "n": 12, "med": 13.68, "cur": "GBP", "sig": 8, "pers": 67}}, {"kw": "diaper bag personalized", "tr": "Kişiye özel bebek çantası", "cat": "Anne-bebek", "US": {"res": 15601, "est": 12000, "seen": 56, "n": 70, "med": 42.38, "cur": "USD", "sig": 24, "pers": 77, "vol": 1600, "cpc": 0.9}, "DE": {"res": 7745, "est": 6200, "seen": 12, "n": 12, "med": 20.81, "cur": "EUR", "sig": 75, "pers": 75, "vol": 210, "cpc": 0.63}, "GB": {"res": 14138, "est": 11000, "seen": 7, "n": 12, "med": 10.22, "cur": "GBP", "sig": 92, "pers": 100, "vol": null, "cpc": null}, "de": "wickeltasche personalisiert"}, {"kw": "pacifier clip personalized", "tr": "Kişiye özel emzik zinciri", "cat": "Anne-bebek", "US": {"res": 13091, "est": 12000, "seen": 63, "n": 69, "med": 13, "cur": "USD", "sig": 42, "pers": 88, "vol": 880, "cpc": 0.65}, "DE": {"res": 8665, "est": 7900, "seen": 10, "n": 11, "med": 9.9, "cur": "EUR", "sig": 91, "pers": 73, "vol": 6600, "cpc": 0.59}, "GB": {"res": 10264, "est": 9400, "seen": 10, "n": 11, "med": 6.79, "cur": "GBP", "sig": 82, "pers": 55, "vol": 110, "cpc": 0.53}, "de": "schnullerkette mit namen"}, {"kw": "personalized dog collar", "tr": "İsimli köpek tasması", "cat": "Evcil hayvan", "US": {"res": 80011, "est": 80000, "seen": 10, "n": 10, "med": 13.3, "cur": "USD", "sig": 80, "pers": 90, "vol": 8100, "cpc": 2.3}, "DE": {"res": 114439, "est": 110000, "seen": 10, "n": 10, "med": 17.69, "cur": "EUR", "sig": 80, "pers": 70, "vol": 480, "cpc": 0.89}, "GB": {"res": 143069, "est": 140000, "seen": 10, "n": 10, "med": 12.36, "cur": "GBP", "sig": 100, "pers": 60, "vol": null, "cpc": null}, "de": "hundehalsband personalisiert"}, {"kw": "custom pet portrait", "tr": "Evcil hayvan portresi", "cat": "Evcil hayvan", "US": {"res": 470139, "est": 430000, "seen": 9, "n": 12, "med": 23.6, "cur": "USD", "sig": 100, "pers": 25, "vol": 6600, "cpc": 2.95}, "DE": {"res": 412664, "est": 380000, "seen": 12, "n": 12, "med": 47.52, "cur": "EUR", "sig": 67, "pers": 33, "vol": 170, "cpc": 2.07}, "GB": {"res": 407298, "est": 370000, "seen": 12, "n": 12, "med": 14.55, "cur": "GBP", "sig": 67, "pers": 8, "vol": null, "cpc": null}, "de": "haustier portrait"}, {"kw": "name necklace", "tr": "İsim kolye", "cat": "Takı", "US": {"res": 283315, "est": 260000, "seen": 10, "n": 10, "med": 23.99, "cur": "USD", "sig": 80, "pers": 90, "vol": 33100, "cpc": 2.93}, "DE": {"res": 229533, "est": 210000, "seen": 8, "n": 9, "med": 14.95, "cur": "EUR", "sig": 78, "pers": 89, "vol": 4400, "cpc": 1.57}, "GB": {"res": 281220, "est": 260000, "seen": 9, "n": 10, "med": 13.0, "cur": "GBP", "sig": 100, "pers": 70, "vol": null, "cpc": null}, "de": "namenskette"}, {"kw": "passport holder personalized", "tr": "İsimli pasaport kılıfı", "cat": "Seyahat", "US": {"res": 15986, "est": 15000, "seen": 11, "n": 11, "med": 11.58, "cur": "USD", "sig": 100, "pers": 91, "vol": 1600, "cpc": 3.04}, "DE": {"res": 21645, "est": 20000, "seen": 10, "n": 11, "med": 10.55, "cur": "EUR", "sig": 82, "pers": 100, "vol": 590, "cpc": 0.75}, "GB": {"res": 22519, "est": 21000, "seen": 10, "n": 11, "med": 8.4, "cur": "GBP", "sig": 82, "pers": 55, "vol": null, "cpc": null}, "de": "reisepasshülle personalisiert"}], "gap": [{"kw": "bread proofing basket", "tr": "Ekmek mayalama sepeti (banneton)", "cat": "Mutfak", "m": "DE", "vol": 6600, "est": 460, "dps": 14.35, "pers": 8, "sig": 8, "med": 30.5, "cur": "EUR", "gap": 13.2, "term": "gärkorb"}, {"kw": "sourdough starter kit", "tr": "Ekşi maya başlangıç kiti", "cat": "Mutfak", "m": "DE", "vol": 5400, "est": 460, "dps": 11.74, "pers": 0, "sig": 33, "med": 10.43, "cur": "EUR", "gap": 11.74, "term": "sauerteig starter set"}, {"kw": "floating shelves", "tr": "Gömme (yüzer) raf", "cat": "Ev & dekor", "m": "US", "vol": 201000, "est": 31000, "dps": 6.48, "pers": 0, "sig": 100, "med": 60, "cur": "USD", "gap": 6.48, "term": "floating shelves"}, {"kw": "baby sleep sack", "tr": "Bebek uyku tulumu", "cat": "Anne-bebek", "m": "DE", "vol": 8100, "est": 1100, "dps": 7.36, "pers": 27, "sig": 9, "med": 42.46, "cur": "EUR", "gap": 5.38, "term": "baby schlafsack"}, {"kw": "sauna hat", "tr": "Sauna şapkası", "cat": "Wellness", "m": "US", "vol": 33100, "est": 6300, "dps": 5.25, "pers": 10, "sig": 50, "med": 37.75, "cur": "USD", "gap": 4.73, "term": "sauna hat"}, {"kw": "baby sleep sack", "tr": "Bebek uyku tulumu", "cat": "Anne-bebek", "m": "US", "vol": 49500, "est": 7400, "dps": 6.69, "pers": 32, "sig": 17, "med": 33.23, "cur": "USD", "gap": 4.55, "term": "baby sleep sack"}, {"kw": "monitor stand", "tr": "Monitör standı", "cat": "Masa & teknoloji", "m": "US", "vol": 33100, "est": 7700, "dps": 4.3, "pers": 0, "sig": 0, "med": 89.0, "cur": "USD", "gap": 4.3, "term": "monitor stand"}, {"kw": "sauna hat", "tr": "Sauna şapkası", "cat": "Wellness", "m": "GB", "vol": 12100, "est": 3600, "dps": 3.36, "pers": 0, "sig": 50, "med": 32.79, "cur": "GBP", "gap": 3.36, "term": "sauna hat"}, {"kw": "postpartum recovery kit", "tr": "Doğum sonrası bakım kiti", "cat": "Anne-bebek", "m": "US", "vol": 2900, "est": 900, "dps": 3.22, "pers": 4, "sig": 4, "med": 50.11, "cur": "USD", "gap": 3.09, "term": "postpartum recovery kit"}, {"kw": "baby sleep sack", "tr": "Bebek uyku tulumu", "cat": "Anne-bebek", "m": "GB", "vol": 4400, "est": 1300, "dps": 3.38, "pers": 9, "sig": 9, "med": 25.99, "cur": "GBP", "gap": 3.08, "term": "baby sleep sack"}, {"kw": "monitor stand", "tr": "Monitör standı", "cat": "Masa & teknoloji", "m": "GB", "vol": 9900, "est": 3600, "dps": 2.75, "pers": 0, "sig": 8, "med": 55.34, "cur": "GBP", "gap": 2.75, "term": "monitor stand"}, {"kw": "sauna hat", "tr": "Sauna şapkası", "cat": "Wellness", "m": "DE", "vol": 8100, "est": 3100, "dps": 2.61, "pers": 0, "sig": 17, "med": 36.12, "cur": "EUR", "gap": 2.61, "term": "saunahut"}, {"kw": "wooden baby gym", "tr": "Ahşap bebek jimnastik standı", "cat": "Anne-bebek", "m": "DE", "vol": 4400, "est": 1400, "dps": 3.14, "pers": 18, "sig": 0, "med": 36.74, "cur": "EUR", "gap": 2.58, "term": "spielbogen holz"}, {"kw": "breast milk jewelry", "tr": "Anne sütü takı", "cat": "Anne-bebek", "m": "US", "vol": 12100, "est": 4500, "dps": 2.69, "pers": 6, "sig": 7, "med": 99.56, "cur": "USD", "gap": 2.53, "term": "breast milk jewelry"}, {"kw": "breast milk jewelry", "tr": "Anne sütü takı", "cat": "Anne-bebek", "m": "DE", "vol": 8100, "est": 2400, "dps": 3.38, "pers": 25, "sig": 17, "med": 98.85, "cur": "EUR", "gap": 2.53, "term": "muttermilchschmuck"}, {"kw": "bird feeder", "tr": "Kuş yemliği", "cat": "Bahçe", "m": "US", "vol": 60500, "est": 24000, "dps": 2.52, "pers": 0, "sig": 20, "med": 143.38, "cur": "USD", "gap": 2.52, "term": "bird feeder"}, {"kw": "sourdough starter kit", "tr": "Ekşi maya başlangıç kiti", "cat": "Mutfak", "m": "US", "vol": 22200, "est": 9100, "dps": 2.44, "pers": 0, "sig": 67, "med": 37.34, "cur": "USD", "gap": 2.44, "term": "sourdough starter kit"}, {"kw": "cat wall shelves", "tr": "Kedi duvar rafları", "cat": "Evcil hayvan", "m": "US", "vol": 14800, "est": 6800, "dps": 2.18, "pers": 0, "sig": 62, "med": 98.15, "cur": "USD", "gap": 2.18, "term": "cat wall shelves"}, {"kw": "bird feeder", "tr": "Kuş yemliği", "cat": "Bahçe", "m": "DE", "vol": 14800, "est": 7100, "dps": 2.08, "pers": 0, "sig": 17, "med": 44.9, "cur": "EUR", "gap": 2.08, "term": "vogelfutterhaus"}, {"kw": "floating shelves", "tr": "Gömme (yüzer) raf", "cat": "Ev & dekor", "m": "GB", "vol": 60500, "est": 32000, "dps": 1.89, "pers": 0, "sig": 100, "med": 27, "cur": "GBP", "gap": 1.89, "term": "floating shelves"}, {"kw": "pill organizer", "tr": "İlaç düzenleyici", "cat": "Sağlık & bakım", "m": "US", "vol": 40500, "est": 18000, "dps": 2.25, "pers": 20, "sig": 70, "med": 31.98, "cur": "USD", "gap": 1.8, "term": "pill organizer"}, {"kw": "stroller organizer", "tr": "Bebek arabası organizeri", "cat": "Anne-bebek", "m": "DE", "vol": 2900, "est": 2000, "dps": 1.45, "pers": 0, "sig": 10, "med": 46.95, "cur": "EUR", "gap": 1.45, "term": "kinderwagen organizer"}, {"kw": "bird feeder", "tr": "Kuş yemliği", "cat": "Bahçe", "m": "GB", "vol": 27100, "est": 17000, "dps": 1.59, "pers": 9, "sig": 36, "med": 27.99, "cur": "GBP", "gap": 1.45, "term": "bird feeder"}, {"kw": "punch needle kit", "tr": "Punch needle kiti", "cat": "Hobi kiti", "m": "US", "vol": 22200, "est": 14000, "dps": 1.59, "pers": 17, "sig": 33, "med": 30.34, "cur": "USD", "gap": 1.32, "term": "punch needle kit"}, {"kw": "sourdough starter kit", "tr": "Ekşi maya başlangıç kiti", "cat": "Mutfak", "m": "GB", "vol": 4400, "est": 3400, "dps": 1.29, "pers": 0, "sig": 33, "med": 10.98, "cur": "GBP", "gap": 1.29, "term": "sourdough starter kit"}, {"kw": "pill organizer", "tr": "İlaç düzenleyici", "cat": "Sağlık & bakım", "m": "DE", "vol": 18100, "est": 9900, "dps": 1.83, "pers": 30, "sig": 60, "med": 22.55, "cur": "EUR", "gap": 1.28, "term": "tablettenbox"}, {"kw": "bread proofing basket", "tr": "Ekmek mayalama sepeti (banneton)", "cat": "Mutfak", "m": "US", "vol": 6600, "est": 5400, "dps": 1.22, "pers": 9, "sig": 27, "med": 26.58, "cur": "USD", "gap": 1.11, "term": "bread proofing basket"}, {"kw": "entryway key holder", "tr": "Antre anahtarlık", "cat": "Ev & dekor", "m": "DE", "vol": 14800, "est": 11000, "dps": 1.35, "pers": 25, "sig": 42, "med": 30.95, "cur": "EUR", "gap": 1.01, "term": "schlüsselbrett"}, {"kw": "hospital bag essentials", "tr": "Doğum çantası setleri", "cat": "Anne-bebek", "m": "DE", "vol": 6600, "est": 5400, "dps": 1.22, "pers": 18, "sig": 18, "med": 58.39, "cur": "EUR", "gap": 1.0, "term": "kliniktasche geburt"}, {"kw": "cat wall shelves", "tr": "Kedi duvar rafları", "cat": "Evcil hayvan", "m": "DE", "vol": 3600, "est": 3600, "dps": 1.0, "pers": 0, "sig": 60, "med": 151.59, "cur": "EUR", "gap": 1.0, "term": "katzen kletterwand"}, {"kw": "crib mobile", "tr": "Beşik dönencesi", "cat": "Anne-bebek", "m": "DE", "vol": 12100, "est": 12000, "dps": 1.01, "pers": 8, "sig": 25, "med": 49.09, "cur": "EUR", "gap": 0.93, "term": "mobile baby"}, {"kw": "pill organizer", "tr": "İlaç düzenleyici", "cat": "Sağlık & bakım", "m": "GB", "vol": 14800, "est": 14000, "dps": 1.06, "pers": 18, "sig": 73, "med": 14.99, "cur": "GBP", "gap": 0.87, "term": "pill organizer"}, {"kw": "fishing lure", "tr": "Balık yemi (el yapımı)", "cat": "Outdoor", "m": "US", "vol": 74000, "est": 40000, "dps": 1.85, "pers": 80, "sig": 90, "med": 18.24, "cur": "USD", "gap": 0.37, "term": "fishing lure"}]};
+const fmt = n => n==null ? "—" : n.toLocaleString("tr-TR");
+const cur = c => ({USD:"$",EUR:"€",GBP:"£"})[c]||"";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const MN = {US:"ABD",DE:"Almanya",GB:"İngiltere"};
+const pt = k => P.pterms.find(e=>e.kw===k);
+const base = (k,m) => P.gap.find(g=>g.kw===k&&g.m===m);
+
+document.getElementById("facts").innerHTML = `<span><b>26</b> kişiselleştirilmiş terim</span><span><b>${P.gap.length}</b> boşluk satırı</span><span><b>3</b> pazar</span><span><b>16</b> terimde ABD arama hacmi</span>`;
+
+/* vs */
+const VS=[["Sauna şapkası","sauna hat",33100,"personalized sauna hat"],["Bebek uyku tulumu","baby sleep sack",49500,"personalized sleep sack"],["İlaç kutusu","pill organizer",40500,"personalized pill box"],["Ekmek seti","sourdough starter kit",22200,"custom bread stamp"]];
+document.getElementById("vs").innerHTML=VS.map(([t,b,bv,p])=>{const e=pt(p);return `<article class="card"><h3>${t}</h3>
+ <div class="row"><span>"${esc(b)}"</span><b class="big">${fmt(bv)}</b></div>
+ <div class="row"><span>"${esc(p)}"</span><b>${fmt(e.US.vol)}</b></div>
+ <div class="row small"><span>Kişisel versiyonun rakip mağazası (ABD)</span><b>≤ ${fmt(e.US.est)}</b></div></article>`;}).join("");
+
+/* top5 */
+const TOP=[
+ {n:"İsim nakışlı keçe sauna şapkası",k:"sauna hat",ms:["US","GB","DE"],p:"$45-60",how:"Şapkanın ön yüzüne isim veya baş harf nakışı, 6 iplik rengi seçeneği. Setle birlikte isimli keten havlu.",why:"Rakip ilanların ABD'de %10'u, İngiltere ve Almanya'da hiçbiri kişiselleştirme sunmuyor. ABD'de \"personalized sauna hat\" aramasındaki ilanların ortanca fiyatı $49,34, \"sauna hat\" aramasında $37,75. Bu, kişiselleştirme için yaklaşık %31'lik bir fiyat primine işaret ediyor."},
+ {n:"İsimli ekmek damgası + banneton seti",k:"bread proofing basket",ms:["DE","US"],p:"€35-55",how:"Lazer kesim ahşap veya pirinç damga ile ekmeğin üstüne isim ya da aile logosu basılır. Rattan sepet, keten bez ve çizme bıçağıyla birlikte paketlenir.",why:"Almanya'da mayalama sepetinde mağaza başına 14 arama düşüyor ve kişiselleştirme oranı %8. Tek başına \"custom bread stamp\" ilanlarının %70'i ABD'de rozetli, yani bu ürün satıyor."},
+ {n:"İsim nakışlı TOG uyku tulumu",k:"baby sleep sack",ms:["DE","US","GB"],p:"€45-60",how:"Göğüs bölümüne isim nakışı ve doğum tarihi etiketi. 0,5, 1,0 ve 2,5 TOG seçenekleri. Hediye kutusunda gönderilir.",why:"Kişiselleştirme oranı İngiltere'de %9, Almanya'da %27, ABD'de %32. Kişiselleştirilmiş uyku tulumu sunan rakip sayısı ABD'de en fazla ~4.900, Almanya'da ~2.200."},
+ {n:"Aile ilaç düzenleyici (isim + gün)",k:"pill organizer",ms:["US","DE"],p:"$32-45",how:"Ceviz veya seramik kapak, kişinin adı kazınmış ve büyük puntolu gün yazıları. Çok kişilik hane için renk kodlu set.",why:"\"Personalized pill box\" terimi ABD'de en yüksek CPC'ye sahip ($5,38). Ana ürünün ilanlarının %70'i rozetli, kişiselleştirme oranı ise yalnızca %20. Kişiselleştirilmiş versiyonda ABD'de en fazla ~7.500, İngiltere'de ~1.700 rakip mağaza var."},
+ {n:"İsim plakalı modüler kedi duvarı",k:"cat wall shelves",ms:["US","DE"],p:"$95-160",how:"Kedi yatağı modülüne kazınmış isim plakası ve kişiye özel renk seçimi. Evcil hayvan anı hediyesi olarak da konumlanabilir.",why:"ABD ve Almanya'da ilanların %0'ı kişiselleştirme sunuyor. Rozetli ilan oranı %60'ın üstünde ve ortanca fiyat $98. Bu 5 öneri içinde fiyatı en yüksek ürün."}
+];
+document.getElementById("top5").innerHTML=TOP.map(t=>{
+  const mk=["US","DE","GB"].map(m=>{const g=base(t.k,m);return `<div><span class="lbl">${MN[m]}</span>${g?`<b>${fmt(g.vol)}</b><span>≤ ${fmt(g.est)} mağaza</span><span>kişiselleştirme %${g.pers}</span>`:'<b>—</b><span>eşik altında</span>'}</div>`;}).join("");
+  return `<article class="card"><div class="meta">${t.ms.map(m=>`<span class="pill ${m==='US'?'ok':'eu'}">${MN[m]}</span>`).join("")}<span class="price">${t.p}</span></div><h3>${t.n}</h3><div class="mkt">${mk}</div><p class="how"><b>Kişiselleştirme:</b> ${t.how}</p><p class="why"><b>Neden:</b> ${t.why}</p></article>`;}).join("");
+
+/* gap table */
+document.querySelector("#gap tbody").innerHTML=P.gap.map(g=>`<tr><td class="r"><span class="score"><span class="num">${g.gap.toLocaleString("tr-TR")}</span><span class="bar"><i style="width:${Math.min(100,g.gap/14*100)}%"></i></span></span></td>
+ <td>${esc(g.tr)} <span class="cat">${esc(g.cat)}</span><div class="kw">${esc(g.term)}</div></td><td>${MN[g.m]}</td><td class="r num">${fmt(g.vol)}</td><td class="r num">≤ ${fmt(g.est)}</td>
+ <td class="r num">${g.dps.toLocaleString("tr-TR")}</td><td class="r num" style="${g.pers<=10?'color:var(--good);font-weight:600':''}">%${g.pers}</td><td class="r num">%${g.sig}</td><td class="r num">${cur(g.cur)}${g.med}</td></tr>`).join("");
+
+/* personalized terms table */
+(function(){
+  let m="US"; const tb=document.querySelector("#pt tbody");
+  function render(){
+    const rows=P.pterms.filter(e=>e[m]).sort((a,b)=>a[m].est-b[m].est);
+    tb.innerHTML=rows.map(e=>{const s=e[m],u=e.US||{};
+      const st=s.est<10000?'<span class="pill ok">Girilebilir</span>':s.est<50000?'<span class="pill eu">Kalabalık</span>':'<span class="pill risk">Doymuş</span>';
+      const term=m==="DE"&&e.de?e.de:e.kw;
+      return `<tr><td>${st}</td><td>${esc(e.tr)} <span class="cat">${esc(e.cat)}</span><div class="kw">${esc(term)}</div></td><td class="r num">${fmt(s.res)}</td><td class="r num">≤ ${fmt(s.est)}</td>
+      <td class="r num">%${s.pers}</td><td class="r num">%${s.sig}</td><td class="r num">${cur(s.cur)}${s.med}</td><td class="r num">${u.vol==null?'<span class="note">ölçülmedi</span>':fmt(u.vol)}</td><td class="r num">${u.cpc==null?'—':'$'+u.cpc.toFixed(2)}</td></tr>`;}).join("");
+  }
+  document.querySelectorAll("#segPt button").forEach(b=>b.addEventListener("click",()=>{m=b.dataset.m;document.querySelectorAll("#segPt button").forEach(x=>x.setAttribute("aria-pressed",x===b));render();}));
+  render();
+})();
+</script>
