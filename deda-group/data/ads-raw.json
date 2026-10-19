@@ -1,0 +1,54 @@
+{
+  "observedAt": "2026-10-19T21:01:46.001Z",
+  "rawItemCount": 4,
+  "results": [
+    {
+      "brand": "deda-pack",
+      "query": "Deda Pack",
+      "source": "Meta Ad Library (apify/facebook-ads-scraper)",
+      "libraryUrl": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Deda%20Pack&search_type=keyword_exact_phrase&media_type=all",
+      "observedAt": "2026-10-19T21:01:46.001Z",
+      "httpStatus": 201,
+      "adsFound": 0,
+      "ads": [],
+      "totalCount": 0,
+      "isResultComplete": true
+    },
+    {
+      "brand": "deda-gida",
+      "query": "Deda Gıda",
+      "source": "Meta Ad Library (apify/facebook-ads-scraper)",
+      "libraryUrl": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Deda%20G%C4%B1da&search_type=keyword_exact_phrase&media_type=all",
+      "observedAt": "2026-10-19T21:01:46.001Z",
+      "httpStatus": 201,
+      "adsFound": 0,
+      "ads": [],
+      "totalCount": 0,
+      "isResultComplete": true
+    },
+    {
+      "brand": "deda-makina",
+      "query": "Deda Makina",
+      "source": "Meta Ad Library (apify/facebook-ads-scraper)",
+      "libraryUrl": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Deda%20Makina&search_type=keyword_exact_phrase&media_type=all",
+      "observedAt": "2026-10-19T21:01:46.001Z",
+      "httpStatus": 201,
+      "adsFound": 0,
+      "ads": [],
+      "totalCount": 0,
+      "isResultComplete": true
+    },
+    {
+      "brand": "adana-konteyner",
+      "query": "Adana Konteyner",
+      "source": "Meta Ad Library (apify/facebook-ads-scraper)",
+      "libraryUrl": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=Adana%20Konteyner&search_type=keyword_exact_phrase&media_type=all",
+      "observedAt": "2026-10-19T21:01:46.001Z",
+      "httpStatus": 201,
+      "adsFound": 0,
+      "ads": [],
+      "totalCount": 0,
+      "isResultComplete": true
+    }
+  ]
+}

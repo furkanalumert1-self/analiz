@@ -1,0 +1,27 @@
+{
+  "phases": [
+    { "id": "P1", "label": "0–30 gün", "theme": "Doğrulama, keşif, ölçüm ve hızlı kazanımlar", "items": [
+      { "title": "Adana Konteyner ve dedaplast.com alan adı/güvenlik kontrolü", "opportunityId": "O15", "owner": "Deda BT / web ajansı", "dependency": "—" },
+      { "title": "Kırık bağlantılar: Makina teklif PDF'i, Gıda katalogları, Pack EN/RU sayfaları; WordPress varsayılan içerikleri", "opportunityId": "O15", "owner": "Web ajansı", "dependency": "—" },
+      { "title": "Keşif atölyesi: sistem envanteri, lead süreci, KVKK/izin durumu (Q01–Q08)", "opportunityId": "O23", "owner": "Callypso + Deda", "dependency": "—" },
+      { "title": "CMP + GA4/GTM olay sözlüğü (form, WhatsApp, telefon, katalog) — 4 site", "opportunityId": "O16", "owner": "Callypso / ajans", "dependency": "GTM erişimi" },
+      { "title": "Deda Pack teklif formu (TR + EN ilk etapta) ve Deda Makina çevrim içi teklif formu", "opportunityId": "O01", "owner": "Callypso", "dependency": "Form alanları onayı" },
+      { "title": "Callypso Engage yeteneklerinin (tetikleyici, segment, WhatsApp, CRM bağlantısı) ürün ekibiyle teyidi", "opportunityId": "O02", "owner": "Callypso", "dependency": "—" }
+    ] },
+    { "id": "P2", "label": "30–60 gün", "theme": "İlk entegrasyonlar, pilot akışlar, segmentasyon", "items": [
+      { "title": "Merkezi lead gelen kutusu: form + WhatsApp + info@ → CRM, SLA uyarıları", "opportunityId": "O17", "owner": "Callypso", "dependency": "CRM kararı" },
+      { "title": "Pilot: teklif sonrası takip akışı (Deda Pack)", "opportunityId": "O02", "owner": "Callypso", "dependency": "O01, CRM teklif durumu" },
+      { "title": "Pilot: fuar kontağı nurture (son fuar listesiyle)", "opportunityId": "O04", "owner": "Callypso", "dependency": "İzinli kontak listesi" },
+      { "title": "Yerelleştirme QA: 8 dil sözlük + başlık/meta düzeltmeleri", "opportunityId": "O14", "owner": "Ajans + AI", "dependency": "Sözlük onayı" },
+      { "title": "Distribütör başvuru formu ve Iceman sezon takvimi (Deda Gıda)", "opportunityId": "O18", "owner": "Callypso", "dependency": "Distribütör kriterleri" },
+      { "title": "AI satış asistanı için bilgi tabanı derleme (SSS, MOQ, termin)", "opportunityId": "O10", "owner": "Deda satış + Callypso", "dependency": "Q10 yanıtları" }
+    ] },
+    { "id": "P3", "label": "60–90 gün", "theme": "Optimizasyon, genişleme, ölçüm", "items": [
+      { "title": "Yenileme hatırlatma akışı (ERP sipariş verisi ile)", "opportunityId": "O03", "owner": "Callypso", "dependency": "ERP veri erişimi" },
+      { "title": "AI WhatsApp satış asistanı pilotu (insan devriyle)", "opportunityId": "O10", "owner": "Callypso", "dependency": "O17, bilgi tabanı" },
+      { "title": "Makina kurulu baz servis akışı (veri varsa)", "opportunityId": "O08", "owner": "Callypso", "dependency": "Kurulu makine listesi" },
+      { "title": "Grup KPI panosu v1 (lead, teklif, yanıt süresi)", "opportunityId": "O19", "owner": "Callypso", "dependency": "O16, O17" },
+      { "title": "Sonuç ölçümü: baz değer (Q02) ile karşılaştırma ve sonraki çeyrek planı", "opportunityId": "O19", "owner": "Callypso + Deda", "dependency": "30 gün veri" }
+    ] }
+  ]
+}

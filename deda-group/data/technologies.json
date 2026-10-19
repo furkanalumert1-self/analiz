@@ -1,0 +1,547 @@
+{
+ "detected": [
+  {
+   "id": "tech-1",
+   "entityId": "deda-gida",
+   "technology": "jQuery (legacy 2.x)",
+   "category": "frontend",
+   "evidence": "jquery-2.1.4.",
+   "detectedOn": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-2",
+   "entityId": "deda-gida",
+   "technology": "Bootstrap",
+   "category": "frontend",
+   "evidence": "bootstrap.min.css",
+   "detectedOn": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-3",
+   "entityId": "deda-gida",
+   "technology": "Google reCAPTCHA",
+   "category": "forms",
+   "evidence": "recaptcha/api.js",
+   "detectedOn": [
+    "https://dedagida.com/tr/iletisim"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-4",
+   "entityId": "adana-konteyner",
+   "technology": "Google Analytics 4",
+   "category": "analytics",
+   "evidence": "gtag/js?id=G-9ZMWQ77QJ4",
+   "detectedOn": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-5",
+   "entityId": "adana-konteyner",
+   "technology": "Meta SDK / Facebook script",
+   "category": "advertising",
+   "evidence": "connect.facebook.net",
+   "detectedOn": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-6",
+   "entityId": "adana-konteyner",
+   "technology": "WhatsApp link",
+   "category": "chat",
+   "evidence": "api.whatsapp.com/send",
+   "detectedOn": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-7",
+   "entityId": "adana-konteyner",
+   "technology": "WordPress",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"WordPress 7.1.3",
+   "detectedOn": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-8",
+   "entityId": "adana-konteyner",
+   "technology": "Bootstrap",
+   "category": "frontend",
+   "evidence": "bootstrap.min.css",
+   "detectedOn": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-9",
+   "entityId": "deda-group",
+   "technology": "WordPress",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"WordPress 7.1.3",
+   "detectedOn": [
+    "https://www.dedagroup.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-10",
+   "entityId": "deda-group",
+   "technology": "Elementor",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"Elementor 3.30.2",
+   "detectedOn": [
+    "https://www.dedagroup.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-11",
+   "entityId": "deda-group",
+   "technology": "Elementor Pro",
+   "category": "cms",
+   "evidence": "plugins/elementor-pro",
+   "detectedOn": [
+    "https://www.dedagroup.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-12",
+   "entityId": "deda-makina",
+   "technology": "Call Now Button",
+   "category": "contact",
+   "evidence": "plugins/call-now-button",
+   "detectedOn": [
+    "https://www.dedamakina.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-13",
+   "entityId": "deda-makina",
+   "technology": "WordPress",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"WordPress 7.1.3",
+   "detectedOn": [
+    "https://www.dedamakina.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-14",
+   "entityId": "deda-makina",
+   "technology": "Elementor",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"Elementor 3.16.6",
+   "detectedOn": [
+    "https://www.dedamakina.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-15",
+   "entityId": "deda-makina",
+   "technology": "Elementor Pro",
+   "category": "cms",
+   "evidence": "plugins/elementor-pro",
+   "detectedOn": [
+    "https://www.dedamakina.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-16",
+   "entityId": "deda-makina",
+   "technology": "WooCommerce-style account login (theme)",
+   "category": "account",
+   "evidence": "security-login",
+   "detectedOn": [
+    "https://www.dedamakina.com/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-17",
+   "entityId": "deda-pack",
+   "technology": "Google Analytics 4",
+   "category": "analytics",
+   "evidence": "gtag/js?id=G-CQTHRDM86W",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-18",
+   "entityId": "deda-pack",
+   "technology": "Google Tag Manager",
+   "category": "tag-management",
+   "evidence": "gtm.js?id=",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-19",
+   "entityId": "deda-pack",
+   "technology": "Contact Form 7",
+   "category": "forms",
+   "evidence": "wp-content/plugins/contact-form-7",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-20",
+   "entityId": "deda-pack",
+   "technology": "Click to Chat for WhatsApp",
+   "category": "chat",
+   "evidence": "plugins/click-to-chat-for-whatsapp",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-21",
+   "entityId": "deda-pack",
+   "technology": "WordPress",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"WordPress 7.1.3",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-22",
+   "entityId": "deda-pack",
+   "technology": "Elementor",
+   "category": "cms",
+   "evidence": "<meta name=\"generator\" content=\"Elementor 3.18.3",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-23",
+   "entityId": "deda-pack",
+   "technology": "Elementor Pro",
+   "category": "cms",
+   "evidence": "plugins/elementor-pro",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-24",
+   "entityId": "deda-pack",
+   "technology": "Slider Revolution",
+   "category": "cms",
+   "evidence": "Slider Revolution 6.6.11",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-25",
+   "entityId": "deda-pack",
+   "technology": "Polylang (multilingual)",
+   "category": "cms",
+   "evidence": "connect-polylang-elementor",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  },
+  {
+   "id": "tech-26",
+   "entityId": "deda-pack",
+   "technology": "WooCommerce-style account login (theme)",
+   "category": "account",
+   "evidence": "security-login",
+   "detectedOn": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "detectionMethod": "Pattern match in raw HTML snapshot",
+   "confidence": "Verified"
+  }
+ ],
+ "notObserved": [
+  {
+   "entityId": "deda-gida",
+   "technology": "Google Analytics 4",
+   "scannedPages": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-gida",
+   "technology": "Google Tag Manager",
+   "scannedPages": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-gida",
+   "technology": "Meta Pixel",
+   "scannedPages": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-gida",
+   "technology": "Cookie consent platform",
+   "scannedPages": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-gida",
+   "technology": "Live chat widget",
+   "scannedPages": [
+    "https://dedagida.com/",
+    "https://dedagida.com/tr/iletisim",
+    "https://dedagida.com/tr/kataloglarimiz"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "adana-konteyner",
+   "technology": "Google Tag Manager",
+   "scannedPages": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "adana-konteyner",
+   "technology": "Meta Pixel",
+   "scannedPages": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "adana-konteyner",
+   "technology": "Cookie consent platform",
+   "scannedPages": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "adana-konteyner",
+   "technology": "Live chat widget",
+   "scannedPages": [
+    "https://www.adanakonteyner.com.tr/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-group",
+   "technology": "Google Analytics 4",
+   "scannedPages": [
+    "https://www.dedagroup.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-group",
+   "technology": "Google Tag Manager",
+   "scannedPages": [
+    "https://www.dedagroup.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-group",
+   "technology": "Meta Pixel",
+   "scannedPages": [
+    "https://www.dedagroup.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-group",
+   "technology": "Cookie consent platform",
+   "scannedPages": [
+    "https://www.dedagroup.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-group",
+   "technology": "Live chat widget",
+   "scannedPages": [
+    "https://www.dedagroup.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-makina",
+   "technology": "Google Analytics 4",
+   "scannedPages": [
+    "https://www.dedamakina.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-makina",
+   "technology": "Google Tag Manager",
+   "scannedPages": [
+    "https://www.dedamakina.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-makina",
+   "technology": "Meta Pixel",
+   "scannedPages": [
+    "https://www.dedamakina.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-makina",
+   "technology": "Cookie consent platform",
+   "scannedPages": [
+    "https://www.dedamakina.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-makina",
+   "technology": "Live chat widget",
+   "scannedPages": [
+    "https://www.dedamakina.com/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-pack",
+   "technology": "Meta Pixel",
+   "scannedPages": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-pack",
+   "technology": "Cookie consent platform",
+   "scannedPages": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "status": "Not observed during public research"
+  },
+  {
+   "entityId": "deda-pack",
+   "technology": "Live chat widget",
+   "scannedPages": [
+    "https://www.dedapack.com/",
+    "https://www.dedapack.com/e-katalog/",
+    "https://www.dedapack.com/iletisim/",
+    "https://www.dedapack.com/urunler/"
+   ],
+   "status": "Not observed during public research"
+  }
+ ]
+}

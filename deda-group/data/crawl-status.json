@@ -1,0 +1,69 @@
+[
+  {
+    "domain": "adanakonteyner.com.tr",
+    "startUrl": "https://www.adanakonteyner.com.tr/",
+    "actor": "apify/website-content-crawler",
+    "runId": "t97tT6zFSFarvz0NR",
+    "status": "SUCCEEDED",
+    "startedAt": "2026-10-19T20:59:46.278Z",
+    "finishedAt": "2026-10-19T21:00:44.785Z",
+    "itemCount": 31
+  },
+  {
+    "domain": "dedagida.com",
+    "startUrl": "https://dedagida.com/",
+    "actor": "apify/website-content-crawler",
+    "runId": "6LOxqmtRFt69fYg5P",
+    "status": "SUCCEEDED",
+    "startedAt": "2026-10-19T20:55:48.429Z",
+    "finishedAt": "2026-10-19T20:57:09.242Z",
+    "itemCount": 41
+  },
+  {
+    "domain": "dedagroup.com",
+    "startUrl": "https://www.dedagroup.com/",
+    "actor": "apify/website-content-crawler",
+    "runId": "eV7KcQNGe2QHtkgHE",
+    "status": "SUCCEEDED",
+    "startedAt": "2026-10-19T20:55:01.299Z",
+    "finishedAt": "2026-10-19T20:55:48.427Z",
+    "itemCount": 1,
+    "note": "Site is a single-page WordPress site; its sitemap only lists the homepage and WordPress placeholder pages (sample-page, hello-world)."
+  },
+  {
+    "domain": "dedamakina.com",
+    "startUrl": "https://www.dedamakina.com/",
+    "actor": "apify/website-content-crawler",
+    "runId": "bodrlbkyEjJ6LeALd",
+    "status": "SUCCEEDED",
+    "startedAt": "2026-10-19T20:57:09.248Z",
+    "finishedAt": "2026-10-19T20:57:19.708Z",
+    "itemCount": 1,
+    "fallback": {
+      "collector": "direct-http single homepage request + public wp-sitemap.xml",
+      "itemCount": 1
+    },
+    "note": "Apify run returned the site bot-check page (\"One moment, please...\"). Not bypassed. A polite sitemap-based fallback was stopped at the first bot-check response. Only the homepage (served normally to a single request) and public sitemap URLs are used."
+  },
+  {
+    "domain": "dedapack.com",
+    "startUrl": "https://www.dedapack.com/",
+    "actor": "apify/website-content-crawler",
+    "runId": "C8dnXQylXedLr679D",
+    "status": "SUCCEEDED",
+    "startedAt": "2026-10-19T20:48:27.798Z",
+    "finishedAt": "2026-10-19T20:54:41.981Z",
+    "itemCount": 121
+  },
+  {
+    "domain": "dedaplast.com",
+    "startUrl": "http://dedaplast.com/",
+    "actor": "apify/website-content-crawler",
+    "runId": "eTjuc2gTfYGN88O6t",
+    "status": "FAILED_HOST_UNREACHABLE",
+    "startedAt": "2026-10-19T20:48:27.797Z",
+    "finishedAt": "2026-10-19T20:48:43.541Z",
+    "itemCount": 1,
+    "note": "Linked from www.dedagroup.com, but host did not resolve (Apify: 502 Host Not Found; local DNS: could not resolve). No content collected."
+  }
+]

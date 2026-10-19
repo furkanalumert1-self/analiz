@@ -1,0 +1,15 @@
+{
+  "note": "Grup şirketleri arasında ortak müşteri verisi veya ortak CRM olduğu varsayılmadı. Çapraz marka veri paylaşımı KVKK kapsamında açık rıza / meşru menfaat değerlendirmesi gerektirir.",
+  "relationships": [
+    { "id": "r1", "from": "p-pack-sos", "to": "p-pack-print", "type": "Upsell", "rationale": "Düz SOS Bag talebi markalı baskılı sürüme yükseltilebilir; baskı hizmeti sitede beyan edilmiş.", "confidence": "Verified", "sourceIds": ["S14", "S16"] },
+    { "id": "r2", "from": "p-pack-twisted", "to": "p-pack-flat", "type": "Cross-sell", "rationale": "Aynı sektör listesi (zincir market, kahve, hazır giyim) her iki çantayı kullanıyor; farklı ürün boyutları için tamamlayıcı.", "confidence": "Inferred", "sourceIds": ["S17", "S18"] },
+    { "id": "r3", "from": "p-pack-twisted", "to": "p-pack-twisted-white", "type": "Premium alternative", "rationale": "Beyaz kâğıt / beyaz sap varyantı daha premium görünüm (kozmetik, takı) için alternatif — fiyat farkı doğrulanmadı.", "confidence": "Inferred", "sourceIds": ["S17", "S19"] },
+    { "id": "r4", "from": "p-pack-sos", "to": "p-pack-flat", "type": "Cross-sell", "rationale": "Fırın/kafe müşterisi ekmek için SOS Bag, paket servis için yassı saplı çanta kullanabilir.", "confidence": "Inferred", "sourceIds": ["S16", "S18"] },
+    { "id": "r5", "from": "p-mak-granule", "to": "p-mak-filter", "type": "Cross-sell", "rationale": "Granür hattı eriyik filtre gerektirir; ürün ağacı aynı hattın parçaları olarak düzenlenmiş.", "confidence": "Verified", "sourceIds": ["S22", "S24"] },
+    { "id": "r6", "from": "p-mak-wash", "to": "p-mak-dry", "type": "Cross-sell", "rationale": "Yıkama → kurutma → granül sıralı hat adımları; tekil makine alıcısına hat tamamlama önerisi.", "confidence": "Verified", "sourceIds": ["S22", "S24"] },
+    { "id": "r7", "from": "p-mak-granule", "to": "p-mak-support", "type": "After-sales", "rationale": "Kurulu makineler için servis/yedek parça hatırlatma akışı.", "confidence": "Inferred", "sourceIds": ["S24"] },
+    { "id": "r8", "from": "p-mak-used", "to": "p-mak-granule", "type": "Upgrade path", "rationale": "İkinci el makine alıcısı ileride yeni hat yatırımı için aday olabilir.", "confidence": "Inferred", "sourceIds": ["S24"] },
+    { "id": "r9", "from": "deda-gida", "to": "deda-pack", "type": "Cross-brand (internal supply)", "rationale": "Deda Pack sektör listesinde 'çikolata ve şekerleme' var; Deda Gıda şekerleme üreticisi. Grup içi tedarik olup olmadığı bilinmiyor.", "confidence": "Inferred", "sourceIds": ["S17", "S05"] },
+    { "id": "r10", "from": "deda-makina", "to": "deda-plast", "type": "Cross-brand (vertical integration)", "rationale": "Makina plastik geri dönüşüm makinesi üretiyor, Plast geri dönüşüm tesisi işletiyor; referans tesis / demo hattı olarak kullanılabilir mi doğrulanmalı.", "confidence": "Inferred", "sourceIds": ["S04", "S22"] }
+  ]
+}

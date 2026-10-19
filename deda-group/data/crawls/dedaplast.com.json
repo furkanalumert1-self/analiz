@@ -1,0 +1,15 @@
+[
+ {
+  "url": "http://dedaplast.com/",
+  "loadedUrl": "http://dedaplast.com/",
+  "httpStatusCode": 502,
+  "depth": 0,
+  "title": "502 Bad Gateway",
+  "description": null,
+  "languageCode": null,
+  "text": "502 Bad Gateway\nHost Not Found or connection failed",
+  "markdown": "# 502 Bad Gateway\n\n### Host Not Found or connection failed",
+  "html": "<div id=\"readability-content\"><h1>502 Bad Gateway</h1><div id=\"readability-page-1\" class=\"page\">\n            <h3>Host Not Found or connection failed</h3>\n        \n    </div></div>",
+  "collectedAt": "2026-10-19T20:48:43.541Z"
+ }
+]

@@ -1,0 +1,15 @@
+[
+ {
+  "url": "https://www.dedamakina.com/",
+  "loadedUrl": "https://www.dedamakina.com/",
+  "httpStatusCode": 200,
+  "depth": 0,
+  "title": "One moment, please...",
+  "description": null,
+  "languageCode": "en",
+  "text": "One moment, please...\nPlease wait while your request is being verified...",
+  "markdown": "# One moment, please...\n\nPlease wait while your request is being verified...",
+  "html": "<div id=\"readability-content\"><h1>One moment, please...</h1><div id=\"readability-page-1\" class=\"page\"><div id=\"outer-container\">\n\n      <p>\n        Please wait while your request is being verified...\n      </p>\n    </div></div></div>",
+  "collectedAt": "2026-10-19T20:57:19.708Z"
+ }
+]

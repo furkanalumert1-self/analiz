@@ -1,0 +1,6 @@
+# Raw collection artefacts stay in the repo but are not served.
+data/crawls/
+data/raw-html/
+scripts/
+.env
+.env.*

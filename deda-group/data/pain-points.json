@@ -1,0 +1,905 @@
+{
+  "classifications": {
+    "Verified Pain Point": "Kamuya açık kanıt veya toplanan veriyle doğrudan desteklenir.",
+    "Evidence-Based Hypothesis": "Belgelenmiş gözlemlerden çıkarılan makul sorun; şirket içinde doğrulanmadı.",
+    "Discovery Required": "Müşterinin onaylaması gereken iç süreç veya sorun."
+  },
+  "painPoints": [
+    {
+      "id": "PP01",
+      "entityId": "deda-pack",
+      "title": "Yapılandırılmış teklif talebi formu yok",
+      "function": "Sales",
+      "category": "B. Satış ve Lead Yönetimi",
+      "journeyStage": "Inquiry",
+      "evidence": "İletişim formu yalnızca Ad, Telefon, E-posta, Konu, Mesaj ve dosya alanı içeriyor ve 'şikayet ve önerileriniz için' diye tanımlanıyor. Ürün tipi, ölçü, adet, baskı rengi, teslim ülkesi alanı yok; ürün sayfalarında 'teklif al' çağrısı gözlenmedi.",
+      "sourceIds": [
+        "S12",
+        "S16",
+        "S17"
+      ],
+      "affected": "Potansiyel B2B alıcı, satış ekibi",
+      "consequence": "Her talep için ölçü/adet/baskı bilgisi e-posta veya telefonla tek tek toplanmak zorunda kalabilir; teklif süresi uzar, talepler önceliklendirilemez.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Bugün bir teklif için müşteriden kaç tur bilgi isteniyor ve ilk talepten teklife ortalama süre nedir?",
+      "solution": "Çok dilli, ürün sayfalarına gömülü teklif formu (ürün, ölçü, gsm, adet, baskı renk sayısı, ülke, termin) + CRM'e otomatik kayıt + alıcının dilinde otomatik onay mesajı.",
+      "automation": "Form gönderimi → lead oluşturma → ülke/sektör/hacim skoru → satış temsilcisine özet → onay e-postası/WhatsApp",
+      "requiredData": [
+        "Ürün spesifikasyon tabloları",
+        "Minimum sipariş adedi (MOQ)",
+        "Termin süreleri",
+        "Satış temsilcisi-ülke eşleşmesi"
+      ],
+      "integrations": [
+        "WordPress / Contact Form 7 veya form aracı",
+        "CRM",
+        "E-posta / WhatsApp Business API"
+      ],
+      "complexity": "Low",
+      "impact": "High",
+      "measurement": "Form → teklif dönüşüm oranı; ilk yanıt süresi; eksik bilgi nedeniyle geri dönüş sayısı",
+      "opportunityIds": [
+        "O01",
+        "O17"
+      ]
+    },
+    {
+      "id": "PP02",
+      "entityId": "deda-pack",
+      "title": "Talepler birden fazla kanala dağılıyor (form, WhatsApp, 3 telefon, e-posta)",
+      "function": "Sales",
+      "category": "B. Satış ve Lead Yönetimi",
+      "journeyStage": "Qualification",
+      "evidence": "İletişim sayfasında 3 telefon, bir WhatsApp hattı (+90 532 131 49 49), info@dedapack.com ve form birlikte listeleniyor; CV'ler de aynı info@ adresine yönlendiriliyor.",
+      "sourceIds": [
+        "S12",
+        "S15",
+        "S11"
+      ],
+      "affected": "Satış ekibi, alıcı",
+      "consequence": "Talepler tek bir kayıtta toplanmıyorsa yanıt takibi, kaynak atfı ve sahiplik belirsizleşebilir.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "WhatsApp ve info@ üzerinden gelen talepler nerede kayıt altına alınıyor ve kim tarafından sahipleniliyor?",
+      "solution": "Tüm kanallardan gelen talepleri tek lead kaydında birleştiren, dil/ülkeye göre yönlendiren ve yanıt SLA'sı izleyen merkezi gelen kutusu.",
+      "automation": "Yeni mesaj → kanal etiketi → mükerrer kontrolü → temsilciye atama → SLA aşımında uyarı",
+      "requiredData": [
+        "Kanal listesi",
+        "Temsilci sorumluluk alanları",
+        "SLA hedefi"
+      ],
+      "integrations": [
+        "WhatsApp Business API",
+        "E-posta (IMAP/Graph)",
+        "CRM"
+      ],
+      "complexity": "Medium",
+      "impact": "High",
+      "measurement": "Kayda alınmayan talep oranı; ilk yanıt süresi medyanı; kanal bazlı lead sayısı",
+      "opportunityIds": [
+        "O17",
+        "O10"
+      ]
+    },
+    {
+      "id": "PP03",
+      "entityId": "deda-pack",
+      "title": "Çok dilli sitede çeviri, başlık ve kırık bağlantı hataları",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "8 dilin tamamında sayfa başlıkları Türkçe site adıyla bitiyor; EN spesifikasyon tablosunda 'En' → 'Most', 'Körük' → 'Bellows' çevrilmiş; EN ve RU 'auger white handle' sayfaları 404; bazı ürün sayfaları bot doğrulaması döndürdü.",
+      "sourceIds": [
+        "S19",
+        "S21",
+        "S33"
+      ],
+      "affected": "Yurt dışı alıcı",
+      "consequence": "İhracat hedefi (60 müşteri) olan bir üretici için yabancı dilde güven ve arama görünürlüğü zayıflayabilir; yanlış ölçü terimleri hatalı teklif talebine yol açabilir.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Yurt dışı taleplerin ne kadarı web sitesinden geliyor ve hangi dillerde?",
+      "solution": "Sözlük destekli AI çeviri + insan kontrolü ile yerelleştirme QA; dil başına başlık/meta/hreflang düzeltmesi; otomatik kırık bağlantı izleme.",
+      "automation": "Haftalık tarama → 404/çeviri sözlüğü ihlali raporu → içerik ekibine görev",
+      "requiredData": [
+        "Teknik terim sözlüğü (8 dil)",
+        "Öncelikli pazarlar"
+      ],
+      "integrations": [
+        "WordPress + Polylang",
+        "Tarama/izleme aracı"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "404 sayısı; dil bazlı organik oturum ve form gönderimi (GA4)",
+      "opportunityIds": [
+        "O14",
+        "O15"
+      ]
+    },
+    {
+      "id": "PP04",
+      "entityId": "deda-pack",
+      "title": "E-katalog, ürün listesi ve sertifika sayfalarında okunabilir içerik gözlenmedi",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Product View",
+      "evidence": "E-katalog sayfasının HTML'inde katalog dosyası veya gömülü görüntüleyici yok; ürün listesi görsel kartlardan oluşuyor; sertifika sayfasında metin yok.",
+      "sourceIds": [
+        "S20",
+        "S29",
+        "S31"
+      ],
+      "affected": "Alıcı, satın alma birimi",
+      "consequence": "Satın alma ekipleri teknik dokümanı ve sertifikaları kendi başına indiremiyorsa her talepte manuel doküman gönderimi gerekir.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Müşteriler katalog ve ISO/gıda uygunluk belgelerini en sık hangi kanaldan istiyor?",
+      "solution": "İndirilebilir, dil bazlı PDF katalog + sertifika merkezi; indirme karşılığı isteğe bağlı iletişim bilgisi (rıza ile) ve ilgi bazlı takip.",
+      "automation": "Katalog indirme → (rıza varsa) lead kaydı → ürün ilgisine göre takip e-postası",
+      "requiredData": [
+        "Güncel katalog",
+        "Sertifika dosyaları"
+      ],
+      "integrations": [
+        "WordPress",
+        "Form/CRM",
+        "Engage (yetenek doğrulanmalı)"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Katalog indirme sayısı; indirme → teklif dönüşümü",
+      "opportunityIds": [
+        "O05",
+        "O15"
+      ]
+    },
+    {
+      "id": "PP05",
+      "entityId": "deda-pack",
+      "title": "Fuar sayfası 2023'te kalmış; fuar sonrası takip görünür değil",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Lead Acquisition",
+      "evidence": "Fuarlarımız sayfasında yalnızca Ekim–Kasım 2023 fuarları (Avrasya, Guangzhou, Lyon) listeleniyor (araştırma tarihi: Ekim 2026).",
+      "sourceIds": [
+        "S13"
+      ],
+      "affected": "Pazarlama, satış, fuarda tanışılan alıcı",
+      "consequence": "Güncel olmayan içerik aktiflik algısını zayıflatır; fuar kontaklarının sistematik takibi yoksa fuar yatırımının getirisi ölçülemez.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Son fuarlarda kaç kontak toplandı ve bunlar nerede, nasıl takip edildi?",
+      "solution": "Fuar kontakları için QR/rozet tarama → ülke/sektör segmenti → 3 adımlı çok dilli takip dizisi; fuar takvimini güncel tutma.",
+      "automation": "Kontak içe aktarma → segment → gün 1/7/21 takip → teklif talebi olursa satışa devir",
+      "requiredData": [
+        "Fuar kontak listeleri",
+        "Pazarlama izni durumu"
+      ],
+      "integrations": [
+        "CRM",
+        "Engage (yetenek doğrulanmalı)"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Fuar kontağı → toplantı → teklif → sipariş oranları",
+      "opportunityIds": [
+        "O04"
+      ]
+    },
+    {
+      "id": "PP06",
+      "entityId": "deda-pack",
+      "title": "Analitik etiketleri var, çerez onay yönetimi gözlenmedi",
+      "function": "Data",
+      "category": "F. Veri ve Yönetim Görünürlüğü",
+      "journeyStage": "Discovery",
+      "evidence": "Ana sayfa, iletişim, ürünler ve e-katalog HTML'inde GA4 (G-CQTHRDM86W) ve GTM-5L93CFF5 var; bilinen çerez onay platformu imzası gözlenmedi. (GTM üzerinden yükleniyor olabilir.)",
+      "sourceIds": [
+        "S11",
+        "S12"
+      ],
+      "affected": "Ziyaretçi, şirket (uyum)",
+      "consequence": "KVKK / GDPR (AB alıcıları) açısından rıza öncesi izleme riski; ayrıca dönüşüm olayları tanımlı değilse pazarlama ölçülemez.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "GTM içinde onay modu ve dönüşüm olayları (form, WhatsApp, telefon tıklaması) tanımlı mı?",
+      "solution": "CMP + Google Consent Mode v2; form gönderimi, WhatsApp/telefon tıklaması, katalog indirme olayları; UTM standardı.",
+      "automation": "Olay tetikleyicileri → GA4 dönüşümleri → haftalık otomatik rapor",
+      "requiredData": [
+        "GTM erişimi",
+        "GA4 erişimi"
+      ],
+      "integrations": [
+        "GTM",
+        "GA4",
+        "CMP"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Rıza oranı; tanımlı dönüşüm sayısı; kanal bazlı lead atfı",
+      "opportunityIds": [
+        "O16"
+      ]
+    },
+    {
+      "id": "PP07",
+      "entityId": "deda-pack",
+      "title": "Kapasiteye göre görünür dijital talep yaratma aktivitesi sınırlı",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Lead Acquisition",
+      "evidence": "Günlük 456.361 adet kapasite ve 60 ihracat müşterisi hedefi beyan ediliyor; Meta Reklam Kütüphanesi'nde 'Deda Pack' için (tüm ülkeler, aktif+pasif) 0 reklam; fuar sayfası 2023'te kalmış.",
+      "sourceIds": [
+        "S11",
+        "S28",
+        "S13"
+      ],
+      "affected": "Satış, yönetim",
+      "consequence": "Talep büyük ölçüde fuar, referans ve organik aramaya bağlı kalıyorsa kapasite kullanımı ve ihracat hedefi yavaş ilerleyebilir.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "Mevcut kapasite kullanım oranı ve yeni müşterilerin geldiği ilk 3 kanal nedir?",
+      "solution": "Önce ölçüm (O16) ve teklif formu (O01); ardından sektör/ülke bazlı LinkedIn ve Google arama kampanyalarının küçük pilotu; AI destekli hedef firma araştırması.",
+      "automation": "Kampanya → dil bazlı açılış sayfası → teklif formu → CRM → nurture",
+      "requiredData": [
+        "Kapasite kullanımı",
+        "Hedef ülke/sektör",
+        "Reklam hesabı erişimi (Requires Ad Account Access)"
+      ],
+      "integrations": [
+        "Google Ads / LinkedIn Ads",
+        "GA4",
+        "CRM"
+      ],
+      "complexity": "Medium",
+      "impact": "High",
+      "measurement": "Kanal bazlı nitelikli lead, teklif ve sipariş; lead başına maliyet (reklam verisiyle)",
+      "opportunityIds": [
+        "O22",
+        "O05"
+      ]
+    },
+    {
+      "id": "PP08",
+      "entityId": "deda-pack",
+      "title": "Tekrar sipariş (yenileme) takibinin nasıl yapıldığı bilinmiyor",
+      "function": "Sales",
+      "category": "B. Satış ve Lead Yönetimi",
+      "journeyStage": "Reorder",
+      "evidence": "Ürünler sarf malzemesi niteliğinde (fast food, fırın, market çantaları); sitede mevcut müşteri için sipariş/yenileme yolu gözlenmedi.",
+      "sourceIds": [
+        "S16",
+        "S17",
+        "S11"
+      ],
+      "affected": "Mevcut müşteri, satış ekibi",
+      "consequence": "Yenileme zamanı manuel izleniyorsa müşteri stok bittiğinde rakibe yönelebilir.",
+      "classification": "Discovery Required",
+      "validationQuestion": "Mevcut müşterilerin sipariş sıklığı ERP'de tutuluyor mu, yenileme hatırlatması kim tarafından yapılıyor?",
+      "solution": "Son sipariş tarihi ve tipik tüketim aralığına göre yenileme hatırlatma akışı + tek tıkla 'aynı siparişi tekrarla' talebi.",
+      "automation": "ERP sipariş olayı → beklenen yenileme tarihi → T-10 gün hatırlatma → yanıt yoksa temsilci görevi",
+      "requiredData": [
+        "Sipariş geçmişi",
+        "Müşteri iletişim izni",
+        "Ürün/ölçü bazında tüketim aralığı"
+      ],
+      "integrations": [
+        "ERP",
+        "CRM",
+        "Engage (yetenek doğrulanmalı)"
+      ],
+      "complexity": "Medium",
+      "impact": "High",
+      "measurement": "Yenileme oranı; siparişler arası gün; kayıp müşteri oranı",
+      "opportunityIds": [
+        "O03",
+        "O06"
+      ]
+    },
+    {
+      "id": "PP09",
+      "entityId": "deda-pack",
+      "title": "Kariyer başvuruları satış ile aynı genel e-posta kutusuna geliyor",
+      "function": "Operations",
+      "category": "E. İç Operasyonlar",
+      "journeyStage": "Internal",
+      "evidence": "Kariyer sayfası CV'lerin info@dedapack.com'a gönderilmesini istiyor; aynı adres satış iletişim adresi.",
+      "sourceIds": [
+        "S15",
+        "S12"
+      ],
+      "affected": "İK, satış ekibi",
+      "consequence": "Satış talepleri ile başvurular karışabilir; manuel ayıklama yükü.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "info@ kutusuna haftada kaç e-posta geliyor ve kim ayıklıyor?",
+      "solution": "Ayrı başvuru formu + otomatik sınıflandırma (satış / İK / şikayet / tedarikçi) ve yönlendirme.",
+      "automation": "Gelen e-posta → AI sınıflandırma → ilgili kutuya/kişiye yönlendirme",
+      "requiredData": [
+        "E-posta kutusu erişimi",
+        "Yönlendirme kuralları"
+      ],
+      "integrations": [
+        "E-posta sistemi",
+        "İK aracı / tablo"
+      ],
+      "complexity": "Low",
+      "impact": "Low",
+      "measurement": "Yanlış kutuya düşen e-posta sayısı; ayıklamaya harcanan süre",
+      "opportunityIds": [
+        "O21"
+      ]
+    },
+    {
+      "id": "PP10",
+      "entityId": "deda-makina",
+      "title": "Teklif formu PDF olarak sunuluyor ve bağlantı 404",
+      "function": "Sales",
+      "category": "B. Satış ve Lead Yönetimi",
+      "journeyStage": "Quotation",
+      "evidence": "Ana sayfadan bağlanan 'DEDA-MAKİNE-TEKLİF-FORMU-LİSTESİ.pdf' isteği 404 döndü; çevrim içi teklif formu gözlenmedi.",
+      "sourceIds": [
+        "S22",
+        "S23"
+      ],
+      "affected": "Makine alıcısı, satış mühendisi",
+      "consequence": "Yüksek değerli makine talepleri web üzerinden iletilemiyor veya indir-doldur-gönder adımlarıyla zorlaşıyor; talepler yapılandırılmamış geliyor.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Makine teklifleri için hangi teknik bilgiler (malzeme tipi, kapasite kg/saat, kirlilik) her seferinde soruluyor?",
+      "solution": "PDF yerine adım adım çevrim içi teklif yapılandırıcı (malzeme, kapasite, giriş/çıkış formu, ihtiyaç duyulan modüller A–H) → CRM → mühendis özeti.",
+      "automation": "Yapılandırıcı → lead skoru → uygun hat önerisi taslağı → mühendise görev → takip",
+      "requiredData": [
+        "Teklif formundaki alanlar",
+        "Model–kapasite tabloları"
+      ],
+      "integrations": [
+        "WordPress form",
+        "CRM"
+      ],
+      "complexity": "Low",
+      "impact": "High",
+      "measurement": "Aylık çevrim içi teklif talebi; talep → teklif süresi",
+      "opportunityIds": [
+        "O07",
+        "O11"
+      ]
+    },
+    {
+      "id": "PP11",
+      "entityId": "deda-makina",
+      "title": "Kurumsal içerik hatası ve tutarsız kuruluş/deneyim bilgileri",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "Deda Makina ana sayfasının kurumsal bloğunda Deda Pack'in kâğıt çanta metni yer alıyor; 'İkince El Makinalar' yazım hatası. Grup içinde deneyim beyanları farklı: Makina 'SINCE 1976', Gıda '1989'da kuruldu', Pack '34 yıllık', grup sitesi '25+ yıl'.",
+      "sourceIds": [
+        "S22",
+        "S02",
+        "S11",
+        "S01"
+      ],
+      "affected": "Alıcı, marka algısı",
+      "consequence": "Yüksek tutarlı makine yatırımında güven sinyali zayıflar; grup hikâyesi parçalı görünür.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Grup ve şirketler için onaylı kuruluş yılı ve tanıtım metni hangisi?",
+      "solution": "Grup çapında tek kaynak marka/kurumsal bilgi seti; AI ile sitelerde tutarlılık taraması.",
+      "automation": "Aylık içerik tutarlılık kontrolü (onaylı bilgi seti ile karşılaştırma)",
+      "requiredData": [
+        "Onaylı kurumsal bilgiler"
+      ],
+      "integrations": [
+        "WordPress"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Tespit edilen tutarsızlık sayısı (hedef 0)",
+      "opportunityIds": [
+        "O15",
+        "O14"
+      ]
+    },
+    {
+      "id": "PP12",
+      "entityId": "deda-makina",
+      "title": "Makina sitesi yalnızca Türkçe",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "Site haritasındaki ~75 URL'nin tamamı Türkçe; kardeş şirket Deda Pack 8 dilde yayında.",
+      "sourceIds": [
+        "S24",
+        "S11"
+      ],
+      "affected": "Yurt dışı makine alıcısı",
+      "consequence": "Geri dönüşüm makineleri için uluslararası talep (ör. Orta Doğu, Afrika, Orta Asya) web üzerinden yakalanamayabilir — ihracat yapılıp yapılmadığı doğrulanmadı.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Deda Makina ihracat yapıyor mu, hangi ülkelerden talep geliyor?",
+      "solution": "Öncelikli 2–3 dilde ürün grubu sayfaları (AI çeviri + mühendis kontrolü) ve dil bazlı teklif formu.",
+      "automation": "Çeviri iş akışı + dil bazlı lead yönlendirme",
+      "requiredData": [
+        "Hedef pazarlar",
+        "Teknik sözlük"
+      ],
+      "integrations": [
+        "WordPress çok dilli eklenti"
+      ],
+      "complexity": "Medium",
+      "impact": "Medium",
+      "measurement": "Yabancı dil oturumları ve teklif talepleri",
+      "opportunityIds": [
+        "O14"
+      ]
+    },
+    {
+      "id": "PP13",
+      "entityId": "deda-makina",
+      "title": "Deda Makina, Deda Gıda ve grup sitesinde analitik etiketi gözlenmedi",
+      "function": "Data",
+      "category": "F. Veri ve Yönetim Görünürlüğü",
+      "journeyStage": "Measurement",
+      "evidence": "Ham HTML'de GA4, GTM veya Meta Pixel imzası gözlenmedi (dedamakina.com, dedagida.com, dedagroup.com). Deda Pack'te GA4+GTM var.",
+      "sourceIds": [
+        "S22",
+        "S04",
+        "S01",
+        "S11"
+      ],
+      "affected": "Yönetim, pazarlama",
+      "consequence": "Bu sitelerden gelen talep ve trafik ölçülemiyor olabilir; grup düzeyinde kanal karşılaştırması yapılamaz.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "Bu sitelerde sunucu tarafı veya başka bir analitik kullanılıyor mu?",
+      "solution": "Tüm sitelere ortak GTM konteyner yapısı + CMP + standart olaylar; grup KPI panosu.",
+      "automation": "Olay toplama → haftalık otomatik grup raporu",
+      "requiredData": [
+        "Site yönetici erişimi"
+      ],
+      "integrations": [
+        "GTM",
+        "GA4",
+        "Looker Studio veya özel pano"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Ölçümü yapılan site sayısı (hedef 4/4)",
+      "opportunityIds": [
+        "O16",
+        "O19"
+      ]
+    },
+    {
+      "id": "PP14",
+      "entityId": "deda-makina",
+      "title": "Teknik destek / yedek parça taleplerinin işleyişi bilinmiyor",
+      "function": "Customer Support",
+      "category": "D. Müşteri Desteği",
+      "journeyStage": "After-sales",
+      "evidence": "Menüde 'Teknik Destek' sayfası var; içeriği bot doğrulaması nedeniyle okunamadı. Telefon ve Call Now butonu ana destek kanalı olarak görünüyor.",
+      "sourceIds": [
+        "S22",
+        "S24"
+      ],
+      "affected": "Makine sahibi müşteri, servis ekibi",
+      "consequence": "Arıza ve yedek parça talepleri telefonla geliyorsa kayıt, önceliklendirme ve tekrar eden sorun analizi zorlaşabilir.",
+      "classification": "Discovery Required",
+      "validationQuestion": "Servis talepleri nasıl kaydediliyor; en sık arıza ve yedek parça kalemleri neler?",
+      "solution": "Makine seri no ile servis talep formu/WhatsApp akışı, bilgi tabanlı AI ilk yanıt, servis kaydı ve periyodik bakım hatırlatmaları.",
+      "automation": "Talep → seri no doğrulama → AI ilk adım önerisi → teknisyene görev → kapanış anketi",
+      "requiredData": [
+        "Kurulu makine listesi",
+        "Bakım periyotları",
+        "Arıza bilgi tabanı"
+      ],
+      "integrations": [
+        "CRM / servis yönetimi",
+        "WhatsApp Business API"
+      ],
+      "complexity": "Medium",
+      "impact": "Medium",
+      "measurement": "Çözüm süresi; tekrar eden arıza oranı; yedek parça satışları",
+      "opportunityIds": [
+        "O08",
+        "O11"
+      ]
+    },
+    {
+      "id": "PP15",
+      "entityId": "deda-group",
+      "title": "Bot doğrulaması bazı sayfaları otomatik ziyaretçilere kapatıyor",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "Taramada Deda Gıda'da 9, Deda Pack'te 5, Adana Konteyner'de 4 sayfa ve Deda Makina'nın tamamı 'One moment, please' bot doğrulama sayfası döndürdü.",
+      "sourceIds": [
+        "S33",
+        "S22"
+      ],
+      "affected": "Arama motorları, AI asistanları, bağlantı önizlemeleri (potansiyel)",
+      "consequence": "Güvenlik ayarı arama motoru ve AI asistanı tarayıcılarını da etkiliyorsa ürün sayfalarının görünürlüğü azalabilir. Googlebot'un muaf olup olmadığı doğrulanmadı.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "Sunucu güvenlik eklentisinde (Imunify) arama motoru botları için istisna tanımlı mı? Search Console'da tarama hatası var mı?",
+      "solution": "Search Console tarama raporu kontrolü; doğrulanmış arama/AI botları için allowlist; güvenliği koruyarak eşik ayarı.",
+      "automation": "Haftalık indeks/tarama hatası uyarısı",
+      "requiredData": [
+        "Search Console erişimi",
+        "Hosting paneli"
+      ],
+      "integrations": [
+        "Google Search Console"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "İndekslenen sayfa sayısı; tarama hataları",
+      "opportunityIds": [
+        "O15"
+      ]
+    },
+    {
+      "id": "PP16",
+      "entityId": "deda-gida",
+      "title": "Katalog PDF'leri ajans demo alanında barındırılıyor ve açılmıyor",
+      "function": "Sales",
+      "category": "B. Satış ve Lead Yönetimi",
+      "journeyStage": "Product Inquiry",
+      "evidence": "Kataloglarımız sayfasındaki EN/RU/AR katalog bağlantıları ekinyazilim.com/demo/deda/... adresine gidiyor; istek '404 Not Found' döndürdü.",
+      "sourceIds": [
+        "S09",
+        "S10"
+      ],
+      "affected": "İhracat distribütörü, toptancı",
+      "consequence": "Yabancı alıcılar ürün kataloğuna ulaşamıyor; satış ekibi her talepte manuel gönderim yapmak zorunda kalabilir; içerik üçüncü taraf demo alanına bağımlı.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Güncel katalog hangi dillerde var ve distribütörlere nasıl iletiliyor?",
+      "solution": "Katalogları kendi alan adına taşıma; dil bazlı indirilebilir katalog + distribütör talep formu.",
+      "automation": "Katalog indirme / distribütör formu → CRM → ülke temsilcisine özet",
+      "requiredData": [
+        "Güncel katalog dosyaları"
+      ],
+      "integrations": [
+        "Web sitesi",
+        "CRM"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Katalog indirme ve distribütör talebi sayısı",
+      "opportunityIds": [
+        "O15",
+        "O18"
+      ]
+    },
+    {
+      "id": "PP17",
+      "entityId": "deda-gida",
+      "title": "İngilizce içerik makine çevirisi; ürün sayfaları eksik",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "EN kurumsal metin: \"Employees not believe passionately Never luck!\"; Ice Boom sayfasında ürün açıklaması yok (TR/EN); ürün listesi sayfada 4 kez tekrar ediyor.",
+      "sourceIds": [
+        "S03",
+        "S08",
+        "S05"
+      ],
+      "affected": "Yurt dışı distribütör",
+      "consequence": "Gıdada güven kritik; düşük kaliteli çeviri ve eksik ürün bilgisi ihracat görüşmelerini zorlaştırabilir.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Arapça ve Rusça konuşulan pazarlarda aktif distribütör var mı?",
+      "solution": "Ürün bilgi kartları (içerik, ambalaj, koli içi adet, raf ömrü, sertifika) + profesyonel/AI destekli çeviri ve insan onayı.",
+      "automation": "Ürün bilgi yönetimi tek tablo → 4 dile otomatik sayfa üretimi (onaylı)",
+      "requiredData": [
+        "Ürün teknik bilgileri",
+        "Koli/palet bilgileri",
+        "Sertifikalar"
+      ],
+      "integrations": [
+        "Web sitesi CMS"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Ürün sayfası başına içerik tamlığı; yabancı dil talepleri",
+      "opportunityIds": [
+        "O14",
+        "O18"
+      ]
+    },
+    {
+      "id": "PP18",
+      "entityId": "deda-gida",
+      "title": "Distribütör / toptan talep yolu gözlenmedi",
+      "function": "Sales",
+      "category": "B. Satış ve Lead Yönetimi",
+      "journeyStage": "Lead Acquisition",
+      "evidence": "Yalnızca genel iletişim formu (reCAPTCHA) ve tesis iletişim bilgileri gözlendi; mobil ana sayfada telefon/WhatsApp bağlantısı yok; analitik gözlenmedi.",
+      "sourceIds": [
+        "S04",
+        "S34"
+      ],
+      "affected": "Distribütör adayı",
+      "consequence": "Bayilik/distribütörlük talepleri sınıflandırılmadan genel kutuya düşebilir.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "Yeni distribütörler bugün nasıl bulunuyor ve başvuru süreci nasıl işliyor?",
+      "solution": "Distribütör başvuru formu (ülke, kanal, hacim, ilgilenilen ürün) + otomatik ön değerlendirme ve takip dizisi.",
+      "automation": "Başvuru → skor → bölge sorumlusuna devir → numune/fiyat listesi gönderimi → takip",
+      "requiredData": [
+        "Distribütör kriterleri",
+        "Fiyat listesi politikası"
+      ],
+      "integrations": [
+        "Form",
+        "CRM",
+        "Engage (yetenek doğrulanmalı)"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Distribütör başvurusu sayısı ve onay oranı",
+      "opportunityIds": [
+        "O18"
+      ]
+    },
+    {
+      "id": "PP19",
+      "entityId": "deda-gida",
+      "title": "Sipariş alma ve sevkiyat bilgilendirmesinin işleyişi bilinmiyor",
+      "function": "Operations",
+      "category": "E. İç Operasyonlar",
+      "journeyStage": "Order",
+      "evidence": "Kamuya açık sipariş kanalı gözlenmedi; iletişim bilgileri e-posta ve faks içeriyor.",
+      "sourceIds": [
+        "S04"
+      ],
+      "affected": "Distribütör, satış destek",
+      "consequence": "Siparişler e-posta/telefon/Excel ile geliyorsa manuel veri girişi ve hata riski olabilir.",
+      "classification": "Discovery Required",
+      "validationQuestion": "Distribütör siparişleri hangi formatta geliyor ve ERP'ye nasıl giriliyor?",
+      "solution": "E-posta/PDF/Excel siparişlerinden AI ile veri çıkarma → doğrulama → ERP taslak siparişi → onay.",
+      "automation": "Sipariş e-postası → çıkarma → stok/fiyat doğrulama → ERP → sevkiyat bildirimi",
+      "requiredData": [
+        "Örnek sipariş belgeleri",
+        "ERP API"
+      ],
+      "integrations": [
+        "E-posta",
+        "ERP",
+        "AI belge işleme"
+      ],
+      "complexity": "High",
+      "impact": "Medium",
+      "measurement": "Sipariş başına işlem süresi; giriş hata oranı",
+      "opportunityIds": [
+        "O12"
+      ]
+    },
+    {
+      "id": "PP20",
+      "entityId": "deda-plast",
+      "title": "dedaplast.com erişilemiyor ancak grup sitesinden bağlanıyor",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "dedagroup.com başlığındaki dedaplast.com bağlantısı DNS'te çözümlenmiyor; Apify '502 Host Not Found' aldı.",
+      "sourceIds": [
+        "S25",
+        "S01"
+      ],
+      "affected": "Ziyaretçi, Deda Plast müşterisi",
+      "consequence": "Grup sitesinden gelen ziyaretçi hata sayfasıyla karşılaşıyor; alan adı süresi dolmuşsa üçüncü kişilerin eline geçme riski.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "dedaplast.com alan adı kimin adına kayıtlı ve süresi ne zaman doluyor?",
+      "solution": "Alan adı ve DNS kontrolü; sitenin yeniden yayına alınması veya bağlantının kaldırılması; tüm grup alan adları için uptime/süre izleme.",
+      "automation": "Günlük uptime + alan adı/SSL bitiş uyarısı",
+      "requiredData": [
+        "Alan adı kayıt bilgileri"
+      ],
+      "integrations": [
+        "Uptime izleme aracı"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Erişilebilirlik %; kırık grup bağlantısı sayısı",
+      "opportunityIds": [
+        "O15"
+      ]
+    },
+    {
+      "id": "PP21",
+      "entityId": "adana-konteyner",
+      "title": "Grup tesisi olarak listelenen sitede ilgisiz bahis içeriği ve kırık menü",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "adanakonteyner.com.tr ana menüsünde 'Donbet Bonus: What You Need to Know' öğesi var; Hakkımızda, Konteynerlar, Prefabrik Evler, İletişim sayfaları 404. Site Deda Group'a atıf yapmıyor ve farklı telefon gösteriyor; grup sitesi ise bu adresi 'Konteyner Fabrika' olarak listeliyor.",
+      "sourceIds": [
+        "S26",
+        "S27",
+        "S04"
+      ],
+      "affected": "Grup itibarı, ziyaretçi",
+      "consequence": "Site ele geçirilmiş, alan adı el değiştirmiş veya bakımsız olabilir; grup sitesinden bu adrese yönlendirme marka ve güvenlik riski taşır.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "adanakonteyner.com.tr hâlâ grubun kontrolünde mi? Konteyner faaliyeti devam ediyor mu?",
+      "solution": "Acil: alan adı sahipliğini doğrula; kontroldeyse güvenlik taraması ve temizlik, değilse Deda Gıda sitesindeki bağlantıyı kaldır.",
+      "automation": "Grup alan adlarında içerik bütünlüğü izleme (beklenmeyen bağlantı/anahtar kelime uyarısı)",
+      "requiredData": [
+        "Alan adı ve hosting erişimi"
+      ],
+      "integrations": [
+        "Güvenlik tarayıcısı",
+        "Uptime/içerik izleme"
+      ],
+      "complexity": "Low",
+      "impact": "High",
+      "measurement": "Temizlik tamamlandı mı; izleme uyarısı sayısı",
+      "opportunityIds": [
+        "O15"
+      ]
+    },
+    {
+      "id": "PP22",
+      "entityId": "deda-group",
+      "title": "Grup sitesi ziyaretçiyi şirketlere veya iletişime yönlendirmiyor",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "dedagroup.com tek sayfa; HTML'de form, telefon, e-posta, sosyal medya bağlantısı ve analitik gözlenmedi; site haritasında WordPress varsayılan 'hello-world' ve 'sample-page' içerikleri; mobilde tıklanabilir telefon/WhatsApp yok.",
+      "sourceIds": [
+        "S01",
+        "S32",
+        "S34"
+      ],
+      "affected": "Grup adını arayan alıcı, yatırımcı, aday",
+      "consequence": "Marka araması yapan ziyaretçi hangi şirkete ve kime ulaşacağını bulamıyor; varsayılan içerikler profesyonellik algısını zayıflatır.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Grup sitesine ne tür ziyaretçiler geliyor ve hangi talepleri alıyorsunuz?",
+      "solution": "Grup sitesine şirket seçici + tek iletişim formu (talep tipi → doğru şirkete yönlendirme); varsayılan içeriklerin kaldırılması.",
+      "automation": "Form → talep tipi/şirket sınıflandırma → ilgili şirket kutusu + CRM",
+      "requiredData": [
+        "Şirket bazlı yönlendirme kuralları"
+      ],
+      "integrations": [
+        "WordPress",
+        "CRM"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Grup sitesinden yönlendirilen lead sayısı",
+      "opportunityIds": [
+        "O17",
+        "O15"
+      ]
+    },
+    {
+      "id": "PP23",
+      "entityId": "deda-group",
+      "title": "Grup genelinde çok sayıda farklı iletişim uç noktası",
+      "function": "Data",
+      "category": "F. Veri ve Yönetim Görünürlüğü",
+      "journeyStage": "Qualification",
+      "evidence": "kd@dedagroup.com (Makina + Plast), md@dedagroup.com (Gıda), info@dedapack.com (Pack); en az 5 farklı mobil/sabit numara ve iki farklı WhatsApp hattı sitelerde yer alıyor.",
+      "sourceIds": [
+        "S04",
+        "S11",
+        "S12",
+        "S22",
+        "S26"
+      ],
+      "affected": "Yönetim, satış",
+      "consequence": "Ortak CRM yoksa grup düzeyinde lead hacmi, yanıt süresi ve kaynak görünürlüğü oluşmaz. (Ortak CRM varlığı bilinmiyor.)",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "Her şirket hangi CRM/ERP'yi kullanıyor; grup yönetimi lead ve teklif verisini nasıl görüyor?",
+      "solution": "Şirket bazlı ayrı veri alanlarıyla (KVKK) ortak lead modeli ve grup KPI panosu.",
+      "automation": "Kanallardan lead toplama → şirket etiketi → pano",
+      "requiredData": [
+        "Sistem envanteri"
+      ],
+      "integrations": [
+        "CRM",
+        "ERP",
+        "Pano"
+      ],
+      "complexity": "Medium",
+      "impact": "High",
+      "measurement": "Ölçülen kanal oranı; grup lead görünürlüğü",
+      "opportunityIds": [
+        "O17",
+        "O19",
+        "O23"
+      ]
+    },
+    {
+      "id": "PP24",
+      "entityId": "deda-group",
+      "title": "KPI raporlaması ve sistem envanteri bilinmiyor",
+      "function": "Data",
+      "category": "F. Veri ve Yönetim Görünürlüğü",
+      "journeyStage": "Measurement",
+      "evidence": "Kamuya açık kaynaklarda CRM, ERP veya raporlama aracı sinyali gözlenmedi (bu durum var olmadığı anlamına gelmez).",
+      "sourceIds": [
+        "S01",
+        "S11"
+      ],
+      "affected": "Yönetim",
+      "consequence": "Raporlar elle hazırlanıyorsa karar gecikir; kapasite kullanımı ile satış hattı ilişkilendirilemez.",
+      "classification": "Discovery Required",
+      "validationQuestion": "Yönetim haftalık/aylık hangi KPI'ları görüyor ve bunlar nasıl hazırlanıyor?",
+      "solution": "Sistem envanterine göre otomatik KPI panosu (satış hattı, teklif, sipariş, kapasite).",
+      "automation": "Kaynak sistemlerden günlük veri çekme → pano → haftalık özet e-postası",
+      "requiredData": [
+        "ERP/CRM erişimi",
+        "KPI tanımları"
+      ],
+      "integrations": [
+        "ERP",
+        "CRM",
+        "BI aracı"
+      ],
+      "complexity": "High",
+      "impact": "Medium",
+      "measurement": "Rapor hazırlama süresi; KPI güncelliği",
+      "opportunityIds": [
+        "O19",
+        "O23"
+      ]
+    },
+    {
+      "id": "PP25",
+      "entityId": "deda-pack",
+      "title": "Sık sorulan teknik sorular için self-servis bilgi gözlenmedi",
+      "function": "Customer Support",
+      "category": "D. Müşteri Desteği",
+      "journeyStage": "Product View",
+      "evidence": "Ürün sayfalarında yalnızca ölçü ve gramaj aralıkları var; minimum sipariş, termin, baskı dosya formatı, numune, ödeme ve ihracat koşulları için SSS gözlenmedi.",
+      "sourceIds": [
+        "S16",
+        "S17",
+        "S14"
+      ],
+      "affected": "Alıcı, satış ekibi",
+      "consequence": "Aynı sorular telefon/WhatsApp'ta tekrar tekrar yanıtlanıyor olabilir.",
+      "classification": "Evidence-Based Hypothesis",
+      "validationQuestion": "Satış ekibine en sık gelen 10 soru hangileri?",
+      "solution": "Onaylı bilgi tabanı + çok dilli SSS + bilgi tabanına dayalı AI satış asistanı (insan devri ile).",
+      "automation": "Soru → onaylı bilgi tabanından yanıt → teklif bilgisi toplama → gerekirse temsilciye devir",
+      "requiredData": [
+        "SSS içeriği",
+        "MOQ / termin / numune politikası"
+      ],
+      "integrations": [
+        "WhatsApp Business API",
+        "Web sohbet",
+        "CRM"
+      ],
+      "complexity": "Medium",
+      "impact": "Medium",
+      "measurement": "Otomatik çözülen soru oranı; insan devri oranı; yanıt süresi",
+      "opportunityIds": [
+        "O10"
+      ]
+    },
+    {
+      "id": "PP26",
+      "entityId": "deda-pack",
+      "title": "Baskı tasarım onay (prova) sürecinin işleyişi bilinmiyor",
+      "function": "Operations",
+      "category": "E. İç Operasyonlar",
+      "journeyStage": "Quotation",
+      "evidence": "Üretim sayfası baskı öncesi grafik departmanı ve 6 renge kadar baskı hizmetini anlatıyor; iletişim formu dosya yüklemeye izin veriyor.",
+      "sourceIds": [
+        "S14",
+        "S12"
+      ],
+      "affected": "Grafik ekibi, müşteri",
+      "consequence": "Tasarım dosyaları e-postayla gidip geliyorsa revizyon döngüleri ve onay kaydı izlenemeyebilir.",
+      "classification": "Discovery Required",
+      "validationQuestion": "Bir baskılı sipariş ortalama kaç prova turundan geçiyor ve onay nasıl kayıt altına alınıyor?",
+      "solution": "Dosya yükleme + otomatik ön kontrol (renk sayısı, ölçü, çözünürlük) + müşteri onay portalı + sürüm kaydı.",
+      "automation": "Dosya yükleme → AI ön kontrol → grafik ekibine görev → prova → müşteri onayı → üretim emri",
+      "requiredData": [
+        "Baskı şartnamesi",
+        "Örnek dosyalar"
+      ],
+      "integrations": [
+        "Dosya depolama",
+        "ERP/üretim planlama"
+      ],
+      "complexity": "High",
+      "impact": "Medium",
+      "measurement": "Prova tur sayısı; onaya kadar geçen gün",
+      "opportunityIds": [
+        "O13"
+      ]
+    }
+  ]
+}

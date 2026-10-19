@@ -1,0 +1,12 @@
+{
+  "brands": [
+    { "id": "b-deda-pack", "name": "Deda Pack", "entityId": "deda-pack", "type": "Company brand", "website": "https://www.dedapack.com/", "ownership": "Verified ownership", "sourceIds": ["S11"], "confidence": "Verified" },
+    { "id": "b-deda-gida", "name": "Deda Gıda", "entityId": "deda-gida", "type": "Company brand", "website": "https://dedagida.com/", "ownership": "Verified ownership", "sourceIds": ["S01", "S04"], "confidence": "Verified" },
+    { "id": "b-deda-makina", "name": "Deda Makina", "entityId": "deda-makina", "type": "Company brand", "website": "https://www.dedamakina.com/", "ownership": "Verified ownership", "sourceIds": ["S01", "S22"], "confidence": "Verified" },
+    { "id": "b-deda-plast", "name": "Deda Plast", "entityId": "deda-plast", "type": "Company brand", "website": "http://dedaplast.com/", "ownership": "Verified ownership", "sourceIds": ["S01", "S04"], "confidence": "Verified" },
+    { "id": "b-ice-boom", "name": "Ice Boom", "entityId": "deda-gida", "type": "Product brand", "website": "https://dedagida.com/tr/urun/ice-boom-patlayan-seker-poping-candy", "ownership": "Verified ownership", "sourceIds": ["S05", "S08"], "confidence": "Verified" },
+    { "id": "b-iceman", "name": "Iceman", "entityId": "deda-gida", "type": "Product brand", "website": "https://dedagida.com/tr/urun/iceman-tup-meybuz", "ownership": "Verified ownership", "sourceIds": ["S05", "S06"], "confidence": "Verified" },
+    { "id": "b-jolle", "name": "Jölle", "entityId": "deda-gida", "type": "Product brand", "website": "https://dedagida.com/tr/urun/jolle", "ownership": "Verified ownership", "sourceIds": ["S05", "S07"], "confidence": "Verified" },
+    { "id": "b-adana-konteyner", "name": "Adana Konteyner", "entityId": "adana-konteyner", "type": "Company brand", "website": "https://www.adanakonteyner.com.tr/", "ownership": "Potential relationship", "sourceIds": ["S04", "S26"], "confidence": "Inferred" }
+  ]
+}

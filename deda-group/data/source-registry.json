@@ -1,0 +1,345 @@
+{
+  "note": "Every finding in the dashboard references one or more of these sources. collectedAt is the UTC time the content was collected in this research run.",
+  "sources": [
+    {
+      "id": "S01",
+      "entityId": "deda-group",
+      "url": "https://www.dedagroup.com/",
+      "type": "Official website — homepage",
+      "collector": "apify/website-content-crawler + raw HTML snapshot",
+      "collectedAt": "2026-10-19T20:58:00Z",
+      "summary": "Grup tanıtımı (gıda, tekstil, ambalaj, endüstriyel ürün); başlıkta dedagida, dedaplast, dedapack, dedamakina bağlantıları; JS sayaçları 25+ yıl / 77 başarılı iş / 38K müşteri. HTML'de form, telefon, e-posta, sosyal medya veya analitik etiketi gözlenmedi.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S02",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/kurumsal",
+      "type": "Official website — about",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "1989'da 17 ve 21 yaşındaki iki kardeş tarafından kuruldu; 150'yi aşkın çalışan; aynı iki kardeşin yönetiminde.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S03",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/en/corporate",
+      "type": "Official website — about (EN)",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "İngilizce kurumsal metin makine çevirisi izlenimi veriyor: \"Employees not believe passionately Never luck!\", \"Azimle built themselves\".",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S04",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/iletisim",
+      "type": "Official website — contact",
+      "collector": "apify/website-content-crawler + raw HTML snapshot",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "Grup tesisleri: Gıda Fabrika (Bahçe/Osmaniye, md@dedagroup.com), Konteyner Fabrika (Seyhan/Adana, adanakonteyner.com.tr), Plastik Geri Dönüşüm Fabrikası (Seyhan/Adana, kd@dedagroup.com, dedaplast.com). reCAPTCHA'lı iletişim formu.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S05",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/urunler",
+      "type": "Official website — product listing",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "3 ürün: Ice Boom (patlayan şeker), Jölle, Iceman (tüp meybuz). Liste sayfada 4 kez tekrar ediyor.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S06",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/urun/iceman-tup-meybuz",
+      "type": "Official website — product detail",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "Enerjisi azaltılmış şeker ve tatlandırıcılı, karışık meyve aromalı içecek; doğal kaynak suyu; 40/90/120 gr ambalaj.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S07",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/urun/jolle",
+      "type": "Official website — product detail",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "Doğal aromalı meyveli jöle; 8/13/19/60 gr ambalaj.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S08",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/urun/ice-boom-patlayan-seker-poping-candy",
+      "type": "Official website — product detail",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "Çıkarılan metinde ürün açıklaması yerine yalnızca tesis iletişim bilgileri var (TR ve EN sürümleri).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S09",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/kataloglarimiz",
+      "type": "Official website — catalogs (raw HTML)",
+      "collector": "raw HTML snapshot",
+      "collectedAt": "2026-10-19T21:05:00Z",
+      "summary": "Katalog PDF bağlantıları (EN/RU/AR) bir web ajansının demo alan adını gösteriyor: ekinyazilim.com/demo/deda/...",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S10",
+      "entityId": "deda-gida",
+      "url": "http://ekinyazilim.com/demo/deda/user_uploads/files/kataloglar/deda_katalog_ingilizce.pdf",
+      "type": "Linked document",
+      "collector": "direct HTTP check",
+      "collectedAt": "2026-10-19T21:07:00Z",
+      "summary": "302 yönlendirme sonrası '404 Not Found' HTML sayfası döndü; katalog indirilemiyor.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S11",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/",
+      "type": "Official website — homepage",
+      "collector": "apify/website-content-crawler + raw HTML snapshot",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Mart 2023'te üretime başladı; 10.204 m² kapalı alan; günlük 456.361 adet kapasite; 121 personel; hedef 60 ihracat müşterisi; 12 hedef sektör; Dönmezoğlu ailesi yönetiminde Deda Group bünyesinde; ISO 9001/14001/45001/22000. GA4 (G-CQTHRDM86W) + GTM-5L93CFF5; WhatsApp sohbet eklentisi.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S12",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/iletisim/",
+      "type": "Official website — contact form",
+      "collector": "apify/website-content-crawler + raw HTML snapshot",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Contact Form 7 alanları: Ad Soyad, Telefon, Email, Konu, Mesaj, dosya. Form 'şikayet ve önerileriniz için' diye tanımlanıyor. Ürün tipi, ölçü, adet, baskı rengi alanı yok. Çalışma saatleri hafta içi 08–18, Cmt 08–14.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S13",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/fuarlarimiz/",
+      "type": "Official website — trade fairs",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Yalnızca 2023 fuarları listeli: Avrasya (11–14 Eki 2023), Guangzhou (23–27 Eki 2023), Lyon (21–23 Kas 2023).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S14",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/en/production/",
+      "type": "Official website — production",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Baskı öncesi grafik departmanı, 6 renge kadar baskı, kısmi lak, farklı çanta tipleri, kalite kontrol, ısıl işlemli palet ile dünya geneline sevkiyat.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S15",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/kariyer/",
+      "type": "Official website — careers",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Açık pozisyonlar sitede değil, sosyal medyada; CV'ler info@dedapack.com'a (genel satış adresiyle aynı) gönderiliyor.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S16",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/sapsiz-kagit-cantalar-sos-bag/",
+      "type": "Official website — product detail",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "SOS Bag: En 8–46, Boy 15–68, Körük 5–26 cm, 60–140 gsm; fast food, unlu mamul, ekmek; gıdayla temas yönetmeliğine uygun.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S17",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/burgu-sapli-kagit-cantalar/",
+      "type": "Official website — product detail",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Burgu saplı: En 20–40, Boy 20–46, Körük 8–20 cm, 70–140 gsm; 16 hedef sektör.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S18",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/yassi-sapli-kagit-cantalar/",
+      "type": "Official website — product detail",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Yassı saplı: En 20–40, Boy 20–46, Körük 8–20 cm, 70–140 gsm.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S19",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/en/twisted-rope-handle-white-paper-bags/",
+      "type": "Official website — product detail (EN)",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Spesifikasyon tablosunda 'En' (genişlik) 'Most', 'Körük' 'Bellows' olarak çevrilmiş; başlık sonunda '/' kalmış. Tüm dillerde sayfa başlığı Türkçe site adıyla bitiyor.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S20",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/e-katalog/",
+      "type": "Official website — e-catalog",
+      "collector": "apify/website-content-crawler + raw HTML snapshot",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Sunulan HTML'de katalog belgesi, PDF veya gömülü görüntüleyici gözlenmedi; yalnızca menü ve giriş formu metni çıkarıldı.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S21",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/en/auger-white-handle-paper-bags/",
+      "type": "Official website — internal link",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Site içinden bağlanan EN ürün sayfası 404 döndü (RU eşdeğeri de 404).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S22",
+      "entityId": "deda-makina",
+      "url": "https://www.dedamakina.com/",
+      "type": "Official website — homepage (raw HTML)",
+      "collector": "direct HTTP (single request) — Apify received bot check",
+      "collectedAt": "2026-10-19T20:52:00Z",
+      "summary": "'SINCE 1976'; A–H ürün grupları; ikinci el makineler; teknik destek. Kurumsal blokta Deda Pack'in kâğıt çanta metni kopyalanmış. 'İkince El Makinalar' yazım hatası. Tema giriş/hesap oluşturma formu. Call Now Button eklentisi; analitik etiketi gözlenmedi. İki farklı telefon (+90 532 771 08 39, +90 322 428 90 90).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S23",
+      "entityId": "deda-makina",
+      "url": "https://www.dedamakina.com/wp-content/uploads/2023/10/DEDA-MAKİNE-TEKLİF-FORMU-LİSTESİ.pdf",
+      "type": "Linked document — quote form",
+      "collector": "direct HTTP check",
+      "collectedAt": "2026-10-19T21:07:00Z",
+      "summary": "Ana sayfadan bağlanan teklif formu bir PDF; istek 404 döndü.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S24",
+      "entityId": "deda-makina",
+      "url": "https://www.dedamakina.com/wp-sitemap.xml",
+      "type": "Public sitemap",
+      "collector": "direct HTTP",
+      "collectedAt": "2026-10-19T20:50:00Z",
+      "summary": "~75 içerik URL'si: 8 ürün grubu (A–H), ~45 alt ürün sayfası, galeri, blog, teknik destek, ikinci el.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S25",
+      "entityId": "deda-plast",
+      "url": "http://dedaplast.com/",
+      "type": "Official website (linked)",
+      "collector": "apify/website-content-crawler + DNS check",
+      "collectedAt": "2026-10-19T20:48:43Z",
+      "summary": "dedagroup.com başlığından bağlı; Apify '502 Host Not Found', yerel DNS çözümlenemedi. İçerik yok.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S26",
+      "entityId": "adana-konteyner",
+      "url": "https://www.adanakonteyner.com.tr/",
+      "type": "Website listed by group",
+      "collector": "apify/website-content-crawler + raw HTML snapshot",
+      "collectedAt": "2026-10-19T21:10:00Z",
+      "summary": "Konteyner/prefabrik/çelik yapı içeriği; ana menüde ilgisiz 'Donbet Bonus: What You Need to Know' (bahis temalı) öğesi; GA4 + Facebook script; WhatsApp 905327851298; şemada 'Telefon 444 7 298'. Sitede Deda Group'a atıf gözlenmedi.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S27",
+      "entityId": "adana-konteyner",
+      "url": "https://adanakonteyner.com.tr/iletisim/",
+      "type": "Website — navigation check",
+      "collector": "apify/website-content-crawler + direct HTTP check",
+      "collectedAt": "2026-10-19T21:12:00Z",
+      "summary": "Ana menüdeki Hakkımızda, Konteynerlar, Prefabrik Evler, İletişim ve ürün sayfaları 404 döndü (www ve www'siz).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S28",
+      "entityId": "deda-group",
+      "url": "https://www.facebook.com/ads/library/",
+      "type": "Meta Ad Library (4 keyword queries, all countries, active+inactive)",
+      "collector": "apify/facebook-ads-scraper",
+      "collectedAt": "2026-10-19T21:20:00Z",
+      "summary": "'Deda Pack', 'Deda Gıda', 'Deda Makina', 'Adana Konteyner' tam ifade aramalarının her biri totalCount = 0 döndü.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S29",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/urunler/",
+      "type": "Official website — product listing (raw HTML)",
+      "collector": "raw HTML snapshot",
+      "collectedAt": "2026-10-19T21:05:00Z",
+      "summary": "Ürün listesi metin yerine görsel kartlardan oluşuyor; 8 ürün detay bağlantısı. Sosyal profiller: Instagram, Facebook, Twitter, Pinterest, LinkedIn showcase, YouTube.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S30",
+      "entityId": "deda-gida",
+      "url": "https://www.yenibiris.com/firma/deda-gida-enerji-ins-taah-san-ve-dis-tic-ltd-sti/62104",
+      "type": "Third-party business directory",
+      "collector": "web search result (not opened)",
+      "collectedAt": "2026-10-19T20:55:00Z",
+      "summary": "Ticari unvan: Deda Gıda Enerji İnşaat Taahhüt Sanayi ve Dış Ticaret Ltd. Şti. (Seyhan/Adana) — ikincil kaynak.",
+      "confidence": "Inferred"
+    },
+    {
+      "id": "S31",
+      "entityId": "deda-pack",
+      "url": "https://www.dedapack.com/sertifikalarimiz/",
+      "type": "Official website — certificates",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:56:00Z",
+      "summary": "Sertifika sayfasında çıkarılabilir metin yok (görsel tabanlı olabilir); ISO beyanları ana sayfada metin olarak var.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S32",
+      "entityId": "deda-group",
+      "url": "https://www.dedagroup.com/wp-sitemap.xml",
+      "type": "Public sitemap",
+      "collector": "direct HTTP",
+      "collectedAt": "2026-10-19T20:50:00Z",
+      "summary": "Site haritasında ana sayfa dışında WordPress varsayılan içerikleri var: 'hello-world' yazısı, 'sample-page', 'author/admin'.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S33",
+      "entityId": "deda-group",
+      "url": "https://dedagida.com/",
+      "type": "Official website — homepage + crawl coverage record",
+      "collector": "apify/website-content-crawler",
+      "collectedAt": "2026-10-19T20:58:30Z",
+      "summary": "Deda Gıda ana sayfası: 'Gıda Güvenliği, Kalite Yönetim ve Çevre Yönetim Sistemi belgeleri ... uluslararası geçerli Helal Gıda sertifikaları' beyanı. Ayrıca tarama sırasında Deda Gıda, Deda Pack ve Adana Konteyner sayfalarının bir kısmı sitenin bot doğrulama sayfasını döndürdü (Imunify 'One moment, please'); aşılmadı.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S34",
+      "entityId": "deda-group",
+      "url": "data/mobile-check.json",
+      "type": "Mobile viewport test (Playwright, 390×844)",
+      "collector": "scripts/mobile-check.mjs (one load per homepage)",
+      "collectedAt": "2026-10-19T21:08:00Z",
+      "summary": "5 ana sayfada yatay taşma yok. dedagroup.com ve dedagida.com mobil ana sayfasında tıklanabilir telefon/WhatsApp bağlantısı ve form yok. Pack, Makina ve Konteyner viewport ayarında maximum-scale=1 (yakınlaştırma engeli). Tek ölçüm, bulut ortamından; performans karşılaştırması değildir.",
+      "confidence": "Verified"
+    }
+  ]
+}

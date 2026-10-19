@@ -1,0 +1,17 @@
+{
+  "name": "deda-group-growth-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Deda Group business intelligence, pain point discovery and growth automation dashboard (static site).",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "crawl": "node scripts/crawl.mjs",
+    "ads": "node scripts/ads.mjs",
+    "mobile": "node scripts/mobile-check.mjs",
+    "extract": "node scripts/extract.mjs",
+    "build": "node scripts/build.mjs",
+    "refresh": "node scripts/crawl.mjs && node scripts/extract.mjs && node scripts/build.mjs",
+    "start": "npx --yes serve -l 8765 ."
+  }
+}

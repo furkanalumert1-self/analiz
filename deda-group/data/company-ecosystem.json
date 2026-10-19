@@ -1,0 +1,73 @@
+{
+  "disambiguation": "www.dedagroup.com, Adana merkezli Türk sanayi grubudur. İtalya/Trento merkezli BT şirketi Dedagroup S.p.A. (dedagroup.it), Çin'deki Jilin Deda Group ve ambalaj firması EDDA Group ile karıştırılmamalıdır; bu kuruluşlar analize dahil edilmedi.",
+  "relationshipTypes": ["Verified ownership", "Verified subsidiary or group relationship", "Verified distribution or partnership", "Potential relationship", "Unknown relationship"],
+  "entities": [
+    {
+      "id": "deda-group", "name": "Deda Group (Dedagroup)", "kind": "Parent / group umbrella",
+      "website": "https://www.dedagroup.com/", "category": "Çok sektörlü sanayi grubu",
+      "offerings": ["Gıda üretimi", "Ambalaj (kâğıt çanta)", "Plastik geri dönüşüm", "Geri dönüşüm makineleri", "Konteyner / prefabrik (grup sitesinde listeli)"],
+      "targetCustomers": "Grup düzeyi kurumsal tanıtım; doğrudan satış hedefi gözlenmedi",
+      "businessModels": ["Hybrid business model"], "geography": "Türkiye merkezli; 'dünya genelindeki pazarlara' sunum beyanı (S01)",
+      "facts": ["1989'da iki kardeş tarafından kuruldu (S02)", "150'yi aşkın çalışan (S02)", "Dönmezoğlu ailesi yönetiminde (S11)", "Ana sayfa sayaçları: 25+ yıl, 77 başarılı iş, 38K mutlu müşteri (S01)"],
+      "relationship": "Parent (kendisi)", "relationshipStatus": "Verified ownership", "confidence": "Verified",
+      "evidence": [{ "sourceId": "S01", "text": "Grup sitesi başlığında dört şirket sitesine bağlantı" }, { "sourceId": "S11", "text": "\"DEDA GROUP bünyesinde, DÖNMEZOĞLU ailesi yönetiminde\"" }],
+      "salesChannels": ["Kurumsal web sitesi (tek sayfa)"], "digitalMaturity": "Düşük: tek sayfa, iletişim yolu yok, analitik gözlenmedi, sitemap'te WordPress örnek içerikleri (S01, S32)"
+    },
+    {
+      "id": "deda-gida", "name": "Deda Gıda", "kind": "Group company",
+      "website": "https://dedagida.com/", "category": "Gıda üretimi — şekerleme / dondurulabilir içecek",
+      "offerings": ["Ice Boom patlayan şeker", "Jölle meyveli jöle", "Iceman tüp meybuz"],
+      "targetCustomers": "Toptancı, distribütör, perakende zincirleri (çıkarım); nihai tüketici çocuk/genç atıştırmalık segmenti (çıkarım)",
+      "businessModels": ["Manufacturing", "Wholesale and distribution"], "geography": "Üretim: Bahçe/Osmaniye. Site TR/EN/AR/RU — ihracat odaklı olduğu çıkarımı (S04, S05)",
+      "facts": ["Gıda Fabrika: D-400 Karayolu, Arslanlı Mah., Bahçe/Osmaniye (S04)", "Gıda Güvenliği, Kalite, Çevre Yönetim ve Helal sertifikaları beyanı (S33)", "Ticari unvan (ikincil kaynak): Deda Gıda Enerji İnşaat Taahhüt San. ve Dış Tic. Ltd. Şti. (S30)"],
+      "relationship": "Grup şirketi", "relationshipStatus": "Verified subsidiary or group relationship", "confidence": "Verified",
+      "evidence": [{ "sourceId": "S01", "text": "dedagroup.com başlığında bağlantı" }, { "sourceId": "S04", "text": "Sayfa başlığı 'Deda Gıda | Deda Group'; e-postalar @dedagroup.com" }],
+      "salesChannels": ["Web sitesi (bilgi amaçlı)", "İletişim formu", "Katalog PDF'leri (bozuk)"], "digitalMaturity": "Düşük: eski altyapı (jQuery 2.1.4), analitik gözlenmedi, katalog bağlantıları kırık, makine çevirisi EN metin"
+    },
+    {
+      "id": "deda-pack", "name": "Deda Pack Ambalaj", "kind": "Group company",
+      "website": "https://www.dedapack.com/", "category": "Ambalaj — baskılı kâğıt çanta ve kese kâğıdı üretimi",
+      "offerings": ["Kraft / beyaz kraft çanta", "Burgu saplı çanta", "Yassı saplı çanta", "Sapsız dipli kese (SOS Bag)", "6 renge kadar flexo baskı", "Grafik / baskı öncesi hizmet", "İhracat sevkiyatı"],
+      "targetCustomers": "B2B: fast food, pastane, tekstil, eczane, zincir market, ayakkabı, takı, e-ticaret, kozmetik, kuruyemiş, yapı market, kafe/restoran (S11)",
+      "businessModels": ["Manufacturing", "B2B sales"], "geography": "Üretim Adana; 8 dilli site (TR, EN, DE, AR, RU, PT, ES, FR); hedef 60 ihracat müşterisi (S11)",
+      "facts": ["Üretim hattı Mart 2023'te devreye alındı (S11)", "10.204 m² kapalı alan, günlük 456.361 adet kapasite, 121 personel (S11)", "ISO 9001, 14001, 45001, 22000 (S11)", "2023'te 3 uluslararası fuar (S13)"],
+      "relationship": "Grup şirketi", "relationshipStatus": "Verified subsidiary or group relationship", "confidence": "Verified",
+      "evidence": [{ "sourceId": "S11", "text": "\"DEDA GROUP bünyesinde\" ifadesi" }, { "sourceId": "S01", "text": "dedagroup.com başlığında bağlantı" }],
+      "salesChannels": ["Web sitesi", "İletişim formu", "WhatsApp (+90 532 131 49 49)", "Telefon", "Fuarlar"], "digitalMaturity": "Orta: GA4 + GTM, WhatsApp, çok dilli yapı; ancak teklif formu yok, çeviri ve kırık bağlantı sorunları"
+    },
+    {
+      "id": "deda-makina", "name": "Deda Makina", "kind": "Group company",
+      "website": "https://www.dedamakina.com/", "category": "Makine imalatı — plastik geri dönüşüm hatları",
+      "offerings": ["Seçme ve ayrıştırma", "Kırma sistemleri / shredder", "Yıkama sistemleri", "Kurutma / agromer", "Granür makineleri", "Eriyik filtre sistemleri", "Granür siloları", "Yardımcı makineler", "İkinci el makineler", "Teknik destek"],
+      "targetCustomers": "B2B: plastik geri dönüşüm tesisleri ve granül üreticileri (çıkarım)",
+      "businessModels": ["Manufacturing", "B2B sales"], "geography": "Adana; site yalnızca Türkçe (S22, S24)",
+      "facts": ["'SINCE 1976' ibaresi (S22)", "8 ürün grubu, ~45 alt ürün sayfası (S24)", "Teklif formu PDF olarak bağlanmış — 404 (S23)"],
+      "relationship": "Grup şirketi", "relationshipStatus": "Verified subsidiary or group relationship", "confidence": "Verified",
+      "evidence": [{ "sourceId": "S01", "text": "dedagroup.com başlığında bağlantı" }, { "sourceId": "S22", "text": "İletişim e-postası kd@dedagroup.com; aynı Zeytinli Mah. adresi" }],
+      "salesChannels": ["Web sitesi", "Telefon / Call Now Button", "Teklif formu PDF (kırık)"], "digitalMaturity": "Düşük: analitik gözlenmedi, PDF teklif süreci, içerik kopyalama hatası; otomatik taramaya bot doğrulaması uyguluyor"
+    },
+    {
+      "id": "deda-plast", "name": "Deda Plast (Plastik Geri Dönüşüm Fabrikası)", "kind": "Group company",
+      "website": "http://dedaplast.com/", "category": "Plastik geri dönüşüm",
+      "offerings": ["Plastik geri dönüşüm (ürün detayı doğrulanamadı)"],
+      "targetCustomers": "Bilinmiyor — site erişilemedi",
+      "businessModels": ["Manufacturing"], "geography": "Sarıhamzalı Mah., Seyhan/Adana (S04)",
+      "facts": ["Grup sitesinde 'Plastik Geri Dönüşüm Fabrikası' olarak listeli (S04)", "Alan adı çözümlenmiyor (S25)"],
+      "relationship": "Grup şirketi", "relationshipStatus": "Verified subsidiary or group relationship", "confidence": "Verified",
+      "evidence": [{ "sourceId": "S01", "text": "dedagroup.com başlığında bağlantı" }, { "sourceId": "S04", "text": "Grup tesisleri listesinde, e-posta kd@dedagroup.com" }],
+      "salesChannels": ["Gözlenemedi"], "digitalMaturity": "Değerlendirilemedi: web sitesi erişilemez"
+    },
+    {
+      "id": "adana-konteyner", "name": "Adana Konteyner (Konteyner Fabrika)", "kind": "Listed group facility",
+      "website": "https://www.adanakonteyner.com.tr/", "category": "Konteyner, prefabrik ev, çelik yapı",
+      "offerings": ["Konteyner modelleri", "Prefabrik evler", "Çelik yapılar"],
+      "targetCustomers": "B2C ve B2B (prefabrik ev alıcıları, şantiye/konteyner ihtiyacı olan firmalar) — çıkarım",
+      "businessModels": ["Manufacturing", "Lead-generation business"], "geography": "Fevzipaşa Mah., Seyhan/Adana (S04)",
+      "facts": ["Grup sitesinde 'Konteyner Fabrika' olarak listeli; grup telefonlarıyla (+90 444 80 01, +90 322 428 90 90) (S04)", "Web sitesi Deda Group'a atıf yapmıyor ve farklı telefon gösteriyor (444 7 298) (S26)", "Menüde bahis temalı ilgisiz öğe; ana menü sayfaları 404 (S26, S27)"],
+      "relationship": "Grup tesisi olarak listeli; web sitesinin bugün grup tarafından işletildiği doğrulanamadı",
+      "relationshipStatus": "Potential relationship", "confidence": "Inferred",
+      "evidence": [{ "sourceId": "S04", "text": "Deda Gıda iletişim sayfasında grup tesisi olarak listeli" }, { "sourceId": "S26", "text": "Sitede Deda atfı yok; farklı telefon" }],
+      "salesChannels": ["Web sitesi (çoğu sayfa 404)", "WhatsApp"], "digitalMaturity": "Risk: kırık navigasyon ve ilgisiz bahis içeriği — alan adı kontrolü doğrulanmalı"
+    }
+  ]
+}

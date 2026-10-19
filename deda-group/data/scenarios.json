@@ -1,0 +1,64 @@
+{
+  "label": "SİMÜLASYON — Gerçek müşteri faaliyeti değil, örnek iş akışıdır",
+  "templates": {
+    "b2b": {
+      "name": "B2B teklif akışı",
+      "steps": [
+        { "title": "Talep alındı", "detail": "Alıcı {offering} için teklif formunu doldurur (ürüne özel teknik bilgiler, adet/kapasite, ülke).", "event": "quote_request_submitted", "system": "Web formu", "status": "Varsayım: form henüz yok (PP01/PP10)" },
+        { "title": "Lead nitelendirildi", "detail": "Ülke, sektör ve hacme göre öncelik atanır; mükerrer kayıt kontrol edilir.", "event": "lead_qualified", "system": "CRM", "status": "Varsayım: CRM bilinmiyor (Q03)" },
+        { "title": "Otomatik onay mesajı", "detail": "Alıcının dilinde talep özeti ve beklenen yanıt süresi gönderilir.", "event": "message_sent", "system": "Callypso Engage (yetenek doğrulanmalı)", "status": "Varsayım" },
+        { "title": "Satışa devir", "detail": "Temsilci yapılandırılmış özet alır; 24 saat SLA başlar.", "event": "lead_assigned", "system": "CRM / bildirim", "status": "Varsayım" },
+        { "title": "Teklif", "detail": "Temsilci fiyat ve termini onaylayıp teklif gönderir.", "event": "quote_sent", "system": "CRM / ERP", "status": "İnsan onayı zorunlu" },
+        { "title": "Takip", "detail": "Yanıt yoksa 3. ve 7. gün takip; 14. gün temsilci arama görevi.", "event": "follow_up_sent", "system": "Callypso Engage (doğrulanmalı)", "status": "Varsayım" },
+        { "title": "Sonuç kaydı", "detail": "Kazanıldı / kaybedildi + kayıp nedeni kaydedilir; tekrar sipariş takvimi oluşur.", "event": "quote_status_changed", "system": "CRM", "status": "Varsayım" }
+      ]
+    },
+    "distribution": {
+      "name": "Distribütör / toptan akış",
+      "steps": [
+        { "title": "Distribütör başvurusu", "detail": "{offering} için ülke, kanal ve hacim bilgisiyle başvuru gelir.", "event": "distributor_application", "system": "Web formu", "status": "Varsayım: form yok (PP18)" },
+        { "title": "Ön değerlendirme", "detail": "Kriterlere göre skor; bölge sorumlusuna atama.", "event": "lead_qualified", "system": "CRM", "status": "Varsayım" },
+        { "title": "Katalog ve fiyat listesi", "detail": "Dil bazlı katalog gönderilir (bugün katalog bağlantıları 404 — PP16).", "event": "catalog_sent", "system": "Callypso Engage (doğrulanmalı)", "status": "Doğrulanmış sorun + varsayım" },
+        { "title": "Numune / ilk sipariş", "detail": "Satış ekibi numune ve ilk sipariş koşullarını görüşür.", "event": "first_order", "system": "ERP", "status": "İnsan onayı" },
+        { "title": "Sezon öncesi hatırlatma", "detail": "Sezon −8 hafta ön sipariş hatırlatması.", "event": "season_reminder_sent", "system": "Callypso Engage (doğrulanmalı)", "status": "Varsayım" }
+      ]
+    },
+    "support": {
+      "name": "AI destekli müşteri sorusu",
+      "steps": [
+        { "title": "Soru geldi", "detail": "Müşteri WhatsApp'tan {offering} hakkında soru sorar.", "event": "chat_started", "system": "WhatsApp Business API", "status": "WhatsApp hattı doğrulandı (Deda Pack); API entegrasyonu varsayım" },
+        { "title": "Onaylı bilgi arama", "detail": "Asistan yalnızca onaylı bilgi tabanından (ölçü, gsm, ambalaj) yanıt arar.", "event": "kb_retrieval", "system": "LLM + bilgi tabanı", "status": "Varsayım" },
+        { "title": "Yanıt", "detail": "Sitede doğrulanmış bilgiyle yanıt verir; fiyat/termin vaadi vermez.", "event": "ai_response", "system": "AI asistan", "status": "Varsayım" },
+        { "title": "İnsana devir", "detail": "Fiyat, özel üretim veya şikayet içeren sorular temsilciye devredilir.", "event": "handoff", "system": "CRM / gelen kutusu", "status": "Varsayım" },
+        { "title": "Kayıt", "detail": "Sohbet özeti CRM'e işlenir (entegrasyon varsa).", "event": "interaction_logged", "system": "CRM", "status": "Varsayım" }
+      ]
+    },
+    "service": {
+      "name": "Servis / satış sonrası akış",
+      "steps": [
+        { "title": "Talep", "detail": "Müşteri {offering} ile ilgili servis/bilgi talebi iletir.", "event": "service_request", "system": "Form / WhatsApp", "status": "Varsayım" },
+        { "title": "Bilgi çıkarma", "detail": "Makine/ürün, seri no, sorun tipi çıkarılır.", "event": "data_extracted", "system": "AI sınıflandırma", "status": "Varsayım" },
+        { "title": "Doğrulama", "detail": "Kurulu baz kaydı ile eşleşme kontrol edilir.", "event": "validated", "system": "CRM / servis kaydı", "status": "Varsayım: kurulu baz kaydı bilinmiyor (Q14)" },
+        { "title": "Görev ve onay", "detail": "Teknisyene görev; yedek parça gerekiyorsa onay.", "event": "task_created", "system": "Servis yönetimi", "status": "İnsan onayı" },
+        { "title": "Tamamlama", "detail": "Kapanış, memnuniyet sorusu ve bir sonraki bakım hatırlatması planlanır.", "event": "ticket_closed", "system": "Callypso Engage (doğrulanmalı)", "status": "Varsayım" }
+      ]
+    },
+    "internal": {
+      "name": "İç operasyon: sipariş belgesi işleme",
+      "steps": [
+        { "title": "Belge geldi", "detail": "{offering} içeren sipariş e-postası/Excel eki gelir.", "event": "order_email_received", "system": "E-posta (açıkça varsayımsal kanal)", "status": "Varsayım (PP19 — keşif gerekli)" },
+        { "title": "Veri çıkarma", "detail": "AI ürün, ambalaj, koli adedi ve teslim tarihini çıkarır.", "event": "data_extracted", "system": "AI belge işleme", "status": "Varsayım" },
+        { "title": "Doğrulama", "detail": "Ürün kodu ve fiyat listesiyle karşılaştırılır; eksik alanlar işaretlenir.", "event": "validated", "system": "ERP", "status": "Varsayım" },
+        { "title": "Sistem güncelleme", "detail": "ERP'de taslak sipariş açılır.", "event": "erp_draft_created", "system": "ERP API", "status": "Varsayım" },
+        { "title": "Onay ve bildirim", "detail": "Satış destek onaylar; distribütöre sipariş teyidi gider.", "event": "order_confirmed", "system": "ERP + e-posta", "status": "İnsan onayı" }
+      ]
+    }
+  },
+  "missingData": {
+    "b2b": ["Teklif formu alanları ve MOQ", "CRM sistemi ve teklif durum alanları", "Temsilci-ülke eşleşmesi", "İletişim izinleri (İYS)", "Callypso Engage yetenek teyidi"],
+    "distribution": ["Distribütör kriterleri", "Güncel katalog dosyaları", "Sezon takvimi", "ERP sipariş geçmişi"],
+    "support": ["Onaylı SSS ve bilgi tabanı", "WhatsApp Business API erişimi", "İnsan devri kuralları"],
+    "service": ["Kurulu makine listesi", "Bakım periyotları", "Servis kayıt sistemi"],
+    "internal": ["Örnek sipariş belgeleri", "ERP API erişimi", "Onay yetkileri"]
+  }
+}
