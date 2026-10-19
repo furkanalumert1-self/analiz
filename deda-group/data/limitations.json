@@ -1,16 +1,52 @@
 {
   "items": [
-    { "area": "Kapsam", "text": "dedagroup.com Adana merkezli Türk sanayi grubudur; İtalyan Dedagroup S.p.A. ile ilgisi yoktur ve analize alınmadı." },
-    { "area": "Tarama", "text": "Deda Makina sitesi Apify tarayıcısına bot doğrulama sayfası döndürdü. Doğrulama aşılmadı; yalnızca normal sunulan ana sayfa (tek istek) ve herkese açık sitemap kullanıldı. Kibar (1,5 sn aralıklı) sitemap tabanlı yedek toplama ilk bot doğrulamasında durduruldu." },
-    { "area": "Tarama", "text": "dedaplast.com DNS'te çözümlenmedi; içerik toplanamadı." },
-    { "area": "Tarama", "text": "Deda Gıda (9), Deda Pack (5) ve Adana Konteyner (4) sayfalarının bir kısmı bot doğrulaması döndürdü; bu sayfaların içeriği analizde yok." },
-    { "area": "Tarama", "text": "Apify ayrı tarama çalıştırmaları ilk denemede hesap bellek/eşzamanlılık sınırına takıldı (HTTP 402); sıralı ve daha hafif modda yeniden çalıştırıldı. Apify aylık bütçesi (5 $) nedeniyle sayfa sınırları 40–120 ile sınırlandı." },
-    { "area": "Callypso Engage", "text": "Bu ortamda Callypso Engage dokümantasyonu, kodu veya uygulaması yoktu; kamuya açık aramada özellik listesi doğrulanamadı. Engage önerileri varsayılan yaşam döngüsü otomasyonu yeteneklerine dayanır ve teyit edilmelidir." },
-    { "area": "Reklam", "text": "Yalnızca Meta Reklam Kütüphanesi (4 anahtar kelime) sorgulandı. Google Ads Şeffaflık Merkezi, LinkedIn ve TikTok reklam kütüphaneleri sorgulanmadı. Sosyal medya gönderi sıklığı ve etkileşimi incelenmedi." },
-    { "area": "Martech", "text": "Teknoloji tespiti 10 ham HTML anlık görüntüsünde imza eşleştirmesiyle yapıldı. GTM içinden yüklenen araçlar (ör. CMP, Meta Pixel) görünmeyebilir; bir betiğin varlığı doğru yapılandırıldığını kanıtlamaz. 'Gözlenmedi' ifadesi 'yok' anlamına gelmez." },
-    { "area": "Mobil", "text": "Mobil test tek bir 390×844 görünümünde, bulut ortamından tek yükleme ile yapıldı; yükleme süreleri performans karşılaştırması değildir." },
-    { "area": "İç veri", "text": "CRM, ERP, sipariş, teklif, trafik ve reklam hesabı verilerine erişim yoktu. Gelir, ROI, dönüşüm artışı, segment büyüklüğü veya müşteri sayısı tahmini yapılmadı." },
-    { "area": "Kurumsal yapı", "text": "Hukuki ortaklık yapısı resmi sicilden (Ticaret Sicil Gazetesi) doğrulanmadı. İlişkiler grup sitelerindeki bağlantı ve beyanlara dayanır. Adana Konteyner web sitesinin bugün grup tarafından işletildiği doğrulanamadı." },
-    { "area": "Dağıtım", "text": "Dashboard statik bir sitedir; veriler build adımında JSON'dan derlenir. Canlı veri bağlantısı yoktur; yenileme için README'deki adımlar izlenmelidir." }
+    {
+      "area": "Kapsam",
+      "text": "dedagroup.com Adana merkezli Türk sanayi grubudur; İtalyan Dedagroup S.p.A. ile ilgisi yoktur ve analize alınmadı."
+    },
+    {
+      "area": "Tarama",
+      "text": "İlk Apify (cheerio) taramasında Deda Makina'nın tamamı ve diğer sitelerde 18 sayfa JavaScript doğrulama sayfası döndürdü. Bu sayfalar Apify'nin gerçek tarayıcı modu (playwright:firefox) ile yeniden alındı; artık doğrulama ekranında kalan sayfa yok. CAPTCHA çözücü veya ek atlatma yöntemi kullanılmadı."
+    },
+    {
+      "area": "Tarama",
+      "text": "dedaplast.com DNS'te çözümlenmedi; içerik toplanamadı."
+    },
+    {
+      "area": "Tarama",
+      "text": "Apify ayrı tarama çalıştırmaları ilk denemede hesap bellek/eşzamanlılık sınırına takıldı (HTTP 402); sıralı ve daha hafif modda yeniden çalıştırıldı. Apify aylık bütçesi (5 $) nedeniyle sayfa sınırları 40–120 ile sınırlandı."
+    },
+    {
+      "area": "Callypso Engage",
+      "text": "Bu ortamda Callypso Engage dokümantasyonu, kodu veya uygulaması yoktu; kamuya açık aramada özellik listesi doğrulanamadı. Engage önerileri varsayılan yaşam döngüsü otomasyonu yeteneklerine dayanır ve teyit edilmelidir."
+    },
+    {
+      "area": "Martech",
+      "text": "Teknoloji tespiti 10 ham HTML anlık görüntüsünde imza eşleştirmesiyle yapıldı. GTM içinden yüklenen araçlar (ör. CMP, Meta Pixel) görünmeyebilir; bir betiğin varlığı doğru yapılandırıldığını kanıtlamaz. 'Gözlenmedi' ifadesi 'yok' anlamına gelmez."
+    },
+    {
+      "area": "Mobil",
+      "text": "Mobil test tek bir 390×844 görünümünde, bulut ortamından tek yükleme ile yapıldı; yükleme süreleri performans karşılaştırması değildir."
+    },
+    {
+      "area": "İç veri",
+      "text": "CRM, ERP, sipariş, teklif, trafik ve reklam hesabı verilerine erişim yoktu. Gelir, ROI, dönüşüm artışı, segment büyüklüğü veya müşteri sayısı tahmini yapılmadı."
+    },
+    {
+      "area": "Kurumsal yapı",
+      "text": "Hukuki ortaklık yapısı resmi sicilden (Ticaret Sicil Gazetesi) doğrulanmadı. İlişkiler grup sitelerindeki bağlantı ve beyanlara dayanır. Adana Konteyner web sitesinin bugün grup tarafından işletildiği doğrulanamadı."
+    },
+    {
+      "area": "Dağıtım",
+      "text": "Dashboard statik bir sitedir; veriler build adımında JSON'dan derlenir. Canlı veri bağlantısı yoktur; yenileme için README'deki adımlar izlenmelidir."
+    },
+    {
+      "area": "Reklam ve sosyal",
+      "text": "Meta Reklam Kütüphanesi (4 sorgu) ve Google arama (7 sorgu, TR, masaüstü, ilk sayfa, tek ölçüm) Apify ile kontrol edildi. LinkedIn ve TikTok reklam kütüphaneleri sorgulanmadı. Instagram, Apify profil isteğini engelledi; takipçi ve gönderi verisi yok. İş ilanı ve fuar listeleri yalnızca arama sonucu özetlerinden alındı."
+    },
+    {
+      "area": "Apify bütçesi",
+      "text": "Hesabın aylık 5 $ sınırına yaklaşıldı (~4,32 $ kullanıldı); bu nedenle sayfa sınırları 40–120 tutuldu ve ek sosyal medya taraması yapılmadı."
+    }
   ]
 }

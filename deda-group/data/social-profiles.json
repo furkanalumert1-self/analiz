@@ -1,0 +1,22 @@
+{
+  "observedAt": "2026-10-19T21:51:58.120Z",
+  "httpStatus": 201,
+  "profiles": [
+    {
+      "entityId": "deda-pack",
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/dedapack",
+      "followers": null,
+      "following": null,
+      "posts": null,
+      "isBusiness": null,
+      "category": null,
+      "biography": null,
+      "externalUrl": null,
+      "latestPosts": [],
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "apify/instagram-profile-scraper",
+      "error": "BlockedError: BLOCKED"
+    }
+  ]
+}

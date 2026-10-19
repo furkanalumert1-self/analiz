@@ -1,18 +1,272 @@
 {
-  "note": "Reklam harcaması, ROAS, CPA, erişim ve dönüşüm verisi kamuya açık değildir; tahmin edilmedi (Requires Ad Account Access). Google Ads Şeffaflık Merkezi, TikTok ve LinkedIn reklam kütüphaneleri bu çalışmada sorgulanmadı.",
+  "note": "Reklam harcaması, ROAS, CPA, erişim ve dönüşüm verisi kamuya açık değildir; tahmin edilmedi (Requires Ad Account Access). Meta Reklam Kütüphanesi ve Google arama sonuçları (7 sorgu, ücretli sonuçlar dahil) Apify ile kontrol edildi. LinkedIn ve TikTok reklam kütüphaneleri sorgulanmadı; Instagram profil verisi Instagram tarafından engellendi.",
   "observations": [
-    { "id": "C01", "entityId": "deda-pack", "source": "Meta Ad Library", "kind": "Paid", "description": "'Deda Pack' tam ifade araması (tüm ülkeler, aktif + pasif)", "result": "0 reklam", "observedAt": "2026-10-19", "sourceIds": ["S28"], "confidence": "Verified" },
-    { "id": "C02", "entityId": "deda-gida", "source": "Meta Ad Library", "kind": "Paid", "description": "'Deda Gıda' tam ifade araması", "result": "0 reklam", "observedAt": "2026-10-19", "sourceIds": ["S28"], "confidence": "Verified" },
-    { "id": "C03", "entityId": "deda-makina", "source": "Meta Ad Library", "kind": "Paid", "description": "'Deda Makina' tam ifade araması", "result": "0 reklam", "observedAt": "2026-10-19", "sourceIds": ["S28"], "confidence": "Verified" },
-    { "id": "C04", "entityId": "adana-konteyner", "source": "Meta Ad Library", "kind": "Paid", "description": "'Adana Konteyner' tam ifade araması", "result": "0 reklam", "observedAt": "2026-10-19", "sourceIds": ["S28"], "confidence": "Verified" },
-    { "id": "C05", "entityId": "deda-pack", "source": "Website footer", "kind": "Organic", "description": "Sosyal profiller: instagram.com/dedapack, Facebook profil (id 100083354113849), twitter.com/DedaPack, pinterest.com/dedapack, LinkedIn showcase 'dedapack', YouTube kanalı", "result": "Profil bağlantıları mevcut; gönderi sıklığı ve etkileşim incelenmedi", "observedAt": "2026-10-19", "sourceIds": ["S29"], "confidence": "Verified" },
-    { "id": "C06", "entityId": "deda-pack", "source": "Website", "kind": "Organic", "description": "Uluslararası fuar katılımı (Avrasya, Guangzhou, Lyon — 2023)", "result": "Fuar sayfası 2023 sonrası güncellenmemiş", "observedAt": "2026-10-19", "sourceIds": ["S13"], "confidence": "Verified" },
-    { "id": "C07", "entityId": "deda-group", "source": "Website", "kind": "Organic", "description": "Grup sitesinde gömülü YouTube videosu", "result": "Video mevcut; içerik incelenmedi", "observedAt": "2026-10-19", "sourceIds": ["S01"], "confidence": "Verified" },
-    { "id": "C08", "entityId": "adana-konteyner", "source": "Website HTML", "kind": "Tracking", "description": "GA4 ve Facebook script mevcut", "result": "Reklam yürütüldüğüne dair kanıt değildir", "observedAt": "2026-10-19", "sourceIds": ["S26"], "confidence": "Verified" }
+    {
+      "id": "C01",
+      "entityId": "deda-pack",
+      "source": "Meta Ad Library",
+      "kind": "Paid",
+      "description": "'Deda Pack' tam ifade araması (tüm ülkeler, aktif + pasif)",
+      "result": "0 reklam",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S28"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C02",
+      "entityId": "deda-gida",
+      "source": "Meta Ad Library",
+      "kind": "Paid",
+      "description": "'Deda Gıda' tam ifade araması",
+      "result": "0 reklam",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S28"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C03",
+      "entityId": "deda-makina",
+      "source": "Meta Ad Library",
+      "kind": "Paid",
+      "description": "'Deda Makina' tam ifade araması",
+      "result": "0 reklam",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S28"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C04",
+      "entityId": "adana-konteyner",
+      "source": "Meta Ad Library",
+      "kind": "Paid",
+      "description": "'Adana Konteyner' tam ifade araması",
+      "result": "0 reklam",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S28"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C05",
+      "entityId": "deda-pack",
+      "source": "Website footer",
+      "kind": "Organic",
+      "description": "Sosyal profiller: instagram.com/dedapack, Facebook profil (id 100083354113849), twitter.com/DedaPack, pinterest.com/dedapack, LinkedIn showcase 'dedapack', YouTube kanalı",
+      "result": "Profil bağlantıları mevcut; gönderi sıklığı ve etkileşim incelenmedi",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S29"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C06",
+      "entityId": "deda-pack",
+      "source": "Website",
+      "kind": "Organic",
+      "description": "Uluslararası fuar katılımı (Avrasya, Guangzhou, Lyon — 2023)",
+      "result": "Fuar sayfası 2023 sonrası güncellenmemiş",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S13"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C07",
+      "entityId": "deda-group",
+      "source": "Website",
+      "kind": "Organic",
+      "description": "Grup sitesinde gömülü YouTube videosu",
+      "result": "Video mevcut; içerik incelenmedi",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S01"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C08",
+      "entityId": "adana-konteyner",
+      "source": "Website HTML",
+      "kind": "Tracking",
+      "description": "GA4 ve Facebook script mevcut",
+      "result": "Reklam yürütüldüğüne dair kanıt değildir",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S26"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C10",
+      "entityId": "deda-group",
+      "source": "Google Search (TR)",
+      "kind": "Paid",
+      "description": "7 marka ve kategori sorgusunda ücretli sonuç",
+      "result": "0 ücretli sonuç",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S40"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C11",
+      "entityId": "deda-pack",
+      "source": "Google Search (TR)",
+      "kind": "Organic",
+      "description": "'kraft çanta üreticisi Adana' / 'Deda Pack' / 'baskılı kağıt çanta üretimi'",
+      "result": "#1 / #2 (1. sırada Facebook sayfası) / ilk sayfada yok",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S40"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C12",
+      "entityId": "deda-makina",
+      "source": "Google Search (TR)",
+      "kind": "Organic",
+      "description": "'Deda Makina' / 'plastik geri dönüşüm makinesi üreticisi'",
+      "result": "dedamakina.com ilk sayfada yok / Deda ilk sayfada yok",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S40"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C13",
+      "entityId": "deda-gida",
+      "source": "Google Search (TR)",
+      "kind": "Organic",
+      "description": "'Deda Gıda'",
+      "result": "#1; ayrıca interpack ve All4Pack katılımcı listeleri, kariyer profilleri",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S40",
+        "S43"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C14",
+      "entityId": "deda-pack",
+      "source": "Instagram (@dedapack)",
+      "kind": "Organic",
+      "description": "Profil istatistikleri ve son gönderiler",
+      "result": "Instagram Apify isteğini engelledi; veri yok",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S41"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C15",
+      "entityId": "deda-pack",
+      "source": "Facebook (DedaPackTR)",
+      "kind": "Organic",
+      "description": "Arama sonuçlarında sayfa, video ve gönderiler",
+      "result": "Aktif sayfa; sitedeki footer başka bir Facebook profiline bağlanıyor",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S44"
+      ],
+      "confidence": "Verified"
+    },
+    {
+      "id": "C16",
+      "entityId": "deda-pack",
+      "source": "İş ilanı siteleri",
+      "kind": "Organic",
+      "description": "Makine Ustası (10.10.2026), Dilme Makinesi Operatörü ilanları",
+      "result": "Üretim kadrosu büyüme sinyali",
+      "observedAt": "2026-10-19",
+      "sourceIds": [
+        "S42"
+      ],
+      "confidence": "Inferred"
+    }
   ],
   "funnels": [
-    { "entityId": "deda-pack", "type": "B2B", "steps": ["Organik arama / fuar / sosyal", "Dil bazlı ürün sayfası", "Teklif talebi (bugün: genel form/WhatsApp)", "Nitelendirme", "CRM", "Takip", "Teklif", "Sipariş", "Tekrar sipariş"], "requiredEvents": ["page_view_product", "quote_request_submitted", "whatsapp_click", "phone_click", "catalog_download", "quote_sent", "order_placed"], "consent": "CMP + Consent Mode v2; pazarlama iletisi için açık rıza / ticari elektronik ileti onayı (İYS)", "attributionLimits": "Offline teklif/sipariş verisi CRM/ERP ile eşlenmeden kanal ROI hesaplanamaz." },
-    { "entityId": "deda-makina", "type": "B2B (capex)", "steps": ["Organik arama / referans", "Ürün grubu sayfası", "Teklif yapılandırıcı (bugün: kırık PDF)", "Mühendis görüşmesi", "Teklif", "Sipariş", "Kurulum", "Servis"], "requiredEvents": ["page_view_product", "machine_quote_submitted", "phone_click", "quote_sent", "order_placed"], "consent": "CMP; İYS", "attributionLimits": "Uzun satış döngüsü; offline dönüşüm içe aktarımı gerekir." },
-    { "entityId": "deda-gida", "type": "Distribution", "steps": ["Arama / fuar / referans", "Ürün sayfası", "Katalog (bugün: 404)", "Distribütör başvurusu (bugün: genel form)", "Numune / fiyat listesi", "İlk sipariş", "Sezonluk tekrar sipariş"], "requiredEvents": ["catalog_download", "distributor_application", "order_placed"], "consent": "CMP; İYS", "attributionLimits": "Distribütör satışları ERP'de; site verisiyle eşleme gerekir." }
+    {
+      "entityId": "deda-pack",
+      "type": "B2B",
+      "steps": [
+        "Organik arama / fuar / sosyal",
+        "Dil bazlı ürün sayfası",
+        "Teklif talebi (bugün: genel form/WhatsApp)",
+        "Nitelendirme",
+        "CRM",
+        "Takip",
+        "Teklif",
+        "Sipariş",
+        "Tekrar sipariş"
+      ],
+      "requiredEvents": [
+        "page_view_product",
+        "quote_request_submitted",
+        "whatsapp_click",
+        "phone_click",
+        "catalog_download",
+        "quote_sent",
+        "order_placed"
+      ],
+      "consent": "CMP + Consent Mode v2; pazarlama iletisi için açık rıza / ticari elektronik ileti onayı (İYS)",
+      "attributionLimits": "Offline teklif/sipariş verisi CRM/ERP ile eşlenmeden kanal ROI hesaplanamaz."
+    },
+    {
+      "entityId": "deda-makina",
+      "type": "B2B (capex)",
+      "steps": [
+        "Organik arama / referans",
+        "Ürün grubu sayfası",
+        "Teklif yapılandırıcı (bugün: kırık PDF)",
+        "Mühendis görüşmesi",
+        "Teklif",
+        "Sipariş",
+        "Kurulum",
+        "Servis"
+      ],
+      "requiredEvents": [
+        "page_view_product",
+        "machine_quote_submitted",
+        "phone_click",
+        "quote_sent",
+        "order_placed"
+      ],
+      "consent": "CMP; İYS",
+      "attributionLimits": "Uzun satış döngüsü; offline dönüşüm içe aktarımı gerekir."
+    },
+    {
+      "entityId": "deda-gida",
+      "type": "Distribution",
+      "steps": [
+        "Arama / fuar / referans",
+        "Ürün sayfası",
+        "Katalog (bugün: 404)",
+        "Distribütör başvurusu (bugün: genel form)",
+        "Numune / fiyat listesi",
+        "İlk sipariş",
+        "Sezonluk tekrar sipariş"
+      ],
+      "requiredEvents": [
+        "catalog_download",
+        "distributor_application",
+        "order_placed"
+      ],
+      "consent": "CMP; İYS",
+      "attributionLimits": "Distribütör satışları ERP'de; site verisiyle eşleme gerekir."
+    }
   ]
 }

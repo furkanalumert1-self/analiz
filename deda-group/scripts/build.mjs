@@ -32,6 +32,8 @@ const D = {
   technologies: await load('technologies.json'),
   mobile: await load('mobile-check.json'),
   ads: await load('ads-raw.json'),
+  search: await load('search-presence.json'),
+  social: await load('social-profiles.json'),
 };
 
 const errors = [];

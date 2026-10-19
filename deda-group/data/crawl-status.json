@@ -33,17 +33,14 @@
   {
     "domain": "dedamakina.com",
     "startUrl": "https://www.dedamakina.com/",
+    "crawlerType": "playwright:firefox",
     "actor": "apify/website-content-crawler",
-    "runId": "bodrlbkyEjJ6LeALd",
+    "runId": "99WtxAMt29P3RL8Mi",
     "status": "SUCCEEDED",
-    "startedAt": "2026-10-19T20:57:09.248Z",
-    "finishedAt": "2026-10-19T20:57:19.708Z",
-    "itemCount": 1,
-    "fallback": {
-      "collector": "direct-http single homepage request + public wp-sitemap.xml",
-      "itemCount": 1
-    },
-    "note": "Apify run returned the site bot-check page (\"One moment, please...\"). Not bypassed. A polite sitemap-based fallback was stopped at the first bot-check response. Only the homepage (served normally to a single request) and public sitemap URLs are used."
+    "startedAt": "2026-10-19T21:37:40.382Z",
+    "finishedAt": "2026-10-19T21:47:22.354Z",
+    "itemCount": 82,
+    "note": "İlk Apify (cheerio) çalıştırması sitenin JavaScript doğrulama sayfasını aldı. Apify'nin gerçek tarayıcı modu (playwright:firefox) ile yeniden tarandı: 82 kayıt, hepsi okunabilir. CAPTCHA çözücü veya ek atlatma yöntemi kullanılmadı."
   },
   {
     "domain": "dedapack.com",
@@ -65,5 +62,17 @@
     "finishedAt": "2026-10-19T20:48:43.541Z",
     "itemCount": 1,
     "note": "Linked from www.dedagroup.com, but host did not resolve (Apify: 502 Host Not Found; local DNS: could not resolve). No content collected."
+  },
+  {
+    "domain": "retry-blocked",
+    "startUrl": "18 blocked URLs",
+    "crawlerType": "playwright:firefox",
+    "actor": "apify/website-content-crawler",
+    "runId": "9avhXMP3zJ1tuAona",
+    "status": "SUCCEEDED",
+    "startedAt": "2026-10-19T21:47:28.293Z",
+    "finishedAt": "2026-10-19T21:49:04.082Z",
+    "itemCount": 18,
+    "note": "Diğer sitelerde ilk taramada doğrulama sayfası dönen 18 URL, Apify gerçek tarayıcı modu ile yeniden alındı: 14 okunabilir, 4'ü (Adana Konteyner) gerçek HTTP 404."
   }
 ]

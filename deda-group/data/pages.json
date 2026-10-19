@@ -48,20 +48,20 @@
   "collectedAt": "2026-10-19T21:00:44.785Z"
  },
  {
-  "id": "pg-4",
+  "id": "pg-268",
   "entityId": "adana-konteyner",
   "domain": "adanakonteyner.com.tr",
   "url": "http://adanakonteyner.com.tr/geleneksel-tasarim-evler/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "404 Not Found",
+  "fullTitle": "404 Not Found",
   "pageType": "product-detail",
   "lang": "en",
-  "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
+  "httpStatus": 404,
+  "status": "http-error",
+  "textLength": 74,
   "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T21:00:44.785Z"
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-5",
@@ -160,36 +160,36 @@
   "collectedAt": "2026-10-19T21:00:44.785Z"
  },
  {
-  "id": "pg-21",
+  "id": "pg-268",
   "entityId": "adana-konteyner",
   "domain": "adanakonteyner.com.tr",
   "url": "https://adanakonteyner.com.tr/platform-konteyner/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "404 Not Found",
+  "fullTitle": "404 Not Found",
   "pageType": "product-detail",
   "lang": "en",
-  "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
+  "httpStatus": 404,
+  "status": "http-error",
+  "textLength": 74,
   "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T21:00:44.785Z"
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-12",
+  "id": "pg-268",
   "entityId": "adana-konteyner",
   "domain": "adanakonteyner.com.tr",
   "url": "https://adanakonteyner.com.tr/donbet-bonus-what-you-need-to-know/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "404 Not Found",
+  "fullTitle": "404 Not Found",
   "pageType": "other",
   "lang": "en",
-  "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
+  "httpStatus": 404,
+  "status": "http-error",
+  "textLength": 74,
   "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T21:00:44.785Z"
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-21",
@@ -256,20 +256,20 @@
   "collectedAt": "2026-10-19T21:00:44.785Z"
  },
  {
-  "id": "pg-21",
+  "id": "pg-268",
   "entityId": "adana-konteyner",
   "domain": "adanakonteyner.com.tr",
   "url": "https://adanakonteyner.com.tr/open-top-konteyner/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "404 Not Found",
+  "fullTitle": "404 Not Found",
   "pageType": "product-detail",
   "lang": "en",
-  "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
+  "httpStatus": 404,
+  "status": "http-error",
+  "textLength": 74,
   "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T21:00:44.785Z"
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-18",
@@ -432,20 +432,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-28",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/tr/bilgi-toplumu-hizmetleri",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Bilgi Toplumu Hizmetleri Deda Gıda",
+  "fullTitle": "Bilgi Toplumu Hizmetleri Deda Gıda",
   "pageType": "utility",
   "lang": "tr",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 656,
+  "excerpt": "Bilgi Toplumu Hizmetleri Deda Gıda Gıda Fabrika : Adres:D-400 Karayolu üzeri Arslanlı mah. Bahçe – OSMANİYE Telefon +90 328 861 44 40 Fax : +90 328 861 44 50 mail :md@dedagroup.com www.dedagroup.com Konteyner Fabrika : Adres:Fevzipaşa Mah. 48093 Sok. No: 28/A Seyhan/Adana Telefon",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-29",
@@ -496,20 +496,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-32",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/ru/home",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Deda Gıda",
+  "fullTitle": "Deda Gıda | Deda Group",
   "pageType": "home",
   "lang": "ru",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 465,
+  "excerpt": "Deda Gıda | Deda Group документы Наша компания стремится к достижению высоких стандартов качества в производстве. Dedeman Группа гигиены благодаря механизмам внутреннего контроля и продолжать производство без ущерба для качества. У нас есть безопасности пищевых продуктов, системы",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-33",
@@ -560,20 +560,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-36",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/tr/galeri",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Galeri Deda Gıda",
+  "fullTitle": "Galeri Deda Gıda",
   "pageType": "gallery",
   "lang": "tr",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 638,
+  "excerpt": "Galeri Deda Gıda Gıda Fabrika : Adres:D-400 Karayolu üzeri Arslanlı mah. Bahçe – OSMANİYE Telefon +90 328 861 44 40 Fax : +90 328 861 44 50 mail :md@dedagroup.com www.dedagroup.com Konteyner Fabrika : Adres:Fevzipaşa Mah. 48093 Sok. No: 28/A Seyhan/Adana Telefon :+90 444 80 01 / ",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-37",
@@ -656,20 +656,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-42",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/tr/kataloglarimiz",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Kataloglarımız Deda Gıda",
+  "fullTitle": "Kataloglarımız Deda Gıda",
   "pageType": "catalog",
   "lang": "tr",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 646,
+  "excerpt": "Kataloglarımız Deda Gıda Gıda Fabrika : Adres:D-400 Karayolu üzeri Arslanlı mah. Bahçe – OSMANİYE Telefon +90 328 861 44 40 Fax : +90 328 861 44 50 mail :md@dedagroup.com www.dedagroup.com Konteyner Fabrika : Adres:Fevzipaşa Mah. 48093 Sok. No: 28/A Seyhan/Adana Telefon :+90 444 ",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-43",
@@ -704,20 +704,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-45",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/en/album/3",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Deda Gıda SERTİFİKALAR",
+  "fullTitle": "Deda Gıda SERTİFİKALAR",
   "pageType": "certificates",
   "lang": "en",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 163,
+  "excerpt": "Deda Gıda SERTİFİKALAR İnsan Kaynakları Site Haritası Bilgi Toplumu Hizmetleri Türkçe English العربية русский Home Corporate Products Certificates Gallery Contact",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-46",
@@ -816,36 +816,36 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-52",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/tr/album/5",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Deda Gıda Jölle",
+  "fullTitle": "Deda Gıda Jölle",
   "pageType": "gallery",
   "lang": "tr",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 159,
+  "excerpt": "Deda Gıda Jölle İnsan Kaynakları Site Haritası Bilgi Toplumu Hizmetleri Türkçe English العربية русский Ana Sayfa Kurumsal Ürünler Belgelerimiz Galeri İletişim",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-53",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/tr/album/6",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Deda Gıda Ice Boom - Patlayan Şeker - Poping Candy",
+  "fullTitle": "Deda Gıda Ice Boom - Patlayan Şeker - Poping Candy",
   "pageType": "gallery",
   "lang": "tr",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 179,
+  "excerpt": "Deda Gıda Ice Boom - Patlayan Şeker İnsan Kaynakları Site Haritası Bilgi Toplumu Hizmetleri Türkçe English العربية русский Ana Sayfa Kurumsal Ürünler Belgelerimiz Galeri İletişim",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-54",
@@ -880,20 +880,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-56",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/ar/album/5",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Deda Gıda Jölle",
+  "fullTitle": "Deda Gıda Jölle",
   "pageType": "gallery",
   "lang": "ar",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 157,
+  "excerpt": "Deda Gıda Jölle İnsan Kaynakları Site Haritası Bilgi Toplumu Hizmetleri Türkçe English العربية русский الصفحة الرئيسية المؤسسية المنتجات شهادات رواق اتصالات",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-57",
@@ -928,20 +928,20 @@
   "collectedAt": "2026-10-19T20:57:09.242Z"
  },
  {
-  "id": "pg-59",
+  "id": "pg-268",
   "entityId": "deda-gida",
   "domain": "dedagida.com",
   "url": "https://dedagida.com/ar/urun/ice-boom-patlayan-seker-poping-candy",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Ice Boom - Patlayan Şeker - Poping Candy Deda Gıda",
+  "fullTitle": "Ice Boom - Patlayan Şeker - Poping Candy Deda Gıda",
   "pageType": "product-detail",
   "lang": "ar",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:57:09.242Z"
+  "status": "ok",
+  "textLength": 615,
+  "excerpt": "Ice Boom - Patlayan Şeker Gıda Fabrika : Adres:D-400 Karayolu üzeri Arslanlı mah. Bahçe – OSMANİYE Telefon +90 328 861 44 40 Fax : +90 328 861 44 50 mail :md@dedagroup.com www.dedagroup.com Konteyner Fabrika : Adres:Fevzipaşa Mah. 48093 Sok. No: 28/A Seyhan/Adana Telefon :+90 444",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
   "id": "pg-60",
@@ -1018,13 +1018,1309 @@
   "lang": "tr",
   "httpStatus": 200,
   "status": "ok",
-  "textLength": 5610,
-  "excerpt": "Deda Makina – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Kurumsal Ürün Grupları A- SEÇME VE AYRIŞTIRMA SİSTEMLERİ B- KIRMA SİSTEMLERİ C – YIKAMA SİSTEMLERİ D – KURUTMA SİSTEMLERİ E – GRANÜR MAKİNELERİ ",
-  "collector": "direct-http",
-  "collectedAt": "2026-10-19T20:52:00.000Z"
+  "textLength": 1139,
+  "excerpt": "Deda Makina – Deda Makina Deda Pack’in Sürdürülebilir Çevre politikası İnsanlar ve diğer tüm canlıların ömürleri boyunca karşılıklı etkileşimde bulunduğu fiziki, biyolojik, kimyasal, ekonomik, kültürel ve sosyal ortamlara uygun yapı ve kalitede geri dönüştürülebilir ve daha çevre",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
  },
  {
   "id": "pg-65",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/teknik-destek/",
+  "title": "Teknik Destek",
+  "fullTitle": "Teknik Destek – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 210,
+  "excerpt": "Teknik Destek – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Anasayfa / Teknik Destek Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-66",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?registration=disabled",
+  "title": "Oturum aç ‹ Deda Makina",
+  "fullTitle": "Oturum aç ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 247,
+  "excerpt": "Oturum aç ‹ Deda Makina — WordPress WordPress'in desteğiyle Hata: Şu anda kullanıcıların hesap açmasına izin verilmiyor. Kullanıcı adı ya da e-posta adresi Parola Büyük harf açık. Beni hatırla Parolanızı mı unuttunuz? ← Deda Makina sitesine git",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-67",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/uretim/",
+  "title": "Üretim",
+  "fullTitle": "Üretim – Deda Makina",
+  "pageType": "production",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 1312,
+  "excerpt": "Üretim – Deda Makina Firmamız bünyesinde makine imalat aşaması bilgisayar destekli parametrik çizim programlarında 3 boyutlu tasarım ile başlar. Tasarım aşamasında tasarımcı mühendislerimiz makinelerin işlevsellik, kalite, verimlilik ve kullanım kolaylığı özelliklerini optimize e",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-68",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-69",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/a-1-secme-ve-ayiklama-sistemleri/",
+  "title": "A.1 SEÇME VE AYIKLAMA SİSTEMLERİ",
+  "fullTitle": "A.1 SEÇME VE AYIKLAMA SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 134,
+  "excerpt": "A.1 SEÇME VE AYIKLAMA SİSTEMLERİ – Deda Makina Anasayfa / A.1 SEÇME VE AYIKLAMA SİSTEMLERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-70",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b2-konveyor-bantlar/",
+  "title": "B2 KONVEYÖR BANTLAR",
+  "fullTitle": "B2 KONVEYÖR BANTLAR – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 108,
+  "excerpt": "B2 KONVEYÖR BANTLAR – Deda Makina Anasayfa / B2 KONVEYÖR BANTLAR Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-71",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b4-metal-dedektorler/",
+  "title": "B4 METAL DEDEKTÖRLER",
+  "fullTitle": "B4 METAL DEDEKTÖRLER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 110,
+  "excerpt": "B4 METAL DEDEKTÖRLER – Deda Makina Anasayfa / B4 METAL DEDEKTÖRLER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-72",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b3-metal-tutucu-miknatis-sistemleri/",
+  "title": "B3 METAL TUTUCU MIKNATIS SİSTEMLERİ",
+  "fullTitle": "B3 METAL TUTUCU MIKNATIS SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 140,
+  "excerpt": "B3 METAL TUTUCU MIKNATIS SİSTEMLERİ – Deda Makina Anasayfa / B3 METAL TUTUCU MIKNATIS SİSTEMLERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-73",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b1-giyotinler/",
+  "title": "B1 GİYOTİNLER",
+  "fullTitle": "B1 GİYOTİNLER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 210,
+  "excerpt": "B1 GİYOTİNLER – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Anasayfa / B1 GİYOTİNLER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-74",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b5-kirma-makineleri/",
+  "title": "B5 KIRMA MAKİNELERİ",
+  "fullTitle": "B5 KIRMA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 108,
+  "excerpt": "B5 KIRMA MAKİNELERİ – Deda Makina Anasayfa / B5 KIRMA MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-75",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b6-shredderler/",
+  "title": "B6 SHREDDERLER",
+  "fullTitle": "B6 SHREDDERLER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 98,
+  "excerpt": "B6 SHREDDERLER – Deda Makina Anasayfa / B6 SHREDDERLER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-76",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b7-nakil-helezonlari/",
+  "title": "B7 NAKİL HELEZONLARI",
+  "fullTitle": "B7 NAKİL HELEZONLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 110,
+  "excerpt": "B7 NAKİL HELEZONLARI – Deda Makina Anasayfa / B7 NAKİL HELEZONLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-77",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/blog/",
+  "title": "Blog",
+  "fullTitle": "Blog – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 385,
+  "excerpt": "Blog – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Tutkuyla Çalışanlar Asla Şansa İnanmazlar ! Nothing Found It seems we can’t find what you’re looking for. Perhaps searching can help. Recent Comments Görünt",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-78",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c1-cirpma-makineleri/",
+  "title": "C1. ÇIRPMA MAKİNELERİ",
+  "fullTitle": "C1. ÇIRPMA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 112,
+  "excerpt": "C1. ÇIRPMA MAKİNELERİ – Deda Makina Anasayfa / C1. ÇIRPMA MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-79",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c1-1-tek-saft-cirpma-makineleri/",
+  "title": "C1.1 TEK ŞAFT ÇIRPMA MAKİNELERİ",
+  "fullTitle": "C1.1 TEK ŞAFT ÇIRPMA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 132,
+  "excerpt": "C1.1 TEK ŞAFT ÇIRPMA MAKİNELERİ – Deda Makina Anasayfa / C1.1 TEK ŞAFT ÇIRPMA MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-80",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c1-2-cift-saft-cirpma-makineleri/",
+  "title": "C1.2 ÇİFT ŞAFT ÇIRPMA MAKİNELERİ",
+  "fullTitle": "C1.2 ÇİFT ŞAFT ÇIRPMA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 134,
+  "excerpt": "C1.2 ÇİFT ŞAFT ÇIRPMA MAKİNELERİ – Deda Makina Anasayfa / C1.2 ÇİFT ŞAFT ÇIRPMA MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-81",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c2-1-sert-plastik-yikama-havuzlari/",
+  "title": "C2.1 SERT PLASTİK YIKAMA HAVUZLARI",
+  "fullTitle": "C2.1 SERT PLASTİK YIKAMA HAVUZLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 138,
+  "excerpt": "C2.1 SERT PLASTİK YIKAMA HAVUZLARI – Deda Makina Anasayfa / C2.1 SERT PLASTİK YIKAMA HAVUZLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-82",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c2-yikama-havuzlari/",
+  "title": "C2. YIKAMA HAVUZLARI",
+  "fullTitle": "C2. YIKAMA HAVUZLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 110,
+  "excerpt": "C2. YIKAMA HAVUZLARI – Deda Makina Anasayfa / C2. YIKAMA HAVUZLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-83",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/a-secme-ve-ayristirma-sistemleri/",
+  "title": "A- SEÇME VE AYRIŞTIRMA SİSTEMLERİ",
+  "fullTitle": "A- SEÇME VE AYRIŞTIRMA SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 136,
+  "excerpt": "A- SEÇME VE AYRIŞTIRMA SİSTEMLERİ – Deda Makina Anasayfa / A- SEÇME VE AYRIŞTIRMA SİSTEMLERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-84",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/kurumsal/",
+  "title": "Kurumsal",
+  "fullTitle": "Kurumsal – Deda Makina",
+  "pageType": "about",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 1084,
+  "excerpt": "Kurumsal – Deda Makina Tutkuyla Çalışanlar Asla Şansa İnanmazlar! Çünkü Tutkuyla çalışanlar geleceği olağan akışa bırakmak yerine Azimle çalışarak kendileri inşa ederler. Onlar doğuştan farklı ve kararlıdır. Onları motive eden tek şey; Ulaştıkları her başarının daha ötesine geçme",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-85",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/urunler/",
+  "title": "Ürün Grupları",
+  "fullTitle": "Ürün Grupları – Deda Makina",
+  "pageType": "product-listing",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 227,
+  "excerpt": "Ürün Grupları – Deda Makina 3'Ü 1 ARADA AGROMEL CIFT SHAFT SHEREDDER ELEK YAKMA FIRINI GRANÜL KAFADAN KESME GRANÜL SİLOSU KIRMA MAKİNASI OTOMATİK FİLTRE SANTRAFUJ TURBO YIKAMA YATAY FİLM SIKMA YÜZDÜRME BATIRMA KAZANI",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-86",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/b-kirma-sistemleri/",
+  "title": "B- KIRMA SİSTEMLERİ",
+  "fullTitle": "B- KIRMA SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 206,
+  "excerpt": "B- KIRMA SİSTEMLERİ – Deda Makina GİYOTİNLER KONVEYÖR BANTLAR METAL TUTUCU MIKNATIS SİSTEMLERİ METAL DEDEKTÖRLERİ KIRMA MAKİNELERİ NAKİL HELEZONLARI TEK SHAFT SHREDDER ÇİFT SHAFT SHREDDER (ÖN KIRICI)",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-87",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c-yikama-sistemleri/",
+  "title": "C",
+  "fullTitle": "C – YIKAMA SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 354,
+  "excerpt": "C – YIKAMA SİSTEMLERİ – Deda Makina C1. ÇIRPMA MAKİNELERİ C1.1 TEK ŞAFT ÇIRPMA MAKİNELERİ C1.2 ÇİFT ŞAFT ÇIRPMA MAKİNELERİ C2. YIKAMA HAVUZLARI SERT PLASTİK YIKAMA HAVUZLARI PLASTİK FİLM YIKAMA HAVUZLARI C3. YATAY TEMİZLEME VE SUSUZLAŞTIRMA TURBO ÇIRPMA MAKİNELERİ C4. YATAY SIKMA",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-88",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/d-kurutma-sistemleri/",
+  "title": "D",
+  "fullTitle": "D – KURUTMA SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 114,
+  "excerpt": "D – KURUTMA SİSTEMLERİ – Deda Makina Anasayfa / D – KURUTMA SİSTEMLERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-89",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/e-granur-makineleri/",
+  "title": "E",
+  "fullTitle": "E – GRANÜR MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 260,
+  "excerpt": "E – GRANÜR MAKİNELERİ – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Anasayfa / E – GRANÜR MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar ! E3. 2 AYRI EXTRUDERLİ GRANÜR MAKİNELERİ",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-90",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f-eriyik-plastik-icin-filitre-sistemleri/",
+  "title": "F",
+  "fullTitle": "F – ERİYİK PLASTİK İÇİN FİLİTRE SİSTEMLERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 370,
+  "excerpt": "F – ERİYİK PLASTİK İÇİN FİLİTRE SİSTEMLERİ – Deda Makina F1. TEK ELEKLİ 330 LUK FİLİTRELER F2. TEK TEK ELEKLİ 500 LÜK FİLİTRELER F3. ÇİFT ELEKLİ 2 X 330 LUK FİLİTRELER F4. ÇİFT ELEKLİ 2 X 500 LÜK FİLİTRELER F5. ÜÇ ELEKLİ 3 X 500 LÜK FİLİTRELER ( YÜKSEK KAPASİTELİ KİRLİ PLASTİKLER",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-91",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/g-granur-karistirma-ve-kurutma-silolari/",
+  "title": "G- GRANÜR KARIŞTIRMA VE KURUTMA SİLOLARI",
+  "fullTitle": "G- GRANÜR KARIŞTIRMA VE KURUTMA SİLOLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 150,
+  "excerpt": "G- GRANÜR KARIŞTIRMA VE KURUTMA SİLOLARI – Deda Makina Anasayfa / G- GRANÜR KARIŞTIRMA VE KURUTMA SİLOLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-92",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/h-yardimci-makinalar/",
+  "title": "H- YARDIMCI MAKİNALAR",
+  "fullTitle": "H- YARDIMCI MAKİNALAR – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 112,
+  "excerpt": "H- YARDIMCI MAKİNALAR – Deda Makina Anasayfa / H- YARDIMCI MAKİNALAR Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-93",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/resim-galeri/",
+  "title": "Resim Galeri",
+  "fullTitle": "Resim Galeri – Deda Makina",
+  "pageType": "gallery",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 208,
+  "excerpt": "Resim Galeri – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Anasayfa / Resim Galeri Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-94",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/galeri/",
+  "title": "Galeri",
+  "fullTitle": "Galeri – Deda Makina",
+  "pageType": "gallery",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 215,
+  "excerpt": "Galeri – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Anasayfa / Galeri Tutkuyla Çalışanlar Asla Şansa İnanmazlar ! Görseller Videolar",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-95",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/ikince-el-makinalar/",
+  "title": "İkince El Makinalar",
+  "fullTitle": "İkince El Makinalar – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 108,
+  "excerpt": "İkince El Makinalar – Deda Makina Anasayfa / İkince El Makinalar Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-96",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/video-galeri/",
+  "title": "Video Galeri",
+  "fullTitle": "Video Galeri – Deda Makina",
+  "pageType": "gallery",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 208,
+  "excerpt": "Video Galeri – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Anasayfa / Video Galeri Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-97",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/cevre-politikamiz/",
+  "title": "Çevre Politikamız",
+  "fullTitle": "Çevre Politikamız – Deda Makina",
+  "pageType": "policy",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 6009,
+  "excerpt": "Çevre Politikamız – Deda Makina Firmamız, hiçbir çalışana zorunlu çalıştırma yaptırmamaktadır. Firmamızdaki çalışma esasları gönüllülük esasına dayanır. Çalışanın işi bırakması durumunda herhangi bir güvenlik sebebi dışında şirket buna engel olamaz veya erteleyemez. Çalışanımızın",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-98",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/belgelerimiz/",
+  "title": "Belgelerimiz",
+  "fullTitle": "Belgelerimiz – Deda Makina",
+  "pageType": "certificates",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 208,
+  "excerpt": "Belgelerimiz – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Menu Anasayfa / Belgelerimiz Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-99",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/iletisim/",
+  "title": "İletişim",
+  "fullTitle": "İletişim – Deda Makina",
+  "pageType": "contact",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 343,
+  "excerpt": "İletişim – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Anasayfa / İletişim Tutkuyla Çalışanlar Asla Şansa İnanmazlar ! İletişim Formu İletişim Formumuz üzerinden bizlere 7 / 24 ulaşabilir şikayetlerinizi ve ",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-100",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/3-u-1-arada/",
+  "title": "3’Ü 1 ARADA",
+  "fullTitle": "3’Ü 1 ARADA – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 189,
+  "excerpt": "3’Ü 1 ARADA – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-101",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/agromel/",
+  "title": "Agromel",
+  "fullTitle": "Agromel – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 184,
+  "excerpt": "Agromel – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-102",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/cift-shaft-sheredder/",
+  "title": "Cift Shaft Sheredder",
+  "fullTitle": "Cift Shaft Sheredder – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 197,
+  "excerpt": "Cift Shaft Sheredder – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-103",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/dikey-kesme/",
+  "title": "Dikey Kesme",
+  "fullTitle": "Dikey Kesme – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 188,
+  "excerpt": "Dikey Kesme – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-104",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/elek-yakma-firini/",
+  "title": "Elek Yakma Fırını",
+  "fullTitle": "Elek Yakma Fırını – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 194,
+  "excerpt": "Elek Yakma Fırını – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-105",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/granu%cc%88l-kafadan-kesme/",
+  "title": "Granül Kafadan Kesme",
+  "fullTitle": "Granül Kafadan Kesme – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 198,
+  "excerpt": "Granül Kafadan Kesme – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-106",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/granul-silosu/",
+  "title": "Granül Silosu",
+  "fullTitle": "Granül Silosu – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 190,
+  "excerpt": "Granül Silosu – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-107",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c2-2-plastik-film-yikama-havuzlari/",
+  "title": "C2.2 PLASTİK FİLM YIKAMA HAVUZLARI",
+  "fullTitle": "C2.2 PLASTİK FİLM YIKAMA HAVUZLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 138,
+  "excerpt": "C2.2 PLASTİK FİLM YIKAMA HAVUZLARI – Deda Makina Anasayfa / C2.2 PLASTİK FİLM YIKAMA HAVUZLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-108",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c3-yatay-temizleme-ve-susuzlastirma-turbo-cirpma-makineleri/",
+  "title": "C3. YATAY TEMİZLEME VE SUSUZLAŞTIRMA TURBO ÇIRPMA MAKİNELERİ",
+  "fullTitle": "C3. YATAY TEMİZLEME VE SUSUZLAŞTIRMA TURBO ÇIRPMA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 355,
+  "excerpt": "C3. YATAY TEMİZLEME VE SUSUZLAŞTIRMA TURBO ÇIRPMA MAKİNELERİ – Deda Makina Deda Makina +90 532 771 08 39 kd@dedagroup.com Zeytinli Mah. 94030 Sk. No:5 / A Seyhan / Adana / Türkiye Anasayfa / C3. YATAY TEMİZLEME VE SUSUZLAŞTIRMA TURBO ÇIRPMA MAKİNELERİ Tutkuyla Çalışanlar Asla Şan",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-109",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/kirma-makinasi/",
+  "title": "Kırma Makinası",
+  "fullTitle": "Kırma Makinası – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 191,
+  "excerpt": "Kırma Makinası – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-110",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c4-yatay-sikma-makineleri/",
+  "title": "C4. YATAY SIKMA MAKİNELERİ",
+  "fullTitle": "C4. YATAY SIKMA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 122,
+  "excerpt": "C4. YATAY SIKMA MAKİNELERİ – Deda Makina Anasayfa / C4. YATAY SIKMA MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-111",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c5-kirilmis-plastik-nakil-fanlari/",
+  "title": "C5. KIRILMIŞ PLASTİK NAKİL FANLARI",
+  "fullTitle": "C5. KIRILMIŞ PLASTİK NAKİL FANLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 138,
+  "excerpt": "C5. KIRILMIŞ PLASTİK NAKİL FANLARI – Deda Makina Anasayfa / C5. KIRILMIŞ PLASTİK NAKİL FANLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-112",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/c6-kepek-silolari/",
+  "title": "C6. KEPEK SİLOLARI",
+  "fullTitle": "C6. KEPEK SİLOLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 106,
+  "excerpt": "C6. KEPEK SİLOLARI – Deda Makina Anasayfa / C6. KEPEK SİLOLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-113",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/cift-shaft-shredder-on-kirici/",
+  "title": "ÇİFT SHAFT SHREDDER (ÖN KIRICI)",
+  "fullTitle": "ÇİFT SHAFT SHREDDER (ÖN KIRICI) – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 132,
+  "excerpt": "ÇİFT SHAFT SHREDDER (ÖN KIRICI) – Deda Makina Anasayfa / ÇİFT SHAFT SHREDDER (ÖN KIRICI) Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-114",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/d1-agromerler/",
+  "title": "D1. AGROMERLER",
+  "fullTitle": "D1. AGROMERLER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 98,
+  "excerpt": "D1. AGROMERLER – Deda Makina Anasayfa / D1. AGROMERLER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-115",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/d1-1-extrudere-acuple-agromerler/",
+  "title": "D1.1 EXTRUDERE ACUPLE AGROMERLER",
+  "fullTitle": "D1.1 EXTRUDERE ACUPLE AGROMERLER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 134,
+  "excerpt": "D1.1 EXTRUDERE ACUPLE AGROMERLER – Deda Makina Anasayfa / D1.1 EXTRUDERE ACUPLE AGROMERLER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-116",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/d1-2-bagimsiz-agromerler/",
+  "title": "D1.2 BAĞIMSIZ AGROMERLER",
+  "fullTitle": "D1.2 BAĞIMSIZ AGROMERLER – Deda Makina",
+  "pageType": "product-detail",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 118,
+  "excerpt": "D1.2 BAĞIMSIZ AGROMERLER – Deda Makina Anasayfa / D1.2 BAĞIMSIZ AGROMERLER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-117",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/d2-ucu-bir-arda-makineleri/",
+  "title": "D2. ÜÇÜ BİR ARDA MAKİNELERİ",
+  "fullTitle": "D2. ÜÇÜ BİR ARDA MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 124,
+  "excerpt": "D2. ÜÇÜ BİR ARDA MAKİNELERİ – Deda Makina Anasayfa / D2. ÜÇÜ BİR ARDA MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-118",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/1-e-tek-extruderli-yan-beslemeli-granur-makineleri/",
+  "title": "E1 TEK EXTRUDERLİ YAN BESLEMELİ GRANÜR MAKİNELERİ",
+  "fullTitle": "E1 TEK EXTRUDERLİ YAN BESLEMELİ GRANÜR MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 168,
+  "excerpt": "E1 TEK EXTRUDERLİ YAN BESLEMELİ GRANÜR MAKİNELERİ – Deda Makina Anasayfa / E1 TEK EXTRUDERLİ YAN BESLEMELİ GRANÜR MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-119",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/e2-tek-extruderli-agromer-acuple-edilmis-compakt-granur-makineleri/",
+  "title": "E2 TEK EXTRUDERLİ AGROMER ACUPLE EDİLMİŞ COMPAKT GRANÜR MAKİNELERİ",
+  "fullTitle": "E2 TEK EXTRUDERLİ AGROMER ACUPLE EDİLMİŞ COMPAKT GRANÜR MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 202,
+  "excerpt": "E2 TEK EXTRUDERLİ AGROMER ACUPLE EDİLMİŞ COMPAKT GRANÜR MAKİNELERİ – Deda Makina Anasayfa / E2 TEK EXTRUDERLİ AGROMER ACUPLE EDİLMİŞ COMPAKT GRANÜR MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-120",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f1-tek-elekli-330-luk-filitreler/",
+  "title": "F1. TEK ELEKLİ 330 LUK FİLİTRELER",
+  "fullTitle": "F1. TEK ELEKLİ 330 LUK FİLİTRELER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 136,
+  "excerpt": "F1. TEK ELEKLİ 330 LUK FİLİTRELER – Deda Makina Anasayfa / F1. TEK ELEKLİ 330 LUK FİLİTRELER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-121",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f3-cift-elekli-2-x-330-luk-filitreler/",
+  "title": "F3 ÇİFT ELEKLİ 2 X 330 LUK FİLİTRELER",
+  "fullTitle": "F3 ÇİFT ELEKLİ 2 X 330 LUK FİLİTRELER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 144,
+  "excerpt": "F3 ÇİFT ELEKLİ 2 X 330 LUK FİLİTRELER – Deda Makina Anasayfa / F3 ÇİFT ELEKLİ 2 X 330 LUK FİLİTRELER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-122",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/e3-2-ayri-extuderli-granur-makineleri/",
+  "title": "E3 2 AYRI EXTRUDERLİ GRANÜR MAKİNELERİ",
+  "fullTitle": "E3 2 AYRI EXTRUDERLİ GRANÜR MAKİNELERİ – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 146,
+  "excerpt": "E3 2 AYRI EXTRUDERLİ GRANÜR MAKİNELERİ – Deda Makina Anasayfa / E3 2 AYRI EXTRUDERLİ GRANÜR MAKİNELERİ Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-123",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f6-tek-elekli-otomatik-lazer-filitre/",
+  "title": "F6. TEK ELEKLİ OTOMATİK LAZER FİLİTRE",
+  "fullTitle": "F6. TEK ELEKLİ OTOMATİK LAZER FİLİTRE – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 144,
+  "excerpt": "F6. TEK ELEKLİ OTOMATİK LAZER FİLİTRE – Deda Makina Anasayfa / F6. TEK ELEKLİ OTOMATİK LAZER FİLİTRE Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-124",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f4-cift-elekli-2-x-500-luk-filitreler/",
+  "title": "F4. ÇİFT ELEKLİ 2 X 500 LÜK FİLİTRELER",
+  "fullTitle": "F4. ÇİFT ELEKLİ 2 X 500 LÜK FİLİTRELER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 146,
+  "excerpt": "F4. ÇİFT ELEKLİ 2 X 500 LÜK FİLİTRELER – Deda Makina Anasayfa / F4. ÇİFT ELEKLİ 2 X 500 LÜK FİLİTRELER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-125",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f2-tek-tek-elekli-500-luk-filitreler/",
+  "title": "F2. TEK TEK ELEKLİ 500 LÜK FİLİTRELER",
+  "fullTitle": "F2. TEK TEK ELEKLİ 500 LÜK FİLİTRELER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 144,
+  "excerpt": "F2. TEK TEK ELEKLİ 500 LÜK FİLİTRELER – Deda Makina Anasayfa / F2. TEK TEK ELEKLİ 500 LÜK FİLİTRELER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-126",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f5-uc-elekli-3-x-500-luk-filitreler-yuksek-kapasiteli-kirli-plastikler-icin/",
+  "title": "F5. ÜÇ ELEKLİ 3 X 500 LÜK FİLİTRELER ( YÜKSEK KAPASİTELİ KİRLİ PLASTİKLER İÇİN )",
+  "fullTitle": "F5. ÜÇ ELEKLİ 3 X 500 LÜK FİLİTRELER ( YÜKSEK KAPASİTELİ KİRLİ PLASTİKLER İÇİN ) – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 230,
+  "excerpt": "F5. ÜÇ ELEKLİ 3 X 500 LÜK FİLİTRELER ( YÜKSEK KAPASİTELİ KİRLİ PLASTİKLER İÇİN ) – Deda Makina Anasayfa / F5. ÜÇ ELEKLİ 3 X 500 LÜK FİLİTRELER ( YÜKSEK KAPASİTELİ KİRLİ PLASTİKLER İÇİN ) Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-127",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/g1-kare-tabanli-granur-silolari/",
+  "title": "G1. KARE TABANLI GRANÜR SİLOLARI",
+  "fullTitle": "G1. KARE TABANLI GRANÜR SİLOLARI – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 134,
+  "excerpt": "G1. KARE TABANLI GRANÜR SİLOLARI – Deda Makina Anasayfa / G1. KARE TABANLI GRANÜR SİLOLARI Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-128",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/f7-cift-elekli-otomotik-lazer-filitre/",
+  "title": "F7. ÇİFT ELEKLİ OTOMOTİK LAZER FİLİTRE",
+  "fullTitle": "F7. ÇİFT ELEKLİ OTOMOTİK LAZER FİLİTRE – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 146,
+  "excerpt": "F7. ÇİFT ELEKLİ OTOMOTİK LAZER FİLİTRE – Deda Makina Anasayfa / F7. ÇİFT ELEKLİ OTOMOTİK LAZER FİLİTRE Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-129",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/tek-shaft-shredder/",
+  "title": "TEK SHAFT SHREDDER",
+  "fullTitle": "TEK SHAFT SHREDDER – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 106,
+  "excerpt": "TEK SHAFT SHREDDER – Deda Makina Anasayfa / TEK SHAFT SHREDDER Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-130",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/yatay-film-sikma/",
+  "title": "Yatay Film Sıkma",
+  "fullTitle": "Yatay Film Sıkma – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 193,
+  "excerpt": "Yatay Film Sıkma – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-131",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/otomatik-filtre/",
+  "title": "Otomatik Filtre",
+  "fullTitle": "Otomatik Filtre – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 192,
+  "excerpt": "Otomatik Filtre – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-132",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/h2-kafadan-kesme/",
+  "title": "H2- KAFADAN KESME",
+  "fullTitle": "H2- KAFADAN KESME – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 104,
+  "excerpt": "H2- KAFADAN KESME – Deda Makina Anasayfa / H2- KAFADAN KESME Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-133",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/h3-yan-besleme/",
+  "title": "H3- YAN BESLEME",
+  "fullTitle": "H3- YAN BESLEME – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 100,
+  "excerpt": "H3- YAN BESLEME – Deda Makina Anasayfa / H3- YAN BESLEME Tutkuyla Çalışanlar Asla Şansa İnanmazlar !",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-134",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/santrafuj/",
+  "title": "Santrafuj",
+  "fullTitle": "Santrafuj – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 186,
+  "excerpt": "Santrafuj – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-135",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/turbo-yikama/",
+  "title": "Turbo Yıkama",
+  "fullTitle": "Turbo Yıkama – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 189,
+  "excerpt": "Turbo Yıkama – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-136",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Fteknik-destek%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-137",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-138",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Furetim%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-139",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php",
+  "title": "Oturum aç ‹ Deda Makina",
+  "fullTitle": "Oturum aç ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 186,
+  "excerpt": "Oturum aç ‹ Deda Makina — WordPress WordPress'in desteğiyle Kullanıcı adı ya da e-posta adresi Parola Büyük harf açık. Beni hatırla Parolanızı mı unuttunuz? ← Deda Makina sitesine git",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-140",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/yuzdurme-batirma-kazani/",
+  "title": "Yüzdürme Batırma Kazanı",
+  "fullTitle": "Yüzdürme Batırma Kazanı – Deda Makina",
+  "pageType": "other",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 200,
+  "excerpt": "Yüzdürme Batırma Kazanı – Deda Makina BACK-FLUSH FİLTRE 100 125 150 175 200 ELEK ÇAPI (mm)* 100 125 150 175 200 ELEK SAYISI 4 4 4 4 4 PİSTON ÇAPI Ø140 Ø165 Ø190 Ø215 Ø240 KAPASİTE (kg/s)*",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-141",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Fa-1-secme-ve-ayiklama-sistemleri%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-142",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Fb2-konveyor-bantlar%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-143",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Fb4-metal-dedektorler%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-144",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Fb3-metal-tutucu-miknatis-sistemleri%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-145",
+  "entityId": "deda-makina",
+  "domain": "dedamakina.com",
+  "url": "https://www.dedamakina.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedamakina.com%2Fb1-giyotinler%2F",
+  "title": "Parolamı unuttum ‹ Deda Makina",
+  "fullTitle": "Parolamı unuttum ‹ Deda Makina — WordPress",
+  "pageType": "account",
+  "lang": "tr",
+  "httpStatus": 200,
+  "status": "ok",
+  "textLength": 290,
+  "excerpt": "Parolamı unuttum ‹ Deda Makina — WordPress WordPress'in desteğiyle Lütfen kullanıcı adınızı ya da e-posta adresinizi yazın. Parolanızı nasıl sıfırlayacağınız ile ilgili yönergelerin bulunduğu bir e-posta alacaksınız. Kullanıcı adı ya da e-posta adresi Oturum aç ← Deda Makina site",
+  "collector": "apify/website-content-crawler",
+  "collectedAt": "2026-10-19T21:47:22.354Z"
+ },
+ {
+  "id": "pg-146",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/",
@@ -1040,7 +2336,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-66",
+  "id": "pg-147",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/mail-sablonu/",
@@ -1056,7 +2352,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-67",
+  "id": "pg-148",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2F",
@@ -1072,7 +2368,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-68",
+  "id": "pg-149",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/home/",
@@ -1088,7 +2384,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-69",
+  "id": "pg-150",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/startseite/",
@@ -1104,7 +2400,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-70",
+  "id": "pg-151",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a7%d9%84%d8%b5%d9%81%d8%ad%d8%a9-%d8%a7%d9%84%d8%b1%d8%a6%d9%8a%d8%b3%d9%8a%d8%a9/",
@@ -1120,7 +2416,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-71",
+  "id": "pg-152",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b4%d0%be%d0%bc%d0%b0%d1%88%d0%bd%d1%8f%d1%8f-%d1%81%d1%82%d1%80%d0%b0%d0%bd%d0%b8%d1%86%d0%b0/",
@@ -1136,7 +2432,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-72",
+  "id": "pg-153",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/pagina-inicial/",
@@ -1152,7 +2448,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-73",
+  "id": "pg-154",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/es/pagina-de-inicio/",
@@ -1168,7 +2464,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-74",
+  "id": "pg-155",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/fr/page-daccueil/",
@@ -1184,7 +2480,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-75",
+  "id": "pg-156",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/kurumsal/",
@@ -1200,7 +2496,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-76",
+  "id": "pg-157",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/politikalarimiz/",
@@ -1216,7 +2512,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-77",
+  "id": "pg-158",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/sertifikalarimiz/",
@@ -1232,7 +2528,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-78",
+  "id": "pg-159",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/urunler/",
@@ -1248,7 +2544,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-79",
+  "id": "pg-160",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/kraft-canta/",
@@ -1264,7 +2560,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-80",
+  "id": "pg-161",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/sapsiz-kagit-cantalar-sos-bag/",
@@ -1280,7 +2576,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-81",
+  "id": "pg-162",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/burgu-sapli-kagit-cantalar/",
@@ -1296,7 +2592,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-82",
+  "id": "pg-163",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/beyaz-kraft-canta/",
@@ -1312,7 +2608,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-83",
+  "id": "pg-164",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/sapsiz-beyaz-kagit-cantalar-sos-bag/",
@@ -1328,7 +2624,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-84",
+  "id": "pg-165",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/burgu-beyaz-sapli-kagit-cantalar/",
@@ -1344,7 +2640,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-85",
+  "id": "pg-166",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/yassi-sapli-beyaz-kagit-cantalar/",
@@ -1360,7 +2656,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-86",
+  "id": "pg-167",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/kariyer/",
@@ -1376,23 +2672,23 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-87",
+  "id": "pg-268",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/uretim/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Üretim",
+  "fullTitle": "Üretim – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft Çanta",
   "pageType": "production",
-  "lang": "en",
+  "lang": "tr",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:54:41.981Z"
+  "status": "ok",
+  "textLength": 1241,
+  "excerpt": "Üretim – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft Çanta Baskı Öncesi Konu müşterilerimizin hayal ettiği baskıyı ambalajın üzerinde görmek olduğunda, yılların deneyimine sahip olan grafik departmanımız Deda Pack yaratıcı güç kaynağıdır. Hatasız üretim yapma süreçl",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-88",
+  "id": "pg-169",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/yassi-sapli-kagit-cantalar/",
@@ -1408,7 +2704,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-89",
+  "id": "pg-170",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/fuarlarimiz/",
@@ -1424,7 +2720,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-90",
+  "id": "pg-171",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/e-katalog/",
@@ -1440,7 +2736,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-91",
+  "id": "pg-172",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/iletisim/",
@@ -1456,7 +2752,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-92",
+  "id": "pg-173",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?registration=disabled",
@@ -1472,7 +2768,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-93",
+  "id": "pg-174",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2Fmail-sablonu%2F",
@@ -1488,7 +2784,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-94",
+  "id": "pg-175",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php",
@@ -1504,7 +2800,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-95",
+  "id": "pg-176",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/corporate/",
@@ -1520,7 +2816,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-96",
+  "id": "pg-177",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/our-certificates/",
@@ -1536,7 +2832,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-97",
+  "id": "pg-178",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/our-policies/",
@@ -1552,7 +2848,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-98",
+  "id": "pg-179",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/kraft-bag/",
@@ -1568,7 +2864,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-99",
+  "id": "pg-180",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/products/",
@@ -1584,7 +2880,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-100",
+  "id": "pg-181",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/handleless-paper-bags-sos-bag/",
@@ -1600,7 +2896,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-101",
+  "id": "pg-182",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/handleless-white-paper-bags-sos-bag/",
@@ -1616,7 +2912,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-102",
+  "id": "pg-183",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/white-kraft-bag/",
@@ -1632,7 +2928,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-103",
+  "id": "pg-184",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/auger-handle-paper-bags/",
@@ -1648,7 +2944,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-104",
+  "id": "pg-185",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/flat-handle-paper-bags/",
@@ -1664,7 +2960,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-105",
+  "id": "pg-186",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/production/",
@@ -1680,7 +2976,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-106",
+  "id": "pg-187",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/twisted-rope-handle-white-paper-bags/",
@@ -1696,7 +2992,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-107",
+  "id": "pg-188",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/career/",
@@ -1712,7 +3008,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-108",
+  "id": "pg-189",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/flat-handle-white-paper-bags/",
@@ -1728,7 +3024,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-109",
+  "id": "pg-190",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/e-katalog-3/",
@@ -1744,7 +3040,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-110",
+  "id": "pg-191",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/contact/",
@@ -1760,7 +3056,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-111",
+  "id": "pg-192",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/en/auger-white-handle-paper-bags/",
@@ -1776,7 +3072,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-112",
+  "id": "pg-193",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2Fen%2Fhome%2F",
@@ -1792,7 +3088,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-113",
+  "id": "pg-194",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/institutionell/",
@@ -1808,7 +3104,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-114",
+  "id": "pg-195",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/politik/",
@@ -1824,7 +3120,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-115",
+  "id": "pg-196",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/unsere-zertifikate/",
@@ -1840,7 +3136,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-116",
+  "id": "pg-197",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/produkte/",
@@ -1856,7 +3152,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-117",
+  "id": "pg-198",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/kraftbeutel/",
@@ -1872,7 +3168,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-118",
+  "id": "pg-199",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/papiertuten-mit-gedrehtem-griff/",
@@ -1888,7 +3184,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-119",
+  "id": "pg-200",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/papiertuten-mit-flachem-griff/",
@@ -1904,7 +3200,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-120",
+  "id": "pg-201",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/weise-krafttute/",
@@ -1920,7 +3216,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-121",
+  "id": "pg-202",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/papiertuten-ohne-griffe-sos-bag/",
@@ -1936,7 +3232,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-122",
+  "id": "pg-203",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/weise-papiertuten-mit-flachem-griff/",
@@ -1952,7 +3248,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-123",
+  "id": "pg-204",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/produktion/",
@@ -1968,7 +3264,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-124",
+  "id": "pg-205",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/weise-papiertuten-ohne-griff-sos-beutel/",
@@ -1984,7 +3280,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-125",
+  "id": "pg-206",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/karriere/",
@@ -2000,7 +3296,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-126",
+  "id": "pg-207",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/kommunikation/",
@@ -2016,7 +3312,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-127",
+  "id": "pg-208",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/auger-papiertuten-mit-weisem-griff/",
@@ -2032,7 +3328,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-128",
+  "id": "pg-209",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a7%d9%84%d9%85%d8%a4%d8%b3%d8%b3%d9%8a%d8%a9/",
@@ -2048,7 +3344,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-129",
+  "id": "pg-210",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2Fde%2Fstartseite%2F",
@@ -2064,7 +3360,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-130",
+  "id": "pg-211",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%b3%d9%8a%d8%a7%d8%b3%d8%a7%d8%aa%d9%86%d8%a7/",
@@ -2080,7 +3376,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-131",
+  "id": "pg-212",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%b4%d9%87%d8%a7%d8%af%d8%a7%d8%aa%d9%86%d8%a7/",
@@ -2096,23 +3392,23 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-132",
+  "id": "pg-268",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d9%83%d8%b1%d8%a7%d9%81%d8%aa/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "حقيبة كرافت",
+  "fullTitle": "حقيبة كرافت – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft Çanta",
   "pageType": "product-detail",
   "lang": "ar",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:54:41.981Z"
+  "status": "ok",
+  "textLength": 103,
+  "excerpt": "حقيبة كرافت – Deda Pack Sign in Create an Account Username or email * Password * Lost your password?",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-133",
+  "id": "pg-214",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%a8%d9%85%d9%82%d8%a8%d8%b6-%d9%85%d8%b3%d8%b7%d8%ad/",
@@ -2128,7 +3424,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-134",
+  "id": "pg-215",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/de/e-katalog-2/",
@@ -2144,7 +3440,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-135",
+  "id": "pg-216",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d9%85%d9%86%d8%aa%d8%ac%d8%a7%d8%aa/",
@@ -2160,7 +3456,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-136",
+  "id": "pg-217",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%aa%d9%88%d9%8a%d8%b3%d8%aa-%d8%a7%d9%84%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d8%a7%d9%84%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%a8%d9%85%d9%82%d8%a8%d8%b6/",
@@ -2176,7 +3472,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-137",
+  "id": "pg-218",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%ba%d9%8a%d8%b1-%d9%8a%d8%af%d9%88%d9%8a%d8%a9/",
@@ -2192,7 +3488,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-138",
+  "id": "pg-219",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d9%83%d8%b1%d8%a7%d9%81%d8%aa-%d8%a8%d9%8a%d8%b6%d8%a7%d8%a1/",
@@ -2208,7 +3504,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-139",
+  "id": "pg-220",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d8%a7%d9%84%d9%88%d8%b1%d9%82-%d8%b0%d8%a7%d8%aa-%d8%a7%d9%84%d9%85%d9%82%d8%a8%d8%b6-%d8%a7%d9%84%d8%a3%d8%a8%d9%8a%d8%b6-%d9%85%d9%86-%d8%a3%d9%88%d8%ac%d9%8a%d9%87/",
@@ -2224,7 +3520,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-140",
+  "id": "pg-221",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%a8%d9%8a%d8%b6%d8%a7%d8%a1-%d8%b0%d8%a7%d8%aa-%d9%85%d9%82%d8%a8%d8%b6-%d9%85%d8%b3%d8%b7%d8%ad/",
@@ -2240,7 +3536,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-141",
+  "id": "pg-222",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%a8%d9%8a%d8%b6%d8%a7%d8%a1-%d8%ba%d9%8a%d8%b1-%d9%8a%d8%af%d9%88%d9%8a%d8%a9-%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-sos/",
@@ -2256,7 +3552,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-142",
+  "id": "pg-223",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a5%d9%86%d8%aa%d8%a7%d8%ac/",
@@ -2272,7 +3568,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-143",
+  "id": "pg-224",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%aa%d9%88%d8%a7%d8%b5%d9%84/",
@@ -2288,7 +3584,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-144",
+  "id": "pg-225",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%ad%d9%8a%d8%a7%d8%a9-%d9%85%d9%87%d9%86%d9%8a%d8%a9/",
@@ -2304,7 +3600,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-145",
+  "id": "pg-226",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a7%d9%84%d9%83%d8%aa%d8%a7%d9%84%d9%88%d8%ac%d9%8a-%d8%a5/",
@@ -2320,7 +3616,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-146",
+  "id": "pg-227",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%aa%d9%88%d9%8a%d8%b3%d8%aa-%d8%a7%d9%84%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d8%a7%d9%84%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%a8%d9%85%d9%82%d8%a8%d8%b6-2/",
@@ -2336,7 +3632,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-147",
+  "id": "pg-228",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%ba%d0%be%d1%80%d0%bf%d0%be%d1%80%d0%b0%d1%82%d0%b8%d0%b2%d0%bd%d1%8b%d0%b8/",
@@ -2352,7 +3648,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-148",
+  "id": "pg-229",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2Far%2F%25d8%25a7%25d9%2584%25d8%25b5%25d9%2581%25d8%25ad%25d8%25a9-%25d8%25a7%25d9%2584%25d8%25b1%25d8%25a6%25d9%258a%25d8%25b3%25d9%258a%25d8%25a9%2F",
@@ -2368,7 +3664,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-149",
+  "id": "pg-230",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ar/%d8%a3%d9%83%d9%8a%d8%a7%d8%b3-%d9%88%d8%b1%d9%82%d9%8a%d8%a9-%d8%b0%d8%a7%d8%aa-%d9%85%d9%82%d8%a8%d8%b6-%d9%85%d9%84%d8%aa%d9%88%d9%8a/",
@@ -2384,7 +3680,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-150",
+  "id": "pg-231",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%bd%d0%b0%d1%88%d0%b0-%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0/",
@@ -2400,7 +3696,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-151",
+  "id": "pg-232",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d1%8b/",
@@ -2416,7 +3712,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-152",
+  "id": "pg-233",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d1%81%d1%83%d0%bc%d0%ba%d0%b0-%d0%b8%d0%b7-%d0%ba%d1%80%d0%b0%d1%84%d1%82-%d0%b1%d1%83%d0%bc%d0%b0%d0%b3%d0%b8/",
@@ -2432,23 +3728,23 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-153",
+  "id": "pg-268",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d0%b5%d0%bb%d1%8b%d0%b5-%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d1%87%d0%b5%d0%ba-sos-bag/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Белые бумажные пакеты без ручек (SOS Bag)",
+  "fullTitle": "Белые бумажные пакеты без ручек (SOS Bag) — Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft Çanta",
   "pageType": "product-detail",
   "lang": "ru",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:54:41.981Z"
+  "status": "ok",
+  "textLength": 175,
+  "excerpt": "Белые бумажные пакеты без ручек (SOS Bag) — Deda Pack Размер ТипMin / CmMax / Cm Ширина (cm) 8 46 высота (cm) 15 68 Сильфоны (cm) 5 26 Плотность бумаги (gsm) 60 gsm 140 gsm",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-154",
+  "id": "pg-235",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d1%87%d0%b5%d0%ba/",
@@ -2464,7 +3760,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-155",
+  "id": "pg-236",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%bd%d0%b0%d1%88%d0%b8-%d1%81%d0%b5%d1%80%d1%82%d0%b8%d1%84%d0%b8%d0%ba%d0%b0%d1%82%d1%8b/",
@@ -2480,7 +3776,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-156",
+  "id": "pg-237",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d1%87%d0%b5%d0%ba-2/",
@@ -2496,7 +3792,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-157",
+  "id": "pg-238",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d0%b5%d0%bb%d1%8b%d0%b5-%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d1%81-%d0%bf%d0%bb%d0%be%d1%81%d0%ba%d0%be%d0%b9-%d1%80%d1%83%d1%87%d0%ba%d0%be/",
@@ -2512,7 +3808,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-158",
+  "id": "pg-239",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d1%81-%d0%bf%d0%bb%d0%be%d1%81%d0%ba%d0%be%d0%b9-%d1%80%d1%83%d1%87%d0%ba%d0%be%d0%b9/",
@@ -2528,7 +3824,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-159",
+  "id": "pg-240",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%bf%d1%80%d0%be%d0%b8%d0%b7%d0%b2%d0%be%d0%b4%d1%81%d1%82%d0%b2%d0%be/",
@@ -2544,7 +3840,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-160",
+  "id": "pg-241",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d0%b5%d0%bb%d0%b0%d1%8f-%d0%ba%d1%80%d0%b0%d1%84%d1%82-%d1%81%d1%83%d0%bc%d0%ba%d0%b0/",
@@ -2560,7 +3856,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-161",
+  "id": "pg-242",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d1%81-%d0%b2%d0%b8%d1%82%d0%be%d0%b9-%d1%80%d1%83%d1%87%d0%ba%d0%be%d0%b9/",
@@ -2576,7 +3872,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-162",
+  "id": "pg-243",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2Fru%2F%25d0%25b4%25d0%25be%25d0%25bc%25d0%25b0%25d1%2588%25d0%25bd%25d1%258f%25d1%258f-%25d1%2581%25d1%2582%25d1%2580%25d0%25b0%25d0%25bd%25d0%25b8%25d1%2586%25d0%25b0%2F",
@@ -2592,7 +3888,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-163",
+  "id": "pg-244",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%ba%d0%b0%d1%80%d1%8c%d0%b5%d1%80%d0%b0/",
@@ -2608,7 +3904,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-164",
+  "id": "pg-245",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d1%8d-%d0%ba%d0%b0%d1%82%d0%b0%d0%bb%d0%be%d0%b3/",
@@ -2624,7 +3920,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-165",
+  "id": "pg-246",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%b1%d1%83%d0%bc%d0%b0%d0%b6%d0%bd%d1%8b%d0%b5-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d1%8b-%d1%81-%d0%b1%d0%b5%d0%bb%d0%be%d0%b9-%d1%80%d1%83%d1%87%d0%ba%d0%be%d0%b9-auger/",
@@ -2640,7 +3936,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-166",
+  "id": "pg-247",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/ru/%d0%ba%d0%be%d0%bc%d0%bc%d1%83%d0%bd%d0%b8%d0%ba%d0%b0%d1%86%d0%b8%d1%8f/",
@@ -2656,7 +3952,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-167",
+  "id": "pg-248",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/nossos-certificados/",
@@ -2672,23 +3968,23 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-168",
+  "id": "pg-268",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/saco-kraft/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Saco Kraft",
+  "fullTitle": "Saco Kraft – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft Çanta",
   "pageType": "product-detail",
   "lang": "pt",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:54:41.981Z"
+  "status": "ok",
+  "textLength": 102,
+  "excerpt": "Saco Kraft – Deda Pack Sign in Create an Account Username or email * Password * Lost your password?",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-169",
+  "id": "pg-250",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/corporativa/",
@@ -2704,7 +4000,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-170",
+  "id": "pg-251",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/produtos/",
@@ -2720,7 +4016,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-171",
+  "id": "pg-252",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/sacos-de-papel-sem-alca-sos-bag/",
@@ -2736,7 +4032,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-172",
+  "id": "pg-253",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/sacos-de-papel-com-alca-torcida/",
@@ -2752,23 +4048,23 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-173",
+  "id": "pg-268",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/saco-kraft-branco/",
-  "title": "One moment, please...",
-  "fullTitle": "One moment, please...",
+  "title": "Saco Kraft Branco",
+  "fullTitle": "Saco Kraft Branco – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft Çanta",
   "pageType": "product-detail",
   "lang": "pt",
   "httpStatus": 200,
-  "status": "bot-check",
-  "textLength": 73,
-  "excerpt": null,
-  "collector": "apify/website-content-crawler",
-  "collectedAt": "2026-10-19T20:54:41.981Z"
+  "status": "ok",
+  "textLength": 109,
+  "excerpt": "Saco Kraft Branco – Deda Pack Sign in Create an Account Username or email * Password * Lost your password?",
+  "collector": "apify/website-content-crawler (browser retry)",
+  "collectedAt": "2026-10-19T21:49:04.082Z"
  },
  {
-  "id": "pg-174",
+  "id": "pg-255",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/sacos-de-papel-com-alca-plana/",
@@ -2784,7 +4080,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-175",
+  "id": "pg-256",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/politicas/",
@@ -2800,7 +4096,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-176",
+  "id": "pg-257",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/sacos-de-papel-branco-com-alca-plana/",
@@ -2816,7 +4112,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-177",
+  "id": "pg-258",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/sacos-de-papel-branco-sem-alcas-sos-bag/",
@@ -2832,7 +4128,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-178",
+  "id": "pg-259",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/producao/",
@@ -2848,7 +4144,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-179",
+  "id": "pg-260",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/sacos-de-papel-com-alca-branca-sem-fim/",
@@ -2864,7 +4160,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-180",
+  "id": "pg-261",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/carreira/",
@@ -2880,7 +4176,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-181",
+  "id": "pg-262",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/comunicacao/",
@@ -2896,7 +4192,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-182",
+  "id": "pg-263",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/wp-login.php?action=lostpassword&redirect_to=https%3A%2F%2Fwww.dedapack.com%2Fpt%2Fpagina-inicial%2F",
@@ -2912,7 +4208,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-183",
+  "id": "pg-264",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/es/institucional/",
@@ -2928,7 +4224,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-184",
+  "id": "pg-265",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/es/nuestras-politicas/",
@@ -2944,7 +4240,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-185",
+  "id": "pg-266",
   "entityId": "deda-pack",
   "domain": "dedapack.com",
   "url": "https://www.dedapack.com/pt/e-catalogo-2/",
@@ -2960,7 +4256,7 @@
   "collectedAt": "2026-10-19T20:54:41.981Z"
  },
  {
-  "id": "pg-186",
+  "id": "pg-267",
   "entityId": "deda-plast",
   "domain": "dedaplast.com",
   "url": "http://dedaplast.com/",

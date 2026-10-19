@@ -1,0 +1,474 @@
+{
+  "observedAt": "2026-10-19T21:51:58.120Z",
+  "httpStatus": 201,
+  "results": [
+    {
+      "entityId": "deda-pack",
+      "query": "kraft çanta üreticisi Adana",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": 1,
+      "organic": [
+        {
+          "position": 1,
+          "title": "Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft ...",
+          "url": "https://www.dedapack.com/",
+          "own": true
+        },
+        {
+          "position": 2,
+          "title": "Adana'da Kraft Çanta İmalatı - Poşet Baskıcı",
+          "url": "https://posetbaskici.com/kraft-canta-imalati/",
+          "own": false
+        },
+        {
+          "position": 3,
+          "title": "Harita",
+          "url": "https://www.akgulcanta.com.tr/",
+          "own": false
+        },
+        {
+          "position": 4,
+          "title": "Deda Pack 🇹🇷 (@dedapack) · Adana",
+          "url": "https://www.instagram.com/dedapack/",
+          "own": false
+        },
+        {
+          "position": 5,
+          "title": "Kraft Kağıt Çanta Adana – Toptan ve Baskılı Üretim",
+          "url": "https://www.pochettepack.com/kraft-kagit-canta-adana/",
+          "own": false
+        },
+        {
+          "position": 6,
+          "title": "Adana Karton Çanta Baskı",
+          "url": "https://www.birmatmatbaa.com/hizmetlerimiz/adana-karton-canta-baski",
+          "own": false
+        },
+        {
+          "position": 7,
+          "title": "Adana Toptan Kraft Çanta",
+          "url": "https://kagitcantadunyasi.com/blog_detay/adana-toptan-kraft-canta",
+          "own": false
+        },
+        {
+          "position": 8,
+          "title": "Kraft Çanta",
+          "url": "https://ekoambalaj.com.tr/collections/kraft-canta?srsltid=AU7gw4UOKlpyu103Pa7EEAvP1qywHHhXN7roHEc3KM0eowU-P72WlN0r",
+          "own": false
+        },
+        {
+          "position": 9,
+          "title": "Kraft Çanta Çeşitlerimiz İçin Eko Ambalajı Ziyaret Edin! Detaylı ...",
+          "url": "https://www.instagram.com/reel/DVffEPiCPOK/",
+          "own": false
+        },
+        {
+          "position": 10,
+          "title": "MALİLA | ADANA KRAFT KARTON ÇANTA MODELİ",
+          "url": "https://humakartoncanta.com.tr/portfolio/malila-adana-kraft-canta-modeli/",
+          "own": false
+        },
+        {
+          "position": 11,
+          "title": "Kraft Çanta - Nadir Ambalaj Çuval",
+          "url": "https://www.nadirambalajcuval.com.tr/urunlerimiz/ambalaj-grubu/kraft-canta/",
+          "own": false
+        }
+      ],
+      "groupPosition": 1
+    },
+    {
+      "entityId": "deda-pack",
+      "query": "baskılı kağıt çanta üretimi",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": null,
+      "organic": [
+        {
+          "position": 1,
+          "title": "Kraft Çanta | Toptan Kağıt Çanta Fiyatları",
+          "url": "https://istecanta.com/collections/kraft-canta?srsltid=AU7gw4UUMRfrUZZeL1shINYcY2Xx2m6r-NfbILJFzbaTj1Kc1PdvQLL_",
+          "own": false
+        },
+        {
+          "position": 2,
+          "title": "Karton & Kraft Çanta Üreticisi (@kartoncanta)",
+          "url": "https://www.instagram.com/kartoncanta/",
+          "own": false
+        },
+        {
+          "position": 3,
+          "title": "Kraft Ve Kağıt Çanta Çeşitleri Ve Fiyatları",
+          "url": "https://www.unipak.com.tr/kategori/kagit-cantalar?srsltid=AU7gw4WUPdpYhlrq2AXg1HYu5rdzjiF-ZWAwejBApVNGpI08t8Xdy9dF",
+          "own": false
+        },
+        {
+          "position": 4,
+          "title": "Ofsetsan Entegre | Karton Çanta Üretimi | +90 505 423 70 03",
+          "url": "https://www.ofsetsan.com.tr/",
+          "own": false
+        },
+        {
+          "position": 5,
+          "title": "Karton Çanta - Vompack",
+          "url": "https://www.vompack.com/karton-canta?srsltid=AU7gw4VgKd1iqL66Gb7wAOoIZVg4sPjpFBJUIwJcCycudS6BVaUVUQcn",
+          "own": false
+        },
+        {
+          "position": 6,
+          "title": "Türkiye'nin Karton Çanta Fabrikası | +90 505 423 70 03",
+          "url": "https://www.kartoncantafabrikasi.com/",
+          "own": false
+        },
+        {
+          "position": 7,
+          "title": "Karton Çanta Baskı Fiyatları 2026 | Logo Baskılı 230 gr",
+          "url": "https://www.istanbulofset.net/karton-canta-fiyatlari.html",
+          "own": false
+        },
+        {
+          "position": 8,
+          "title": "Karton Çanta",
+          "url": "https://www.milimmatbaa.com/karton-canta-1",
+          "own": false
+        },
+        {
+          "position": 9,
+          "title": "Cost Ambalaj | Baskılı Peçete, Baskılı Kraft Çanta",
+          "url": "https://costambalaj.com/",
+          "own": false
+        }
+      ],
+      "groupPosition": null
+    },
+    {
+      "entityId": "deda-pack",
+      "query": "Deda Pack",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": 2,
+      "organic": [
+        {
+          "position": 1,
+          "title": "Deda Pack",
+          "url": "https://www.facebook.com/DedaPackTR/videos/y%C3%BCksek-kalite-standartlar%C4%B1nda-%C3%BCretilen-k%C3%A2%C4%9F%C4%B1t-%C3%A7antalarla-markan%C4%B1za-g%C3%BC%C3%A7l%C3%BC-bir-duru/1180149634193302/",
+          "own": false
+        },
+        {
+          "position": 2,
+          "title": "Corporate – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı ...",
+          "url": "https://www.dedapack.com/en/corporate/",
+          "own": true
+        },
+        {
+          "position": 3,
+          "title": "Kraft Çanta, Burgu Saplı ve Yassı ...",
+          "url": "https://www.dedapack.com/ru/%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/",
+          "own": true
+        },
+        {
+          "position": 4,
+          "title": "Doğanın Dostu, Markanızın Gücü. 🌿 Deda Pack olarak",
+          "url": "https://www.facebook.com/DedaPackTR/posts/do%C4%9Fan%C4%B1n-dostu-markan%C4%B1z%C4%B1n-g%C3%BCc%C3%BC-deda-pack-olarak-s%C3%BCrd%C3%BCr%C3%BClebilir-%C3%BCretim-anlay%C4%B1%C5%9F%C4%B1m%C4%B1z/852034300918366/",
+          "own": false
+        },
+        {
+          "position": 5,
+          "title": "Politikalarımız – Deda Pack | Kraft Çanta, Burgu Saplı ve ...",
+          "url": "https://www.dedapack.com/politikalarimiz/",
+          "own": true
+        },
+        {
+          "position": 6,
+          "title": "Deda Pack in Adana, Turkiye",
+          "url": "https://www.paperindex.com/profile/deda-pack/17062510/65676",
+          "own": false
+        },
+        {
+          "position": 7,
+          "title": "DEDA PACK İş İlanları - İş Başvurusu",
+          "url": "https://isinolsun.com/firma-profil/deda-pack-c1978979",
+          "own": false
+        },
+        {
+          "position": 8,
+          "title": "Deda Pack olarak, farklı sektörlerin ihtiyaçlarına özel, kaliteli ve ...",
+          "url": "https://www.facebook.com/DedaPackTR/videos/deda-pack-olarak-farkl%C4%B1-sekt%C3%B6rlerin-ihtiya%C3%A7lar%C4%B1na-%C3%B6zel-kaliteli-ve-%C3%A7evre-dostu-k/2755399974655215/",
+          "own": false
+        },
+        {
+          "position": 9,
+          "title": "Deda Pack added a new photo.",
+          "url": "https://www.facebook.com/DedaPackTR/photos/373493922105742/",
+          "own": false
+        }
+      ],
+      "groupPosition": 2
+    },
+    {
+      "entityId": "deda-makina",
+      "query": "plastik geri dönüşüm makinesi üreticisi",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": null,
+      "organic": [
+        {
+          "position": 1,
+          "title": "Plastik Geri Dönüşüm Makinası Anahtar teslimi çözüm!",
+          "url": "https://tr.ytplasticmachine.com/plastic-recycling-machine",
+          "own": false
+        },
+        {
+          "position": 2,
+          "title": "Geri Dönüşüm Tesisi Firmaları",
+          "url": "https://www.mtfirma.com/geri-donusum-tesisi-firmalari",
+          "own": false
+        },
+        {
+          "position": 3,
+          "title": "Çin Plastik Şişe Geri Dönüşüm Makinası Üretici ... - POLYTIME",
+          "url": "http://tr.polytimetech.com/plastic-bottle-recycling-machine/",
+          "own": false
+        },
+        {
+          "position": 4,
+          "title": "Yerli üretim İnanTech 1300 Shredder Makinesi, yüksek ...",
+          "url": "https://www.instagram.com/reel/DL4akvip18M/",
+          "own": false
+        },
+        {
+          "position": 5,
+          "title": "PET plastik geri dönüşüm makinası",
+          "url": "https://www.wedomachine.com/tr/product-category/plastic-recycling-machine/pet-plastic-recycling-machine/",
+          "own": false
+        },
+        {
+          "position": 6,
+          "title": "Plastik Şişeler Için Geri Dönüşüm Makinesi(999+)",
+          "url": "https://turkish.alibaba.com/g/recycling-machine-for-plastic-bottles.html",
+          "own": false
+        },
+        {
+          "position": 7,
+          "title": "geri dönüşüm makineleri | B2B şirketleri ve tedarikçileri",
+          "url": "https://www.europages.com.tr/%C5%9Firketler/geri-doenue%C5%9Fuem-makineleri.html",
+          "own": false
+        },
+        {
+          "position": 8,
+          "title": "Plastik Geri Dönüşüm Makinaları",
+          "url": "https://www.facebook.com/plastikgeridonusummakineleri/?locale=tr_TR",
+          "own": false
+        },
+        {
+          "position": 9,
+          "title": "Otomatik Plastik Geri Dönüşüm Makinesi | Kitech'ten Satın Alın",
+          "url": "https://www.kitechrecyclingmachine.com/tr/plastic-recycling-machine.html",
+          "own": false
+        }
+      ],
+      "groupPosition": null
+    },
+    {
+      "entityId": "deda-makina",
+      "query": "Deda Makina",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": null,
+      "organic": [
+        {
+          "position": 1,
+          "title": "İletişim – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı ...",
+          "url": "https://www.dedapack.com/iletisim/",
+          "own": true
+        },
+        {
+          "position": 2,
+          "title": "Deda Group - Plastik ürün üreticileri",
+          "url": "https://yandex.com.tr/maps/org/deda_group/1047723767/",
+          "own": false
+        },
+        {
+          "position": 3,
+          "title": "Fuarlarımız – Deda Pack | Kraft Çanta, Burgu Saplı ve ...",
+          "url": "https://www.dedapack.com/fuarlarimiz/",
+          "own": true
+        },
+        {
+          "position": 4,
+          "title": "DEDA PACK Makine Ustası İş İlanı - 10.10.2026",
+          "url": "https://isinolsun.com/is-ilani/makine-ustasi-deda-pack-0ioj6D3297D317A74EA6A8280A03BD05C848",
+          "own": false
+        },
+        {
+          "position": 5,
+          "title": "Ürünler – Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı ...",
+          "url": "https://www.dedapack.com/urunler/",
+          "own": true
+        },
+        {
+          "position": 6,
+          "title": "DEDA PACK Dilme Makinesi Operatörü İş İlanı - 28.09.2026",
+          "url": "https://isinolsun.com/is-ilani/dilme-makinesi-operatoru-deda-pack-0ioj05E8836187524FBB8C3EEF1F7FD5F105",
+          "own": false
+        },
+        {
+          "position": 7,
+          "title": "90+ “Deda” profili",
+          "url": "https://tr.linkedin.com/pub/dir/+/Deda/tr-0-T%C3%BCrkiye",
+          "own": false
+        },
+        {
+          "position": 8,
+          "title": "DEDA PACK Dilme Makinesi Operatörü İş İlanı - 28.09.2026",
+          "url": "https://www.isverglobaldunya.com.tr/is-ilani/dilme-makinesi-operatoru-deda-pack-0ioj05E8836187524FBB8C3EEF1F7FD5F105-z-5892876444312-bb",
+          "own": false
+        },
+        {
+          "position": 9,
+          "title": "DED MAKİNA (@dedmakina) · Ankara",
+          "url": "https://www.instagram.com/dedmakina/",
+          "own": false
+        }
+      ],
+      "groupPosition": 1
+    },
+    {
+      "entityId": "deda-gida",
+      "query": "Deda Gıda",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": 1,
+      "organic": [
+        {
+          "position": 1,
+          "title": "Deda Gıda | Deda Group",
+          "url": "https://dedagida.com/",
+          "own": true
+        },
+        {
+          "position": 2,
+          "title": "Deda Gıda Enerji İnşaat Taahhüt Sanayi ve Dış Tic.ltd.şti.",
+          "url": "https://www.kariyer.net/firma-profil/deda-gida-enerji-insaat-taahhut-sanayi-ve-dis-tic-6983-31862",
+          "own": false
+        },
+        {
+          "position": 3,
+          "title": "DEDA GIDA ENERJİ.İNŞ.TAAH.SAN VE DIŞ TİC.LTD.ŞTİ",
+          "url": "https://www.yenibiris.com/firma/deda-gida-enerji-ins-taah-san-ve-dis-tic-ltd-sti/62104",
+          "own": false
+        },
+        {
+          "position": 4,
+          "title": "DEDA GIDA ENERJİ İNŞAAT TAAHHÜT SAN. VE TİC.LTD. ...",
+          "url": "https://www.bulurum.com/details/b_1i325ecc5_cfc63f5ice3i071g3k0j",
+          "own": false
+        },
+        {
+          "position": 5,
+          "title": "DEDA GIDA ENERJİ İNŞAAT TAAHHÜT SANAYİ VE DIŞ ...",
+          "url": "https://www.interpack.com/vis/v1/en/exhprofiles/oBg5uQQ3QI25Hdp4jWsHfQ",
+          "own": false
+        },
+        {
+          "position": 6,
+          "title": "DEDA GIDA",
+          "url": "https://www.all-for-pack.com/en/exhibitors/exhibitor/DEDA-GIDA",
+          "own": false
+        }
+      ],
+      "groupPosition": 1
+    },
+    {
+      "entityId": "deda-group",
+      "query": "Dedagroup Adana",
+      "observedAt": "2026-10-19T21:51:58.120Z",
+      "source": "Google (apify/google-search-scraper, TR, desktop, page 1)",
+      "collected": true,
+      "paidResults": [],
+      "ownPosition": 4,
+      "organic": [
+        {
+          "position": 1,
+          "title": "Deda Gıda | Deda Group",
+          "url": "https://dedagida.com/",
+          "own": true
+        },
+        {
+          "position": 2,
+          "title": "Deda Pack 🇹🇷 (@dedapack) · Adana",
+          "url": "https://www.instagram.com/dedapack/",
+          "own": false
+        },
+        {
+          "position": 3,
+          "title": "Harita",
+          "url": "http://www.dedapack.com/",
+          "own": true
+        },
+        {
+          "position": 4,
+          "title": "Dedagroup – Dedagroup",
+          "url": "https://www.dedagroup.com/",
+          "own": true
+        },
+        {
+          "position": 5,
+          "title": "Deda Pack | Kraft Çanta, Burgu Saplı ve Yassı Saplı Kraft ...",
+          "url": "https://www.dedapack.com/",
+          "own": true
+        },
+        {
+          "position": 6,
+          "title": "Yeni nesil teknolojiye yatırım başarıyı katladı",
+          "url": "https://www.sabah.com.tr/ekonomi/2018/05/10/yeni-nesil-teknolojiye-yatirim-basariyi-katladi",
+          "own": false
+        },
+        {
+          "position": 7,
+          "title": "Deda Group - Plastik ürün üreticileri",
+          "url": "https://yandex.com.tr/maps/org/deda_group/1047723767/",
+          "own": false
+        },
+        {
+          "position": 8,
+          "title": "DEDA GIDA ENERJİ İNŞAAT TAAHHÜT SAN. VE TİC.LTD. ...",
+          "url": "https://www.bulurum.com/details/b_1i325ecc5_cfc63f5ice3i071g3k0j",
+          "own": false
+        },
+        {
+          "position": 9,
+          "title": "Dedapack~ ~ DEDA PACK Adana merkezli 34 yıllık sanayi ...",
+          "url": "https://www.facebook.com/DedaPackTR/posts/-dedapack-deda-pack-adana-merkezli-34-y%C4%B1ll%C4%B1k-sanayi-ge%C3%A7mi%C5%9Fi-olan-g%C4%B1da-%C3%BCretimi-pl/353297530792048/",
+          "own": false
+        },
+        {
+          "position": 10,
+          "title": "Deda Gıda Enerji İnşaat Taahhüt Sanayi ve Dış Tic.ltd.şti.",
+          "url": "https://www.kariyer.net/firma-profil/deda-gida-enerji-insaat-taahhut-sanayi-ve-dis-tic-6983-31862",
+          "own": false
+        },
+        {
+          "position": 11,
+          "title": "DEDA GIDA ENERJİ.İNŞ.TAAH.SAN VE DIŞ TİC.LTD.ŞTİ",
+          "url": "https://www.yenibiris.com/firma/deda-gida-enerji-ins-taah-san-ve-dis-tic-ltd-sti/62104",
+          "own": false
+        }
+      ],
+      "groupPosition": 1
+    }
+  ]
+}

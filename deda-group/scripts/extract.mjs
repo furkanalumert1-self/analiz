@@ -46,10 +46,10 @@ const isBotCheck = (r) => /One moment, please/i.test(r.title || '') || /request 
 const files = (await readdir(path.join(DATA, 'crawls'))).filter((f) => f.endsWith('.json'));
 const seen = new Map();
 for (const f of files) {
-  const domain = f.replace(/\.fallback\.json$|\.json$/, '');
-  const collector = f.includes('fallback') ? 'direct-http' : 'apify/website-content-crawler';
+  const collector = f.includes('fallback') ? 'direct-http' : f.startsWith('retry-') ? 'apify/website-content-crawler (browser retry)' : 'apify/website-content-crawler';
   for (const r of await readJson(`crawls/${f}`)) {
     const url = r.loadedUrl || r.url;
+    const domain = new URL(url).hostname.replace(/^www\./, '');
     const key = url.replace(/^http:/, 'https:').replace('://www.', '://').replace(/\/$/, '');
     if (seen.has(key) && seen.get(key).status === 'ok') continue;
     const status = r.httpStatusCode >= 400 ? 'http-error' : isBotCheck(r) ? 'bot-check' : 'ok';

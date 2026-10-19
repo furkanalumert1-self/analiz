@@ -61,7 +61,7 @@
     pages: okPages.length,
     pagesAll: D.pages.length,
     catalog: CAT.length,
-    paidAds: D.ads.results.reduce((s, r) => s + r.adsFound, 0),
+    paidAds: D.ads.results.reduce((s, r) => s + r.adsFound, 0) + D.search.results.reduce((s, r) => s + r.paidResults.length, 0),
     adQueries: D.ads.results.length,
     ppVerified: count(PP, (p) => p.classification === 'Verified Pain Point'),
     ppHyp: count(PP, (p) => p.classification === 'Evidence-Based Hypothesis'),
@@ -200,9 +200,9 @@
       ${kpi(K.companies, 'Doğrulanmış grup şirketi', '+ çatı şirket; 1 olası ilişki', 'ecosystem')}
       ${kpi(K.brands, 'Doğrulanmış marka', 'şirket + ürün markaları', 'ecosystem')}
       ${kpi(`${K.websites}/${K.websitesTried}`, 'Analiz edilen web sitesi', 'okunabilir içerik alınan / denenen', 'websites')}
-      ${kpi(K.pages, 'Toplanan benzersiz sayfa', `${K.pagesAll} kayıttan; diğerleri 404 / bot doğrulaması`, 'evidence')}
+      ${kpi(K.pages, 'Toplanan benzersiz sayfa', `${K.pagesAll} kayıttan; diğerleri HTTP 404 / erişilemez`, 'evidence')}
       ${kpi(K.catalog, 'Ürün & hizmet kaydı', 'fiyat kamuya açık değil', 'catalog')}
-      ${kpi(K.paidAds, 'Gözlenen ücretli reklam', `${K.adQueries} Meta Reklam Kütüphanesi sorgusu`, 'ads')}
+      ${kpi(K.paidAds, 'Gözlenen ücretli reklam', `${K.adQueries} Meta + ${D.search.results.length} Google sorgusu`, 'ads')}
       ${kpi(K.ppVerified, 'Doğrulanmış sorun noktası', '', 'painpoints')}
       ${kpi(K.ppHyp, 'Kanıta dayalı hipotez', '', 'painpoints')}
       ${kpi(K.questions, 'Keşif sorusu', `${K.ppDisc} sorun keşif gerektiriyor`, 'questions')}
@@ -228,11 +228,12 @@
     </div>
     <div class="card mt"><h2>Yönetici özeti</h2><ol class="list mt-s">
       <li><b>Teklif yakalama en büyük ve en hızlı kaldıraç.</b> Deda Pack'te ölçü/adet/baskı bilgisini toplayan bir teklif formu yok (<a href="#" data-pp="PP01">PP01</a>); Deda Makina'nın teklif formu kırık bir PDF (<a href="#" data-pp="PP10">PP10</a>). Yapılandırılmış form + CRM + otomatik onay (<a href="#" data-opp="O01">O01</a>, <a href="#" data-opp="O07">O07</a>).</li>
-      <li><b>Web hijyeni ve marka riski acil.</b> Konteyner sitesi, kırık dedaplast.com, ajans demo alanındaki 404 kataloglar, Makina'da Pack metni (<a href="#" data-opp="O15">O15</a>).</li>
+      <li><b>Web hijyeni ve marka riski acil.</b> Konteyner sitesi, kırık dedaplast.com, ajans demo alanındaki 404 kataloglar, Makina'da Pack metni ve blogda tema demo içeriği, Gıda'nın Rusça sayfasında 'Dedeman' çevirisi, eksik zorunlu şirket bilgileri (<a href="#" data-opp="O15">O15</a>, <a href="#" data-pp="PP29">PP29</a>).</li>
+      <li><b>Deda Makina dijitalde neredeyse görünmez.</b> 'Deda Makina' aramasında kendi sitesi ilk sayfada yok; 13 makine sayfası aynı yanlış teknik tabloyu gösteriyor, 37 sayfada yalnızca başlık var (<a href="#" data-pp="PP27">PP27</a>, <a href="#" data-pp="PP28">PP28</a>, <a href="#" data-opp="O24">O24</a>).</li>
       <li><b>Takip ve tekrar sipariş Engage'in doğal alanı</b> — teklif sonrası takip, yenileme hatırlatma, fuar nurture (<a href="#" data-opp="O02">O02</a>, <a href="#" data-opp="O03">O03</a>, <a href="#" data-opp="O04">O04</a>); CRM/ERP verisi ve Engage yetenek teyidi gerekli.</li>
       <li><b>Çok kanallı talepler tek kayda toplanmalı</b> (form, WhatsApp, 3 telefon, birden çok e-posta) (<a href="#" data-opp="O17">O17</a>).</li>
       <li><b>Ölçüm ve rıza altyapısı her şeyin ön koşulu</b>: Makina, Gıda ve grup sitesinde analitik gözlenmedi; Pack'te CMP gözlenmedi (<a href="#" data-opp="O16">O16</a>).</li>
-      <li><b>Kapasite (günlük 456.361 çanta) ve 60 ihracat müşterisi hedefi</b> karşısında görünür dijital talep yaratma sınırlı — Meta'da 0 reklam (<a href="#" data-pp="PP07">PP07</a>); önce ölçüm ve teklif formu, sonra pilot kampanya.</li>
+      <li><b>Kapasite (günlük 456.361 çanta) ve 60 ihracat müşterisi hedefi</b> karşısında görünür dijital talep yaratma sınırlı — Meta'da 0 reklam, 7 Google sorgusunda 0 ücretli sonuç; 'baskılı kağıt çanta üretimi' aramasında Deda yok (<a href="#" data-pp="PP07">PP07</a>, <a href="#" data-pp="PP28">PP28</a>); önce ölçüm ve teklif formu, sonra pilot kampanya.</li>
       <li><b>AI fırsatları ikinci dalga</b>: çok dilli WhatsApp satış asistanı ve Makina teknik ön-satış asistanı; bilgi tabanı ve insan devri ile (<a href="#" data-opp="O10">O10</a>, <a href="#" data-opp="O11">O11</a>).</li>
     </ol></div>`;
   };
@@ -443,10 +444,17 @@
 
   S.ads = () => head('Reklam ve Müşteri Kazanımı İstihbaratı', esc(D.campaigns.note)) + `
     <div class="kpis"><div class="card kpi"><div class="v">${K.paidAds}</div><div class="l">Meta'da gözlenen reklam</div><div class="s">${K.adQueries} tam ifade sorgusu · ${esc(D.ads.observedAt.slice(0, 10))}</div></div>
+      <div class="card kpi"><div class="v">${D.search.results.reduce((n, r) => n + r.paidResults.length, 0)}</div><div class="l">Google'da ücretli sonuç</div><div class="s">${D.search.results.length} sorgu</div></div>
+      <div class="card kpi"><div class="v">${count(D.search.results, (r) => !r.ownPosition)}/${D.search.results.length}</div><div class="l">Kendi sitesinin ilk sayfada olmadığı sorgu</div></div>
       <div class="card kpi"><div class="v">${count(D.campaigns.observations, (c) => c.kind === 'Organic')}</div><div class="l">Organik sinyal</div></div>
       <div class="card kpi"><div class="v">${count(D.technologies.detected, (t) => t.category === 'analytics' || t.category === 'tag-management' || t.category === 'advertising')}</div><div class="l">Ölçüm/reklam etiketi tespiti</div></div></div>
     <div class="table-wrap mt"><table><thead><tr><th>Şirket</th><th>Kaynak</th><th>Tür</th><th>Gözlem</th><th>Sonuç</th><th>Tarih</th><th>Kanıt</th></tr></thead><tbody>
       ${D.campaigns.observations.map((c) => `<tr><td>${esc(entName(c.entityId))}</td><td>${esc(c.source)}</td><td>${badge(c.kind === 'Paid' ? 'Ücretli' : c.kind === 'Organic' ? 'Organik' : 'İzleme', c.kind === 'Paid' ? 'b-brand' : '')}</td><td class="small">${esc(c.description)}</td><td>${esc(c.result)}</td><td>${esc(c.observedAt)}</td><td>${srcLinks(c.sourceIds)}</td></tr>`).join('')}
+    </tbody></table></div>
+    <h2 class="mt">Google arama görünürlüğü (TR, ilk sayfa)</h2>
+    <p class="muted mt-s">Apify google-search-scraper · ${esc(D.search.observedAt.slice(0, 10))} · tek ölçüm; kişiselleştirme ve konuma göre değişebilir.</p>
+    <div class="table-wrap mt-s"><table><thead><tr><th>Sorgu</th><th>Şirket</th><th>Kendi sitesi</th><th>Grup sitesi</th><th>Ücretli sonuç</th><th>İlk 3 sonuç</th></tr></thead><tbody>
+      ${D.search.results.map((r) => `<tr><td><b>${esc(r.query)}</b></td><td>${esc(entName(r.entityId))}</td><td>${r.ownPosition ? badge('#' + r.ownPosition, 'b-verified') : badge('İlk sayfada yok', 'b-red')}</td><td>${r.groupPosition ? '#' + r.groupPosition : '—'}</td><td>${r.paidResults.length}</td><td class="small">${r.organic.slice(0, 3).map((o) => link(o.url, o.url.replace(/^https?:\/\/(www\.)?/, '').slice(0, 45))).join('<br>')}</td></tr>`).join('')}
     </tbody></table></div>
     <h2 class="mt">Reklam → CRM → satış haritası</h2>
     <div class="grid g3 mt-s">${D.campaigns.funnels.map((fn) => `<div class="card"><h3>${esc(entName(fn.entityId))} · ${esc(fn.type)}</h3><ol class="list mt-s small">${fn.steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>${kv([['Gerekli olaylar', chips(fn.requiredEvents)], ['Rıza', esc(fn.consent)], ['Atıf sınırı', esc(fn.attributionLimits)]])}</div>`).join('')}</div>`;
@@ -469,7 +477,7 @@
     const ql = f.q.toLocaleLowerCase('tr');
     if (f.kind === 'pages') {
       const rows = D.pages.filter((p) => (!f.entity || p.entityId === f.entity) && (!ql || [p.url, p.title, p.excerpt].join(' ').toLocaleLowerCase('tr').includes(ql)));
-      return head('Evidence Explorer', 'Taranan tüm sayfa kayıtları (benzersiz URL). Bot doğrulaması ve HTTP hataları ayrıca işaretlenir.') + evFilters(f, rows.length) + `
+      return head('Evidence Explorer', 'Taranan tüm sayfa kayıtları (benzersiz URL). Doğrulama sayfası ve HTTP hataları ayrıca işaretlenir.') + evFilters(f, rows.length) + `
       <div class="table-wrap"><table><thead><tr><th>Sayfa</th><th>Şirket</th><th>Tür</th><th>Dil</th><th>Durum</th><th>Toplayan</th><th>Zaman</th></tr></thead><tbody>
         ${rows.slice(0, 300).map((p) => `<tr><td>${link(p.url, p.title || p.url)}<div class="faint">${esc((p.excerpt || '').slice(0, 120))}</div></td><td>${esc(entName(p.entityId))}</td><td>${esc(p.pageType)}</td><td>${esc(p.lang)}</td><td>${p.status === 'ok' ? badge('OK', 'b-verified') : p.status === 'bot-check' ? badge('Bot doğrulaması', 'b-inferred') : badge('HTTP ' + p.httpStatus, 'b-red')}</td><td class="small">${esc(p.collector)}</td><td class="small">${esc((p.collectedAt || '').slice(0, 16))}</td></tr>`).join('')}
       </tbody></table></div>`;

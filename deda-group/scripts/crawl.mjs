@@ -26,16 +26,25 @@ const TARGETS = {
   'adanakonteyner.com.tr': 'https://www.adanakonteyner.com.tr/',
 };
 
+// 'retry-blocked' re-fetches, with a real browser, only the pages that returned the
+// site's JavaScript check page or nothing in earlier runs (listed in data/pages.json).
+const RETRY = 'retry-blocked';
+const retryUrls = async () => JSON.parse(await readFile(path.join(DATA, 'pages.json'), 'utf8'))
+  .filter((p) => p.status === 'bot-check').map((p) => p.url);
+
 const ACTOR = 'apify~website-content-crawler';
 const api = (p) => `https://api.apify.com/v2${p}`;
 const auth = { Authorization: `Bearer ${TOKEN}` };
 
+// CRAWLER_TYPE=playwright:firefox (or playwright:chrome) renders pages in a real browser,
+// for sites that serve a JavaScript check page to plain HTTP clients.
 async function runCrawl(domain, startUrl) {
+  const startUrls = domain === RETRY ? await retryUrls() : [startUrl];
   const input = {
-    startUrls: [{ url: startUrl }],
-    crawlerType: 'cheerio',
-    maxCrawlPages: Number(process.env.MAX_PAGES || 80),
-    maxCrawlDepth: 4,
+    startUrls: startUrls.map((url) => ({ url })),
+    crawlerType: process.env.CRAWLER_TYPE || 'cheerio',
+    maxCrawlPages: domain === RETRY ? startUrls.length : Number(process.env.MAX_PAGES || 80),
+    maxCrawlDepth: domain === RETRY ? 0 : 4,
     respectRobotsTxtFile: true,
     excludeUrlGlobs: [
       { glob: '**/wp-admin/**' }, { glob: '**/wp-json/**' }, { glob: '**/feed/**' },
@@ -48,7 +57,7 @@ async function runCrawl(domain, startUrl) {
     proxyConfiguration: { useApifyProxy: true },
   };
   const started = new Date().toISOString();
-  const res = await fetch(api(`/acts/${ACTOR}/runs?waitForFinish=60&memory=1024`), {
+  const res = await fetch(api(`/acts/${ACTOR}/runs?waitForFinish=60&memory=${process.env.CRAWLER_TYPE?.startsWith('playwright') ? 4096 : 1024}`), {
     method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' }, body: JSON.stringify(input),
   });
   if (!res.ok) throw new Error(`start failed: HTTP ${res.status}`);
@@ -74,7 +83,7 @@ async function runCrawl(domain, startUrl) {
     collectedAt,
   }));
   await writeFile(path.join(DATA, 'crawls', `${domain}.json`), JSON.stringify(rows, null, 1));
-  return { domain, startUrl, actor: 'apify/website-content-crawler', runId: run.id, status: run.status,
+  return { domain, startUrl: domain === RETRY ? `${startUrls.length} blocked URLs` : startUrl, crawlerType: input.crawlerType, actor: 'apify/website-content-crawler', runId: run.id, status: run.status,
     startedAt: started, finishedAt: collectedAt, itemCount: rows.length };
 }
 

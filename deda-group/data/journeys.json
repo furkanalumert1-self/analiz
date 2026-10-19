@@ -1,32 +1,276 @@
 {
   "journeys": [
-    { "id": "J-pack", "entityId": "deda-pack", "type": "Manufacturing B2B", "stages": [
-      { "id": "Discovery", "label": "Keşif", "observed": "8 dilli site, organik arama, fuarlar (2023), sosyal profiller; ücretli Meta reklamı yok.", "painPointIds": ["PP03", "PP07", "PP15"], "opportunityIds": ["O14", "O22", "O15"] },
-      { "id": "Product View", "label": "Ürün inceleme", "observed": "Ürün sayfalarında ölçü/gramaj tabloları; e-katalog ve sertifika içeriği gözlenmedi.", "painPointIds": ["PP04", "PP25"], "opportunityIds": ["O05", "O10"] },
-      { "id": "Inquiry", "label": "Talep", "observed": "Genel iletişim formu (şikayet/öneri), WhatsApp, 3 telefon, e-posta.", "painPointIds": ["PP01", "PP02"], "opportunityIds": ["O01", "O17", "O20"] },
-      { "id": "Qualification", "label": "Nitelendirme", "observed": "Kamuya açık değil.", "painPointIds": ["PP02", "PP23"], "opportunityIds": ["O17", "O10"] },
-      { "id": "Quotation", "label": "Teklif / prova", "observed": "Grafik departmanı ve baskı hizmeti beyanı; süreç görünmüyor.", "painPointIds": ["PP26"], "opportunityIds": ["O13"] },
-      { "id": "Follow-up", "label": "Takip", "observed": "Kamuya açık değil.", "painPointIds": ["PP01"], "opportunityIds": ["O02"] },
-      { "id": "Order", "label": "Sipariş / sevkiyat", "observed": "Isıl işlemli palet ve dünya geneline sevkiyat beyanı.", "painPointIds": [], "opportunityIds": [] },
-      { "id": "Reorder", "label": "Tekrar sipariş", "observed": "Mevcut müşteri için yol gözlenmedi.", "painPointIds": ["PP08"], "opportunityIds": ["O03", "O06"] }
-    ] },
-    { "id": "J-makina", "entityId": "deda-makina", "type": "Capital equipment B2B", "stages": [
-      { "id": "Discovery", "label": "Keşif", "observed": "Yalnızca Türkçe site; içerik kopyalama hatası; analitik gözlenmedi.", "painPointIds": ["PP11", "PP12", "PP13", "PP15"], "opportunityIds": ["O14", "O16"] },
-      { "id": "Product View", "label": "Ürün grubu inceleme", "observed": "A–H ürün grupları, ~45 alt sayfa, galeri/video.", "painPointIds": [], "opportunityIds": ["O09"] },
-      { "id": "Quotation", "label": "Teklif talebi", "observed": "PDF teklif formu — 404; telefon/Call Now.", "painPointIds": ["PP10"], "opportunityIds": ["O07", "O11"] },
-      { "id": "Qualification", "label": "Teknik nitelendirme", "observed": "Kamuya açık değil.", "painPointIds": [], "opportunityIds": ["O11"] },
-      { "id": "After-sales", "label": "Kurulum / servis", "observed": "Teknik destek sayfası mevcut; içerik okunamadı.", "painPointIds": ["PP14"], "opportunityIds": ["O08"] }
-    ] },
-    { "id": "J-gida", "entityId": "deda-gida", "type": "Manufacturing & distribution", "stages": [
-      { "id": "Discovery", "label": "Keşif", "observed": "TR/EN/AR/RU site; EN metin makine çevirisi; analitik gözlenmedi.", "painPointIds": ["PP17", "PP13"], "opportunityIds": ["O14"] },
-      { "id": "Product Inquiry", "label": "Ürün / katalog", "observed": "3 ürün; katalog PDF'leri 404.", "painPointIds": ["PP16", "PP17"], "opportunityIds": ["O15", "O18"] },
-      { "id": "Lead Acquisition", "label": "Distribütör talebi", "observed": "Yalnızca genel form; mobilde tıklanabilir telefon yok.", "painPointIds": ["PP18"], "opportunityIds": ["O18"] },
-      { "id": "Order", "label": "Sipariş", "observed": "Kamuya açık değil.", "painPointIds": ["PP19"], "opportunityIds": ["O12"] },
-      { "id": "Reorder", "label": "Sezonluk tekrar sipariş", "observed": "Kamuya açık değil.", "painPointIds": [], "opportunityIds": ["O18"] }
-    ] },
-    { "id": "J-group", "entityId": "deda-group", "type": "Group umbrella", "stages": [
-      { "id": "Discovery", "label": "Grup adı araması", "observed": "Tek sayfa grup sitesi; iletişim yolu yok; dedaplast.com kırık; Konteyner sitesi riskli.", "painPointIds": ["PP22", "PP20", "PP21"], "opportunityIds": ["O15", "O17"] },
-      { "id": "Measurement", "label": "Ölçüm / yönetim", "observed": "Analitik yalnızca Deda Pack ve Konteyner sitelerinde gözlendi.", "painPointIds": ["PP13", "PP23", "PP24"], "opportunityIds": ["O16", "O19", "O23"] }
-    ] }
+    {
+      "id": "J-pack",
+      "entityId": "deda-pack",
+      "type": "Manufacturing B2B",
+      "stages": [
+        {
+          "id": "Discovery",
+          "label": "Keşif",
+          "observed": "8 dilli site; 'kraft çanta üreticisi Adana' aramasında #1, 'baskılı kağıt çanta üretimi' aramasında yok; fuarlar (2023); ücretli reklam gözlenmedi.",
+          "painPointIds": [
+            "PP03",
+            "PP07",
+            "PP15",
+            "PP28"
+          ],
+          "opportunityIds": [
+            "O14",
+            "O22",
+            "O15"
+          ]
+        },
+        {
+          "id": "Product View",
+          "label": "Ürün inceleme",
+          "observed": "Ürün sayfalarında ölçü/gramaj tabloları; e-katalog ve sertifika içeriği gözlenmedi.",
+          "painPointIds": [
+            "PP04",
+            "PP25"
+          ],
+          "opportunityIds": [
+            "O05",
+            "O10"
+          ]
+        },
+        {
+          "id": "Inquiry",
+          "label": "Talep",
+          "observed": "Genel iletişim formu (şikayet/öneri), WhatsApp, 3 telefon, e-posta.",
+          "painPointIds": [
+            "PP01",
+            "PP02"
+          ],
+          "opportunityIds": [
+            "O01",
+            "O17",
+            "O20"
+          ]
+        },
+        {
+          "id": "Qualification",
+          "label": "Nitelendirme",
+          "observed": "Kamuya açık değil.",
+          "painPointIds": [
+            "PP02",
+            "PP23"
+          ],
+          "opportunityIds": [
+            "O17",
+            "O10"
+          ]
+        },
+        {
+          "id": "Quotation",
+          "label": "Teklif / prova",
+          "observed": "Grafik departmanı ve baskı hizmeti beyanı; süreç görünmüyor.",
+          "painPointIds": [
+            "PP26"
+          ],
+          "opportunityIds": [
+            "O13"
+          ]
+        },
+        {
+          "id": "Follow-up",
+          "label": "Takip",
+          "observed": "Kamuya açık değil.",
+          "painPointIds": [
+            "PP01"
+          ],
+          "opportunityIds": [
+            "O02"
+          ]
+        },
+        {
+          "id": "Order",
+          "label": "Sipariş / sevkiyat",
+          "observed": "Isıl işlemli palet ve dünya geneline sevkiyat beyanı.",
+          "painPointIds": [],
+          "opportunityIds": []
+        },
+        {
+          "id": "Reorder",
+          "label": "Tekrar sipariş",
+          "observed": "Mevcut müşteri için yol gözlenmedi.",
+          "painPointIds": [
+            "PP08"
+          ],
+          "opportunityIds": [
+            "O03",
+            "O06"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "J-makina",
+      "entityId": "deda-makina",
+      "type": "Capital equipment B2B",
+      "stages": [
+        {
+          "id": "Discovery",
+          "label": "Keşif",
+          "observed": "Yalnızca Türkçe site; marka aramasında ilk sayfada yok; içerik kopyalama ve şablon kalıntıları; analitik gözlenmedi.",
+          "painPointIds": [
+            "PP11",
+            "PP12",
+            "PP13",
+            "PP15",
+            "PP28"
+          ],
+          "opportunityIds": [
+            "O14",
+            "O16",
+            "O24"
+          ]
+        },
+        {
+          "id": "Product View",
+          "label": "Ürün grubu inceleme",
+          "observed": "A–H ürün grupları, ~45 alt sayfa; 37 sayfada yalnızca başlık, 13 sayfada aynı yanlış tablo.",
+          "painPointIds": [
+            "PP27"
+          ],
+          "opportunityIds": [
+            "O24",
+            "O09"
+          ]
+        },
+        {
+          "id": "Quotation",
+          "label": "Teklif talebi",
+          "observed": "PDF teklif formu — 404; telefon/Call Now.",
+          "painPointIds": [
+            "PP10"
+          ],
+          "opportunityIds": [
+            "O07",
+            "O11"
+          ]
+        },
+        {
+          "id": "Qualification",
+          "label": "Teknik nitelendirme",
+          "observed": "Kamuya açık değil.",
+          "painPointIds": [],
+          "opportunityIds": [
+            "O11"
+          ]
+        },
+        {
+          "id": "After-sales",
+          "label": "Kurulum / servis",
+          "observed": "Teknik destek, ikinci el ve belgeler sayfaları boş.",
+          "painPointIds": [
+            "PP14"
+          ],
+          "opportunityIds": [
+            "O08"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "J-gida",
+      "entityId": "deda-gida",
+      "type": "Manufacturing & distribution",
+      "stages": [
+        {
+          "id": "Discovery",
+          "label": "Keşif",
+          "observed": "TR/EN/AR/RU site; EN/RU makine çevirisi ('Dedeman'); analitik gözlenmedi; zorunlu şirket bilgileri yok.",
+          "painPointIds": [
+            "PP17",
+            "PP13",
+            "PP29"
+          ],
+          "opportunityIds": [
+            "O14"
+          ]
+        },
+        {
+          "id": "Product Inquiry",
+          "label": "Ürün / katalog",
+          "observed": "3 ürün; katalog PDF'leri 404.",
+          "painPointIds": [
+            "PP16",
+            "PP17"
+          ],
+          "opportunityIds": [
+            "O15",
+            "O18"
+          ]
+        },
+        {
+          "id": "Lead Acquisition",
+          "label": "Distribütör talebi",
+          "observed": "Yalnızca genel form; mobilde tıklanabilir telefon yok.",
+          "painPointIds": [
+            "PP18"
+          ],
+          "opportunityIds": [
+            "O18"
+          ]
+        },
+        {
+          "id": "Order",
+          "label": "Sipariş",
+          "observed": "Kamuya açık değil.",
+          "painPointIds": [
+            "PP19"
+          ],
+          "opportunityIds": [
+            "O12"
+          ]
+        },
+        {
+          "id": "Reorder",
+          "label": "Sezonluk tekrar sipariş",
+          "observed": "Kamuya açık değil.",
+          "painPointIds": [],
+          "opportunityIds": [
+            "O18"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "J-group",
+      "entityId": "deda-group",
+      "type": "Group umbrella",
+      "stages": [
+        {
+          "id": "Discovery",
+          "label": "Grup adı araması",
+          "observed": "Tek sayfa grup sitesi; iletişim yolu yok; dedaplast.com kırık; Konteyner sitesi riskli.",
+          "painPointIds": [
+            "PP22",
+            "PP20",
+            "PP21"
+          ],
+          "opportunityIds": [
+            "O15",
+            "O17"
+          ]
+        },
+        {
+          "id": "Measurement",
+          "label": "Ölçüm / yönetim",
+          "observed": "Analitik yalnızca Deda Pack ve Konteyner sitelerinde gözlendi.",
+          "painPointIds": [
+            "PP13",
+            "PP23",
+            "PP24"
+          ],
+          "opportunityIds": [
+            "O16",
+            "O19",
+            "O23"
+          ]
+        }
+      ]
+    }
   ]
 }

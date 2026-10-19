@@ -1,172 +1,1217 @@
 {
   "scoring": {
     "method": "Her fırsat 5 bileşende 1–5 puanlanır. Ağırlıklı skor = 0.30×Etki + 0.20×Kanıt gücü + 0.20×İş ilgisi + 0.15×Uygulanabilirlik + 0.15×Stratejik uyum. Öncelik: ≥ 3.80 Yüksek, ≥ 3.00 Orta, < 3.00 Düşük. Skor ve öncelik, bileşenlerden build adımında ve tarayıcıda hesaplanır; elle atanmaz.",
-    "weights": { "impact": 0.30, "evidence": 0.20, "relevance": 0.20, "feasibility": 0.15, "fit": 0.15 },
-    "thresholds": { "high": 3.8, "medium": 3.0 },
+    "weights": {
+      "impact": 0.3,
+      "evidence": 0.2,
+      "relevance": 0.2,
+      "feasibility": 0.15,
+      "fit": 0.15
+    },
+    "thresholds": {
+      "high": 3.8,
+      "medium": 3.0
+    },
     "impactNote": "Etki (Low/Medium/High) nitel bir tahmindir. Gelir, ROI, dönüşüm artışı veya maliyet tasarrufu tahmini yapılmamıştır; bunlar için sipariş, teklif ve trafik verisi gerekir."
   },
   "engageCapabilityStatus": "Bu ortamda Callypso Engage için ürün dokümantasyonu, depo veya uygulama erişimi bulunamadı; kamuya açık web aramasında da özellik listesi doğrulanamadı. 'Callypso Engage' kategorisindeki her öneri, toplantıda Callypso ürün ekibiyle teyit edilmesi gereken varsayılan yetenekleri (tetikleyici, segment, çok adımlı akış, e-posta/WhatsApp kanalı) kullanır.",
   "opportunities": [
-    { "id": "O01", "entityId": "deda-pack", "title": "Çok dilli yapılandırılmış teklif formu + otomatik onay ve satış özeti", "painPointIds": ["PP01"], "solutionCategory": "Engage + Integration", "journeyStage": "Inquiry",
-      "trigger": "Teklif formu gönderimi", "segment": "Yeni teklif talepleri", "requiredData": ["Form alanları", "MOQ/termin", "Temsilci-ülke eşleşmesi"], "requiredEvents": ["quote_request_submitted"], "integrations": ["WordPress form", "CRM", "Engage (doğrulanmalı)", "WhatsApp Business API"], "channel": "E-posta + WhatsApp",
-      "sequence": ["0 dk: alıcının dilinde onay + ölçü/baskı özetinin teyidi", "0 dk: temsilciye yapılandırılmış özet", "24 saat: teklif gönderilmediyse temsilciye hatırlatma", "Teklif sonrası 3. gün: takip mesajı"],
+    {
+      "id": "O01",
+      "entityId": "deda-pack",
+      "title": "Çok dilli yapılandırılmış teklif formu + otomatik onay ve satış özeti",
+      "painPointIds": [
+        "PP01"
+      ],
+      "solutionCategory": "Engage + Integration",
+      "journeyStage": "Inquiry",
+      "trigger": "Teklif formu gönderimi",
+      "segment": "Yeni teklif talepleri",
+      "requiredData": [
+        "Form alanları",
+        "MOQ/termin",
+        "Temsilci-ülke eşleşmesi"
+      ],
+      "requiredEvents": [
+        "quote_request_submitted"
+      ],
+      "integrations": [
+        "WordPress form",
+        "CRM",
+        "Engage (doğrulanmalı)",
+        "WhatsApp Business API"
+      ],
+      "channel": "E-posta + WhatsApp",
+      "sequence": [
+        "0 dk: alıcının dilinde onay + ölçü/baskı özetinin teyidi",
+        "0 dk: temsilciye yapılandırılmış özet",
+        "24 saat: teklif gönderilmediyse temsilciye hatırlatma",
+        "Teklif sonrası 3. gün: takip mesajı"
+      ],
       "exampleMessage": "Merhaba {ad}, {ürün} için {adet} adet, {en}×{boy}×{körük} cm, {renk} renk baskılı teklif talebinizi aldık. Temsilciniz {temsilci} en geç 1 iş günü içinde dönüş yapacak.",
-      "dependencies": ["O16"], "humanOversight": "Teklif fiyatı ve termin insan tarafından onaylanır.", "complexity": "Low", "impact": "High", "confidence": "Verified",
-      "measurement": "Form→teklif oranı, ilk yanıt süresi, eksik bilgi geri dönüş sayısı", "firstStep": "Mevcut teklif sürecinde sorulan alanları satış ekibiyle listelemek",
-      "scores": { "impact": 5, "evidence": 5, "relevance": 5, "feasibility": 5, "fit": 4 } },
-    { "id": "O02", "entityId": "deda-pack", "title": "Teklif sonrası takip ve yanıtsız teklif kurtarma", "painPointIds": ["PP01", "PP02"], "solutionCategory": "Callypso Engage", "journeyStage": "Follow-up",
-      "trigger": "Teklif gönderildi + X gün yanıt yok", "segment": "Teklif gönderilmiş, yanıtsız", "requiredData": ["Teklif tarihi", "Teklif durumu"], "requiredEvents": ["quote_sent", "quote_status_changed"], "integrations": ["CRM", "Engage (doğrulanmalı)"], "channel": "E-posta + WhatsApp",
-      "sequence": ["3. gün: soru var mı? numune önerisi", "7. gün: alternatif ölçü/gramaj önerisi", "14. gün: temsilci araması görevi", "30. gün: kayıp nedeni sorusu"],
+      "dependencies": [
+        "O16"
+      ],
+      "humanOversight": "Teklif fiyatı ve termin insan tarafından onaylanır.",
+      "complexity": "Low",
+      "impact": "High",
+      "confidence": "Verified",
+      "measurement": "Form→teklif oranı, ilk yanıt süresi, eksik bilgi geri dönüş sayısı",
+      "firstStep": "Mevcut teklif sürecinde sorulan alanları satış ekibiyle listelemek",
+      "scores": {
+        "impact": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "feasibility": 5,
+        "fit": 4
+      }
+    },
+    {
+      "id": "O02",
+      "entityId": "deda-pack",
+      "title": "Teklif sonrası takip ve yanıtsız teklif kurtarma",
+      "painPointIds": [
+        "PP01",
+        "PP02"
+      ],
+      "solutionCategory": "Callypso Engage",
+      "journeyStage": "Follow-up",
+      "trigger": "Teklif gönderildi + X gün yanıt yok",
+      "segment": "Teklif gönderilmiş, yanıtsız",
+      "requiredData": [
+        "Teklif tarihi",
+        "Teklif durumu"
+      ],
+      "requiredEvents": [
+        "quote_sent",
+        "quote_status_changed"
+      ],
+      "integrations": [
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta + WhatsApp",
+      "sequence": [
+        "3. gün: soru var mı? numune önerisi",
+        "7. gün: alternatif ölçü/gramaj önerisi",
+        "14. gün: temsilci araması görevi",
+        "30. gün: kayıp nedeni sorusu"
+      ],
       "exampleMessage": "{ad}, {ürün} teklifimizle ilgili sorunuz varsa yanıtlamaktan memnuniyet duyarız. İsterseniz baskı öncesi numune de gönderebiliriz.",
-      "dependencies": ["O01", "O17"], "humanOversight": "Fiyat revizyonu yalnızca temsilci tarafından.", "complexity": "Low", "impact": "High", "confidence": "Inferred",
-      "measurement": "Teklif kazanma oranı, yanıt alma oranı, kayıp nedeni dağılımı", "firstStep": "CRM'de teklif durum alanlarını tanımlamak",
-      "scores": { "impact": 4, "evidence": 3, "relevance": 5, "feasibility": 4, "fit": 5 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O03", "entityId": "deda-pack", "title": "Tekrar sipariş (yenileme) hatırlatma akışı", "painPointIds": ["PP08"], "solutionCategory": "Engage + Integration", "journeyStage": "Reorder",
-      "trigger": "Beklenen yenileme tarihi − 10 gün", "segment": "Aktif hesaplar (sarf çanta alıcıları)", "requiredData": ["Sipariş geçmişi", "Ürün/ölçü", "İletişim izni"], "requiredEvents": ["order_placed", "order_shipped"], "integrations": ["ERP", "CRM", "Engage (doğrulanmalı)"], "channel": "E-posta + WhatsApp",
-      "sequence": ["T−10: 'aynı siparişi tekrarla' bağlantısı", "T−3: yanıt yoksa temsilci görevi", "T+14: hâlâ sipariş yoksa risk etiketi"],
+      "dependencies": [
+        "O01",
+        "O17"
+      ],
+      "humanOversight": "Fiyat revizyonu yalnızca temsilci tarafından.",
+      "complexity": "Low",
+      "impact": "High",
+      "confidence": "Inferred",
+      "measurement": "Teklif kazanma oranı, yanıt alma oranı, kayıp nedeni dağılımı",
+      "firstStep": "CRM'de teklif durum alanlarını tanımlamak",
+      "scores": {
+        "impact": 4,
+        "evidence": 3,
+        "relevance": 5,
+        "feasibility": 4,
+        "fit": 5
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O03",
+      "entityId": "deda-pack",
+      "title": "Tekrar sipariş (yenileme) hatırlatma akışı",
+      "painPointIds": [
+        "PP08"
+      ],
+      "solutionCategory": "Engage + Integration",
+      "journeyStage": "Reorder",
+      "trigger": "Beklenen yenileme tarihi − 10 gün",
+      "segment": "Aktif hesaplar (sarf çanta alıcıları)",
+      "requiredData": [
+        "Sipariş geçmişi",
+        "Ürün/ölçü",
+        "İletişim izni"
+      ],
+      "requiredEvents": [
+        "order_placed",
+        "order_shipped"
+      ],
+      "integrations": [
+        "ERP",
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta + WhatsApp",
+      "sequence": [
+        "T−10: 'aynı siparişi tekrarla' bağlantısı",
+        "T−3: yanıt yoksa temsilci görevi",
+        "T+14: hâlâ sipariş yoksa risk etiketi"
+      ],
       "exampleMessage": "{firma} için son siparişiniz ({ürün}, {adet} adet) {tarih} tarihinde sevk edildi. Stok planınıza göre yeni siparişi şimdiden planlamak ister misiniz?",
-      "dependencies": ["O23"], "humanOversight": "Fiyat güncellemesi temsilci onaylı.", "complexity": "Medium", "impact": "High", "confidence": "Inferred",
-      "measurement": "Yenileme oranı, siparişler arası gün, kayıp müşteri oranı", "firstStep": "ERP'den 12 aylık sipariş sıklığı dökümü almak",
-      "scores": { "impact": 5, "evidence": 2, "relevance": 5, "feasibility": 3, "fit": 5 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O04", "entityId": "deda-pack", "title": "Fuar kontakları için çok dilli takip dizisi", "painPointIds": ["PP05"], "solutionCategory": "Callypso Engage", "journeyStage": "Lead Acquisition",
-      "trigger": "Fuar kontak listesi içe aktarımı / QR tarama", "segment": "Fuar kontakları (ülke × sektör)", "requiredData": ["Kontak, ülke, sektör, ilgilenilen ürün", "Pazarlama izni"], "requiredEvents": ["fair_contact_created"], "integrations": ["CRM", "Engage (doğrulanmalı)"], "channel": "E-posta",
-      "sequence": ["Gün 1: görüşme teşekkürü + dil bazlı katalog", "Gün 7: sektörüne uygun ürün (ör. fırın → SOS Bag)", "Gün 21: teklif formu daveti", "Teklif talebinde satışa devir"],
+      "dependencies": [
+        "O23"
+      ],
+      "humanOversight": "Fiyat güncellemesi temsilci onaylı.",
+      "complexity": "Medium",
+      "impact": "High",
+      "confidence": "Inferred",
+      "measurement": "Yenileme oranı, siparişler arası gün, kayıp müşteri oranı",
+      "firstStep": "ERP'den 12 aylık sipariş sıklığı dökümü almak",
+      "scores": {
+        "impact": 5,
+        "evidence": 2,
+        "relevance": 5,
+        "feasibility": 3,
+        "fit": 5
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O04",
+      "entityId": "deda-pack",
+      "title": "Fuar kontakları için çok dilli takip dizisi",
+      "painPointIds": [
+        "PP05"
+      ],
+      "solutionCategory": "Callypso Engage",
+      "journeyStage": "Lead Acquisition",
+      "trigger": "Fuar kontak listesi içe aktarımı / QR tarama",
+      "segment": "Fuar kontakları (ülke × sektör)",
+      "requiredData": [
+        "Kontak, ülke, sektör, ilgilenilen ürün",
+        "Pazarlama izni"
+      ],
+      "requiredEvents": [
+        "fair_contact_created"
+      ],
+      "integrations": [
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta",
+      "sequence": [
+        "Gün 1: görüşme teşekkürü + dil bazlı katalog",
+        "Gün 7: sektörüne uygun ürün (ör. fırın → SOS Bag)",
+        "Gün 21: teklif formu daveti",
+        "Teklif talebinde satışa devir"
+      ],
       "exampleMessage": "Dear {name}, thank you for visiting Deda Pack at {fair}. As discussed, here are our SOS bag specifications (8–46 cm width, 60–140 gsm) and a link to request a printed sample.",
-      "dependencies": ["O01", "O05"], "humanOversight": "İçerik pazarlama onaylı.", "complexity": "Low", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Kontak→toplantı→teklif→sipariş oranları", "firstStep": "Son fuar kontak listelerinin ve izin durumunun derlenmesi",
-      "scores": { "impact": 3, "evidence": 4, "relevance": 4, "feasibility": 5, "fit": 5 } },
-    { "id": "O05", "entityId": "deda-pack", "title": "Sektör bazlı segmentasyon ve içerik besleme (12 sektör)", "painPointIds": ["PP04", "PP07"], "solutionCategory": "Callypso Engage", "journeyStage": "Lead Nurturing",
-      "trigger": "Lead'in sektör alanı / ürün sayfası ilgisi", "segment": "Sektör segmentleri (fast food, pastane, eczane, zincir market...)", "requiredData": ["Sektör alanı", "Ürün ilgisi"], "requiredEvents": ["page_view_product", "catalog_download"], "integrations": ["GA4/GTM", "CRM", "Engage (doğrulanmalı)"], "channel": "E-posta",
-      "sequence": ["Sektöre uygun ürün ve ölçü önerisi", "Baskılı çanta ile marka görünürlüğü içeriği", "Teklif daveti"],
+      "dependencies": [
+        "O01",
+        "O05"
+      ],
+      "humanOversight": "İçerik pazarlama onaylı.",
+      "complexity": "Low",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Kontak→toplantı→teklif→sipariş oranları",
+      "firstStep": "Son fuar kontak listelerinin ve izin durumunun derlenmesi",
+      "scores": {
+        "impact": 3,
+        "evidence": 4,
+        "relevance": 4,
+        "feasibility": 5,
+        "fit": 5
+      }
+    },
+    {
+      "id": "O05",
+      "entityId": "deda-pack",
+      "title": "Sektör bazlı segmentasyon ve içerik besleme (12 sektör)",
+      "painPointIds": [
+        "PP04",
+        "PP07"
+      ],
+      "solutionCategory": "Callypso Engage",
+      "journeyStage": "Lead Nurturing",
+      "trigger": "Lead'in sektör alanı / ürün sayfası ilgisi",
+      "segment": "Sektör segmentleri (fast food, pastane, eczane, zincir market...)",
+      "requiredData": [
+        "Sektör alanı",
+        "Ürün ilgisi"
+      ],
+      "requiredEvents": [
+        "page_view_product",
+        "catalog_download"
+      ],
+      "integrations": [
+        "GA4/GTM",
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta",
+      "sequence": [
+        "Sektöre uygun ürün ve ölçü önerisi",
+        "Baskılı çanta ile marka görünürlüğü içeriği",
+        "Teklif daveti"
+      ],
       "exampleMessage": "Pastaneler için: SOS Bag ve yassı saplı çanta kombinasyonu, logonuzla 6 renge kadar baskı.",
-      "dependencies": ["O16"], "humanOversight": "İçerik onayı.", "complexity": "Low", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Segment bazlı tıklama ve teklif talebi", "firstStep": "Sektör alanını forma ve CRM'e eklemek",
-      "scores": { "impact": 3, "evidence": 3, "relevance": 4, "feasibility": 4, "fit": 5 } },
-    { "id": "O06", "entityId": "deda-pack", "title": "Pasif müşteri ve kayıp teklif yeniden kazanım", "painPointIds": ["PP08"], "solutionCategory": "Callypso Engage", "journeyStage": "Retention",
-      "trigger": "Son siparişten bu yana normal aralığın 2 katı geçti", "segment": "Pasif hesaplar", "requiredData": ["Sipariş geçmişi", "İzin"], "requiredEvents": ["order_placed"], "integrations": ["ERP", "CRM", "Engage (doğrulanmalı)"], "channel": "E-posta + telefon görevi",
-      "sequence": ["Geri bildirim sorusu", "Yeni ürün/varyant bilgilendirmesi", "Temsilci araması"],
+      "dependencies": [
+        "O16"
+      ],
+      "humanOversight": "İçerik onayı.",
+      "complexity": "Low",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Segment bazlı tıklama ve teklif talebi",
+      "firstStep": "Sektör alanını forma ve CRM'e eklemek",
+      "scores": {
+        "impact": 3,
+        "evidence": 3,
+        "relevance": 4,
+        "feasibility": 4,
+        "fit": 5
+      }
+    },
+    {
+      "id": "O06",
+      "entityId": "deda-pack",
+      "title": "Pasif müşteri ve kayıp teklif yeniden kazanım",
+      "painPointIds": [
+        "PP08"
+      ],
+      "solutionCategory": "Callypso Engage",
+      "journeyStage": "Retention",
+      "trigger": "Son siparişten bu yana normal aralığın 2 katı geçti",
+      "segment": "Pasif hesaplar",
+      "requiredData": [
+        "Sipariş geçmişi",
+        "İzin"
+      ],
+      "requiredEvents": [
+        "order_placed"
+      ],
+      "integrations": [
+        "ERP",
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta + telefon görevi",
+      "sequence": [
+        "Geri bildirim sorusu",
+        "Yeni ürün/varyant bilgilendirmesi",
+        "Temsilci araması"
+      ],
       "exampleMessage": "{firma}, bir süredir sipariş vermediğinizi fark ettik. Ölçü, baskı veya teslimatla ilgili iyileştirebileceğimiz bir şey var mı?",
-      "dependencies": ["O03"], "humanOversight": "Temsilci görüşmesi.", "complexity": "Medium", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Geri kazanılan hesap sayısı", "firstStep": "Pasif hesap tanımını belirlemek",
-      "scores": { "impact": 4, "evidence": 2, "relevance": 4, "feasibility": 3, "fit": 5 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O07", "entityId": "deda-makina", "title": "PDF teklif formunun yerine çevrim içi makine teklif yapılandırıcı", "painPointIds": ["PP10"], "solutionCategory": "External Automation", "journeyStage": "Quotation",
-      "trigger": "Yapılandırıcı tamamlandı", "segment": "Makine teklif talepleri", "requiredData": ["Teklif formu alanları", "Model–kapasite tabloları"], "requiredEvents": ["machine_quote_submitted"], "integrations": ["WordPress form", "CRM"], "channel": "Web + e-posta",
-      "sequence": ["Malzeme tipi (film/sert plastik)", "Kapasite (kg/saat) ve kirlilik", "İhtiyaç duyulan modüller (A–H)", "İletişim + ülke", "Mühendise özet + müşteriye onay"],
+      "dependencies": [
+        "O03"
+      ],
+      "humanOversight": "Temsilci görüşmesi.",
+      "complexity": "Medium",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Geri kazanılan hesap sayısı",
+      "firstStep": "Pasif hesap tanımını belirlemek",
+      "scores": {
+        "impact": 4,
+        "evidence": 2,
+        "relevance": 4,
+        "feasibility": 3,
+        "fit": 5
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O07",
+      "entityId": "deda-makina",
+      "title": "PDF teklif formunun yerine çevrim içi makine teklif yapılandırıcı",
+      "painPointIds": [
+        "PP10",
+        "PP27"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Quotation",
+      "trigger": "Yapılandırıcı tamamlandı",
+      "segment": "Makine teklif talepleri",
+      "requiredData": [
+        "Teklif formu alanları",
+        "Model–kapasite tabloları"
+      ],
+      "requiredEvents": [
+        "machine_quote_submitted"
+      ],
+      "integrations": [
+        "WordPress form",
+        "CRM"
+      ],
+      "channel": "Web + e-posta",
+      "sequence": [
+        "Malzeme tipi (film/sert plastik)",
+        "Kapasite (kg/saat) ve kirlilik",
+        "İhtiyaç duyulan modüller (A–H)",
+        "İletişim + ülke",
+        "Mühendise özet + müşteriye onay"
+      ],
       "exampleMessage": "Talebiniz alındı: PE film, ~500 kg/saat, yıkama + kurutma + granür. Satış mühendisimiz hat önerisi için sizinle iletişime geçecek.",
-      "dependencies": [], "humanOversight": "Hat önerisi ve fiyat mühendis onaylı.", "complexity": "Low", "impact": "High", "confidence": "Verified",
-      "measurement": "Aylık çevrim içi teklif talebi, talep→teklif süresi", "firstStep": "Kırık PDF'yi hemen düzeltip mevcut alanları çıkarmak",
-      "scores": { "impact": 5, "evidence": 5, "relevance": 5, "feasibility": 4, "fit": 3 } },
-    { "id": "O08", "entityId": "deda-makina", "title": "Kurulu makine bakım, servis ve yedek parça yaşam döngüsü", "painPointIds": ["PP14"], "solutionCategory": "Engage + Integration", "journeyStage": "After-sales",
-      "trigger": "Kurulum tarihi + bakım periyodu", "segment": "Kurulu makine sahipleri", "requiredData": ["Kurulu makine listesi", "Bakım periyotları", "Sarf/elek kalemleri"], "requiredEvents": ["machine_installed", "service_ticket_closed"], "integrations": ["CRM/servis kaydı", "Engage (doğrulanmalı)"], "channel": "WhatsApp + e-posta",
-      "sequence": ["Kurulum +30 gün: memnuniyet ve eğitim kontrolü", "Periyodik bakım hatırlatması", "Filtre eleği gibi sarf yenileme önerisi", "Hat genişletme önerisi (yıkama→kurutma→granür)"],
+      "dependencies": [],
+      "humanOversight": "Hat önerisi ve fiyat mühendis onaylı.",
+      "complexity": "Low",
+      "impact": "High",
+      "confidence": "Verified",
+      "measurement": "Aylık çevrim içi teklif talebi, talep→teklif süresi",
+      "firstStep": "Kırık PDF'yi hemen düzeltip mevcut alanları çıkarmak",
+      "scores": {
+        "impact": 5,
+        "evidence": 5,
+        "relevance": 5,
+        "feasibility": 4,
+        "fit": 3
+      }
+    },
+    {
+      "id": "O08",
+      "entityId": "deda-makina",
+      "title": "Kurulu makine bakım, servis ve yedek parça yaşam döngüsü",
+      "painPointIds": [
+        "PP14"
+      ],
+      "solutionCategory": "Engage + Integration",
+      "journeyStage": "After-sales",
+      "trigger": "Kurulum tarihi + bakım periyodu",
+      "segment": "Kurulu makine sahipleri",
+      "requiredData": [
+        "Kurulu makine listesi",
+        "Bakım periyotları",
+        "Sarf/elek kalemleri"
+      ],
+      "requiredEvents": [
+        "machine_installed",
+        "service_ticket_closed"
+      ],
+      "integrations": [
+        "CRM/servis kaydı",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "WhatsApp + e-posta",
+      "sequence": [
+        "Kurulum +30 gün: memnuniyet ve eğitim kontrolü",
+        "Periyodik bakım hatırlatması",
+        "Filtre eleği gibi sarf yenileme önerisi",
+        "Hat genişletme önerisi (yıkama→kurutma→granür)"
+      ],
       "exampleMessage": "{firma}, {makine} için 6 aylık bakım zamanı yaklaşıyor. Teknik ekibimizle uygun bir tarih planlamak ister misiniz?",
-      "dependencies": ["O23"], "humanOversight": "Servis planlaması teknik ekip tarafından.", "complexity": "Medium", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Bakım randevusu oranı, yedek parça geliri, tekrar arıza", "firstStep": "Kurulu makine listesinin var olup olmadığını sormak",
-      "scores": { "impact": 4, "evidence": 2, "relevance": 4, "feasibility": 3, "fit": 4 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O09", "entityId": "deda-makina", "title": "Uzun satış döngüsü için teknik içerik besleme ve hat tamamlama çapraz satışı", "painPointIds": ["PP10", "PP12"], "solutionCategory": "Callypso Engage", "journeyStage": "Lead Nurturing",
-      "trigger": "Teklif talebi / ürün grubu ilgisi", "segment": "Makine lead'leri (ürün grubu ilgisi)", "requiredData": ["İlgilenilen ürün grubu", "Ülke/dil"], "requiredEvents": ["machine_quote_submitted", "page_view_product"], "integrations": ["CRM", "GA4", "Engage (doğrulanmalı)"], "channel": "E-posta",
-      "sequence": ["Ürün grubu teknik özeti", "Tamamlayıcı modül (ör. granür → eriyik filtre)", "Galeri/video referans", "Mühendis görüşmesi daveti"],
+      "dependencies": [
+        "O23"
+      ],
+      "humanOversight": "Servis planlaması teknik ekip tarafından.",
+      "complexity": "Medium",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Bakım randevusu oranı, yedek parça geliri, tekrar arıza",
+      "firstStep": "Kurulu makine listesinin var olup olmadığını sormak",
+      "scores": {
+        "impact": 4,
+        "evidence": 2,
+        "relevance": 4,
+        "feasibility": 3,
+        "fit": 4
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O09",
+      "entityId": "deda-makina",
+      "title": "Uzun satış döngüsü için teknik içerik besleme ve hat tamamlama çapraz satışı",
+      "painPointIds": [
+        "PP10",
+        "PP12"
+      ],
+      "solutionCategory": "Callypso Engage",
+      "journeyStage": "Lead Nurturing",
+      "trigger": "Teklif talebi / ürün grubu ilgisi",
+      "segment": "Makine lead'leri (ürün grubu ilgisi)",
+      "requiredData": [
+        "İlgilenilen ürün grubu",
+        "Ülke/dil"
+      ],
+      "requiredEvents": [
+        "machine_quote_submitted",
+        "page_view_product"
+      ],
+      "integrations": [
+        "CRM",
+        "GA4",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta",
+      "sequence": [
+        "Ürün grubu teknik özeti",
+        "Tamamlayıcı modül (ör. granür → eriyik filtre)",
+        "Galeri/video referans",
+        "Mühendis görüşmesi daveti"
+      ],
       "exampleMessage": "Granür hattınız için eriyik filtre seçenekleri: tek elekli 330'luktan otomatik lazer filtreye kadar.",
-      "dependencies": ["O07", "O16"], "humanOversight": "Teknik içerik mühendis onaylı.", "complexity": "Low", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Lead→görüşme oranı, ortalama satış döngüsü", "firstStep": "Ürün grubu bazlı 3 teknik içerik hazırlamak",
-      "scores": { "impact": 3, "evidence": 3, "relevance": 4, "feasibility": 4, "fit": 5 } },
-    { "id": "O10", "entityId": "deda-pack", "title": "Çok dilli AI satış asistanı (WhatsApp + web) — teklif bilgisi toplama ve devir", "painPointIds": ["PP25", "PP02"], "solutionCategory": "AI Agent", "journeyStage": "Qualification",
-      "trigger": "WhatsApp/web sohbet mesajı", "segment": "Tüm gelen sorular", "requiredData": ["Onaylı bilgi tabanı (ölçüler, gsm, MOQ, termin, baskı şartları)", "SSS"], "requiredEvents": ["chat_started", "handoff_requested"], "integrations": ["WhatsApp Business API", "LLM + bilgi tabanı (RAG)", "CRM"], "channel": "WhatsApp + web",
-      "sequence": ["Dil algılama", "Onaylı bilgiden yanıt", "Teklif alanlarını sohbetle toplama", "Belirsiz/fiyat sorularında insana devir", "Sohbet özeti CRM'e"],
+      "dependencies": [
+        "O07",
+        "O16"
+      ],
+      "humanOversight": "Teknik içerik mühendis onaylı.",
+      "complexity": "Low",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Lead→görüşme oranı, ortalama satış döngüsü",
+      "firstStep": "Ürün grubu bazlı 3 teknik içerik hazırlamak",
+      "scores": {
+        "impact": 3,
+        "evidence": 3,
+        "relevance": 4,
+        "feasibility": 4,
+        "fit": 5
+      }
+    },
+    {
+      "id": "O10",
+      "entityId": "deda-pack",
+      "title": "Çok dilli AI satış asistanı (WhatsApp + web) — teklif bilgisi toplama ve devir",
+      "painPointIds": [
+        "PP25",
+        "PP02"
+      ],
+      "solutionCategory": "AI Agent",
+      "journeyStage": "Qualification",
+      "trigger": "WhatsApp/web sohbet mesajı",
+      "segment": "Tüm gelen sorular",
+      "requiredData": [
+        "Onaylı bilgi tabanı (ölçüler, gsm, MOQ, termin, baskı şartları)",
+        "SSS"
+      ],
+      "requiredEvents": [
+        "chat_started",
+        "handoff_requested"
+      ],
+      "integrations": [
+        "WhatsApp Business API",
+        "LLM + bilgi tabanı (RAG)",
+        "CRM"
+      ],
+      "channel": "WhatsApp + web",
+      "sequence": [
+        "Dil algılama",
+        "Onaylı bilgiden yanıt",
+        "Teklif alanlarını sohbetle toplama",
+        "Belirsiz/fiyat sorularında insana devir",
+        "Sohbet özeti CRM'e"
+      ],
       "exampleMessage": "SOS Bag 8–46 cm genişlik ve 60–140 gsm aralığında üretilebiliyor. Kaç adet ve kaç renk baskı düşünüyorsunuz? Bilgileri aldıktan sonra temsilcimiz teklif hazırlayacak.",
-      "dependencies": ["O01", "O17"], "humanOversight": "Fiyat ve termin vaadi yok; insan devri zorunlu.", "complexity": "Medium", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Otomatik yanıt oranı, devir oranı, sohbet→teklif oranı", "firstStep": "En sık 20 soruyu ve onaylı yanıtları toplamak",
-      "scores": { "impact": 4, "evidence": 3, "relevance": 4, "feasibility": 3, "fit": 3 } },
-    { "id": "O11", "entityId": "deda-makina", "title": "AI teknik ön-satış asistanı (hat yapılandırma önerisi taslağı)", "painPointIds": ["PP10", "PP14"], "solutionCategory": "AI Agent", "journeyStage": "Qualification",
-      "trigger": "Yapılandırıcı veya sohbet talebi", "segment": "Makine lead'leri", "requiredData": ["Ürün kataloğu A–H", "Kapasite tabloları", "Geçmiş hat konfigürasyonları"], "requiredEvents": ["machine_quote_submitted"], "integrations": ["LLM + bilgi tabanı", "CRM"], "channel": "Web + e-posta",
-      "sequence": ["Girdi analizi", "Katalogdan modül eşleştirme", "Mühendise taslak öneri", "Mühendis onayıyla müşteriye gönderim"],
+      "dependencies": [
+        "O01",
+        "O17"
+      ],
+      "humanOversight": "Fiyat ve termin vaadi yok; insan devri zorunlu.",
+      "complexity": "Medium",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Otomatik yanıt oranı, devir oranı, sohbet→teklif oranı",
+      "firstStep": "En sık 20 soruyu ve onaylı yanıtları toplamak",
+      "scores": {
+        "impact": 4,
+        "evidence": 3,
+        "relevance": 4,
+        "feasibility": 3,
+        "fit": 3
+      }
+    },
+    {
+      "id": "O11",
+      "entityId": "deda-makina",
+      "title": "AI teknik ön-satış asistanı (hat yapılandırma önerisi taslağı)",
+      "painPointIds": [
+        "PP10",
+        "PP14"
+      ],
+      "solutionCategory": "AI Agent",
+      "journeyStage": "Qualification",
+      "trigger": "Yapılandırıcı veya sohbet talebi",
+      "segment": "Makine lead'leri",
+      "requiredData": [
+        "Ürün kataloğu A–H",
+        "Kapasite tabloları",
+        "Geçmiş hat konfigürasyonları"
+      ],
+      "requiredEvents": [
+        "machine_quote_submitted"
+      ],
+      "integrations": [
+        "LLM + bilgi tabanı",
+        "CRM"
+      ],
+      "channel": "Web + e-posta",
+      "sequence": [
+        "Girdi analizi",
+        "Katalogdan modül eşleştirme",
+        "Mühendise taslak öneri",
+        "Mühendis onayıyla müşteriye gönderim"
+      ],
       "exampleMessage": "(Mühendis için taslak) Girdi: kirli PE film 500 kg/saat → C2.2 film yıkama, C4 yatay sıkma, D1 agromer, E2 kompakt granür, F5 üç elekli filtre önerilebilir.",
-      "dependencies": ["O07"], "humanOversight": "Müşteriye yalnızca mühendis onaylı öneri gider.", "complexity": "High", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Teklif hazırlama süresi, mühendis düzeltme oranı", "firstStep": "Geçmiş 10 teklif ve hat konfigürasyonunu örnek almak",
-      "scores": { "impact": 4, "evidence": 3, "relevance": 4, "feasibility": 2, "fit": 3 } },
-    { "id": "O12", "entityId": "deda-gida", "title": "Sipariş ve RFQ belgelerinden AI veri çıkarma → ERP taslak sipariş", "painPointIds": ["PP19"], "solutionCategory": "Custom AI Solution", "journeyStage": "Order",
-      "trigger": "Sipariş/RFQ e-postası veya eki", "segment": "Distribütör siparişleri", "requiredData": ["Örnek sipariş belgeleri", "Ürün kodları", "Fiyat listeleri"], "requiredEvents": ["order_email_received"], "integrations": ["E-posta", "AI belge işleme", "ERP API"], "channel": "Arka ofis",
-      "sequence": ["Belge sınıflandırma", "Alan çıkarma (ürün, gramaj, koli, adet, teslim)", "Kod/fiyat doğrulama", "ERP taslak sipariş", "Satış destek onayı"],
+      "dependencies": [
+        "O07"
+      ],
+      "humanOversight": "Müşteriye yalnızca mühendis onaylı öneri gider.",
+      "complexity": "High",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Teklif hazırlama süresi, mühendis düzeltme oranı",
+      "firstStep": "Geçmiş 10 teklif ve hat konfigürasyonunu örnek almak",
+      "scores": {
+        "impact": 4,
+        "evidence": 3,
+        "relevance": 4,
+        "feasibility": 2,
+        "fit": 3
+      }
+    },
+    {
+      "id": "O12",
+      "entityId": "deda-gida",
+      "title": "Sipariş ve RFQ belgelerinden AI veri çıkarma → ERP taslak sipariş",
+      "painPointIds": [
+        "PP19"
+      ],
+      "solutionCategory": "Custom AI Solution",
+      "journeyStage": "Order",
+      "trigger": "Sipariş/RFQ e-postası veya eki",
+      "segment": "Distribütör siparişleri",
+      "requiredData": [
+        "Örnek sipariş belgeleri",
+        "Ürün kodları",
+        "Fiyat listeleri"
+      ],
+      "requiredEvents": [
+        "order_email_received"
+      ],
+      "integrations": [
+        "E-posta",
+        "AI belge işleme",
+        "ERP API"
+      ],
+      "channel": "Arka ofis",
+      "sequence": [
+        "Belge sınıflandırma",
+        "Alan çıkarma (ürün, gramaj, koli, adet, teslim)",
+        "Kod/fiyat doğrulama",
+        "ERP taslak sipariş",
+        "Satış destek onayı"
+      ],
       "exampleMessage": "(İç bildirim) Yeni sipariş: {distribütör}, Iceman 90 g × 200 koli, Jölle 13 g × 150 koli — 2 alan doğrulama bekliyor.",
-      "dependencies": ["O23"], "humanOversight": "Her sipariş insan onayıyla ERP'ye geçer.", "complexity": "High", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Sipariş işleme süresi, giriş hata oranı", "firstStep": "Bir aylık sipariş e-postalarını format bazında saymak",
-      "scores": { "impact": 4, "evidence": 1, "relevance": 4, "feasibility": 2, "fit": 3 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O13", "entityId": "deda-pack", "title": "Baskı dosyası ön kontrolü ve müşteri prova onay portalı", "painPointIds": ["PP26"], "solutionCategory": "Custom AI Solution", "journeyStage": "Quotation",
-      "trigger": "Müşteri baskı dosyası yükledi", "segment": "Baskılı sipariş müşterileri", "requiredData": ["Baskı şartnamesi (renk ≤6, bleed, çözünürlük)", "Ölçü tabloları"], "requiredEvents": ["artwork_uploaded", "proof_approved"], "integrations": ["Dosya depolama", "AI görsel analizi", "ERP/üretim planlama"], "channel": "Portal + e-posta",
-      "sequence": ["Otomatik ön kontrol raporu", "Grafik ekibine görev", "Dijital prova", "Müşteri onayı (zaman damgalı)", "Üretim emri"],
+      "dependencies": [
+        "O23"
+      ],
+      "humanOversight": "Her sipariş insan onayıyla ERP'ye geçer.",
+      "complexity": "High",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Sipariş işleme süresi, giriş hata oranı",
+      "firstStep": "Bir aylık sipariş e-postalarını format bazında saymak",
+      "scores": {
+        "impact": 4,
+        "evidence": 1,
+        "relevance": 4,
+        "feasibility": 2,
+        "fit": 3
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O13",
+      "entityId": "deda-pack",
+      "title": "Baskı dosyası ön kontrolü ve müşteri prova onay portalı",
+      "painPointIds": [
+        "PP26"
+      ],
+      "solutionCategory": "Custom AI Solution",
+      "journeyStage": "Quotation",
+      "trigger": "Müşteri baskı dosyası yükledi",
+      "segment": "Baskılı sipariş müşterileri",
+      "requiredData": [
+        "Baskı şartnamesi (renk ≤6, bleed, çözünürlük)",
+        "Ölçü tabloları"
+      ],
+      "requiredEvents": [
+        "artwork_uploaded",
+        "proof_approved"
+      ],
+      "integrations": [
+        "Dosya depolama",
+        "AI görsel analizi",
+        "ERP/üretim planlama"
+      ],
+      "channel": "Portal + e-posta",
+      "sequence": [
+        "Otomatik ön kontrol raporu",
+        "Grafik ekibine görev",
+        "Dijital prova",
+        "Müşteri onayı (zaman damgalı)",
+        "Üretim emri"
+      ],
       "exampleMessage": "Yüklediğiniz dosyada 7 renk tespit edildi; baskı en fazla 6 renk destekliyor. Grafik ekibimiz önerilerle dönüş yapacak.",
-      "dependencies": [], "humanOversight": "Son prova grafik ekibi onaylı.", "complexity": "High", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Prova tur sayısı, onay süresi", "firstStep": "Son 20 baskılı siparişte revizyon sayısını çıkarmak",
-      "scores": { "impact": 3, "evidence": 2, "relevance": 4, "feasibility": 2, "fit": 2 } },
-    { "id": "O14", "entityId": "deda-group", "title": "Sözlük destekli AI yerelleştirme ve içerik QA (Pack, Gıda, Makina)", "painPointIds": ["PP03", "PP11", "PP12", "PP17"], "solutionCategory": "External Automation", "journeyStage": "Discovery",
-      "trigger": "Yeni/değişen sayfa veya haftalık tarama", "segment": "—", "requiredData": ["Teknik sözlük", "Onaylı kurumsal metinler"], "requiredEvents": [], "integrations": ["WordPress + Polylang", "LLM çeviri API", "Tarama aracı"], "channel": "İç süreç",
-      "sequence": ["Kaynak metin + sözlük → AI çeviri", "Ana dil konuşanı/uzman kontrolü", "Başlık/meta/hreflang üretimi", "Yayın sonrası tutarlılık taraması"],
+      "dependencies": [],
+      "humanOversight": "Son prova grafik ekibi onaylı.",
+      "complexity": "High",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Prova tur sayısı, onay süresi",
+      "firstStep": "Son 20 baskılı siparişte revizyon sayısını çıkarmak",
+      "scores": {
+        "impact": 3,
+        "evidence": 2,
+        "relevance": 4,
+        "feasibility": 2,
+        "fit": 2
+      }
+    },
+    {
+      "id": "O14",
+      "entityId": "deda-group",
+      "title": "Sözlük destekli AI yerelleştirme ve içerik QA (Pack, Gıda, Makina)",
+      "painPointIds": [
+        "PP03",
+        "PP11",
+        "PP12",
+        "PP17"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Discovery",
+      "trigger": "Yeni/değişen sayfa veya haftalık tarama",
+      "segment": "—",
+      "requiredData": [
+        "Teknik sözlük",
+        "Onaylı kurumsal metinler"
+      ],
+      "requiredEvents": [],
+      "integrations": [
+        "WordPress + Polylang",
+        "LLM çeviri API",
+        "Tarama aracı"
+      ],
+      "channel": "İç süreç",
+      "sequence": [
+        "Kaynak metin + sözlük → AI çeviri",
+        "Ana dil konuşanı/uzman kontrolü",
+        "Başlık/meta/hreflang üretimi",
+        "Yayın sonrası tutarlılık taraması"
+      ],
       "exampleMessage": "(QA raporu) EN /twisted-rope-handle-white-paper-bags: 'Most (cm)' → sözlükte 'Width (cm)'; başlık son eki Türkçe.",
-      "dependencies": [], "humanOversight": "Yayın öncesi insan onayı.", "complexity": "Low", "impact": "Medium", "confidence": "Verified",
-      "measurement": "Hata sayısı, dil bazlı organik trafik ve talep", "firstStep": "8 dil için 40 terimlik teknik sözlük",
-      "scores": { "impact": 3, "evidence": 5, "relevance": 4, "feasibility": 4, "fit": 3 } },
-    { "id": "O15", "entityId": "deda-group", "title": "Web hijyeni ve güvenlik: alan adı, kırık bağlantı, ilgisiz içerik, varsayılan sayfalar + otomatik izleme", "painPointIds": ["PP20", "PP21", "PP16", "PP22", "PP11", "PP03", "PP15", "PP04"], "solutionCategory": "External Automation", "journeyStage": "Discovery",
-      "trigger": "Günlük izleme", "segment": "—", "requiredData": ["Alan adı/hosting erişimi"], "requiredEvents": [], "integrations": ["Uptime/link izleme", "Güvenlik tarayıcı", "Search Console"], "channel": "İç süreç",
-      "sequence": ["Acil: adanakonteyner.com.tr sahiplik/güvenlik kontrolü", "dedaplast.com DNS", "Katalog ve teklif PDF bağlantıları", "WordPress varsayılan içerikleri", "Sürekli: uptime, 404, beklenmeyen bağlantı uyarısı"],
+      "dependencies": [],
+      "humanOversight": "Yayın öncesi insan onayı.",
+      "complexity": "Low",
+      "impact": "Medium",
+      "confidence": "Verified",
+      "measurement": "Hata sayısı, dil bazlı organik trafik ve talep",
+      "firstStep": "8 dil için 40 terimlik teknik sözlük",
+      "scores": {
+        "impact": 3,
+        "evidence": 5,
+        "relevance": 4,
+        "feasibility": 4,
+        "fit": 3
+      }
+    },
+    {
+      "id": "O15",
+      "entityId": "deda-group",
+      "title": "Web hijyeni ve güvenlik: alan adı, kırık bağlantı, ilgisiz içerik, varsayılan sayfalar + otomatik izleme",
+      "painPointIds": [
+        "PP03",
+        "PP04",
+        "PP11",
+        "PP15",
+        "PP16",
+        "PP20",
+        "PP21",
+        "PP22",
+        "PP29"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Discovery",
+      "trigger": "Günlük izleme",
+      "segment": "—",
+      "requiredData": [
+        "Alan adı/hosting erişimi"
+      ],
+      "requiredEvents": [],
+      "integrations": [
+        "Uptime/link izleme",
+        "Güvenlik tarayıcı",
+        "Search Console"
+      ],
+      "channel": "İç süreç",
+      "sequence": [
+        "Acil: adanakonteyner.com.tr sahiplik/güvenlik kontrolü",
+        "dedaplast.com DNS",
+        "Katalog ve teklif PDF bağlantıları",
+        "WordPress varsayılan içerikleri",
+        "Sürekli: uptime, 404, beklenmeyen bağlantı uyarısı"
+      ],
       "exampleMessage": "(Uyarı) adanakonteyner.com.tr menüsünde beklenmeyen 'bonus' anahtar kelimesi tespit edildi.",
-      "dependencies": [], "humanOversight": "Web ajansı/BT.", "complexity": "Low", "impact": "High", "confidence": "Verified",
-      "measurement": "Kırık bağlantı = 0, erişilebilirlik %, çözülen güvenlik bulgusu", "firstStep": "Alan adı sahiplik listesini çıkarmak",
-      "scores": { "impact": 4, "evidence": 5, "relevance": 5, "feasibility": 5, "fit": 2 } },
-    { "id": "O16", "entityId": "deda-group", "title": "Ölçüm ve rıza altyapısı (CMP + GA4/GTM + dönüşüm olayları) — tüm siteler", "painPointIds": ["PP06", "PP13"], "solutionCategory": "External Automation", "journeyStage": "Measurement",
-      "trigger": "—", "segment": "—", "requiredData": ["GTM/GA4 erişimi"], "requiredEvents": ["form_submit", "whatsapp_click", "phone_click", "catalog_download", "quote_request_submitted"], "integrations": ["GTM", "GA4", "CMP", "Consent Mode v2"], "channel": "—",
-      "sequence": ["CMP kurulumu", "Ortak olay sözlüğü", "UTM standardı", "Haftalık otomatik rapor"],
+      "dependencies": [],
+      "humanOversight": "Web ajansı/BT.",
+      "complexity": "Low",
+      "impact": "High",
+      "confidence": "Verified",
+      "measurement": "Kırık bağlantı = 0, erişilebilirlik %, çözülen güvenlik bulgusu",
+      "firstStep": "Alan adı sahiplik listesini çıkarmak",
+      "scores": {
+        "impact": 4,
+        "evidence": 5,
+        "relevance": 5,
+        "feasibility": 5,
+        "fit": 2
+      }
+    },
+    {
+      "id": "O16",
+      "entityId": "deda-group",
+      "title": "Ölçüm ve rıza altyapısı (CMP + GA4/GTM + dönüşüm olayları) — tüm siteler",
+      "painPointIds": [
+        "PP06",
+        "PP13"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Measurement",
+      "trigger": "—",
+      "segment": "—",
+      "requiredData": [
+        "GTM/GA4 erişimi"
+      ],
+      "requiredEvents": [
+        "form_submit",
+        "whatsapp_click",
+        "phone_click",
+        "catalog_download",
+        "quote_request_submitted"
+      ],
+      "integrations": [
+        "GTM",
+        "GA4",
+        "CMP",
+        "Consent Mode v2"
+      ],
+      "channel": "—",
+      "sequence": [
+        "CMP kurulumu",
+        "Ortak olay sözlüğü",
+        "UTM standardı",
+        "Haftalık otomatik rapor"
+      ],
       "exampleMessage": "—",
-      "dependencies": [], "humanOversight": "Hukuk/KVKK onayı.", "complexity": "Low", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Ölçülen site sayısı, rıza oranı, tanımlı dönüşüm sayısı", "firstStep": "GTM konteyner incelemesi",
-      "scores": { "impact": 3, "evidence": 4, "relevance": 4, "feasibility": 5, "fit": 4 } },
-    { "id": "O17", "entityId": "deda-group", "title": "Merkezi lead gelen kutusu ve yönlendirme (form, WhatsApp, e-posta, grup sitesi)", "painPointIds": ["PP01", "PP02", "PP22", "PP23"], "solutionCategory": "Engage + Integration", "journeyStage": "Qualification",
-      "trigger": "Herhangi bir kanaldan yeni talep", "segment": "Tüm yeni talepler", "requiredData": ["Kanal listesi", "Şirket/ülke yönlendirme kuralları", "SLA"], "requiredEvents": ["lead_created", "lead_assigned", "first_response"], "integrations": ["WhatsApp Business API", "E-posta", "CRM", "Engage (doğrulanmalı)"], "channel": "Çok kanallı",
-      "sequence": ["Kanal etiketi + mükerrer kontrol", "Şirket/dil/ülke sınıflandırma", "Temsilciye atama", "SLA aşımında yöneticiye uyarı"],
+      "dependencies": [],
+      "humanOversight": "Hukuk/KVKK onayı.",
+      "complexity": "Low",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Ölçülen site sayısı, rıza oranı, tanımlı dönüşüm sayısı",
+      "firstStep": "GTM konteyner incelemesi",
+      "scores": {
+        "impact": 3,
+        "evidence": 4,
+        "relevance": 4,
+        "feasibility": 5,
+        "fit": 4
+      }
+    },
+    {
+      "id": "O17",
+      "entityId": "deda-group",
+      "title": "Merkezi lead gelen kutusu ve yönlendirme (form, WhatsApp, e-posta, grup sitesi)",
+      "painPointIds": [
+        "PP01",
+        "PP02",
+        "PP22",
+        "PP23"
+      ],
+      "solutionCategory": "Engage + Integration",
+      "journeyStage": "Qualification",
+      "trigger": "Herhangi bir kanaldan yeni talep",
+      "segment": "Tüm yeni talepler",
+      "requiredData": [
+        "Kanal listesi",
+        "Şirket/ülke yönlendirme kuralları",
+        "SLA"
+      ],
+      "requiredEvents": [
+        "lead_created",
+        "lead_assigned",
+        "first_response"
+      ],
+      "integrations": [
+        "WhatsApp Business API",
+        "E-posta",
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "Çok kanallı",
+      "sequence": [
+        "Kanal etiketi + mükerrer kontrol",
+        "Şirket/dil/ülke sınıflandırma",
+        "Temsilciye atama",
+        "SLA aşımında yöneticiye uyarı"
+      ],
       "exampleMessage": "(İç bildirim) Yeni talep — Deda Pack, Almanya, fırın sektörü, SOS Bag ~50.000 adet. Atanan: {temsilci}. SLA: 4 iş saati.",
-      "dependencies": ["O16"], "humanOversight": "Atama kuralları yönetici onaylı; şirketler arası veri paylaşımı KVKK değerlendirmesine tabi.", "complexity": "Medium", "impact": "High", "confidence": "Inferred",
-      "measurement": "İlk yanıt süresi, kayıtsız talep oranı, kanal bazlı lead", "firstStep": "Bir haftalık talepleri kanal bazında saymak",
-      "scores": { "impact": 5, "evidence": 3, "relevance": 5, "feasibility": 3, "fit": 4 } },
-    { "id": "O18", "entityId": "deda-gida", "title": "Distribütör başvuru formu + sezon öncesi (Iceman) distribütör kampanyası", "painPointIds": ["PP18", "PP16", "PP17"], "solutionCategory": "Engage + Integration", "journeyStage": "Lead Acquisition",
-      "trigger": "Başvuru formu / sezon takvimi", "segment": "Distribütör adayları ve mevcut distribütörler", "requiredData": ["Distribütör listesi", "Sezon takvimi", "İzin"], "requiredEvents": ["distributor_application", "order_placed"], "integrations": ["Form", "CRM", "Engage (doğrulanmalı)"], "channel": "E-posta + WhatsApp",
-      "sequence": ["Başvuru → ön değerlendirme → katalog/fiyat listesi", "Sezon −8 hafta: Iceman ön sipariş hatırlatması", "Sezon −4 hafta: stok/termin bilgisi", "Sezon sonu: performans özeti"],
+      "dependencies": [
+        "O16"
+      ],
+      "humanOversight": "Atama kuralları yönetici onaylı; şirketler arası veri paylaşımı KVKK değerlendirmesine tabi.",
+      "complexity": "Medium",
+      "impact": "High",
+      "confidence": "Inferred",
+      "measurement": "İlk yanıt süresi, kayıtsız talep oranı, kanal bazlı lead",
+      "firstStep": "Bir haftalık talepleri kanal bazında saymak",
+      "scores": {
+        "impact": 5,
+        "evidence": 3,
+        "relevance": 5,
+        "feasibility": 3,
+        "fit": 4
+      }
+    },
+    {
+      "id": "O18",
+      "entityId": "deda-gida",
+      "title": "Distribütör başvuru formu + sezon öncesi (Iceman) distribütör kampanyası",
+      "painPointIds": [
+        "PP18",
+        "PP16",
+        "PP17"
+      ],
+      "solutionCategory": "Engage + Integration",
+      "journeyStage": "Lead Acquisition",
+      "trigger": "Başvuru formu / sezon takvimi",
+      "segment": "Distribütör adayları ve mevcut distribütörler",
+      "requiredData": [
+        "Distribütör listesi",
+        "Sezon takvimi",
+        "İzin"
+      ],
+      "requiredEvents": [
+        "distributor_application",
+        "order_placed"
+      ],
+      "integrations": [
+        "Form",
+        "CRM",
+        "Engage (doğrulanmalı)"
+      ],
+      "channel": "E-posta + WhatsApp",
+      "sequence": [
+        "Başvuru → ön değerlendirme → katalog/fiyat listesi",
+        "Sezon −8 hafta: Iceman ön sipariş hatırlatması",
+        "Sezon −4 hafta: stok/termin bilgisi",
+        "Sezon sonu: performans özeti"
+      ],
       "exampleMessage": "Yaz sezonu yaklaşıyor: Iceman tüp meybuz 40/90/120 g ambalaj seçenekleriyle ön sipariş planlaması için bizimle iletişime geçin.",
-      "dependencies": ["O15", "O16"], "humanOversight": "Fiyat listesi gönderimi satış onaylı.", "complexity": "Low", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Başvuru sayısı, sezon öncesi sipariş hacmi (ERP)", "firstStep": "Distribütör kriterlerini ve sezon takvimini netleştirmek",
-      "scores": { "impact": 4, "evidence": 3, "relevance": 4, "feasibility": 4, "fit": 4 } },
-    { "id": "O19", "entityId": "deda-group", "title": "Grup yönetim KPI panosu (lead, teklif, sipariş, kapasite)", "painPointIds": ["PP24", "PP23", "PP13"], "solutionCategory": "Custom AI Solution", "journeyStage": "Measurement",
-      "trigger": "Günlük veri yenileme", "segment": "—", "requiredData": ["CRM/ERP verisi", "KPI tanımları"], "requiredEvents": [], "integrations": ["ERP", "CRM", "GA4", "BI aracı"], "channel": "Pano + haftalık özet",
-      "sequence": ["KPI tanımı", "Veri bağlantıları", "Şirket bazlı görünüm", "AI haftalık yorum özeti"],
+      "dependencies": [
+        "O15",
+        "O16"
+      ],
+      "humanOversight": "Fiyat listesi gönderimi satış onaylı.",
+      "complexity": "Low",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Başvuru sayısı, sezon öncesi sipariş hacmi (ERP)",
+      "firstStep": "Distribütör kriterlerini ve sezon takvimini netleştirmek",
+      "scores": {
+        "impact": 4,
+        "evidence": 3,
+        "relevance": 4,
+        "feasibility": 4,
+        "fit": 4
+      }
+    },
+    {
+      "id": "O19",
+      "entityId": "deda-group",
+      "title": "Grup yönetim KPI panosu (lead, teklif, sipariş, kapasite)",
+      "painPointIds": [
+        "PP24",
+        "PP23",
+        "PP13"
+      ],
+      "solutionCategory": "Custom AI Solution",
+      "journeyStage": "Measurement",
+      "trigger": "Günlük veri yenileme",
+      "segment": "—",
+      "requiredData": [
+        "CRM/ERP verisi",
+        "KPI tanımları"
+      ],
+      "requiredEvents": [],
+      "integrations": [
+        "ERP",
+        "CRM",
+        "GA4",
+        "BI aracı"
+      ],
+      "channel": "Pano + haftalık özet",
+      "sequence": [
+        "KPI tanımı",
+        "Veri bağlantıları",
+        "Şirket bazlı görünüm",
+        "AI haftalık yorum özeti"
+      ],
       "exampleMessage": "(Haftalık özet) Deda Pack: 18 yeni talep, medyan ilk yanıt 6 saat, 5 teklif; kapasite kullanımı verisi bekleniyor.",
-      "dependencies": ["O16", "O17", "O23"], "humanOversight": "Veri sahipleri.", "complexity": "High", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Rapor hazırlama süresi, KPI güncelliği", "firstStep": "Yönetimin bugün izlediği 10 KPI'yı listelemek",
-      "scores": { "impact": 3, "evidence": 2, "relevance": 4, "feasibility": 2, "fit": 3 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O20", "entityId": "deda-pack", "title": "Mesai dışı AI sesli asistan (geri arama planlama)", "painPointIds": ["PP02"], "solutionCategory": "AI Agent", "journeyStage": "Inquiry",
-      "trigger": "Mesai dışı arama (Cmt 14:00 sonrası, Pazar)", "segment": "Mesai dışı arayanlar", "requiredData": ["Çağrı hacmi", "Mesai saatleri", "Onaylı yanıtlar"], "requiredEvents": ["call_missed"], "integrations": ["Santral/VoIP", "AI ses ajanı", "CRM"], "channel": "Telefon",
-      "sequence": ["Karşılama + dil seçimi", "Talep tipi ve iletişim bilgisi", "Geri arama zamanı", "CRM kaydı + temsilci bildirimi"],
+      "dependencies": [
+        "O16",
+        "O17",
+        "O23"
+      ],
+      "humanOversight": "Veri sahipleri.",
+      "complexity": "High",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Rapor hazırlama süresi, KPI güncelliği",
+      "firstStep": "Yönetimin bugün izlediği 10 KPI'yı listelemek",
+      "scores": {
+        "impact": 3,
+        "evidence": 2,
+        "relevance": 4,
+        "feasibility": 2,
+        "fit": 3
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O20",
+      "entityId": "deda-pack",
+      "title": "Mesai dışı AI sesli asistan (geri arama planlama)",
+      "painPointIds": [
+        "PP02"
+      ],
+      "solutionCategory": "AI Agent",
+      "journeyStage": "Inquiry",
+      "trigger": "Mesai dışı arama (Cmt 14:00 sonrası, Pazar)",
+      "segment": "Mesai dışı arayanlar",
+      "requiredData": [
+        "Çağrı hacmi",
+        "Mesai saatleri",
+        "Onaylı yanıtlar"
+      ],
+      "requiredEvents": [
+        "call_missed"
+      ],
+      "integrations": [
+        "Santral/VoIP",
+        "AI ses ajanı",
+        "CRM"
+      ],
+      "channel": "Telefon",
+      "sequence": [
+        "Karşılama + dil seçimi",
+        "Talep tipi ve iletişim bilgisi",
+        "Geri arama zamanı",
+        "CRM kaydı + temsilci bildirimi"
+      ],
       "exampleMessage": "Deda Pack'i aradığınız için teşekkürler. Şu an mesai dışındayız; talebinizi alıp temsilcimizin sizi yarın aramasını sağlayabilirim.",
-      "dependencies": ["O17"], "humanOversight": "Kayıt ve KVKK aydınlatması zorunlu.", "complexity": "Medium", "impact": "Low", "confidence": "Inferred",
-      "measurement": "Kaçan çağrı oranı, geri arama dönüşümü", "firstStep": "Santralden kaçan çağrı istatistiği almak",
-      "scores": { "impact": 2, "evidence": 2, "relevance": 3, "feasibility": 3, "fit": 2 }, "requiresAccess": "Requires CRM / Order / Analytics Data" },
-    { "id": "O21", "entityId": "deda-pack", "title": "Gelen e-posta sınıflandırma ve kariyer başvurusu ayrıştırma", "painPointIds": ["PP09"], "solutionCategory": "External Automation", "journeyStage": "Internal",
-      "trigger": "info@ kutusuna yeni e-posta", "segment": "—", "requiredData": ["Örnek e-postalar"], "requiredEvents": ["email_received"], "integrations": ["E-posta", "LLM sınıflandırma", "İK tablo/ATS"], "channel": "İç süreç",
-      "sequence": ["Sınıflandırma (satış/İK/tedarikçi/şikayet)", "Yönlendirme", "CV'den alan çıkarma → İK tablosu"],
+      "dependencies": [
+        "O17"
+      ],
+      "humanOversight": "Kayıt ve KVKK aydınlatması zorunlu.",
+      "complexity": "Medium",
+      "impact": "Low",
+      "confidence": "Inferred",
+      "measurement": "Kaçan çağrı oranı, geri arama dönüşümü",
+      "firstStep": "Santralden kaçan çağrı istatistiği almak",
+      "scores": {
+        "impact": 2,
+        "evidence": 2,
+        "relevance": 3,
+        "feasibility": 3,
+        "fit": 2
+      },
+      "requiresAccess": "Requires CRM / Order / Analytics Data"
+    },
+    {
+      "id": "O21",
+      "entityId": "deda-pack",
+      "title": "Gelen e-posta sınıflandırma ve kariyer başvurusu ayrıştırma",
+      "painPointIds": [
+        "PP09"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Internal",
+      "trigger": "info@ kutusuna yeni e-posta",
+      "segment": "—",
+      "requiredData": [
+        "Örnek e-postalar"
+      ],
+      "requiredEvents": [
+        "email_received"
+      ],
+      "integrations": [
+        "E-posta",
+        "LLM sınıflandırma",
+        "İK tablo/ATS"
+      ],
+      "channel": "İç süreç",
+      "sequence": [
+        "Sınıflandırma (satış/İK/tedarikçi/şikayet)",
+        "Yönlendirme",
+        "CV'den alan çıkarma → İK tablosu"
+      ],
       "exampleMessage": "(İç) 3 yeni CV İK tablosuna eklendi; 2 teklif talebi satışa yönlendirildi.",
-      "dependencies": [], "humanOversight": "İK değerlendirmesi insan tarafından; KVKK aydınlatma metni.", "complexity": "Low", "impact": "Low", "confidence": "Inferred",
-      "measurement": "Ayıklama süresi", "firstStep": "Kariyer formu açmak",
-      "scores": { "impact": 2, "evidence": 3, "relevance": 3, "feasibility": 5, "fit": 2 } },
-    { "id": "O22", "entityId": "deda-pack", "title": "İhracat hedef müşteri araştırması (AI destekli) + izinli ilk temas", "painPointIds": ["PP07"], "solutionCategory": "External Automation", "journeyStage": "Lead Acquisition",
-      "trigger": "Hedef ülke/sektör listesi", "segment": "Hedef ithalatçı/distribütör/zincir", "requiredData": ["Öncelikli ülkeler", "İdeal müşteri profili"], "requiredEvents": [], "integrations": ["Veri sağlayıcı / web araştırma", "CRM", "LinkedIn"], "channel": "LinkedIn + e-posta (yasal çerçevede)",
-      "sequence": ["ICP tanımı", "Hedef firma listesi + karar verici", "Kişiselleştirilmiş ilk temas taslağı (insan onaylı)", "Yanıt verenler nurture akışına"],
+      "dependencies": [],
+      "humanOversight": "İK değerlendirmesi insan tarafından; KVKK aydınlatma metni.",
+      "complexity": "Low",
+      "impact": "Low",
+      "confidence": "Inferred",
+      "measurement": "Ayıklama süresi",
+      "firstStep": "Kariyer formu açmak",
+      "scores": {
+        "impact": 2,
+        "evidence": 3,
+        "relevance": 3,
+        "feasibility": 5,
+        "fit": 2
+      }
+    },
+    {
+      "id": "O22",
+      "entityId": "deda-pack",
+      "title": "İhracat hedef müşteri araştırması (AI destekli) + izinli ilk temas",
+      "painPointIds": [
+        "PP07",
+        "PP28"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Lead Acquisition",
+      "trigger": "Hedef ülke/sektör listesi",
+      "segment": "Hedef ithalatçı/distribütör/zincir",
+      "requiredData": [
+        "Öncelikli ülkeler",
+        "İdeal müşteri profili"
+      ],
+      "requiredEvents": [],
+      "integrations": [
+        "Veri sağlayıcı / web araştırma",
+        "CRM",
+        "LinkedIn"
+      ],
+      "channel": "LinkedIn + e-posta (yasal çerçevede)",
+      "sequence": [
+        "ICP tanımı",
+        "Hedef firma listesi + karar verici",
+        "Kişiselleştirilmiş ilk temas taslağı (insan onaylı)",
+        "Yanıt verenler nurture akışına"
+      ],
       "exampleMessage": "(Taslak) Hello {name}, we produce custom-printed paper bags in Adana with water-based inks and ISO 22000 certification — would a sample pack for your bakery chain be useful?",
-      "dependencies": ["O01", "O05"], "humanOversight": "Her mesaj insan onaylı; GDPR/yerel spam mevzuatı kontrolü.", "complexity": "Medium", "impact": "Medium", "confidence": "Inferred",
-      "measurement": "Yanıt oranı, toplantı, numune talebi", "firstStep": "Mevcut ihracat müşterilerinden ICP çıkarmak",
-      "scores": { "impact": 4, "evidence": 3, "relevance": 4, "feasibility": 3, "fit": 3 } },
-    { "id": "O23", "entityId": "deda-group", "title": "CRM / ERP / iletişim sistemleri envanteri ve entegrasyon değerlendirmesi", "painPointIds": ["PP23", "PP24", "PP08", "PP19"], "solutionCategory": "Discovery Required", "journeyStage": "Measurement",
-      "trigger": "—", "segment": "—", "requiredData": ["Sistem listesi", "API erişimi", "Veri sahipliği"], "requiredEvents": [], "integrations": ["—"], "channel": "Atölye",
-      "sequence": ["Sistem envanteri", "Veri akış haritası", "KVKK ve şirketler arası veri paylaşım değerlendirmesi", "Entegrasyon yol haritası"],
+      "dependencies": [
+        "O01",
+        "O05"
+      ],
+      "humanOversight": "Her mesaj insan onaylı; GDPR/yerel spam mevzuatı kontrolü.",
+      "complexity": "Medium",
+      "impact": "Medium",
+      "confidence": "Inferred",
+      "measurement": "Yanıt oranı, toplantı, numune talebi",
+      "firstStep": "Mevcut ihracat müşterilerinden ICP çıkarmak",
+      "scores": {
+        "impact": 4,
+        "evidence": 3,
+        "relevance": 4,
+        "feasibility": 3,
+        "fit": 3
+      }
+    },
+    {
+      "id": "O23",
+      "entityId": "deda-group",
+      "title": "CRM / ERP / iletişim sistemleri envanteri ve entegrasyon değerlendirmesi",
+      "painPointIds": [
+        "PP23",
+        "PP24",
+        "PP08",
+        "PP19"
+      ],
+      "solutionCategory": "Discovery Required",
+      "journeyStage": "Measurement",
+      "trigger": "—",
+      "segment": "—",
+      "requiredData": [
+        "Sistem listesi",
+        "API erişimi",
+        "Veri sahipliği"
+      ],
+      "requiredEvents": [],
+      "integrations": [
+        "—"
+      ],
+      "channel": "Atölye",
+      "sequence": [
+        "Sistem envanteri",
+        "Veri akış haritası",
+        "KVKK ve şirketler arası veri paylaşım değerlendirmesi",
+        "Entegrasyon yol haritası"
+      ],
       "exampleMessage": "—",
-      "dependencies": [], "humanOversight": "BT + hukuk.", "complexity": "Low", "impact": "High", "confidence": "Inferred",
-      "measurement": "Envanter tamamlandı; entegrasyon kararları", "firstStep": "Toplantıda sistem envanteri sorusunu sormak",
-      "scores": { "impact": 4, "evidence": 3, "relevance": 5, "feasibility": 5, "fit": 4 } }
+      "dependencies": [],
+      "humanOversight": "BT + hukuk.",
+      "complexity": "Low",
+      "impact": "High",
+      "confidence": "Inferred",
+      "measurement": "Envanter tamamlandı; entegrasyon kararları",
+      "firstStep": "Toplantıda sistem envanteri sorusunu sormak",
+      "scores": {
+        "impact": 4,
+        "evidence": 3,
+        "relevance": 5,
+        "feasibility": 5,
+        "fit": 4
+      }
+    },
+    {
+      "id": "O24",
+      "entityId": "deda-makina",
+      "title": "Makina ürün sayfaları ve arama görünürlüğü: teknik föy + SEO (AI destekli, mühendis onaylı)",
+      "painPointIds": [
+        "PP27",
+        "PP28",
+        "PP12"
+      ],
+      "solutionCategory": "External Automation",
+      "journeyStage": "Discovery",
+      "trigger": "Teknik föy tablosunda yeni/değişen makine",
+      "segment": "—",
+      "requiredData": [
+        "Makine teknik föyleri",
+        "Referans kurulumlar",
+        "Hedef anahtar kelimeler",
+        "Search Console erişimi"
+      ],
+      "requiredEvents": [
+        "page_view_product",
+        "machine_quote_submitted"
+      ],
+      "integrations": [
+        "WordPress",
+        "LLM içerik üretimi",
+        "Google Search Console"
+      ],
+      "channel": "Web",
+      "sequence": [
+        "13 yanlış tabloyu kaldırma (hızlı düzeltme)",
+        "Makine başına teknik föy şablonu",
+        "AI ile TR + EN sayfa taslağı",
+        "Mühendis onayı ve yayın",
+        "Ürün sayfasına teklif CTA'sı (O07)",
+        "Aylık sıralama/indeks raporu"
+      ],
+      "exampleMessage": "(Sayfa taslağı) C3 Turbo Çırpma Makinesi — kullanım: PE film yıkama sonrası susuzlaştırma; hat içindeki yeri: C2 yıkama havuzu → C3 → D1 agromer. [Kapasite ve güç değerleri mühendis tarafından doldurulacak]",
+      "dependencies": [
+        "O16"
+      ],
+      "humanOversight": "Tüm teknik değerler mühendis onaylı; AI yalnızca taslak üretir.",
+      "complexity": "Low",
+      "impact": "High",
+      "confidence": "Verified",
+      "measurement": "İçerik tamlığı, marka/kategori sıralaması, ürün sayfasından teklif",
+      "firstStep": "Yanlış 'Back-flush filtre' tablolarını kaldırıp mevcut teknik föyleri toplamak",
+      "scores": {
+        "impact": 4,
+        "evidence": 5,
+        "relevance": 5,
+        "feasibility": 4,
+        "fit": 3
+      }
+    }
   ]
 }

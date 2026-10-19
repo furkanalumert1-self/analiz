@@ -216,9 +216,9 @@
       "entityId": "deda-makina",
       "url": "https://www.dedamakina.com/",
       "type": "Official website — homepage (raw HTML)",
-      "collector": "direct HTTP (single request) — Apify received bot check",
-      "collectedAt": "2026-10-19T20:52:00Z",
-      "summary": "'SINCE 1976'; A–H ürün grupları; ikinci el makineler; teknik destek. Kurumsal blokta Deda Pack'in kâğıt çanta metni kopyalanmış. 'İkince El Makinalar' yazım hatası. Tema giriş/hesap oluşturma formu. Call Now Button eklentisi; analitik etiketi gözlenmedi. İki farklı telefon (+90 532 771 08 39, +90 322 428 90 90).",
+      "collector": "apify/website-content-crawler (playwright:firefox) + raw HTML snapshot",
+      "collectedAt": "2026-10-19T21:40:00Z",
+      "summary": "'SINCE 1976'; A–H ürün grupları; ikinci el makineler; teknik destek. Ana sayfanın kurumsal bloğunda Deda Pack'in kâğıt çanta metni kopyalanmış; kurumsal sayfa metni Deda Gıda/Pack ile birebir aynı. 'İkince El Makinalar' yazım hatası. İletişim sayfasında 'şikayet ve öneri' formu var. Analitik etiketi gözlenmedi. İki farklı telefon (+90 532 771 08 39, +90 322 428 90 90).",
       "confidence": "Verified"
     },
     {
@@ -238,7 +238,7 @@
       "type": "Public sitemap",
       "collector": "direct HTTP",
       "collectedAt": "2026-10-19T20:50:00Z",
-      "summary": "~75 içerik URL'si: 8 ürün grubu (A–H), ~45 alt ürün sayfası, galeri, blog, teknik destek, ikinci el.",
+      "summary": "~75 içerik URL'si (tamamı Türkçe): 8 ürün grubu (A–H), ~45 alt ürün sayfası, galeri, blog, teknik destek, ikinci el. Apify tarayıcı modu ile 82 kayıt alındı.",
       "confidence": "Verified"
     },
     {
@@ -328,7 +328,7 @@
       "type": "Official website — homepage + crawl coverage record",
       "collector": "apify/website-content-crawler",
       "collectedAt": "2026-10-19T20:58:30Z",
-      "summary": "Deda Gıda ana sayfası: 'Gıda Güvenliği, Kalite Yönetim ve Çevre Yönetim Sistemi belgeleri ... uluslararası geçerli Helal Gıda sertifikaları' beyanı. Ayrıca tarama sırasında Deda Gıda, Deda Pack ve Adana Konteyner sayfalarının bir kısmı sitenin bot doğrulama sayfasını döndürdü (Imunify 'One moment, please'); aşılmadı.",
+      "summary": "Deda Gıda ana sayfası: 'Gıda Güvenliği, Kalite Yönetim ve Çevre Yönetim Sistemi belgeleri ... uluslararası geçerli Helal Gıda sertifikaları' beyanı. İlk Apify taramasında 18 sayfa sitelerin JavaScript doğrulama sayfasını döndürdü; Apify gerçek tarayıcı modu ile yeniden alındı (14 okunabilir, 4 gerçek 404).",
       "confidence": "Verified"
     },
     {
@@ -339,6 +339,106 @@
       "collector": "scripts/mobile-check.mjs (one load per homepage)",
       "collectedAt": "2026-10-19T21:08:00Z",
       "summary": "5 ana sayfada yatay taşma yok. dedagroup.com ve dedagida.com mobil ana sayfasında tıklanabilir telefon/WhatsApp bağlantısı ve form yok. Pack, Makina ve Konteyner viewport ayarında maximum-scale=1 (yakınlaştırma engeli). Tek ölçüm, bulut ortamından; performans karşılaştırması değildir.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S35",
+      "entityId": "deda-makina",
+      "url": "https://www.dedamakina.com/santrafuj/",
+      "type": "Official website — product detail (13 pages)",
+      "collector": "apify/website-content-crawler (playwright:firefox)",
+      "collectedAt": "2026-10-19T21:40:00Z",
+      "summary": "Santrifüj, Agromel, Çift Shaft Shredder, Dikey Kesme, Elek Yakma Fırını, Granül Silosu, Kırma Makinası, Turbo Yıkama, Yüzdürme-Batırma Kazanı dahil 13 farklı makine sayfası aynı 'BACK-FLUSH FİLTRE' teknik tablosunu (elek çapı, piston çapı) gösteriyor. 71 içerik sayfasının 37'sinde 160 karakterden az metin var (yalnızca başlık).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S36",
+      "entityId": "deda-makina",
+      "url": "https://www.dedamakina.com/blog/",
+      "type": "Official website — blog",
+      "collector": "apify/website-content-crawler (playwright:firefox)",
+      "collectedAt": "2026-10-19T21:40:00Z",
+      "summary": "Blog sayfası 'Nothing Found' gösteriyor ve tema demo widget'ı içeriyor: 'limited stock Macbook Air starting from $900.99'.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S37",
+      "entityId": "deda-makina",
+      "url": "https://www.dedamakina.com/teknik-destek/",
+      "type": "Official website — support / used machines / documents",
+      "collector": "apify/website-content-crawler (playwright:firefox)",
+      "collectedAt": "2026-10-19T21:40:00Z",
+      "summary": "Teknik Destek, İkince El Makinalar ve Belgelerimiz sayfalarında başlık ve iletişim bilgisi dışında içerik yok (108–210 karakter).",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S38",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/ru/home",
+      "type": "Official website — homepage (RU)",
+      "collector": "apify/website-content-crawler (playwright:firefox)",
+      "collectedAt": "2026-10-19T21:42:00Z",
+      "summary": "Rusça ana sayfada grup adı 'Dedeman Группа' olarak geçiyor (Deda Group yerine — başka bir Türk markasının adı); metin makine çevirisi.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S39",
+      "entityId": "deda-gida",
+      "url": "https://dedagida.com/tr/bilgi-toplumu-hizmetleri",
+      "type": "Official website — information society services page",
+      "collector": "apify/website-content-crawler (playwright:firefox)",
+      "collectedAt": "2026-10-19T21:42:00Z",
+      "summary": "'Bilgi Toplumu Hizmetleri' sayfasında ticaret unvanı, MERSİS no, ticaret sicil bilgisi gibi şirket bilgileri yok; yalnızca tesis iletişim bilgileri tekrar ediyor.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S40",
+      "entityId": "deda-group",
+      "url": "data/search-presence.json",
+      "type": "Google search results (7 queries, TR, desktop, page 1)",
+      "collector": "apify/google-search-scraper",
+      "collectedAt": "2026-10-19T21:52:00Z",
+      "summary": "'kraft çanta üreticisi Adana' → dedapack.com #1. 'Deda Pack' → #2 (1. sırada Facebook sayfası). 'baskılı kağıt çanta üretimi' → Deda yok. 'Deda Makina' → dedamakina.com ilk 9'da yok (dedapack.com sayfaları çıkıyor). 'plastik geri dönüşüm makinesi üreticisi' → Deda yok. 'Deda Gıda' → #1. Hiçbir sorguda ücretli reklam görünmedi.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S41",
+      "entityId": "deda-pack",
+      "url": "https://www.instagram.com/dedapack/",
+      "type": "Instagram profile",
+      "collector": "apify/instagram-profile-scraper",
+      "collectedAt": "2026-10-19T21:52:00Z",
+      "summary": "Instagram Apify isteğini engelledi (BlockedError); takipçi ve gönderi verisi alınamadı. Google sonucunda profil 'Deda Pack 🇹🇷 (@dedapack) · Adana' olarak görünüyor.",
+      "confidence": "Verified"
+    },
+    {
+      "id": "S42",
+      "entityId": "deda-pack",
+      "url": "https://isinolsun.com/firma-profil/deda-pack-c1978979",
+      "type": "Job board (from Google results)",
+      "collector": "apify/google-search-scraper (result snippet; page not opened)",
+      "collectedAt": "2026-10-19T21:52:00Z",
+      "summary": "Deda Pack için iş ilanları listeleniyor: 'Makine Ustası' (10.10.2026), 'Dilme Makinesi Operatörü'. Üretim kadrosunun büyüdüğüne işaret eder.",
+      "confidence": "Inferred"
+    },
+    {
+      "id": "S43",
+      "entityId": "deda-gida",
+      "url": "https://www.interpack.com/vis/v1/en/exhprofiles/oBg5uQQ3QI25Hdp4jWsHfQ",
+      "type": "Trade fair exhibitor listing (from Google results)",
+      "collector": "apify/google-search-scraper (result snippet; page not opened)",
+      "collectedAt": "2026-10-19T21:52:00Z",
+      "summary": "Deda Gıda Enerji İnşaat Taahhüt Sanayi ve Dış Tic. unvanı interpack (Düsseldorf) ve All4Pack (Paris) katılımcı listelerinde görünüyor; kariyer.net, bulurum, yenibiris profilleri mevcut.",
+      "confidence": "Inferred"
+    },
+    {
+      "id": "S44",
+      "entityId": "deda-pack",
+      "url": "https://www.facebook.com/DedaPackTR/",
+      "type": "Facebook page (from Google results)",
+      "collector": "apify/google-search-scraper (result snippet; page not opened)",
+      "collectedAt": "2026-10-19T21:52:00Z",
+      "summary": "'Deda Pack' aramasında 1. sırada Facebook sayfası (DedaPackTR) ve video/gönderiler var; sitenin footer'ında ise farklı bir Facebook profil bağlantısı (id 100083354113849) kullanılıyor.",
       "confidence": "Verified"
     }
   ]

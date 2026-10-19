@@ -331,7 +331,7 @@
       "function": "Sales",
       "category": "B. Satış ve Lead Yönetimi",
       "journeyStage": "Quotation",
-      "evidence": "Ana sayfadan bağlanan 'DEDA-MAKİNE-TEKLİF-FORMU-LİSTESİ.pdf' isteği 404 döndü; çevrim içi teklif formu gözlenmedi.",
+      "evidence": "Ana sayfadan bağlanan 'DEDA-MAKİNE-TEKLİF-FORMU-LİSTESİ.pdf' isteği 404 döndü. İletişim sayfasında yalnızca 'şikayet ve önerileriniz' için tanımlanmış genel bir form var; makineye özel teknik bilgi (malzeme, kapasite, modül) toplayan çevrim içi teklif formu gözlenmedi.",
       "sourceIds": [
         "S22",
         "S23"
@@ -361,13 +361,14 @@
     {
       "id": "PP11",
       "entityId": "deda-makina",
-      "title": "Kurumsal içerik hatası ve tutarsız kuruluş/deneyim bilgileri",
+      "title": "Kurumsal içerik hataları, şablon kalıntıları ve tutarsız kuruluş bilgileri",
       "function": "Marketing",
       "category": "A. Pazarlama ve Müşteri Kazanımı",
       "journeyStage": "Discovery",
-      "evidence": "Deda Makina ana sayfasının kurumsal bloğunda Deda Pack'in kâğıt çanta metni yer alıyor; 'İkince El Makinalar' yazım hatası. Grup içinde deneyim beyanları farklı: Makina 'SINCE 1976', Gıda '1989'da kuruldu', Pack '34 yıllık', grup sitesi '25+ yıl'.",
+      "evidence": "Deda Makina ana sayfasının kurumsal bloğunda Deda Pack'in kâğıt çanta metni var; blogda tema demo içeriği ('limited stock Macbook Air starting from $900.99'); 'İkince El Makinalar' yazım hatası. Grup içinde deneyim beyanları farklı: Makina 'SINCE 1976', Gıda '1989'da kuruldu', Pack '34 yıllık', grup sitesi '25+ yıl'.",
       "sourceIds": [
         "S22",
+        "S36",
         "S02",
         "S11",
         "S01"
@@ -399,7 +400,7 @@
       "function": "Marketing",
       "category": "A. Pazarlama ve Müşteri Kazanımı",
       "journeyStage": "Discovery",
-      "evidence": "Site haritasındaki ~75 URL'nin tamamı Türkçe; kardeş şirket Deda Pack 8 dilde yayında.",
+      "evidence": "Site haritasındaki ~75 URL ve Apify ile alınan 82 sayfanın tamamı Türkçe; kardeş şirket Deda Pack 8 dilde yayında.",
       "sourceIds": [
         "S24",
         "S11"
@@ -421,7 +422,8 @@
       "impact": "Medium",
       "measurement": "Yabancı dil oturumları ve teklif talepleri",
       "opportunityIds": [
-        "O14"
+        "O14",
+        "O24"
       ]
     },
     {
@@ -467,10 +469,10 @@
       "function": "Customer Support",
       "category": "D. Müşteri Desteği",
       "journeyStage": "After-sales",
-      "evidence": "Menüde 'Teknik Destek' sayfası var; içeriği bot doğrulaması nedeniyle okunamadı. Telefon ve Call Now butonu ana destek kanalı olarak görünüyor.",
+      "evidence": "'Teknik Destek', 'İkince El Makinalar' ve 'Belgelerimiz' sayfaları Apify tarayıcı modu ile alındı; başlık ve iletişim bilgisi dışında içerik yok. Destek kanalı olarak telefon ve Call Now butonu görünüyor.",
       "sourceIds": [
-        "S22",
-        "S24"
+        "S37",
+        "S22"
       ],
       "affected": "Makine sahibi müşteri, servis ekibi",
       "consequence": "Arıza ve yedek parça talepleri telefonla geliyorsa kayıt, önceliklendirme ve tekrar eden sorun analizi zorlaşabilir.",
@@ -498,17 +500,18 @@
     {
       "id": "PP15",
       "entityId": "deda-group",
-      "title": "Bot doğrulaması bazı sayfaları otomatik ziyaretçilere kapatıyor",
+      "title": "Sitelerin JavaScript doğrulaması düz HTTP istemcilerini engelliyor",
       "function": "Marketing",
       "category": "A. Pazarlama ve Müşteri Kazanımı",
       "journeyStage": "Discovery",
-      "evidence": "Taramada Deda Gıda'da 9, Deda Pack'te 5, Adana Konteyner'de 4 sayfa ve Deda Makina'nın tamamı 'One moment, please' bot doğrulama sayfası döndürdü.",
+      "evidence": "İlk Apify taramasında Deda Makina'nın tamamı ve diğer sitelerde 18 sayfa 'One moment, please' doğrulama sayfası döndürdü; gerçek tarayıcı modunda tümü açıldı. Google aramada Deda Pack, Gıda ve grup sitesi listeleniyor; dedamakina.com kendi marka aramasında ilk sayfada görünmedi.",
       "sourceIds": [
         "S33",
-        "S22"
+        "S22",
+        "S40"
       ],
       "affected": "Arama motorları, AI asistanları, bağlantı önizlemeleri (potansiyel)",
-      "consequence": "Güvenlik ayarı arama motoru ve AI asistanı tarayıcılarını da etkiliyorsa ürün sayfalarının görünürlüğü azalabilir. Googlebot'un muaf olup olmadığı doğrulanmadı.",
+      "consequence": "JavaScript çalıştırmayan tarayıcılar (bazı arama/AI botları, bağlantı önizlemeleri) içeriği göremeyebilir. Makina'nın arama görünürlüğüyle ilişkisi doğrulanmadı.",
       "classification": "Evidence-Based Hypothesis",
       "validationQuestion": "Sunucu güvenlik eklentisinde (Imunify) arama motoru botları için istisna tanımlı mı? Search Console'da tarama hatası var mı?",
       "solution": "Search Console tarama raporu kontrolü; doğrulanmış arama/AI botları için allowlist; güvenliği koruyarak eşik ayarı.",
@@ -567,9 +570,10 @@
       "function": "Marketing",
       "category": "A. Pazarlama ve Müşteri Kazanımı",
       "journeyStage": "Discovery",
-      "evidence": "EN kurumsal metin: \"Employees not believe passionately Never luck!\"; Ice Boom sayfasında ürün açıklaması yok (TR/EN); ürün listesi sayfada 4 kez tekrar ediyor.",
+      "evidence": "EN kurumsal metin: \"Employees not believe passionately Never luck!\"; RU ana sayfada grup adı 'Dedeman Группа' (başka bir markanın adı) olarak çevrilmiş; Ice Boom sayfasında ürün açıklaması yok (TR/EN/AR); ürün listesi sayfada 4 kez tekrar ediyor.",
       "sourceIds": [
         "S03",
+        "S38",
         "S08",
         "S05"
       ],
@@ -899,6 +903,105 @@
       "measurement": "Prova tur sayısı; onaya kadar geçen gün",
       "opportunityIds": [
         "O13"
+      ]
+    },
+    {
+      "id": "PP27",
+      "entityId": "deda-makina",
+      "title": "Makine ürün sayfaları boş veya yanlış teknik tablo gösteriyor",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Product View",
+      "evidence": "13 farklı makine sayfası (santrifüj, shredder, agromel, silo, kırma makinesi vb.) aynı 'BACK-FLUSH FİLTRE' tablosunu gösteriyor; 71 içerik sayfasının 37'sinde yalnızca başlık var (<160 karakter). Kapasite, motor gücü, giriş/çıkış malzemesi gibi seçim bilgisi gözlenmedi.",
+      "sourceIds": [
+        "S35",
+        "S24"
+      ],
+      "affected": "Makine alıcısı, satış mühendisi",
+      "consequence": "Alıcı makineyi teknik olarak karşılaştıramıyor; yanlış tablo güveni zedeler ve her talep mühendisin telefonla bilgi vermesini gerektirir.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Her makine için güncel teknik föy (kapasite, güç, ölçü) mevcut mu, kim güncelliyor?",
+      "solution": "Makine başına doğru teknik föy, kullanım alanı ve hat içindeki yeri; mühendis onaylı, AI destekli içerik üretimi; ürün sayfalarına teklif CTA'sı.",
+      "automation": "Teknik föy tablosu (tek kaynak) → AI ile sayfa taslağı → mühendis onayı → yayın → aylık tutarlılık kontrolü",
+      "requiredData": [
+        "Makine teknik föyleri",
+        "Referans kurulumlar",
+        "Görseller/videolar"
+      ],
+      "integrations": [
+        "WordPress",
+        "LLM içerik üretimi"
+      ],
+      "complexity": "Low",
+      "impact": "High",
+      "measurement": "Ürün sayfası başına içerik tamlığı; ürün sayfasından teklif talebi; organik trafik",
+      "opportunityIds": [
+        "O24",
+        "O07"
+      ]
+    },
+    {
+      "id": "PP28",
+      "entityId": "deda-makina",
+      "title": "Makina ve baskılı çanta için arama görünürlüğü zayıf",
+      "function": "Marketing",
+      "category": "A. Pazarlama ve Müşteri Kazanımı",
+      "journeyStage": "Discovery",
+      "evidence": "Google TR ilk sayfa: 'Deda Makina' aramasında dedamakina.com yok (yerine dedapack.com sayfaları); 'plastik geri dönüşüm makinesi üreticisi' ve 'baskılı kağıt çanta üretimi' aramalarında Deda sitesi yok. Buna karşılık 'kraft çanta üreticisi Adana' aramasında dedapack.com 1. sırada. Hiçbir sorguda ücretli reklam yok.",
+      "sourceIds": [
+        "S40",
+        "S28"
+      ],
+      "affected": "Yeni alıcı, pazarlama",
+      "consequence": "Marka adını bilen alıcı bile Makina sitesine ulaşamayabilir; kategori aramalarında talep rakiplere gidiyor.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Search Console'da dedamakina.com indekslenme ve sorgu verisi nedir?",
+      "solution": "Makina sitesinde teknik SEO (indeks, başlıklar, iç bağlantılar, kendi marka sorgusu), dolu ürün sayfaları ve kategori içerikleri; Pack için 'baskılı çanta' odaklı açılış sayfası; isteğe bağlı küçük arama reklamı pilotu.",
+      "automation": "Aylık otomatik sıralama ve indeks raporu (Search Console API + arama takibi)",
+      "requiredData": [
+        "Search Console erişimi",
+        "Hedef anahtar kelimeler"
+      ],
+      "integrations": [
+        "Google Search Console",
+        "GA4"
+      ],
+      "complexity": "Medium",
+      "impact": "High",
+      "measurement": "Marka ve kategori sorgularında sıralama; organik oturum ve talep",
+      "opportunityIds": [
+        "O24",
+        "O22"
+      ]
+    },
+    {
+      "id": "PP29",
+      "entityId": "deda-gida",
+      "title": "'Bilgi Toplumu Hizmetleri' sayfasında şirket bilgileri yok",
+      "function": "Operations",
+      "category": "E. İç Operasyonlar",
+      "journeyStage": "Discovery",
+      "evidence": "Deda Gıda'nın 'Bilgi Toplumu Hizmetleri' sayfası yalnızca tesis iletişim bilgilerini tekrar ediyor; ticaret unvanı, MERSİS no, ticaret sicil bilgisi yayınlanmamış. Diğer sitelerde de böyle bir sayfa gözlenmedi.",
+      "sourceIds": [
+        "S39"
+      ],
+      "affected": "Şirket (uyum), alıcı",
+      "consequence": "Sermaye şirketlerinin web sitelerinde zorunlu bilgilerin (TTK md. 1524) eksik olması uyum riski doğurabilir; yabancı alıcılar için tüzel kişi doğrulaması zorlaşır. Hukuki değerlendirme gerekir.",
+      "classification": "Verified Pain Point",
+      "validationQuestion": "Grup şirketlerinin zorunlu web sitesi bilgileri hangi sitede yayınlanıyor?",
+      "solution": "Her şirket sitesinde tek tip 'Bilgi Toplumu Hizmetleri' sayfası (unvan, MERSİS, sicil, adres) ve KVKK aydınlatma metni.",
+      "automation": "Grup siteleri için aylık uyum kontrol listesi taraması",
+      "requiredData": [
+        "Ticaret sicil bilgileri"
+      ],
+      "integrations": [
+        "WordPress / site CMS"
+      ],
+      "complexity": "Low",
+      "impact": "Medium",
+      "measurement": "Zorunlu bilgileri içeren site sayısı",
+      "opportunityIds": [
+        "O15"
       ]
     }
   ]
