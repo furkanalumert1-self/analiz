@@ -1,0 +1,244 @@
+<title>Etsy İnovasyon Haritası</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütun rapor, 1080px sayfa; bölümler ince çizgiyle ayrılır, veriler tablo + tek dağılım grafiği */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --ink:#1b2731; --ink-2:#4a5a66; --muted:#7a8a95;
+  --line:#dde4e2; --accent:#0e6b66; --accent-soft:#e0efed; --pop:#b8860b; --pop-soft:#f6edd4;
+  --good:#2f7d32; --warn:#b26a00; --crit:#b3261e; --crit-soft:#f9e3e1;
+  --f-display:"Young Serif", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121a1f; --surface:#19232a; --ink:#e7eef0; --ink-2:#b2c0c7; --muted:#83949d;
+  --line:#2b3a42; --accent:#5cc2b9; --accent-soft:#183634; --pop:#e2b84a; --pop-soft:#3a3018;
+  --good:#7cc47f; --warn:#e9a64a; --crit:#f08a80; --crit-soft:#3d2220; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#121a1f; --surface:#19232a; --ink:#e7eef0; --ink-2:#b2c0c7; --muted:#83949d;
+  --line:#2b3a42; --accent:#5cc2b9; --accent-soft:#183634; --pop:#e2b84a; --pop-soft:#3a3018;
+  --good:#7cc47f; --warn:#e9a64a; --crit:#f08a80; --crit-soft:#3d2220; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem)}
+h3{font-size:1.2rem}
+p{margin:0;max-width:68ch}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+section{display:flex;flex-direction:column;gap:20px;padding-top:28px;border-top:1px solid var(--line)}
+.lede{font-size:1.15rem;color:var(--ink-2)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:18px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:.92rem}
+.facts b{color:var(--ink);font-family:var(--f-mono);font-weight:500}
+.verdict{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:14px}
+.verdict ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.verdict li::marker{font-family:var(--f-mono);color:var(--accent)}
+.chart-box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;position:relative}
+.chart-box svg{display:block;width:100%;height:auto}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.82rem;padding:8px 10px;border-radius:6px;max-width:260px;line-height:1.4}
+.note{font-size:.85rem;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--ink-2);padding:6px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:820px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--ink-2);font-size:.78rem;letter-spacing:.03em;white-space:nowrap;cursor:pointer;user-select:none;background:var(--surface);position:sticky;top:0}
+th[data-k]:hover{color:var(--accent)}
+td.r,th.r{text-align:right}
+tr:last-child td{border-bottom:0}
+.kw{font-size:.78rem;color:var(--muted)}
+.score{display:inline-flex;align-items:center;gap:8px}
+.bar{width:54px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.risk{background:var(--crit-soft);color:var(--crit)}
+.pill.eu{background:var(--pop-soft);color:var(--pop)}
+.pill.ok{background:var(--accent-soft);color:var(--accent)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.deep{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.deep .head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:.8rem}
+.metrics div{display:flex;flex-direction:column;border-left:2px solid var(--line);padding-left:8px}
+.metrics b{font-family:var(--f-mono);font-weight:500;font-size:.95rem;color:var(--ink)}
+.metrics span{color:var(--muted)}
+.deep dl{margin:0;display:grid;gap:8px;font-size:.92rem}
+.deep dt{font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.deep dd{margin:0}
+.deep .idea{background:var(--accent-soft);border-radius:8px;padding:12px 14px}
+.deep .idea dt{color:var(--accent)}
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.theme{border-top:3px solid var(--crit);background:var(--surface);border-radius:0 0 10px 10px;padding:16px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.theme .cnt{font-family:var(--f-mono);font-size:.8rem;color:var(--crit)}
+blockquote{margin:0;font-size:.88rem;color:var(--ink-2);border-left:2px solid var(--line);padding-left:10px}
+blockquote cite{display:block;font-style:normal;font-size:.75rem;color:var(--muted);margin-top:2px}
+.stars{font-family:var(--f-mono);color:var(--crit)}
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px}
+.card p{font-size:.92rem}
+.card .why{font-size:.84rem;color:var(--ink-2)}
+.card .price{font-family:var(--f-mono);font-size:.85rem;color:var(--ink)}
+ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;max-width:75ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+.cols h3{margin-bottom:8px}
+footer{font-size:.85rem;color:var(--muted)}
+@media (max-width:560px){.metrics{grid-template-columns:repeat(2,1fr)}.wrap{padding-block:28px 56px;gap:48px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+<style>
+.cat{font-size:.72rem;color:var(--ink-2);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.mkt{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:.8rem}
+.mkt div{border-left:2px solid var(--line);padding-left:8px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.mkt b{font-family:var(--f-mono);font-weight:500;font-size:.9rem}
+.mkt span{color:var(--muted)}
+.mkt .lbl{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--accent)}
+.mkt .hot b{color:var(--crit)}
+.flow{display:grid;gap:10px}
+.flow .step{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start;font-size:.92rem}
+.flow .tag{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+.flow .t-c{color:var(--crit)} .flow .t-i{color:var(--accent)}
+.inov{background:var(--accent-soft);border-radius:8px;padding:12px 14px}
+.inov ul{margin:0;padding-left:1.1em;display:grid;gap:4px}
+.big .card{gap:14px}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:16px}
+#prod td:nth-child(2){min-width:200px}
+.rate{display:inline-flex;align-items:center;gap:8px}
+.rate .bar i{background:var(--crit)}
+.themebars{display:grid;gap:8px;max-width:720px}
+.themebars .tb{display:grid;grid-template-columns:minmax(0,260px) 1fr 40px;gap:12px;align-items:center;font-size:.9rem}
+.themebars .track{height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.themebars .track i{display:block;height:100%;background:var(--crit);border-radius:5px}
+.avoid{border-left:3px solid var(--warn);padding-left:12px}
+@media (max-width:560px){.mkt{grid-template-columns:repeat(2,1fr)}.flow .step{grid-template-columns:1fr;gap:2px}.themebars .tb{grid-template-columns:1fr 40px}.themebars .track{grid-column:1/-1;order:3}}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Etsy şikâyet ve inovasyon analizi · ABD, Almanya, İngiltere · 19 Ekim 2026</span>
+  <h1>Alıcıların şikâyet ettiği ürünleri daha iyi yapmak</h1>
+  <p class="lede">Önceki raporlarda talebi doğrulanan 30 ürünün en üst sıralardaki 156 mağazasının puanı ve 43 mağazanın 868 son yorumu tarandı. Her ürün için şikâyet oranı, arama hacmi ve rakip mağaza sayısı birlikte değerlendirildi. Amaç, şikâyetin yoğun ve rekabetin zayıf olduğu ürünleri bulup bu şikâyetleri çözen inovasyonları çıkarmak.</p>
+  <div class="facts" id="facts"></div>
+  <p class="note">Diğer raporlar: <a href="https://claude.ai/artifact/KDcAiCeDQLpwnrYTnjresY" target="_blank" rel="noopener">Etsy Anne-Bebek Fırsat Haritası</a> · <a href="https://claude.ai/artifact/T3gr1gPCWtT8Px7quh4sjw" target="_blank" rel="noopener">Etsy Talep Haritası</a> · <a href="https://claude.ai/artifact/PrFegZBTCiu8wG88jdMLgg" target="_blank" rel="noopener">Etsy Kişiselleştirme Haritası</a></p>
+</header>
+
+<div class="verdict">
+  <span class="eyebrow">Kısa karar</span>
+  <h3>İnovasyonla geliştirilebilecek ilk 5 ürün</h3>
+  <ol>
+    <li><b>Punch needle ve nakış kiti:</b> Ürüne ait yorumların <span class="num">%29</span>'u olumsuz, taramadaki en yüksek oran. ABD'de ayda <span class="num">22.200</span> arama var. Şikâyetler talimat eksikliği, yetersiz ip ve "el yapımı" diye satılıp Çin'den gelmesi üzerine.</li>
+    <li><b>Ekşi maya ve banneton seti:</b> Olumsuz yorumlar az ama ağır: eksik parça, daha önce açılmış kit, fotoğrafla uyuşmayan ürün. Almanya'da mağaza başına aylık <span class="num">11,7</span> arama düşüyor, rekabet en zayıf ürünlerden biri.</li>
+    <li><b>Emzirme örtüsü:</b> Olumsuz yorum oranı <span class="num">%10</span>. Başlıca şikâyet örtünün "çok şeffaf" olması ve Amazon'dan gelmesi. ABD'de <span class="num">9.900</span>, Almanya'da <span class="num">3.600</span> aylık arama var.</li>
+    <li><b>Modüler ilaç kutusu:</b> ABD'de <span class="num">40.500</span> aylık arama var. Şikâyetler "haplarım sığmıyor, iç bölme çıkarılamıyor" üzerine, yani tasarım sorunu.</li>
+    <li><b>Ahşap bebek jimnastik standı (Almanya):</b> <span class="num">4.400</span> aylık aramaya en fazla <span class="num">~1.400</span> mağaza düşüyor. Şikâyetler boyanın renkler arasında taşması ve teslimat gecikmesi üzerine. Sertifikalı boya ve hızlı teslimat burada fark yaratır.</li>
+  </ol>
+</div>
+
+<section>
+  <span class="eyebrow">01 · Şikâyet temaları</span>
+  <h2>69 olumsuz yorumun konusu</h2>
+  <p>Bir yorum birden fazla temaya girebilir. Sayılar anahtar kelime taramasıyla yapılan yaklaşık bir sınıflandırma.</p>
+  <div class="themebars" id="themes"></div>
+  <p class="note">En çarpıcı bulgu "el yapımı" ya da "yerel" diye satılıp Amazon'dan veya Çin'den gönderilen ürünler. 69 olumsuz yorumun yaklaşık 21'i bu konuda. Etsy'de alıcının asıl beklentisi küçük üretici. Gerçekten kendiniz üretip bunu fotoğraf, video ve "nasıl yapılıyor" içeriğiyle kanıtlamanız tek başına bir rekabet avantajı.</p>
+</section>
+
+<section>
+  <span class="eyebrow">02 · Ürün bazında</span>
+  <h2>30 ürünün şikâyet, talep ve rekabet tablosu</h2>
+  <div class="tbl"><table id="prod" style="min-width:980px"><thead><tr>
+    <th>Olumsuz yorum oranı</th><th>Ürün</th><th class="r">İncelenen yorum</th><th class="r">Üst mağaza puanı (ort. / en düşük)</th><th class="r">ABD aylık arama</th><th class="r">ABD rakip mağaza (≤)</th><th class="r">Almanya aylık arama</th><th class="r">Almanya rakip mağaza (≤)</th>
+  </tr></thead><tbody></tbody></table></div>
+  <p class="note">Bir mağazanın yorumlarında ürüne ait en az 10 yorum varsa oran yalnızca o ürünün yorumlarından hesaplandı ("ürün"). Yoksa mağazanın tüm son yorumları kullanıldı ("mağaza geneli"). Mağaza geneli oranlar başka ürünlere ait olabilir, bu yüzden soluk gösteriliyor. Mağaza puanları Etsy'nin ilk sıralarında görünen mağazalara ait. Etsy düşük puanlı mağazaları geriye ittiği için gerçek pazar ortalaması daha düşüktür.</p>
+</section>
+
+<section>
+  <span class="eyebrow">03 · İnovasyon önerileri</span>
+  <h2>Şikâyetten ürüne: 5 ana öneri</h2>
+  <p>Her kart üç adımlı: alıcının şikâyeti, bu şikâyeti çözen tasarım veya hizmet değişikliği ve ürünün pazar verisi.</p>
+  <div class="big" id="cards"></div>
+</section>
+
+<section>
+  <span class="eyebrow">04 · İkinci sıradakiler</span>
+  <h2>Şikâyeti olan ama dikkatli girilmesi gereken ürünler</h2>
+  <div class="ideas">
+    <article class="card"><h3>Monitör standı</h3><p>ABD'de ayda 33.100 arama ve en fazla ~7.700 rakip mağaza var. Şikâyetler kargoda kırılma, yanlış renk ve kusurlu ikinci gönderim üzerine.</p><p class="why"><b>İnovasyon:</b> Düz paket (flat-pack) tasarım, köşe koruyuculu ambalaj, renk numunesi kartı. <b>Risk:</b> Etsy'de bu üründe bestseller ya da popüler rozetli ilan yok, alıcı daha çok Amazon'a gidiyor.</p></article>
+    <article class="card"><h3>Mum yapım kiti</h3><p>Ürün yorumlarının %11'i olumsuz. Şikâyetlerin neredeyse tamamı "Amazon'dan aynısını $30 daha ucuza gönderdi" üzerine.</p><p class="why"><b>İnovasyon:</b> Kendi koku reçeteleri, tekrar kullanılabilir seramik kap ve doğal balmumu içeren, Amazon'da olmayan bir kit. <b>Risk:</b> ABD'de en fazla ~30.000 rakip mağaza var, mağaza başına 0,5 arama düşüyor. Kalabalık bir pazar.</p></article>
+    <article class="card"><h3>Doğum çantası düzenleyici</h3><p>Almanya'da ayda 6.600 arama ve en fazla ~5.400 mağaza var. Önceki raporda ve bu taramada şikâyetler özensiz dikiş, eğri baş harfler ve ucuz malzeme üzerine.</p><p class="why"><b>İnovasyon:</b> Kalın TPU, YKK fermuar, nakış öncesi dijital önizleme ve içine konacakların kontrol listesi.</p></article>
+  </div>
+  <div class="avoid"><p><b>Kaçının: Ahşap masa düzenleyici.</b> Ürün yorumlarının %21'i olumsuz (pres ahşabı "masif" diye satmak, Amazon'dan göndermek) ama talep zayıf. ABD'de ayda 2.400 aramaya ~21.000 rakip mağaza düşüyor. Şikâyet tek başına fırsat değil, arkasında talep olmalı.</p></div>
+</section>
+
+<section>
+  <span class="eyebrow">Yöntem ve sınırlar</span>
+  <h2>Veri nasıl toplandı?</h2>
+  <ul class="plain">
+    <li><b>Ürün seçimi:</b> Önceki raporlarda Google arama hacmi ve Etsy rekabeti ölçülen 30 ürün kullanıldı. Her ürünün ABD'deki ilk 4 organik sonucundaki mağazalar ile Almanya ve İngiltere'deki ilk sonucun mağazaları alındı. Toplam 165 mağaza seçildi, 156'sının puanı alınabildi.</li>
+    <li><b>Yorumlar:</b> Apify (astravalabs/etsy-reviews-scraper). Puanı 4,7 ve altında olan 13 mağazadan en fazla 35'er, diğer ürünlerin en büyük mağazasından 14'er en yeni yorum çekildi. Toplam 868 yorum, 69'u 3 yıldız ve altı.</li>
+    <li><b>Mağaza puanları:</b> Apify (sourabhbgp/etsy-scraper, shop modu).</li>
+    <li><b>Sınırlar:</b>
+      <ul class="plain">
+        <li>Yorumlar en yeni yorumlar olduğu için sezona göre değişebilir.</li>
+        <li>14 yorumluk örneklerde olumsuz yorum çıkmaması, ürünün şikâyetsiz olduğunu kanıtlamaz.</li>
+        <li>Tema sayıları anahtar kelime eşleşmesiyle yapıldığı için yaklaşık değerdir.</li>
+        <li>Rakip mağaza sayıları önceki raporlarda olduğu gibi tahmini üst sınırdır.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<footer>Kaynak veriler 18-19 Ekim 2026'da Apify üzerinden toplandı.</footer>
+</div>
+
+<script>
+const P = [{"kw": "punch needle kit", "tr": "Punch needle kiti", "cat": "Hobi kiti", "shops": 6, "avg": 4.6, "min": 4.0, "nrev": 79, "neg": 23, "rate": 29, "scope": "ürün", "US": {"vol": 22200, "est": 14000, "med": 30.34, "cur": "USD"}, "DE": {"vol": 3600, "est": 12000, "med": 25.88, "cur": "EUR"}, "GB": {"vol": 5400, "est": 16000, "med": 16.81, "cur": "GBP"}}, {"kw": "desk organizer wood", "tr": "Ahşap masa düzenleyici", "cat": "Masa & teknoloji", "shops": 6, "avg": 4.82, "min": 4.3, "nrev": 34, "neg": 7, "rate": 21, "scope": "ürün", "US": {"vol": 2400, "est": 21000, "med": 63.23, "cur": "USD"}, "DE": {"vol": 1300, "est": 18000, "med": 43.74, "cur": "EUR"}, "GB": {"vol": null, "est": 19000, "med": 43.52, "cur": "GBP"}}, {"kw": "wooden baby gym", "tr": "Ahşap bebek jimnastik standı", "cat": "Anne-bebek", "shops": 5, "avg": 4.9, "min": 4.8, "nrev": 13, "neg": 2, "rate": 15, "scope": "ürün", "US": {"vol": null, "est": 5600, "med": 38.47, "cur": "USD"}, "DE": {"vol": 4400, "est": 1400, "med": 36.74, "cur": "EUR"}, "GB": {"vol": null, "est": 3500, "med": 51.06, "cur": "GBP"}}, {"kw": "hospital bag essentials", "tr": "Doğum çantası setleri", "cat": "Anne-bebek", "shops": 6, "avg": 4.65, "min": 3.7, "nrev": 14, "neg": 2, "rate": 14, "scope": "mağaza", "US": {"vol": 1900, "est": 7500, "med": 20.53, "cur": "USD"}, "DE": {"vol": 6600, "est": 5400, "med": 58.39, "cur": "EUR"}, "GB": {"vol": 1000, "est": 6300, "med": 24.99, "cur": "GBP"}}, {"kw": "candle making kit", "tr": "Mum yapım kiti", "cat": "Hobi kiti", "shops": 6, "avg": 4.8, "min": 4.4, "nrev": 38, "neg": 4, "rate": 11, "scope": "ürün", "US": {"vol": 14800, "est": 30000, "med": 45.49, "cur": "USD"}, "DE": {"vol": 2900, "est": 20000, "med": 38.12, "cur": "EUR"}, "GB": {"vol": null, "est": 23000, "med": 21, "cur": "GBP"}}, {"kw": "nursing cover", "tr": "Emzirme önlüğü", "cat": "Anne-bebek", "shops": 6, "avg": 4.86, "min": 4.7, "nrev": 41, "neg": 4, "rate": 10, "scope": "ürün", "US": {"vol": 9900, "est": 16000, "med": 29.95, "cur": "USD"}, "DE": {"vol": 3600, "est": 7500, "med": 35.91, "cur": "EUR"}, "GB": {"vol": 1600, "est": 9900, "med": 28.13, "cur": "GBP"}}, {"kw": "bread proofing basket", "tr": "Ekmek mayalama sepeti (banneton)", "cat": "Mutfak", "shops": 6, "avg": 4.9, "min": 4.9, "nrev": 14, "neg": 1, "rate": 7, "scope": "mağaza", "US": {"vol": 6600, "est": 5400, "med": 26.58, "cur": "USD"}, "DE": {"vol": 6600, "est": 460, "med": 30.5, "cur": "EUR"}, "GB": {"vol": 1300, "est": 2500, "med": 18.08, "cur": "GBP"}}, {"kw": "postpartum recovery kit", "tr": "Doğum sonrası bakım kiti", "cat": "Anne-bebek", "shops": 6, "avg": 4.93, "min": 4.9, "nrev": 14, "neg": 1, "rate": 7, "scope": "mağaza", "US": {"vol": 2900, "est": 900, "med": 50.11, "cur": "USD"}, "DE": {"vol": 210, "est": 120, "med": 46.51, "cur": "EUR"}, "GB": {"vol": 320, "est": 150, "med": 36.85, "cur": "GBP"}}, {"kw": "meditation cushion", "tr": "Meditasyon minderi", "cat": "Wellness", "shops": 6, "avg": 4.92, "min": 4.8, "nrev": 14, "neg": 1, "rate": 7, "scope": "mağaza", "US": {"vol": 6600, "est": 19000, "med": 67.5, "cur": "USD"}, "DE": {"vol": 5400, "est": 9300, "med": 44.45, "cur": "EUR"}, "GB": {"vol": 1600, "est": 20000, "med": 37.56, "cur": "GBP"}}, {"kw": "controller holder", "tr": "Oyun kolu standı", "cat": "Oyun", "shops": 6, "avg": 4.92, "min": 4.8, "nrev": 14, "neg": 1, "rate": 7, "scope": "mağaza", "US": {"vol": 4400, "est": 13000, "med": 26.4, "cur": "USD"}, "DE": {"vol": 1900, "est": 11000, "med": 28.95, "cur": "EUR"}, "GB": {"vol": null, "est": 11000, "med": 14.0, "cur": "GBP"}}, {"kw": "pill organizer", "tr": "İlaç düzenleyici", "cat": "Sağlık & bakım", "shops": 6, "avg": 4.87, "min": 4.7, "nrev": 16, "neg": 1, "rate": 6, "scope": "ürün", "US": {"vol": 40500, "est": 18000, "med": 31.98, "cur": "USD"}, "DE": {"vol": 18100, "est": 9900, "med": 22.55, "cur": "EUR"}, "GB": {"vol": 14800, "est": 14000, "med": 14.99, "cur": "GBP"}}, {"kw": "monitor stand", "tr": "Monitör standı", "cat": "Masa & teknoloji", "shops": 5, "avg": 4.87, "min": 4.7, "nrev": 38, "neg": 2, "rate": 5, "scope": "ürün", "US": {"vol": 33100, "est": 7700, "med": 89.0, "cur": "USD"}, "DE": {"vol": 390, "est": 3800, "med": 101.15, "cur": "EUR"}, "GB": {"vol": 9900, "est": 3600, "med": 55.34, "cur": "GBP"}}, {"kw": "sourdough starter kit", "tr": "Ekşi maya başlangıç kiti", "cat": "Mutfak", "shops": 6, "avg": 4.9, "min": 4.6, "nrev": 47, "neg": 2, "rate": 4, "scope": "ürün", "US": {"vol": 22200, "est": 9100, "med": 37.34, "cur": "USD"}, "DE": {"vol": 5400, "est": 460, "med": 10.43, "cur": "EUR"}, "GB": {"vol": 4400, "est": 3400, "med": 10.98, "cur": "GBP"}}, {"kw": "baby sleep sack", "tr": "Bebek uyku tulumu", "cat": "Anne-bebek", "shops": 6, "avg": 4.9, "min": 4.6, "nrev": 49, "neg": 2, "rate": 4, "scope": "mağaza", "US": {"vol": 49500, "est": 7400, "med": 33.23, "cur": "USD"}, "DE": {"vol": 8100, "est": 1100, "med": 42.46, "cur": "EUR"}, "GB": {"vol": 4400, "est": 1300, "med": 25.99, "cur": "GBP"}}, {"kw": "cable organizer", "tr": "Kablo düzenleyici", "cat": "Masa & teknoloji", "shops": 6, "avg": 4.82, "min": 4.7, "nrev": 35, "neg": 1, "rate": 3, "scope": "ürün", "US": {"vol": 6600, "est": 8800, "med": 29.9, "cur": "USD"}, "DE": {"vol": 3600, "est": 7400, "med": 31.98, "cur": "EUR"}, "GB": {"vol": 720, "est": 9100, "med": 5.97, "cur": "GBP"}}, {"kw": "sauna hat", "tr": "Sauna şapkası", "cat": "Wellness", "shops": 5, "avg": 4.9, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 33100, "est": 6300, "med": 37.75, "cur": "USD"}, "DE": {"vol": 8100, "est": 3100, "med": 36.12, "cur": "EUR"}, "GB": {"vol": 12100, "est": 3600, "med": 32.79, "cur": "GBP"}}, {"kw": "cat wall shelves", "tr": "Kedi duvar rafları", "cat": "Evcil hayvan", "shops": 3, "avg": 4.97, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 14800, "est": 6800, "med": 98.15, "cur": "USD"}, "DE": {"vol": 3600, "est": 3600, "med": 151.59, "cur": "EUR"}, "GB": {"vol": 1900, "est": 5300, "med": 53.34, "cur": "GBP"}}, {"kw": "breast milk jewelry", "tr": "Anne sütü takı", "cat": "Anne-bebek", "shops": 5, "avg": 4.9, "min": 4.8, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 12100, "est": 4500, "med": 99.56, "cur": "USD"}, "DE": {"vol": 8100, "est": 2400, "med": 98.85, "cur": "EUR"}, "GB": {"vol": 2400, "est": 4000, "med": 59.44, "cur": "GBP"}}, {"kw": "bird feeder", "tr": "Kuş yemliği", "cat": "Bahçe", "shops": 6, "avg": 4.92, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 60500, "est": 24000, "med": 143.38, "cur": "USD"}, "DE": {"vol": 14800, "est": 7100, "med": 44.9, "cur": "EUR"}, "GB": {"vol": 27100, "est": 17000, "med": 27.99, "cur": "GBP"}}, {"kw": "stroller organizer", "tr": "Bebek arabası organizeri", "cat": "Anne-bebek", "shops": 6, "avg": 5.0, "min": 5.0, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 2900, "est": 4100, "med": 48, "cur": "USD"}, "DE": {"vol": 2900, "est": 2000, "med": 46.95, "cur": "EUR"}, "GB": {"vol": 210, "est": 1900, "med": 20.49, "cur": "GBP"}}, {"kw": "crib mobile", "tr": "Beşik dönencesi", "cat": "Anne-bebek", "shops": 6, "avg": 4.97, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 14800, "est": 19000, "med": 65.4, "cur": "USD"}, "DE": {"vol": 12100, "est": 12000, "med": 49.09, "cur": "EUR"}, "GB": {"vol": 1000, "est": 19000, "med": 42.88, "cur": "GBP"}}, {"kw": "montessori busy board", "tr": "Montessori meşguliyet panosu", "cat": "Anne-bebek", "shops": 6, "avg": 4.88, "min": 4.8, "nrev": 28, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 3600, "est": 4400, "med": 89.99, "cur": "USD"}, "DE": {"vol": null, "est": 3000, "med": 52.5, "cur": "EUR"}, "GB": {"vol": null, "est": 4500, "med": 49.3, "cur": "GBP"}}, {"kw": "muslin swaddle", "tr": "Müslin kundak", "cat": "Anne-bebek", "shops": 5, "avg": 4.96, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 6600, "est": 8300, "med": 24.99, "cur": "USD"}, "DE": {"vol": 1900, "est": 4000, "med": 33.62, "cur": "EUR"}, "GB": {"vol": 720, "est": 3800, "med": 16.49, "cur": "GBP"}}, {"kw": "yoga mat bag", "tr": "Yoga matı çantası", "cat": "Wellness", "shops": 4, "avg": 4.9, "min": 4.8, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 8100, "est": 13000, "med": 41.75, "cur": "USD"}, "DE": {"vol": 140, "est": 1400, "med": 35.38, "cur": "EUR"}, "GB": {"vol": null, "est": 9500, "med": 21.95, "cur": "GBP"}}, {"kw": "quiet book felt", "tr": "Keçe sessiz kitap", "cat": "Anne-bebek", "shops": 6, "avg": 4.95, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 260, "est": 5900, "med": 45, "cur": "USD"}, "DE": {"vol": 2900, "est": 3400, "med": 52.04, "cur": "EUR"}, "GB": {"vol": 30, "est": 4400, "med": 32.55, "cur": "GBP"}}, {"kw": "wall planter indoor", "tr": "Duvar saksısı", "cat": "Ev & dekor", "shops": 6, "avg": 4.88, "min": 4.8, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 3600, "est": 19000, "med": 28.5, "cur": "USD"}, "DE": {"vol": 10, "est": 13000, "med": 22.91, "cur": "EUR"}, "GB": {"vol": null, "est": 10000, "med": 15.99, "cur": "GBP"}}, {"kw": "bathroom organizer", "tr": "Banyo düzenleyici", "cat": "Ev & dekor", "shops": 6, "avg": 4.88, "min": 4.8, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 18100, "est": 27000, "med": 104.62, "cur": "USD"}, "DE": {"vol": 1600, "est": 30000, "med": 27.41, "cur": "EUR"}, "GB": {"vol": 1000, "est": 24000, "med": 13.79, "cur": "GBP"}}, {"kw": "dice tray", "tr": "Zar tepsisi", "cat": "Oyun", "shops": 5, "avg": 4.94, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 4400, "est": 18000, "med": 28.99, "cur": "USD"}, "DE": {"vol": 260, "est": 6300, "med": 32.1, "cur": "EUR"}, "GB": {"vol": null, "est": 43000, "med": 18.4, "cur": "GBP"}}, {"kw": "herb garden kit", "tr": "Bitki yetiştirme kiti", "cat": "Bahçe", "shops": 6, "avg": 4.83, "min": 4.7, "nrev": 21, "neg": 0, "rate": 0, "scope": "ürün", "US": {"vol": 880, "est": 14000, "med": 31.5, "cur": "USD"}, "DE": {"vol": 30, "est": 5200, "med": 58.95, "cur": "EUR"}, "GB": {"vol": null, "est": 4500, "med": 18.9, "cur": "GBP"}}, {"kw": "entryway key holder", "tr": "Antre anahtarlık", "cat": "Ev & dekor", "shops": 6, "avg": 4.97, "min": 4.9, "nrev": 14, "neg": 0, "rate": 0, "scope": "mağaza", "US": {"vol": 1000, "est": 28000, "med": 44.25, "cur": "USD"}, "DE": {"vol": 14800, "est": 11000, "med": 30.95, "cur": "EUR"}, "GB": {"vol": 40, "est": 29000, "med": 18.99, "cur": "GBP"}}];
+const fmt = n => n==null ? "—" : n.toLocaleString("tr-TR");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const get = k => P.find(r=>r.kw===k);
+document.getElementById("facts").innerHTML = `<span><b>30</b> ürün</span><span><b>156</b> mağaza puanı</span><span><b>868</b> yorum</span><span><b>69</b> olumsuz yorum</span><span><b>3</b> pazar</span>`;
+
+const TH=[["Kalite (kırık, ince, şeffaf, ucuz malzeme)",24],["\"El yapımı\" diye satılıp Amazon veya Çin'den gelen ürün",21],["Teslimat gecikmesi veya hiç gelmemesi",12],["Boyut veya uyum sorunu",11],["Fotoğrafla ya da renkle uyuşmama",11],["Talimat eksikliği",8],["Eksik parça veya malzeme",4]];
+document.getElementById("themes").innerHTML=TH.map(([t,n])=>`<div class="tb"><span>${t}</span><span class="track"><i style="width:${n/24*100}%"></i></span><span class="num">~${n}</span></div>`).join("");
+
+document.querySelector("#prod tbody").innerHTML=P.map(r=>{const rel=r.scope==="ürün";
+  return `<tr style="${rel?'':'color:var(--muted)'}"><td><span class="rate"><span class="num" style="${rel&&r.rate>=10?'color:var(--crit);font-weight:600':''}">%${r.rate}</span><span class="bar"><i style="width:${Math.min(100,r.rate/30*100)}%"></i></span></span><div class="kw">${rel?'ürün':'mağaza geneli'}</div></td>
+  <td>${esc(r.tr)} <span class="cat">${esc(r.cat)}</span><div class="kw">${esc(r.kw)}</div></td><td class="r num">${r.neg}/${r.nrev}</td>
+  <td class="r num">${r.avg??'—'} / ${r.min??'—'}</td><td class="r num">${fmt(r.US&&r.US.vol)}</td><td class="r num">${r.US?'≤ '+fmt(r.US.est):'—'}</td><td class="r num">${fmt(r.DE&&r.DE.vol)}</td><td class="r num">${r.DE?'≤ '+fmt(r.DE.est):'—'}</td></tr>`;}).join("");
+
+const CARDS=[
+ {k:"punch needle kit",n:"Gerçekten yerel üretilmiş, videolu punch needle kiti",p:"$28-45",
+  c:"\"Talimat yok, yardım yok, nasıl kullanılacağını görecek bir yer yok.\" \"Turuncu ip ancak bir balkabağına yetti.\" \"Almanya'dan diye sipariş verdim, kit Çin'den geldi, malzeme kimyasal kokuyor.\"",
+  i:["Her adımın QR'lı videosu ve resimli, katlanır talimat kartı","Önceden ölçülmüş ip, desen başına %20 yedek ve detay için ince ip seçeneği","Zorluk seviyesi etiketi (başlangıç, orta) ve tamamlanmış ürünün gerçek fotoğrafı","Üretim yerini gösteren \"atölyemizden\" videosu ve şeffaf menşe bilgisi","Yeni desenlerle yedek ip ve kumaş paketleri (tekrar satın alma)"]},
+ {k:"sourdough starter kit",n:"Eksiksiz ve şeffaf ekşi maya + banneton seti",p:"€30-50",
+  c:"\"Gelen ürünlerin hiçbiri fotoğraftakine benzemiyordu. Daha önce açılmış ucuz bir kit gönderilmiş. Maya, fotoğraftaki pencereli kap yerine küçük bir zarfta.\" \"Kargo üç hafta sürdü, açıklamadaki her şey gelmedi.\"",
+  i:["Mühürlü kutu ve içinde parça listesi kartı, fotoğrafta gösterilen her parça kutuda","Ölçekli, pencereli cam kavanoz ve tarih takip bandı","Gıda içermeyen sürüm (yalnızca ekipman) ile AB gıda mevzuatından kaçınma","QR ile 7 günlük besleme takvimi ve ilk ekmek tarifi","Almanya için Almanca ilan ve yerel depodan 2-3 gün teslimat"]},
+ {k:"nursing cover",n:"Şeffaf olmayan, nefes alan emzirme örtüsü",p:"$30-45",
+  c:"\"Sevimli ama aşırı şeffaf, bu da örtünün tüm amacını yok ediyor.\" \"Amazon kamyonuyla geldi ve üzerinde büyük bir 'Made in China' etiketi vardı. Kesinlikle el yapımı değil.\"",
+  i:["Çift katlı müslin veya opaklık testi yapılmış tek kat kumaş, ilanda ışık testi fotoğrafı","Göz teması için tel destekli yaka","4'ü 1 arada kullanım: emzirme örtüsü, oto koltuğu örtüsü, alışveriş arabası örtüsü ve atkı","OEKO-TEX sertifikalı kumaş ve gerçek atölye fotoğrafı"]},
+ {k:"pill organizer",n:"Modüler, büyük hap uyumlu ilaç kutusu",p:"$30-45",
+  c:"\"Haplarım sığmıyor ve iç bölme çıkarılamadığı için kutuyu başka bir şey için de kullanamıyorum.\"",
+  i:["Çıkarılabilir ve birleştirilebilir bölmeler (balık yağı gibi büyük kapsüller için çift bölme)","İlanda bölme ölçüleri mm cinsinden ve örnek hap boyutlarıyla fotoğraf","Büyük puntolu gün yazısı ve isteğe bağlı isim gravürü","Haftalık ve aylık iki boy, seyahat için mıknatıslı mini modül"]},
+ {k:"wooden baby gym",n:"Sertifikalı boyalı ahşap bebek jimnastik standı",p:"€40-60",
+  c:"Bu nişin önde gelen mağazasının ahşap oyuncak yorumlarından: \"Boya renkleri olmaması gereken yerlere taşmıştı, sarı harfin üzerinde mavi ve yeşil boya vardı.\" \"10-15 günlük teslimat sözüne rağmen 45 gün bekledim, ürün hiç gönderilmedi.\"",
+  i:["EN 71-3 ve CE uyumlu su bazlı boya ile belgesi ilanda","Maskeleme ile temiz renk geçişleri ve gerçek ürünün yakın çekim fotoğrafı","Değiştirilebilir oyuncak setleri (0-3 ay siyah-beyaz, 3-6 ay renkli)","Almanya'dan stoktan gönderim ve gerçekçi işlem süresi"]}
+];
+document.getElementById("cards").innerHTML=CARDS.map(c=>{const r=get(c.k);
+  const m=[["Olumsuz yorum",r.scope==="ürün"?`%${r.rate}`:"—",r.scope==="ürün"?`${r.neg}/${r.nrev} yorum`:"az örnek",true],
+           ["ABD arama",fmt(r.US&&r.US.vol),r.US?`≤ ${fmt(r.US.est)} mağaza`:"",false],
+           ["Almanya arama",fmt(r.DE&&r.DE.vol),r.DE?`≤ ${fmt(r.DE.est)} mağaza`:"",false],
+           ["Mağaza puanı",`${r.avg}`,`en düşük ${r.min}`,false]];
+  return `<article class="card"><div class="meta"><span class="cat">${esc(r.cat)}</span><span class="price">${c.p}</span></div><h3>${c.n}</h3>
+  <div class="mkt">${m.map(([l,b,s,h])=>`<div class="${h?'hot':''}"><span class="lbl">${l}</span><b>${b}</b><span>${s}</span></div>`).join("")}</div>
+  <div class="flow"><div class="step"><span class="tag t-c">Şikâyet</span><blockquote>${c.c}</blockquote></div>
+  <div class="step"><span class="tag t-i">İnovasyon</span><div class="inov"><ul>${c.i.map(x=>`<li>${x}</li>`).join("")}</ul></div></div></div></article>`;}).join("");
+</script>
