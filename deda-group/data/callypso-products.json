@@ -1,0 +1,47 @@
+{
+  "source": { "url": "https://www.callypsotech.com/", "collectedAt": "2026-10-20T08:10:00Z", "collector": "direct HTTP (raw HTML snapshot: data/raw-html/www.callypsotech.com_.html)", "note": "Özellikler callypsotech.com ana sayfasındaki ürün açıklamalarından alındı. Studio ve Decor bu müşteri için kapsam dışı bırakıldı. Platform düzeyinde listelenen entegrasyonlar: Salesforce, HubSpot, Zendesk, Shopify, Microsoft Teams, Twilio, Zapier." },
+  "engage": {
+    "name": "Callypso Engage",
+    "tagline": "WhatsApp, SMS ve e-posta — tek platformdan çok kanallı otomasyon (WhatsApp öncelikli)",
+    "features": [
+      "WhatsApp kampanyaları ve otomatik mesaj dizileri",
+      "Sıralı çok kanallı akış: WhatsApp → SMS → e-posta (ör. gün 1 / 3 / 7 / 10)",
+      "SMS ile anlık bildirim",
+      "Sürükle-bırak e-posta tasarımcısı ve A/B testi",
+      "WhatsApp şablon onayının otomatik yönetimi",
+      "Liste bağlantısı: WhatsApp Business, SMS hattı veya Shopify; müşteri listesinin otomatik senkronizasyonu",
+      "Kanal bazında dönüşüm ve kampanya bazlı gelir raporu"
+    ],
+    "fitForDeda": [
+      "Deda sitelerinde Shopify veya e-ticaret yok (WordPress + Elementor; Gıda eski PHP sitesi). Shopify entegrasyonu ve 'terk edilen sepet' akışı geçersiz.",
+      "Müşteri listesi Excel aktarımı, WhatsApp Business veya CRM (HubSpot / Zapier) üzerinden gelmeli.",
+      "Dil uyarlaması: 'terk edilen sepet' → 'cevapsız teklif', 'geri kazanım' → 'tekrar sipariş', 'kampanya' → 'takip'.",
+      "Deda Pack zaten bir WhatsApp hattı kullanıyor (+90 532 131 49 49); Engage'in WhatsApp önceliği bu alışkanlığa oturuyor.",
+      "Pack sitesi 8 dilde: fuar ve teklif mesajlarının alıcının dilinde gitmesi güçlü bir argüman."
+    ],
+    "toVerify": [
+      "Engage'in CRM/ERP olayıyla (ör. 'teklif gönderildi') nasıl tetiklendiği — Zapier/HubSpot üzerinden mi?",
+      "Shopify'ı olmayan B2B müşteride liste aktarımı ve segment alanları (sektör, ülke, son sipariş tarihi).",
+      "WhatsApp şablonlarının farklı dillerde onayı ve İYS/KVKK izin yönetimi."
+    ]
+  },
+  "otherProducts": [
+    { "name": "Inboxly", "what": "WhatsApp, Instagram DM ve web chat tek panelde; AI ile SSS yanıtlama; ekip ataması, not/etiket; yanıt süresi analitiği.",
+      "dedaProblem": "Talepler 2 WhatsApp hattı, Instagram ve telefonlara dağılmış; ölçü/gramaj/MOQ soruları tekrar ediyor olabilir.", "painPointIds": ["PP02", "PP25"], "opportunityIds": ["O17", "O10"],
+      "bridgeQuestion": "WhatsApp'a gelen mesajları kaç kişi cevaplıyor, bir mesajın kimde kaldığını nasıl biliyorsunuz?" },
+    { "name": "Voice Agent", "what": "Gelen aramaları 7/24 AI karşılar; 50+ dil; randevu ve CRM kaydı; transkript; gerekirse insana yönlendirme.",
+      "dedaProblem": "Pack Cumartesi 14:00'e kadar açık, Pazar kapalı; Makina desteği telefonla yürüyor; ihracat alıcıları farklı dillerde arıyor.", "painPointIds": ["PP02", "PP14"], "opportunityIds": ["O20"],
+      "bridgeQuestion": "Mesai dışında veya yabancı dilde gelen aramalar ne oluyor? Kaçan arama sayısını biliyor musunuz?" },
+    { "name": "GeoAdra", "what": "ChatGPT, Gemini vb. AI asistanlarda marka görünürlük skoru; rakip boşluk analizi; ChatGPT reklam planı.",
+      "dedaProblem": "'Deda Makina' ve 'plastik geri dönüşüm makinesi üreticisi' aramalarında Deda ilk sayfada yok.", "painPointIds": ["PP28", "PP27"], "opportunityIds": ["O24"],
+      "bridgeQuestion": "Yeni bir müşteri ChatGPT'ye 'Türkiye'de plastik geri dönüşüm makinesi üreten firmalar' diye sorsa Deda Makina çıkar mı?" }
+  ],
+  "meetingQuestions": [
+    { "n": 1, "question": "Geçen ay Deda Pack'e kaç teklif talebi geldi, kaçına teklif gönderildi?", "expected": "“Tam bilmiyoruz.” → Huni ölçülmüyor.", "engage": "Gelen her talebe WhatsApp ile otomatik onay mesajı; talebin listeye düşmesi ve raporlanması.", "painPointIds": ["PP01", "PP02"], "opportunityIds": ["O01", "O17"] },
+    { "n": 2, "question": "Teklif gönderip cevap alamadığınız müşteriyi kim, kaç gün sonra tekrar arıyor?", "expected": "“Temsilci hatırlarsa.” → Takip kişiye bağlı.", "engage": "Teklif sonrası takip dizisi: 3. gün WhatsApp, 7. gün e-posta (numune önerisi), 14. gün temsilciye hatırlatma.", "painPointIds": ["PP01"], "opportunityIds": ["O02"] },
+    { "n": 3, "question": "Bir müşterinizin çantası bitmek üzereyken bunu siz mi fark ediyorsunuz, müşteri mi arıyor?", "expected": "“Müşteri arıyor.” → Tekrar sipariş kaçıyor olabilir.", "engage": "Tekrar sipariş hatırlatması: son sipariş tarihine göre WhatsApp mesajı — “Aynı siparişi tekrarlayalım mı?”", "painPointIds": ["PP08"], "opportunityIds": ["O03", "O06"] },
+    { "n": 4, "question": "Son fuarlarda kaç kartvizit toplandı ve şu an onlarla ne yapılıyor?", "expected": "“Excel'de duruyor.” → Fuar yatırımı boşa gidiyor.", "engage": "Fuar sonrası çok dilli dizi: 1. gün teşekkür + katalog, 7. gün sektöre uygun ürün, 21. gün teklif daveti.", "painPointIds": ["PP05"], "opportunityIds": ["O04"] },
+    { "n": 5, "question": "Müşteri ve sipariş bilgileri nerede tutuluyor: CRM, ERP, Excel? WhatsApp Business kullanıyor musunuz?", "expected": "Engage'in neye bağlanacağını belirler.", "engage": "Liste aktarımı veya WhatsApp Business bağlantısı. CRM yoksa pilot Excel aktarımıyla başlar (HubSpot/Zapier sonra).", "painPointIds": ["PP23", "PP24"], "opportunityIds": ["O23"] },
+    { "n": 6, "question": "(Zaman kalırsa) Iceman siparişleri için yaz öncesi distribütörlere nasıl hatırlatma yapılıyor?", "expected": "Deda Gıda tarafında mevsimsel ihtiyaç.", "engage": "Sezon öncesi distribütör kampanyası: sezondan 8 ve 4 hafta önce WhatsApp/SMS hatırlatması.", "painPointIds": ["PP18"], "opportunityIds": ["O18"] }
+  ]
+}

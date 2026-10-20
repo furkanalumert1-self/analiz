@@ -34,6 +34,7 @@ const D = {
   ads: await load('ads-raw.json'),
   search: await load('search-presence.json'),
   social: await load('social-profiles.json'),
+  callypso: await load('callypso-products.json'),
 };
 
 const errors = [];
@@ -101,6 +102,7 @@ for (const o of D.opportunities.opportunities) {
   // Evidence trail: union of the sources behind the pain points this opportunity addresses.
   o.sourceIds = [...new Set(o.painPointIds.flatMap((id) => D.painPoints.painPoints.find((p) => p.id === id)?.sourceIds ?? []))];
 }
+for (const x of [...D.callypso.meetingQuestions, ...D.callypso.otherProducts]) { refs(x.painPointIds, ppIds, `callypso ${x.n ?? x.name}`, 'painPoint'); refs(x.opportunityIds, oppIds, `callypso ${x.n ?? x.name}`, 'opportunity'); }
 for (const q of D.questions) { refs(q.validates, ppIds, `question ${q.id}`, 'painPoint'); refs(q.unlocks, oppIds, `question ${q.id}`, 'opportunity'); }
 for (const j of D.journeys) for (const s of j.stages) { refs(s.painPointIds, ppIds, `journey ${j.id}/${s.id}`, 'painPoint'); refs(s.opportunityIds, oppIds, `journey ${j.id}/${s.id}`, 'opportunity'); }
 for (const w of D.websites) { refs([w.entityId], entityIds, `website ${w.domain}`, 'entity'); refs(w.sourceIds, sourceIds, `website ${w.domain}`, 'source'); }

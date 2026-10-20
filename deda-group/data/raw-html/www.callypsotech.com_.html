@@ -1,0 +1,929 @@
+<title>CallypsoTech</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* force light always */
+:root{color-scheme:light;}
+
+:root{
+  --bg:#FFFFFF;
+  --bg2:#F7F9FC;
+  --bg3:#F0F4FA;
+  --surface:#FFFFFF;
+  --border:#E4E7EC;
+  --bord2:#C8D0DC;
+  --text:#101828;
+  --sub:#344054;
+  --muted:#667085;
+  --faint:#98A2B3;
+
+  --blue:#2563EB;
+  --blue-d:#1D4ED8;
+  --blue-s:#EFF6FF;
+  --blue-m:#BFDBFE;
+
+  --violet:#6D28D9;
+  --vio-s:#F5F3FF;
+  --vio-m:#DDD6FE;
+
+  --jade:#047857;
+  --jade-s:#ECFDF5;
+  --jade-m:#6EE7B7;
+
+  --amber:#B45309;
+  --amb-s:#FFFBEB;
+  --amb-m:#FDE68A;
+
+  --rose:#BE185D;
+  --rose-s:#FFF1F2;
+  --rose-m:#FECDD3;
+
+  --teal:#2f6b45;
+  --teal-s:#e7f2ea;
+  --teal-m:#a8ccb0;
+
+  --font:'Syne',sans-serif;
+  --body:'DM Sans',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+
+  --r:10px;--r-lg:16px;--r-xl:22px;
+  --sh:0 1px 2px rgba(16,24,40,.05),0 3px 12px rgba(16,24,40,.06);
+  --sh-md:0 4px 8px rgba(16,24,40,.07),0 12px 40px rgba(16,24,40,.09);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{background:#fff;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+img{max-width:100%;}
+
+/* NAV */
+nav{
+  position:sticky;top:env(safe-area-inset-top,0);z-index:200;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 2.5rem;height:62px;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.logo{font-family:var(--font);font-weight:800;font-size:17px;color:var(--text);letter-spacing:-.3px;white-space:nowrap;flex-shrink:0;}
+.logo span{color:var(--blue);}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{color:var(--muted);font-size:13.5px;font-weight:500;transition:color .15s;white-space:nowrap;}
+.nav-links a:hover{color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:.6rem;flex-shrink:0;}
+.lang-btn{background:var(--bg2);border:1px solid var(--border);color:var(--muted);padding:5px 12px;border-radius:7px;font-size:11.5px;font-family:var(--mono);letter-spacing:.5px;transition:all .15s;}
+.lang-btn:hover{color:var(--sub);border-color:var(--bord2);}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;transition:background .15s;white-space:nowrap;}
+.nav-cta:hover{background:var(--blue-d);}
+.hmbg{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;}
+.hmbg span{display:block;width:22px;height:1.5px;background:var(--sub);border-radius:2px;transition:all .25s;}
+.hmbg.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hmbg.open span:nth-child(2){opacity:0;}
+.hmbg.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mob-drawer{display:none;position:fixed;top:62px;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);z-index:190;flex-direction:column;padding:2rem 2.5rem;}
+.mob-drawer.open{display:flex;}
+.mob-drawer a{color:var(--sub);font-size:17px;font-weight:600;padding:1rem 0;border-bottom:1px solid var(--border);}
+.mob-drawer a:last-of-type{border-bottom:none;}
+.mob-drawer .nav-cta{margin-top:1.5rem;text-align:center;padding:13px;}
+
+/* HERO */
+.hero{
+  padding:5.5rem 2.5rem 5rem;
+  max-width:1080px;margin:0 auto;
+  text-align:center;position:relative;
+}
+/* subtle dot grid */
+.hero::before{
+  content:'';position:absolute;inset:-40px -100px;
+  background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;z-index:0;
+  -webkit-mask:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+  mask:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+}
+.hero-inner{position:relative;z-index:1;}
+.hero-badge{
+  display:inline-block;
+  background:var(--blue-s);border:1px solid var(--blue-m);
+  padding:5px 16px;border-radius:100px;
+  font-family:var(--mono);font-size:10.5px;color:var(--blue);letter-spacing:1.5px;
+  margin-bottom:2rem;
+}
+.hero h1{
+  font-family:var(--font);font-size:clamp(2.4rem,6vw,4rem);font-weight:800;
+  line-height:1.07;letter-spacing:-2px;text-wrap:balance;
+  margin-bottom:1.25rem;color:var(--text);
+}
+.hero h1 em{font-style:normal;color:var(--blue);}
+.hero-desc{
+  font-size:16px;color:var(--sub);
+  max-width:540px;margin:0 auto 2.25rem;line-height:1.7;font-weight:400;
+}
+.hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-p{background:var(--blue);color:#fff;border:none;padding:12px 24px;border-radius:var(--r);font-size:14px;font-weight:600;transition:background .15s;white-space:nowrap;}
+.btn-p:hover{background:var(--blue-d);}
+.btn-g{background:#fff;color:var(--sub);border:1px solid var(--border);padding:12px 24px;border-radius:var(--r);font-size:14px;font-weight:500;transition:all .15s;white-space:nowrap;}
+.btn-g:hover{border-color:var(--bord2);color:var(--text);}
+
+/* product pills row */
+.pill-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.75rem;}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid transparent;}
+.pill.blue{background:var(--blue-s);color:var(--blue);border-color:var(--blue-m);}
+.pill.violet{background:var(--vio-s);color:var(--violet);border-color:var(--vio-m);}
+.pill.jade{background:var(--jade-s);color:var(--jade);border-color:var(--jade-m);}
+.pill.amber{background:var(--amb-s);color:var(--amber);border-color:var(--amb-m);}
+
+/* proof row */
+.proof{display:flex;align-items:center;justify-content:center;gap:1.1rem;flex-wrap:wrap;}
+.proof-avs{display:flex;}
+.pav{width:30px;height:30px;border-radius:50%;border:2.5px solid #fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-left:-9px;}
+.pav:first-child{margin-left:0;}
+.proof-sep{width:1px;height:18px;background:var(--border);}
+.proof-txt{font-size:13px;color:var(--muted);}
+.proof-txt strong{color:var(--text);}
+.stars{color:#F59E0B;}
+
+/* LOGOS */
+.logos{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.6rem 2.5rem;text-align:center;}
+.logos-lbl{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.1rem;}
+.logos-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem 2.25rem;}
+.logo-item{font-family:var(--font);font-size:11px;font-weight:700;color:var(--faint);letter-spacing:.8px;}
+
+/* STATS */
+.stats{background:#fff;border-bottom:1px solid var(--border);padding:1.85rem 2.5rem;}
+.stats-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;text-align:center;}
+.sn{font-family:var(--font);font-size:2rem;font-weight:800;line-height:1;color:var(--text);}
+.sn.c1{color:var(--blue);}
+.sn.c2{color:var(--violet);}
+.sn.c3{color:var(--jade);}
+.sl{font-size:10.5px;color:var(--muted);margin-top:.35rem;font-family:var(--mono);letter-spacing:.5px;}
+
+/* SECTION SHELL */
+.sec{padding:5.5rem 2.5rem;max-width:1080px;margin:0 auto;}
+.sec-alt{background:var(--bg2);}
+.sec-lbl{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.65rem;}
+.sec-h{font-family:var(--font);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-1.2px;line-height:1.1;text-wrap:balance;margin-bottom:.65rem;}
+.sec-d{font-size:14px;color:var(--sub);max-width:500px;line-height:1.7;}
+.sec-hd{margin-bottom:3rem;}
+
+/* PRODUCTS */
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.pc{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh);transition:box-shadow .25s,transform .25s;}
+.pc:hover{box-shadow:var(--sh-md);transform:translateY(-4px);}
+.pc-bar{height:3px;}
+.pc-bar.b{background:var(--blue);}
+.pc-bar.v{background:var(--violet);}
+.pc-bar.j{background:var(--jade);}
+.pc-bar.a{background:var(--amber);}
+.pc-body{padding:1.85rem;}
+.pc-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;padding:4px 10px;border-radius:6px;margin-bottom:.95rem;font-weight:500;text-transform:uppercase;}
+.pc-tag.b{background:var(--blue-s);color:var(--blue);}
+.pc-tag.v{background:var(--vio-s);color:var(--violet);}
+.pc-tag.j{background:var(--jade-s);color:var(--jade);}
+.pc-tag.a{background:var(--amb-s);color:var(--amber);}
+.pc-dot{width:5px;height:5px;border-radius:50%;}
+.pc-dot.b{background:var(--blue);}
+.pc-dot.v{background:var(--violet);}
+.pc-dot.j{background:var(--jade);}
+.pc-dot.a{background:var(--amber);}
+.pc-name{font-family:var(--font);font-size:1.25rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.3rem;}
+.pc-name.b{color:var(--blue);}
+.pc-name.v{color:var(--violet);}
+.pc-name.j{color:var(--jade);}
+.pc-name.a{color:var(--amber);}
+.pc-tagline{font-size:13px;color:var(--sub);margin-bottom:.85rem;}
+.pc-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.1rem;}
+.pc-feats{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.35rem;}
+.pc-feat{display:flex;align-items:center;gap:.6rem;font-size:12.5px;color:var(--sub);}
+.pf-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
+.pf-dot.b{background:var(--blue);}
+.pf-dot.v{background:var(--violet);}
+.pf-dot.j{background:var(--jade);}
+.pf-dot.a{background:var(--amber);}
+.pc-btn{display:inline-flex;align-items:center;gap:.4rem;padding:9px 18px;border-radius:var(--r);font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .15s;text-decoration:none;}
+.pc-btn.b{background:var(--blue-s);color:var(--blue);}
+.pc-btn.b:hover{background:var(--blue-m);}
+.pc-btn.v{background:var(--vio-s);color:var(--violet);}
+.pc-btn.v:hover{background:var(--vio-m);}
+.pc-btn.j{background:var(--jade-s);color:var(--jade);}
+.pc-btn.j:hover{background:var(--jade-m);}
+.pc-btn.a{background:var(--amb-s);color:var(--amber);}
+.pc-btn.a:hover{background:var(--amb-m);}
+.pc-bar.r{background:var(--rose);}
+.pc-tag.r{background:var(--rose-s);color:var(--rose);}
+.pc-dot.r{background:var(--rose);}
+.pc-name.r{color:var(--rose);}
+.pf-dot.r{background:var(--rose);}
+.pc-btn.r{background:var(--rose-s);color:var(--rose);}
+.pc-btn.r:hover{background:var(--rose-m);}
+.pill.rose{background:var(--rose-s);color:var(--rose);border-color:var(--rose-m);}
+.hiw-tab.ar{background:var(--rose-s);border-color:var(--rose-m);color:var(--rose);}
+.sn-box.r{background:var(--rose-s);color:var(--rose);}
+.pc-bar.t{background:var(--teal);}
+.pc-tag.t{background:var(--teal-s);color:var(--teal);}
+.pc-dot.t{background:var(--teal);}
+.pc-name.t{color:var(--teal);}
+.pf-dot.t{background:var(--teal);}
+.pc-btn.t{background:var(--teal-s);color:var(--teal);}
+.pc-btn.t:hover{background:var(--teal-m);}
+.pill.teal{background:var(--teal-s);color:var(--teal);border-color:var(--teal-m);}
+.hiw-tab.at{background:var(--teal-s);border-color:var(--teal-m);color:var(--teal);}
+.sn-box.t{background:var(--teal-s);color:var(--teal);}
+.pc-full{grid-column:1/-1;}
+.pc-split{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+
+/* mini visuals */
+.mini-bg{background:var(--bg2);border-radius:var(--r);padding:1.35rem;display:flex;flex-direction:column;gap:.7rem;}
+/* engage */
+.ec{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.85rem;}
+.ec-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem;}
+.ec-name{font-size:11.5px;font-weight:600;color:var(--text);}
+.ec-badge{font-size:9px;font-family:var(--mono);color:var(--jade);background:var(--jade-s);padding:2px 8px;border-radius:5px;border:1px solid var(--jade-m);}
+.ec-nums{display:flex;gap:1rem;}
+.ec-n{font-family:var(--mono);font-size:14px;font-weight:600;}
+.ec-l{font-size:9px;color:var(--faint);font-family:var(--mono);}
+.seq{display:flex;align-items:center;gap:.3rem;overflow-x:auto;padding-bottom:.2rem;}
+.sq{font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:5px;white-space:nowrap;}
+.sq.s1{background:var(--jade-s);color:var(--jade);border:1px solid var(--jade-m);}
+.sq.s2{background:var(--blue-s);color:var(--blue);border:1px solid var(--blue-m);}
+.sq.s3{background:var(--vio-s);color:var(--violet);border:1px solid var(--vio-m);}
+.sq-arr{color:var(--faint);font-size:10px;flex-shrink:0;}
+/* studio */
+.su{background:#fff;border:1.5px dashed var(--border);border-radius:var(--r);padding:.8rem;display:flex;align-items:center;gap:.7rem;}
+.su-ico{width:34px;height:34px;border-radius:8px;background:var(--amb-s);border:1px solid var(--amb-m);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.su-name{font-size:11.5px;font-weight:600;color:var(--text);}
+.su-sub{font-size:9.5px;color:var(--muted);font-family:var(--mono);}
+.sc-row{display:flex;gap:.3rem;flex-wrap:wrap;}
+.sc{font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;}
+.sc.on{background:var(--amb-s);color:var(--amber);border:1px solid var(--amb-m);}
+.sc.off{background:#fff;color:var(--muted);border:1px solid var(--border);}
+.sp{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.75rem;}
+.sp-hd{display:flex;justify-content:space-between;margin-bottom:.4rem;}
+.sp-lbl{font-size:10.5px;font-family:var(--mono);color:var(--muted);}
+.sp-pct{font-size:10.5px;font-family:var(--mono);color:var(--amber);font-weight:600;}
+.sb{height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+.sb-fill{height:100%;width:87%;background:linear-gradient(90deg,var(--amber),#F59E0B);border-radius:2px;animation:sbp 2.2s ease-in-out infinite;}
+@keyframes sbp{0%,100%{opacity:1;}50%{opacity:.55;}}
+.s-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;}
+.s-thumb{aspect-ratio:1;background:var(--amb-s);border:1px solid var(--amb-m);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+
+/* HOW IT WORKS */
+.hiw-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2.25rem;}
+.hiw-tab{background:#fff;border:1px solid var(--border);color:var(--muted);padding:7px 18px;border-radius:100px;font-family:var(--mono);font-size:11px;cursor:pointer;transition:all .2s;}
+.hiw-tab.ab{background:var(--blue-s);border-color:var(--blue-m);color:var(--blue);}
+.hiw-tab.av{background:var(--vio-s);border-color:var(--vio-m);color:var(--violet);}
+.hiw-tab.aj{background:var(--jade-s);border-color:var(--jade-m);color:var(--jade);}
+.hiw-tab.aa{background:var(--amb-s);border-color:var(--amb-m);color:var(--amber);}
+.hiw-panel{display:none;}
+.hiw-panel.active{display:block;}
+.hiw-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.hiw-steps{display:flex;flex-direction:column;}
+.hiw-step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);}
+.hiw-step:last-child{border-bottom:none;}
+.sn-box{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11.5px;font-weight:600;flex-shrink:0;margin-top:2px;}
+.sn-box.b{background:var(--blue-s);color:var(--blue);}
+.sn-box.v{background:var(--vio-s);color:var(--violet);}
+.sn-box.j{background:var(--jade-s);color:var(--jade);}
+.sn-box.a{background:var(--amb-s);color:var(--amber);}
+.st{font-family:var(--font);font-size:13.5px;font-weight:700;margin-bottom:.3rem;color:var(--text);}
+.sb2{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.hiw-vis{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;box-shadow:var(--sh);position:sticky;top:80px;}
+.vis-lbl{font-family:var(--mono);font-size:9.5px;color:var(--faint);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.9rem;}
+.chat-col{display:flex;flex-direction:column;gap:.45rem;margin-bottom:.9rem;}
+.cr{display:flex;gap:.45rem;align-items:flex-start;}
+.cr.r{flex-direction:row-reverse;}
+.cav{width:26px;height:26px;border-radius:7px;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cav.ai{background:var(--blue-s);color:var(--blue);}
+.cav.us{background:var(--vio-s);color:var(--violet);}
+.cb{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:.45rem .7rem;font-size:10.5px;color:var(--sub);line-height:1.45;max-width:82%;}
+.cb.ai{border-radius:3px 9px 9px 9px;}
+.cb.us{border-radius:9px 3px 9px 9px;background:var(--blue-s);border-color:var(--blue-m);color:var(--blue);}
+.m-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.45rem;}
+.mc{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:.6rem .4rem;text-align:center;}
+.mn{font-family:var(--font);font-size:1.05rem;font-weight:800;line-height:1;}
+.ml{font-size:9px;color:var(--faint);font-family:var(--mono);margin-top:.2rem;}
+
+/* FEATURES */
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.fc{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--sh);}
+.fi{width:36px;height:36px;border-radius:9px;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;}
+.fi.b{background:var(--blue-s);}
+.fi.v{background:var(--vio-s);}
+.fi.j{background:var(--jade-s);}
+.ft{font-family:var(--font);font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:.3rem;}
+.fd{font-size:12px;color:var(--muted);line-height:1.55;}
+
+/* CTA */
+.cta{background:var(--blue);padding:4.5rem 2.5rem;text-align:center;}
+.cta h2{font-family:var(--font);font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:800;color:#fff;letter-spacing:-.8px;margin-bottom:.6rem;}
+.cta p{color:rgba(255,255,255,.72);font-size:14.5px;margin-bottom:1.75rem;max-width:440px;margin-left:auto;margin-right:auto;}
+.btn-w{background:#fff;color:var(--blue);border:none;padding:12px 26px;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s;}
+.btn-w:hover{opacity:.9;}
+.btn-ow{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:12px 26px;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;margin-left:.6rem;transition:border-color .15s;}
+.btn-ow:hover{border-color:rgba(255,255,255,.8);}
+
+/* FOOTER */
+.footer-wrap{background:#fff;border-top:1px solid var(--border);}
+footer{max-width:1080px;margin:0 auto;padding:2.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.fl{font-family:var(--font);font-size:15px;font-weight:800;}
+.fl span{color:var(--blue);}
+.fn{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.fn a{font-size:12px;color:var(--muted);transition:color .15s;}
+.fn a:hover{color:var(--sub);}
+.fc2{font-size:11.5px;color:var(--faint);}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .hmbg{display:flex;}
+  .hero{padding:4rem 1.5rem 3.5rem;}
+  .ps-grid{grid-template-columns:1fr;}
+  .pc-full{grid-column:auto;}
+  .pc-split{grid-template-columns:1fr;}
+  .hiw-grid{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr 1fr;}
+  .stats-inner{grid-template-columns:repeat(3,1fr);}
+  nav{padding:0 1.5rem;}
+}
+@media(max-width:520px){
+  .sec{padding:3.5rem 1.25rem;}
+  .fg{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .hero h1{letter-spacing:-1.5px;}
+  .logos{padding:1.4rem 1.25rem;}
+  .stats{padding:1.5rem 1.25rem;}
+  nav{padding:0 1.25rem;}
+  .cta{padding:3.5rem 1.25rem;}
+  footer{padding:2rem 1.25rem;}
+}
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Callypso<span>Tech</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Ürünler</a></li>
+    <li><a href="#how">Nasıl Çalışır</a></li>
+    <li><a href="#features">Özellikler</a></li>
+    <li><a href="#faq">SSS</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn">EN</button>
+    <button class="nav-cta" onclick="openCal()">Görüşme Planla →</button>
+    <button class="hmbg" id="hmbg" onclick="toggleMob()" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-drawer" id="mobDrawer">
+  <a href="#products" onclick="closeMob()">Ürünler</a>
+  <a href="#how" onclick="closeMob()">Nasıl Çalışır</a>
+  <a href="#features" onclick="closeMob()">Özellikler</a>
+  <a href="#faq" onclick="closeMob()">SSS</a>
+  <button class="nav-cta" style="margin-top:1.5rem;padding:13px;" onclick="openCal();closeMob()">Görüşme Planla →</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">AI MÜŞTERİ İLETİŞİM PLATFORMLARI</div>
+    <h1>Her Kanalda<br><em>Yapay Zeka</em></h1>
+    <p class="hero-desc">Telefon, mesaj, e-posta ve ürün görseli — müşteri iletişiminin her adımını otomatize eden dört AI platformu.</p>
+    <div class="pill-row">
+      <span class="pill blue">📞 Voice Agent</span>
+      <span class="pill violet">💬 Inboxly</span>
+      <span class="pill jade">📧 Engage</span>
+      <span class="pill teal">🔍 GeoAdra</span>
+      <span class="pill amber">📸 Studio</span>
+      <span class="pill rose">🏠 Decor</span>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-p" onclick="openCal()">Ücretsiz Demo Planla →</button>
+      <button class="btn-g" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Ürünlerimizi Keşfet</button>
+    </div>
+    <div class="proof">
+      <div class="proof-avs">
+        <div class="pav" style="background:#BFDBFE;color:#1D4ED8;">AK</div>
+        <div class="pav" style="background:#DDD6FE;color:#5B21B6;">MD</div>
+        <div class="pav" style="background:#A7F3D0;color:#065F46;">SY</div>
+        <div class="pav" style="background:#FDE68A;color:#92400E;">EÖ</div>
+      </div>
+      <p class="proof-txt"><strong>50+ işletme</strong> kullanıyor</p>
+      <div class="proof-sep"></div>
+      <p class="proof-txt"><span class="stars">★★★★★</span> 4.9/5</p>
+      <div class="proof-sep"></div>
+      <p class="proof-txt">✓ 15 dk ücretsiz keşif görüşmesi</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos">
+  <p class="logos-lbl">Entegre Olduğumuz Sistemler</p>
+  <div class="logos-row">
+    <span class="logo-item">SALESFORCE</span>
+    <span class="logo-item">HUBSPOT</span>
+    <span class="logo-item">ZENDESK</span>
+    <span class="logo-item">SHOPIFY</span>
+    <span class="logo-item">MICROSOFT TEAMS</span>
+    <span class="logo-item">TWILIO</span>
+    <span class="logo-item">ZAPIER</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div><div class="sn c1">6</div><div class="sl">ÜRÜN</div></div>
+    <div><div class="sn">7/24</div><div class="sl">KESİNTİSİZ</div></div>
+    <div><div class="sn">%94</div><div class="sl">İLK ÇÖZÜM</div></div>
+    <div><div class="sn c2">&lt;12sn</div><div class="sl">MESAJ YANIT</div></div>
+    <div><div class="sn c3">%60</div><div class="sl">MALİYET AZALMA</div></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="sec">
+    <div class="sec-hd">
+      <div class="sec-lbl">// ürünlerimiz</div>
+      <div class="sec-h">Her Temas Noktasında<br>Yapay Zeka</div>
+      <p class="sec-d">Gelen aramalar, yazılı mesajlar, e-posta pazarlama, ürün görselleri, iç mekan tasarımı ve AI görünürlüğünü yöneten altı platform.</p>
+    </div>
+    <div class="ps-grid">
+
+      <div class="pc">
+        <div class="pc-bar b"></div>
+        <div class="pc-body">
+          <div class="pc-tag b"><span class="pc-dot b"></span>AI VOICE AGENT</div>
+          <div class="pc-name b">Voice Agent</div>
+          <div class="pc-tagline">Telefonlarınızı yapay zeka yanıtlasın</div>
+          <p class="pc-desc">Her aramayı &lt;1 saniyede karşılayan, randevu oluşturan ve CRM'e kaydeden AI asistan. 7/24 kesintisiz.</p>
+          <div class="pc-feats">
+            <div class="pc-feat"><span class="pf-dot b"></span>Doğal dil anlama ve müşteri yönlendirme</div>
+            <div class="pc-feat"><span class="pf-dot b"></span>Randevu, kayıt ve CRM entegrasyonu</div>
+            <div class="pc-feat"><span class="pf-dot b"></span>50+ dil desteği, 7/24 aktif</div>
+            <div class="pc-feat"><span class="pf-dot b"></span>Gerçek zamanlı transkript ve analitik</div>
+          </div>
+          <button class="pc-btn b" onclick="openCal()">Voice Agent'ı Dene →</button>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-bar v"></div>
+        <div class="pc-body">
+          <div class="pc-tag v"><span class="pc-dot v"></span>OMNICHANNEL MESAJLAŞMA</div>
+          <div class="pc-name v">Inboxly</div>
+          <div class="pc-tagline">Tüm mesaj kanallarını tek ekranda yönet</div>
+          <p class="pc-desc">WhatsApp, Instagram DM ve web chat mesajlarını AI destekli tek panelde yönet. SSS otomatik yanıtlanır.</p>
+          <div class="pc-feats">
+            <div class="pc-feat"><span class="pf-dot v"></span>WhatsApp, Instagram, web chat desteği</div>
+            <div class="pc-feat"><span class="pf-dot v"></span>AI ile SSS otomatik yanıtlama</div>
+            <div class="pc-feat"><span class="pf-dot v"></span>Ekip yönetimi, not ve etiket sistemi</div>
+            <div class="pc-feat"><span class="pf-dot v"></span>Yanıt süresi ve çözüm oranı analitik</div>
+          </div>
+          <button class="pc-btn v" onclick="openCal()">Inboxly'ı Dene →</button>
+        </div>
+      </div>
+
+      <div class="pc pc-full">
+        <div class="pc-bar j"></div>
+        <div class="pc-split pc-body">
+          <div>
+            <div class="pc-tag j"><span class="pc-dot j"></span>WHATSAPP · SMS · EMAIL OTOMASYON</div>
+            <div class="pc-name j">Callypso Engage</div>
+            <div class="pc-tagline">WhatsApp, SMS ve e-posta — tek platformdan büyüyün</div>
+            <p class="pc-desc">WhatsApp kampanyaları ön planda: kişiselleştirilmiş mesajlar, otomatik takip dizileri ve terk edilen sepet hatırlatmaları. SMS ve e-posta kanallarıyla desteklenmiş çok kanallı otomasyon.</p>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pf-dot j"></span>WhatsApp kampanyaları & otomatik mesaj dizileri</div>
+              <div class="pc-feat"><span class="pf-dot j"></span>SMS ile anlık bildirim ve terk sepet hatırlatması</div>
+              <div class="pc-feat"><span class="pf-dot j"></span>Sürükle-bırak e-posta tasarımcısı & A/B testi</div>
+              <div class="pc-feat"><span class="pf-dot j"></span>Shopify entegrasyonu & kampanya bazlı gelir takibi</div>
+            </div>
+            <button class="pc-btn j" onclick="openCal()">Callypso Engage'i Dene →</button>
+          </div>
+          <div class="mini-bg">
+            <div class="ec">
+              <div class="ec-hd"><div class="ec-name">Q3 SaaS Outreach Kampanyası</div><div class="ec-badge">AKTİF</div></div>
+              <div class="ec-nums">
+                <div><div class="ec-n">847</div><div class="ec-l">LEAD</div></div>
+                <div><div class="ec-n">24%</div><div class="ec-l">AÇILMA</div></div>
+                <div><div class="ec-n">31</div><div class="ec-l">YANIT</div></div>
+              </div>
+            </div>
+            <div class="seq">
+              <div class="sq s3">Gün 1: WhatsApp</div><div class="sq-arr">→</div>
+              <div class="sq s2">Gün 3: SMS</div><div class="sq-arr">→</div>
+              <div class="sq s1">Gün 7: Email</div><div class="sq-arr">→</div>
+              <div class="sq s3">Gün 10: WhatsApp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc pc-full">
+        <div class="pc-bar t"></div>
+        <div class="pc-split pc-body">
+          <div>
+            <div class="pc-tag t"><span class="pc-dot t"></span>AI GÖRÜNÜRLÜK & CHATGPT REKLAMLARI</div>
+            <div class="pc-name t">GeoAdra</div>
+            <div class="pc-tagline">AI'da görünür olun, ChatGPT reklamlarına hazırlanın</div>
+            <p class="pc-desc">Markanızın ChatGPT, Gemini ve diğer AI asistanlarındaki görünürlüğünü ölçün. Rakip analizi yapın, eksik noktaları keşfedin ve ChatGPT reklam kampanyalarınızı hazırlayın.</p>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pf-dot t"></span>AI asistan görünürlük takibi ve skor raporu</div>
+              <div class="pc-feat"><span class="pf-dot t"></span>Rakip boşluk analizi: hangi sorularda öne çıkıyorlar?</div>
+              <div class="pc-feat"><span class="pf-dot t"></span>ChatGPT reklamları için içerik taslağı ve plan hazırlama</div>
+              <div class="pc-feat"><span class="pf-dot t"></span>Türkiye / ABD pazar ve dil seçeneği, kart gerektirmez</div>
+            </div>
+            <button class="pc-btn t" onclick="openCal()">GeoAdra'yı Dene →</button>
+          </div>
+          <div class="mini-bg">
+            <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.85rem;margin-bottom:.5rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem;">
+                <div style="font-size:11.5px;font-weight:600;color:var(--text);">callypsotech.com</div>
+                <div style="font-size:9px;font-family:var(--mono);color:var(--teal);background:var(--teal-s);padding:2px 8px;border-radius:5px;border:1px solid var(--teal-m);">ANALİZ EDİLDİ</div>
+              </div>
+              <div style="display:flex;gap:.5rem;margin-bottom:.35rem;">
+                <div style="flex:1;background:var(--bg2);border-radius:6px;padding:.5rem;text-align:center;">
+                  <div style="font-family:var(--font);font-size:1.15rem;font-weight:800;color:var(--teal);">72</div>
+                  <div style="font-size:9px;color:var(--faint);font-family:var(--mono);">AI SKORU</div>
+                </div>
+                <div style="flex:1;background:var(--bg2);border-radius:6px;padding:.5rem;text-align:center;">
+                  <div style="font-family:var(--font);font-size:1.15rem;font-weight:800;color:var(--teal);">8/14</div>
+                  <div style="font-size:9px;color:var(--faint);font-family:var(--mono);">SORUDA</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.75rem;margin-bottom:.5rem;">
+              <div style="font-size:10px;font-family:var(--mono);color:var(--muted);margin-bottom:.45rem;">RAKİP ANALİZİ</div>
+              <div style="display:flex;flex-direction:column;gap:.3rem;">
+                <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:var(--sub);">Siz</span><div style="height:6px;width:72%;background:var(--teal);border-radius:3px;align-self:center;"></div></div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:var(--muted);">Rakip A</span><div style="height:6px;width:88%;background:var(--border);border-radius:3px;align-self:center;"></div></div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:var(--muted);">Rakip B</span><div style="height:6px;width:55%;background:var(--border);border-radius:3px;align-self:center;"></div></div>
+              </div>
+            </div>
+            <div class="m-grid">
+              <div class="mc"><div class="mn" style="color:var(--teal);">72</div><div class="ml">AI SKOR</div></div>
+              <div class="mc"><div class="mn" style="color:var(--teal);">14</div><div class="ml">SORU</div></div>
+              <div class="mc"><div class="mn" style="color:var(--teal);">3</div><div class="ml">RAKİP</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc pc-full">
+        <div class="pc-bar a"></div>
+        <div class="pc-split pc-body">
+          <div>
+            <div class="pc-tag a"><span class="pc-dot a"></span>AI ÜRÜN FOTOĞRAFLARI</div>
+            <div class="pc-name a">Callypso Studio</div>
+            <div class="pc-tagline">1 fotoğraf → 12+ satış görseli, 90 saniyede</div>
+            <p class="pc-desc">Ürün fotoğrafınızı yükleyin, sahne seçin — AI saniyeler içinde profesyonel e-ticaret görselleri üretir. %96 maliyet tasarrufu.</p>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pf-dot a"></span>Mermer stüdyo, altın saat, kafe, beyaz fon sahneleri</div>
+              <div class="pc-feat"><span class="pf-dot a"></span>1 görselden 12+ farklı kreatifte çıktı</div>
+              <div class="pc-feat"><span class="pf-dot a"></span>Shopify ile tek tıkla senkronizasyon</div>
+              <div class="pc-feat"><span class="pf-dot a"></span>Geleneksel stüdyoya kıyasla %96 maliyet tasarrufu</div>
+            </div>
+            <button class="pc-btn a" onclick="openCal()">Demo Planla →</button>
+          </div>
+          <div class="mini-bg">
+            <div class="su">
+              <div class="su-ico">📦</div>
+              <div><div class="su-name">product_shot.jpg</div><div class="su-sub">2.4 MB · JPG · hazır</div></div>
+            </div>
+            <div class="sc-row">
+              <div class="sc on">mermer stüdyo</div>
+              <div class="sc off">altın saat</div>
+              <div class="sc off">kafe masası</div>
+              <div class="sc off">beyaz fon</div>
+            </div>
+            <div class="sp">
+              <div class="sp-hd"><span class="sp-lbl">12 görsel üretiliyor</span><span class="sp-pct">87%</span></div>
+              <div class="sb"><div class="sb-fill"></div></div>
+            </div>
+            <div class="s-thumbs">
+              <div class="s-thumb">🖼️</div>
+              <div class="s-thumb">🖼️</div>
+              <div class="s-thumb">🖼️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc pc-full">
+        <div class="pc-bar r"></div>
+        <div class="pc-split pc-body">
+          <div>
+            <div class="pc-tag r"><span class="pc-dot r"></span>AI İÇ MEKAN TASARIM</div>
+            <div class="pc-name r">Callypso Decor</div>
+            <div class="pc-tagline">Bir oda fotoğrafını yeni bir hayata dönüştür</div>
+            <p class="pc-desc">Oda fotoğrafınızı yükleyin, stil seçin — AI saniyeler içinde yeniden tasarlanmış profesyonel görseller üretir. Satın almadan önce hayal edin, beğendiğinizi uygulayın.</p>
+            <div class="pc-feats">
+              <div class="pc-feat"><span class="pf-dot r"></span>İskandinav, Bohem, Japon, Modern, Akdeniz stil seçenekleri</div>
+              <div class="pc-feat"><span class="pf-dot r"></span>Gerçekçi öncesi/sonrası karşılaştırma galerisi</div>
+              <div class="pc-feat"><span class="pf-dot r"></span>Otomatik alışveriş listesi ve maliyet tahmini</div>
+              <div class="pc-feat"><span class="pf-dot r"></span>Tasarım panosu ve inspirasyon arşivi</div>
+            </div>
+            <button class="pc-btn r" onclick="openCal()">Callypso Decor'u Dene →</button>
+          </div>
+          <div class="mini-bg">
+            <div style="background:#fff;border:1.5px dashed var(--rose-m);border-radius:var(--r);padding:.8rem;display:flex;align-items:center;gap:.7rem;margin-bottom:.55rem;">
+              <div style="width:34px;height:34px;border-radius:8px;background:var(--rose-s);border:1px solid var(--rose-m);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🏠</div>
+              <div><div style="font-size:11.5px;font-weight:600;color:var(--text);">oturma_odasi.jpg</div><div style="font-size:9.5px;color:var(--muted);font-family:var(--mono);">3.1 MB · hazır</div></div>
+            </div>
+            <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.55rem;">
+              <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:var(--rose-s);color:var(--rose);border:1px solid var(--rose-m);">İskandinav</div>
+              <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:#fff;color:var(--muted);border:1px solid var(--border);">Japandi</div>
+              <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:#fff;color:var(--muted);border:1px solid var(--border);">Bohem</div>
+              <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:#fff;color:var(--muted);border:1px solid var(--border);">Modern</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.75rem;margin-bottom:.55rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:.4rem;"><span style="font-size:10.5px;font-family:var(--mono);color:var(--muted);">3 tasarım üretiliyor</span><span style="font-size:10.5px;font-family:var(--mono);color:var(--rose);font-weight:600;">72%</span></div>
+              <div style="height:4px;background:var(--border);border-radius:2px;overflow:hidden;"><div style="height:100%;width:72%;background:linear-gradient(90deg,var(--rose),#F43F5E);border-radius:2px;animation:sbp 2.2s ease-in-out infinite;"></div></div>
+            </div>
+            <div class="m-grid">
+              <div class="mc"><div class="mn" style="color:var(--rose);">6</div><div class="ml">STİL</div></div>
+              <div class="mc"><div class="mn" style="color:var(--rose);">3</div><div class="ml">TASARIM</div></div>
+              <div class="mc"><div class="mn" style="color:var(--rose);">₺2.4K</div><div class="ml">TAHMİN</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div id="how">
+  <div class="sec">
+    <div class="sec-hd">
+      <div class="sec-lbl">// nasıl çalışır</div>
+      <div class="sec-h">Her Ürün Adım Adım</div>
+    </div>
+    <div class="hiw-tabs">
+      <button class="hiw-tab ab" onclick="switchHiw('voice',this)">Voice Agent</button>
+      <button class="hiw-tab" onclick="switchHiw('inbox',this)">Inboxly</button>
+      <button class="hiw-tab" onclick="switchHiw('engage',this)">Engage</button>
+      <button class="hiw-tab" onclick="switchHiw('geoadra',this)">GeoAdra</button>
+      <button class="hiw-tab" onclick="switchHiw('studio',this)">Studio</button>
+      <button class="hiw-tab" onclick="switchHiw('decor',this)">Decor</button>
+    </div>
+
+    <div id="hiw-voice" class="hiw-panel active">
+      <div class="hiw-grid">
+        <div>
+          <p style="font-family:var(--font);font-size:1.1rem;font-weight:700;margin-bottom:1.4rem;">AI Voice Agent Adım Adım</p>
+          <div class="hiw-steps">
+            <div class="hiw-step"><div class="sn-box b">01</div><div><div class="st">Aramanın Kabulü</div><div class="sb2">Müşteri arar, AI agent &lt;1 saniyede yanıtlar. Bekleme yok, meşgul tonu yok.</div></div></div>
+            <div class="hiw-step"><div class="sn-box b">02</div><div><div class="st">Niyet Analizi</div><div class="sb2">Doğal dil işleme ile müşterinin ne istediğini anlar; randevu, bilgi veya yönlendirme.</div></div></div>
+            <div class="hiw-step"><div class="sn-box b">03</div><div><div class="st">İşlem & Entegrasyon</div><div class="sb2">CRM, takvim ve iç sistemlerinize bağlanarak randevu oluşturur, kayıt günceller.</div></div></div>
+            <div class="hiw-step"><div class="sn-box b">04</div><div><div class="st">Çözüm & Raporlama</div><div class="sb2">Her görüşme transkript ve özet ile kayıt altına alınır. Gerekirse insan temsilciye yönlendirir.</div></div></div>
+          </div>
+        </div>
+        <div class="hiw-vis">
+          <div class="vis-lbl">Canlı Görüşme · 02:34</div>
+          <div class="chat-col">
+            <div class="cr"><div class="cav ai">AI</div><div class="cb ai">Merhaba, CallypsoTech hattına hoş geldiniz. Size nasıl yardımcı olabilirim?</div></div>
+            <div class="cr r"><div class="cav us">MÜ</div><div class="cb us">Yarın sabah için randevu almak istiyorum.</div></div>
+            <div class="cr"><div class="cav ai">AI</div><div class="cb ai">Tabii, yarın 09:00 veya 10:30 uygun mu?</div></div>
+            <div class="cr r"><div class="cav us">MÜ</div><div class="cb us">10:30 olsun.</div></div>
+            <div class="cr"><div class="cav ai">AI</div><div class="cb ai">✓ Randevunuz oluşturuldu. SMS bildirimi gönderildi.</div></div>
+          </div>
+          <div class="m-grid">
+            <div class="mc"><div class="mn" style="color:var(--blue);">0.8sn</div><div class="ml">YANIT</div></div>
+            <div class="mc"><div class="mn" style="color:var(--blue);">%98</div><div class="ml">DOĞRULUK</div></div>
+            <div class="mc"><div class="mn" style="color:var(--blue);">2:34</div><div class="ml">SÜRE</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hiw-inbox" class="hiw-panel">
+      <div class="hiw-grid">
+        <div>
+          <p style="font-family:var(--font);font-size:1.1rem;font-weight:700;margin-bottom:1.4rem;">Inboxly Adım Adım</p>
+          <div class="hiw-steps">
+            <div class="hiw-step"><div class="sn-box v">01</div><div><div class="st">Kanalları Bağla</div><div class="sb2">WhatsApp, Instagram DM ve web chat'i birkaç tıkla ekle. Tüm mesajlar tek gelen kutusuna akar.</div></div></div>
+            <div class="hiw-step"><div class="sn-box v">02</div><div><div class="st">AI Yanıt Akışları</div><div class="sb2">Müşteri sorusunu AI kategorize eder; SSS yanıtlar, randevu önerir ya da insan temsilciye yönlendirir.</div></div></div>
+            <div class="hiw-step"><div class="sn-box v">03</div><div><div class="st">Ekiple Çalış</div><div class="sb2">Temsilciler sohbeti devralır, not ekler, birbirine atar. AI bağlamı her zaman görünür tutar.</div></div></div>
+            <div class="hiw-step"><div class="sn-box v">04</div><div><div class="st">Analitik & Optimizasyon</div><div class="sb2">Yanıt süreleri, çözüm oranları ve kanal performansı raporlanır.</div></div></div>
+          </div>
+        </div>
+        <div class="hiw-vis">
+          <div class="vis-lbl">Inbox · 3 Kanal Aktif</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:.9rem;">
+            <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:.75rem;display:flex;gap:.55rem;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:7px;background:var(--jade-s);color:var(--jade);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">💬</div>
+              <div style="flex:1;"><div style="font-size:11.5px;font-weight:600;">Ahmet Y. · WhatsApp</div><div style="font-size:10.5px;color:var(--muted);margin-top:.1rem;">Kargo nerede kaldı?</div></div>
+              <div style="font-size:9px;color:var(--violet);font-family:var(--mono);background:var(--vio-s);padding:2px 7px;border-radius:5px;white-space:nowrap;">AI yanıtladı</div>
+            </div>
+            <div style="background:var(--bg2);border:1.5px solid var(--vio-m);border-radius:10px;padding:.75rem;display:flex;gap:.55rem;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:7px;background:var(--vio-s);color:var(--violet);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📸</div>
+              <div style="flex:1;"><div style="font-size:11.5px;font-weight:600;">Selin K. · Instagram DM</div><div style="font-size:10.5px;color:var(--muted);margin-top:.1rem;">Fiyat listesi alabilir miyim?</div></div>
+              <div style="font-size:9px;color:var(--muted);font-family:var(--mono);">bekliyor</div>
+            </div>
+          </div>
+          <div class="m-grid">
+            <div class="mc"><div class="mn" style="color:var(--violet);">1.2dk</div><div class="ml">YANIT</div></div>
+            <div class="mc"><div class="mn" style="color:var(--violet);">%91</div><div class="ml">AI ÇÖZÜM</div></div>
+            <div class="mc"><div class="mn" style="color:var(--violet);">3</div><div class="ml">KANAL</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hiw-engage" class="hiw-panel">
+      <div class="hiw-grid">
+        <div>
+          <p style="font-family:var(--font);font-size:1.1rem;font-weight:700;margin-bottom:1.4rem;">Callypso Engage Adım Adım</p>
+          <div class="hiw-steps">
+            <div class="hiw-step"><div class="sn-box j">01</div><div><div class="st">Kanalları & Listeyi Bağla</div><div class="sb2">WhatsApp Business, SMS hattı veya Shopify'ı bağla. Müşteri listesi otomatik senkronize olur.</div></div></div>
+            <div class="hiw-step"><div class="sn-box j">02</div><div><div class="st">WhatsApp & SMS Kampanyası Oluştur</div><div class="sb2">Kişiselleştirilmiş WhatsApp mesajları ve SMS bildirimleri hazırla. Şablon onayı otomatik yönetilir.</div></div></div>
+            <div class="hiw-step"><div class="sn-box j">03</div><div><div class="st">Çok Kanallı Otomasyonu Etkinleştir</div><div class="sb2">WhatsApp → SMS → E-posta sıralamasıyla hoş geldin, terk edilen sepet ve geri kazanım dizilerini otomatik tetikle.</div></div></div>
+            <div class="hiw-step"><div class="sn-box j">04</div><div><div class="st">Gelir Takibi & A/B Testi</div><div class="sb2">Kanal bazında dönüşüm ve gelir raporları. Mesaj içeriği, gönderim saati ve kanalı optimize edin.</div></div></div>
+          </div>
+        </div>
+        <div class="hiw-vis">
+          <div class="vis-lbl">Kampanya Performansı</div>
+          <div style="display:flex;flex-direction:column;gap:.45rem;margin-bottom:.9rem;">
+            <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--sub);">Açılma Oranı</span><span style="font-weight:700;color:var(--jade);">24.3%</span></div>
+            <div style="height:4px;background:var(--border);border-radius:2px;overflow:hidden;"><div style="width:24%;height:100%;background:var(--jade);border-radius:2px;"></div></div>
+            <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-top:.3rem;"><span style="color:var(--sub);">Tıklama Oranı</span><span style="font-weight:700;color:var(--jade);">4.7%</span></div>
+            <div style="height:4px;background:var(--border);border-radius:2px;overflow:hidden;"><div style="width:47%;height:100%;background:var(--jade);border-radius:2px;"></div></div>
+          </div>
+          <div class="m-grid">
+            <div class="mc"><div class="mn" style="color:var(--jade);">847</div><div class="ml">LEAD</div></div>
+            <div class="mc"><div class="mn" style="color:var(--jade);">₺12.4K</div><div class="ml">GELİR</div></div>
+            <div class="mc"><div class="mn" style="color:var(--jade);">31</div><div class="ml">YANIT</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hiw-geoadra" class="hiw-panel">
+      <div class="hiw-grid">
+        <div>
+          <p style="font-family:var(--font);font-size:1.1rem;font-weight:700;margin-bottom:1.4rem;">GeoAdra Adım Adım</p>
+          <div class="hiw-steps">
+            <div class="hiw-step"><div class="sn-box t">01</div><div><div class="st">Web Siteni Tara</div><div class="sb2">Site URL'ini gir. GeoAdra sayfalarını tarar, ürün ve hizmetlerini otomatik tanımlar. Kart gerekmez.</div></div></div>
+            <div class="hiw-step"><div class="sn-box t">02</div><div><div class="st">AI Görünürlük Skoru Al</div><div class="sb2">ChatGPT, Gemini ve diğer AI asistanlarında müşterilerin sorduğu sorularda markanın kaç kez önerildiğini görürsün.</div></div></div>
+            <div class="hiw-step"><div class="sn-box t">03</div><div><div class="st">Rakip Boşluklarını Keşfet</div><div class="sb2">Rakiplerin öne çıktığı soruları ve hangi kaynaklara atıfta bulunduğunu analiz et. Eksik içerikleri tespit et.</div></div></div>
+            <div class="hiw-step"><div class="sn-box t">04</div><div><div class="st">ChatGPT Reklam Planı Hazırla</div><div class="sb2">AI destekli içerik taslakları ve ChatGPT reklam kampanya planı oluştur. Yayına almak için onayın yeterli.</div></div></div>
+          </div>
+        </div>
+        <div class="hiw-vis">
+          <div class="vis-lbl">GeoAdra · AI Görünürlük Raporu</div>
+          <div style="background:var(--teal-s);border:1px solid var(--teal-m);border-radius:var(--r);padding:.85rem;margin-bottom:.7rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;">
+              <div style="font-size:11px;font-weight:600;color:var(--text);">callypsotech.com</div>
+              <div style="font-size:9px;font-family:var(--mono);color:var(--teal);">ChatGPT · TR</div>
+            </div>
+            <div style="font-family:var(--font);font-size:2rem;font-weight:800;color:var(--teal);line-height:1;">72<span style="font-size:1rem;color:var(--muted);font-weight:400;">/100</span></div>
+            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:.2rem;">AI GÖRÜNÜRLük SKORU</div>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:.75rem;margin-bottom:.7rem;">
+            <div style="font-size:10px;font-family:var(--mono);color:var(--muted);margin-bottom:.5rem;">RAKİP KARŞILAŞTIRMA</div>
+            <div style="display:flex;flex-direction:column;gap:.4rem;">
+              <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:10.5px;color:var(--sub);width:60px;">Siz</span><div style="flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:72%;height:100%;background:var(--teal);border-radius:3px;"></div></div><span style="font-size:10px;font-family:var(--mono);color:var(--teal);font-weight:600;">72</span></div>
+              <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:10.5px;color:var(--muted);width:60px;">Rakip A</span><div style="flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:88%;height:100%;background:var(--bord2);border-radius:3px;"></div></div><span style="font-size:10px;font-family:var(--mono);color:var(--muted);">88</span></div>
+              <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:10.5px;color:var(--muted);width:60px;">Rakip B</span><div style="flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:55%;height:100%;background:var(--bord2);border-radius:3px;"></div></div><span style="font-size:10px;font-family:var(--mono);color:var(--muted);">55</span></div>
+            </div>
+          </div>
+          <div class="m-grid">
+            <div class="mc"><div class="mn" style="color:var(--teal);">8/14</div><div class="ml">SORUDA</div></div>
+            <div class="mc"><div class="mn" style="color:var(--teal);">3</div><div class="ml">RAKİP</div></div>
+            <div class="mc"><div class="mn" style="color:var(--teal);">4</div><div class="ml">AI MODEL</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="hiw-studio" class="hiw-panel">
+      <div class="hiw-grid">
+        <div>
+          <p style="font-family:var(--font);font-size:1.1rem;font-weight:700;margin-bottom:1.4rem;">Callypso Studio Adım Adım</p>
+          <div class="hiw-steps">
+            <div class="hiw-step"><div class="sn-box a">01</div><div><div class="st">Ürün Fotoğrafını Yükle</div><div class="sb2">Sıradan bir ürün fotoğrafı yeter. Beyaz fon, stüdyo ışığı ya da mobil çekim — AI gerisini halleder.</div></div></div>
+            <div class="hiw-step"><div class="sn-box a">02</div><div><div class="st">Sahne & Stil Seç</div><div class="sb2">Mermer stüdyo, altın saat, kafe masası, beyaz fon gibi hazır sahnelerden birini seç.</div></div></div>
+            <div class="hiw-step"><div class="sn-box a">03</div><div><div class="st">AI Görsel Üretir</div><div class="sb2">~90 saniyede 12+ farklı formatta profesyonel görsel: Instagram, story, banner, ürün sayfası.</div></div></div>
+            <div class="hiw-step"><div class="sn-box a">04</div><div><div class="st">Shopify'a Aktar veya İndir</div><div class="sb2">Tek tıkla Shopify ürün sayfasına yükle ya da PNG/JPG olarak indir. %96 maliyet tasarrufu.</div></div></div>
+          </div>
+        </div>
+        <div class="hiw-vis">
+          <div class="vis-lbl">Studio · Üretim Paneli</div>
+          <div class="su" style="margin-bottom:.7rem;">
+            <div class="su-ico">📦</div>
+            <div><div class="su-name">urun_fotografi.jpg</div><div class="su-sub">2.4 MB · yüklendi</div></div>
+          </div>
+          <div class="sc-row" style="margin-bottom:.7rem;">
+            <div class="sc on">mermer stüdyo</div>
+            <div class="sc off">altın saat</div>
+            <div class="sc off">kafe masası</div>
+          </div>
+          <div class="sp" style="margin-bottom:.7rem;">
+            <div class="sp-hd"><span class="sp-lbl">12 görsel üretiliyor</span><span class="sp-pct">87%</span></div>
+            <div class="sb"><div class="sb-fill"></div></div>
+          </div>
+          <div class="m-grid">
+            <div class="mc"><div class="mn" style="color:var(--amber);">90sn</div><div class="ml">ÜRETİM</div></div>
+            <div class="mc"><div class="mn" style="color:var(--amber);">12+</div><div class="ml">GÖRSEL</div></div>
+            <div class="mc"><div class="mn" style="color:var(--amber);">%96</div><div class="ml">TASARRUF</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="hiw-decor" class="hiw-panel">
+      <div class="hiw-grid">
+        <div>
+          <p style="font-family:var(--font);font-size:1.1rem;font-weight:700;margin-bottom:1.4rem;">Callypso Decor Adım Adım</p>
+          <div class="hiw-steps">
+            <div class="hiw-step"><div class="sn-box r">01</div><div><div class="st">Oda Fotoğrafını Yükle</div><div class="sb2">Akıllı telefonla çekilmiş sıradan bir oda fotoğrafı yeter. Işık koşuluna ya da düzensizliğe bakmaz.</div></div></div>
+            <div class="hiw-step"><div class="sn-box r">02</div><div><div class="st">Dekorasyon Stilini Seç</div><div class="sb2">İskandinav, Bohem, Japandi, Modern, Akdeniz veya Endüstriyel — 6 farklı stil arasından seçim yap.</div></div></div>
+            <div class="hiw-step"><div class="sn-box r">03</div><div><div class="st">AI Odayı Yeniden Tasarlar</div><div class="sb2">Birkaç saniye içinde odanın seçilen stilde dönüştürülmüş, fotogerçekçi görüntüleri hazır olur.</div></div></div>
+            <div class="hiw-step"><div class="sn-box r">04</div><div><div class="st">Alışveriş Listesi & Bütçe</div><div class="sb2">Beğendiğin tasarım için ürün önerileri ve tahmini maliyet otomatik çıkar. İstersen kataloğa ekle.</div></div></div>
+          </div>
+        </div>
+        <div class="hiw-vis">
+          <div class="vis-lbl">Decor · Tasarım Paneli</div>
+          <div style="background:var(--rose-s);border:1.5px dashed var(--rose-m);border-radius:var(--r);padding:.8rem;display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;">
+            <div style="width:34px;height:34px;border-radius:8px;background:#fff;border:1px solid var(--rose-m);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🏠</div>
+            <div><div style="font-size:11.5px;font-weight:600;color:var(--text);">salon_fotografim.jpg</div><div style="font-size:9.5px;color:var(--muted);font-family:var(--mono);">yüklendi · hazır</div></div>
+          </div>
+          <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.7rem;">
+            <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:var(--rose-s);color:var(--rose);border:1px solid var(--rose-m);">İskandinav ✓</div>
+            <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:#fff;color:var(--muted);border:1px solid var(--border);">Japandi</div>
+            <div style="font-size:9.5px;font-family:var(--mono);padding:4px 9px;border-radius:6px;background:#fff;color:var(--muted);border:1px solid var(--border);">Bohem</div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:.75rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;">
+            <div style="font-size:10.5px;color:var(--sub);">🛒 Alışveriş Listesi</div>
+            <div style="font-size:11px;font-family:var(--mono);font-weight:700;color:var(--rose);">₺2.4K tahmini</div>
+          </div>
+          <div class="m-grid">
+            <div class="mc"><div class="mn" style="color:var(--rose);">6</div><div class="ml">STİL</div></div>
+            <div class="mc"><div class="mn" style="color:var(--rose);">8sn</div><div class="ml">ÜRETIM</div></div>
+            <div class="mc"><div class="mn" style="color:var(--rose);">3+</div><div class="ml">TASARIM</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div id="features" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="sec">
+    <div class="sec-hd">
+      <div class="sec-lbl">// özellikler</div>
+      <div class="sec-h">Tek Platformda Her Şey</div>
+      <p class="sec-d">İhtiyacınız olan her özellik — entegre, ölçeklenebilir ve güvenli.</p>
+    </div>
+    <div class="fg">
+      <div class="fc"><div class="fi b">📞</div><div class="ft">Otomatik Telefon Yanıtlama</div><div class="fd">Gelen aramaların tamamı AI tarafından anında karşılanır. Sınırsız hat kapasitesiyle hiçbir arama cevapsız kalmaz.</div></div>
+      <div class="fc"><div class="fi v">🤖</div><div class="ft">Akıllı Soru & Cevap</div><div class="fd">Ürün, hizmet ve politika sorularına bilgi tabanıyla doğal ve tutarlı yanıtlar verir.</div></div>
+      <div class="fc"><div class="fi j">📅</div><div class="ft">Randevu Oluşturma</div><div class="fd">Takvim entegrasyonuyla gerçek zamanlı müsaitlik kontrolü yapar, SMS bildirimi otomatik gönderir.</div></div>
+      <div class="fc"><div class="fi b">🌙</div><div class="ft">7/24 Mesai Dışı Hizmet</div><div class="fd">Hafta sonu, gece yarısı, bayram fark etmez. Ofisiniz kapandıktan sonra da müşterileriniz tam hizmet alır.</div></div>
+      <div class="fc"><div class="fi v">🌍</div><div class="ft">Çok Dilli Görüşme</div><div class="fd">50'den fazla dilde akıcı iletişim. Müşteri hangi dilde konuşursa agent o dilde yanıt verir.</div></div>
+      <div class="fc"><div class="fi j">🛡️</div><div class="ft">Enterprise Güvenlik</div><div class="fd">SOC 2 Type II, GDPR ve KVKK uyumlu altyapı. End-to-end şifreleme ve rol tabanlı erişim kontrolü.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Müşteri İletişiminizi Dönüştürün</h2>
+  <p>15 dakikalık keşif görüşmesiyle başlayın. Kurulum gerektirmiyor, taahhüt yok.</p>
+  <button class="btn-w" onclick="openCal()">Ücretsiz Demo Planla →</button>
+  <button class="btn-ow" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Ürünleri İncele</button>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-wrap">
+  <footer>
+    <div class="fl">Callypso<span>Tech</span></div>
+    <div class="fn">
+      <a href="#products">Ürünler</a>
+      <a href="#how">Nasıl Çalışır</a>
+      <a href="#features">Özellikler</a>
+    </div>
+    <div class="fc2">© 2024 CallypsoTech</div>
+  </footer>
+</div>
+
+<script>
+function openCal(){window.open('https://cal.com/furkan-alumert','_blank');}
+function toggleMob(){
+  document.getElementById('mobDrawer').classList.toggle('open');
+  document.getElementById('hmbg').classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobDrawer').classList.remove('open');
+  document.getElementById('hmbg').classList.remove('open');
+}
+function switchHiw(id,btn){
+  document.querySelectorAll('.hiw-panel').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('hiw-'+id).classList.add('active');
+  var map={voice:'ab',inbox:'av',engage:'aj',studio:'aa',decor:'ar',geoadra:'at'};
+  document.querySelectorAll('.hiw-tab').forEach(function(t){t.className='hiw-tab';});
+  btn.classList.add(map[id]);
+}
+</script>

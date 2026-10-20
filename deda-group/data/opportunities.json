@@ -14,7 +14,7 @@
     },
     "impactNote": "Etki (Low/Medium/High) nitel bir tahmindir. Gelir, ROI, dönüşüm artışı veya maliyet tasarrufu tahmini yapılmamıştır; bunlar için sipariş, teklif ve trafik verisi gerekir."
   },
-  "engageCapabilityStatus": "Bu ortamda Callypso Engage için ürün dokümantasyonu, depo veya uygulama erişimi bulunamadı; kamuya açık web aramasında da özellik listesi doğrulanamadı. 'Callypso Engage' kategorisindeki her öneri, toplantıda Callypso ürün ekibiyle teyit edilmesi gereken varsayılan yetenekleri (tetikleyici, segment, çok adımlı akış, e-posta/WhatsApp kanalı) kullanır.",
+  "engageCapabilityStatus": "Engage özellikleri callypsotech.com'dan doğrulandı (20.10.2026): WhatsApp öncelikli kampanyalar ve otomatik diziler, WhatsApp → SMS → e-posta sıralı akış, e-posta tasarımcısı ve A/B testi, WhatsApp Business / SMS / Shopify liste bağlantısı, kanal bazlı dönüşüm ve gelir raporu. Deda'da Shopify yok; liste Excel, WhatsApp Business veya CRM (HubSpot/Zapier) ile gelmeli. CRM/ERP olayıyla tetikleme ve B2B liste aktarımı ürün ekibiyle teyit edilmeli.",
   "opportunities": [
     {
       "id": "O01",
@@ -38,7 +38,7 @@
       "integrations": [
         "WordPress form",
         "CRM",
-        "Engage (doğrulanmalı)",
+        "Callypso Engage",
         "WhatsApp Business API"
       ],
       "channel": "E-posta + WhatsApp",
@@ -64,7 +64,8 @@
         "relevance": 5,
         "feasibility": 5,
         "fit": 4
-      }
+      },
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O02",
@@ -88,7 +89,7 @@
       ],
       "integrations": [
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta + WhatsApp",
       "sequence": [
@@ -115,7 +116,8 @@
         "feasibility": 4,
         "fit": 5
       },
-      "requiresAccess": "Requires CRM / Order / Analytics Data"
+      "requiresAccess": "Requires CRM / Order / Analytics Data",
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O03",
@@ -140,7 +142,7 @@
       "integrations": [
         "ERP",
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta + WhatsApp",
       "sequence": [
@@ -165,7 +167,8 @@
         "feasibility": 3,
         "fit": 5
       },
-      "requiresAccess": "Requires CRM / Order / Analytics Data"
+      "requiresAccess": "Requires CRM / Order / Analytics Data",
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O04",
@@ -187,7 +190,7 @@
       ],
       "integrations": [
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta",
       "sequence": [
@@ -213,7 +216,8 @@
         "relevance": 4,
         "feasibility": 5,
         "fit": 5
-      }
+      },
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O05",
@@ -238,7 +242,7 @@
       "integrations": [
         "GA4/GTM",
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta",
       "sequence": [
@@ -262,7 +266,8 @@
         "relevance": 4,
         "feasibility": 4,
         "fit": 5
-      }
+      },
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O06",
@@ -285,7 +290,7 @@
       "integrations": [
         "ERP",
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta + telefon görevi",
       "sequence": [
@@ -310,7 +315,8 @@
         "feasibility": 3,
         "fit": 5
       },
-      "requiresAccess": "Requires CRM / Order / Analytics Data"
+      "requiresAccess": "Requires CRM / Order / Analytics Data",
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O07",
@@ -381,7 +387,7 @@
       ],
       "integrations": [
         "CRM/servis kaydı",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "WhatsApp + e-posta",
       "sequence": [
@@ -407,7 +413,8 @@
         "feasibility": 3,
         "fit": 4
       },
-      "requiresAccess": "Requires CRM / Order / Analytics Data"
+      "requiresAccess": "Requires CRM / Order / Analytics Data",
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O09",
@@ -432,7 +439,7 @@
       "integrations": [
         "CRM",
         "GA4",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta",
       "sequence": [
@@ -458,7 +465,8 @@
         "relevance": 4,
         "feasibility": 4,
         "fit": 5
-      }
+      },
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O10",
@@ -510,7 +518,8 @@
         "relevance": 4,
         "feasibility": 3,
         "fit": 3
-      }
+      },
+      "callypsoProduct": "Inboxly"
     },
     {
       "id": "O11",
@@ -838,7 +847,7 @@
         "WhatsApp Business API",
         "E-posta",
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "Çok kanallı",
       "sequence": [
@@ -863,7 +872,8 @@
         "relevance": 5,
         "feasibility": 3,
         "fit": 4
-      }
+      },
+      "callypsoProduct": "Inboxly + Engage"
     },
     {
       "id": "O18",
@@ -890,7 +900,7 @@
       "integrations": [
         "Form",
         "CRM",
-        "Engage (doğrulanmalı)"
+        "Callypso Engage"
       ],
       "channel": "E-posta + WhatsApp",
       "sequence": [
@@ -916,7 +926,8 @@
         "relevance": 4,
         "feasibility": 4,
         "fit": 4
-      }
+      },
+      "callypsoProduct": "Engage"
     },
     {
       "id": "O19",
@@ -1018,7 +1029,8 @@
         "feasibility": 3,
         "fit": 2
       },
-      "requiresAccess": "Requires CRM / Order / Analytics Data"
+      "requiresAccess": "Requires CRM / Order / Analytics Data",
+      "callypsoProduct": "Voice Agent"
     },
     {
       "id": "O21",
@@ -1211,7 +1223,8 @@
         "relevance": 5,
         "feasibility": 4,
         "fit": 3
-      }
+      },
+      "callypsoProduct": "GeoAdra (görünürlük raporu) + içerik projesi"
     }
   ]
 }

@@ -6,10 +6,10 @@
       "steps": [
         { "title": "Talep alındı", "detail": "Alıcı {offering} için teklif formunu doldurur (ürüne özel teknik bilgiler, adet/kapasite, ülke).", "event": "quote_request_submitted", "system": "Web formu", "status": "Varsayım: form henüz yok (PP01/PP10)" },
         { "title": "Lead nitelendirildi", "detail": "Ülke, sektör ve hacme göre öncelik atanır; mükerrer kayıt kontrol edilir.", "event": "lead_qualified", "system": "CRM", "status": "Varsayım: CRM bilinmiyor (Q03)" },
-        { "title": "Otomatik onay mesajı", "detail": "Alıcının dilinde talep özeti ve beklenen yanıt süresi gönderilir.", "event": "message_sent", "system": "Callypso Engage (yetenek doğrulanmalı)", "status": "Varsayım" },
+        { "title": "Otomatik onay mesajı", "detail": "Alıcının dilinde talep özeti ve beklenen yanıt süresi gönderilir.", "event": "message_sent", "system": "Callypso Engage", "status": "Varsayım" },
         { "title": "Satışa devir", "detail": "Temsilci yapılandırılmış özet alır; 24 saat SLA başlar.", "event": "lead_assigned", "system": "CRM / bildirim", "status": "Varsayım" },
         { "title": "Teklif", "detail": "Temsilci fiyat ve termini onaylayıp teklif gönderir.", "event": "quote_sent", "system": "CRM / ERP", "status": "İnsan onayı zorunlu" },
-        { "title": "Takip", "detail": "Yanıt yoksa 3. ve 7. gün takip; 14. gün temsilci arama görevi.", "event": "follow_up_sent", "system": "Callypso Engage (doğrulanmalı)", "status": "Varsayım" },
+        { "title": "Takip", "detail": "Yanıt yoksa 3. ve 7. gün takip; 14. gün temsilci arama görevi.", "event": "follow_up_sent", "system": "Callypso Engage", "status": "Varsayım" },
         { "title": "Sonuç kaydı", "detail": "Kazanıldı / kaybedildi + kayıp nedeni kaydedilir; tekrar sipariş takvimi oluşur.", "event": "quote_status_changed", "system": "CRM", "status": "Varsayım" }
       ]
     },
@@ -18,9 +18,9 @@
       "steps": [
         { "title": "Distribütör başvurusu", "detail": "{offering} için ülke, kanal ve hacim bilgisiyle başvuru gelir.", "event": "distributor_application", "system": "Web formu", "status": "Varsayım: form yok (PP18)" },
         { "title": "Ön değerlendirme", "detail": "Kriterlere göre skor; bölge sorumlusuna atama.", "event": "lead_qualified", "system": "CRM", "status": "Varsayım" },
-        { "title": "Katalog ve fiyat listesi", "detail": "Dil bazlı katalog gönderilir (bugün katalog bağlantıları 404 — PP16).", "event": "catalog_sent", "system": "Callypso Engage (doğrulanmalı)", "status": "Doğrulanmış sorun + varsayım" },
+        { "title": "Katalog ve fiyat listesi", "detail": "Dil bazlı katalog gönderilir (bugün katalog bağlantıları 404 — PP16).", "event": "catalog_sent", "system": "Callypso Engage", "status": "Doğrulanmış sorun + varsayım" },
         { "title": "Numune / ilk sipariş", "detail": "Satış ekibi numune ve ilk sipariş koşullarını görüşür.", "event": "first_order", "system": "ERP", "status": "İnsan onayı" },
-        { "title": "Sezon öncesi hatırlatma", "detail": "Sezon −8 hafta ön sipariş hatırlatması.", "event": "season_reminder_sent", "system": "Callypso Engage (doğrulanmalı)", "status": "Varsayım" }
+        { "title": "Sezon öncesi hatırlatma", "detail": "Sezon −8 hafta ön sipariş hatırlatması.", "event": "season_reminder_sent", "system": "Callypso Engage", "status": "Varsayım" }
       ]
     },
     "support": {
@@ -40,7 +40,7 @@
         { "title": "Bilgi çıkarma", "detail": "Makine/ürün, seri no, sorun tipi çıkarılır.", "event": "data_extracted", "system": "AI sınıflandırma", "status": "Varsayım" },
         { "title": "Doğrulama", "detail": "Kurulu baz kaydı ile eşleşme kontrol edilir.", "event": "validated", "system": "CRM / servis kaydı", "status": "Varsayım: kurulu baz kaydı bilinmiyor (Q14)" },
         { "title": "Görev ve onay", "detail": "Teknisyene görev; yedek parça gerekiyorsa onay.", "event": "task_created", "system": "Servis yönetimi", "status": "İnsan onayı" },
-        { "title": "Tamamlama", "detail": "Kapanış, memnuniyet sorusu ve bir sonraki bakım hatırlatması planlanır.", "event": "ticket_closed", "system": "Callypso Engage (doğrulanmalı)", "status": "Varsayım" }
+        { "title": "Tamamlama", "detail": "Kapanış, memnuniyet sorusu ve bir sonraki bakım hatırlatması planlanır.", "event": "ticket_closed", "system": "Callypso Engage", "status": "Varsayım" }
       ]
     },
     "internal": {

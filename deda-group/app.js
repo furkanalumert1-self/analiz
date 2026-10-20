@@ -230,7 +230,7 @@
       <li><b>Teklif yakalama en büyük ve en hızlı kaldıraç.</b> Deda Pack'te ölçü/adet/baskı bilgisini toplayan bir teklif formu yok (<a href="#" data-pp="PP01">PP01</a>); Deda Makina'nın teklif formu kırık bir PDF (<a href="#" data-pp="PP10">PP10</a>). Yapılandırılmış form + CRM + otomatik onay (<a href="#" data-opp="O01">O01</a>, <a href="#" data-opp="O07">O07</a>).</li>
       <li><b>Web hijyeni ve marka riski acil.</b> Konteyner sitesi, kırık dedaplast.com, ajans demo alanındaki 404 kataloglar, Makina'da Pack metni ve blogda tema demo içeriği, Gıda'nın Rusça sayfasında 'Dedeman' çevirisi, eksik zorunlu şirket bilgileri (<a href="#" data-opp="O15">O15</a>, <a href="#" data-pp="PP29">PP29</a>).</li>
       <li><b>Deda Makina dijitalde neredeyse görünmez.</b> 'Deda Makina' aramasında kendi sitesi ilk sayfada yok; 13 makine sayfası aynı yanlış teknik tabloyu gösteriyor, 37 sayfada yalnızca başlık var (<a href="#" data-pp="PP27">PP27</a>, <a href="#" data-pp="PP28">PP28</a>, <a href="#" data-opp="O24">O24</a>).</li>
-      <li><b>Takip ve tekrar sipariş Engage'in doğal alanı</b> — teklif sonrası takip, yenileme hatırlatma, fuar nurture (<a href="#" data-opp="O02">O02</a>, <a href="#" data-opp="O03">O03</a>, <a href="#" data-opp="O04">O04</a>); CRM/ERP verisi ve Engage yetenek teyidi gerekli.</li>
+      <li><b>Takip ve tekrar sipariş Engage'in doğal alanı</b> — teklif sonrası takip, yenileme hatırlatma, fuar nurture (<a href="#" data-opp="O02">O02</a>, <a href="#" data-opp="O03">O03</a>, <a href="#" data-opp="O04">O04</a>); Engage WhatsApp öncelikli dizilerle bunu yapıyor; Deda'da Shopify olmadığı için liste Excel/WhatsApp Business/CRM ile gelmeli (<a href="#" data-go="engage">Engage &amp; sorular</a>).</li>
       <li><b>Çok kanallı talepler tek kayda toplanmalı</b> (form, WhatsApp, 3 telefon, birden çok e-posta) (<a href="#" data-opp="O17">O17</a>).</li>
       <li><b>Ölçüm ve rıza altyapısı her şeyin ön koşulu</b>: Makina, Gıda ve grup sitesinde analitik gözlenmedi; Pack'te CMP gözlenmedi (<a href="#" data-opp="O16">O16</a>).</li>
       <li><b>Kapasite (günlük 456.361 çanta) ve 60 ihracat müşterisi hedefi</b> karşısında görünür dijital talep yaratma sınırlı — Meta'da 0 reklam, 7 Google sorgusunda 0 ücretli sonuç; 'baskılı kağıt çanta üretimi' aramasında Deda yok (<a href="#" data-pp="PP07">PP07</a>, <a href="#" data-pp="PP28">PP28</a>); önce ölçüm ve teklif formu, sonra pilot kampanya.</li>
@@ -359,16 +359,39 @@
 
   const oppCard = (o, withRationale = false) => `
     <div class="card click" data-opp="${o.id}">
-      <div class="row">${prio(o)}<b class="mono">${o.id}</b><h3>${esc(o.title)}</h3><span class="spacer"></span>${badge(o.solutionCategory, 'b-brand')}${badge(o.confidence)}${o.requiresAccess ? badge('Requires CRM / Order / Analytics Data') : ''}</div>
+      <div class="row">${prio(o)}<b class="mono">${o.id}</b><h3>${esc(o.title)}</h3><span class="spacer"></span>${o.callypsoProduct ? badge('Callypso: ' + o.callypsoProduct, 'b-verified') : ''}${badge(o.solutionCategory, 'b-brand')}${badge(o.confidence)}${o.requiresAccess ? badge('Requires CRM / Order / Analytics Data') : ''}</div>
       ${withRationale ? `<div class="callout brand small mt-s"><b>Neden bu yaklaşım?</b> ${esc(RATIONALE[o.solutionCategory])}</div>` : ''}
       ${kv([['Sorun', o.painPointIds.map((id) => `<a href="#" data-pp="${id}">${id}</a> ${esc(PPX[id].title)}`).join('<br>')], ['Tetikleyici', esc(o.trigger)], ['Segment', esc(o.segment)], ['Gerekli veri', chips(o.requiredData)], ['Olaylar', chips(o.requiredEvents)], ['Entegrasyon', chips(o.integrations)], ['Kanal', esc(o.channel)], ['Akış', esc((o.sequence || []).join(' → '))], ['Örnek mesaj', o.exampleMessage && o.exampleMessage !== '—' ? `<div class="msg">${esc(o.exampleMessage)}</div>` : '—'], ['Etki / karmaşıklık', `${esc(tr(o.impact))} (tahmin) / ${esc(tr(o.complexity))}`], ['Ölçüm', esc(o.measurement)]])}
     </div>`;
 
   S.engage = () => {
+    const C = D.callypso;
+    const E = C.engage;
     const list = OPP.filter((o) => ENGAGE_CATS.includes(o.solutionCategory)).sort((a, b) => b.score - a.score);
-    return head('Callypso Engage Fırsatları', 'Tetikleyici, segment, veri gereksinimi, örnek mesaj ve ölçüm ile yaşam döngüsü otomasyonları. Deda Group\'un e-ticaret satışı yok; öneriler B2B teklif, takip, yenileme ve distribütör akışlarına uyarlandı.') + `
-    <div class="callout">${esc(D.opportunities.engageCapabilityStatus)}</div>
-    <div class="stack mt">${list.map(oppCard).join('')}</div>
+    const ppLinks = (ids) => ids.map((id) => `<a href="#" data-pp="${id}">${id}</a>`).join(', ');
+    const oppLinks = (ids) => ids.map((id) => `<a href="#" data-opp="${id}">${id}</a>`).join(', ');
+    return head('Callypso Engage', 'Engage ne yapıyor, Deda\'ya nasıl uyarlanır ve toplantıda hangi sorularla ihtiyaç ortaya çıkarılır. Deda Group\'un e-ticaret satışı yok; senaryolar B2B teklif, takip, tekrar sipariş ve distribütör akışlarına göre kuruldu.') + `
+    <div class="grid g2">
+      <div class="card"><div class="row"><h2>${esc(E.name)}</h2><span class="spacer"></span>${badge('Verified', 'b-verified')}</div>
+        <p class="muted mt-s">${esc(E.tagline)}</p>
+        <ul class="list mt-s">${E.features.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+        <p class="faint mt-s">Kaynak: ${link(C.source.url, 'callypsotech.com')} · ${esc(C.source.collectedAt.slice(0, 10))}</p></div>
+      <div class="stack">
+        <div class="card"><h3>Deda'ya uyarlama</h3><ul class="list mt-s small">${E.fitForDeda.map((f) => `<li>${esc(f)}</li>`).join('')}</ul></div>
+        <div class="callout small"><b>Toplantı öncesi ürün ekibiyle teyit edin:</b><ul class="list mt-s">${E.toVerify.map((f) => `<li>${esc(f)}</li>`).join('')}</ul></div>
+      </div>
+    </div>
+    <h2 class="mt">Toplantıda sorulacak sorular — Engage öncelikli</h2>
+    <p class="muted mt-s">Soruyu sorun ve susun; sayıyı ve sorunu onlar söylesin. Her cevap doğrudan bir Engage senaryosunu açar.</p>
+    <div class="table-wrap mt-s"><table><thead><tr><th>#</th><th>Soru</th><th>Muhtemel cevap → ne öğreniyoruz</th><th>Engage karşılığı</th><th>Sorun</th><th>Fırsat</th></tr></thead><tbody>
+      ${C.meetingQuestions.map((q) => `<tr><td><span class="badge b-brand">${q.n}</span></td><td><b>“${esc(q.question)}”</b></td><td class="small">${esc(q.expected)}</td><td class="small">${esc(q.engage)}</td><td class="small">${ppLinks(q.painPointIds)}</td><td class="small">${oppLinks(q.opportunityIds)}</td></tr>`).join('')}
+    </tbody></table></div>
+    <p class="faint mt-s">Kaçınılacak soru: “Pazarlama otomasyonu kullanıyor musunuz?” — evet/hayır cevabı alırsınız ve konuşma ürün satışına döner.</p>
+    <h2 class="mt">Engage senaryoları (${list.length})</h2>
+    <div class="stack mt-s">${list.map((o) => oppCard(o)).join('')}</div>
+    <h2 class="mt">Engage'den diğer Callypso ürünlerine köprü</h2>
+    <p class="muted mt-s">Engage konuşması oturduktan sonra (13–17. dakika). Studio ve Decor bu müşteri için kapsam dışı.</p>
+    <div class="grid g3 mt-s">${C.otherProducts.map((p) => `<div class="card"><div class="row"><h3>${esc(p.name)}</h3><span class="spacer"></span>${badge('Verified', 'b-verified')}</div><p class="small mt-s">${esc(p.what)}</p>${kv([['Deda\'daki sorun', esc(p.dedaProblem)], ['Köprü sorusu', `<b>“${esc(p.bridgeQuestion)}”</b>`], ['Bağlantılar', `${ppLinks(p.painPointIds)} · ${oppLinks(p.opportunityIds)}`]])}</div>`).join('')}</div>
     <h2 class="mt">Segmentler</h2><p class="muted mt-s">${esc(D.segments.note)}</p>
     <div class="table-wrap mt-s"><table><thead><tr><th>Segment</th><th>Şirket</th><th>Amaç</th><th>Dahil etme kriteri</th><th>Gerekli alan/olay</th><th>Otomasyon</th><th>KPI</th><th>Gerekli erişim</th></tr></thead><tbody>
       ${D.segments.segments.map((s) => `<tr><td><b>${esc(s.name)}</b></td><td>${esc(entName(s.entityId))}</td><td>${esc(s.objective)}</td><td class="small">${esc(s.criteria)}</td><td>${chips(s.fields)}</td><td>${s.automation.split(/,\s*/).map((id) => `<a href="#" data-opp="${id}">${id}</a>`).join(', ')}</td><td>${esc(s.kpi)}</td><td>${badge(s.access, 'b-access')}</td></tr>`).join('')}
@@ -466,7 +489,8 @@
     const qs = D.questions.slice().sort((a, b) => a.priority - b.priority);
     const qCard = (q) => `<div class="card"><div class="row"><span class="badge b-brand">#${q.priority}</span><span class="chip">${esc(q.theme)}</span></div><h3 class="mt-s">${esc(q.question)}</h3>${kv([['Doğruladığı sorun', q.validates.map((id) => `<a href="#" data-pp="${id}">${id}</a>`).join(', ')], ['Neden önemli', esc(q.why)], ['Açabileceği çözüm', q.unlocks.map((id) => `<a href="#" data-opp="${id}">${id}</a>`).join(', ')]])}</div>`;
     return head('Müşteri Keşif Soruları', 'Araştırma bulgularına ve bilgi boşluklarına göre hazırlandı. İlk beş soru toplantı hazırlığı için önceliklendirildi.') + `
-    <div class="callout brand"><b>Toplantı hazırlığı — önce sorulacaklar</b></div>
+    <div class="callout small">Toplantıda ilk sorulacak <b>Engage öncelikli 6 soru</b> için <a href="#" data-go="engage">Callypso Engage &amp; Sorular</a> bölümüne bakın. Aşağıdakiler genel keşif soruları.</div>
+    <div class="callout brand mt-s"><b>Toplantı hazırlığı — önce sorulacaklar</b></div>
     <div class="grid g2 mt-s">${qs.slice(0, 5).map(qCard).join('')}</div>
     <h2 class="mt">Tüm sorular</h2>
     <div class="grid g2 mt-s">${qs.slice(5).map(qCard).join('')}</div>`;
@@ -509,7 +533,7 @@
   // ---------- navigation ----------
   const SECTIONS = [
     ['Genel', [['overview', 'Yönetici Özeti'], ['ecosystem', 'Ekosistem & İş Modeli', D.ecosystem.entities.length], ['websites', 'Web & Martech', D.websites.length], ['catalog', 'Ürün & Hizmetler', CAT.length], ['journey', 'Müşteri Yolculuğu']]],
-    ['Bulgular', [['painpoints', 'Sorunlar & Otomasyon', PP.length], ['engage', 'Callypso Engage', K.engage], ['external', 'Harici, AI & Puanlama', OPP.length - K.engage], ['demo', 'Canlı Simülasyon']]],
+    ['Bulgular', [['painpoints', 'Sorunlar & Otomasyon', PP.length], ['engage', 'Callypso Engage & Sorular', K.engage], ['external', 'Harici, AI & Puanlama', OPP.length - K.engage], ['demo', 'Canlı Simülasyon']]],
     ['Pazar & Plan', [['ads', 'Reklam İstihbaratı'], ['roadmap', '30/60/90 Yol Haritası'], ['questions', 'Keşif Soruları', D.questions.length]]],
     ['Kanıt', [['evidence', 'Evidence Explorer', D.sources.length], ['limits', 'Sınırlamalar & Erişim']]],
   ];

@@ -141,7 +141,7 @@
       "integrations": [
         "WordPress",
         "Form/CRM",
-        "Engage (yetenek doğrulanmalı)"
+        "Callypso Engage"
       ],
       "complexity": "Low",
       "impact": "Medium",
@@ -174,7 +174,7 @@
       ],
       "integrations": [
         "CRM",
-        "Engage (yetenek doğrulanmalı)"
+        "Callypso Engage"
       ],
       "complexity": "Low",
       "impact": "Medium",
@@ -281,7 +281,7 @@
       "integrations": [
         "ERP",
         "CRM",
-        "Engage (yetenek doğrulanmalı)"
+        "Callypso Engage"
       ],
       "complexity": "Medium",
       "impact": "High",
@@ -624,7 +624,7 @@
       "integrations": [
         "Form",
         "CRM",
-        "Engage (yetenek doğrulanmalı)"
+        "Callypso Engage"
       ],
       "complexity": "Low",
       "impact": "Medium",
