@@ -1,0 +1,296 @@
+<title>Hasır Çanta Pazar Analizi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütun rapor, 1080px sayfa; bölümler ince çizgiyle ayrılır, veriler tablo + tek dağılım grafiği */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --ink:#1b2731; --ink-2:#4a5a66; --muted:#7a8a95;
+  --line:#dde4e2; --accent:#0e6b66; --accent-soft:#e0efed; --pop:#b8860b; --pop-soft:#f6edd4;
+  --good:#2f7d32; --warn:#b26a00; --crit:#b3261e; --crit-soft:#f9e3e1;
+  --f-display:"Young Serif", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121a1f; --surface:#19232a; --ink:#e7eef0; --ink-2:#b2c0c7; --muted:#83949d;
+  --line:#2b3a42; --accent:#5cc2b9; --accent-soft:#183634; --pop:#e2b84a; --pop-soft:#3a3018;
+  --good:#7cc47f; --warn:#e9a64a; --crit:#f08a80; --crit-soft:#3d2220; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#121a1f; --surface:#19232a; --ink:#e7eef0; --ink-2:#b2c0c7; --muted:#83949d;
+  --line:#2b3a42; --accent:#5cc2b9; --accent-soft:#183634; --pop:#e2b84a; --pop-soft:#3a3018;
+  --good:#7cc47f; --warn:#e9a64a; --crit:#f08a80; --crit-soft:#3d2220; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 80px;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem)}
+h3{font-size:1.2rem}
+p{margin:0;max-width:68ch}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+section{display:flex;flex-direction:column;gap:20px;padding-top:28px;border-top:1px solid var(--line)}
+.lede{font-size:1.15rem;color:var(--ink-2)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:18px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:.92rem}
+.facts b{color:var(--ink);font-family:var(--f-mono);font-weight:500}
+.verdict{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:14px}
+.verdict ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.verdict li::marker{font-family:var(--f-mono);color:var(--accent)}
+.chart-box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;position:relative}
+.chart-box svg{display:block;width:100%;height:auto}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.82rem;padding:8px 10px;border-radius:6px;max-width:260px;line-height:1.4}
+.note{font-size:.85rem;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--ink-2);padding:6px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:820px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--ink-2);font-size:.78rem;letter-spacing:.03em;white-space:nowrap;cursor:pointer;user-select:none;background:var(--surface);position:sticky;top:0}
+th[data-k]:hover{color:var(--accent)}
+td.r,th.r{text-align:right}
+tr:last-child td{border-bottom:0}
+.kw{font-size:.78rem;color:var(--muted)}
+.score{display:inline-flex;align-items:center;gap:8px}
+.bar{width:54px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.risk{background:var(--crit-soft);color:var(--crit)}
+.pill.eu{background:var(--pop-soft);color:var(--pop)}
+.pill.ok{background:var(--accent-soft);color:var(--accent)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.deep{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.deep .head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:.8rem}
+.metrics div{display:flex;flex-direction:column;border-left:2px solid var(--line);padding-left:8px}
+.metrics b{font-family:var(--f-mono);font-weight:500;font-size:.95rem;color:var(--ink)}
+.metrics span{color:var(--muted)}
+.deep dl{margin:0;display:grid;gap:8px;font-size:.92rem}
+.deep dt{font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.deep dd{margin:0}
+.deep .idea{background:var(--accent-soft);border-radius:8px;padding:12px 14px}
+.deep .idea dt{color:var(--accent)}
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.theme{border-top:3px solid var(--crit);background:var(--surface);border-radius:0 0 10px 10px;padding:16px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.theme .cnt{font-family:var(--f-mono);font-size:.8rem;color:var(--crit)}
+blockquote{margin:0;font-size:.88rem;color:var(--ink-2);border-left:2px solid var(--line);padding-left:10px}
+blockquote cite{display:block;font-style:normal;font-size:.75rem;color:var(--muted);margin-top:2px}
+.stars{font-family:var(--f-mono);color:var(--crit)}
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px}
+.card p{font-size:.92rem}
+.card .why{font-size:.84rem;color:var(--ink-2)}
+.card .price{font-family:var(--f-mono);font-size:.85rem;color:var(--ink)}
+ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px;max-width:75ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+.cols h3{margin-bottom:8px}
+footer{font-size:.85rem;color:var(--muted)}
+@media (max-width:560px){.metrics{grid-template-columns:repeat(2,1fr)}.wrap{padding-block:28px 56px;gap:48px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+<style>
+.cat{font-size:.72rem;color:var(--ink-2);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.photos figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.photos figcaption{font-size:.8rem;color:var(--muted)}
+.vols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.vols .v{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.vols .v b{font-family:var(--f-mono);font-weight:500;font-size:1.1rem}
+.vols .v span{font-size:.8rem;color:var(--muted)}
+.vols .v .k{color:var(--ink);font-size:.86rem}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.84rem;color:var(--ink-2)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+#tbl td:nth-child(1){min-width:200px}
+.fix{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.fix .card .src{font-size:.78rem;color:var(--muted)}
+.fix .card .tagrow{display:flex;gap:6px;flex-wrap:wrap}
+.pill.data{background:var(--crit-soft);color:var(--crit)}
+.pill.know{background:var(--pop-soft);color:var(--pop)}
+.titles{display:grid;gap:10px}
+.titles .t{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-family:var(--f-mono);font-size:.84rem;overflow-wrap:anywhere}
+.titles .t span{display:block;font-family:var(--f-body);font-size:.75rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.price3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.price3 div{background:var(--accent-soft);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:2px}
+.price3 b{font-family:var(--f-mono);font-size:1.15rem;font-weight:500;color:var(--accent)}
+.price3 span{font-size:.82rem;color:var(--ink-2)}
+@media (max-width:560px){.photos{grid-template-columns:repeat(3,1fr);gap:6px}.price3{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Etsy ürün analizi · Tığ işi kâğıt ip çantalar · ABD, Almanya, İngiltere · 20 Ekim 2026</span>
+  <h1>Hasır görünümlü tığ işi çantalar Etsy'de satar mı?</h1>
+  <p class="lede">Gönderdiğiniz üç çanta için Etsy'de 12 arama terimi üç pazarda tarandı. Google arama hacmi ve mevsimsellik ölçüldü. Rakip mağazaların son yorumları okunarak hangi noktalarda geliştirme yapabileceğiniz çıkarıldı.</p>
+  <div class="facts" id="facts"></div>
+</header>
+
+<div class="photos">
+  <figure><img src="img/canta1.jpg" alt="Deri saplı, ajurlu yuvarlak tığ işi çanta"><figcaption>1 · Yuvarlak, ajurlu desen</figcaption></figure>
+  <figure><img src="img/canta2.jpg" alt="HANDMADE etiketli, mandala desenli yuvarlak tığ işi çanta"><figcaption>2 · Yuvarlak, mandala desen</figcaption></figure>
+  <figure><img src="img/canta3.jpg" alt="Ahşap boncuklu, dalgalı ağızlı tığ işi tote çanta"><figcaption>3 · Boncuklu tote</figcaption></figure>
+</div>
+
+<div class="verdict">
+  <span class="eyebrow">Kısa karar</span>
+  <h3>Talep var, rekabet orta. Fark yaratacak yer ürün detayı ve sunum.</h3>
+  <ol>
+    <li><b>Talep güçlü ama mevsimsel.</b> ABD'de "crochet bag" ayda <span class="num">18.100</span>, "raffia bag" <span class="num">14.800</span>, "straw bag" <span class="num">9.900</span> kez aranıyor. Almanya'da "Strandtasche" <span class="num">22.200</span>, "Korbtasche" <span class="num">5.400</span>. Aramalar Ocak'tan itibaren artıyor, Mayıs-Temmuz'da zirve yapıyor. Ürünlerin <b>Şubat-Mart'ta</b> yayında olması gerekiyor.</li>
+    <li><b>Rekabet orta seviyede ve dağınık.</b> Örneğin "straw bag with leather handles" aramasında ABD'de en fazla ~7.300 rakip mağaza var. Çoğu aramada ilanların %20'sinden azı bestseller veya popüler rozeti taşıyor. Pazarı domine eden bir satıcı yok.</li>
+    <li><b>Doğru fiyat aralığı:</b> ABD'de <b>$45-65</b>, Almanya'da <b>€45-60</b>, İngiltere'de <b>£35-45</b>. Doğal rafya ile örülmüş çantalar $100-130'a satılıyor. Sizin ürünleriniz kâğıt ip olduğu için malzemeyi dürüstçe belirtmek önemli.</li>
+    <li><b>En sık şikâyetler:</b> Yazılandan farklı malzeme ("deri dendi, plastik geldi"), "el yapımı" diye satılıp Çin'den gelen ürün, iç cep ve astar eksikliği, ucuz metal aksam, beklenenden küçük boyut ve uzun kargo süresi.</li>
+  </ol>
+</div>
+
+<section>
+  <span class="eyebrow">01 · Talep</span>
+  <h2>Google'da ne kadar aranıyor?</h2>
+  <p>Aylık ortalama Google araması (Ekim 2025-Eylül 2026). Alıcılar "round straw bag" gibi dar terimlerle değil, "crochet bag" ve "raffia bag" gibi geniş terimlerle arıyor. İlan başlığında bu geniş terimleri kullanın.</p>
+  <div class="vols" id="vols"></div>
+  <h3 style="margin-top:12px">Mevsimsellik</h3>
+  <div class="legend" id="legend"></div>
+  <div class="chart-box" id="chartBox">
+    <svg id="chart" viewBox="0 0 900 340" role="img" aria-label="Hasır çanta aramalarının aylara göre değişimi"></svg>
+    <div class="tip" id="tip" hidden></div>
+  </div>
+  <p class="note">Her çizgi kendi zirve ayına göre yüzde olarak gösteriliyor, böylece farklı hacimdeki terimler aynı eksende karşılaştırılabiliyor. "Crochet bag" yıl boyunca aranıyor. "Raffia bag" ve "Strandtasche" ise yazın kışa göre yaklaşık 9 kat artıyor.</p>
+</section>
+
+<section>
+  <span class="eyebrow">02 · Rekabet ve fiyat</span>
+  <h2>12 terimde Etsy rekabeti</h2>
+  <div class="controls">
+    <span class="note">Pazar:</span>
+    <div class="seg" role="group" aria-label="Pazar seç" id="seg">
+      <button type="button" data-m="US" aria-pressed="true">ABD</button>
+      <button type="button" data-m="DE" aria-pressed="false">Almanya</button>
+      <button type="button" data-m="GB" aria-pressed="false">İngiltere</button>
+    </div>
+  </div>
+  <div class="tbl"><table id="tbl" style="min-width:900px"><thead><tr>
+    <th>Etsy araması</th><th class="r">Etsy ilan</th><th class="r">Rakip mağaza (≤)</th><th class="r">Ortanca fiyat</th><th class="r">Fiyat aralığı (%25-%75)</th><th class="r">Rozetli ilan</th><th class="r">Videolu ilan</th><th class="r">Kişiselleştirme</th><th class="r">Ücretsiz kargo</th>
+  </tr></thead><tbody></tbody></table></div>
+  <p class="note">Fiyatlarda dijital tarifler (PDF) çıkarıldı, yalnızca fiziksel ürünler kullanıldı. Rakip mağaza sayısı tahmini bir üst sınırdır. Dikkat: "Crochet market bag" ve "crochet beach bag" sonuçlarının %7-51'i dijital örgü tarifi.</p>
+  <h3 style="margin-top:12px">Ürünleriniz için önerilen fiyat</h3>
+  <div class="price3">
+    <div><b>$45-65</b><span>ABD. Deri saplı hasır çanta ortancası $40, deri saplı tığ işi çanta $65.</span></div>
+    <div><b>€45-60</b><span>Almanya. Kâğıt ip çanta ortancası €53, deri saplı tığ işi çanta €65.</span></div>
+    <div><b>£35-45</b><span>İngiltere. Deri saplı hasır çanta ortancası £38, deri saplı tığ işi çanta £40.</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">03 · Olumsuz yorumlar</span>
+  <h2>Rakip çanta mağazalarında alıcılar neden memnun değil?</h2>
+  <p>Hasır, rafya ve tığ işi çantada en görünür 8 mağazanın en yeni yorumları okundu: 93 yorumdan 7'si 1-3 yıldız, 4'ü 4 yıldız. Önceki raporlardaki çanta yorumları da eklendi. Yorumlar kısaltılarak çevrildi.</p>
+  <div class="themes" id="themes"></div>
+</section>
+
+<section>
+  <span class="eyebrow">04 · Geliştirme önerileri</span>
+  <h2>Ürünlerinizde hangi noktaları geliştirebilirsiniz?</h2>
+  <p>Kırmızı etiketli öneriler bu analizdeki yorumlara dayanıyor. Sarı etiketliler ise kâğıt ip ve tığ işi çantaların bilinen kullanım sorunları. Bunlar yorum verisinde ölçülmedi, ama alıcı sorularında sık karşılaşılır.</p>
+  <div class="fix">
+    <article class="card"><div class="tagrow"><span class="pill data">Yorum verisi</span></div><h3>Çıkarılabilir astar ve iç cep</h3><p>Yuvarlak çantalarınız ajurlu desende ve fotoğraflarda astar görünmüyor. Küçük eşyalar delikten düşebilir. "İç cep yok, astar sarkıyor" şikâyetine karşı fermuarlı iç cepli, çıt çıtla takılan pamuklu astar ekleyin. Ağız kısmına mıknatıslı kapak koyun.</p><p class="src">Kaynak: NyanyaStoreShop'un 2 ve 3 yıldızlı yorumları</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Yorum verisi</span></div><h3>Sap malzemesini net yazın ve güçlendirin</h3><p>"Deri saplı diye aldım, plastik saplı geldi" en sert yorumlardan biri. Saplarınız gerçek deriyse "genuine leather", suni deriyse "vegan leather" yazın. X dikişe ek olarak perçin ve iç taraftan destek parçası kullanın. Sap bağlantısını yakın plan fotoğrafla gösterin.</p><p class="src">Kaynak: ElynMinimal 1 yıldız, NyanyaStoreShop 3 yıldız</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Yorum verisi</span></div><h3>Boyutu görsel olarak gösterin</h3><p>"Biraz daha büyük bekliyordum" yorumu en iyi satıcılarda bile çıkıyor. Bir görselde cm ve inç ölçülerini yazın. Mankende veya omuzda çekilmiş bir fotoğraf ekleyin. "A4 dosya ve 1 litrelik şişe sığar" gibi somut örnekler verin.</p><p class="src">Kaynak: AtelierKriss 4 yıldız, önceki rapordaki tote yorumları</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Yorum verisi</span></div><h3>Üretimi gösterin</h3><p>"El yapımı" yazıp Çin'den gönderen rakipler en çok tepki alanlar. Sizin avantajınız ürünü gerçekten elle örmeniz. İlana örme sürecinin 10-15 saniyelik bir videosunu ve "Türkiye'de elde örüldü, X saat sürdü" bilgisini ekleyin. Rafya aramalarında ilanların %45-77'sinde zaten video var.</p><p class="src">Kaynak: ElynMinimal, NyanyaStoreShop ve önceki raporlardaki 21 benzer yorum</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Yorum verisi</span></div><h3>Kargo süresini doğru verin</h3><p>"Kargo çok uzun sürdü" ve "hâlâ gelmedi" yorumları var. Türkiye'den gönderimde işlem ve teslim süresini gerçekçi girin. Takip numaralı kargo kullanın. Almanya ve İngiltere için ekspres seçenek sunun. AB ve İngiltere'deki KDV'yi Etsy tahsil ediyor, bunu ilanda belirtin.</p><p class="src">Kaynak: KayikaBali 4 yıldız, ElynMinimal 1 yıldız</p></article>
+    <article class="card"><div class="tagrow"><span class="pill know">Kullanım bilgisi</span></div><h3>Malzemeyi dürüstçe adlandırın</h3><p>Ürünleriniz kâğıt ip (paper raffia) ile örülmüş görünüyor. Bunu "natural raffia" diye satmayın, doğal rafya $100-130 bandında ve alıcı farkı anlar. Başlıkta "paper raffia" ya da "paper yarn" yazın. İçine bakım kartı koyun: "Islatmayın, nemli bezle silin, şeklini korumak için içini doldurarak saklayın."</p></article>
+    <article class="card"><div class="tagrow"><span class="pill know">Kullanım bilgisi</span></div><h3>Şekil koruma</h3><p>Tığ işi çantalar dolu taşındığında sarkabilir. Tote modeline (3. çanta) çıkarılabilir bir taban plakası koyun. Yuvarlak modellerde kenar bandını sık ilmekle bitirin. "Şeklini korur" iddiasını dolu çanta fotoğrafıyla gösterin.</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Pazar verisi</span></div><h3>Kişiselleştirme ekleyin</h3><p>Ürününüze en yakın aramalarda ilanların yalnızca %0-10'u kişiselleştirme sunuyor (kâğıt ip çantada %11-29). Genel "HANDMADE" etiketi yerine müşterinin baş harflerini veya adını taşıyan deri etiket sunun. Gelin ve nedime hediyesi olarak da konumlanır. Bu, en yüksek bestseller oranına sahip mağazalardan TsingsDesign'ın yaklaşımı.</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Pazar verisi</span></div><h3>Fotoğrafları yenileyin</h3><p>Mevcut fotoğraflar ev ortamında, halı ve koltuk önünde çekilmiş. İlk görsel düz ve açık bir zeminde, çanta ortalanmış olmalı. Diğer görseller: omuzda çekim, ilmek yakın planı, astar ve cep içi, ölçü görseli, plaj veya yaz konsepti. Etsy aramasında ilk fotoğraf tıklanma oranını doğrudan etkiler.</p></article>
+    <article class="card"><div class="tagrow"><span class="pill data">Pazar verisi</span></div><h3>Renk ve boy seçenekleri</h3><p>Natürel, siyah, krem ve adaçayı yeşili renk varyasyonları ile mini (crossbody) ve standart boy sunun. Tek ilanda varyasyon kullanmak yorumları bir arada toplar ve sıralamayı güçlendirir.</p></article>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">05 · İlan başlığı</span>
+  <h2>Örnek başlıklar</h2>
+  <p>Etsy başlıkları 140 karakterle sınırlı. En çok aranan terimler başa yazılır, malzeme dürüstçe belirtilir.</p>
+  <div class="titles">
+    <div class="t"><span>ABD ve İngiltere · Yuvarlak çanta</span>Round Crochet Straw Bag with Leather Handles, Handmade Paper Raffia Beach Bag, Boho Summer Shoulder Tote, Gift for Her</div>
+    <div class="t"><span>ABD ve İngiltere · Boncuklu tote</span>Crochet Tote Bag with Wooden Beads, Handmade Paper Raffia Straw Bag, Leather Handle Market Bag, Summer Beach Bag</div>
+    <div class="t"><span>Almanya</span>Häkeltasche rund mit Lederhenkeln, Strohtasche aus Papiergarn, Korbtasche handgemacht, Strandtasche Sommer</div>
+  </div>
+  <p class="note">Etiketlere (13 adet) şunları ekleyin: crochet bag, straw bag, raffia bag, beach bag, straw tote bag, crochet tote bag, round bag, boho bag, summer bag, handmade bag, gift for her, vacation bag, bridesmaid bag.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Yöntem ve sınırlar</span>
+  <h2>Veri nasıl toplandı?</h2>
+  <ul class="plain">
+    <li><b>Etsy:</b> 12 terim ABD, Almanya ve İngiltere'de ilk 2 sayfa olarak tarandı. Toplam <span class="num" id="nl"></span> ilan (Apify, astravalabs/etsy-listings-scraper).</li>
+    <li><b>Google arama hacmi:</b> ABD'de 12, Almanya'da 8 terim ölçüldü (Apify, aitorsm/keyword-volume, Google Ads Keyword Planner). İngiltere ölçümü Apify bütçe limiti nedeniyle yapılamadı.</li>
+    <li><b>Yorumlar:</b> En görünür 8 hasır/rafya çanta mağazasından en yeni 93 yorum çekildi (Apify, astravalabs/etsy-reviews-scraper). Örneklem küçük. Temalar önceki raporlardaki çanta yorumlarıyla birlikte değerlendirildi.</li>
+    <li><b>Ürün değerlendirmesi:</b> Fotoğraflardan yapıldı. Sap malzemesi ve iplik türü fotoğraftan kesin anlaşılamıyor. Öneriler bu varsayımla yazıldı.</li>
+  </ul>
+</section>
+
+<footer>Kaynak veriler 20 Ekim 2026'da Apify üzerinden toplandı.</footer>
+</div>
+
+<script>
+const B = {"terms": [{"kw": "crochet beach bag", "tr": "Tığ işi plaj çantası", "US": {"res": 36385, "est": 34000, "med": 40.09, "p25": 10.71, "p75": 79.74, "cur": "USD", "sig": 14, "pers": 23, "vid": 51, "star": 50, "free": 39, "dig": 14}, "DE": {"res": 16683, "est": 14000, "med": 33.62, "p25": 6.71, "p75": 59.99, "cur": "EUR", "sig": 31, "pers": 17, "vid": 54, "star": 39, "free": 20, "dig": 30}, "GB": {"res": 19758, "est": 16000, "med": 12, "p25": 4.45, "p75": 25.63, "cur": "GBP", "sig": 14, "pers": 36, "vid": 23, "star": 39, "free": 40, "dig": 7}}, {"kw": "crochet raffia bag", "tr": "Tığ işi rafya çanta", "US": {"res": 8652, "est": 7000, "med": 125.72, "p25": 75.24, "p75": 190.0, "cur": "USD", "sig": 3, "pers": 1, "vid": 77, "star": 30, "free": 52, "dig": 13}, "DE": {"res": 8763, "est": 5800, "med": 132.89, "p25": 79.69, "p75": 205.44, "cur": "EUR", "sig": 3, "pers": 0, "vid": 73, "star": 30, "free": 54, "dig": 10}, "GB": {"res": 12530, "est": 9500, "med": 76.89, "p25": 48.88, "p75": 133.62, "cur": "GBP", "sig": 1, "pers": 0, "vid": 63, "star": 26, "free": 71, "dig": 7}}, {"kw": "round rattan bag", "tr": "Yuvarlak rattan çanta", "US": {"res": 4564, "est": 3900, "med": 41.5, "p25": 28.0, "p75": 59.99, "cur": "USD", "sig": 1, "pers": 1, "vid": 26, "star": 41, "free": 33, "dig": 1}, "DE": {"res": 1103, "est": 530, "med": 41.86, "p25": 36.84, "p75": 49.99, "cur": "EUR", "sig": 0, "pers": 0, "vid": 45, "star": 30, "free": 44, "dig": 1}, "GB": {"res": 1241, "est": 730, "med": 35.45, "p25": 26.67, "p75": 44.64, "cur": "GBP", "sig": 0, "pers": 1, "vid": 41, "star": 39, "free": 37, "dig": 0}}, {"kw": "raffia tote bag", "tr": "Rafya tote çanta", "US": {"res": 12993, "est": 12000, "med": 100, "p25": 75.0, "p75": 157.51, "cur": "USD", "sig": 6, "pers": 6, "vid": 59, "star": 27, "free": 56, "dig": 0}, "DE": {"res": 6251, "est": 4400, "med": 104.41, "p25": 71.98, "p75": 141.19, "cur": "EUR", "sig": 4, "pers": 3, "vid": 61, "star": 27, "free": 58, "dig": 3}, "GB": {"res": 7741, "est": 5600, "med": 62.36, "p25": 28.12, "p75": 109.94, "cur": "GBP", "sig": 6, "pers": 10, "vid": 55, "star": 27, "free": 59, "dig": 3}}, {"kw": "crochet bag with leather handles", "tr": "Deri saplı tığ işi çanta", "US": {"res": 10100, "est": 9700, "med": 65, "p25": 29.0, "p75": 111.5, "cur": "USD", "sig": 6, "pers": 6, "vid": 54, "star": 33, "free": 48, "dig": 6}, "DE": {"res": 2992, "est": 2200, "med": 64.5, "p25": 35.25, "p75": 119.59, "cur": "EUR", "sig": 1, "pers": 3, "vid": 54, "star": 38, "free": 42, "dig": 6}, "GB": {"res": 15068, "est": 11000, "med": 40.29, "p25": 25.95, "p75": 100.47, "cur": "GBP", "sig": 1, "pers": 1, "vid": 55, "star": 42, "free": 48, "dig": 4}}, {"kw": "round straw bag", "tr": "Yuvarlak hasır çanta", "US": {"res": 2162, "est": 2100, "med": 38.5, "p25": 22.0, "p75": 49.99, "cur": "USD", "sig": 6, "pers": 10, "vid": 29, "star": 26, "free": 53, "dig": 0}, "DE": {"res": 1567, "est": 1100, "med": 36.09, "p25": 24.74, "p75": 42.86, "cur": "EUR", "sig": 3, "pers": 7, "vid": 33, "star": 32, "free": 42, "dig": 0}, "GB": {"res": 7138, "est": 5200, "med": 28.67, "p25": 12.79, "p75": 35.45, "cur": "GBP", "sig": 6, "pers": 10, "vid": 37, "star": 27, "free": 59, "dig": 0}}, {"kw": "raffia shoulder bag", "tr": "Rafya omuz çantası", "US": {"res": 10046, "est": 8900, "med": 93.97, "p25": 55.3, "p75": 157.5, "cur": "USD", "sig": 7, "pers": 1, "vid": 54, "star": 32, "free": 51, "dig": 0}, "DE": {"res": 6225, "est": 4000, "med": 93.63, "p25": 73.37, "p75": 125.94, "cur": "EUR", "sig": 3, "pers": 0, "vid": 45, "star": 14, "free": 54, "dig": 0}, "GB": {"res": 7607, "est": 5300, "med": 67.48, "p25": 30.77, "p75": 108.06, "cur": "GBP", "sig": 4, "pers": 1, "vid": 53, "star": 20, "free": 61, "dig": 0}}, {"kw": "paper yarn bag", "tr": "Kâğıt ip çanta", "US": {"res": 6628, "est": 6100, "med": 39.62, "p25": 22.99, "p75": 65.0, "cur": "USD", "sig": 19, "pers": 29, "vid": 44, "star": 40, "free": 44, "dig": 1}, "DE": {"res": 3120, "est": 2300, "med": 53.16, "p25": 32.18, "p75": 103.82, "cur": "EUR", "sig": 6, "pers": 11, "vid": 42, "star": 35, "free": 39, "dig": 0}, "GB": {"res": 6434, "est": 3600, "med": 26.34, "p25": 18.66, "p75": 47.41, "cur": "GBP", "sig": 7, "pers": 14, "vid": 35, "star": 52, "free": 56, "dig": 0}}, {"kw": "summer straw tote", "tr": "Yazlık hasır tote", "US": {"res": 17105, "est": 15000, "med": 27.91, "p25": 6.95, "p75": 57.89, "cur": "USD", "sig": 17, "pers": 35, "vid": 42, "star": 33, "free": 28, "dig": 0}, "DE": {"res": 1815, "est": 1600, "med": 38.32, "p25": 21.24, "p75": 75.95, "cur": "EUR", "sig": 8, "pers": 23, "vid": 38, "star": 25, "free": 32, "dig": 0}, "GB": {"res": 10548, "est": 7500, "med": 24.74, "p25": 17.25, "p75": 43.26, "cur": "GBP", "sig": 11, "pers": 11, "vid": 34, "star": 34, "free": 56, "dig": 1}}, {"kw": "crochet market bag", "tr": "Tığ işi pazar filesi", "US": {"res": 25565, "est": 24000, "med": 35, "p25": 25.62, "p75": 66.5, "cur": "USD", "sig": 17, "pers": 1, "vid": 42, "star": 42, "free": 25, "dig": 38}, "DE": {"res": 24096, "est": 21000, "med": 68.49, "p25": 36.94, "p75": 122.14, "cur": "EUR", "sig": 21, "pers": 1, "vid": 56, "star": 41, "free": 21, "dig": 44}, "GB": {"res": 13510, "est": 12000, "med": 20.0, "p25": 12.5, "p75": 26.96, "cur": "GBP", "sig": 25, "pers": 4, "vid": 36, "star": 36, "free": 16, "dig": 51}}, {"kw": "straw bag with leather handles", "tr": "Deri saplı hasır çanta", "US": {"res": 7857, "est": 7300, "med": 40.49, "p25": 23.18, "p75": 68.09, "cur": "USD", "sig": 6, "pers": 7, "vid": 44, "star": 26, "free": 50, "dig": 1}, "DE": {"res": 2764, "est": 2100, "med": 35.44, "p25": 24.68, "p75": 73.65, "cur": "EUR", "sig": 6, "pers": 1, "vid": 41, "star": 23, "free": 27, "dig": 0}, "GB": {"res": 12966, "est": 10000, "med": 37.92, "p25": 26.83, "p75": 50.5, "cur": "GBP", "sig": 0, "pers": 1, "vid": 46, "star": 26, "free": 46, "dig": 0}}, {"kw": "crochet straw bag", "tr": "Tığ işi hasır çanta", "US": {"res": 9163, "est": 8000, "med": 27.73, "p25": 11.99, "p75": 51.89, "cur": "USD", "sig": 14, "pers": 22, "vid": 52, "star": 26, "free": 43, "dig": 4}, "DE": {"res": 5807, "est": 4600, "med": 49.83, "p25": 27.99, "p75": 98.56, "cur": "EUR", "sig": 14, "pers": 7, "vid": 51, "star": 21, "free": 46, "dig": 17}, "GB": {"res": 7574, "est": 5800, "med": 26.12, "p25": 14.06, "p75": 44.0, "cur": "GBP", "sig": 9, "pers": 11, "vid": 43, "star": 33, "free": 43, "dig": 6}}], "vol": [{"m": "US", "kw": "crochet bag", "vol": 18100, "cpc": 0.74, "ms": [12100, 14800, 18100, 14800, 14800, 18100, 18100, 18100, 22200, 18100, 14800, 12100]}, {"m": "US", "kw": "straw bag", "vol": 9900, "cpc": 0.84, "ms": [2900, 2900, 2900, 5400, 6600, 14800, 14800, 18100, 18100, 14800, 8100, 3600]}, {"m": "US", "kw": "raffia bag", "vol": 14800, "cpc": 1.03, "ms": [3600, 3600, 4400, 8100, 9900, 22200, 27100, 33100, 33100, 27100, 14800, 6600]}, {"m": "US", "kw": "round straw bag", "vol": 110, "cpc": 0.34, "ms": [50, 70, 40, 50, 90, 140, 170, 210, 210, 210, 110, 40]}, {"m": "US", "kw": "crochet raffia bag", "vol": 480, "cpc": 0.54, "ms": [170, 170, 170, 210, 320, 480, 590, 880, 1000, 880, 720, 390]}, {"m": "US", "kw": "raffia tote bag", "vol": 2900, "cpc": 1.05, "ms": [1300, 480, 720, 1300, 1900, 3600, 4400, 5400, 6600, 5400, 2900, 1000]}, {"m": "US", "kw": "crochet beach bag", "vol": 2400, "cpc": 0.87, "ms": [590, 720, 1000, 1900, 1900, 3600, 2900, 3600, 3600, 3600, 1600, 880]}, {"m": "US", "kw": "beach bag", "vol": 49500, "cpc": 1.11, "ms": [14800, 22200, 27100, 33100, 33100, 60500, 60500, 74000, 90500, 74000, 40500, 22200]}, {"m": "US", "kw": "straw tote bag", "vol": 3600, "cpc": 0.93, "ms": [1300, 880, 1300, 1900, 2400, 4400, 5400, 6600, 6600, 4400, 2900, 1300]}, {"m": "US", "kw": "rattan bag", "vol": 1900, "cpc": 0.95, "ms": [720, 720, 880, 1300, 1300, 2400, 3600, 3600, 3600, 2900, 1900, 880]}, {"m": "US", "kw": "crochet tote bag", "vol": 6600, "cpc": 0.63, "ms": [5400, 5400, 5400, 6600, 5400, 6600, 6600, 8100, 9900, 6600, 5400, 3600]}, {"m": "US", "kw": "paper yarn bag", "vol": 20, "cpc": 0.2, "ms": [10, 10, 10, 10, 20, 30, 30, 30, 50, 40, 30, 20]}, {"m": "DE", "kw": "häkeltasche", "vol": 2900, "cpc": 0.28, "ms": [1600, 1600, 1600, 1600, 1900, 2400, 2900, 4400, 5400, 5400, 4400, 2900]}, {"m": "DE", "kw": "strohtasche", "vol": 1600, "cpc": 0.37, "ms": [260, 210, 320, 480, 720, 1000, 1600, 3600, 5400, 4400, 2400, 720]}, {"m": "DE", "kw": "bast tasche", "vol": 720, "cpc": 0.38, "ms": [90, 90, 90, 210, 260, 480, 720, 1300, 2400, 1600, 1600, 320]}, {"m": "DE", "kw": "korbtasche", "vol": 5400, "cpc": 0.42, "ms": [1900, 1600, 1900, 2400, 2900, 4400, 5400, 8100, 12100, 9900, 6600, 3600]}, {"m": "DE", "kw": "strohtasche rund", "vol": 40, "cpc": 0.27, "ms": [10, 20, 10, 20, 10, 30, 50, 70, 90, 110, 50, 20]}, {"m": "DE", "kw": "raffia tasche", "vol": 1600, "cpc": 0.5, "ms": [320, 210, 260, 390, 480, 1000, 1900, 2900, 3600, 3600, 2400, 720]}, {"m": "DE", "kw": "strandtasche", "vol": 22200, "cpc": 0.42, "ms": [6600, 5400, 5400, 9900, 9900, 14800, 18100, 40500, 49500, 49500, 33100, 12100]}, {"m": "DE", "kw": "häkeltasche bast", "vol": 10, "cpc": 0.14, "ms": [10, 10, 10, 10, 10, 10, 10, 20, 20, 20, 10, 10]}], "neg": [{"r": 4, "shop": "TsingsDesign", "item": "Personalised Beach Tote Bags, Custom Floral Crochet Bride Beach Bags, ", "t": "Really nice bag thank you - perfect for a gift"}, {"r": 4, "shop": "AtelierKriss", "item": "Handmade Raffia Crochet Tote Bag - Elin Basket", "t": "the quality is excellent. I gave 4 stars because I expected a little big bigger size. I stongly recommend it"}, {"r": 4, "shop": "KayikaBali", "item": "Handmade Rattan Crossbody Bag with Leather Strap, Ata Grass Beach Bag", "t": "The bag is beautiful. I would order it again. Shipping took longer than expected."}, {"r": 1, "shop": "NyanyaStoreShop", "item": "Boho Hobo Shoulder Bag, Soft Leather Crossbody Purse, Vintage Slouchy ", "t": "Poor quality for the price paid which also includes shipping."}, {"r": 1, "shop": "NyanyaStoreShop", "item": "Boho Hobo Shoulder Bag, Soft Leather Crossbody Purse, Vintage Slouchy ", "t": "VERY MUCH NOT LEATHER!! \n\nAlso I purchased this from a shop that was supposedly and supposed to be in the United States and when I asked the seller why it was taken so long for the shipping to get here and why the shipping date kept changing she admitted to saying that it would be more accurate when the shipping hit th"}, {"r": 4, "shop": "NyanyaStoreShop", "item": "Bali Rattan Bag, Handwoven Crossbody Purse, Natural Woven Shoulder Bag", "t": "Cute little crossbody for the summer."}, {"r": 3, "shop": "NyanyaStoreShop", "item": "Boho Hobo Shoulder Bag, Soft Leather Crossbody Purse, Vintage Slouchy ", "t": "The bag looks ok and the strap is nice, the fitting on the strap are plastic and I’m not confident they would support any weight in the bag! There are no inside pockets and the lining is loose, will easily catch in zip, the bag was half price but I would rather pay more for a bag I could use."}, {"r": 3, "shop": "NyanyaStoreShop", "item": "Boho Hobo Shoulder Bag, Soft Leather Crossbody Purse, Vintage Slouchy ", "t": "The strap is very pretty, but the metal hooks and rings to attach it are very cheap looking, and the purse material itself is quite cheap looking. The inside of the purse has no pockets or storage compartments whatsoever. All in all, not worth the price. Unfortunately Etsy‘s service is not comparable to Amazon, you mus"}, {"r": 2, "shop": "NyanyaStoreShop", "item": "Boho Hobo Shoulder Bag, Soft Leather Crossbody Purse, Vintage Slouchy ", "t": "Not what I was expecting, the quality isn't the best."}, {"r": 1, "shop": "ElynMinimal", "item": "Raffia Tote Bag with Leather Straps, Handwoven Straw Shoulder Handbag,", "t": "WHAT A SCAM! Don't be fooled.  I highly doubt this is actually the seller she claims to be.  Likely a cheap production warehouse in China.  My item arrived from China with cheaply made with plastic handles, not leather as described on the item page when I ordered.  When I asked for assistance, this seller initially agr"}, {"r": 1, "shop": "ElynMinimal", "item": "Raffia Woven Tote Bag, Handwoven Straw Handbag, Elegant Beach Vacation", "t": "I still have not received this order. I’ll update when I receive it. The shipping takes terribly long."}], "nrev": 93, "nlist": 2535};
+const fmt = n => n==null ? "—" : n.toLocaleString("tr-TR");
+const cur = c => ({USD:"$",EUR:"€",GBP:"£"})[c]||"";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+document.getElementById("facts").innerHTML=`<span><b>${fmt(B.nlist)}</b> ilan</span><span><b>12</b> Etsy terimi</span><span><b>20</b> Google hacim ölçümü</span><span><b>${B.nrev}</b> rakip yorumu</span><span><b>3</b> pazar</span>`;
+document.getElementById("nl").textContent=fmt(B.nlist);
+
+const V=[...B.vol].filter(v=>v.vol).sort((a,b)=>b.vol-a.vol).slice(0,10);
+document.getElementById("vols").innerHTML=V.map(v=>`<div class="v"><span class="k">${esc(v.kw)}</span><b>${fmt(v.vol)}</b><span>${v.m==="US"?"ABD":"Almanya"} · aylık</span></div>`).join("");
+
+/* seasonality */
+(function(){
+  const S=[["US","crochet bag","ABD · crochet bag","var(--muted)"],["US","raffia bag","ABD · raffia bag","var(--accent)"],["DE","strandtasche","Almanya · Strandtasche","var(--pop)"]];
+  const MON=['Eki','Kas','Ara','Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl'];
+  const svg=document.getElementById("chart"),tip=document.getElementById("tip"),box=document.getElementById("chartBox"),ns="http://www.w3.org/2000/svg";
+  const W=900,H=340,L=52,R=20,T=16,Bm=40;
+  const xs=i=>L+i*(W-L-R)/11, ys=v=>H-Bm-v/100*(H-T-Bm);
+  const el=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e;};
+  [0,25,50,75,100].forEach(v=>{el("line",{x1:L,x2:W-R,y1:ys(v),y2:ys(v),stroke:"var(--line)"});const t=el("text",{x:L-8,y:ys(v)+4,"text-anchor":"end","font-size":12,fill:"var(--muted)","font-family":"var(--f-mono)"});t.textContent="%"+v;});
+  MON.forEach((m,i)=>{const t=el("text",{x:xs(i),y:H-Bm+20,"text-anchor":"middle","font-size":12,fill:"var(--muted)"});t.textContent=m;});
+  document.getElementById("legend").innerHTML=S.map(s=>`<span><i style="background:${s[3]}"></i>${esc(s[2])}</span>`).join("");
+  const series=S.map(([m,k,lab,col])=>{const v=B.vol.find(x=>x.m===m&&x.kw===k);const mx=Math.max(...v.ms);return {lab,col,raw:v.ms,idx:v.ms.map(x=>x/mx*100)};});
+  series.forEach(s=>{el("polyline",{points:s.idx.map((v,i)=>`${xs(i)},${ys(v)}`).join(" "),fill:"none",stroke:s.col,"stroke-width":2.5,"stroke-linejoin":"round"});
+    const i=s.idx.length-1; el("circle",{cx:xs(i),cy:ys(s.idx[i]),r:4,fill:s.col,stroke:"var(--surface)","stroke-width":2});});
+  const guide=el("line",{x1:0,x2:0,y1:T,y2:H-Bm,stroke:"var(--ink-2)","stroke-dasharray":"3 3",opacity:0});
+  const hit=el("rect",{x:L,y:T,width:W-L-R,height:H-T-Bm,fill:"transparent"});
+  hit.addEventListener("mousemove",ev=>{const sb=svg.getBoundingClientRect(),k=sb.width/W;const x=(ev.clientX-sb.left)/k;const i=Math.max(0,Math.min(11,Math.round((x-L)/((W-L-R)/11))));
+    guide.setAttribute("x1",xs(i));guide.setAttribute("x2",xs(i));guide.setAttribute("opacity",1);
+    tip.hidden=false;tip.innerHTML=`<b>${MON[i]}</b><br>`+series.map(s=>`${esc(s.lab)}: ${fmt(s.raw[i])}`).join("<br>");
+    const bb=box.getBoundingClientRect();let tx=xs(i)*k+(sb.left-bb.left)+12;if(tx+220>bb.width)tx-=240;tip.style.left=tx+"px";tip.style.top="20px";});
+  hit.addEventListener("mouseleave",()=>{tip.hidden=true;guide.setAttribute("opacity",0);});
+})();
+
+/* table */
+(function(){
+  let m="US";const tb=document.querySelector("#tbl tbody");
+  const order=["straw bag with leather handles","crochet bag with leather handles","round straw bag","paper yarn bag","crochet straw bag","round rattan bag","summer straw tote","raffia tote bag","raffia shoulder bag","crochet raffia bag","crochet beach bag","crochet market bag"];
+  function render(){tb.innerHTML=order.map(k=>{const e=B.terms.find(t=>t.kw===k),s=e[m];const mine=["straw bag with leather handles","crochet bag with leather handles","round straw bag","paper yarn bag"].includes(k);
+    return `<tr${mine?' style="background:var(--accent-soft)"':''}><td>${esc(e.tr)}${mine?' <span class="cat">sizin ürününüze en yakın</span>':''}<div class="kw">${esc(k)}</div></td><td class="r num">${fmt(s.res)}</td><td class="r num">≤ ${fmt(s.est)}</td>
+    <td class="r num">${cur(s.cur)}${s.med}</td><td class="r num">${cur(s.cur)}${s.p25}-${s.p75}</td><td class="r num">%${s.sig}</td><td class="r num">%${s.vid}</td><td class="r num">%${s.pers}</td><td class="r num">%${s.free}</td></tr>`;}).join("");}
+  document.querySelectorAll("#seg button").forEach(b=>b.addEventListener("click",()=>{m=b.dataset.m;document.querySelectorAll("#seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));render();}));
+  render();
+})();
+
+/* complaint themes */
+const TH=[
+ {t:"Yazılandan farklı malzeme",fix:"Sap ve ip türünü açık yazın, yakın plan fotoğraf koyun.",q:[["ElynMinimal",1,"Rafya tote, deri saplı","Ürün Çin'den, ucuz yapılmış ve plastik saplarla geldi. Sipariş verirken sayfada yazdığı gibi deri değildi."],["NyanyaStoreShop",1,"Boho omuz çantası","Kesinlikle deri DEĞİL!"]]},
+ {t:"\"El yapımı\" ya da \"yerel\" diye satılıp Çin'den gelen ürün",fix:"Üretim videosu ve şeffaf menşe bilgisi kullanın.",q:[["ElynMinimal",1,"Rafya tote","Satıcının iddia ettiği kişi olduğundan şüpheliyim. Muhtemelen Çin'de ucuz bir üretim deposu."],["NyanyaStoreShop",1,"Boho omuz çantası","ABD'de olduğu söylenen bir mağazadan aldım, kargo tarihi sürekli değişti."]]},
+ {t:"İç cep yok, astar ve aksam kalitesiz",fix:"Cepli astar, sağlam metal halka veya perçin kullanın.",q:[["NyanyaStoreShop",3,"Boho omuz çantası","Askı bağlantıları plastik, ağırlığı taşıyacağına güvenmiyorum. İç cep yok, astar bol ve fermuara takılıyor."],["NyanyaStoreShop",3,"Boho omuz çantası","Kanca ve halkalar çok ucuz görünüyor. Çantanın içinde hiç cep veya bölme yok."]]},
+ {t:"Boyut beklentiyi karşılamıyor",fix:"Ölçü görseli ve omuzda çekim kullanın.",q:[["AtelierKriss",4,"Rafya tığ işi tote","Kalite mükemmel. 4 yıldız verdim çünkü biraz daha büyük bekliyordum."],["shine2080",3,"Tote (önceki rapor)","İlanda yazan beden doğru değil. Orta boy sipariş ettim, küçük geldi."]]},
+ {t:"Kargo gecikmesi",fix:"Gerçekçi teslim süresi ve takip numarası verin.",q:[["KayikaBali",4,"Rattan çapraz çanta","Çanta çok güzel, tekrar sipariş veririm. Kargo beklenenden uzun sürdü."],["ElynMinimal",1,"Rafya tote","Siparişim hâlâ gelmedi. Kargo çok uzun sürüyor."]]},
+ {t:"Fiyatına göre kalite düşük",fix:"İlmek sıklığı ve bitiş kalitesini yakın planda gösterin.",q:[["NyanyaStoreShop",1,"Boho omuz çantası","Kargo dahil ödediğim fiyata göre kalite düşük."],["KnsaDream",2,"Kapitone tote (önceki rapor)","Çok ince, resimdekine hiç benzemiyor."]]}
+];
+document.getElementById("themes").innerHTML=TH.map(th=>`<div class="theme"><h3>${th.t}</h3>${th.q.map(([s,r,it,t])=>`<blockquote>"${esc(t)}"<cite><span class="stars">${"★".repeat(r)}${"☆".repeat(5-r)}</span> · ${esc(s)} · ${esc(it)}</cite></blockquote>`).join("")}<p style="font-size:.88rem"><b>Sizin için:</b> ${th.fix}</p></div>`).join("");
+</script>
