@@ -4,6 +4,8 @@ Deda Group (www.dedagroup.com — Adana merkezli Türk sanayi grubu) için kanı
 
 > **Not:** www.dedagroup.com, İtalya merkezli BT şirketi **Dedagroup S.p.A.** (dedagroup.it) değildir. Analiz yalnızca www.dedagroup.com'dan bağlanan Türk grup şirketlerini kapsar.
 
+**Canlı:** https://deda-group-growth.vercel.app
+
 ## Ne var?
 
 | Bölüm | İçerik |
