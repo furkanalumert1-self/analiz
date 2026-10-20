@@ -112,11 +112,15 @@ story += [
 
 # ---------------------------------------------------------------- 2. Giriş konuşması
 story += [
-    P("Giriş konuşması (≈ 60–75 saniye)", "h1"),
+    P("Giriş konuşması (≈ 75–90 saniye)", "h1"),
     box([P(
-        "“Toplantıdan önce Deda Group'un kamuya açık dijital varlıklarını inceledik: Deda Pack, Deda Makina ve Deda Gıda "
-        "siteleri, Google arama sonuçları ve reklam kütüphaneleri. Size bir ürün sunumu yapmak yerine dışarıdan gördüğümüz "
-        "birkaç tabloyu paylaşmak ve bunların içeride gerçekten bir karşılığı olup olmadığını sizden duymak istiyoruz.", "quote"),
+        "“Biz Callypso Tech'iz. Ürünümüz <b>Engage</b>, işletmelerin müşterileriyle WhatsApp, SMS ve e-posta üzerinden yaptığı "
+        "takip mesajlarını otomatikleştiriyor; teklif sonrası hatırlatmalar ya da tekrar sipariş zamanı gelen müşteriye mesaj gibi. "
+        "Ama bugün ürün anlatmak yerine sizi dinlemek istiyoruz.", "quote"),
+        Spacer(1, 4),
+        P("Toplantıdan önce Deda Group'un kamuya açık dijital varlıklarını inceledik: Deda Pack, Deda Makina ve Deda Gıda "
+          "siteleri, Google arama sonuçları ve reklam kütüphaneleri. Dışarıdan gördüğümüz birkaç tabloyu paylaşmak ve bunların "
+          "içeride gerçekten bir karşılığı olup olmadığını sizden duymak istiyoruz.", "quote"),
         Spacer(1, 4),
         P("Kısaca gördüğümüz şu: Deda Pack günde 450 binin üzerinde çanta üretebilen, ihracat hedefi olan ciddi bir üretici. "
           "Ama web sitesinden teklif isteyen bir alıcının ölçü, adet ve baskı bilgisini toplayan bir yapı yok. Talepler "
@@ -126,14 +130,22 @@ story += [
         P("Birkaç dakika bunu gösterip size birkaç soru soracağım. Sonunda ilk 30 günde neler yapılabileceğini konuşabiliriz.”", "quote"),
     ], bg=AMBER_SOFT, border=colors.HexColor("#9a6100")),
     Spacer(1, 4),
-    P("Bu giriş üç şey yapar: hazırlık yaptığınızı gösterir, karşı tarafı savunmaya geçirmez (“dışarıdan gördüğümüz”, "
+    P("<b>Engage'den neden ve nasıl bahsediliyor?</b>", "h2"),
+    *bullets([
+        "Karşı taraf bir yazılım firmasıyla görüştüğünü zaten biliyor. Ürünü hiç anmamak “neyi satmaya çalışıyorlar?” şüphesi yaratır; "
+        "uzun anlatmak ise toplantıyı demoya çevirir. Bu yüzden <b>yalnızca tek cümle</b>.",
+        "Engage'i <b>kendi iş dilleriyle</b> anlatın: “kampanya”, “pazarlama otomasyonu”, “terk edilen sepet” yerine “takip”, “teklif”, “tekrar sipariş”.",
+        "Ürün adını girişte bir kez söyleyin, <b>13. dakikaya kadar tekrarlamayın</b>. Sonra onların söylediği sorunla geri getirin: "
+        "“Az önce teklif takibinin temsilciye bağlı olduğunu söylediniz; Engage tam olarak bunu yapıyor.”",
+        "Inboxly, Voice Agent ve GeoAdra'dan girişte bahsetmeyin; altı ürünü saymak dikkati dağıtır.",
+    ]),
+    P("Bu giriş ayrıca hazırlık yaptığınızı gösterir, karşı tarafı savunmaya geçirmez (“dışarıdan gördüğümüz”, "
       "“sizden duymak istiyoruz”) ve onların kendi rakamlarını kullanır (456 bin çanta, 60 ihracat müşterisi).", "small"),
 ]
 
 # ---------------------------------------------------------------- 3. Sorunlar (sade)
 story += [
-    P("Gördüğümüz 5 temel sorun (sade hâli)", "h1"),
-    table(
+    KeepTogether([P("Gördüğümüz 5 temel sorun (sade hâli)", "h1"), table(
         ["Sorun", "Kanıt (kamuya açık)", "İş için anlamı"],
         [
             ["1. Teklif talebi toplanmıyor",
@@ -153,7 +165,7 @@ story += [
              "Hangi kanalın iş getirdiği bilinemiyor; hiçbir iyileştirmenin etkisi kanıtlanamaz."],
         ],
         [36, 72, 66],
-    ),
+    )]),
     Spacer(1, 6),
     box([P("<b>Toplantıda topluca gösterilmemeli; sonda birebir iletilmeli:</b> Grup sitesinin “Konteyner Fabrika” olarak "
            "bağlandığı adanakonteyner.com.tr'nin menüsünde bahis temalı ilgisiz bir sayfa var ve ana sayfaları 404 veriyor. "
@@ -254,7 +266,7 @@ story += [
     box([P("<b>Önerilen ürün sırası:</b> 1) Engage, Deda Pack pilotu (teklif takibi + tekrar sipariş) → 2) Inboxly, aynı WhatsApp "
            "hattında talepleri toplamak ve Engage'i beslemek için → 3) GeoAdra, Deda Makina için ücretsiz rapor (kapı açıcı) → "
            "4) Voice Agent, kaçan arama verisi gelirse.")], bg=GREEN_SOFT, border=colors.HexColor("#1d7a4f")),
-    P("Altyapı ön koşulları (ajans / BT ile)", "h1"),
+    KeepTogether([P("Altyapı ön koşulları (ajans / BT ile)", "h1"),
     P("Engage pilotunun çalışması ve sonucunun ölçülebilmesi için gerekenler. Bunları siz yapmasanız da gündeme getirmek güven kazandırır.", "small"),
     table(
         ["İhtiyaç", "Neden gerekli", "Kim yapar"],
@@ -270,10 +282,8 @@ story += [
              "13 makine sayfası aynı yanlış tabloyu gösteriyor, 37 sayfada yalnızca başlık var. Bu, GeoAdra raporunun doğal devamı.", "İçerik ajansı + mühendis onayı"],
         ],
         [50, 82, 42],
-    ),
+    )]),
 ]
-
-story.append(PageBreak())
 
 # ---------------------------------------------------------------- 6b. Callypso dışı otomasyon fikirleri
 story += [
