@@ -214,16 +214,16 @@ story += [
     *bullets([
         "Sitedeki Engage özellikleri: WhatsApp ağırlıklı kampanyalar ve otomatik mesaj dizileri, WhatsApp → SMS → e-posta sıralı otomasyon, "
         "sürükle-bırak e-posta ve A/B testi, kanal bazlı dönüşüm ve gelir raporu.",
-        "<b>Dil uyarlaması:</b> Sitede örnek akışlar e-ticaret odaklı (terk edilen sepet, Shopify). Deda'ya anlatırken "
-        "“terk edilen sepet” yerine <b>“cevapsız teklif”</b>, “geri kazanım” yerine <b>“tekrar sipariş”</b> deyin.",
+        "<b>Shopify yok:</b> Deda siteleri WordPress (Pack, Makina, grup, Konteyner) ve eski bir PHP sitesi (Gıda); "
+        "e-ticaret, sepet ve ödeme yok. Engage'in Shopify entegrasyonu ve “terk edilen sepet” akışı burada geçersiz. "
+        "Liste Excel aktarımı, WhatsApp Business veya CRM (HubSpot/Zapier) ile gelir.",
+        "<b>Dil uyarlaması:</b> “Terk edilen sepet” yerine <b>“cevapsız teklif”</b>, “geri kazanım” yerine <b>“tekrar sipariş”</b> deyin.",
         "<b>Neden WhatsApp?</b> Deda Pack zaten WhatsApp hattı kullanıyor (+90 532 131 49 49). Engage'in WhatsApp ağırlığı bu alışkanlığa doğrudan oturuyor.",
         "<b>Çok dillilik:</b> Pack'in sitesi 8 dilde ve ihracat hedefi var. Fuar ve teklif mesajlarının alıcının dilinde gitmesi güçlü bir argüman.",
         "<b>Toplantı öncesi teyit edin:</b> Engage'in CRM/ERP olayıyla tetiklenme şekli (Zapier/HubSpot), B2B liste aktarımı ve "
         "WhatsApp şablonlarının farklı dillerde onayı. Sitede açıkça yazmayan hiçbir şeyi vaat etmeyin.",
     ]),
 ]
-
-story.append(PageBreak())
 
 # ---------------------------------------------------------------- 6. Diğer Callypso ürünleri
 story += [
@@ -254,8 +254,8 @@ story += [
     box([P("<b>Önerilen ürün sırası:</b> 1) Engage, Deda Pack pilotu (teklif takibi + tekrar sipariş) → 2) Inboxly, aynı WhatsApp "
            "hattında talepleri toplamak ve Engage'i beslemek için → 3) GeoAdra, Deda Makina için ücretsiz rapor (kapı açıcı) → "
            "4) Voice Agent, kaçan arama verisi gelirse.")], bg=GREEN_SOFT, border=colors.HexColor("#1d7a4f")),
-    P("Callypso dışında önerilebilecekler (partner veya ek proje)", "h1"),
-    P("Bunları önermek sizi ürün satıcısından çözüm ortağına taşır. Bazıları Engage'in de ön koşulu.", "small"),
+    P("Altyapı ön koşulları (ajans / BT ile)", "h1"),
+    P("Engage pilotunun çalışması ve sonucunun ölçülebilmesi için gerekenler. Bunları siz yapmasanız da gündeme getirmek güven kazandırır.", "small"),
     table(
         ["İhtiyaç", "Neden gerekli", "Kim yapar"],
         [
@@ -268,11 +268,73 @@ story += [
              "Gıda'nın Rusça sitesinde “Dedeman” çevirisi, eksik zorunlu şirket bilgileri.", "Web ajansı (hızlı kazanım)"],
             ["Makina ürün sayfaları ve SEO",
              "13 makine sayfası aynı yanlış tabloyu gösteriyor, 37 sayfada yalnızca başlık var. Bu, GeoAdra raporunun doğal devamı.", "İçerik ajansı + mühendis onayı"],
-            ["ERP / sipariş belgesi otomasyonu",
-             "Distribütör siparişleri e-posta/Excel ile geliyorsa (doğrulanmalı) AI ile veri çıkarılıp ERP'ye aktarılabilir.", "Özel entegrasyon (2. faz)"],
         ],
         [50, 82, 42],
     ),
+]
+
+story.append(PageBreak())
+
+# ---------------------------------------------------------------- 6b. Callypso dışı otomasyon fikirleri
+story += [
+    P("Callypso ürünleri dışında götürebileceğiniz otomasyon fikirleri", "h1"),
+    P("Bunlar ürün lisansı değil, <b>proje / hizmet olarak</b> kurulabilecek özel otomasyonlar. Hepsi Deda'da gözlenen bir soruna "
+      "dayanıyor; iç süreçle ilgili olanlar toplantıda doğrulanmalı. Tipik araçlar: n8n / Make / Zapier, WhatsApp Business API, "
+      "bir LLM (AI) servisi, Google Sheets veya CRM.", "small"),
+    Spacer(1, 3),
+    table(
+        ["Fikir", "Çözdüğü sorun", "Nasıl çalışır", "Zorluk / süre"],
+        [
+            ["<b>1. Otomatik teklif taslağı (Deda Pack)</b>",
+             "Her teklif için ölçü, gramaj, adet ve baskı bilgisi elle hesaplanıyor; teklif süresi uzuyor.",
+             "Teklif formu → fiyat tablosu (ölçü × gramaj × adet × renk) → PDF teklif taslağı → temsilci onayı → müşteriye WhatsApp/e-posta. "
+             "Engage bu teklifin takibini devralır.",
+             "Orta · 3–4 hafta · Deda'nın fiyat tablosu gerekir"],
+            ["<b>2. Baskı dosyası ön kontrolü ve onay linki (Deda Pack)</b>",
+             "Logo/tasarım dosyaları e-postayla gidip geliyor, prova onayı kayıt altında değil (doğrulanmalı).",
+             "Müşteri dosyayı yükler → AI renk sayısı (≤6), ölçü ve çözünürlüğü kontrol eder → grafik ekibine görev → müşteriye tek tıkla onay linki, zaman damgalı.",
+             "Orta–yüksek · 4–6 hafta"],
+            ["<b>3. Makine hattı ön-teklif asistanı (Deda Makina)</b>",
+             "PDF teklif formu kırık; her talep mühendisin telefonla bilgi toplamasını gerektiriyor.",
+             "Web formu: malzeme tipi, kapasite (kg/saat), kirlilik → AI, A–H katalogdan uygun modül zincirini önerir (ör. yıkama → kurutma → granür → filtre) → mühendise taslak, onaylı hâli müşteriye.",
+             "Orta · 4 hafta · teknik föyler gerekir"],
+            ["<b>4. Distribütör siparişlerini AI ile okuyup ERP'ye aktarma (Deda Gıda)</b>",
+             "Siparişler e-posta, Excel veya telefonla geliyorsa elle giriliyor (doğrulanmalı).",
+             "Sipariş e-postası/eki → AI ürün, gramaj, koli adedi ve tarihi çıkarır → kontrol → ERP'de taslak sipariş → satış destek onayı → distribütöre teyit.",
+             "Yüksek · 6–8 hafta · ERP erişimi gerekir"],
+            ["<b>5. Web izleme ve uyarı botu (tüm grup)</b>",
+             "Kırık dedaplast.com, 404 veren katalog ve teklif PDF'leri, Konteyner sitesindeki bahis içeriği fark edilmemiş.",
+             "Günlük kontrol: site ayakta mı, 404 var mı, beklenmeyen bir kelime/bağlantı (ör. “bonus”) eklenmiş mi, alan adı ve SSL süresi → sorun olursa WhatsApp/e-posta uyarısı.",
+             "Düşük · 1 hafta · <b>kapı açıcı / hediye</b> olarak önerilebilir"],
+            ["<b>6. Haftalık yönetim özeti (grup)</b>",
+             "Yönetim lead, teklif ve sipariş durumunu muhtemelen elle derlenen raporlardan görüyor (doğrulanmalı).",
+             "Form, WhatsApp, Engage ve (varsa) ERP verisi → her pazartesi tek sayfalık özet: yeni talep, ortalama yanıt süresi, teklif/sipariş, AI yorumu.",
+             "Orta · 2–3 hafta (pilot verisiyle başlar)"],
+            ["<b>7. Ortak e-posta kutusunun sınıflandırılması (Deda Pack)</b>",
+             "info@dedapack.com'a hem teklifler hem iş başvuruları geliyor.",
+             "Gelen e-posta → AI sınıflandırır (teklif / iş başvurusu / tedarikçi / şikayet) → ilgili kişiye yönlendirir; CV'lerden aday tablosu oluşturur.",
+             "Düşük · 1 hafta"],
+            ["<b>8. İhracat hedef müşteri listesi (Deda Pack)</b>",
+             "60 ihracat müşterisi hedefi var ama dijitalde görünür bir talep yaratma faaliyeti yok.",
+             "Hedef ülke ve sektör (fırın zincirleri, kafe, eczane…) → AI destekli firma ve karar verici listesi → dil bazlı kişiselleştirilmiş ilk temas taslakları (insan onaylı) → yanıt verenler Engage dizisine.",
+             "Orta · sürekli hizmet · KVKK/GDPR uyumu gerekir"],
+            ["<b>9. Makina teknik föyünden çok dilli ürün sayfası</b>",
+             "13 makine sayfasında aynı yanlış tablo var, 37 sayfada yalnızca başlık var, site yalnızca Türkçe.",
+             "Mühendisin doldurduğu tek teknik föy tablosu → AI TR/EN/AR sayfa taslağı → mühendis onayı → yayın. GeoAdra raporuyla birlikte önerilebilir.",
+             "Düşük–orta · 2–4 hafta"],
+        ],
+        [38, 40, 70, 26],
+        first_bold=False,
+    ),
+    Spacer(1, 6),
+    box([P("<b>Nasıl sunulmalı?</b>", "h2"),
+         *bullets([
+             "Toplantıda en fazla <b>2–3 fikirden</b> bahsedin. Engage soruları sırasında hangi acı çıkarsa onu seçin: teklif yükü → Fikir 1, "
+             "Makina'nın teknik talepleri → Fikir 3, sipariş girişi → Fikir 4.",
+             "<b>Fikir 5 (web izleme botu)</b> güvenlik notuyla birlikte ücretsiz veya sembolik bedelle önerilebilir. Güven kazandırır ve kapıyı açar.",
+             "<b>Sıralama:</b> Önce Engage pilotu (30 gün). Pilot verisi geldikten sonra Fikir 1 ve 6 ile “otomasyon paketi” olarak genişleyin.",
+             "Bu fikirlerde de süre ve tasarruf rakamı vermeyin. Yukarıdaki süreler kaba tahmindir; kapsam keşif görüşmesinden sonra netleşir.",
+         ])], bg=BRAND_SOFT, border=BRAND),
 ]
 
 story.append(PageBreak())
