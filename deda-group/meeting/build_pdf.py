@@ -183,7 +183,7 @@ story += [
             ["2–6 dk", "3 bulgu", "Sorun 1, 2 ve 4'ü ekranda gösterin: Deda Pack formu, Makina'nın 404 veren PDF'i, Google arama tablosu."],
             ["6–13 dk", "Keşif soruları", "Engage soruları 1–5. Soruyu sorun ve susun; sayıyı onlar söylesin. <b>Toplantının asıl değeri burada.</b>"],
             ["13–17 dk", "Çözüm haritası", "Cevaplara göre: önce Engage senaryosu, sonra Inboxly / Voice Agent / GeoAdra köprüsü."],
-            ["17–20 dk", "Kapanış", "30 günlük Deda Pack pilotu ve keşif görüşmesi için iki tarih seçeneği sunun."],
+            ["17–20 dk", "Kapanış", "30/60/90 yol haritasının yalnızca 0–30 gün kısmını özetleyin; 30 günlük Deda Pack pilotu ve keşif görüşmesi için iki tarih seçeneği sunun."],
         ],
         [20, 30, 124],
     ),
@@ -345,6 +345,67 @@ story += [
              "<b>Sıralama:</b> Önce Engage pilotu (30 gün). Pilot verisi geldikten sonra Fikir 1 ve 6 ile “otomasyon paketi” olarak genişleyin.",
              "Bu fikirlerde de süre ve tasarruf rakamı vermeyin. Yukarıdaki süreler kaba tahmindir; kapsam keşif görüşmesinden sonra netleşir.",
          ])], bg=BRAND_SOFT, border=BRAND),
+]
+
+# ---------------------------------------------------------------- 6c. 30/60/90 yol haritası
+def phase(title, theme, items, deliver, need, measure):
+    rows = [[P(f"<b>{title}</b> · {theme}", "head")]]
+    body = [*bullets(items),
+            Spacer(1, 3),
+            P(f"<b>Teslim edilen:</b> {deliver}", "cell"),
+            P(f"<b>Deda'dan gereken:</b> {need}", "cell"),
+            P(f"<b>Başarı ölçüsü:</b> {measure}", "cell")]
+    rows.append([body])
+    t = Table(rows, colWidths=[174 * mm])
+    t.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), BRAND), ("BOX", (0, 0), (-1, -1), 0.5, GRID),
+        ("LEFTPADDING", (0, 0), (-1, -1), 8), ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+        ("TOPPADDING", (0, 0), (-1, -1), 5), ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+    ]))
+    return KeepTogether([t, Spacer(1, 7)])
+
+
+story += [
+    P("30 / 60 / 90 günlük yol haritası", "h1"),
+    P("Toplantının kapanışında önerilecek pilotun devamı. Önce tek şirket (Deda Pack) ve Engage; sonuç geldikçe diğer Callypso ürünleri, "
+      "Deda Makina / Deda Gıda ve Callypso dışı otomasyonlarla genişleme. Süreler kaba plandır; keşif görüşmesinden sonra netleşir.", "small"),
+    Spacer(1, 4),
+    phase("Gün 0–30", "Keşif, kurulum ve Engage pilotu (Deda Pack)", [
+        "<b>1. hafta:</b> Satış sorumlusuyla 1 saatlik keşif görüşmesi. Teklif süreci, mevcut WhatsApp kullanımı ve müşteri listesinin nerede durduğu (Excel/CRM/ERP) netleşir.",
+        "<b>1. hafta:</b> Ücretsiz güvenlik notu teslimi: Adana Konteyner sitesi, kırık dedaplast.com, 404 veren katalog ve teklif PDF'leri.",
+        "<b>1–2. hafta:</b> Deda Pack sitesine yapılandırılmış teklif formu (ürün, ölçü, gramaj, adet, baskı rengi, ülke); önce TR + EN.",
+        "<b>1–2. hafta:</b> Temel ölçüm: form gönderimi, WhatsApp ve telefon tıklaması olayları; çerez onayı.",
+        "<b>2. hafta:</b> Engage kurulumu: WhatsApp Business bağlantısı, müşteri listesinin Excel ile aktarımı, WhatsApp şablonlarının onayı, iletişim izinleri (İYS/KVKK).",
+        "<b>2–4. hafta:</b> İlk iki Engage akışı canlıda: (1) talebe otomatik onay mesajı, (2) teklif sonrası takip dizisi (3. gün WhatsApp, 7. gün e-posta, 14. gün temsilciye hatırlatma).",
+        "<b>4. hafta:</b> Başlangıç ölçümü: kaç talep geldi, ilk yanıt süresi, kaç teklif gönderildi.",
+    ], "Teklif formu, ölçüm altyapısı, canlı 2 Engage akışı, güvenlik notu.",
+       "Satış sorumlusunun 1 saati, müşteri listesi (Excel), WhatsApp Business hesabı, site yönetici erişimi.",
+       "Gelen her talebin kayda girmesi; ilk yanıt süresinin ölçülebilir hâle gelmesi."),
+    phase("Gün 30–60", "Genişleme: tekrar sipariş, fuar takibi ve tek gelen kutusu", [
+        "<b>Engage:</b> Tekrar sipariş hatırlatması. Son sipariş tarihine göre WhatsApp mesajı: “Aynı siparişi tekrarlayalım mı?”",
+        "<b>Engage:</b> Fuar kontakları için çok dilli dizi (1. gün teşekkür + katalog, 7. gün sektöre uygun ürün, 21. gün teklif daveti).",
+        "<b>Engage:</b> Sektöre göre segmentler (fırın, kafe, eczane, zincir market…) ve A/B testli ilk mesajlar.",
+        "<b>Inboxly:</b> WhatsApp hatları, Instagram ve web sohbeti tek panelde. Ölçü, gramaj ve sipariş miktarı gibi sık sorulara AI yanıt; teklif talebi temsilciye devredilir.",
+        "<b>GeoAdra:</b> Deda Makina için ücretsiz AI görünürlük raporu (“plastik geri dönüşüm makinesi üreticisi” sorularında rakip karşılaştırması).",
+        "<b>Deda Makina:</b> Kırık PDF yerine çevrim içi makine teklif formu (malzeme, kapasite, modüller).",
+        "<b>Callypso dışı:</b> Web izleme ve uyarı botu (uptime, 404, beklenmeyen içerik, alan adı süresi).",
+    ], "3 yeni Engage akışı, Inboxly pilotu, GeoAdra raporu, Makina teklif formu, izleme botu.",
+       "Sipariş geçmişi (en az 12 ay, Excel yeterli), fuar kontak listeleri, Makina teklif formundaki alanlar.",
+       "Cevapsız tekliflerden geri dönüş oranı; tekrar siparişlerin hatırlatma sonrası gelmesi; tek panelden yönetilen mesaj oranı."),
+    phase("Gün 60–90", "Ölçüm, optimizasyon ve grup geneline yayılma", [
+        "<b>Sonuç raporu:</b> 0. güne göre karşılaştırma. Talep sayısı, ilk yanıt süresi, teklif ve sipariş dönüşümü, tekrar sipariş oranı.",
+        "<b>Engage optimizasyonu:</b> Mesaj içeriği, gönderim saati ve kanal (WhatsApp/SMS/e-posta) A/B sonuçlarına göre düzenlenir.",
+        "<b>Deda Gıda:</b> Distribütör başvuru formu ve Iceman için sezon öncesi distribütör dizisi (sezondan 8 ve 4 hafta önce).",
+        "<b>Deda Makina:</b> Kurulu makineler için bakım/yedek parça hatırlatma akışı (kurulu makine listesi varsa); GeoAdra raporuna göre teknik ürün sayfaları.",
+        "<b>Voice Agent (opsiyonel):</b> Kaçan arama verisi anlamlıysa mesai dışı ve yabancı dildeki aramalar için pilot.",
+        "<b>Callypso dışı:</b> Otomatik teklif taslağı (fiyat tablosundan PDF teklif) ve haftalık yönetim özeti; uygunsa sipariş belgesi işleme (Gıda).",
+        "<b>Karar toplantısı:</b> Yıllık kapsam, hangi şirketlerin ve ürünlerin devam edeceği.",
+    ], "Sonuç raporu, optimize edilmiş akışlar, Gıda ve Makina akışları, genişleme teklifi.",
+       "Pilot sonuçları üzerine yönetim toplantısı; Gıda ve Makina için birer sorumlu.",
+       "Pilot sonuçlarının yönetim tarafından görülmesi ve genişleme kararı."),
+    box([P("<b>Toplantıda nasıl anlatılmalı?</b> Yalnızca 0–30 günü ayrıntılı anlatın; 60 ve 90 günü “sonuç geldikçe” diye tek cümleyle geçin. "
+           "Karar vericiden istenen tek şey ilk 30 gün için onay ve satış sorumlusunun 1 saati. Yol haritasında süre, tasarruf veya gelir "
+           "rakamı vaat etmeyin; başarı ölçüleri pilotta birlikte ölçülecek göstergelerdir.")], bg=AMBER_SOFT, border=colors.HexColor("#9a6100")),
 ]
 
 story.append(PageBreak())
