@@ -1,0 +1,139 @@
+CallypsoTech — 100 Kelimelik Mail Taslakları
+
+KULLANIM
+- Varyantlar birer seri: Mail 1'de hangi varyantı seçerseniz Mail 2 ve Mail 3'te aynı numaralı varyantı gönderin.
+  Varyant 1: kaçan çağrılar · Varyant 2: telefon yükü · Varyant 3: mesai sonrası / yabancı hastalar
+- Takipleri ilk mailin yanıt zincirinde gönderin (konu: "Re: <ilk mailin konusu>").
+- Önerilen aralık: Mail 1 → 3 gün sonra Mail 2 → 4 gün sonra Mail 3.
+- Hitap: Kişi adı varsa "Merhaba {{Ad}} {{Hitap}}," (ör. "Merhaba Özge Hanım,"). Sadece genel adres (info@ vb.) varsa "Merhaba," kullanın.
+- Kelime sayıları yalnızca mail gövdesini kapsar (hitap satırı ve imza hariç).
+- Mail 3'teki demo kaydını / örneği göndermeye hazır olduğunuzdan emin olun.
+- Her mailin sonuna aşağıdaki İMZA eklenmelidir. Gönderen kimliği ve ret (çıkış) seçeneği 6563 sayılı Kanun gereği zorunludur.
+
+İMZA (tüm maillerde)
+--
+{{Gönderen Ad Soyad}}
+CallypsoTech
+{{web sitesi}} | {{telefon}}
+Bu tür e-postaları almak istemiyorsanız "çıkar" yazarak yanıtlamanız yeterlidir.
+
+
+MAIL 1 — VARYANT 1
+Konu: Kaçan çağrılar
+Gövde: 101 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Klinik telefonları çoğu zaman en yoğun anlarda çalar: ekip hastayla ilgilenirken, öğle arasında ya da akşam saatlerinde. Bu sırada açılamayan her çağrı, başka bir kliniği arayan potansiyel bir hasta anlamına gelebilir.
+
+CallypsoTech olarak kliniklere özel bir sesli yapay zekâ asistanı geliştiriyoruz. Asistan, cevapsız kalacak çağrıları anında yanıtlıyor, hastanın adını, ihtiyacını ve iletişim bilgisini alıyor, randevu talebini kaydediyor ve gerektiğinde çağrıyı ekibinize aktarıyor. Böylece ekibiniz hastaya odaklanırken hiçbir arama boşa gitmiyor. Asistan kliniğinizin çalışma saatlerine, hizmetlerine ve konuşma tarzına göre özel olarak ayarlanıyor.
+
+Kliniğinizde günde kaç çağrının cevapsız kaldığını biliyor musunuz? Uygunsanız asistanın nasıl çalıştığını 15 dakikalık kısa bir görüşmede göstermek isterim.
+
+MAIL 1 — VARYANT 2
+Konu: Hasta iletişimi
+Gövde: 102 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Birçok klinikte resepsiyon ve hasta koordinatörlerinin gününün büyük bölümü telefonda geçiyor: fiyat soruları, randevu değişiklikleri, adres tarifleri, tedavi süreciyle ilgili tekrar eden sorular. Bu yoğunluk hem ekibi yoruyor hem de yüz yüze gelen hastaya ayrılan zamanı azaltıyor. Üstelik yoğun saatlerde bekleyen hastalar hattı kapatabiliyor.
+
+CallypsoTech'in sesli yapay zekâ asistanı bu rutin çağrıları 7/24 karşılıyor. Sık sorulan soruları kliniğinizin bilgileriyle yanıtlıyor, randevu taleplerini topluyor ve yalnızca gerçekten ekibinizin ilgilenmesi gereken çağrıları size aktarıyor. Kurulum mevcut telefon hattınız üzerinden yapılıyor; ekibinizin yeni bir sistem öğrenmesine gerek kalmıyor.
+
+Ekibinizin telefon yükünü hafifletmek şu an gündeminizde mi? Uygunsanız kliniğinize nasıl uyarlanabileceğini 15 dakikalık bir görüşmede konuşabiliriz.
+
+MAIL 1 — VARYANT 3
+Konu: Mesai sonrası
+Gövde: 103 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Yurt dışından gelen hastalar çoğu zaman farklı saat dilimlerinden ve kendi dillerinde arıyor. Mesai bittiğinde ya da o dili konuşan koordinatör müsait olmadığında bu çağrılar cevapsız kalıyor ve hasta, ilk yanıt veren kliniğe yöneliyor.
+
+CallypsoTech'in sesli yapay zekâ asistanı mesai saatlerinden bağımsız olarak çağrıları yanıtlıyor ve hastayla İngilizce, Almanca, Arapça, Rusça gibi dillerde konuşabiliyor. Hastanın ihtiyacını ve iletişim bilgisini alıp ertesi sabah ekibinize hazır bir özet olarak iletiyor. Asistan kliniğinizin hizmetlerine ve fiyat politikasına göre özel olarak ayarlanıyor, böylece hastaya tutarlı bilgi veriyor.
+
+Mesai dışı ve yabancı dildeki çağrıları şu an nasıl karşılıyorsunuz? Uygunsanız 15 dakikalık bir görüşmede asistanı canlı olarak göstermek isterim.
+
+MAIL 2 — VARYANT 1
+Konu: Re: Kaçan çağrılar (aynı zincirde)
+Gövde: 100 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Geçen hafta cevapsız kalan çağrılarla ilgili yazmıştım; yoğunluktan gözden kaçmış olabilir diye kısaca hatırlatmak istedim.
+
+Kliniklerle yaptığımız görüşmelerde en sık duyduğumuz şey şu oluyor: "Kaç çağrı kaçırdığımızı tam olarak bilmiyoruz." Oysa özellikle sağlık turizminde, ilk yanıtı alan klinik çoğu zaman hastayı da kazanıyor.
+
+Sesli asistanımız bu çağrıları sizin adınıza karşılıyor, hasta bilgilerini kaydediyor ve ekibinize düzenli bir liste halinde sunuyor. Kurulumu kliniğinizin mevcut telefon hattı üzerine yapılıyor; ekibinizin yeni bir sistem öğrenmesi gerekmiyor. Asistanın nasıl konuştuğunu dinlemek isterseniz, görüşmeden önce kısa bir örnek kayıt da gönderebilirim.
+
+Bu konuyu konuşmak için önümüzdeki hafta size uygun 15 dakikalık bir zaman var mı?
+
+MAIL 2 — VARYANT 2
+Konu: Re: Hasta iletişimi (aynı zincirde)
+Gövde: 101 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Önceki mesajımda ekibinizin telefon yükünden bahsetmiştim; yoğun bir dönemdeyseniz gözden kaçmış olabilir diye tekrar yazıyorum.
+
+Kliniklerde gelen çağrıların önemli bir kısmı aynı birkaç soru etrafında dönüyor: fiyat, randevu, konum, tedavi süreci. Bu soruların her biri birkaç dakika alıyor ve gün sonunda ekibinizin saatlerini tüketiyor.
+
+Sesli asistanımız bu soruları kliniğinizin kendi bilgileriyle yanıtlıyor; ekibiniz ise yalnızca gerçekten ilgilenmesi gereken hastalarla konuşuyor. Asistanın neyi yanıtlayıp neyi aktaracağına tamamen siz karar veriyorsunuz. Kurulum mevcut telefon hattınız üzerinden yapılıyor; ekibinizin yeni bir sistem öğrenmesine gerek kalmıyor.
+
+Uygunsanız önümüzdeki hafta 15 dakikalık kısa bir görüşmede kliniğinize nasıl uyarlanabileceğini anlatmak isterim. Hangi gün size daha uygun olur?
+
+MAIL 2 — VARYANT 3
+Konu: Re: Mesai sonrası (aynı zincirde)
+Gövde: 101 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Mesai dışı ve yabancı dildeki hasta çağrılarıyla ilgili yazmıştım; gözden kaçmış olabilir diye kısa bir hatırlatma yapmak istedim.
+
+Sağlık turizmi yapan kliniklerde hasta çoğu zaman birkaç kliniği aynı anda arıyor ve ilk yanıt verenle ilerliyor. Gece gelen bir çağrının sabaha kadar beklemesi, hastanın başka bir kliniğe geçmesi için yeterli olabiliyor.
+
+Sesli asistanımız bu çağrıları hastanın kendi dilinde, gecenin hangi saati olursa olsun yanıtlıyor. Topladığı bilgileri ekibinize sabah hazır bir özet olarak iletiyor; koordinatörleriniz hastayı sıcakken geri arayabiliyor. Asistan kliniğinizin hizmetleri ve süreçleriyle uyumlu şekilde ayarlanıyor.
+
+Bunun kliniğinizde nasıl çalışacağını 15 dakikada göstermek isterim. Önümüzdeki hafta uygun olduğunuz bir zaman var mı?
+
+MAIL 3 — VARYANT 1
+Konu: Re: Kaçan çağrılar (aynı zincirde)
+Gövde: 100 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Size daha önce iki kez yazdım ve bu son mesajım; zamanınızı daha fazla almak istemem.
+
+Cevapsız kalan çağrılar şu an sizin için öncelikli bir konu olmayabilir, bunu anlıyorum. Yine de ileride değerlendirmek isterseniz, asistanımızın gerçek bir hasta çağrısını nasıl karşıladığını gösteren kısa bir demo kaydını memnuniyetle gönderebilirim. Görüşme yapmanız gerekmiyor; kaydı dinleyip kendi değerlendirmenizi yapabilirsiniz. Kayıtta asistanın hastayı nasıl karşıladığını, bilgileri nasıl aldığını ve randevu talebini nasıl kaydettiğini duyabilirsiniz.
+
+İlgilenirseniz bu maile "demo" yazarak yanıt vermeniz yeterli. Konu kliniğinizde başka bir kişinin sorumluluğundaysa, doğru kişiyi yönlendirmeniz de bana çok yardımcı olur.
+
+İlginiz ve zamanınız için teşekkür ederim, çalışmalarınızda kolaylıklar dilerim.
+
+MAIL 3 — VARYANT 2
+Konu: Re: Hasta iletişimi (aynı zincirde)
+Gövde: 103 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Bu konuda size yazdığım son mesaj; zamanınızı daha fazla meşgul etmek istemem.
+
+Telefon yükünü hafifletmek şu an gündeminizde olmayabilir, bunu anlıyorum. İleride değerlendirmek isterseniz, kliniğinize gelen tipik çağrıların hangilerinin bir sesli asistanla otomatik yanıtlanabileceğini gösteren kısa bir örnek hazırlayıp paylaşabilirim. Bunun için bir görüşme yapmanız gerekmiyor; örneği inceleyip kendi kararınızı verebilirsiniz. Örnekte, en sık gelen soruların hangilerinin otomatik yanıtlanabileceğini ve ekibinize ne kadar zaman kazandırabileceğini görebilirsiniz. Örneği kliniğinizin web sitesindeki bilgilerden yola çıkarak hazırlayabilirim.
+
+İlgilenirseniz bu maile "örnek" yazarak yanıt vermeniz yeterli. Bu konu kliniğinizde başka birinin sorumluluğundaysa, doğru kişiye yönlendirmeniz de bana çok yardımcı olur.
+
+Zamanınız için teşekkür ederim, ekibinize kolaylıklar dilerim.
+
+MAIL 3 — VARYANT 3
+Konu: Re: Mesai sonrası (aynı zincirde)
+Gövde: 98 kelime
+
+Merhaba {{Ad}} {{Hitap}},
+
+Bu konuda size yazdığım son mesaj; ilginizi çekmediyse anlıyorum ve daha fazla rahatsız etmeyeceğim.
+
+Mesai dışı ve yabancı dildeki hasta çağrıları için önerdiğimiz çözümü ileride değerlendirmek isterseniz, size iki üç cümlelik bir özetle birlikte asistanın farklı dillerde nasıl konuştuğunu gösteren kısa bir ses kaydı gönderebilirim. Bir görüşmeye gerek yok; kaydı dinleyip kendi değerlendirmenizi yapabilirsiniz. Kayıtta asistanın aynı hasta sorusunu farklı dillerde nasıl yanıtladığını ve topladığı bilgileri ekibinize nasıl özetlediğini duyabilirsiniz.
+
+İlgilenirseniz bu maile "kayıt" yazarak yanıt vermeniz yeterli. Konu kliniğinizde başka birinin sorumluluğundaysa, doğru kişiyi yönlendirmeniz de bana çok yardımcı olur.
+
+Zamanınız için teşekkür ederim, çalışmalarınızda başarılar dilerim.
