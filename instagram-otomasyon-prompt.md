@@ -155,19 +155,86 @@ Kaynak: [kısa kaynak]
 - **Yorum ve DM otomasyonu:** "REHBER" içeren yorumlara Graph API private reply ile DM gönder (veya ManyChat kullan). DM'de PDF landing linki olsun. Landing form alanları: e-posta, mağaza URL'si, aylık sipariş aralığı. Bunlar ileride segmentleme ve lead puanlama için kullanılacak.
 - **İnsan onayı:** İlk 14 gün her video yayından önce onay kuyruğuna düşsün (Slack/e-posta/Telegram ile onay). Doğruluk kapısı ve ton oturduktan sonra tam otomatiğe geç.
 
-## 9. Ürünün görünme fazları
+## 9. TOF–MOF–BOF hunisi (ilk trafik geldikten sonra)
 
-| Faz | Tetikleyici | Ürün görünürlüğü |
+Her içerik huninin **tek bir katmanına** hizmet eder. `brief.json` dosyasında `huni: "TOF" | "MOF" | "BOF"` alanı zorunlu. CTA, format ve başarı metriği katmana göre değişir.
+
+### 9.1 Katmanlar
+
+| | TOF: Farkındalık | MOF: Değerlendirme | BOF: Karar |
+|---|---|---|---|
+| **Kime** | Henüz takip etmeyen, geniş e-ticaret ve pazarlama kitlesi | Takipçi, PDF'i almış lead | Mağazası ve sipariş hacmi bilinen, sıcak lead |
+| **İzleyicinin sorusu** | "Bunu bana da mı yapıyorlar?" | "Bunu kendi mağazamda nasıl yaparım?" | "Bu aracı neden kullanayım, bana uyar mı?" |
+| **İçerik** | Marka röntgeni (sütun A, B, D) | Uygulama rehberi (sütun C), şablonlar, segment tarifleri, hesaplayıcılar, mit kırma (rakamlarla), takipçi mağazası mini analizi | Vaka çalışması (öncesi/sonrası rakamlarla), 30 saniyelik ürün demosu ("3 tıkta geri kazanma akışı"), itiraz yanıtları (fiyat, kurulum süresi, KVKK/İYS uyumu, entegrasyonlar), kurucunun yüzüyle konuştuğu video, sınırlı beta/ücretsiz analiz teklifi |
+| **Format** | Reel (yeni kitleye en iyi bu ulaşır) | Carousel (kaydedilir) + Reel + Story | Story (çoğunlukla takipçiler görür) + sabitlenmiş Reel + DM + e-posta |
+| **Ürün görünürlüğü** | Yok | Ekranda araç olarak, satış dili yok | Açık ve doğrudan |
+| **CTA** | Takip et / yorumda soruya cevap ver / REHBER | Anahtar kelimeyle ücretsiz kaynak: `SABLON` (mesaj şablonları), `HESAPLA` (kayıp müşteri hesaplayıcısı), `SEGMENT` (segment tarifleri) | `DEMO` (takvim linki), `ANALIZ` (ücretsiz mağaza analizi), deneme linki |
+| **Ana metrik** | Erişim, 1.000 izlenme başına takipçi, paylaşım | Kaydetme, lead sayısı, form tamamlama oranı | Demo talebi, deneme başlatma, ücretli müşteri |
+
+### 9.2 Fazlara göre içerik karması
+
+| Faz | Tetikleyici | TOF | MOF | BOF |
+|---|---|---|---|---|
+| 1. Trafik | 0–30 gün **veya** < 5k takipçi | %90 | %10 (sadece REHBER CTA'sı) | %0 |
+| 2. Lead | 5k+ takipçi **veya** 100+ lead | %60 | %30 | %10 (sadece Story) |
+| 3. Dönüşüm | 300+ lead **veya** ilk 3 vaka çalışması hazır | %50 | %30 | %20 |
+
+- **Faz geçişini otomatik yap:** Her pazartesi `metrics.json` ve lead sayısını kontrol et, tetikleyici sağlanmışsa bir sonraki faza geç ve bana bildir.
+- **TOF hiçbir zaman %50'nin altına düşmesin.** Yeni kitle akışı kesilirse huni kurur.
+- **Fazı geri al:** Takipçi büyümesi 2 hafta üst üste haftalık %2'nin altına düşerse TOF oranını 10 puan artır.
+
+### 9.3 Örnek haftalık takvim (Faz 2)
+
+| Gün | Feed | Story |
 |---|---|---|
-| 1 | 0–30 gün veya < 5k takipçi | **Sıfır.** Sadece bio linki ve PDF. |
-| 2 | 30–90 gün | 5 videodan 1'i C sütunundan: "Bunu mağazana kur". Callypso ekranı sadece araç olarak görünür, satış dili yok. |
-| 3 | 90+ gün veya 300+ lead | Gerçek mağaza vaka çalışmaları ("+%18 tekrar satın alma"), "Mağazanı röntgenleyelim" serisi (takipçi mağazası analizi), demo CTA'sı. |
+| Pzt | TOF Reel | Anket: "Müşterin son siparişinden kaç gün sonra kayıp sayılır?" |
+| Sal | MOF Carousel: "90 gün sessiz müşteriye gönderilecek 5 SMS" (`SABLON`) | Carousel'in kısa versiyonu + link |
+| Çar | TOF Reel | Soru kutusu: "Mağazanla ilgili sor" |
+| Per | MOF Reel: "Bunu mağazana kur" (Callypso ekranda araç olarak) | Takipçi sorusuna cevap |
+| Cum | TOF Reel | BOF: 15 saniyelik demo + `DEMO` |
+| Cmt | TOF Reel | Haftanın en çok kaydedilen gönderisini tekrar paylaş |
+| Paz | TOF Reel | BOF: Vaka rakamı ya da müşteri yorumu (varsa) |
+
+### 9.4 Lead puanlama ve yönlendirme
+
+DM otomasyonu, her anahtar kelimeyi bir huni etiketine bağlasın ve lead'i puanlasın:
+
+| Sinyal | Puan |
+|---|---|
+| REHBER / SABLON / SEGMENT / HESAPLA indirdi | +10 (her biri) |
+| Mağaza URL'si verdi | +20 |
+| Aylık sipariş 500+ | +25 |
+| Aylık sipariş 100–500 | +15 |
+| E-postada fiyat/demo linkine tıkladı | +20 |
+| BOF Story'ye cevap verdi veya `DEMO` / `ANALIZ` yazdı | +40 |
+
+- **0–29 puan:** Soğuk. MOF e-posta serisi.
+- **30–59 puan:** Ilık. MOF + haftada 1 BOF e-postası.
+- **60+ puan:** Sıcak. Kişisel DM/e-posta ile ücretsiz mağaza analizi teklifi. Bana bildirim gelsin.
+
+### 9.5 E-posta serisi (PDF'i alan her lead için)
+
+1. **Gün 0:** PDF + "En hızlı kazancı veren 1 taktik" (MOF)
+2. **Gün 2:** Kayıp müşteri hesaplayıcısı: "Kaç TL'lik müşterini sessizce kaybediyorsun?" (MOF)
+3. **Gün 4:** Vaka çalışması ya da uygulama örneği (MOF→BOF)
+4. **Gün 7:** "Bunu elle yapmak yerine" Callypso demosu (BOF)
+5. **Gün 10:** Ücretsiz mağaza analizi teklifi, sınırlı kontenjan (BOF)
+
+Seri bitince lead haftalık bültene (TOF/MOF karışık) geçsin.
+
+### 9.6 Kurallar
+
+- BOF içeriği **feed'e** Faz 3'e kadar girmez. Story, DM ve e-postada kalır. Feed yeni gelenler için vitrin, satış dili onları kaçırır.
+- Her MOF içeriği bir Callypso özelliğine bağlı olsun (`callypso_özelliği` alanı). Kullanıcı önce yöntemi elle öğrenir, sonra BOF'ta "bunu otomatik yap" ile ürüne geçer.
+- Vaka çalışmalarında sadece gerçek, müşterinin izin verdiği rakamları kullan. Vaka yoksa BOF'u demo ve itiraz yanıtlarıyla yürüt, vaka uydurma.
+- İsteğe bağlı reklam: Faz 2'den sonra Reel'leri %50+ izleyenlere MOF içeriği, MOF lead'lerine BOF içeriği gösteren küçük bütçeli Meta retargeting kampanyaları.
 
 ## 10. Ölçüm ve öğrenme döngüsü
 
 - Yayından 48 saat sonra Insights API'den şu metrikleri çek ve `metrics.json` dosyasına yaz: `reach`, `plays`, `ig_reels_avg_watch_time`, `saved`, `shares`, `comments`, `follows`. Ayrıca REHBER yorum sayısını ve landing'den gelen lead sayısını ekle.
 - **Videoyu puanla:** `skor = 0.4*lead_per_1k + 0.25*(shares+saves)/reach + 0.2*follows_per_1k + 0.15*avg_watch_ratio`
-- **Haftalık rapor:** Hangi sütun, hangi mekanizma, hangi kanca tipi ve hangi marka kategorisi kazandı. Konu bankasını buna göre yeniden sırala.
+- **Skor ağırlıkları huni katmanına göre değişir:** TOF için erişim, takipçi ve paylaşım ağırlıklı. MOF için kaydetme ve lead ağırlıklı. BOF için demo talebi ve deneme ağırlıklı. TOF videosunu lead getirmedi diye, BOF içeriğini az izlendi diye cezalandırma.
+- **Haftalık rapor:** Hangi sütun, hangi mekanizma, hangi kanca tipi ve hangi marka kategorisi kazandı. Konu bankasını buna göre yeniden sırala. Huni dönüşümlerini de raporla: izlenme → takipçi → lead → sıcak lead → demo → müşteri. En çok kayıp olan adımı işaretle ve bir sonraki haftanın karmasını ona göre öner.
 - En iyi 2 videonun farklı marka ya da açıyla **varyasyonunu** üret. Aynı videoyu tekrar yayınlama.
 - 48 saatte hesap ortalamasının %30'unun altında kalan videoyu arşivle (Decoy bunu yapıyor gibi görünüyor). Grid temiz kalsın.
 - En iyi performans gösteren 2 videoyu profile sabitle. Ardından 3. sabitleme olarak PDF'i anlatan bir video koy.
@@ -177,7 +244,7 @@ Kaynak: [kısa kaynak]
 Her video için `output/YYYY-MM-DD-slug/` klasöründe şu dosyalar olsun:
 
 ```
-brief.json      # konu, sütun, marka, mekanizma, callypso_özelliği, kaynaklar
+brief.json      # huni (TOF/MOF/BOF), konu, sütun, marka, mekanizma, callypso_özelliği, CTA anahtar kelimesi, kaynaklar
 script.md       # 3 kanca adayı + seçilen senaryo + kelime sayısı
 voice.mp3
 captions.srt
@@ -197,7 +264,9 @@ qa.json         # aşağıdaki kontrol listesinin sonucu
 - [ ] Altyazı Instagram arayüzü bölgesine taşmıyor
 - [ ] Ses -14 LUFS (±1)
 - [ ] Faz 1'deyse Callypso adı hiçbir yerde geçmiyor
-- [ ] CTA ve REHBER kelimesi senaryoda ve açıklamada var
+- [ ] Huni katmanı belli ve içerik, CTA ve format o katmanın kurallarına uyuyor (9.1)
+- [ ] Haftalık TOF/MOF/BOF oranı mevcut fazın karmasına uyuyor (9.2)
+- [ ] CTA anahtar kelimesi senaryoda ve açıklamada var
 - [ ] Yasak konu listesine takılmıyor
 
 ## 12. İlk iş
@@ -207,3 +276,4 @@ qa.json         # aşağıdaki kontrol listesinin sonucu
 3. Bu 3 konunun senaryosunu, kaynaklarıyla birlikte yaz.
 4. Birini uçtan uca videoya çevir. **Yayınlamadan** önce bana göster.
 5. Onayımdan sonra zamanlanmış yayın ve metrik toplama adımlarını ekle.
+6. Ardından huni altyapısını kur: anahtar kelime → etiket → lead puanı eşlemesi, e-posta serisi, haftalık faz kontrolü ve huni dönüşüm raporu. Faz 2'ye geçildiğinde ilk MOF carousel şablonunu ve ilk BOF story şablonunu üret.
