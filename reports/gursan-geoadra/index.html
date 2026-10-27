@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gürsan × GeoAdra</title>
+<meta name="description" content="Gürsan Ofis Mobilyaları için AI keşif fırsatları, kaynaklı bulgular ve 30 günlük pilot önerisi. Hazırlayan: GeoAdra by CallypsoTech.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F6F3; --surface:#FFFFFF; --text:#282522; --muted:#68615C; --accent:#A44732; --border:#E7E1DB;
+  --accent-soft:#F4E9E5; --ok:#3F6B4E; --ok-soft:#E8F0EA; --warn:#8A6A1F; --warn-soft:#F5EEDC; --info:#4B5B70; --info-soft:#E8ECF1;
+  --radius:14px; --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;line-height:1.2;margin:0}
+h1{font-size:clamp(2rem,5vw,3.1rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.55rem,3.4vw,2.1rem);margin-bottom:.4rem}
+h3{font-size:1.15rem;margin-bottom:.35rem}
+p{margin:.5rem 0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(248,246,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{font-weight:700;font-size:.95rem;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:500}
+.navscroll{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.navscroll::-webkit-scrollbar{display:none}
+.navscroll a{color:var(--muted);text-decoration:none;font-size:.86rem;padding:6px 10px;border-radius:999px;white-space:nowrap}
+.navscroll a:hover,.navscroll a.active{color:var(--text);background:var(--surface);box-shadow:0 0 0 1px var(--border)}
+@media(max-width:720px){.brand span{display:none}}
+
+section{padding:64px 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:600;margin-bottom:.6rem}
+.lead{font-size:1.12rem;color:var(--muted);max-width:720px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+.tag{display:inline-block;font-size:.74rem;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap;vertical-align:middle}
+.t-ok{background:var(--ok-soft);color:var(--ok)}
+.t-hyp{background:var(--warn-soft);color:var(--warn)}
+.t-int{background:var(--info-soft);color:var(--info)}
+.t-acc{background:var(--accent-soft);color:var(--accent)}
+.notice{border-left:3px solid var(--accent);background:var(--surface);padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.sample{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--warn);background:var(--warn-soft);padding:4px 10px;border-radius:8px;margin-bottom:12px}
+
+/* hero */
+.hero{padding-top:72px;padding-bottom:56px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.flow span{background:var(--surface);border:1px solid var(--border);padding:7px 14px;border-radius:999px;font-size:.9rem}
+.flow span:not(:last-child)::after{content:"→";margin-left:10px;color:var(--muted)}
+.meta{margin-top:28px;font-size:.88rem;color:var(--muted)}
+
+/* summary */
+.sumlist{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.sumlist li{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;gap:14px}
+.sumlist b.n{font-family:"Source Serif 4",serif;color:var(--accent);font-size:1.25rem;min-width:22px}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:.93rem}
+.tbl th,.tbl td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.tbl th{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+.tbl tr:last-child td{border-bottom:0}
+.tblwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+@media(max-width:640px){
+  .tbl.stack thead{display:none}
+  .tbl.stack tr{display:block;border-bottom:1px solid var(--border);padding:10px 0}
+  .tbl.stack td{display:block;border:0;padding:4px 14px}
+  .tbl.stack td::before{content:attr(data-l);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 16px}
+.chip{font:inherit;font-size:.86rem;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--text);color:#fff;border-color:var(--text)}
+.chip:focus-visible,.tabbtn:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* findings */
+details.f{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:10px}
+details.f summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+details.f summary::-webkit-details-marker{display:none}
+details.f summary .id{font-weight:700;color:var(--accent);min-width:34px}
+details.f summary .ttl{flex:1}
+details.f summary .chev{color:var(--muted);transition:transform .2s}
+details.f[open] summary .chev{transform:rotate(90deg)}
+.fbody{padding:0 18px 18px 64px;display:grid;gap:10px}
+@media(max-width:640px){.fbody{padding:0 18px 18px}}
+.fbody dl{margin:0;display:grid;gap:8px}
+.fbody dt{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+.fbody dd{margin:0}
+
+/* tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}
+.tabbtn{font:inherit;font-size:.9rem;border:1px solid var(--border);background:var(--surface);padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--text)}
+.tabbtn[aria-selected="true"]{border-color:var(--accent);color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.panel[hidden]{display:none}
+.ba{display:grid;gap:14px}
+@media(min-width:820px){.ba{grid-template-columns:1fr 1fr}}
+.ba .card h3{font-family:Inter,sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ba .after{border-color:var(--accent)}
+.ba .after h3{color:var(--accent)}
+.ph{background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:0 4px;font-size:.92em}
+.ad{border:1px dashed var(--border);border-radius:12px;padding:16px;background:var(--bg)}
+.ad .adlabel{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.ad .adh{font-weight:700;margin:6px 0 4px}
+
+/* actions */
+.act{display:grid;gap:14px}
+.act .card{display:grid;gap:8px}
+.act .num{font-family:"Source Serif 4",serif;font-size:1.6rem;color:var(--accent);line-height:1}
+.kv{display:grid;gap:6px;font-size:.93rem}
+.kv b{font-weight:600}
+
+/* timeline */
+.tl{display:grid;gap:12px;counter-reset:w}
+@media(min-width:820px){.tl{grid-template-columns:repeat(4,1fr)}}
+.tl .card{position:relative}
+.tl .wk{font-size:.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+
+footer{padding:40px 0 56px;color:var(--muted);font-size:.86rem}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">Gürsan × GeoAdra <span>· CallypsoTech</span></div>
+    <nav class="navscroll" aria-label="Bölümler">
+      <a href="#ozet">Özet</a>
+      <a href="#gursan">Gürsan</a>
+      <a href="#sorular">Sorular</a>
+      <a href="#olcum">Ölçüm</a>
+      <a href="#bulgular">Bulgular</a>
+      <a href="#rakipler">Rakipler</a>
+      <a href="#aksiyonlar">Aksiyonlar</a>
+      <a href="#taslak">Taslaklar</a>
+      <a href="#pilot">Pilot</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <div class="eyebrow">Müşteri analizi · toplantı sunumu</div>
+  <h1>Kurumsal alıcılar AI asistanına “ofis mobilyası” sorduğunda, Gürsan'ın sitesi hangi cevapları destekliyor?</h1>
+  <p class="lead" style="margin-top:18px">Bu sayfa, Gürsan Ofis Mobilyaları'nın sitesinde dışarıdan görülebilen bilgileri ve bunların ChatGPT, Gemini ve Claude gibi AI asistanlarında hangi müşteri sorularına cevap olabileceğini gösteriyor. GeoAdra'nın bunu nasıl ölçüp uygulanabilir içerik taslaklarına dönüştürebileceğini de anlatıyor.</p>
+  <div class="flow" aria-label="Akış"><span>Kanıt</span><span>Fırsat</span><span>İş etkisi</span><span>Önerilen aksiyon</span><span>Ölçüm</span></div>
+  <p class="meta">Hazırlayan: GeoAdra by CallypsoTech · Araştırma tarihi: 27 Ekim 2026 · Kaynak: gursanmobilya.com.tr (50 sayfalık tarama) ve kamuya açık web kaynakları</p>
+</div>
+
+<section id="ozet">
+  <div class="wrap">
+    <div class="eyebrow">01 · Yönetici özeti</div>
+    <h2>Kısaca</h2>
+    <ul class="sumlist">
+      <li><b class="n">1</b><div><b>Sağlam bir temel var.</b> 1976'dan gelen üretim geçmişi, Altunizade showroom'u, teklif formu ve 18 yazılık rehber içeriği (yönetici masası, açık ofis gürültüsü, konferans koltuğu…) AI asistanlarının kullanabileceği türden bilgiler.</div></li>
+      <li><b class="n">2</b><div><b>Bilgi her yerde aynı derinlikte değil.</b> Masa takımlarında ölçü tabloları var. Bazı koltuk ve kabin sayfalarında ise açıklama ya da ölçü yok. İncelenen 21 ürün sayfasının hiçbirinde makinece okunabilir ürün bilgisi (yapılandırılmış veri) bulunmuyor.</div></li>
+      <li><b class="n">3</b><div><b>Bazı kurumsal bilgiler çelişiyor.</b> Sitede “25+ yıl” ve “1976” birlikte geçiyor. Marka adı ve merkez adresi sayfadan sayfaya değişiyor. Projeler ve referanslar anlatılıyor ama örnek proje sayfası yok.</div></li>
+      <li><b class="n">4</b><div><b>Henüz ölçüm yapılmadı.</b> AI asistanlarında Gürsan'ın görünürlüğü bu çalışmada ölçülmedi. Hazır olan, 7 soruluk bir pilot ölçüm planı. Uydurulmuş bir puan veya AI yanıtı yok.</div></li>
+      <li><b class="n">5</b><div><b>Önerimiz:</b> Önce tek bir ürün grubu ve sabit bir soru setiyle başlangıç ölçümü yapalım. Sonra Gürsan'ın onayladığı içerik iyileştirmelerini yayınlayalım ve aynı yöntemle yeniden ölçelim. Bu 30 günlük bir pilot olur.</div></li>
+    </ul>
+    <div class="notice small">İçerik eksikleri ile AI yanıtlarında görünüp görünmeme arasında kanıtlanmış bir neden-sonuç ilişkisi kurmuyoruz. Ölçüm planı bu ilişkiyi Gürsan'a özel olarak test etmek için hazırlandı.</div>
+  </div>
+</section>
+
+<section id="gursan">
+  <div class="wrap">
+    <div class="eyebrow">02 · Gürsan hakkında doğrulananlar</div>
+    <h2>Sitede ve kaynaklarda gördüklerimiz</h2>
+    <p class="lead">Her satır bir kaynağa dayanıyor. “Toplantıda doğrulanacak” yazan konuları sizden öğrenmek istiyoruz.</p>
+    <div class="tblwrap" style="margin-top:22px">
+      <table class="tbl stack">
+        <thead><tr><th>Konu</th><th>Ne gördük</th><th>Durum</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Konu"><b>Üretim</b></td><td data-l="Ne gördük">“Ofis koltuğu ve metal aksamlar üreterek başladık… yüksek kapasitede üretim yapabilen bir tesis” · “İstanbul merkezli, yerli üretim” — <a href="https://gursanmobilya.com.tr/hakkimizda/" target="_blank" rel="noopener">Hakkımızda</a></td><td data-l="Durum"><span class="tag t-ok">Doğrulanmış</span> <span class="small muted">Tesis adresi: toplantıda</span></td></tr>
+          <tr><td data-l="Konu"><b>Faaliyet alanları</b></td><td data-l="Ne gördük">Üretim, ihracat, perakende, toptan satış ve projelendirme; “yurt içi ve yurt dışında büyük ölçekli projeler”</td><td data-l="Durum"><span class="tag t-ok">Beyan</span> <span class="small muted">Ağırlıkları: toplantıda</span></td></tr>
+          <tr><td data-l="Konu"><b>Konumlar</b></td><td data-l="Ne gördük">Altunizade showroom (Üsküdar) · Hasköy idari ve lojistik merkez (Beyoğlu) · “Geon Design – Süleymaniye / Irak” — <a href="https://gursanmobilya.com.tr/iletisim/" target="_blank" rel="noopener">İletişim</a></td><td data-l="Durum"><span class="tag t-ok">Doğrulanmış</span></td></tr>
+          <tr><td data-l="Konu"><b>Satış akışı</b></td><td data-l="Ne gördük">Ürün sayfalarında “Teklif Al” formu (isim, e-posta, telefon, <b>adet</b>, <b>şehir</b>) ve “Ara” butonu. Fiyat gösterilmiyor. Sepet butonu sayfa kodunda var ama gizlenmiş; online satış yapıldığına dair bir kanıt görmedik.</td><td data-l="Durum"><span class="tag t-ok">Doğrulanmış</span></td></tr>
+          <tr><td data-l="Konu"><b>Ürün yelpazesi</b></td><td data-l="Ne gördük">198 ürün, 34 kategori: yönetici/çalışma/toplantı masaları, workstation, ofis koltukları, akustik kabinler (G-Pod S ve L), depolama, bekleme ve tamamlayıcı ürünler</td><td data-l="Durum"><span class="tag t-ok">Doğrulanmış</span></td></tr>
+          <tr><td data-l="Konu"><b>Dil</b></td><td data-l="Ne gördük">Türkçe site ve <a href="https://gursanmobilya.com.tr/en/" target="_blank" rel="noopener">İngilizce sürüm</a> (USD/EUR seçici)</td><td data-l="Durum"><span class="tag t-ok">Doğrulanmış</span></td></tr>
+          <tr><td data-l="Konu"><b>Hedef müşteri ve bölge</b></td><td data-l="Ne gördük">Sitede kurumsal ofis, genel müdürlük ve home office birlikte geçiyor; öncelik belirtilmemiş</td><td data-l="Durum"><span class="tag t-int">Toplantıda doğrulanacak</span></td></tr>
+          <tr><td data-l="Konu"><b>Bayi ağı</b></td><td data-l="Ne gördük">Sitede bayi bilgisi bulunamadı</td><td data-l="Durum"><span class="tag t-int">Toplantıda doğrulanacak</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin-top:12px">Benzer adlı başka işletmeler (ör. İnegöl'deki ev mobilyası üreticisi “Gür Mobilya”) analize dahil edilmedi.</p>
+  </div>
+</section>
+
+<section id="sorular">
+  <div class="wrap">
+    <div class="eyebrow">03 · Müşteri soruları ve araştırma kapsamı</div>
+    <h2>Alıcılar AI asistanına neler soruyor olabilir?</h2>
+    <p class="lead">Sorular, sitede gerçekten bulunan ürün ve hizmetlerden türetildi. Markasız sorulara Gürsan adını eklemedik. Bilgilendirme sorularında markanın anılmaması başarısızlık sayılmaz.</p>
+    <div class="filters" role="group" aria-label="Soru amacı filtresi" id="qfilters"></div>
+    <div class="tblwrap">
+      <table class="tbl stack" id="qtable">
+        <thead><tr><th>#</th><th>Soru</th><th>Amaç</th><th>Dayandığı içerik</th><th>Pilot</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card"><h3>Tarama</h3><p class="small muted">Site haritasından seçilen 50 sayfa: 9 kurumsal, 11 kategori, 21 ürün, 9 blog. 49 sayfa başarıyla tarandı, 1 sayfa sunucu hatası verdi (HTTP 500).</p></div>
+      <div class="card"><h3>Kurallar</h3><p class="small muted">Sitenin robots.txt kurallarına uyuldu. Menü ve alt bilgi gibi her sayfada tekrar eden içerik ayıklandı. Ölçü tabloları sayfa kodundan ayrıca kontrol edildi.</p></div>
+      <div class="card"><h3>Pilot odağı</h3><p class="small muted">Yönetici masaları, makam takımları ve proje talebi. Bu grupta en çok kanıt var: ölçü tabloları, seçim rehberi ve SSS. Seçim toplantıda onaylanacak.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="olcum">
+  <div class="wrap">
+    <div class="eyebrow">04 · AI ölçümü</div>
+    <h2>Ölçüm planı hazır, henüz çalıştırılmadı</h2>
+    <p class="lead">Bu sunumda hiçbir görünürlük puanı veya AI yanıtı yer almıyor. Ölçüm, sizin onayınızdan sonra aşağıdaki yöntemle yapılacak.</p>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card">
+        <h3>Yöntem</h3>
+        <div class="kv">
+          <div><b>Platformlar:</b> ChatGPT (OpenAI), Gemini, Claude; hepsinde web araması açık</div>
+          <div><b>Kapsam:</b> 7 pilot soru × 3 platform × 3 tekrar = <b>63 beklenen yanıt</b></div>
+          <div><b>Kayıt:</b> tarih, model, web araması durumu, soru, ham yanıt, gösterilen kaynaklar, çağrının başarılı olup olmadığı</div>
+          <div><b>Karşılaştırma:</b> Eski ve yeni ölçümde aynı sorular ve aynı yöntem kullanılır</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Ayrı raporlanacak üç sonuç</h3>
+        <div class="kv">
+          <div><span class="tag t-acc">1</span> <b>Anılma:</b> Yanıtta Gürsan'ın adı geçiyor mu?</div>
+          <div><span class="tag t-acc">2</span> <b>Öneri:</b> Gürsan görüşülecek veya tercih edilecek bir firma olarak önerildi mi?</div>
+          <div><span class="tag t-acc">3</span> <b>Kaynak:</b> gursanmobilya.com.tr kaynak olarak gösterildi mi?</div>
+        </div>
+        <p class="small muted" style="margin-top:12px">Oranlar yalnızca geçerli yanıtlar üzerinden hesaplanır ve “geçerli / beklenen” sayısı her zaman gösterilir. Başarısız çağrılar “görünmedi” sayılmaz.</p>
+      </div>
+    </div>
+    <div class="notice small">API üzerinden alınan yanıtlar, ChatGPT veya Gemini uygulamasında bir kullanıcının gördüğüyle birebir aynı olmayabilir. 63 yanıtlık bir örneklem pazarın tamamını temsil etmez; yalnızca aynı yöntemle önce ve sonra arasındaki yönü gösterir.</div>
+  </div>
+</section>
+
+<section id="bulgular">
+  <div class="wrap">
+    <div class="eyebrow">05 · Kaynaklı bulgular</div>
+    <h2>Gözlem → kanıt → aksiyon</h2>
+    <p class="lead">Ayrıntılar için bir bulguya dokunun. Durum etiketleri: <span class="tag t-ok">Doğrulanmış</span> <span class="tag t-hyp">Hipotez</span> <span class="tag t-int">İç veri gerekli</span></p>
+    <div class="filters" role="group" aria-label="Bulgu durumu filtresi" id="ffilters"></div>
+    <div id="flist"></div>
+  </div>
+</section>
+
+<section id="rakipler">
+  <div class="wrap">
+    <div class="eyebrow">06 · Rakipler ve kaynak kanıtları</div>
+    <h2>Aday rakipler</h2>
+    <p class="lead">Ürün örtüşmesini ve İstanbul'daki varlıklarını firmaların kendi sitelerinden kontrol ettik. Haber siteleri ve dizinler rakip sayılmadı. Gerçek rakiplerinizi sizden öğrenmek istiyoruz.</p>
+    <div class="tblwrap" style="margin-top:22px">
+      <table class="tbl stack">
+        <thead><tr><th>Firma</th><th>Kontrol edilen örtüşme</th><th>Kaynak</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Firma"><b>Özel Metal</b></td><td data-l="Örtüşme">Yönetici masası, workstation, toplantı masası · İstanbul · proje/teklif</td><td data-l="Kaynak"><a href="https://www.ozelmetal.com.tr/" target="_blank" rel="noopener">ozelmetal.com.tr</a></td></tr>
+          <tr><td data-l="Firma"><b>Addo</b></td><td data-l="Örtüşme">Yönetici masası, akustik, toplantı masası, çalışma koltuğu · İstanbul</td><td data-l="Kaynak"><a href="https://addo.com.tr/" target="_blank" rel="noopener">addo.com.tr</a></td></tr>
+          <tr><td data-l="Firma"><b>Offe Ofis</b></td><td data-l="Örtüşme">Yönetici masası, workstation, toplantı masası · İstanbul · proje</td><td data-l="Kaynak"><a href="https://www.offeofis.com.tr/" target="_blank" rel="noopener">offeofis.com.tr</a></td></tr>
+          <tr><td data-l="Firma"><b>Dianof</b></td><td data-l="Örtüşme">Yönetici masası, workstation, toplantı masası, çalışma koltuğu · proje</td><td data-l="Kaynak"><a href="https://dianof.com/" target="_blank" rel="noopener">dianof.com</a></td></tr>
+          <tr><td data-l="Firma"><b>Çalışkan Ofis</b></td><td data-l="Örtüşme">Toplantı masası, çalışma koltuğu, akustik · proje</td><td data-l="Kaynak"><a href="https://www.caliskanofis.com/" target="_blank" rel="noopener">caliskanofis.com</a></td></tr>
+          <tr><td data-l="Firma"><b>Nurus</b> <span class="small muted">(ulusal marka)</span></td><td data-l="Örtüşme">Ofis mobilyası, akustik kabin · İstanbul dahil mağazalar</td><td data-l="Kaynak"><a href="https://www.nurus.com/tr" target="_blank" rel="noopener">nurus.com</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:32px">Gürsan'ın sitesi dışında gördüğümüz kaynaklar</h3>
+    <p class="muted small">LinkedIn (“Gürsan Büro Mobilyaları Metal San. ve Tic. Ltd. Şti.” ve “Gürsan Geon Ofis Mobilyaları”), Facebook ve Instagram (gursanburo), Manuzone, Yelp. Bu kaynaklarda farklı adresler geçiyor: Aynalıkavak, Halıcıoğlu, Hasköy, Altunizade. Tek bir künye üzerinde anlaştıktan sonra bu profillerin de güncellenmesi önerilir.</p>
+  </div>
+</section>
+
+<section id="aksiyonlar">
+  <div class="wrap">
+    <div class="eyebrow">07 · Öncelikli aksiyonlar</div>
+    <h2>Beş öneri</h2>
+    <p class="lead">Öneriler, olası etki ve uygulama kolaylığı birlikte değerlendirilerek sıralandı. Hepsi Gürsan'ın onayı ve bilgisiyle uygulanır.</p>
+    <div class="act grid g2" style="margin-top:22px" id="alist"></div>
+  </div>
+</section>
+
+<section id="taslak">
+  <div class="wrap">
+    <div class="eyebrow">08 · İçerik ve reklam taslağı önizlemesi</div>
+    <h2>Öncesi / sonrası</h2>
+    <div class="sample">⚑ Örnek çalışma — gerçek performans sonucu değildir</div>
+    <p class="muted small">Sarı alanlar <span class="ph">[Gürsan onayı bekliyor]</span> olarak işaretlendi. Taslaklarda fiyat, teslimat, stok veya “en iyi” gibi kanıtlanmamış iddialar yok.</p>
+    <div class="tabs" role="tablist" aria-label="Taslaklar">
+      <button class="tabbtn" role="tab" aria-selected="true" aria-controls="p1" id="t1">Exec yönetici masası</button>
+      <button class="tabbtn" role="tab" aria-selected="false" aria-controls="p2" id="t2" tabindex="-1">Marka künyesi</button>
+      <button class="tabbtn" role="tab" aria-selected="false" aria-controls="p3" id="t3" tabindex="-1">Akustik kabin S / L</button>
+      <button class="tabbtn" role="tab" aria-selected="false" aria-controls="p4" id="t4" tabindex="-1">ChatGPT reklamı</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+      <div class="ba">
+        <div class="card"><h3>Öncesi · sitedeki metin</h3><p>“<b>Exec Toplantı Masası</b>, ince çizgileri, gösterişli ahşap kaplama renkleriyle ve keskin hatlı ayak yapısıyla dikkat çekici bir tasarımdır… Etajerinde elektronik kilit sistemi ve çekmecelerinde teleskopik frenli ray sistemi kullanılmıştır. Ayrıca… elektronik açılıp kapanan masa üstü priz sistemi bulunmaktadır.”</p><p class="small muted">Ürünün adı Yönetici Masası ama metin “Toplantı Masası” diye başlıyor. Ölçüler yalnızca görsel tabloda veriliyor. Yapılandırılmış ürün verisi yok.</p></div>
+        <div class="card after"><h3>Sonrası · taslak</h3>
+          <p><b>Exec Yönetici Masası — makam odası takımı</b><br>Exec; yönetici masası, etajer, sehpa, konsol, dolap ve toplantı masasından oluşan bir makam takımıdır.</p>
+          <p><b>Ölçüler:</b> Masa 240×100×75 cm · Etajer 80×80×65 / 180×60×65 cm · Sehpa 70×70×45 / 110×60×45 cm · Konsol 180×40×95 / 240×40×95 cm · Dolap 100×40×150 / 120×40×210 / 200×40×200 cm · Toplantı masası 240×110×75 cm · Toplantı eki 150×100×75 cm</p>
+          <p><b>Detaylar:</b> Ahşap kaplama yüzey; etajerde elektronik kilit; çekmecelerde teleskopik frenli ray; elektronik açılır masa üstü priz.</p>
+          <p><b>Kimler için:</b> <span class="ph">[Gürsan onayı: ör. genel müdür odası]</span><br><b>Seçenekler:</b> <span class="ph">[kaplama renkleri, özel ölçü]</span><br><b>Teklif:</b> Adet ve şehir bilgisiyle teklif isteyin; Altunizade showroom'u <span class="ph">[ziyaret koşulları]</span>.</p>
+          <p class="small muted">Ölçüler sitedeki tablodan alındı. Sayfaya ürün adı, kategori, marka ve ölçüleri içeren yapılandırılmış ürün verisi (Product şeması) eklenir.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <div class="ba">
+        <div class="card"><h3>Öncesi · sitede farklı yerlerde</h3><ul class="small"><li>Ana sayfa: “25+ yıllık üretim tecrübesi”, “25 yılda 10.000'den fazla ofis”</li><li>Hakkımızda: temeller 1976'da atıldı</li><li>Ad: Gürsan Ofis Mobilyaları / Gursan Mobilya / Gürsan Büro</li><li>İletişim: “Merkez” başlığı altında Altunizade adresi; ayrıca Hasköy adresi</li><li>Yapılandırılmış veride firma adı yerine sayfa başlığı kullanılmış</li></ul></div>
+        <div class="card after"><h3>Sonrası · tek künye taslağı</h3><div class="kv small">
+          <div><b>Marka:</b> Gürsan Ofis Mobilyaları</div>
+          <div><b>Ticari unvan:</b> <span class="ph">[Gürsan Büro Mobilyaları Metal San. ve Tic. Ltd. Şti. — doğrulanacak]</span></div>
+          <div><b>Kuruluş:</b> 1976, Hasköy (Hakkımızda)</div>
+          <div><b>İdari ve lojistik merkez:</b> Keçici Piri Mah. Ahmet Turan Sk. No:2, Hasköy – Beyoğlu</div>
+          <div><b>Showroom:</b> Mahir İz Cd. No:10, Altunizade – Üsküdar</div>
+          <div><b>Faaliyet:</b> Üretim, projelendirme, perakende/toptan, ihracat <span class="ph">[güncel öncelik]</span></div>
+          <div><b>Profiller:</b> LinkedIn, Instagram, Facebook</div>
+        </div><p class="small muted">Bu künye sitenin her yerinde, yapılandırılmış veride ve dış profillerde aynı şekilde kullanılır.</p></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+      <div class="ba">
+        <div class="card"><h3>Öncesi</h3><p class="small">G-Pod (S) ve G-Pod (L) ürün sayfalarında <b>birebir aynı açıklama</b> var. “Tek kişilik mi, dört kişilik mi almalıyım?” sorusunun cevabı sitede bulunmuyor.</p></div>
+        <div class="card after"><h3>Sonrası · karşılaştırma tablosu taslağı</h3>
+          <table class="tbl small"><thead><tr><th></th><th>G-Pod S</th><th>G-Pod L</th></tr></thead><tbody>
+            <tr><td>Kapasite</td><td>Tek kişi</td><td>Dört kişi</td></tr>
+            <tr><td>Kullanım</td><td>Telefon, odaklanma</td><td>Küçük toplantı, görüntülü görüşme</td></tr>
+            <tr><td>Yankı süresi</td><td colspan="2">0,25 sn (sitede)</td></tr>
+            <tr><td>Panel</td><td colspan="2">38 mm çift katman alüminyum petek (sitede)</td></tr>
+            <tr><td>Aydınlatma / hava</td><td colspan="2">4000K · hava 2 dakikada bir yenilenir (sitede)</td></tr>
+            <tr><td>Dış ölçü</td><td><span class="ph">[Gürsan]</span></td><td><span class="ph">[Gürsan]</span></td></tr>
+            <tr><td>Ses azaltımı (dB)</td><td colspan="2"><span class="ph">[test raporu varsa]</span></td></tr>
+            <tr><td>Kurulum, elektrik</td><td colspan="2"><span class="ph">[Gürsan]</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+      <div class="notice small" style="margin-top:0"><b>Organik görünürlük ve reklam iki ayrı konudur.</b> ChatGPT reklamlarının Türkiye'deki reklamverenlere açık olduğu ikincil kaynaklarda bildiriliyor, ancak OpenAI'ın resmî sayfalarından henüz doğrulayamadık. Reklam formatı ve hesap koşulları yayından önce resmî kaynaktan kontrol edilecek. GeoAdra metin taslağı hazırlar; reklamı yayınlamaz ve satış garantisi vermez.</div>
+      <div class="grid g2">
+        <div class="ad"><div class="adlabel">Yaklaşım 1 · Kurumsal ofis projesi</div><div class="adh">İstanbul'da ofis mobilyası üretimi ve projelendirme</div><p class="small">1976'dan bu yana İstanbul'da üretim. Masa, koltuk ve depolama ürünlerini tek tedarikçiden görün; adet ve şehir bilgisiyle teklif isteyin. <span class="ph">[künye onayına bağlı]</span></p><p class="small muted">Hedef sayfa: önerilen “Kurumsal projeler” sayfası (Aksiyon 3). O hazır olana kadar: Ürün grupları sayfası.</p></div>
+        <div class="ad"><div class="adlabel">Yaklaşım 2 · Makam odası</div><div class="adh">Yönetici masası ve makam takımları</div><p class="small">Masa, etajer, konsol ve toplantı masası ölçüleriyle Exec, Verona ve Tefen takımlarını inceleyin; Altunizade showroom'u ziyaret edin veya teklif isteyin.</p><p class="small muted">Hedef sayfa: Yönetici Masaları kategorisi (Aksiyon 1'den sonra).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilot">
+  <div class="wrap">
+    <div class="eyebrow">09 · 30 günlük pilot</div>
+    <h2>Tek ürün grubu, sabit soru seti, aynı yöntemle iki ölçüm</h2>
+    <div class="sample">⚑ Örnek çalışma — gerçek performans sonucu değildir</div>
+    <div class="tl">
+      <div class="card"><div class="wk">Hafta 1</div><h3>Başlangıç ölçümü</h3><p class="small muted">Ürün grubu, soru seti ve rakip listesini birlikte onaylıyoruz. Ardından 63 yanıtlık ilk ölçümü yapıp ham kayıtları paylaşıyoruz.</p></div>
+      <div class="card"><div class="wk">Hafta 2</div><h3>Onaylı iyileştirme</h3><p class="small muted">Yönetici masası sayfaları ve marka künyesi taslaklarını hazırlıyoruz. Gürsan onaylıyor ve yayınlıyor.</p></div>
+      <div class="card"><div class="wk">Hafta 3</div><h3>Teknik kontrol</h3><p class="small muted">Yapılandırılmış veri, kırık bağlantılar ve site haritası düzeltmeleri. Teklif formuna kaynak alanı ekleniyor.</p></div>
+      <div class="card"><div class="wk">Hafta 4</div><h3>Yeniden ölçüm</h3><p class="small muted">Aynı sorular ve aynı yöntemle ikinci ölçüm. Anılma, öneri ve kaynak gösterilme sonuçları ayrı ayrı raporlanıyor.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card"><h3>Başarıyı nasıl değerlendireceğiz?</h3><ul class="small"><li>Onaylanan içerikler yayında ve yapılandırılmış veri doğrulamasından geçiyor</li><li>Her iki ölçümde de geçerli yanıt oranı en az %90</li><li>Anılma, öneri ve kaynak gösterilme oranlarının hangi yöne değiştiği (önceden sayısal hedef koymuyoruz)</li><li>Kaynağı etiketlenmiş teklif talepleri (Gürsan bu veriyi paylaşmak isterse)</li></ul></div>
+      <div class="card"><h3>Dürüst sınırlar</h3><p class="small muted">30 gün, AI sistemlerinin yeni içeriği fark etmesi için kısa olabilir. Görünürlükte değişim görülmemesi içeriğin etkisiz olduğunu kanıtlamaz. Görünürlük artışı da satış artışı garantisi değildir. Pilotun amacı, sonraki adıma Gürsan'a ait verilerle karar vermektir.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">GeoAdra by CallypsoTech · Bu sayfa, Gürsan Ofis Mobilyaları ile yapılacak toplantı için hazırlanmıştır. Bulgular 27 Ekim 2026'da kamuya açık kaynaklardan derlenmiştir. Gürsan'ın iç verilerini içermez.</div>
+</footer>
+
+<script>
+const Q=[
+ {n:'S1',q:"İstanbul'da ofis mobilyası üreten ve ofis yerleşim projesi de yapan hangi firmalarla görüşebilirim?",a:'kesif',s:'Üretim + projelendirme',p:true},
+ {n:'S2',q:"Yeni ofisim için çalışma masası, yönetici masası ve koltukları tek tedarikçiden alabileceğim İstanbul'daki üreticiler hangileri?",a:'kesif',s:'Masalar, ofis koltukları',p:true},
+ {n:'S3',q:"Açık ofiste telefon görüşmeleri için tek kişilik akustik kabin satan Türk firmaları hangileri?",a:'kesif',s:'G-Pod (S)',p:false},
+ {n:'S4',q:"20 kişilik açık ofis için workstation masa sistemi seçerken nelere bakmalıyım, hangi üreticileri değerlendirmeliyim?",a:'ihtiyac',s:'Trim Workstation',p:false},
+ {n:'S5',q:"Hukuk bürosu için yönetici masası ve bekleme koltuğu önerir misin?",a:'ihtiyac',s:'Avukat ofisi rehberi',p:true},
+ {n:'S6',q:"Açık ofiste 4 kişilik toplantı kabini mi, küçük bir toplantı odası mı daha uygun olur?",a:'ihtiyac',s:'G-Pod (L), gürültü rehberi',p:false},
+ {n:'S7',q:"Gürsan Ofis Mobilyaları hangi ürünleri üretiyor, nasıl bir firma?",a:'karsilastirma',s:'Kurumsal bilgiler (markalı)',p:true},
+ {n:'S8',q:"Yönetici masası için Gürsan Ofis Mobilyaları ile [doğrulanan rakip] arasında nasıl seçim yapmalıyım?",a:'karsilastirma',s:'Rakip onayından sonra (markalı)',p:false},
+ {n:'S9',q:"İstanbul'da 50 kişilik bir ofis için mobilya teklifi almak istiyorum; projelendirme desteği veren üreticiler kimler?",a:'proje',s:'Teklif formu, projelendirme',p:true},
+ {n:'S10',q:"Genel müdür makam odası için yönetici takımı ve toplantı masasını birlikte alabileceğim firmalar hangileri?",a:'proje',s:'Exec, Verona, Tefen',p:true},
+ {n:'S11',q:"Yönetici masası seçerken ölçü, malzeme ve depolama açısından nelere dikkat etmeliyim?",a:'bilgi',s:'Yönetici masası rehberi',p:true},
+ {n:'S12',q:"Açık ofiste gürültüyü azaltmak için hangi mobilya çözümleri kullanılabilir?",a:'bilgi',s:'Gürültü rehberi',p:false},
+ {n:'S13',q:"Resepsiyon bankosu için standart yükseklik ve ölçüler nelerdir?",a:'bilgi',s:'Banko ölçüleri yazısı',p:false}
+];
+const QA={kesif:'Ürün/tedarikçi keşfi',ihtiyac:'İhtiyaca uygun çözüm',karsilastirma:'Karşılaştırma',proje:'Proje/teklif',bilgi:'Bilgilendirme'};
+
+const U='https://gursanmobilya.com.tr';
+const F=[
+ {id:'B1',t:'Ürün sayfalarında yapılandırılmış ürün verisi yok; firma verisi eksik',s:'ok',o:"İncelenen 21 ürün sayfasının hiçbirinde Product şeması yok. Firma şemasında ad yerine SEO başlığı kullanılmış; adres, telefon ve kuruluş yılı yok.",k:[[U+'/urun/exec-yonetici-masasi/','Exec ürün sayfası'],[U+'/','Ana sayfa']],e:'Arama ve AI sistemleri ürün adını, kategorisini, ölçüsünü ve firma kimliğini yapılandırılmış biçimde alamıyor.',a:'Firma şeması + 5 pilot ürüne Product şeması (fiyat yoksa fiyat alanı eklenmez).',m:'Doğrulayıcıda hatasız; 5/5 pilot ürün.'},
+ {id:'B2',t:'Bazı ürünlerde açıklama yok veya iki ürün aynı metni kullanıyor',s:'ok',o:"Calista Pro, Odin ve Ucool'da açıklama yok. Titan Etajer, Moon ve KP13'te yalnızca teklif formu metni var. G-Pod S ve L aynı metni paylaşıyor.",k:[[U+'/urun/calista-pro-yonetici-koltugu/','Calista Pro'],[U+'/urun/s-tek-kisilik/','G-Pod S'],[U+'/urun/l-dort-kisilik/','G-Pod L']],e:'“Hangisini seçmeliyim?” türündeki soruların cevabı sitede bulunmuyor.',a:'Her ürün grubu için standart bir açıklama şablonu.',m:'Pilot grupta açıklaması olmayan ürün kalmaması.'},
+ {id:'B3',t:'Ölçüler masalarda var, koltuk ve kabinlerde yok',s:'ok',o:'Masa ve takımların 7/7\'sinde ölçü tablosu var. İncelenen 14 koltuk, oturma, depolama ve kabin sayfasında ölçü tablosu yok.',k:[[U+'/urun/exec-yonetici-masasi/','Exec (tablo var)'],[U+'/urun/dove-yonetici-koltugu/','Dove (tablo yok)']],e:'Ölçüye dayalı sorular masa dışındaki ürünlerde cevapsız kalıyor.',a:'Koltuk ve kabinlere teknik tablo eklenmesi.',m:'2. ürün grubunda tablolar yayında.'},
+ {id:'B4',t:'Kurumsal bilgilerde tutarsızlıklar',s:'ok',o:'Sitede “25+ yıl” ile “1976” birlikte geçiyor. Marka üç farklı adla anılıyor. “Merkez” başlığının altında showroom adresi yazıyor. Exec Yönetici Masası açıklaması “Exec Toplantı Masası” diye başlıyor.',k:[[U+'/','Ana sayfa'],[U+'/hakkimizda/','Hakkımızda'],[U+'/iletisim/','İletişim']],e:'AI özetlerinde çelişkili yıl, ad veya adres görülme riski (hipotez).',a:'Tek bir marka künyesi hazırlanıp her yerde aynı şekilde kullanılması.',m:'4 çelişkinin giderilmesi.'},
+ {id:'B5',t:'Projeler anlatılıyor ama örnek proje sayfası yok',s:'int',o:'Sitede “yurt içi ve yurt dışında büyük ölçekli projeler” ve “referans marka” ifadeleri geçiyor; ancak sitede proje veya referans sayfası bulunmuyor. Hangi projelerin paylaşılabileceğini Gürsan biliyor.',k:[[U+'/hakkimizda/','Hakkımızda'],[U+'/page-sitemap.xml','Sayfa haritası']],e:'Proje tedarikçisi arayan kurumsal alıcı, iddiayı doğrulayacak bir örnek bulamıyor.',a:'Müşteri onayıyla 3 proje vaka sayfası.',m:'3 vaka yayında.'},
+ {id:'B6',t:'Blog rehberleri güçlü bir varlık',s:'ok',o:'18 yazı var: yönetici masası, konferans koltuğu, açık ofis gürültüsü, avukat ofisi ve banko ölçüleri rehberleri. Yönetici masası rehberinde SSS şeması da bulunuyor.',k:[[U+'/yonetici-masasi-modelleri-ve-secim-rehberi/','Yönetici masası rehberi'],[U+'/acik-ofiste-gurultu-sorunu-kaynaklar-cozumler-ve-verimlilik-rehberi/','Açık ofis gürültü rehberi']],e:'Bilgilendirme sorularında kaynak olarak gösterilmeye aday içerikler.',a:'Rehberlerin ilgili ürün ve teklif sayfalarına bağlanması.',m:'Rehberden teklif sayfasına geçiş (iç veri).'},
+ {id:'B7',t:'Blogda kırık ürün bağlantıları',s:'ok',o:'Bir yazıdaki 15 ürün bağlantısından 3\'ü “sayfa bulunamadı” (404) hatası veriyor: Active, Range, Relax. Konferans rehberi ise okura “Ankara ve Bursa’daki üreticilerin” tekliflerini incelemesini öneriyor.',k:[[U+'/en-iyi-ofis-sandalyesi-markasi/','Blog yazısı'],[U+'/konferans-koltugu-secim-rehberi/','Konferans rehberi']],e:'Ziyaretçi için çıkmaz yol; mesaj tutarsızlığı.',a:'Bağlantıların düzeltilmesi veya yönlendirilmesi; cümlenin gözden geçirilmesi.',m:'0 kırık bağlantı.'},
+ {id:'B8',t:'Site haritasında tema demo sayfaları',s:'ok',o:'Site haritasında yaklaşık 19 hazır tema demo sayfası var (fashion, jewelry, skincare, autopart…). Kontrol ettiğimiz 5 sayfanın 4\'ü sunucu hatası veriyor. İç sayfalarda meta açıklama yok. Ana sayfa başlığında yazım hatası var (“Yerli asarımlar”).',k:[[U+'/page-sitemap.xml','Sayfa haritası'],[U+'/autopart/','Örnek demo sayfası']],e:'Arama motorlarının ve AI sistemlerinin markayla ilgisiz sayfalarla uğraşması (hipotez).',a:'Demo sayfaların kaldırılması veya dizine eklenmemesi; meta açıklamaların yazılması.',m:'Site haritasında 0 demo sayfası.'},
+ {id:'B9',t:'Katalog PDF\'i yaklaşık 270 MB',s:'ok',o:'Katalog dosyasının boyutu yaklaşık 270 MB (sunucu yanıtındaki dosya boyutu bilgisi).',k:[[U+'/katalog-talep-formu/','Katalog talep formu']],e:'Mobilde indirmesi zor; bu kadar büyük dosyaların tam işlenmeme ihtimali (hipotez).',a:'Ürün grubu bazında hafif PDF\'ler ve HTML teknik föyler.',m:'Grup PDF\'leri 10 MB\'ın altında.'},
+ {id:'B10',t:'Teklif taleplerinin kaynağı izleniyor mu?',s:'hyp',o:'Teklif formunun gizli alanında “[current_page_url]” ifadesi işlenmeden, düz metin olarak görünüyor. Talebin hangi ürün sayfasından geldiği kaydedilmiyor olabilir.',k:[[U+'/urun/exec-yonetici-masasi/','Ürün sayfası (kod)']],e:'AI asistanından gelen talepler ayırt edilemeyebilir.',a:'Forma ürün/kaynak bilgisi ve “Bizi nereden duydunuz?” seçeneği eklenmesi.',m:'Pilot süresince kaynağı etiketlenmiş teklif kayıtları.'},
+ {id:'B11',t:'İngilizce site var, dil eşleşmesi eksik',s:'hyp',o:'/en/ sürümü var. Türkçe sayfalarda İngilizce karşılığı gösteren dil etiketi (hreflang) yok. Menüdeki Fransızca ve Japonca seçeneklerinin karşılığı bulunmuyor. İhracatın öncelik olup olmadığını bilmiyoruz.',k:[[U+'/en/','İngilizce site']],e:'Yabancı alıcıların İngilizce sorularında eşleşme sorunu (hipotez).',a:'Yalnızca ihracat öncelikliyse: Türkçe-İngilizce dil eşleşmesi ve İngilizce pilot sayfalar.',m:'Toplantıda karar verilecek.'},
+ {id:'B12',t:'Dış profillerde farklı ad ve adresler',s:'ok',o:'LinkedIn, Facebook, Instagram, Manuzone ve Yelp profillerinde farklı adresler geçiyor (Aynalıkavak, Halıcıoğlu, Hasköy, Altunizade). Ticari unvan sitede yazmıyor.',k:[['https://tr.linkedin.com/company/g%C3%BCrsan-b%C3%BCro-mobi%CC%87lyalari','LinkedIn'],['https://www.yelp.com/biz/g%C3%BCrsan-b%C3%BCro-mobilyalar%C4%B1-istanbul-3','Yelp']],e:'Dış kaynaklar ile sitenin birbiriyle çelişmesi.',a:'Künye onaylandıktan sonra profillerin güncellenmesi.',m:'Ana profillerde aynı ad, adres ve telefon.'},
+ {id:'B13',t:'Akustik kabinde ölçülebilir veri sınırlı',s:'ok',o:'Kategori sayfasında iyi bir tanıtım metni var. Ürün sayfasında yankı süresi (0,25 sn), panel kalınlığı, ışık rengi ve havalandırma bilgisi verilmiş. Ses azaltımı (dB), dış ölçü ve kurulum bilgisi yok.',k:[[U+'/urun-kategori/akustik-kabinler/','Akustik kabinler']],e:'Karşılaştırma sorularında somut veri eksik kalıyor.',a:'S/L karşılaştırma tablosu (veriler Gürsan\'dan).',m:'Tablo yayında; kanıtsız performans iddiası yok.'}
+];
+const SL={ok:['Doğrulanmış','t-ok'],hyp:['Hipotez','t-hyp'],int:['İç veri gerekli','t-int']};
+
+const A=[
+ {n:1,t:'Yönetici masası sayfalarını karar sayfasına çevirmek',q:'S2, S10, S11',p:'Exec, Verona, Tefen',ev:'B1, B3, B4',as:'Bu grup Gürsan\'ın büyütmek istediği gruplardan biri',need:'Kaplama seçenekleri, özel ölçü politikası, hedef kullanım → ürün/satış sorumlusu',step:'3 sayfa metni + ürün şeması + rehberden bağlantı',m:'3/3 sayfa yayında; S2, S10 ve S11 yeniden ölçüldü'},
+ {n:2,t:'Tek marka künyesi',q:'S1, S7',p:'Kurumsal sayfalar',ev:'B1, B4, B12',as:'Ticari unvan ve kuruluş bilgisi doğru',need:'Unvan, adresler, telefonlar, faaliyet öncelikleri → yönetim',step:'Künyenin onaylanması → site + firma şeması + dış profiller',m:'4 çelişki giderildi; S7\'deki yanıtlarda bilgilerin doğruluğu'},
+ {n:3,t:'Proje ve referans vaka sayfaları',q:'S1, S9',p:'Kurumsal projeler',ev:'B5',as:'Paylaşılabilecek projeler var',need:'İzin verilmiş 3 proje, görseller, Gürsan\'ın rolü → proje ekibi',step:'Vaka şablonu → 3 vaka → ürün sayfalarına bağlantı',m:'3 vaka yayında; S1 ve S9\'da kaynak gösterilme kontrolü'},
+ {n:4,t:'Akustik kabin S / L karşılaştırması',q:'S3, S6, S12',p:'G-Pod S, G-Pod L',ev:'B2, B13',as:'Ölçü ve test verisi mevcut',need:'Dış ölçü, dB testi, kurulum → teknik ekip',step:'Karşılaştırma tablosu + iki ayrı ürün açıklaması',m:'Tablo yayında (2. faz)'},
+ {n:5,t:'Teknik düzenleme paketi',q:'Tümü',p:'Site geneli',ev:'B7, B8, B9, B10',as:'Web sitesinde düzenleme yetkisi var',need:'Web sorumlusu veya ajans erişimi',step:'Kırık bağlantılar, demo sayfalar, meta açıklamalar, hafif katalog, form kaynak alanı',m:'0 kırık bağlantı; site haritasında 0 demo sayfası; form kayıtlarında kaynak bilgisi'}
+];
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+// questions
+const qf=document.getElementById('qfilters'), qb=document.querySelector('#qtable tbody');
+const qopts=[['all','Tümü'],['pilot','Pilot (7)'],...Object.entries(QA)];
+let qsel='all';
+function renderQ(){
+  qb.innerHTML=Q.filter(x=>qsel==='all'||(qsel==='pilot'?x.p:x.a===qsel)).map(x=>`<tr><td data-l="#"><b>${x.n}</b></td><td data-l="Soru">${esc(x.q)}</td><td data-l="Amaç"><span class="small">${QA[x.a]}</span></td><td data-l="Dayandığı içerik"><span class="small muted">${esc(x.s)}</span></td><td data-l="Pilot">${x.p?'<span class="tag t-acc">Pilot</span>':'<span class="small muted">2. faz</span>'}</td></tr>`).join('');
+  qf.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===qsel));
+}
+qf.innerHTML=qopts.map(([v,l])=>`<button class="chip" data-v="${v}" aria-pressed="false">${l}</button>`).join('');
+qf.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;qsel=b.dataset.v;renderQ();});
+renderQ();
+
+// findings
+const ff=document.getElementById('ffilters'), fl=document.getElementById('flist');
+let fsel='all';
+const fopts=[['all','Tümü ('+F.length+')'],...Object.entries(SL).map(([k,v])=>[k,v[0]+' ('+F.filter(f=>f.s===k).length+')'])];
+ff.innerHTML=fopts.map(([v,l])=>`<button class="chip" data-v="${v}" aria-pressed="false">${l}</button>`).join('');
+function renderF(){
+  fl.innerHTML=F.filter(f=>fsel==='all'||f.s===fsel).map(f=>`<details class="f"><summary><span class="id">${f.id}</span><span class="ttl">${esc(f.t)} <span class="tag ${SL[f.s][1]}">${SL[f.s][0]}</span></span><span class="chev" aria-hidden="true">›</span></summary><div class="fbody"><dl>
+   <div><dt>Gözlem</dt><dd>${esc(f.o)}</dd></div>
+   <div><dt>Kanıt</dt><dd>${f.k.map(([u,l])=>`<a href="${u}" target="_blank" rel="noopener">${esc(l)}</a>`).join(' · ')}</dd></div>
+   <div><dt>Olası etkisi</dt><dd>${esc(f.e)}</dd></div>
+   <div><dt>Aksiyon</dt><dd>${esc(f.a)}</dd></div>
+   <div><dt>Başarı ölçütü</dt><dd>${esc(f.m)}</dd></div></dl></div></details>`).join('');
+  ff.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===fsel));
+}
+ff.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;fsel=b.dataset.v;renderF();});
+renderF();
+
+// actions
+document.getElementById('alist').innerHTML=A.map(a=>`<div class="card"><div class="num">0${a.n}</div><h3>${esc(a.t)}</h3><div class="kv small">
+ <div><b>Müşteri sorusu:</b> ${a.q} · <b>Ürün/kategori:</b> ${esc(a.p)}</div>
+ <div><b>Kanıt:</b> ${a.ev} · <b>Doğrulanacak varsayım:</b> ${esc(a.as)}</div>
+ <div><b>Gerekli bilgi / sorumlu:</b> ${esc(a.need)}</div>
+ <div><b>Uygulama:</b> ${esc(a.step)}</div>
+ <div><b>Başarı ölçütü:</b> ${esc(a.m)}</div></div></div>`).join('');
+
+// tabs
+const tabs=[...document.querySelectorAll('.tabbtn')];
+function sel(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>sel(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];sel(n);n.focus();}});});
+
+// active nav
+const links=[...document.querySelectorAll('.navscroll a')];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
