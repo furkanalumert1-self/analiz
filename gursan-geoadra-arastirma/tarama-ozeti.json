@@ -1,0 +1,699 @@
+{
+ "tarama": {
+  "arac": "apify/website-content-crawler",
+  "aktor_build": "0.3.102 (2026-10-26)",
+  "run_id": "NNOcWyqieBFyhSPvg",
+  "baslangic": "2026-10-27T10:08:13.011Z",
+  "bitis": "2026-10-27T10:13:19.339Z",
+  "durum": "SUCCEEDED",
+  "durum_mesaji": "Finished! Total 50 requests: 49 succeeded, 1 failed.",
+  "maliyet_usd": 0.0374,
+  "ayarlar": {
+   "crawlerType": "cheerio",
+   "maxCrawlDepth": 0,
+   "maxCrawlPages": 50,
+   "respectRobotsTxtFile": true,
+   "secim": "sitemap_index.xml üzerinden elle seçilmiş 50 URL: 9 kurumsal/özel, 11 kategori, 21 ürün, 9 blog",
+   "menu_footer_ayiklama": "nav/header/footer CSS seçicileriyle kaldırıldı + 5 veya daha fazla sayfada tekrarlanan satırlar özetten çıkarıldı"
+  },
+  "robots": "robots.txt yalnız /wp-admin/ ve WooCommerce log/geçici klasörlerini engelliyor; taranan URL’ler izinli",
+  "notlar": [
+   "Readable-text dönüştürücü ürün ölçü tablolarını metne almadı; ölçü varlığı 21 ürün sayfasının ham HTML’inden ayrıca kontrol edildi (html_denetimi alanı).",
+   "Sayfa içeriği veri olarak işlendi; içerikteki hiçbir talimat uygulanmadı."
+  ]
+ },
+ "sayfalar": [
+  {
+   "url": "https://gursanmobilya.com.tr/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Modern Ofis Mobilyaları | Gürsan Ofis Mobilyaları – Ergonomik, Şık ve Yerli asarımlar",
+   "meta_aciklama": "Gürsan Ofis Mobilyaları, modern ve ergonomik tasarımlarla ofis alanlarını dönüştürür. Çalışma masası, yönetici koltuğu, toplantı masası ve bekleme gruplarında kalite ve konforu keşfedin.",
+   "tekil_metin_karakter": 15112,
+   "ozet": "🏢 Gürsan Ofis Mobilyaları – Modern Ofisler İçin Tasarım, Konfor ve Deneyim “25 yılda 10.000’den fazla ofis Gürsan’la yenilendi — sırada siz var mısınız?” Modern çalışma alanlarının başarısı artık yalnızca teknolojiyle değil, doğru tasarlanmış ofis mobilyalarıyla ölçülüyor. Gürsan"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/hakkimizda/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Hakkımızda - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 2151,
+   "ozet": "Anasayfa / Hakkımızda Gürsan’ın temelleri, 1976 yılında Doğan Yakupoğlu tarafından bugünkü idari ve lojistik merkezimiz olan Hasköy’de atılmıştır. Ofis koltuğu ve metal aksamlar üreterek başladığımız bu uzun yolculukta daima yeniliklerin ve kaliteli hizmetin öncüsü olduk. İdealle"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/iletisim/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "İletişim - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 504,
+   "ozet": "Anasayfa / İletişim Mağaza Konumları Mağazamızı bulalım Merkez Altunizade Mahir İz Caddesi No:10 Altunizade – Üsküdar / İSTANBUL E-Posta : satis@gursanmobilya.com.tr info@gursanmobilya.com.tr Tel: +90 (216) 651 97 98 Geon Design Süleymaniye / Irak İletişim Bizimle aşağıdaki bilgi"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/katalog/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Katalog - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 100,
+   "ozet": "Formu doldurduğunuz için teşekkürler. Ürün kataloğumuzu aşağıdaki linke tıklayarak indirebilirsiniz."
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/katalog-talep-formu/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Katalog Talep Formu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 111,
+   "ozet": "Ürün kataloğumuza erişmek için lütfen aşağıdaki formu doldurun. Anasayfa Menu Account 0Cart Katalog Talep Formu"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/magaza/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Ürünler - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 6341,
+   "ozet": "Showing 1–20 of 197 results Cocoo Yönetici Koltuğu Cocoo, vücudun doğal hareketlerine uyum sağlayan gelişmiş ergonomik yapısıyla çalışma deneyimini yeniden tanımlar. 7D hareketli kolçak sistemi, farklı yönlerde ayarlanarak kollarınıza ve omuzlarınıza kişisel destek sunar. Dual-Ti"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/blog/",
+   "tur": "blog-liste",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Gürsan Blog | Ofis Tasarımı, Ergonomi ve Modern Çalışma Kültürü Rehberi",
+   "meta_aciklama": "Gürsan Blog’da ofis yaşamına dair ergonomi, tasarım trendleri ve verimlilik önerilerini keşfedin. Modern ofis kültürüne ilham veren fikirler burada.",
+   "tekil_metin_karakter": 1892,
+   "ozet": "Açık Ofiste Gürültü Problemi Neden Bu Kadar Ciddi? (İstatistikler ve Araştırmalar) Açık ofis düzeninin “iş birliğini artırır, iletişimi kolaylaştırır” vaadiyle hayata geçirildiği söylenir. Ancak … Eğitim alanlarında başarı, yalnızca iyi öğretmenlerle ya da kaliteli müfredatla sın"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/anasayfa-english/",
+   "tur": "kurumsal",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Anasayfa - English - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 123,
+   "ozet": "İsim Soyisim E-Posta Telefon Adet Şehir Sorularınız mı var? Telefon: +90 (212) 256 62 30 E-Posta: info@gursanmobilya.com.tr"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/fashion-01/",
+   "tur": "tema-demo",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARISIZ",
+   "not_": "Apify isteği başarısız; elle kontrol: HTTP 500 Internal Server Error"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/masalar/yonetici-masalari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Yönetici Masaları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 6406,
+   "ozet": "Tüm sonuçları 14 gösteriliyor Dongli Yönetici Masası Dongli, zarif ve asil ofis takımı ofislerinizi zamansız mükemmellikte gösterir. Yalnızca çalışma alanı olarak hizmet etmekle kalmaz, aynı zamanda görsel bir sunum ve stresi azaltma işlevini de beraberinde sunar. Bir metropolün "
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/masalar/calisma-masalari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Çalışma Masaları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 3249,
+   "ozet": "Tüm sonuçları 9 gösteriliyor Nord Masa Takımı Nord Çalışma Takımı, bir çalışma platformu olarak tasarlanmıştır. Doğal masif yapıyı başka bir metal materyal ile eşsiz bir detay ile birleştirerek güçlü bir denge oluşturduk. Bağımsız masalar, çoklu çalışma alanları yaparak hızlı ve "
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/masalar/toplanti-masalari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Toplantı Masaları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 344,
+   "ozet": "Makamların saygınlığına uygun hacimde ve formda tasarlanmış olan Luster; masa üzerinde konumlandırılan deri sümen ile ahşap ve derinin doğal uyumunu ortaya çıkarıyor. Modern ve şık görünümünün yanında elektrifikasyon özellikleri, çalışma rutinin içindeki kablo karışıklığını ortad"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/masalar/workstation-masalari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Workstation Masaları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 2700,
+   "ozet": "Tüm sonuçları 7 gösteriliyor Hawk Workstation Akıllı çalışma mekanları yaratan Hawk; ayarlanabilir yükseklik seviyesi ve ergonomik tasarımı ile çok konforlu. Ortak çalışmaların vazgeçilmez tasarımı Hawk WS; farklı çalışma rutinlerine uygun yapısı ile kusursuz bir mesai ortamı yar"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/ofis-koltuklari/calisma-koltuklari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Çalışma Koltukları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 3730,
+   "ozet": "Showing 1–20 of 34 results Arico Çalışma Koltuğu Arico, alçak sırt tasarımı, sabit alüminyum kolçakları ve sabit döner tabanı ile toplantı alanları için şık ve işlevsel bir çözümdür. Wire-control mekanizma sistemi, oturum fonksiyonlarının kolayca yönetilmesini sağlar. Oturum ve s"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/ofis-koltuklari/yonetici-koltuklari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Yönetici Koltukları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 5960,
+   "ozet": "Showing 1–20 of 28 results Cocoo Yönetici Koltuğu Cocoo, vücudun doğal hareketlerine uyum sağlayan gelişmiş ergonomik yapısıyla çalışma deneyimini yeniden tanımlar. 7D hareketli kolçak sistemi, farklı yönlerde ayarlanarak kollarınıza ve omuzlarınıza kişisel destek sunar. Dual-Til"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/ofis-koltuklari/konferans-koltuklari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Konferans Koltukları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": "Modern konferans koltukları ve yazı tablalı sandalyelerle toplantı alanlarınıza konfor ve profesyonellik katın. Gürsan Ofis Mobilyaları kalitesiyle keşfedin.",
+   "tekil_metin_karakter": 2720,
+   "ozet": "Konferans Koltukları Hakkında Daha Fazla Bilgi Konferans Koltukları: Toplantı Alanlarında Konfor, Düzen ve Profesyonellik Gürsan Ofis Mobilyaları’nın konferans koltukları, uzun süreli toplantılar, seminerler ve sunumlar için maksimum konfor ve dayanıklılık sağlayacak şekilde tasa"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/akustik-kabinler/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Akustik Kabin, Toplantı Podu ve Sessiz Ofis Kabini | Gürsan Ofis Mobilyaları",
+   "meta_aciklama": "Akustik kabin, toplantı kabini ve sessiz pod çözümleriyle ofisinizde ses yalıtımı ve konsantrasyon sağlayın. Gürsan Ofis Mobilyaları farkıyla keşfedin.",
+   "tekil_metin_karakter": 3533,
+   "ozet": "Akustik Kabinler Hakkında Daha Fazla Bilgi Akustik Kabinler: Ofislerde Sessizlik, Konsantrasyon ve Verimlilik İçin Akıllı Çözümler Gürsan Ofis Mobilyaları tarafından geliştirilen akustik kabin sistemleri, modern ofis ortamlarında gürültüyü azaltmak, mahremiyeti sağlamak ve konsan"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/depolama-sistemleri/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Ofis Depolama Sistemleri - Gürsan Ofis Mobilyaları",
+   "meta_aciklama": "Ofis depolama sistemleri, kesonlar, etajerler, kitaplık ve dolap modelleriyle ofisinize düzen katın. Gürsan Ofis Mobilyaları güvencesiyle keşfedin.",
+   "tekil_metin_karakter": 3427,
+   "ozet": "Ofis Depolama Sistemleri Hakkında Daha Fazla Bilgi Ofis Depolama Sistemleri: Düzenli, Fonksiyonel ve Estetik Çalışma Alanları Gürsan Ofis Mobilyaları’nın ofis depolama sistemleri, modern ofislerin düzen ihtiyacına akıllı çözümler sunar. Dosyalar, kitaplar, evraklar veya kişisel e"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/kanepeler-sandalyeler/bekleme-koltuklari/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Bekleme Koltukları arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 2275,
+   "ozet": "Tüm sonuçları 7 gösteriliyor Alpi Bekleme Koltuğu Alpi bekleme koltuğu, modern çizgileri ve güçlü yapısıyla ofislerden sağlık kuruluşlarına kadar farklı alanlarda zarif bir çözüm sunar. Minimal tasarımı, 12 mm kalınlığındaki kompakt tabla ile tamamlanırken, koltuk gövdesiyle uyum"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun-kategori/tamamlayicilar/",
+   "tur": "kategori",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Tamamlayıcılar arşivleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 3154,
+   "ozet": "Tüm sonuçları 18 gösteriliyor Stelo Stelo, döner başlığının özenli tasarımı ve sade estetiği ile dikkat çeker. Fonksiyonellik ve tasarım mükemmel bir uyum içindedir; farklı parçaların hızlı ve kolay bir şekilde montajını sağlayan basit bir bağlantı sistemi kullanılmıştır. Stelo, "
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/exec-yonetici-masasi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Exec Yönetici Masası - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 437,
+   "ozet": "Exec Toplantı Masası, ince çizgileri, gösterişli ahşap kaplama renkleriyle ve keskin hatlı ayak yapısıyla dikkat çekici bir tasarımdır. Hem yenilikçi hem de klasik formuyla ofislerinizin hiçbir zaman geçmeyecek demirbaşı olacaktır. Etajerinde elektronik kilit sistemi ve çekmecele",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 12,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/verona-yonetici-masasi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Verona Yönetici Masası - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 486,
+   "ozet": "Verona Yönetici Takımı, zarif ve modern çizgileriyle ofisinizde şıklığı ve işlevselliği bir araya getiriyor. L şeklinde tasarlanmış geniş masası, kullanım kolaylığı ve depolama alanları ile iş akışınızı kolaylaştırır. Ahşap malzeme ve doğal tonlarıyla ofis ortamında sıcak ve prof",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 11,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/tefen-yonetici-takimi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Tefen Yönetici Masası - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 547,
+   "ozet": "Tefen Makam Takımı, zihinlerimizde somutlaştırdığımız masa kavramını ve bu kavram üzerinden oluşturduğumuz görsel ikonu farklı algılamamızı sağlayacak şekilde tasarlanmıştır. Ofis Masası kavramına yeni bir perspektiften bakmamızı sağlayacak ince çizgilere sahiptir. Üst ahşap gövd",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 13,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/trim-calisma-takimi-2/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Trim Masa Takımı - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 356,
+   "ozet": "Basitliği ve kullanım kolaylığı ile ofisinizin havasını değiştirecek Trim Çalışma Takımı; masa, keson ve sehpa ürünlerinden oluşuyor. Hareketli keson ile depolama ihtiyacınız için karmaşadan uzak, pratik bir çözüm sunarken tasarımı ile samimi çalışma ortamları oluşturuyor. İfade ",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 11,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/trim-workstation-2/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Trim Workstation - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 353,
+   "ozet": "Basitliği ve kullanım kolaylığı ile ofisinizin havasını değiştirecek Trim Workstation; masa, keson ve sehpa ürünlerinden oluşuyor. Hareketli keson ile depolama ihtiyacınız için karmaşadan uzak, pratik bir çözüm sunarken tasarımı ile samimi çalışma ortamları oluşturuyor. İfade ett",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 9,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/nord-toplanti-masasi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Nord Toplantı Masası - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 279,
+   "ozet": "Teknik olarak son derece hızlı ve pratik bir montaj kurgusu vardır. Opsiyonel ara bölücü sistemleri ihtiyaca göre değişkenlik gösterecek şekilde tasarlanmıştır. Güçlü ayak yapısı doğal görünümü ile ekosisteme saygılı bir yaklaşım sergilerken sade ve güçlü bir tasarım dili sunar.",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 5,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/odin-toplanti-masasi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Odin Toplantı Masası - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 29,
+   "ozet": "Odin Toplantı Masası quantity",
+   "html_denetimi": {
+    "olcu_tablosu": true,
+    "olcu_sayisi": 4,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/l-dort-kisilik/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "G-Pod (L) - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 912,
+   "ozet": "SES YALITIMI Yankı Süresi: 0.25S Akustik Kabin, 38 mm kalınlığında çift katmanlı alüminyum petek panelden üretilmiştir. Alüminyum plakanın yüzeyi, ses yalıtım gereksinimlerini karşılamak için yüksek yoğunluklu damping ses yalıtım keçe ile kaplanmıştır. İç dekorasyon, akustik çevr",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/calista-pro-yonetici-koltugu/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Calista Pro Yönetici Koltuğu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 37,
+   "ozet": "Calista Pro Yönetici Koltuğu quantity",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/dove-yonetici-koltugu/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Dove Yönetici Koltuğu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 412,
+   "ozet": "Dove, yalın tasarımı ve ergonomik özellikleriyle modern çalışma alanlarına konforlu bir çözüm sunar. 135° yatma açısı, 3° öne eğim fonksiyonu ve vücuda uyum sağlayan esnek sırt desteği ile uzun süreli oturumlarda rahatlık sağlar. 4D ayarlanabilir kolçakları ve plastik yıldız ayak",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/ligna-calisma-koltugu/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Ligna Çalışma Koltuğu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 455,
+   "ozet": "Ligna, modern ofis tasarımını doğal ve teknik dokularla buluşturan sofistike bir koltuktur. Sırt kısmında kullanılan kaplama, kullanıcıya iki farklı karakter sunar: doğal sıcaklık hissi veren ahşap yüzey veya daha teknik, çağdaş bir duruş sergileyen alüminyum yüzey seçeneği. Akıc",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/ucool-calisma-koltugu/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Ucool Çalışma Koltuğu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 30,
+   "ozet": "Ucool Çalışma Koltuğu quantity",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/eon-misafir-koltugu/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Eon Misafir Koltuğu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 320,
+   "ozet": "Eon, ayarlanabilir yükseklik, boyun desteği ve yumuşak kolçakları ile rahatlığı ön plana alan yönetici koltuğu modelimiz, ofisinizde sizlere konforu ve şıklığı aynı anda sunuyor. Modern tasarımı ile çalışma koltuğu, misafir koltuğu olarak set halinde üretilen koltuk modelimiz far",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/iso-bekleme-koltugu/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "ISO Bekleme Koltuğu - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 332,
+   "ozet": "Gürsan mobilya, siyah ve kum beji olmak üzere iki renkte Iso’yu öneriyor. Farklı hacimlere uygun kullanım alternatifleri beraberinde mevcuttur. ISO Bekleme Koltuğu, siyah rengi ile tüm tasarımlara uyum sağlayacak kilit renklerde sunulmaktadır. Döşemeli alterantiflerinde ise talep",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/kagan-serisi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Kagan Serisi - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 403,
+   "ozet": "Kagan Serisi Kanepe Takımı, özgün kıvrımlı hatlarıyla mekânınıza zarafet ve şıklık katar. Geniş oturma alanı ve ergonomik sırt desteği, hem estetik hem de konfor arayanlar için mükemmel bir çözüm sunar. Yüksek kaliteli döşemesi ve sağlam tabanı, uzun ömürlü kullanım sağlar. Hem k",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/titan-etajer/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Titan Etajer - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 123,
+   "ozet": "İsim Soyisim E-Posta Telefon Adet Şehir Sorularınız mı var? Telefon: +90 (212) 256 62 30 E-Posta: info@gursanmobilya.com.tr",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/g-board/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "G - Board - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 385,
+   "ozet": "G Board’un farklı kombinasyonları, çeşitli iş birliği alanları yaratır. Ayrıca, çalışma alanları arasında bölme olarak da kullanılabilir. Kullanılmadığında ofisinize dekoratif bir katkı sağlar. Ofisler, okullar, hastaneler ve evler için faydalıdır. Detaylar G Board, yüksek kalite",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/cheryl-berjer/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Cheryl Berjer - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 232,
+   "ozet": "Minimal çizgileri ve ergonomik formuyla konforu estetikle buluşturan bu sandalye, yumuşak döşemesi ve dayanıklı alüminyum ayaklarıyla uzun ömürlü kullanım sunar. Ofis, toplantı ve sosyal alanlar için şık ve fonksiyonel bir çözümdür.",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/moon-ic-ve-dis-mekan-masasi/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Moon Masa - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 123,
+   "ozet": "İsim Soyisim E-Posta Telefon Adet Şehir Sorularınız mı var? Telefon: +90 (212) 256 62 30 E-Posta: info@gursanmobilya.com.tr",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/kp13-tabure/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "KP13 Tabure - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 123,
+   "ozet": "İsim Soyisim E-Posta Telefon Adet Şehir Sorularınız mı var? Telefon: +90 (212) 256 62 30 E-Posta: info@gursanmobilya.com.tr",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/urun/s-tek-kisilik/",
+   "tur": "urun",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "G-Pod (S) - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 912,
+   "ozet": "SES YALITIMI Yankı Süresi: 0.25S Akustik Kabin, 38 mm kalınlığında çift katmanlı alüminyum petek panelden üretilmiştir. Alüminyum plakanın yüzeyi, ses yalıtım gereksinimlerini karşılamak için yüksek yoğunluklu damping ses yalıtım keçe ile kaplanmıştır. İç dekorasyon, akustik çevr",
+   "html_denetimi": {
+    "olcu_tablosu": false,
+    "olcu_sayisi": 0,
+    "meta_aciklama": false,
+    "product_semasi": false
+   }
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/yonetici-masasi-modelleri-ve-secim-rehberi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Yönetici Masası Seçim Rehberi: Modern Tasarımlar, Fiyatlar ve En Şık Ofis Çözümleri - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": "Ofisiniz için ideal yönetici masasını mı arıyorsunuz? Gürsan Ofis Mobilyaları’nın modern, ergonomik ve şık yönetici masa koleksiyonunu keşfedin. Fiyat alın, ofisinizi profesyonel bir atmosfere dönüştürün!",
+   "tekil_metin_karakter": 14749,
+   "ozet": "Bir yöneticinin ofisi, profesyonelliğin ve vizyonun aynasıdır. Bu nedenle doğru yönetici masası seçimi, yalnızca estetik bir detay değil, verimlilik ve prestijin de temelidir. Ergonomik yapısı, kaliteli malzemesi ve zarif tasarımıyla öne çıkan yönetici masası modelleri, iş dünyas"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/acik-ofiste-gurultu-sorunu-kaynaklar-cozumler-ve-verimlilik-rehberi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Açık Ofiste Gürültü Sorunu: Kaynaklar, Çözümler ve Verimlilik Rehberi (2026) - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 32699,
+   "ozet": "Açık Ofiste Gürültü Problemi Neden Bu Kadar Ciddi? (İstatistikler ve Araştırmalar) Açık ofis düzeninin “iş birliğini artırır, iletişimi kolaylaştırır” vaadiyle hayata geçirildiği söylenir. Ancak araştırmalar, bu vaadin çoğu zaman kağıt üzerinde kaldığını açıkça ortaya koymaktadır"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/banko-tasarimi-standart-olculeri/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Banko Tasarımı için Standart Ölçüleri: İdeal Yükseklik, Genişlik ve Derinlik Rehberi - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 2274,
+   "ozet": "Banko tasarımı, hem estetik hem de işlevsellik açısından dikkat gerektirir. Yanlış ölçüler, hem çalışanlar hem de müşteriler için rahatsızlık yaratabilir. Peki, ideal bir banko tasarımı için hangi ölçüler kullanılmalı? Bu rehberde, farklı kullanım alanlarına uygun standart banko "
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/konferans-koltugu-secim-rehberi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Konferans Koltuğu Seçim Rehberi: Fiyatlar, Modeller ve Teknik Özellikler! - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": "Konferans salonunuz için en uygun koltuğu nasıl seçersiniz? Yazı tablalı, ergonomik ve dayanıklı modellerle ilgili bilgiler, fiyat karşılaştırmaları.",
+   "tekil_metin_karakter": 8240,
+   "ozet": "Konferans Koltuğu Seçiminin Önemi Bir konferans salonunun işlevselliği ve katılımcıların etkinlik deneyimi, kullanılan mobilyaların kalitesiyle doğrudan ilişkilidir. Özellikle konferans koltukları, uzun süreli oturumlarda konfor sunarken salonun genel estetiğini de tamamlar. Anca"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/avukat-ofis-mobilyalari-dogru-secim-rehberi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Avukat Ofis Mobilyaları: Doğru Seçim Rehberi - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": "Avukatlık Ofisleri (Hukuk Büroları) için mobilya seçim rehberi. Masalar, sandalyeler ve koltuklar. Gürsan Kalitesi ile.",
+   "tekil_metin_karakter": 17684,
+   "ozet": "Bir hukuk bürosuna girildiğinde ilk hissedilen şey kelimeler değildir — mekanın kendisidir. Masasının yüksekliğiyle güven veren bir duruş, doğru aydınlatmayla netlik hissi, koltuğun konforuyla sürdürülebilir odak… Hepsi birlikte “burada profesyonellik var” mesajını verir. <entity"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/en-iyi-ofis-sandalyesi-markasi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "En İyi Ofis Sandalyesi Markası | Gürsan Ofis Mobilyaları",
+   "meta_aciklama": "Gürsan Ofis Mobilyaları ile sırt ağrısına veda edin. En iyi ofis sandalyesi markası olarak ergonomi, tasarım ve dayanıklılığı bir arada sunuyor.URL: /en-iyi-ofis-sandalyesi-markasi/",
+   "tekil_metin_karakter": 6430,
+   "ozet": "Günün büyük bir bölümünü sandalyede geçiriyorsunuz, değil mi? Uzun çalışma saatlerinde beliniz ağrıyor, omuzlarınız kasılıyor ve günün sonunda yorgun hissediyorsanız, sorun büyük ihtimalle oturma pozisyonunuz değil — kullandığınız sandalyedir. İyi haber şu: Artık sırt ağrısına ve"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/dershane-sandalyeleri-rehberi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Dershane Sandalyeleri: Konforlu Öğrenme Ortamları için Doğru Sandalye Seçimi - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": "Dershane sandalyesi modelleri ile sınıf ve etüt merkezlerinde konforu artırın. Yazı tablalı, kolçaklı ve dayanıklı sınıf sandalyelerini Gürsan’da keşfedin.",
+   "tekil_metin_karakter": 22298,
+   "ozet": "Eğitim alanlarında başarı, yalnızca iyi öğretmenlerle ya da kaliteli müfredatla sınırlı değildir — öğrencinin rahat, odaklanmış ve doğru oturma pozisyonunda olması da en az bilgi kadar önemlidir. İşte bu yüzden, bir dershane sandalyesi, sınıfın sessiz ama en etkili bileşenidir. U"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/ergonomik-ofis-sandalyesi-secimi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Ergonomik Ofis Sandalyesi - Sırt Desteği, Oturma Minderi ve Ortopedik Rahatlık - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": null,
+   "tekil_metin_karakter": 14627,
+   "ozet": "Günün büyük kısmını masa başında geçiriyorsanız, oturduğunuz ofis sandalyesi yalnızca bir mobilya değil — sağlığınızı doğrudan etkileyen bir faktördür. Bel, sırt veya boyun ağrıları çoğu zaman yanlış sandalye seçiminden kaynaklanır. Oysa doğru ergonomik ofis sandalyesi, uzun saat"
+  },
+  {
+   "url": "https://gursanmobilya.com.tr/ofis-sandalye-takimi-secimi/",
+   "tur": "blog",
+   "erisim_tarihi": "2026-10-27",
+   "tarama_durumu": "BAŞARILI",
+   "http": 200,
+   "baslik": "Ofis Sandalye Takımı Seçerken Nelere Dikkat Etmelisiniz? Ergonomik ve Estetik Dengeyi Yakalayın - Ofis Koltukları ve Mobilyaları | Gürsan Ofis Mobilyaları - Ergonomik ve Şık Çözümler",
+   "meta_aciklama": "Ofisinizin tarzını tamamlayacak, ergonomik ve estetik ofis sandalye takımı modellerini keşfedin. Gürsan Ofis Mobilyaları ile konfor ve tasarım dengesini yakalayın!",
+   "tekil_metin_karakter": 11996,
+   "ozet": "Bir ofisin atmosferi, yalnızca duvar rengi veya masa düzeniyle değil, seçilen ofis sandalye takımı ile de belirlenir. Çalışma alanlarında konfor, estetik ve işlevsellik bir araya geldiğinde hem çalışan motivasyonu hem de kurumsal imaj güçlenir. Bu yüzden doğru sandalye takımı seç"
+  }
+ ]
+}
