@@ -4,6 +4,27 @@
 
 **Kullanım:** Linki önce tarayıcıda açıp filtrelerin dolduğunu kontrol et → sonuç 300–2.000 arasındaysa LeadMash'e yapıştır. Sıralama, `README.md` bölüm 3B'deki öncelik sırasıdır.
 
+## 1★ İhracatçı – BİRLEŞİK (1A–1E tek listede)
+
+Sektörler: tekstil, hazır giyim, makine, otomotiv yan sanayi, gıda, mobilya, yapı malzemesi/mermer + `exporter` / `Dış Ticaret`. Genel kelimeler (`manufacturing`, `Sanayi`, `export`) bilerek çıkarıldı; bunlar listeyi ihracat yapmayan firmalarla şişiriyor. Boyut: 11–20, 21–50.
+
+**Birleşik link (tüm unvanlar):**
+```
+https://app.apollo.io/#/people?page=1&sortByField=recommendations_score&sortAscending=false&personTitles[]=D%C4%B1%C5%9F%20Ticaret%20M%C3%BCd%C3%BCr%C3%BC&personTitles[]=%C4%B0hracat%20M%C3%BCd%C3%BCr%C3%BC&personTitles[]=Export%20Manager&personTitles[]=Foreign%20Trade%20Manager&personTitles[]=Export%20Sales%20Manager&personTitles[]=D%C4%B1%C5%9F%20Ticaret%20Sorumlusu&personTitles[]=Export%20Director&personTitles[]=Genel%20M%C3%BCd%C3%BCr&personTitles[]=General%20Manager&personTitles[]=Kurucu&personTitles[]=Founder&personTitles[]=%C5%9Eirket%20Sahibi&personTitles[]=Owner&personTitles[]=Y%C3%B6netim%20Kurulu%20%C3%9Cyesi&personSeniorities[]=owner&personSeniorities[]=founder&personSeniorities[]=c_suite&personSeniorities[]=head&personSeniorities[]=director&personSeniorities[]=manager&personLocations[]=Turkey&personLocations[]=T%C3%BCrkiye&organizationNumEmployeesRanges[]=11%2C20&organizationNumEmployeesRanges[]=21%2C50&qOrganizationKeywordTags[]=textiles&qOrganizationKeywordTags[]=apparel&qOrganizationKeywordTags[]=Tekstil&qOrganizationKeywordTags[]=Konfeksiyon&qOrganizationKeywordTags[]=machinery&qOrganizationKeywordTags[]=Makina&qOrganizationKeywordTags[]=Makine&qOrganizationKeywordTags[]=automotive%20parts&qOrganizationKeywordTags[]=food%20production&qOrganizationKeywordTags[]=G%C4%B1da&qOrganizationKeywordTags[]=furniture&qOrganizationKeywordTags[]=building%20materials&qOrganizationKeywordTags[]=Mobilya&qOrganizationKeywordTags[]=Mermer&qOrganizationKeywordTags[]=exporter&qOrganizationKeywordTags[]=D%C4%B1%C5%9F%20Ticaret&includedOrganizationKeywordFields[]=tags&includedOrganizationKeywordFields[]=name&contactEmailStatusV2[]=verified&contactEmailStatusV2[]=likely_to_engage
+```
+
+**Önerilen kullanım: aynı listeyi iki katmana böl.**
+
+**Katman A: ihracat unvanlı kişiler** (ilk gönderim; firmanın ihracatçı olduğu unvandan belli):
+```
+https://app.apollo.io/#/people?page=1&sortByField=recommendations_score&sortAscending=false&personTitles[]=D%C4%B1%C5%9F%20Ticaret%20M%C3%BCd%C3%BCr%C3%BC&personTitles[]=%C4%B0hracat%20M%C3%BCd%C3%BCr%C3%BC&personTitles[]=Export%20Manager&personTitles[]=Foreign%20Trade%20Manager&personTitles[]=Export%20Sales%20Manager&personTitles[]=D%C4%B1%C5%9F%20Ticaret%20Sorumlusu&personTitles[]=Export%20Director&personSeniorities[]=c_suite&personSeniorities[]=head&personSeniorities[]=director&personSeniorities[]=manager&personSeniorities[]=senior&personLocations[]=Turkey&personLocations[]=T%C3%BCrkiye&organizationNumEmployeesRanges[]=11%2C20&organizationNumEmployeesRanges[]=21%2C50&qOrganizationKeywordTags[]=textiles&qOrganizationKeywordTags[]=apparel&qOrganizationKeywordTags[]=Tekstil&qOrganizationKeywordTags[]=Konfeksiyon&qOrganizationKeywordTags[]=machinery&qOrganizationKeywordTags[]=Makina&qOrganizationKeywordTags[]=Makine&qOrganizationKeywordTags[]=automotive%20parts&qOrganizationKeywordTags[]=food%20production&qOrganizationKeywordTags[]=G%C4%B1da&qOrganizationKeywordTags[]=furniture&qOrganizationKeywordTags[]=building%20materials&qOrganizationKeywordTags[]=Mobilya&qOrganizationKeywordTags[]=Mermer&qOrganizationKeywordTags[]=exporter&qOrganizationKeywordTags[]=D%C4%B1%C5%9F%20Ticaret&includedOrganizationKeywordFields[]=tags&includedOrganizationKeywordFields[]=name&contactEmailStatusV2[]=verified&contactEmailStatusV2[]=likely_to_engage
+```
+
+**Katman B: patron / genel müdür** (A'da kişisi olmayan firmalar için):
+```
+https://app.apollo.io/#/people?page=1&sortByField=recommendations_score&sortAscending=false&personTitles[]=Genel%20M%C3%BCd%C3%BCr&personTitles[]=General%20Manager&personTitles[]=Kurucu&personTitles[]=Founder&personTitles[]=%C5%9Eirket%20Sahibi&personTitles[]=Owner&personTitles[]=Y%C3%B6netim%20Kurulu%20%C3%9Cyesi&personSeniorities[]=owner&personSeniorities[]=founder&personSeniorities[]=c_suite&personLocations[]=Turkey&personLocations[]=T%C3%BCrkiye&organizationNumEmployeesRanges[]=11%2C20&organizationNumEmployeesRanges[]=21%2C50&qOrganizationKeywordTags[]=textiles&qOrganizationKeywordTags[]=apparel&qOrganizationKeywordTags[]=Tekstil&qOrganizationKeywordTags[]=Konfeksiyon&qOrganizationKeywordTags[]=machinery&qOrganizationKeywordTags[]=Makina&qOrganizationKeywordTags[]=Makine&qOrganizationKeywordTags[]=automotive%20parts&qOrganizationKeywordTags[]=food%20production&qOrganizationKeywordTags[]=G%C4%B1da&qOrganizationKeywordTags[]=furniture&qOrganizationKeywordTags[]=building%20materials&qOrganizationKeywordTags[]=Mobilya&qOrganizationKeywordTags[]=Mermer&qOrganizationKeywordTags[]=exporter&qOrganizationKeywordTags[]=D%C4%B1%C5%9F%20Ticaret&includedOrganizationKeywordFields[]=tags&includedOrganizationKeywordFields[]=name&contactEmailStatusV2[]=verified&contactEmailStatusV2[]=likely_to_engage
+```
+
 ## 1A. İhracatçı üretici – genel (Dalga 1, Öncelik 1)
 - 🎯 Kim ödeyecek: Dış Ticaret Müdürü, İhracat Müdürü, Export Manager, Foreign Trade Manager, Export Sales Manager, Genel Müdür
 - 🏢 Nerede çalışıyor: exporter, export, manufacturing, Dış Ticaret, Sanayi
