@@ -242,8 +242,8 @@ Puan = Sektör puanı (bölüm 2, /30) + Agent yeniden kullanımı (/5) + İlk s
 | 9 | Teknik servis × M8 Servis agent'ı | 24 | 2 | 3 | **29** | 3 |
 | 10 | Oto galeri × M4 Lead karşılama | 21* | 4 | 3 | **28** | 3 |
 | 11 | Müteahhit × M2 İrsaliye–fatura eşleştirme | 20* | 5 | 2 | **27** | 4 |
-| 12 | Kamu ihalesi × M9 İhale takip | 21 | 1 | 3 | **25** | 4 |
-| 13 | Spor salonu zinciri × M4 + M5 | 20* | 4 | 2 | **26** | 4 |
+| 12 | Spor salonu zinciri × M4 + M5 | 20* | 4 | 2 | **26** | 4 |
+| 13 | Kamu ihalesi × M9 İhale takip | 21 | 1 | 3 | **25** | 4 |
 | — | **İhracatçı × M6 Distribütör bulma** | — | — | — | upsell | 1'in genişlemesi |
 | — | **Ajans × K1 Beyaz etiket** | — | — | — | kanal | 3 vaka çalışmasından sonra |
 
