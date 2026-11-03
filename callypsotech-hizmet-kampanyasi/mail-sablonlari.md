@@ -71,6 +71,24 @@ Bu e-postayı tacir/işletme sıfatınızla gönderiyorum. Almak istemezseniz "�
 
 **Mail 4 · Gün 12** · ortak breakup
 
+#### Katman B varyantı (şirket sahibi / genel müdür)
+
+Patron günlük işi değil, **büyüme ve maliyeti** düşünür. Mail 1 bu şekilde değişir:
+
+**Mail 1-B · Gün 0** · Konu: `{{company}} ihracat ekibi`
+> Merhaba {{first_name}},
+>
+> {{sector}} ihracatçılarında sık gördüğümüz bir durum var: dış ticaret ekibi gününü gelen sorulara, proformaya ve sipariş yazışmalarına harcıyor; yeni pazar ve yeni müşteri bulmaya vakit kalmıyor. Çözüm genelde ekibe yeni kişi eklemek oluyor.
+>
+> Biz bu tekrarlayan kısmı AI agent'lara devrediyoruz. Mevcut ekip aynı kadroyla daha fazla talebi karşılıyor ve satışa odaklanıyor.
+>
+> {{company}}'de bunun ne kadar kapasite açacağını 30 dakikada çıkarıp size somut bir rakam verebilirim. Uygun olur mu?
+
+Mail 2 ve 3 aynı kalır.
+
+#### Mail 2 alternatifi: "kendi mailinizle test" teklifi (en güçlü CTA)
+> {{first_name}}, görüşme yerine şunu da yapabiliriz: yurt dışından gelmiş, isim ve fiyatları karartılmış bir müşteri mailini bana iletin. Agent'ın hazırlayacağı cevabı ve proforma taslağını 24 saat içinde size göndereyim; işe yarayıp yaramadığına kendiniz karar verin.
+
 ---
 
 ### 3.2 Lojistik / uluslararası nakliye [Link 2]
