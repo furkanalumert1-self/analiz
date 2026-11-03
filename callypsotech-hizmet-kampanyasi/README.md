@@ -277,6 +277,8 @@ Soğuk mailde **yazılım değil, düşük riskli ilk adım** satılır:
 
 ## 5. Mail sekansları
 
+> Tüm meslek grupları için güncel ve eksiksiz şablonlar: [`mail-sablonlari.md`](mail-sablonlari.md)
+
 **Kurallar:** 60–110 kelime · link yok veya en fazla 1 (ilk mailde hiç olmasın, deliverability için) · görsel/imza bannerı yok · tek CTA · "AI" kelimesini konu satırında kullanma · kişiselleştirme değişkeni en az 1 tane gerçekten şirkete özel olsun.
 
 Apollo değişkenleri: `{{first_name}}`, `{{company}}`, `{{city}}`. Ek özel alan önerisi: `{{hiring_role}}` (işe alım ilanındaki pozisyon), `{{route}}` (lojistik için ana hat: Avrupa, Orta Doğu vb.).
