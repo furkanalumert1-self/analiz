@@ -186,6 +186,77 @@ Bunlar Voice Agent / Inboxly / Engage'e ihtiyaç duymaz. Ortak noktaları **belg
 
 ---
 
+## 3B. Meslek grubu × hizmet modeli eşleştirmesi (öncelik sıralı)
+
+### Hizmet modelleri (agent paketleri)
+
+| Kod | Hizmet modeli | Ne yapar |
+|---|---|---|
+| **M1** | Talep/Teklif Agent'ı | Mail/WhatsApp/web'den gelen (çok dilli) talebi okur, eksikleri sorar, teklif/proforma taslağı hazırlar |
+| **M2** | Evrak Çıkarma Agent'ı | PDF, Excel, fotoğraftan alanları çıkarır, kontrol eder, hedef sisteme/şablona aktarır |
+| **M3** | Sipariş Giriş Agent'ı | Her formattaki siparişi ürün koduyla eşleştirip ERP'ye (Logo/Mikro/Netsis) taslak açar |
+| **M4** | Lead Karşılama & Ön Eleme | Gelen lead'e 60 sn içinde WhatsApp/sesli dönüş, sorularla skorlama, randevu |
+| **M5** | Hatırlatma & Takip Akışları | Yenileme, bakım, eksik evrak, fuar sonrası takip, sipariş durum bildirimi |
+| **M6** | Outbound / Distribütör Bulma | Hedef pazar listesi çıkarır, zenginleştirir, kişiselleştirilmiş ilk teması ve takibi yürütür |
+| **M7** | Aday Ön Eleme (İK) | Başvurana soru sorar, puanlar, mülakat randevusu verir |
+| **M8** | Saha Servis Agent'ı | Arıza kaydı alır, teknisyene atar, sesli nottan servis formu üretir |
+| **M9** | İhale Takip Agent'ı | EKAP'ı tarar, uygun ihaleleri özetler, evrak listesini çıkarır, tarih hatırlatır |
+| **K1** | Ajans beyaz etiket (kanal) | Yukarıdaki agent'ları ajansların kendi müşterilerine satması, gelir paylaşımı |
+
+### Eşleştirme matrisi
+
+● = ana hizmet (ilk mailde satılan) · ○ = upsell (pilot sonrası genişleme)
+
+| Meslek grubu | M1 | M2 | M3 | M4 | M5 | M6 | M7 | M8 | M9 |
+|---|---|---|---|---|---|---|---|---|---|
+| İhracatçı üretici | ● | ○ |  |  | ● (fuar takibi) | ○ |  |  |  |
+| Lojistik / nakliye | ● | ○ |  |  | ● (yük takibi) |  |  |  |  |
+| Gümrük müşaviri |  | ● |  |  | ○ (eksik evrak) |  |  |  |  |
+| Sigorta acentesi | ○ | ● (ruhsat okuma) |  |  | ● (yenileme) |  |  |  |  |
+| Toptancı / distribütör | ○ |  | ● |  | ○ |  |  |  |  |
+| Üretim – satın alma | ● (RFQ) | ○ |  |  | ○ (termin) |  |  |  |  |
+| Gayrimenkul proje satış |  |  |  | ● | ○ |  |  |  |  |
+| İK yoğun işveren / işe alım ajansı |  |  |  |  | ○ |  | ● |  |  |
+| Teknik servis |  |  |  |  | ○ (bakım) |  |  | ● |  |
+| Oto galeri / bayi |  |  |  | ● | ○ |  |  |  |  |
+| Müteahhit (orta ölçek) |  | ● (irsaliye–fatura) |  |  |  |  |  |  |  |
+| Kamu ihalesine giren firmalar |  | ○ |  |  |  |  |  |  | ● |
+| Spor salonu / pilates zinciri |  |  |  | ● | ● (geri kazanım) |  |  |  |  |
+
+**Ana çıkarım:** 3 çekirdek agent (**M1, M2, M5**) 13 meslek grubunun 9'unu karşılıyor. Önce bu üçünü yeniden kullanılabilir şablonlar olarak kur; her yeni müşteri sıfırdan proje değil, şablonun uyarlaması olsun. Teslimat süresi ve maliyet böyle düşer.
+
+### Öncelik sıralaması
+
+Puan = Sektör puanı (bölüm 2, /30) + Agent yeniden kullanımı (/5) + İlk satışa hız (/5).
+
+| Sıra | Meslek grubu × Ana hizmet | Sektör | Yeniden kullanım | Hız | **Puan** | Dalga |
+|---|---|---|---|---|---|---|
+| 1 | **İhracatçı × M1 Talep/Proforma + M5 Fuar takibi** | 29 | 5 | 4 | **38** | 1 |
+| 2 | **Lojistik × M1 Teklif + M5 Yük takibi** | 28 | 5 | 4 | **37** | 1 |
+| 3 | **Gümrük müşaviri × M2 Evrak çıkarma** | 25 | 5 | 4 | **34** | 1 |
+| 4 | Sigorta × M5 Yenileme + M2 Ruhsat okuma | 27 | 4 | 3 | **34** | 2 |
+| 5 | Toptancı / distribütör × M3 Sipariş girişi | 25 | 3 | 4 | **32** | 2 |
+| 6 | Üretim – satın alma × M1 RFQ karşılaştırma | 24* | 5 | 3 | **32** | 2 |
+| 7 | Gayrimenkul × M4 Lead karşılama | 25 | 4 | 3 | **32** | 3 |
+| 8 | İK / işe alım × M7 Aday ön eleme | 24 | 2 | 4 | **30** | 3 |
+| 9 | Teknik servis × M8 Servis agent'ı | 24 | 2 | 3 | **29** | 3 |
+| 10 | Oto galeri × M4 Lead karşılama | 21* | 4 | 3 | **28** | 3 |
+| 11 | Müteahhit × M2 İrsaliye–fatura eşleştirme | 20* | 5 | 2 | **27** | 4 |
+| 12 | Kamu ihalesi × M9 İhale takip | 21 | 1 | 3 | **25** | 4 |
+| 13 | Spor salonu zinciri × M4 + M5 | 20* | 4 | 2 | **26** | 4 |
+| — | **İhracatçı × M6 Distribütör bulma** | — | — | — | upsell | 1'in genişlemesi |
+| — | **Ajans × K1 Beyaz etiket** | — | — | — | kanal | 3 vaka çalışmasından sonra |
+
+\* Bölüm 2 tablosunda olmayanlar için aynı kriterlerle tahmini puan.
+
+### Dalga planı
+
+- **Dalga 1 (Ay 1–2) — "Dış Ticaret Operasyonları":** İhracatçı + lojistik + gümrük müşaviri. M1, M2, M5 şablonları burada olgunlaşır. Hedef: 3 pilot, 2 vaka çalışması. İhracatçı müşterilere ilk upsell M6 (distribütör bulma).
+- **Dalga 2 (Ay 3–4) — aynı agent'larla yeni sektörler:** Sigorta (M5+M2), toptancı (M3), satın alma (M1). Yeni geliştirme az; mesaj ve entegrasyon uyarlaması yeterli.
+- **Dalga 3 (Ay 5–6) — lead ve müşteri iletişimi:** Gayrimenkul, oto galeri (M4: mevcut Voice Agent + Inboxly), İK (M7), teknik servis (M8).
+- **Dalga 4 / fırsatçı:** Müteahhit, ihale, spor salonu zincirleri. Sadece gelen talep veya referans olursa.
+- **Kanal (Dalga 1 sonrası paralel):** Vaka çalışmalarıyla dijital ajanslara beyaz etiket teklifi (K1).
+
 ## 4. Teklif mimarisi (her sektörde aynı iskelet)
 
 Soğuk mailde **yazılım değil, düşük riskli ilk adım** satılır:
