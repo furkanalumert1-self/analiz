@@ -33,9 +33,17 @@ Her sektörü 6 kritere göre 1–5 arası puanladım:
 5. **ROI'nin ölçülebilirliği** — "X saat / Y personel / Z kaçan müşteri" net hesaplanabiliyor mu?
 6. **Rekabet doygunluğu (ters)** — Bu sektöre AI otomasyon maili az mı gidiyor?
 
+> **Not:** "Ürün uyumu" kriteri artık eleyici değil. Hizmet satıyoruz; gerekirse müşteriye özel agent sıfırdan kurulur. Bu yüzden ürünlerimizle doğrudan ilgisi olmayan ama tekrarlayan işi yoğun meslekler de listede.
+
 | Sektör | Apollo | Tekrar | Ürün uyumu | Ödeme/Karar | ROI | Doygunluk az | **Toplam** |
 |---|---|---|---|---|---|---|---|
+| **İhracatçı üretici KOBİ'ler (tekstil, makine, gıda, mobilya, yapı malz.)** | 5 | 5 | 4 | 5 | 5 | 5 | **29** |
 | **Lojistik / uluslararası nakliye (freight forwarding)** | 5 | 5 | 4 | 4 | 5 | 5 | **28** |
+| Gümrük müşavirliği firmaları | 4 | 5 | 2 | 4 | 5 | 5 | 25 |
+| Toptancı / distribütör / bayi ağı olan üreticiler | 4 | 5 | 3 | 4 | 5 | 4 | 25 |
+| İK yoğun işverenler & işe alım ajansları (mavi yaka) | 4 | 5 | 3 | 4 | 4 | 4 | 24 |
+| Teknik servis / saha servis firmaları (klima, asansör, beyaz eşya) | 3 | 5 | 3 | 4 | 4 | 5 | 24 |
+| Kamu ihalesine giren firmalar | 3 | 4 | 1 | 4 | 4 | 5 | 21 |
 | **Sigorta acenteleri & brokerler** | 4 | 5 | 5 | 4 | 5 | 4 | **27** |
 | **Gayrimenkul proje satış / konut pazarlama** | 4 | 4 | 5 | 5 | 4 | 3 | **25** |
 | Mali müşavirlik büroları | 4 | 5 | 4 | 2 | 4 | 4 | 23 |
@@ -44,11 +52,47 @@ Her sektörü 6 kritere göre 1–5 arası puanladım:
 | E-ticaret (önceki) | 4 | 4 | 5 | 3 | 4 | 1 | 21 |
 | Klinikler (önceki) | 2 | 4 | 5 | 3 | 4 | 1 | 19 |
 
-**Öneri:** İlk 3 sektörü (lojistik, sigorta, gayrimenkul) **paralel olarak 3 hafta test et**, en yüksek olumlu yanıt oranını vereni **beachhead** (ilk pazar) seç ve diğer ikisini durdur. Benim önceden tahminim: **Lojistik** — çünkü Türkiye'de LinkedIn'de en aktif KOBİ sektörlerinden biri, iş yükü e-posta/telefon ağırlıklı ve çok dilli (Voice Agent'ın 50+ dil desteği burada gerçek bir avantaj).
+**Güncellenmiş öneri — "Dış Ticaret Operasyonları" beachhead'i:**
+İlk pazar tek sektör değil, birbirine bağlı tek bir **ekosistem** olsun: **ihracatçı üretici → nakliye firması → gümrük müşaviri.** Üçü aynı evrakı (proforma, fatura, çeki listesi, konşimento, menşe belgesi), aynı dilleri ve aynı müşteriyi paylaşıyor. Birinde kurduğun "evrak okuma / çok dilli yazışma agent'ı" diğer ikisinde %80 yeniden kullanılır, ve bir ihracatçı müşterin seni kendi forwarder'ına ve gümrükçüsüne tavsiye eder.
+
+Neden ihracatçılar en üstte:
+- **Döviz geliri var.** Avro/dolar kazanan bir firma için TL bazlı aylık hizmet bedeli düşük görünür → fiyat itirazı az.
+- **Apollo'da çok iyi temsil ediliyorlar.** "Export Manager / Dış Ticaret Müdürü" unvanı LinkedIn'de çok yaygın.
+- **Tekrarlayan iş çok ve çok dilli.** Yabancı dilde gelen sorular, proforma hazırlama, fuar sonrası lead takibi, sipariş durum yazışmaları.
+- **AI otomasyon maili neredeyse hiç almıyorlar** (hedeflenen hep e-ticaret ve klinikler).
+
+**Test planı:** 3 hafta boyunca paralel olarak **(1) ihracatçı üreticiler, (2) lojistik, (3) sigorta** listelerine gönder. Gayrimenkul 4. sırada yedekte. En yüksek olumlu yanıt oranını veren beachhead olur.
 
 ---
 
 ## 3. Sektör kartları
+
+### 0) İhracatçı Üretici KOBİ'ler — ⭐ 1 numaralı beachhead adayı
+
+**ICP:** 20–250 çalışanlı, ihracat payı yüksek üreticiler. Sektörler: tekstil & hazır giyim, makine & yedek parça, gıda, mobilya, yapı malzemesi, kimya/plastik, otomotiv yan sanayi. Bölgeler: İstanbul, Bursa, Denizli, Gaziantep, Kayseri, Konya, İzmir, Kocaeli.
+
+**Tekrarlayan operasyonlar:**
+| Manuel iş | Bugün nasıl yapılıyor | AI Agent / otomasyon ile |
+|---|---|---|
+| Yabancı dilde gelen fiyat/ürün soruları (web, mail, Alibaba, WhatsApp) | Dış ticaret uzmanı tek tek çevirir, katalogdan bakar, cevaplar | **Inquiry Agent'ı:** soruyu her dilde anlar, ürün kataloğu/fiyat listesinden cevap taslağı hazırlar, MOQ/teslim süresi/ödeme şartını ekler, uzman sadece onaylar |
+| Proforma fatura & teklif hazırlama | Excel/Word şablonu elle doldurulur | Onaylanan talepten otomatik proforma (döviz, Incoterm, banka bilgisi) |
+| **Fuar sonrası lead takibi** | 200 kartvizit masada kalır, 2 hafta sonra 20'sine yazılır | Kartvizit fotoğrafı → CRM → kişinin dilinde 3 adımlı takip maili, otomatik |
+| Sipariş durum / üretim / sevk soruları | Telefon ve mail trafiği | Müşteriye haftalık otomatik durum raporu; "siparişim nerede" soruları otomatik yanıt |
+| İhracat evrakı hazırlama | Fatura, çeki listesi, menşe bilgileri tekrar tekrar elle girilir | Siparişten evrak taslaklarını otomatik üretme, forwarder/gümrükçüye otomatik gönderme |
+| Yeni pazar/distribütör araştırma | Google'da tek tek arama | Hedef ülke + ürün için ithalatçı/distribütör listesi çıkaran araştırma agent'ı |
+
+**Apollo filtreleri:**
+- *Location:* Turkey (yukarıdaki şehirler)
+- *Industry:* Textiles · Apparel & Fashion · Machinery · Food Production · Furniture · Building Materials · Chemicals · Plastics · Automotive · Industrial Automation
+- *Keywords (şirket):* `export`, `ihracat`, `manufacturer`, `üretici`, `exporter`, `OEM`, `private label`
+- *# Employees:* 20–50, 51–200, 201–500
+- *Job titles:* Dış Ticaret Müdürü, İhracat Müdürü, Export Manager, Foreign Trade Manager, Export Sales Manager, Genel Müdür, Kurucu / Yönetim Kurulu Üyesi
+- *Niyet sinyalleri:*
+  - "Dış Ticaret Uzmanı", "İhracat Sorumlusu", "Export Specialist" iş ilanı açmış firmalar
+  - **Yaklaşan fuar katılımcıları** (Heimtextil, Automechanika, Anuga, SIAL, Gulfood, ISH, CPHI…). Fuar katılımcı listeleri Apify ile çekilip Apollo'da zenginleştirilir. Fuardan 1–2 hafta sonra "lead takibi" açısıyla yazılır.
+  - TİM "İlk 1000 ihracatçı" listesindeki 100–1000 arası firmalar (büyükler değil, orta ölçek).
+
+**ROI hesabı:** Haftada 40 yabancı dilde soru × soru başına 20 dk = **~13 saat/hafta**; buna fuar sonrası takip edilemeyen lead'ler eklenir. Fuar başına 50.000–150.000 € masraf yapan bir firma için "fuar lead'lerinin %100'ünün 48 saat içinde takip edilmesi" çok güçlü bir vaattir.
 
 ### A) Lojistik / Uluslararası Nakliye Firmaları — ⭐ Beachhead adayı
 
@@ -122,6 +166,19 @@ Her sektörü 6 kritere göre 1–5 arası puanladım:
 
 ---
 
+### Ürünlerimizden bağımsız, iş yükü çok yüksek diğer meslek grupları
+
+Bunlar Voice Agent / Inboxly / Engage'e ihtiyaç duymaz. Ortak noktaları **belge okuma, veri girişi ve takip** işleri. Bunlar LLM tabanlı agent'larla en kolay otomatikleşen işler.
+
+| Meslek grubu | Tekrarlayan iş | Kurulacak agent | Apollo filtresi (özet) |
+|---|---|---|---|
+| **Gümrük müşavirliği firmaları** | Müşteriden gelen fatura/çeki listesi PDF'lerinden GTİP, miktar, ağırlık, değer bilgisini beyanname sistemine elle girmek; eksik evrak kovalamak | **Evrak Çıkarma Agent'ı:** PDF/Excel/fotoğraftan alanları çıkarır, kontrol eder, beyanname taslağına aktarır; eksik evrakı müşteriye otomatik sorar | Industry: International Trade & Development, Logistics · Keyword: `gümrük müşavirliği`, `customs broker` · Title: Kurucu, Gümrük Müşaviri, Operasyon Müdürü |
+| **Toptancı / distribütör / bayi ağı olan üreticiler** | Bayilerden WhatsApp, mail, PDF ve fotoğrafla gelen siparişleri ERP'ye (Logo, Mikro, Netsis) elle girmek; stok/fiyat sorularına cevap vermek | **Sipariş Giriş Agent'ı:** her formattaki siparişi okur, ürün kodlarıyla eşleştirir, ERP'ye taslak sipariş açar; bayilere 7/24 stok/fiyat cevabı | Industry: Wholesale, Consumer Goods, Building Materials · Keyword: `toptan`, `distribütör`, `bayi` · Title: Satış Müdürü, Operasyon Müdürü, GM |
+| **Üretim firmalarında satın alma birimleri** | Tedarikçilerden teklif toplamak, teklifleri karşılaştırma tablosuna dökmek, sipariş ve termin takibi | **Satın Alma Agent'ı:** RFQ'yu tedarikçilere gönderir, gelen teklifleri okuyup karşılaştırma tablosu hazırlar, gecikecek siparişleri uyarır | Industry: Manufacturing alt dalları · Title: Satın Alma Müdürü, Purchasing Manager, Tedarik Zinciri Müdürü · 51–500 çalışan |
+| **İK yoğun işverenler & işe alım ajansları** (perakende, üretim, lojistik depo, call center) | Yüzlerce mavi yaka başvurusunu telefonla ön elemek, mülakat ayarlamak | **Ön Eleme Agent'ı:** başvurana WhatsApp/telefonla soru sorar (vardiya, lokasyon, deneyim), puanlar, uygunlara mülakat randevusu verir | Industry: Staffing & Recruiting, Retail, Warehousing · Title: İK Müdürü, İşe Alım Uzmanı, Talent Acquisition · Sinyal: aynı anda 10+ açık ilan |
+| **Teknik servis / saha servis firmaları** (klima, asansör, jeneratör, beyaz eşya, güvenlik sistemleri) | Arıza kaydı alma, teknisyen planlama, servis formu yazma, periyodik bakım hatırlatma | **Servis Agent'ı:** arıza kaydını telefon/WhatsApp'tan alır, teknisyene atar; teknisyenin sesli notundan servis formu PDF'i üretir; bakım tarihi gelen müşteriyi arar | Industry: Facilities Services, HVAC, Electrical · Keyword: `teknik servis`, `asansör`, `klima`, `bakım` · Title: Kurucu, Servis Müdürü |
+| **Kamu ihalesine giren firmalar** (inşaat, medikal, temizlik, catering, IT) | EKAP'ı her gün taramak, şartname okumak, yeterlik evrakı hazırlamak, son tarih takibi | **İhale Takip Agent'ı:** EKAP ilanlarını tarar, firmaya uygun olanları özetler, şartnameden gerekli evrak listesini çıkarır, tarih hatırlatır | Keyword: `kamu ihale`, `EKAP`, `ihale` · Title: İhale Uzmanı, İhale Müdürü, GM |
+
 ### Yedek sektörler (ilk 3 tutmazsa)
 - **Araç / filo kiralama:** rezervasyon, ehliyet-evrak toplama, iade hatırlatma, hasar bildirimi.
 - **Mali müşavirlik büroları:** her ay aynı evrakı yüzlerce mükelleften toplama → WhatsApp evrak agent'ı (düşük bütçe ama çok yüksek tekrar; sonra "mali müşavir paketi" ile ölçeklenebilir).
@@ -152,6 +209,32 @@ Soğuk mailde **yazılım değil, düşük riskli ilk adım** satılır:
 **Kurallar:** 60–110 kelime · link yok veya en fazla 1 (ilk mailde hiç olmasın, deliverability için) · görsel/imza bannerı yok · tek CTA · "AI" kelimesini konu satırında kullanma · kişiselleştirme değişkeni en az 1 tane gerçekten şirkete özel olsun.
 
 Apollo değişkenleri: `{{first_name}}`, `{{company}}`, `{{city}}`. Ek özel alan önerisi: `{{hiring_role}}` (işe alım ilanındaki pozisyon), `{{route}}` (lojistik için ana hat: Avrupa, Orta Doğu vb.).
+
+### 0) İhracatçı üreticiler — 4 adım
+
+**Adım 1 (Gün 0)**
+Konu: `{{company}} yurt dışı talepleri`
+> Merhaba {{first_name}},
+>
+> İhracatçı firmalarla konuştuğumuzda dış ticaret ekibinin zamanının büyük kısmının aynı işlere gittiğini görüyoruz: farklı dillerde gelen fiyat sorularını cevaplamak, proforma hazırlamak, "siparişim ne durumda" maillerine dönmek.
+>
+> Bu işleri AI agent'lara devrediyoruz. Agent gelen talebi her dilde okuyor, kataloğunuzdan ve fiyat listenizden cevap ile proforma taslağı hazırlıyor. Ekibiniz sadece kontrol edip gönderiyor.
+>
+> {{company}}'nin dış ticaret operasyonunda hangi işlerin bu şekilde devredilebileceğini 30 dakikalık bir görüşmede çıkarıp ücretsiz bir rapor hazırlayabilirim. İlgilenir misiniz?
+>
+> Furkan — CallypsoTech
+
+**Adım 2 (Gün 3) — Fuar açısı** · Konu: `Fuar sonrası kartvizitler`
+> {{first_name}}, ihracatçıların çoğunda aynı sahneyi görüyoruz: fuardan 150–200 kartvizitle dönülüyor, ilk hafta sipariş ve üretim yoğunluğu araya giriyor, takip mailleri ancak bir kısmına gidiyor.
+>
+> Kartvizit fotoğrafından kişiyi CRM'e ekleyen ve 48 saat içinde kendi dilinde 3 adımlı takip başlatan bir akış kuruyoruz. Bir sonraki fuarınızdan önce kurmak ister misiniz?
+
+*(Kişinin firması yakın tarihli bir fuara katıldıysa ilk cümleyi değiştir: "{{fair_name}} sonrası {{company}} ekibinin elinde epey kartvizit kalmıştır diye tahmin ediyorum.")*
+
+**Adım 3 (Gün 7)** · Konu: aynı thread
+> {{first_name}}, basit bir hesap paylaşayım: haftada 40 yabancı dilde soru ve soru başına 20 dakika, ayda 50 saatten fazla ediyor. Bu, bir dış ticaret uzmanının mesaisinin üçte biri. Bu kısmı otomatiğe bağlayınca ekip yeni müşteri bulmaya vakit ayırabiliyor. Kısa bir örnek göstermemi ister misiniz?
+
+**Adım 4 (Gün 12)** — breakup (lojistik ile aynı yapı).
 
 ### A) Lojistik — 4 adım
 
@@ -255,9 +338,35 @@ Konu: `{{company}} teklif talepleri`
 
 ---
 
-## 8. Apify ile yapılabilecek ek veri çalışması (bekleyen)
+## 8. kopyalanacak-1000.vercel.app analizinden çıkan fikirler
 
-Sağlanan Apify hesabıyla Google Maps yorum taraması denendi; ancak hesabın bu fatura döneminde kalan kullanım limiti (~$0,21) ücretli actor çalıştırmaya yetmediği için **çalışma yapılamadı**. Limit yenilendiğinde önerilen çalışmalar:
+Site, Apify `website-content-crawler` ile tarandı. Sitede **TrustMRR'den (Stripe ile doğrulanmış gelir) seçilmiş 1.000 SaaS** var (435 B2B, 115 karma, 450 B2C). Liste yazılım ürünleri hakkında; ama hangi mesleklerin otomasyon için **gerçekten para ödediğini** gösteren iyi bir talep kanıtı. Ürün/hizmet tanımlarını meslek anahtar kelimelerine göre grupladım. Bizim hizmet modelimize uyan sinyaller:
+
+| Sitedeki kanıt (doğrulanmış gelir) | Ne gösteriyor | Bizim için çıkarım |
+|---|---|---|
+| **MedPilot** ~$62,6 bin/ay: kliniklere telefon+WhatsApp AI resepsiyonist. **ScaleMove**, **AI voice calls**: 7/24 sesli ajan | Voice Agent kategorisi para kazanıyor, ama yine klinik odaklı | Ürün doğru, **sektör doygun.** Aynı Voice Agent'ı servis firmaları, sigorta ve oto galeriye taşı. |
+| **Helios** ~$47 bin/ay: spor salonu/pilates stüdyolarına deneme dersi takibi + WhatsApp geri kazanım | Spor salonları, lead takibi otomasyonuna ödeme yapıyor | **Yeni meslek grubu:** zincir spor salonları ve pilates stüdyoları (yerel; Apollo'dan çok Google Maps ile bulunur). |
+| **Calendesk** ~$34,7 bin/ay, **Mypic**: psikolog, diyetisyen, güzellik için randevu + WhatsApp hatırlatma | Randevulu meslekler hatırlatma için ödüyor | Düşük bilet; tek tek değil, **zincir/franchise** merkezlere sat. |
+| **Sbl** ~$33 bin/ay, **PipeLime**, **MimikFlow**, **GojiberryAI** ~$407 bin/ay: B2B satış için niyet sinyali + otomatik mesaj | **Outbound satış otomasyonu** çok büyük ve büyüyen bir kategori | **Yeni hizmet fikri:** ihracatçılara "yurt dışı distribütör bulma + otomatik ilk temas" agent'ı. Kendi Apollo/Apify bilgin burada doğrudan satılabilir bir hizmet. |
+| **ZUUZ**: gelen e-postalardan teklif/sipariş yakalayıp yanıt taslağı yazan ve CRM'e işleyen araç | Gelen kutusundaki teklif/sipariş otomasyonu ödeme alıyor | İhracatçı & lojistik "Inquiry Agent" hizmetini doğruluyor. |
+| **Textwork**: mavi yaka adaylarını WhatsApp'ta ön elemeden geçiren bot. **Hirevire**: video ön mülakat | İK ön elemesi ayrı bir ödeme kalemi | **Yeni meslek grubu:** perakende, depo, üretim işverenleri ve işe alım ajansları. |
+| **Valideo**, **Tutti**, **GESWORK**: teknisyenin sesli notundan servis formu/teklif/fatura | Saha servis firmaları belge yükü için ödüyor | **Yeni meslek grubu:** teknik servis firmaları (yukarıdaki tabloya eklendi). |
+| **Brinkr**: şantiye irsaliyelerini fotoğraftan okuyup faturayla eşleştirme. **Khosmos** ~$23 bin/ay: ustalara sahada teklif/fatura | İnşaat evrak yükü | **Yeni meslek grubu:** orta ölçekli müteahhitler. İrsaliye–fatura eşleştirme muhasebe birimlerinde çok sık tekrar eden bir iş. |
+| **Akal AI**: oto galerilerin ilan sitelerinden gelen sorularına mesai dışı WhatsApp cevabı. **Jozi**: arama kaydı → CRM | Galericiler gece/hafta sonu kaçan lead'e ödüyor | **Yeni meslek grubu:** kurumsal oto galeriler / bayiler (sahibinden.com lead'leri). |
+| **Elevum Group**: kamu ihalesi bulma + teklif hazırlama | İhale takibi ücretli bir iş | **Yeni meslek grubu:** EKAP'a giren firmalar (tabloya eklendi). |
+| **JourneyFuse** ~$19 bin/ay: seyahat acenteleri için teklif PDF + taksit takibi | Acenteler teklif ve ödeme takibine ödüyor | Turizm acenteleri yedek sektör olabilir (sezonsal). |
+| **ChatDash** ~$17 bin/ay: ajansların kendi markasıyla müşterilerine AI asistan sattığı beyaz etiket panel | Ajanslar AI'ı **yeniden satmak** istiyor | **Kanal fikri:** dijital ajanslarla beyaz etiket ortaklığı. Sen kurarsın, ajans kendi müşterisine satar (gelir paylaşımı). Tek tek satıştan daha hızlı ölçeklenir. |
+| **Tizy**: tarayıcıdan yurt dışı aramayı canlı çeviren servis (hedef: ihracatçı, emlakçı, sağlık turizmi) | İhracatçılar dil engeli için ödeme yapıyor | Voice Agent'ın çok dilli özelliği ihracatçıya ayrıca satılabilir. |
+
+**Özet:** Site üç yeni meslek grubu (teknik servis, mavi yaka işe alım, oto galeri) ve iki yeni iş modeli fikri getirdi: (1) **ihracatçılara outbound/distribütör bulma hizmeti**, (2) **ajanslarla beyaz etiket ortaklığı**. Ayrıca site, kliniklere sesli AI satan rakiplerin halihazırda iyi gelir yaptığını gösteriyor. Bu da kliniklerin neden zor bir pazar olduğunu doğruluyor.
+
+---
+
+## 9. Apify ile yapılabilecek ek veri çalışması (bekleyen)
+
+`website-content-crawler` (ücretsiz actor, sadece işlem birimi harcıyor) çalıştı. Ancak Google Maps yorum taraması gibi **ücretli actor'lar** hesabın bu dönemki kalan limiti (~$0,21) yetmediği için çalıştırılamadı. Limit yenilendiğinde önerilen çalışmalar:
+
+0. **Fuar katılımcı listeleri (ihracatçılar için en değerli):** Heimtextil, Automechanika, Anuga, SIAL, Gulfood gibi fuarların katılımcı sayfalarını `website-content-crawler` ile tarayıp "Turkey" filtresiyle Türk katılımcıları çıkar → Apollo'da firma adıyla zenginleştir → fuardan 1–2 hafta sonra Adım 2 (fuar) mailiyle başla.
 
 1. **Ağrı kanıtı:** `compass/crawler-google-places` ile hedef sektörlerde (İstanbul, İzmir, Mersin) düşük puanlı yorumları çek; "telefona çıkmıyorlar", "dönüş yapmadılar", "ulaşamadım" geçen yorum oranını sektör bazında hesapla. Bu oran hem sektör seçimini doğrular hem de mail 2. adımında kullanılabilir.
 2. **Niyet sinyali:** Kariyer.net / LinkedIn iş ilanı scraper'ı ile "müşteri temsilcisi", "operasyon uzmanı", "call center" ilanı veren şirketleri çekip Apollo listesiyle eşleştir.
