@@ -1,4 +1,4 @@
-# İhracatçı A-B-C Sequence'ları (3 mail, her biri en fazla 150 kelime)
+# İhracatçı A-B-C Sequence'ları (3 mail, her biri en fazla 100 kelime)
 
 ## Mail kurgusu: acı noktası mı, hizmet bilgisi mi?
 
@@ -44,35 +44,29 @@
 
 Merhaba {{first_name}},
 
-Yurt dışından gelen bir fiyat talebine ortalama kaç saatte dönebiliyorsunuz?
+Yurt dışından gelen bir fiyat talebine kaç saatte dönebiliyorsunuz?
 
-{{sector}} ihracatçılarıyla konuştuğumuzda cevap çoğu zaman "1–2 gün" oluyor. Alıcı ise aynı talebi farklı ülkelerden 4–5 tedarikçiye birden gönderiyor; ilk dönen, masaya ilk oturan oluyor.
+Alıcı aynı talebi 4–5 tedarikçiye birden gönderiyor; ilk dönen kazanıyor. Ama talepler farklı dillerde geliyor, bilgi eksik oluyor, proforma elle hazırlanıyor ve dönüş 1–2 günü buluyor.
 
-Sorun ekipte değil, işin kendisinde: talepler farklı dillerde geliyor, ölçü ve miktar bilgisi eksik oluyor, fiyat listesine bakmak ve proformayı elle hazırlamak gerekiyor.
+Bu kısmı bir AI agent'a devrediyoruz: talebi her dilde okuyor, eksik bilgiyi müşteriye soruyor, kataloğunuzdan cevap ve proforma taslağı hazırlıyor. Uzmanınız sadece onaylıyor.
 
-Biz bu kısmı bir AI agent'a devrediyoruz. Agent gelen talebi her dilde okuyor, eksik bilgiyi müşteriye kendisi soruyor, kataloğunuzdan cevap ve proforma taslağını hazırlıyor. Uzmanınız sadece kontrol edip gönderiyor.
-
-{{company}} için nasıl çalışacağını 30 dakikada gösterebilirim. Bu hafta uygun bir zamanınız olur mu?
+{{company}} için nasıl çalışacağını 30 dakikada gösterebilirim. Uygun olur mu?
 
 ### A2 · Gün 4 · aynı thread
 
-{{first_name}}, görüşmeye vakit ayırmak zorsa daha kısa bir yol önereyim.
+{{first_name}}, daha kısa bir yol önereyim.
 
-Yakın zamanda gelmiş bir yabancı müşteri mailini, isim ve fiyatları karartarak bana iletin. Agent'ın o maile hazırlayacağı cevabı ve proforma taslağını 24 saat içinde size göndereyim.
+İsim ve fiyatları karartılmış bir yabancı müşteri mailinizi iletin; agent'ın hazırlayacağı cevabı ve proforma taslağını 24 saatte göndereyim.
 
-Hiçbir yükümlülüğü yok. Çıktıyı ekibinizin yazacağı cevapla karşılaştırır, işinize yarayıp yaramadığına kendiniz karar verirsiniz.
-
-Uygunsa bu maile yanıt olarak iletmeniz yeterli.
+Yükümlülüğü yok, işe yarayıp yaramadığına kendiniz karar verirsiniz.
 
 ### A3 · Gün 9 · aynı thread
 
 {{first_name}}, son kez yazıyorum.
 
-Kısa bir hesap: haftada 40 yabancı dilde talep ve talep başına 20 dakika, ayda 50 saatten fazla ediyor. Bu, bir dış ticaret uzmanının mesaisinin yaklaşık üçte biri; üstelik yavaş dönülen her talep, rakibe giden bir sipariş ihtimali.
+Haftada 40 talep ve talep başına 20 dakika, ayda 50 saatten fazla ediyor; geç dönülen her talep de rakibe giden bir sipariş ihtimali.
 
-Sizdeki rakamlar farklıysa hesap da değişir. Birlikte bakmak isterseniz 30 dakika yeterli.
-
-Şu an öncelik değilse "sonra" yazmanız yeterli; 3 ay sonra kısa bir hatırlatma yaparım.
+Kendi rakamlarınızla bakmak isterseniz 30 dakika yeterli. Şu an öncelik değilse "sonra" yazın, 3 ay sonra hatırlatırım.
 
 ---
 
@@ -82,31 +76,27 @@ Sizdeki rakamlar farklıysa hesap da değişir. Birlikte bakmak isterseniz 30 da
 
 Merhaba {{first_name}},
 
-Bir fuar için ciddi bir bütçe ayrılıyor: stand, uçuş, konaklama, numune. Asıl getiri ise fuardan sonraki iki haftada belli oluyor.
+Fuara ciddi bütçe ayrılıyor, ama asıl getiri dönüşten sonraki iki haftada belli oluyor.
 
-{{sector}} ihracatçılarında sık gördüğümüz tablo şu: 150–200 kartvizitle dönülüyor, sipariş ve üretim yoğunluğu araya giriyor, takip mailleri ancak bir kısmına gidiyor. Takip edilmeyen alıcı, standını ziyaret ettiği diğer tedarikçiyle devam ediyor.
+Çoğu ihracatçıda 150–200 kartvizitle dönülüyor, sipariş yoğunluğu araya giriyor ve takip ancak bir kısmına yapılıyor. Kalan alıcı diğer tedarikçiyle devam ediyor.
 
-Bunun için bir takip sistemi kuruyoruz. Kartvizitin fotoğrafını çekmeniz yeterli: sistem kişiyi listeye ekliyor, görüşme notunuza göre kişinin kendi dilinde takip maili hazırlıyor ve cevap gelene kadar üç adımda takip ediyor. Cevap verenler ekibinize "sıcak" olarak düşüyor.
+Bunun için bir sistem kuruyoruz: kartvizitin fotoğrafını çekiyorsunuz, sistem kişinin kendi dilinde takip maili hazırlıyor ve cevap gelene kadar takip ediyor. Cevap verenler ekibinize düşüyor.
 
-{{company}}'nin bir sonraki fuarından önce kurmak ister misiniz? 20 dakikada nasıl çalıştığını gösterebilirim.
+Bir sonraki fuarınızdan önce kurmak ister misiniz?
 
 ### B2 · Gün 4 · aynı thread
 
-{{first_name}}, fuar takibi işin sadece bir kısmı.
+{{first_name}}, aynı sistem fuar dışındaki talepler için de çalışıyor: web sitenizden ve mailden gelen yabancı dilde sorulara kataloğunuzdan cevap taslağı hazırlıyor.
 
-Aynı sistem fuar dışında gelen talepler için de çalışıyor: web sitenizden, mailden veya B2B platformlardan gelen yabancı dilde soruları okuyor, kataloğunuzdan cevap taslağı hazırlıyor, uzmanınız onaylayıp gönderiyor.
-
-İsterseniz somut bir test yapalım: geçmiş fuardan isimleri karartılmış birkaç kartvizit ya da bir müşteri maili iletin, sistemin hazırlayacağı takip mesajlarını 24 saat içinde size göndereyim.
+Test etmek isterseniz isimleri karartılmış birkaç kartvizit ya da müşteri maili iletin; takip mesajlarını 24 saatte göndereyim.
 
 ### B3 · Gün 9 · aynı thread
 
-{{first_name}}, son bir not bırakıp sizi meşgul etmeyeceğim.
+{{first_name}}, son bir not.
 
-Fuar takibinde en kritik süre, dönüşten sonraki ilk 48 saat; sistemin işe yaraması için fuardan önce kurulu olması gerekiyor.
+Fuar takibinde kritik süre dönüşten sonraki ilk 48 saat; sistemin fuardan önce kurulu olması gerekiyor.
 
-Bir sonraki fuarınızın adını ve tarihini yazarsanız, üç hafta öncesinde kısa bir hatırlatma yaparım; o zaman birlikte değerlendiririz.
-
-Şu an gündeminizde değilse "çıkar" yazmanız yeterli.
+Bir sonraki fuarınızın tarihini yazarsanız üç hafta öncesinde hatırlatırım. Gündeminizde değilse "çıkar" yazmanız yeterli.
 
 ---
 
@@ -116,23 +106,17 @@ Bir sonraki fuarınızın adını ve tarihini yazarsanız, üç hafta öncesinde
 
 Merhaba {{first_name}},
 
-İhracatçı firma sahipleriyle konuştuğumuzda iki konu öne çıkıyor.
+İyi bir dış ticaret uzmanı bulmak zor ve pahalı. Bulunduğunda da zamanı yeni müşteriye değil; yazışmaya, proformaya ve sipariş takibine gidiyor. Müşteri bilgisi birkaç kişinin mail kutusunda kalıyor; o kişi ayrılınca işler aksıyor.
 
-Birincisi, iyi bir dış ticaret uzmanı bulmak zor ve pahalı. Bulunduğunda da zamanının çoğu yeni müşteri bulmaya değil; yazışmaya, proformaya ve sipariş takibine gidiyor.
+Biz bu tekrarlayan kısmı AI agent'lara devrediyoruz: talepler her dilde cevaplanıyor, proformalar otomatik hazırlanıyor, yazışma geçmişi tek yerde kalıyor. Ekibiniz aynı kadroyla daha fazla iş çıkarıyor.
 
-İkincisi, müşteri ve fiyat bilgisi birkaç kişinin mail kutusunda duruyor. O kişi izne çıktığında ya da ayrıldığında işler aksıyor.
-
-Biz bu tekrarlayan kısmı AI agent'lara devrediyoruz. Gelen talepler her dilde cevaplanıyor, proforma ve sipariş durum bildirimleri otomatik hazırlanıyor, tüm yazışma geçmişi tek yerde kalıyor. Ekibiniz aynı kadroyla daha fazla talebi karşılıyor ve satışa odaklanıyor.
-
-{{company}}'de bunun ne kadar kapasite açacağını 30 dakikada somut rakamla çıkarabilirim. Uygun olur mu?
+{{company}}'de bunun ne kadar kapasite açacağını 30 dakikada çıkarabilirim. Uygun olur mu?
 
 ### C2 · Gün 4 · aynı thread
 
 {{first_name}}, riski düşük tutmak için tek bir süreçle başlıyoruz.
 
-Örneğin sadece "yabancı dilde gelen fiyat talepleri" için 2–3 haftalık bir pilot kuruyoruz. Başarı ölçütünü baştan birlikte yazıyoruz: dönüş süresi ve ekibin harcadığı saat. Sonuç beklendiği gibi değilse devam etmek zorunda değilsiniz.
-
-Yeni bir uzman almadan önce mevcut ekibin kapasitesini artırmanın ne kadar mümkün olduğunu bu pilotla netleştirebilirsiniz.
+Örneğin sadece yabancı dilde gelen fiyat talepleri için 2–3 haftalık bir pilot. Başarı ölçütünü baştan birlikte belirliyoruz; sonuç beklendiği gibi değilse devam etmek zorunda değilsiniz.
 
 Bu hafta 30 dakikanız olur mu?
 
@@ -140,11 +124,9 @@ Bu hafta 30 dakikanız olur mu?
 
 {{first_name}}, son kez yazıyorum.
 
-Bu konu sizden çok dış ticaret müdürünüzün gündemindeyse, doğru kişinin adını yazmanız yeterli; onunla iletişime geçip sizi gereksiz yere meşgul etmem.
+Bu konu dış ticaret müdürünüzün gündemindeyse adını yazmanız yeterli, onunla iletişime geçerim.
 
-Şu an öncelik değilse "sonra" yazın; 3 ay sonra kısa bir hatırlatma yaparım.
-
-Teşekkürler, iyi çalışmalar dilerim.
+Şu an öncelik değilse "sonra" yazın; 3 ay sonra hatırlatırım.
 
 ---
 
