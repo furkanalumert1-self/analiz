@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boyut Plastik Süreç Görüşmesi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Boyut Plastik B2B satış sürecinde otomasyon fırsatları ve 30 günlük pilot önerisi">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütunlu okuma akışı + üstte yapışkan bölüm menüsü; kenar bandı kesiti motifli bölüm açılışları */
+:root{
+  --bg:#F8F6F3; --surface:#FFFFFF; --fg:#282522; --muted:#68615C; --accent:#A44732; --line:#E7E1DB;
+  --accent-soft:#F3E6E1; --ok:#3F6B4A; --ok-soft:#E6EFE7; --warn:#8A6418; --warn-soft:#F5EDD9;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1C1A18; --surface:#25221F; --fg:#EFEAE5; --muted:#B0A79F; --accent:#E0846C; --line:#3A3531;
+  --accent-soft:#3A2620; --ok:#8CC29A; --ok-soft:#21322570; --warn:#E2BC6A; --warn-soft:#3A301A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1C1A18; --surface:#25221F; --fg:#EFEAE5; --muted:#B0A79F; --accent:#E0846C; --line:#3A3531;
+  --accent-soft:#3A2620; --ok:#8CC29A; --ok-soft:#21322570; --warn:#E2BC6A; --warn-soft:#3A301A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0;max-width:68ch}
+.muted{color:var(--muted)}
+.eyebrow{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:16px;align-items:center;padding-block:10px}
+.brand{font-family:var(--f-display);font-weight:700;white-space:nowrap;font-size:.95rem}
+.brand span{color:var(--accent)}
+.nav ol{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav ol::-webkit-scrollbar{display:none}
+.nav a{display:block;padding:6px 10px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:.85rem;white-space:nowrap}
+.nav a:hover{color:var(--fg);background:var(--bg)}
+.nav a.on{color:var(--accent);background:var(--accent-soft)}
+
+/* hero */
+.hero{padding-block:56px 40px;display:grid;gap:22px}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.88rem;color:var(--muted)}
+.edge{display:flex;height:14px;border-radius:2px;overflow:hidden;max-width:360px;border:1px solid var(--line)}
+.edge i{flex:1}
+.edge i:nth-child(1){background:#C9B79F}.edge i:nth-child(2){background:#8E6E52}.edge i:nth-child(3){background:#E9E4DC}.edge i:nth-child(4){background:#5B5552}.edge i:nth-child(5){background:var(--accent)}
+
+/* sections */
+section{padding-block:44px;border-top:1px solid var(--line);scroll-margin-top:64px}
+.sec-head{display:grid;gap:10px;margin-bottom:26px}
+.sec-head .num{font-family:var(--f-mono);color:var(--accent);font-size:.85rem}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.list{margin:0;padding-left:1.1em;display:grid;gap:8px}
+.list li{max-width:68ch}
+
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.acc{background:var(--accent-soft);color:var(--accent)}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px}
+
+.notice{border:1px dashed var(--accent);border-radius:10px;padding:14px 16px;background:var(--accent-soft);font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+.notice b{color:var(--accent)}
+
+/* fact table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:620px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+
+/* sources */
+details.src{border-top:1px solid var(--line);padding-top:8px}
+details.src summary{cursor:pointer;font-size:.85rem;color:var(--muted);list-style:none}
+details.src summary::before{content:"+ ";color:var(--accent);font-family:var(--f-mono)}
+details.src[open] summary::before{content:"– "}
+details.src ul{margin:8px 0 0;padding-left:1.1em;font-size:.85rem;display:grid;gap:4px;word-break:break-word}
+
+/* band finder demo */
+.match{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+.match .side{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;min-width:0}
+.match .arrow{font-family:var(--f-mono);color:var(--accent)}
+.swatch{width:100%;height:28px;border-radius:4px;background:#B9A48B;border:1px solid var(--line);margin-bottom:8px}
+.swatch.e{height:8px;margin-top:-4px}
+@media (max-width:520px){.match{grid-template-columns:1fr}.match .arrow{transform:rotate(90deg);justify-self:center}}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.q{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.q .id{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);padding-top:2px}
+.q .text{font-weight:500}
+.q .tags{grid-column:2;display:flex;gap:6px;flex-wrap:wrap}
+.qs{display:grid;gap:10px}
+
+/* metrics plan */
+.metric{display:grid;gap:6px}
+.metric .k{font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.status-box{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:16px;border-radius:10px;background:var(--warn-soft);color:var(--fg)}
+.status-box strong{color:var(--warn)}
+
+/* actions */
+.action{display:grid;gap:12px}
+.action .top{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.action .n{font-family:var(--f-mono);color:var(--accent);font-weight:500}
+.kv{display:grid;grid-template-columns:minmax(110px,160px) 1fr;gap:6px 14px;font-size:.92rem}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;min-width:0}
+@media (max-width:520px){.kv{grid-template-columns:1fr}.kv dd{margin-bottom:6px}}
+
+/* before/after */
+.tabs{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
+.tabs button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
+.ba{display:grid;gap:14px}
+.ba-panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px}
+.ba-panel .lbl{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{font-size:.95rem}
+.draft mark{background:var(--warn-soft);color:var(--warn);padding:0 4px;border-radius:3px}
+.btn-fake{display:inline-block;margin-top:6px;padding:8px 14px;border-radius:6px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.example-tag{font-size:.78rem;font-weight:600;color:var(--warn);background:var(--warn-soft);padding:4px 10px;border-radius:6px;justify-self:start}
+
+/* timeline */
+.weeks{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+.week .w{font-family:var(--f-mono);font-size:.8rem;color:var(--accent)}
+.week ul{margin:0;padding-left:1.1em;font-size:.92rem;display:grid;gap:5px}
+
+footer{border-top:1px solid var(--line);padding-block:32px 48px;font-size:.88rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style><style>
+.flow{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:8px;align-content:start;text-align:left;font:inherit;color:inherit;cursor:pointer;min-width:0}
+.stage[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.stage .s{font-family:var(--f-mono);font-size:.78rem;color:var(--accent)}
+.stage b{font-family:var(--f-display);font-size:1.02rem}
+.stage-detail{margin-top:14px}
+.wf{display:grid;gap:10px}
+.wf-step{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.wf-step .dot{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--f-mono);font-size:.85rem;font-weight:500}
+.wf-step .body{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:6px;min-width:0}
+.wf-step .who{font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mail{font-family:var(--f-mono);font-size:.84rem;white-space:pre-wrap;background:var(--bg);border-radius:6px;padding:10px 12px;overflow-wrap:anywhere}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:6px 14px;font-size:.88rem}
+.fields div{display:grid}
+.fields span{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+.miss{color:var(--warn);font-weight:600}
+.principles{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Bölümler">
+  <div class="wrap">
+    <div class="brand">Boyut Plastik · <span>Süreç Görüşmesi</span></div>
+    <ol id="navlist">
+      <li><a href="#ozet">Özet</a></li>
+      <li><a href="#boyut">Doğrulananlar</a></li>
+      <li><a href="#akis">Satış akışı</a></li>
+      <li><a href="#firsatlar">Fırsatlar</a></li>
+      <li><a href="#ornek">Örnek akış</a></li>
+      <li><a href="#sistemler">Mevcut sistemler</a></li>
+      <li><a href="#pilot">30 gün</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+<header class="wrap hero">
+  <div class="edge" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="eyebrow">Boyut Plastik için hazırlandı · Görüşme sunumu</div>
+  <h1>Talepten teklife, fuardan takibe: tekrarlayan işleri aynı ekiple yönetmek</h1>
+  <p class="lead">50'den fazla ülkeye satış, yılda birkaç uluslararası fuar ve binlerce dekor seçeneği. Bu sunum, Boyut Plastik'in B2B satış sürecinde mevcut sistemleri değiştirmeden otomatikleştirilebilecek adımlara dair ön gözlemleri ve küçük bir pilot önerisini içeriyor.</p>
+  <div class="meta-row"><span>Araştırma tarihi: 10 Kasım 2026</span><span>Kaynak: boyutplastik.com.tr, 2026 katalog, fuar kayıtları</span></div>
+</header>
+
+<section id="ozet"><div class="wrap">
+  <div class="sec-head"><span class="num">01</span><h2>Özet</h2></div>
+  <div class="grid g2">
+    <div class="card"><h3>Dışarıdan gördüğümüz</h3>
+      <p>Çok ülkeli ve çok kanallı bir B2B satış yapısı: mobilya üreticileri, distribütörler, bayiler, Belgrad'da bir dağıtım şirketi. 2025'te üç uluslararası fuar. Taleplerin önemli bir girdisi, panel dekor kodunun Boyut koduna eşlenmesi.</p></div>
+    <div class="card"><h3>Bilmediğimiz</h3>
+      <p>Teklifin içeride nasıl hazırlandığını, hangi sistemlerin kullanıldığını, takibin kimde olduğunu ve ekibin zamanının nereye gittiğini bilmiyoruz. Bu görüşmenin ilk amacı bunu sizden dinlemek.</p></div>
+    <div class="card"><h3>Olası fırsatlar</h3>
+      <p>Gelen talepten teklif taslağı, fuar sonrası takip, yeni pazarlarda müşteri araştırması, numune takibi ve raporlama. Hepsi şimdilik hipotez; önceliği birlikte belirleriz.</p></div>
+    <div class="card"><h3>Önerimiz</h3>
+      <p>Tek bir süreçle 30 günlük pilot. Mevcut sistemlere yalnızca okuma erişimi, müşteriye giden her çıktı için insan onayı ve başlangıçta birlikte belirlenen ölçütler.</p></div>
+  </div>
+</div></section>
+
+<section id="boyut"><div class="wrap">
+  <div class="sec-head"><span class="num">02</span><h2>Boyut Plastik hakkında doğruladıklarımız</h2>
+    <p class="muted">Bilgiler firmanın kendi sitesi, 2026 kataloğu ve fuar kayıtlarından alındı. Firma beyanı olan rakamları bağımsız olarak doğrulamadık.</p></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Konu</th><th>Bulgu</th><th>Durum</th></tr></thead>
+      <tbody>
+        <tr><td>Faaliyet</td><td>Mobilya ve kapı üretiminde kullanılan PVC, ABS ve PP kenar bandı üretimi</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Müşteri tipi</td><td>Mobilya üreticileri ve distribütörler (B2B). Bayi kanalı mevcut</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Pazar</td><td>50'den fazla ülke; öncelik Avrupa ve Balkanlar, ayrıca Orta Doğu</td><td><span class="pill ok">Firma beyanı</span></td></tr>
+        <tr><td>Bölgesel yapı</td><td>Belgrad'da dağıtım şirketi, Karadağ Bar Serbest Bölgesi'nde grup deposu</td><td><span class="pill ok">Firma beyanı</span></td></tr>
+        <tr><td>Fuarlar (2025)</td><td>Interzum Köln, Interzum Guangzhou, Intermob İstanbul</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Büyüme hedefi</td><td>"Mevcut, yeni ve karlı pazarlara ihracatı artırarak global oyuncu olmak"</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Ürün çeşitliliği</td><td>Yaklaşık 8.000 dekorluk arşiv; hazır stok ağırlıklı 0,4 ve 0,8 mm; farklı yüzey seçenekleri</td><td><span class="pill ok">Katalog beyanı</span></td></tr>
+        <tr><td>Talep kanalı</td><td>İletişim formu, telefon ve e-posta. Sitede ayrıca numune veya teklif formu görülmedi</td><td><span class="pill ok">Dışarıdan görünen</span></td></tr>
+        <tr><td>CRM, ERP, teklif süreci, ekip yapısı</td><td>Dışarıdan görünmüyor</td><td><span class="pill warn">Görüşmede konuşulacak</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details class="src"><summary>Kaynaklar</summary><ul>
+    <li><a href="https://boyutplastik.com.tr/" target="_blank" rel="noopener">Ana sayfa</a> · <a href="https://boyutplastik.com.tr/kurumsal/sirket-profilimiz" target="_blank" rel="noopener">Şirket Profili</a> · <a href="https://boyutplastik.com.tr/kurumsal/amaclarimiz" target="_blank" rel="noopener">Amaçlarımız</a> · <a href="https://boyutplastik.com.tr/kurumsal/ceonun-mesaji" target="_blank" rel="noopener">CEO'nun Mesajı</a></li>
+    <li><a href="https://boyutplastik.com.tr/medya/fuarlar" target="_blank" rel="noopener">Fuarlar</a> · <a href="https://boyutplastik.com.tr/bant-bulucu" target="_blank" rel="noopener">Bant Bulucu</a> · <a href="https://boyutplastik.com.tr/iletisim" target="_blank" rel="noopener">İletişim</a></li>
+    <li><a href="https://boyutplastik.com.tr/uploads/main/260303152042_boyut-katalog-ing-2026-h.pdf" target="_blank" rel="noopener">2026 katalog (PDF, EN)</a> · <a href="https://boyutplastik.com.tr/kurumsal/politikalarimiz/kalite-politikasi" target="_blank" rel="noopener">Kalite Politikası</a></li>
+  </ul></details>
+</div></section>
+
+<section id="akis"><div class="wrap">
+  <div class="sec-head"><span class="num">03</span><h2>Dışarıdan görünen B2B satış akışı</h2>
+    <p class="muted">Her aşamaya tıklayarak neyi gördüğümüzü ve neyi sizden öğrenmemiz gerektiğini inceleyebilirsiniz.</p></div>
+  <div class="flow" id="flow" role="group" aria-label="Satış aşamaları"></div>
+  <div class="card stage-detail" id="stage-detail" aria-live="polite"></div>
+</div></section>
+
+<section id="firsatlar"><div class="wrap">
+  <div class="sec-head"><span class="num">04</span><h2>Olası otomasyon fırsatları</h2>
+    <p class="muted">Herkese açık kanıtlara dayanan hipotezler. Hangisinin sizin için öncelikli olduğunu görüşmede birlikte belirleriz.</p></div>
+  <div class="grid">
+    <article class="card action"><div class="top"><span class="n">F1</span><h3>Gelen talepten teklif taslağına</h3></div>
+      <dl class="kv"><dt>Kanıt</dt><dd>Müşteriler panel dekor koduyla geliyor ve Boyut bu kodları kendi koduna eşliyor (sitede 346 eşleşme kaydı). Talepler serbest metin olarak geliyor.</dd>
+      <dt>Otomasyon</dt><dd>E-postadan talep bilgilerini çıkarma, Boyut kodunu bulma, eksikleri işaretleme, fiyat ve stoğu mevcut sistemden okuma, onaya düşen teklif taslağı.</dd>
+      <dt>Doğrulanacak</dt><dd>Teklifin bugün nasıl hazırlandığı ve fiyat ile stoğun hangi sistemde tutulduğu</dd>
+      <dt>Olası ölçüt</dt><dd>Talebe ilk yanıt süresi, teklif hazırlama süresi</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">F2</span><h3>Fuar sonrası ilk temas ve takip</h3></div>
+      <dl class="kv"><dt>Kanıt</dt><dd>2025'te üç uluslararası fuar. Fuar haberlerinde yeni ve potansiyel müşterilerle görüşmeler öne çıkıyor.</dd>
+      <dt>Otomasyon</dt><dd>Temasları tek listede toplama, firma bilgisini tamamlama, müşterinin dilinde takip e-postası taslağı, zamanlanmış hatırlatmalar.</dd>
+      <dt>Doğrulanacak</dt><dd>Temasların nereye kaydedildiği ve takibin kimde olduğu</dd>
+      <dt>Olası ölçüt</dt><dd>Takip edilen temas oranı, ilk takip süresi</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">F3</span><h3>Yeni ihracat pazarlarında müşteri araştırması</h3></div>
+      <dl class="kv"><dt>Kanıt</dt><dd>Sitede "yeni ve karlı pazarlara ihracat" hedefi yazıyor.</dd>
+      <dt>Otomasyon</dt><dd>Hedef ülke ve müşteri profiline göre kamu kaynaklarından firma listesi, ön eleme notları, onaylananlar için ilk temas taslağı.</dd>
+      <dt>Doğrulanacak</dt><dd>Hedef ülkeler, ideal müşteri profili, KVKK/GDPR çerçevesi</dd>
+      <dt>Olası ölçüt</dt><dd>Satış ekibinin uygun bulduğu firma oranı</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">F4</span><h3>Numune ve müşteri takibi</h3></div>
+      <dl class="kv"><dt>Kanıt</dt><dd>Katalogda hazır stok programı ve özel talepler için ayrılmış stok belirtiliyor.</dd>
+      <dt>Otomasyon</dt><dd>Numune gönderimi sonrası zamanlanmış takip taslağı, yanıt gelmezse temsilciye hatırlatma.</dd>
+      <dt>Doğrulanacak</dt><dd>Numune talebinin sıklığı ve bugünkü takip yöntemi</dd>
+      <dt>Olası ölçüt</dt><dd>Takipsiz kalan numune sayısı</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">F5</span><h3>Satış ve ihracat raporlaması</h3></div>
+      <dl class="kv"><dt>Kanıt</dt><dd>Satış birden çok ülke ve kanala yayılıyor (üretici, distribütör, bayi, bölgesel dağıtım).</dd>
+      <dt>Otomasyon</dt><dd>Mevcut ERP/Excel çıktılarından haftalık rapor: ülke, kanal, açık teklifler, takip bekleyenler.</dd>
+      <dt>Doğrulanacak</dt><dd>Raporların bugün nasıl ve kim tarafından hazırlandığı</dd>
+      <dt>Olası ölçüt</dt><dd>Rapor hazırlama süresi</dd></dl></article>
+  </div>
+</div></section>
+
+<section id="ornek"><div class="wrap">
+  <div class="sec-head"><span class="num">05</span><h2>Örnek akış: gelen talepten teklif taslağına</h2>
+    <p class="muted">Gelen talep kurgusaldır. Dekor eşleşmesi sitenizdeki gerçek bir kayıttan alındı. Fiyat ve stok bilgisi üretilmez, sizin sisteminizden okunur.</p></div>
+  <span class="example-tag">Örnek çalışma — gerçek performans sonucu değildir</span>
+  <div class="wf" style="margin-top:14px">
+    <div class="wf-step"><span class="dot">1</span><div class="body"><span class="who">Gelen e-posta (örnek)</span>
+      <div class="mail">Hello, we need edgeband for Kastamonu D126 Keas Cappucino, 0.8 x 22 mm, about 5,000 m. Please send price and delivery time to Belgrade.</div></div></div>
+    <div class="wf-step"><span class="dot">2</span><div class="body"><span class="who">Talep bilgileri çıkarılır</span>
+      <div class="fields">
+        <div><span>Panel / dekor</span>Kastamonu Entegre · D126</div>
+        <div><span>Ölçü</span>0,8 × 22 mm</div>
+        <div><span>Miktar</span>~5.000 m</div>
+        <div><span>Teslim</span>Belgrad</div>
+        <div><span>Malzeme</span><span class="miss">Belirtilmemiş</span></div>
+        <div><span>Dil</span>İngilizce</div>
+      </div></div></div>
+    <div class="wf-step"><span class="dot">3</span><div class="body"><span class="who">Dekor kodu eşleşir</span>
+      <div class="match">
+        <div class="side"><div class="swatch" style="background:#B49C83"></div><div class="mono" style="font-size:.8rem">KASTAMONU ENTEGRE · D126</div><div>Keas Cappucino</div></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="side"><div class="swatch" style="background:#B49C83"></div><div class="swatch e" style="background:#A48C73"></div><div class="mono" style="font-size:.8rem">BOYUT KODU</div><div class="mono" style="font-size:1.3rem">0100</div></div>
+      </div>
+      <p class="muted" style="font-size:.85rem">Kaynak: <a href="https://boyutplastik.com.tr/bant-bulucu/keas-cappucino" target="_blank" rel="noopener">Bant Bulucu kaydı</a>. Renkler temsilîdir.</p></div></div>
+    <div class="wf-step"><span class="dot">4</span><div class="body"><span class="who">Mevcut sistemden okunur</span>
+      <p>Fiyat, stok ve teslim süresi ERP'den veya fiyat listesinden okunur. Otomasyon bu bilgileri kendisi üretmez.</p></div></div>
+    <div class="wf-step"><span class="dot">5</span><div class="body"><span class="who">Taslak, temsilcinin onayına düşer</span>
+      <div class="mail">Dear [Name], thank you for your request. The matching Boyut edgeband for Kastamonu D126 Keas Cappucino is code 0100. Could you confirm the material (PVC or ABS)? For 0.8 × 22 mm, approx. 5,000 m: price [from your system], delivery to Belgrade [from your system].</div>
+      <p class="muted" style="font-size:.85rem">Eksik bilgi (malzeme) ayrıca işaretlenir. Temsilci onaylamadan hiçbir şey gönderilmez.</p></div></div>
+  </div>
+</div></section>
+
+<section id="sistemler"><div class="wrap">
+  <div class="sec-head"><span class="num">06</span><h2>Mevcut sistemlerinizle nasıl çalışırız?</h2></div>
+  <div class="principles">
+    <div class="card"><h3>Sistemler değişmez</h3><p class="muted">ERP, CRM, e-posta ve Excel yapınız olduğu gibi kalır. Otomasyon bunların arasındaki el işini üstlenir.</p></div>
+    <div class="card"><h3>Önce okuma erişimi</h3><p class="muted">Pilot, yalnızca seçilen süreç için okuma yetkisiyle başlar. Yazma yetkisi gerekirse ayrıca konuşulur.</p></div>
+    <div class="card"><h3>İnsan onayı</h3><p class="muted">Müşteriye giden her teklif ve e-posta, ekibinizden birinin onayından geçer.</p></div>
+    <div class="card"><h3>Veri sorumluluğu</h3><p class="muted">Kişisel veriler KVKK/GDPR çerçevesinde işlenir. Erişimler pilot sonunda gözden geçirilir.</p></div>
+  </div>
+</div></section>
+
+<section id="pilot"><div class="wrap">
+  <div class="sec-head"><span class="num">07</span><h2>30 günlük pilot</h2>
+    <p class="muted">Tek süreç (öneri: gelen talepten teklif taslağı veya fuar sonrası takip). Başarı ölçütlerini ilk hafta birlikte belirleriz.</p></div>
+  <div class="weeks">
+    <div class="week"><span class="w">1. hafta</span><h3>Süreç haritası ve başlangıç ölçümü</h3><ul><li>Seçilen sürecin adımları</li><li>Kullanılan sistemler ve örnek veriler</li><li>Ölçütlerin belirlenmesi</li><li>Mevcut durumun ölçülmesi</li></ul></div>
+    <div class="week"><span class="w">2. hafta</span><h3>Prototip</h3><ul><li>Okuma erişimiyle prototip</li><li>Örnek veya anonim verilerle test</li><li>Şablonların hazırlanması</li></ul></div>
+    <div class="week"><span class="w">3. hafta</span><h3>Paralel çalıştırma</h3><ul><li>Gerçek taleplerde, mevcut süreçle yan yana</li><li>Her çıktı insan onaylı</li><li>Hataların ve eksiklerin kaydı</li></ul></div>
+    <div class="week"><span class="w">4. hafta</span><h3>Değerlendirme</h3><ul><li>Aynı ölçütlerle karşılaştırma</li><li>Ekip geri bildirimi</li><li>Devam, genişletme veya durdurma kararı</li></ul></div>
+  </div>
+  <p class="muted" style="margin-top:18px;font-size:.92rem">Sonuçlar garanti edilmez. Kısa pilot dönemindeki değişimler kalıcı verimlilik veya satış artışı kanıtı olarak sunulmaz.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">Bu sunum Boyut Plastik ile yapılacak görüşme için hazırlanmıştır. Boyut Plastik'e ait bilgiler herkese açık kaynaklardan derlenmiştir ve firmanın onayına tabidir.</div></footer>
+
+<script>
+(function(){
+  var S=[
+    {k:"Müşteri araştırması",st:"Hedef doğrulandı",c:"ok",see:"Sitede yeni ve karlı pazarlara ihracat hedefi yazıyor. 50'den fazla ülkeye satış beyan ediliyor.",ask:"Yeni müşteriyi bugün kim, hangi yöntemle araştırıyor? Hedef ülkeler ve ideal müşteri profili hangisi?"},
+    {k:"İlk temas",st:"Fuar kanalı doğrulandı",c:"ok",see:"2025'te Interzum Köln, Interzum Guangzhou ve Intermob. Haberlerde yeni ve potansiyel müşterilerle görüşmeler öne çıkıyor.",ask:"Fuar temasları nereye kaydediliyor? İlk takip e-postası ne zaman ve kim tarafından gönderiliyor?"},
+    {k:"Talep",st:"Dışarıdan görünen",c:"ok",see:"İletişim formu, telefon ve e-posta. Sitede ayrıca numune veya teklif formu görülmedi.",ask:"Taleplerin çoğu hangi kanaldan geliyor? Ne kadarı eksik bilgiyle geliyor?"},
+    {k:"Teklif",st:"Süreç bilinmiyor",c:"warn",see:"Teklifin girdileri belli: panel dekor kodu, Boyut kodu, malzeme, kalınlık, genişlik, miktar. Sitede 346 dekor eşleşme kaydı var.",ask:"Teklifi kim, hangi sistemlerden bilgi alarak hazırlıyor? En çok zaman nerede harcanıyor?"},
+    {k:"Takip",st:"Süreç bilinmiyor",c:"warn",see:"Katalogda hazır stok programı ve özel talepler için ayrılmış stok belirtiliyor. Takip süreci dışarıdan görünmüyor.",ask:"Teklif ve numune sonrası takip nasıl yapılıyor? Takipsiz kalan talepler oluyor mu?"},
+    {k:"Raporlama",st:"İç veri gerekli",c:"warn",see:"Satış birden çok ülke ve kanala yayılıyor: üretici, distribütör, bayi ve Belgrad'daki dağıtım şirketi.",ask:"Yönetime giden raporlar nasıl, ne sıklıkta ve kim tarafından hazırlanıyor?"}
+  ];
+  var flow=document.getElementById("flow"),det=document.getElementById("stage-detail");
+  function show(i){
+    [].forEach.call(flow.children,function(b,j){b.setAttribute("aria-pressed",j===i?"true":"false")});
+    var s=S[i];
+    det.innerHTML='<h3></h3><p><b>Gördüğümüz:</b> <span class="see"></span></p><p><b>Sizden öğrenmek istediğimiz:</b> <span class="ask"></span></p>';
+    det.querySelector("h3").textContent=s.k;det.querySelector(".see").textContent=s.see;det.querySelector(".ask").textContent=s.ask;
+  }
+  S.forEach(function(s,i){
+    var b=document.createElement("button");b.className="stage";b.type="button";
+    b.innerHTML='<span class="s">'+(i+1)+'. aşama</span><b></b><span class="pill '+s.c+'"></span>';
+    b.querySelector("b").textContent=s.k;b.querySelector(".pill").textContent=s.st;
+    b.addEventListener("click",function(){show(i)});flow.appendChild(b);
+  });
+  show(3);
+
+  var links=[].slice.call(document.querySelectorAll("#navlist a"));
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)});
+    }})},{rootMargin:"-40% 0px -55% 0px"});
+    document.querySelectorAll("main section").forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+
+</body>
+</html>
