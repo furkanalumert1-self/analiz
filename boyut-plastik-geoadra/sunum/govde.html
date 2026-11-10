@@ -1,0 +1,436 @@
+<title>Boyut Plastik × GeoAdra</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Boyut Plastik için AI keşif fırsatları, ölçüm planı ve 30 günlük pilot önerisi — GeoAdra by CallypsoTech">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütunlu okuma akışı + üstte yapışkan bölüm menüsü; kenar bandı kesiti motifli bölüm açılışları */
+:root{
+  --bg:#F8F6F3; --surface:#FFFFFF; --fg:#282522; --muted:#68615C; --accent:#A44732; --line:#E7E1DB;
+  --accent-soft:#F3E6E1; --ok:#3F6B4A; --ok-soft:#E6EFE7; --warn:#8A6418; --warn-soft:#F5EDD9;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1C1A18; --surface:#25221F; --fg:#EFEAE5; --muted:#B0A79F; --accent:#E0846C; --line:#3A3531;
+  --accent-soft:#3A2620; --ok:#8CC29A; --ok-soft:#21322570; --warn:#E2BC6A; --warn-soft:#3A301A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1C1A18; --surface:#25221F; --fg:#EFEAE5; --muted:#B0A79F; --accent:#E0846C; --line:#3A3531;
+  --accent-soft:#3A2620; --ok:#8CC29A; --ok-soft:#21322570; --warn:#E2BC6A; --warn-soft:#3A301A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0;max-width:68ch}
+.muted{color:var(--muted)}
+.eyebrow{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:16px;align-items:center;padding-block:10px}
+.brand{font-family:var(--f-display);font-weight:700;white-space:nowrap;font-size:.95rem}
+.brand span{color:var(--accent)}
+.nav ol{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav ol::-webkit-scrollbar{display:none}
+.nav a{display:block;padding:6px 10px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:.85rem;white-space:nowrap}
+.nav a:hover{color:var(--fg);background:var(--bg)}
+.nav a.on{color:var(--accent);background:var(--accent-soft)}
+
+/* hero */
+.hero{padding-block:56px 40px;display:grid;gap:22px}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.88rem;color:var(--muted)}
+.edge{display:flex;height:14px;border-radius:2px;overflow:hidden;max-width:360px;border:1px solid var(--line)}
+.edge i{flex:1}
+.edge i:nth-child(1){background:#C9B79F}.edge i:nth-child(2){background:#8E6E52}.edge i:nth-child(3){background:#E9E4DC}.edge i:nth-child(4){background:#5B5552}.edge i:nth-child(5){background:var(--accent)}
+
+/* sections */
+section{padding-block:44px;border-top:1px solid var(--line);scroll-margin-top:64px}
+.sec-head{display:grid;gap:10px;margin-bottom:26px}
+.sec-head .num{font-family:var(--f-mono);color:var(--accent);font-size:.85rem}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.list{margin:0;padding-left:1.1em;display:grid;gap:8px}
+.list li{max-width:68ch}
+
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.acc{background:var(--accent-soft);color:var(--accent)}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px}
+
+.notice{border:1px dashed var(--accent);border-radius:10px;padding:14px 16px;background:var(--accent-soft);font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+.notice b{color:var(--accent)}
+
+/* fact table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:620px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+
+/* sources */
+details.src{border-top:1px solid var(--line);padding-top:8px}
+details.src summary{cursor:pointer;font-size:.85rem;color:var(--muted);list-style:none}
+details.src summary::before{content:"+ ";color:var(--accent);font-family:var(--f-mono)}
+details.src[open] summary::before{content:"– "}
+details.src ul{margin:8px 0 0;padding-left:1.1em;font-size:.85rem;display:grid;gap:4px;word-break:break-word}
+
+/* band finder demo */
+.match{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+.match .side{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;min-width:0}
+.match .arrow{font-family:var(--f-mono);color:var(--accent)}
+.swatch{width:100%;height:28px;border-radius:4px;background:#B9A48B;border:1px solid var(--line);margin-bottom:8px}
+.swatch.e{height:8px;margin-top:-4px}
+@media (max-width:520px){.match{grid-template-columns:1fr}.match .arrow{transform:rotate(90deg);justify-self:center}}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.q{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.q .id{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);padding-top:2px}
+.q .text{font-weight:500}
+.q .tags{grid-column:2;display:flex;gap:6px;flex-wrap:wrap}
+.qs{display:grid;gap:10px}
+
+/* metrics plan */
+.metric{display:grid;gap:6px}
+.metric .k{font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.status-box{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:16px;border-radius:10px;background:var(--warn-soft);color:var(--fg)}
+.status-box strong{color:var(--warn)}
+
+/* actions */
+.action{display:grid;gap:12px}
+.action .top{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.action .n{font-family:var(--f-mono);color:var(--accent);font-weight:500}
+.kv{display:grid;grid-template-columns:minmax(110px,160px) 1fr;gap:6px 14px;font-size:.92rem}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;min-width:0}
+@media (max-width:520px){.kv{grid-template-columns:1fr}.kv dd{margin-bottom:6px}}
+
+/* before/after */
+.tabs{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
+.tabs button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:#fff}
+.ba{display:grid;gap:14px}
+.ba-panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px}
+.ba-panel .lbl{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{font-size:.95rem}
+.draft mark{background:var(--warn-soft);color:var(--warn);padding:0 4px;border-radius:3px}
+.btn-fake{display:inline-block;margin-top:6px;padding:8px 14px;border-radius:6px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.example-tag{font-size:.78rem;font-weight:600;color:var(--warn);background:var(--warn-soft);padding:4px 10px;border-radius:6px;justify-self:start}
+
+/* timeline */
+.weeks{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+.week .w{font-family:var(--f-mono);font-size:.8rem;color:var(--accent)}
+.week ul{margin:0;padding-left:1.1em;font-size:.92rem;display:grid;gap:5px}
+
+footer{border-top:1px solid var(--line);padding-block:32px 48px;font-size:.88rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<nav class="nav" aria-label="Bölümler">
+  <div class="wrap">
+    <div class="brand">Geo<span>Adra</span></div>
+    <ol id="navlist">
+      <li><a href="#ozet">Özet</a></li>
+      <li><a href="#boyut">Doğrulananlar</a></li>
+      <li><a href="#sorular">Müşteri soruları</a></li>
+      <li><a href="#olcum">Ölçüm</a></li>
+      <li><a href="#rakipler">Rakipler</a></li>
+      <li><a href="#aksiyonlar">Aksiyonlar</a></li>
+      <li><a href="#taslak">Taslaklar</a></li>
+      <li><a href="#pilot">30 gün</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+<header class="wrap hero">
+  <div class="edge" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="eyebrow">Boyut Plastik için hazırlandı · Toplantı sunumu</div>
+  <h1>Mobilya üreticisi AI'a "bu panele hangi kenar bandı uyar?" diye sorduğunda</h1>
+  <p class="lead">Boyut Plastik'in PVC, ABS ve PP kenar bantları ve Bant Bulucu eşleşmeleri, AI asistanlarında tedarikçi araştıranların karşısına nasıl çıkabilir? Bu sunum, kaynaklı gözlemleri, ölçüm planını ve küçük bir pilot önerisini bir araya getiriyor.</p>
+  <div class="meta-row"><span>GeoAdra by CallypsoTech</span><span>Araştırma tarihi: 10 Kasım 2026</span><span>Kaynak: boyutplastik.com.tr, 2026 katalog, fuar kayıtları</span></div>
+</header>
+
+<!-- 1 -->
+<section id="ozet"><div class="wrap">
+  <div class="sec-head"><span class="num">01</span><h2>Yönetici özeti</h2></div>
+  <div class="grid g2">
+    <div class="card"><h3>Gördüğümüz güçlü taraf</h3>
+      <p>Bant Bulucu, yaklaşık 24 panel üreticisinin dekorlarını Boyut ürün kodlarına eşliyor. Sitede bunun için 346 ayrı sayfa var. Bu, mobilya üreticilerinin gerçek sorusuyla doğrudan örtüşen ve sektörde az görülen bir içerik varlığı.</p></div>
+    <div class="card"><h3>Fırsat alanı</h3>
+      <p>Ürün sayfalarındaki açıklamalar kısa. Kalınlık, yüzey ve stok bilgisi çoğunlukla PDF katalogda duruyor. İngilizce içerik ise tek sayfayla sınırlı. Bu bilgiler sayfa metnine taşınırsa AI asistanlarının okuyabileceği kaynak artar.</p></div>
+    <div class="card"><h3>Ne öneriyoruz</h3>
+      <p>Tek ürün grubu ve sabit 8 soruyla başlangıç ölçümü. Ardından sizin onayınızla içerik iyileştirmesi ve aynı yöntemle yeniden ölçüm. Süre 30 gün.</p></div>
+    <div class="card"><h3>Neyi iddia etmiyoruz</h3>
+      <p>AI görünürlüğünüzü henüz ölçmedik. İçerik eksikliğinin görünürlüğü düşürdüğünü de kanıtlamadık. Pilot bunu ölçmek için tasarlandı. Satış artışı garanti edilmez.</p></div>
+  </div>
+</div></section>
+
+<!-- 2 -->
+<section id="boyut"><div class="wrap">
+  <div class="sec-head"><span class="num">02</span><h2>Boyut Plastik hakkında doğruladıklarımız</h2>
+    <p class="muted">Bilgiler firmanın kendi sitesi, 2026 kataloğu ve fuar kayıtlarından alındı. Firma beyanı olan rakamları bağımsız olarak doğrulamadık.</p></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Konu</th><th>Bulgu</th><th>Durum</th></tr></thead>
+      <tbody>
+        <tr><td>Faaliyet</td><td>Mobilya ve kapı üretiminde kullanılan PVC, ABS ve PP termoplastik kenar bandı üretimi. Ekstrüzyon, baskı ve gofraj hatları</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Kuruluş ve grup</td><td>2005'te kuruldu, 2010'dan beri Alim Grup bünyesinde. Merkez İstanbul, Hadımköy / Arnavutköy</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Müşteri tipi</td><td>Mobilya üreticileri ve distribütörler (B2B). Bayi girişi mevcut</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Ürün serileri</td><td>Düz renk, desen, high gloss, fantezi, simli, soft touch. Super Matt'tan High Gloss'a yüzeyler. 16 doku kodu</td><td><span class="pill ok">Doğrulandı</span></td></tr>
+        <tr><td>Stok programı</td><td>Hazır stok ağırlıklı 0,4 mm ve 0,8 mm. Yaklaşık 8.000 dekorluk arşiv</td><td><span class="pill ok">Katalog beyanı</span></td></tr>
+        <tr><td>İhracat ve lojistik</td><td>50'den fazla ülke, öncelik Avrupa ve Balkanlar. Belgrad'da dağıtım şirketi, Karadağ Bar Serbest Bölgesi'nde grup deposu</td><td><span class="pill ok">Firma beyanı</span></td></tr>
+        <tr><td>Özel üretim</td><td>Müşteriye özel projeler ve özel talepler için dilimlenmemiş stok</td><td><span class="pill ok">Firma beyanı</span></td></tr>
+        <tr><td>Kapasite rakamları</td><td>Sayfalar arasında farklı ifadeler var (7 bin ton/yıl, 25.000 m², "Türkiye'nin en büyük ikinci")</td><td><span class="pill warn">Toplantıda doğrulanacak</span></td></tr>
+        <tr><td>3D, Platinum, boyanabilir, PMMA</td><td>Sitemap'te ve fuar haberlerinde geçiyor, ürün sayfaları boş</td><td><span class="pill warn">Toplantıda doğrulanacak</span></td></tr>
+        <tr><td>MOQ, teslim süresi, sertifikalar, öncelikli pazar</td><td>Sitede yer almıyor</td><td><span class="pill warn">Toplantıda doğrulanacak</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <span class="eyebrow">Sitedeki Bant Bulucu'dan gerçek bir eşleşme</span>
+      <div class="match">
+        <div class="side"><div class="swatch" style="background:#B49C83"></div><div class="mono" style="font-size:.8rem">KASTAMONU ENTEGRE · D126</div><div>Keas Cappucino</div></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="side"><div class="swatch" style="background:#B49C83"></div><div class="swatch e" style="background:#A48C73"></div><div class="mono" style="font-size:.8rem">BOYUT KODU</div><div class="mono" style="font-size:1.3rem">0100</div></div>
+      </div>
+      <p class="muted" style="font-size:.88rem">Renkler temsilîdir. Sayfada malzeme, kalınlık ya da talep yönlendirmesi bulunmuyor.</p>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Talep kanalları (dışarıdan görünen)</span>
+      <ul class="list">
+        <li>İletişim formu, telefon (+90 850 425 22 98) ve e-posta</li>
+        <li>Bayi Girişi bağlantısı</li>
+        <li>İngilizce 2026 PDF katalog</li>
+        <li>Ürün sayfalarında numune veya teklif akışı görülmedi. Bunun bilinçli bir tercih olup olmadığını toplantıda soracağız.</li>
+      </ul>
+    </div>
+  </div>
+  <details class="src"><summary>Kaynaklar</summary><ul>
+    <li><a href="https://boyutplastik.com.tr/" target="_blank" rel="noopener">Ana sayfa</a> · <a href="https://boyutplastik.com.tr/main-page" target="_blank" rel="noopener">İngilizce sayfa</a></li>
+    <li><a href="https://boyutplastik.com.tr/kurumsal/sirket-profilimiz" target="_blank" rel="noopener">Şirket Profili</a> · <a href="https://boyutplastik.com.tr/kurumsal/tarihce" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://boyutplastik.com.tr/kurumsal/ceonun-mesaji" target="_blank" rel="noopener">CEO'nun Mesajı</a></li>
+    <li><a href="https://boyutplastik.com.tr/urunler/kenar-bandi" target="_blank" rel="noopener">Kenar Bandı ürünleri</a> · <a href="https://boyutplastik.com.tr/bant-bulucu" target="_blank" rel="noopener">Bant Bulucu</a> · <a href="https://boyutplastik.com.tr/bant-bulucu/keas-cappucino" target="_blank" rel="noopener">Keas Cappucino eşleşmesi</a></li>
+    <li><a href="https://boyutplastik.com.tr/uploads/main/260303152042_boyut-katalog-ing-2026-h.pdf" target="_blank" rel="noopener">2026 katalog (PDF, EN)</a> · <a href="https://boyutplastik.com.tr/iletisim" target="_blank" rel="noopener">İletişim</a></li>
+    <li><a href="https://boyutplastik.com.tr/sitemap.xml" target="_blank" rel="noopener">sitemap.xml</a> · <a href="https://boyutplastik.com.tr/kurumsal/politikalarimiz/kalite-politikasi" target="_blank" rel="noopener">Kalite Politikası</a></li>
+  </ul></details>
+</div></section>
+
+<!-- 3 -->
+<section id="sorular"><div class="wrap">
+  <div class="sec-head"><span class="num">03</span><h2>Potansiyel müşteriler AI'a neler sorabilir?</h2>
+    <p class="muted">Sorular, doğrulanmış ürün ve hizmetlerinizden türetildi. Keşif sorularına marka adı eklenmedi. Markalı sorular ayrıca, kontrol amacıyla ölçülür. İşaretli 8 soru pilot setini oluşturur.</p></div>
+  <div class="chips" role="group" aria-label="Soru filtresi">
+    <button class="chip" data-f="all" aria-pressed="true">Tümü</button>
+    <button class="chip" data-f="pilot" aria-pressed="false">Pilot seti</button>
+    <button class="chip" data-f="kesif" aria-pressed="false">Üretici/tedarikçi keşfi</button>
+    <button class="chip" data-f="secim" aria-pressed="false">Ürün/malzeme seçimi</button>
+    <button class="chip" data-f="karsi" aria-pressed="false">Karşılaştırma</button>
+    <button class="chip" data-f="teklif" aria-pressed="false">Toptan/özel üretim</button>
+    <button class="chip" data-f="teknik" aria-pressed="false">Teknik bilgi</button>
+    <button class="chip" data-f="marka" aria-pressed="false">Markalı</button>
+  </div>
+  <div class="qs" id="qs"></div>
+</div></section>
+
+<!-- 4 -->
+<section id="olcum"><div class="wrap">
+  <div class="sec-head"><span class="num">04</span><h2>Ölçüm: neyi, nasıl ölçeceğiz?</h2></div>
+  <div class="status-box"><strong>Ölçüm planı hazır, henüz çalıştırılmadı.</strong><span>Bu sunumda hiçbir görünürlük puanı veya AI yanıtı yer almıyor.</span></div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card metric"><span class="k">Anılma</span><p class="muted">Yanıtta Boyut Plastik adı geçiyor mu?</p></div>
+    <div class="card metric"><span class="k">Önerilme</span><p class="muted">Soruya uygun bir seçenek olarak öneriliyor mu?</p></div>
+    <div class="card metric"><span class="k">Kaynak gösterilme</span><p class="muted">Yanıt boyutplastik.com.tr sayfalarına bağlantı veriyor mu?</p></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Yöntem</h3>
+    <ul class="list">
+      <li>Platformlar: ChatGPT, Gemini ve Claude (web araması açık). 8 soru × 3 platform × 3 tekrar.</li>
+      <li>Her yanıt için tarih, model, web araması durumu, soru, ham yanıt ve kaynak bağlantıları kaydedilir.</li>
+      <li>Sonuçlar "geçerli yanıt / beklenen yanıt" ile raporlanır. Başarısız çağrılar sıfır görünürlük sayılmaz.</li>
+      <li>API sonuçları, tüketici uygulamalarında görülen yanıtlarla birebir aynı olmayabilir. 8 soruluk örneklem tüm pazarı temsil etmez.</li>
+      <li>Yeniden ölçüm aynı soru seti, aynı ayarlar ve aynı tekrar sayısıyla yapılır.</li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- 5 -->
+<section id="rakipler"><div class="wrap">
+  <div class="sec-head"><span class="num">05</span><h2>Karşılaştırılabilir firmalar</h2>
+    <p class="muted">Yalnızca Türkiye'de kenar bandı üreten ve mobilya üreticilerine satan firmaları aldık. Dizinler ve haber siteleri rakip sayılmadı. AI görünürlüğü karşılaştırması henüz yapılmadı. Gerçek rakip listesini sizinle birlikte netleştirmek istiyoruz.</p></div>
+  <div class="grid g2">
+    <div class="card"><div class="tag-row"><span class="pill ok">Doğrulandı</span></div><h3>EGGER Dekor A.Ş. (ROMA)</h3>
+      <p class="muted">Gebze. PVC ve ABS (ayrıca PMMA, alüminyum). Kenar bandı ürünleri EGGER'in global sitesinde ayrı sayfalarda.</p>
+      <details class="src"><summary>Kaynaklar</summary><ul><li><a href="https://www.egger.com/edging" target="_blank" rel="noopener">egger.com/edging</a></li><li><a href="https://yapikatalogu.com/en/roma-kenar-bantlari" target="_blank" rel="noopener">Yapı Kataloğu — ROMA</a></li></ul></details></div>
+    <div class="card"><div class="tag-row"><span class="pill ok">Doğrulandı</span></div><h3>TECE</h3>
+      <p class="muted">Bursa. Yalnızca kenar bandı üretiyor. İngilizce site, kodla ürün arama, WhatsApp bağlantısı ve ISO 9001/45001 ifadesi sayfada görülüyor.</p>
+      <details class="src"><summary>Kaynaklar</summary><ul><li><a href="https://tece.com.tr/en" target="_blank" rel="noopener">tece.com.tr</a></li></ul></details></div>
+    <div class="card"><div class="tag-row"><span class="pill warn">Kısmen doğrulandı</span></div><h3>Portakal Plastik</h3>
+      <p class="muted">Çayırova, Kocaeli. PVC, ABS ve akrilik kenar bandı. Bilgiler fuar kaydına dayanıyor. Resmî site doğrulanamadı.</p>
+      <details class="src"><summary>Kaynaklar</summary><ul><li><a href="https://www.intermobistanbul.com/en/exhibitor-list/portakal-plastik-uretim-paz-san-ve-tic-as-149159-3175" target="_blank" rel="noopener">Intermob katılımcı kaydı</a></li></ul></details></div>
+    <div class="card"><div class="tag-row"><span class="pill warn">Aday</span></div><h3>Berkfa</h3>
+      <p class="muted">Ön yapıştırmalı PVC kenar bandı. Site erişilemediği için bilgileri doğrulayamadık. Toplantıda size soracağız.</p></div>
+  </div>
+</div></section>
+
+<!-- 6 -->
+<section id="aksiyonlar"><div class="wrap">
+  <div class="sec-head"><span class="num">06</span><h2>Öncelikli 5 aksiyon</h2>
+    <p class="muted">Sıra, beklenen etki ve uygulama kolaylığına göre önerildi. Teknik bilgiler yayından önce sizin onayınıza bağlı.</p></div>
+  <div class="grid">
+    <article class="card action"><div class="top"><span class="n">A1</span><h3>Bant Bulucu eşleşmelerini okunur ürün sayfalarına dönüştürmek</h3></div>
+      <dl class="kv"><dt>İlgili soru</dt><dd>"Kastamonu Entegre veya Egger dekorlarına uyumlu kenar bandını nasıl bulurum?"</dd>
+      <dt>Kanıt</dt><dd>346 eşleşme sayfası var. Sayfalarda yalnızca kod ve dekor adı yer alıyor.</dd>
+      <dt>Doğrulanacak</dt><dd>Her dekorun hangi malzeme ve kalınlıkta üretildiği</dd>
+      <dt>Başarı ölçütü</dt><dd>Pilot dekorlarda yeniden ölçümde kaynak gösterilme</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">A2</span><h3>PVC, ABS ve PP kategori sayfalarına teknik bilgi ve SSS eklemek</h3></div>
+      <dl class="kv"><dt>İlgili soru</dt><dd>"Türkiye'de PVC kenar bandı üreten firmalar hangileri?"</dd>
+      <dt>Kanıt</dt><dd>Kategori açıklamaları 1–2 cümle. Stok kalınlıkları ve yüzeyler yalnızca katalogda.</dd>
+      <dt>Doğrulanacak</dt><dd>Kalınlık/genişlik aralığı, rulo boyu, MOQ yaklaşımı</dd>
+      <dt>Başarı ölçütü</dt><dd>Onaylı içerik yayında. İlgili sorularda kaynak gösterilme</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">A3</span><h3>İhracat ve tedarikçi bilgisini İngilizce sayfalara taşımak</h3></div>
+      <dl class="kv"><dt>İlgili soru</dt><dd>"Which Turkish manufacturers supply ABS edgebanding to furniture makers in Europe?"</dd>
+      <dt>Kanıt</dt><dd>İngilizce içerik tek sayfa. İhracat Noktaları sayfasında metin yok.</dd>
+      <dt>Doğrulanacak</dt><dd>Öncelikli ülkeler ve bölgesel stok noktaları</dd>
+      <dt>Başarı ölçütü</dt><dd>İngilizce pilot sorularında anılma ve kaynak gösterilme</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">A4</span><h3>"PVC, ABS ve PP: hangisi, ne zaman?" seçim rehberi</h3></div>
+      <dl class="kv"><dt>İlgili soru</dt><dd>"Mobilya için PVC mi ABS mi kenar bandı tercih edilmeli?"</dd>
+      <dt>Kanıt</dt><dd>Sitede pazar tercihleriyle ilgili değerli bir gözlem var (Avrupa ABS, Türkiye ve Asya PVC).</dd>
+      <dt>Doğrulanacak</dt><dd>Çevre ve yanma davranışıyla ilgili ifadelerin dayandığı test belgeleri</dd>
+      <dt>Başarı ölçütü</dt><dd>Rehber yayında. Bilgi sorularında marka anılmaması başarısızlık sayılmaz</dd></dl></article>
+    <article class="card action"><div class="top"><span class="n">A5</span><h3>Numune / teklif talep akışı ve kurumsal kimlik işaretlemesi</h3></div>
+      <dl class="kv"><dt>İlgili soru</dt><dd>"Panel numunesine göre özel renk eşleştirmeli kenar bandı üreten Türk firmaları hangileri?"</dd>
+      <dt>Kanıt</dt><dd>Ürün sayfalarında talep akışı görülmedi. Firma ve ürün bilgisi makine tarafından okunacak biçimde işaretlenmemiş.</dd>
+      <dt>Doğrulanacak</dt><dd>Talepleri kim karşılayacak, yanıt süresi hedefi</dd>
+      <dt>Başarı ölçütü</dt><dd>Analitik erişimi varsa form gönderimleri</dd></dl></article>
+  </div>
+</div></section>
+
+<!-- 7 -->
+<section id="taslak"><div class="wrap">
+  <div class="sec-head"><span class="num">07</span><h2>İçerik ve reklam taslakları</h2></div>
+  <div class="ba">
+    <span class="example-tag">Örnek çalışma — gerçek performans sonucu değildir</span>
+    <div class="tabs" role="tablist" aria-label="Taslak seçimi">
+      <button role="tab" aria-selected="true" data-t="bb" id="tab-bb">Bant Bulucu sayfası</button>
+      <button role="tab" aria-selected="false" data-t="pvc" id="tab-pvc">PVC kategori sayfası</button>
+    </div>
+    <div class="grid g2" id="ba-bb">
+      <div class="ba-panel"><span class="lbl">Bugün sitede</span><p class="draft mono" style="font-size:.88rem">D126<br>Ürün İsmi: Keas Cappucino<br>Boyut Kodu: 0100<br>Desen: Düz Renk</p></div>
+      <div class="ba-panel"><span class="lbl">Önerilen taslak</span>
+        <h3>Kastamonu Entegre Keas Cappucino (D126) ile uyumlu kenar bandı</h3>
+        <p class="draft">Boyut kodu <b class="mono">0100</b>. Düz renk dekor. Malzeme: <mark>PVC / ABS — onay</mark>. Kalınlık: <mark>0,4 / 0,8 mm ve diğerleri — onay</mark>. Panel kodunu ve ihtiyaç duyduğunuz metrajı iletin, numune veya teklif hazırlayalım.</p>
+        <span class="btn-fake" aria-hidden="true">Numune / Teklif İste</span></div>
+    </div>
+    <div class="grid g2" id="ba-pvc" hidden>
+      <div class="ba-panel"><span class="lbl">Bugün sitede</span><p class="draft">"Boyut Plastik PVC Kenar Bantıları, solvent ve UV ışınlara karşı dayanıklılıklarıyla ön plana çıkmaktadır. ABS Kenar Bantları'na göre daha ekonomik ve pratik bir çözümdür."</p></div>
+      <div class="ba-panel"><span class="lbl">Önerilen taslak</span>
+        <h3>PVC kenar bandı</h3>
+        <p class="draft">Mobilya ve kapı üretiminde ahşap bazlı panellerin kenarları için. Seriler: Solid (düz renk), Wood (ağaç deseni), Fantasy (taş, mermer, tekstil). Yüzeyler: Super Matt, Soft Touch, High Gloss, Embossed. Hazır stok ağırlıklı 0,4 mm ve 0,8 mm. Diğer ölçüler: <mark>onay</mark>. Panel dekorunuzun eşini Bant Bulucu'da arayın.</p>
+        <p class="draft muted">SSS: PVC mi ABS mi? · Minimum sipariş <mark>onay</mark> · Numune nasıl istenir?</p></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <h3>ChatGPT reklamları (organik görünürlükten ayrı)</h3>
+    <div class="notice"><span><b>Uygunluk doğrulanmadı.</b> Türkiye merkezli bir firmanın ChatGPT'de self-servis reklam verip veremeyeceğini resmî OpenAI kaynağından teyit edemedik. Aşağıdakiler konsept taslağıdır, aktif kampanya değildir.</span></div>
+    <div class="grid g2">
+      <div class="ba-panel"><span class="lbl">Konsept A · Ürün ve tedarikçi keşfi</span>
+        <h3>Panel Dekorunuza Uyumlu Kenar Bandı</h3>
+        <p class="draft">Boyut Plastik'in PVC ve ABS kenar bantlarını panel üreticisi ve dekor koduna göre inceleyin. Numune veya teklif talep edin.</p>
+        <p class="muted" style="font-size:.85rem">Hedef sayfa: Bant Bulucu / ilgili kategori sayfası</p></div>
+      <div class="ba-panel"><span class="lbl">Konsept B · İhracat ve kurumsal satın alma (EN)</span>
+        <h3>PVC &amp; ABS Edgebands from Türkiye</h3>
+        <p class="draft">Explore Boyut Plastik's edgeband ranges matched to leading panel décors. Request samples or a quotation for your production.</p>
+        <p class="muted" style="font-size:.85rem">Hedef sayfa: İngilizce ihracat / tedarikçi sayfası</p></div>
+    </div>
+    <p class="muted" style="font-size:.88rem">GeoAdra'nın bu kapsamdaki rolü analiz ve taslak hazırlamaktır. Reklam yayını ve hedefleme kurulumu bu sunumun kapsamında değildir.</p>
+  </div>
+</div></section>
+
+<!-- 8 -->
+<section id="pilot"><div class="wrap">
+  <div class="sec-head"><span class="num">08</span><h2>30 günlük pilot</h2>
+    <p class="muted">Tek ürün grubu (öneri: PVC ve Bant Bulucu'daki 20 dekor) ile sabit 8 soru. Başarı kriterlerini başlangıçta birlikte belirleriz.</p></div>
+  <div class="weeks">
+    <div class="week"><span class="w">1. hafta</span><h3>Araştırma ve başlangıç ölçümü</h3><ul><li>Ürün ve kategori analizi</li><li>Rakiplerin sizinle doğrulanması</li><li>8 sorunun onayı</li><li>Erişim varsa başlangıç ölçümü</li></ul></div>
+    <div class="week"><span class="w">2. hafta</span><h3>İçerik ve aksiyon taslakları</h3><ul><li>Ürün grubu seçimi</li><li>Sayfa ve rehber taslakları</li><li>SSS ve İngilizce metinler</li><li>Reklam konseptleri</li></ul></div>
+    <div class="week"><span class="w">3. hafta</span><h3>Onay ve uygulama</h3><ul><li>Teknik bilgilerin onayı</li><li>Onaylı içeriklerin yayını</li><li>İç bağlantılar ve talep yönlendirmesi</li></ul></div>
+    <div class="week"><span class="w">4. hafta</span><h3>Yeniden ölçüm</h3><ul><li>Aynı soru seti ve aynı yöntem</li><li>Anılma, önerilme ve kaynak karşılaştırması</li><li>Analitik varsa talep aksiyonları</li><li>Sonraki dönem önerileri</li></ul></div>
+  </div>
+  <p class="muted" style="margin-top:18px;font-size:.92rem">Ölçüm sonuçları garanti edilmez. Kısa dönemde görülen değişimler nedensel etki veya satış artışı kanıtı olarak sunulmaz.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">GeoAdra by CallypsoTech · Bu sunum Boyut Plastik ile yapılacak görüşme için hazırlanmıştır. Boyut Plastik'e ait bilgiler herkese açık kaynaklardan derlenmiştir ve firmanın onayına tabidir.</div></footer>
+
+<script>
+(function(){
+  var Q=[
+    {id:"S1",t:"Türkiye'de PVC kenar bandı üreten firmalar hangileri?",c:["kesif"],p:1},
+    {id:"S2",t:"Which Turkish manufacturers supply ABS edgebanding to furniture makers in Europe?",c:["kesif"],p:1,en:1},
+    {id:"S3",t:"İstanbul'da mobilya üretimi için toptan kenar bandı tedarik edebileceğim üreticiler hangileri?",c:["kesif","teklif"]},
+    {id:"S4",t:"Edgeband supplier with stock in Serbia or the Balkans for a furniture factory?",c:["kesif"],p:1,en:1},
+    {id:"S5",t:"Mobilya için PVC mi ABS mi kenar bandı tercih edilmeli? Farkları neler?",c:["secim","teknik"],p:1},
+    {id:"S6",t:"Kastamonu Entegre veya Egger dekorlarıyla birebir uyumlu kenar bandını nasıl bulurum?",c:["secim"],p:1},
+    {id:"S7",t:"High gloss veya süper mat panel için kenar bandı seçerken nelere dikkat etmeliyim?",c:["secim"]},
+    {id:"S8",t:"PP kenar bandı nedir, hangi projelerde tercih edilir?",c:["teknik"]},
+    {id:"S9",t:"Kenar bandı tedarikçilerini renk uyumu, stok ve teslimat açısından nasıl karşılaştırırım?",c:["karsi"]},
+    {id:"S10",t:"Panel numunesine göre özel renk eşleştirmeli kenar bandı üreten Türk firmaları hangileri?",c:["teklif","kesif"],p:1},
+    {id:"S11",t:"Kenar bandı siparişinde minimum sipariş, rulo uzunluğu ve kalınlık seçenekleri nasıl değerlendirilir?",c:["teklif"]},
+    {id:"S12",t:"0,4 mm ile 0,8 mm kenar bandı arasındaki fark nedir, hangi mobilyada hangisi kullanılır?",c:["teknik"]},
+    {id:"M1",t:"Boyut Plastik hangi kenar bandı ürünlerini üretiyor?",c:["marka"],p:1},
+    {id:"M2",t:"Is Boyut Plastik a reliable edgeband supplier for export to Europe?",c:["marka"],p:1,en:1}
+  ];
+  var L={kesif:"Keşif",secim:"Seçim",karsi:"Karşılaştırma",teklif:"Toptan/özel",teknik:"Teknik",marka:"Markalı"};
+  var box=document.getElementById("qs");
+  function render(f){
+    box.innerHTML="";
+    Q.filter(function(q){return f==="all"||(f==="pilot"?q.p:q.c.indexOf(f)>-1)}).forEach(function(q){
+      var d=document.createElement("div");d.className="q";
+      var tags=q.c.map(function(c){return '<span class="pill acc">'+L[c]+'</span>'}).join("");
+      if(q.p)tags+='<span class="pill ok">Pilot</span>';
+      tags+='<span class="pill" style="border:1px solid var(--line);color:var(--muted)">'+(q.en?"EN":"TR")+'</span>';
+      d.innerHTML='<span class="id">'+q.id+'</span><span class="text"></span><div class="tags">'+tags+'</div>';
+      d.querySelector(".text").textContent=q.t;box.appendChild(d);
+    });
+  }
+  document.querySelectorAll(".chip").forEach(function(b){b.addEventListener("click",function(){
+    document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true");render(b.dataset.f);
+  })});
+  render("all");
+
+  document.querySelectorAll('[role="tab"]').forEach(function(b){b.addEventListener("click",function(){
+    document.querySelectorAll('[role="tab"]').forEach(function(x){x.setAttribute("aria-selected","false")});
+    b.setAttribute("aria-selected","true");
+    document.getElementById("ba-bb").hidden=b.dataset.t!=="bb";
+    document.getElementById("ba-pvc").hidden=b.dataset.t!=="pvc";
+  })});
+
+  var links=[].slice.call(document.querySelectorAll("#navlist a"));
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)});
+    }})},{rootMargin:"-40% 0px -55% 0px"});
+    document.querySelectorAll("main section").forEach(function(s){io.observe(s)});
+  }
+})();
+</script>

@@ -1,0 +1,519 @@
+{
+ "arac": "apify/website-content-crawler (build 0.3.102)",
+ "erisim_tarihi": "2026-11-10",
+ "calistirmalar": [
+  {
+   "run": "1",
+   "crawler": "cheerio",
+   "sonuc": "BAŞARISIZ — 9/9 istek TLS el sıkışma hatası (SelectedUnusableCipherSuiteForVersion). Platform durumu 'SUCCEEDED' görünse de hiçbir sayfa alınamadı; başarılı sayılmadı."
+  },
+  {
+   "run": "2",
+   "crawler": "playwright:firefox",
+   "sonuc": "BAŞARILI — 50/50 sayfa HTTP 200 (maxCrawlPages=50, robots.txt'e uyuldu: 'Allow: /')."
+  }
+ ],
+ "ek_kontrol": "Apify'ın 'readableText' dönüşümünün boş bıraktığı sayfalar (İletişim, Bant Bulucu, Kataloglar, ürün listeleri) doğrudan HTML'den kontrol edildi; sitemap.xml ve 2026 İngilizce katalog PDF'i incelendi.",
+ "sayfalar": [
+  {
+   "url": "https://boyutplastik.com.tr/urunler",
+   "http": 200,
+   "baslik": "Kenar Bandı",
+   "meta_aciklama": "Kenar Bandı",
+   "dil": "tr",
+   "temiz_metin_karakter": 39,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Mobilyaya Değer Katan İnovatif Çözümler"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/",
+   "http": 200,
+   "baslik": "Mobilya Kenar Bandı ve Dekoratif Folyo | Boyut Plastik",
+   "meta_aciklama": "Boyut Plastik, 2005 yılında kurulmuş olup PVC kenar bandı üretimi ile faaliyetine başlamıştır. 2010 yılında “Alim Şirketler Grubu” bünyesine dahil olan Boyut Plastik, bu tarihten itibaren yatırımlarına hız vererek ABS ve,3D gibi mobilya kenar bantlarını, dekoratif folyoları ürün gamına eklemiştir.",
+   "dil": "tr",
+   "temiz_metin_karakter": 1832,
+   "durum": "tarandı",
+   "ozet": "Mobilya Kenar Bandı ve Dekoratif Folyo\nBoyut Plastik, PVC ve ABS kenarbandı çözümleriyle mobilya tasarımına bütünlük ve değer katar. Renk ve doku uyumundaki yüksek hassasiyet, koleksiyonlara modern bir karakter ve güçlü bir tasarım kimliği kazandırır. Mobilyaya Değer Katan Yenilikçi Çözümler yaklaşımımızla, detayın gücünü rekabet avantajına dönüştüren güvenilir bir iş ortağı olmayı sürdürüyoruz.\nBoyut Plastik\nBoyut Plastik, 20 yılı aşkın deneyimiyle PVC, ABS ve PP kenarbandı üretiminde Avrupa’nın en hızlı büyüyen firmalarından biridir. Yüksek üretim kapasitemiz, entegre tesis yapımız ve gelişm"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/ihracat-noktalari",
+   "http": 200,
+   "baslik": "BOYUT PLASTİK",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 13,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "BOYUT PLASTİK"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal",
+   "http": 200,
+   "baslik": "Kurumsal | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 2125,
+   "durum": "tarandı",
+   "ozet": "Kurumsal | Boyut Plastik\nCEO'nun Mesajı\nNaser Alim\nAlim Grup Yönetim Kurulu Başkanı – Karadağ Edirne Fahri Konsolosu\nTürkiye ile Balkan ülkeleri arasında köprü kurmak, yalnızca ticari bir hedef değil; bölgesel barış, istikrar ve karşılıklı kalkınma için stratejik bir adımdır. ALİM Grup’un kuruluşundan bu yana tüm faaliyetlerimizin merkezinde, bu coğrafyanın potansiyelini ortaya çıkarmak ve iki bölge arasındaki ekonomik bağı güçlendirmek yer aldı.\n1998’de İstanbul’da başladığımız yolculuk, bugün mobilya ve yapı sektörlerine yönelik yarı mamul üretiminde bölgesel bir güç hâline gelmemizi sağladı"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/bant-bulucu",
+   "http": 200,
+   "baslik": "Bant Bulucu | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 27,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Bant Bulucu | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/iletisim",
+   "http": 200,
+   "baslik": "İletişim | Boyut Plastik",
+   "meta_aciklama": "İletişim  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 24,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "İletişim | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya",
+   "http": 200,
+   "baslik": "Fuarlar",
+   "meta_aciklama": "Fuarlar",
+   "dil": "tr",
+   "temiz_metin_karakter": 2786,
+   "durum": "tarandı",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler\nHaberler\nFuarlar\nVideolar\nKataloglar \nBoyut Plastik, Interzum Guangzhou 2025’te Küresel Gücünü Sergiledi\nBoyut Plastik, mobilya ve iç mekân endüstrisinin önde gelen uluslararası fuarlarından Interzum Guangzhou 2025’e katılarak küresel pazarlardaki güçlü konumunu bir kez daha ortaya koydu. \nBoyut Plastik, İntermob 2025’te Sektörle Buluştu\nTürkiye’nin önde gelen kenar bandı üreticilerinden Boyut Plastik, 25–28 Eylül 2025 tarihleri arasında Beylikdüzü TÜYAP Fuar ve Kongre Merkezi’nde düzenlenen İntermob Fuarı’nda sektör profesyonelleriyle bir araya geldi. \nBo"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi",
+   "http": 200,
+   "baslik": "PVC Kenar Bandı | Boyut Plastik",
+   "meta_aciklama": "PVC Kenar Bandı  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 202,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "PVC Kenar Bandı | Boyut Plastik\nBoyut Plastik PVC Kenar Bantıları, solvent ve UV ışınlara karşı dayanıklılıklarıyla ön plana çıkmaktadır. ABS Kenar Bantları'na göre daha ekonomik ve pratik bir çözümdür."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi",
+   "http": 200,
+   "baslik": "ABS Kenar Bandı | Boyut Plastik",
+   "meta_aciklama": "ABS Kenar Bandı  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 391,
+   "durum": "tarandı",
+   "ozet": "ABS Kenar Bandı | Boyut Plastik\nGeri dönüştürürülebilir ve çevre dostu bir polimer türü olan ABS malzemeden üretilen kenar bandı ürünlerimiz, sahip oldukları yüksek darbe dayanımı ve termal dayanım özellikleri sayesinde ön plana çıkmaktadırlar. İçeriğinde ağır metal ihtiva etmeyen bu ürünler, yandıkları takdirde herhangi bir zehirli gaz açığa çıkarmazlar ve doğada kısa sürede kaybolurlar."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/main-page",
+   "http": 200,
+   "baslik": "Boyut Plastik",
+   "meta_aciklama": "Founded in 2005, BOYUT PLASTIK produces high quality edge band and offers it to the world market. It produces PVC, ABS and 3D categories in its modern and high technology production facility in Istanbul with a capacity of 7 thousand tons annually and exports half of its production to more than 50 countries.",
+   "dil": "en",
+   "temiz_metin_karakter": 2287,
+   "durum": "tarandı",
+   "ozet": "Boyut Plastik\nBoyut Plastik adds harmony and value to furniture design with its PVC and ABS edgeband solutions. Our high precision in colour and texture matching gives collections a modern character and a distinctive design identity. With our approach of Innovative Solutions that Add Value to Furniture, we continue to be a trusted partner that transforms the power of detail into a competitive advantage. \nInnovative Solutions That Add Value to Furniture \nOur Products \nBoyut Plastik is one of Europe’s fastest-growing manufacturers of PVC, ABS and PP edgebands, backed by more than 20 years of ind"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kariyer",
+   "http": 200,
+   "baslik": "Kariyer | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 400,
+   "durum": "tarandı",
+   "ozet": "Kariyer | Boyut Plastik\nSektöründe Avrupa’nın ilk beş üreticisinden biri olmak vizyonu ile yolculuğuna devam eden Boyut Plastik, insan kaynakları politikası çerçevesinde çalışanlarına yüksek oranda değer vermenin yanı sıra sürekli öğrenmeye ve gelişmeye açık, başarı odaklı ve takım ruhunun ön plana çıktığı bir organizasyon yapısı oluşturmaktadır.\nBaşvuru Formu\nAd \nSoyad \nE-posta \nTelefon \nCV Yükle"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/hg-duz-renk",
+   "http": 200,
+   "baslik": "High Gloss Düz Renk | Boyut Plastik",
+   "meta_aciklama": "High Gloss Düz Renk  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 198,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "High Gloss Düz Renk | Boyut Plastik\nBoyut Plastik High Gloss Kenar Bantları, yüzeye hassas bir şekilde koruyucu lak işlemi uygulanarak üretilir. Olağanüstü bir parlaklık ve pürüzsüz bir yüzey sunar."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/pvc-duz",
+   "http": 200,
+   "baslik": "Düz Kenar Bantları | Boyut Plastik",
+   "meta_aciklama": "Düz Kenar Bantları  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 166,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Düz Kenar Bantları | Boyut Plastik\nDüz Renk\nBoyut Plastik Düz Renk Kenar Bandı koleksiyonunda birbirinden göz alıcı renklere sahip geniş bir renk yelpazesi yer alıyor"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/desen",
+   "http": 200,
+   "baslik": "Desenli Kenar Bantları | Boyut Plastik",
+   "meta_aciklama": "Desenli Kenar Bantları farklı renk ve desen seçenekleriyle doğru kullanımlarla evlerinizi güzelleştirecek. Son derece kaliteli ürünler için iletişime geçin!",
+   "dil": "tr",
+   "temiz_metin_karakter": 143,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Desenli Kenar Bantları | Boyut Plastik\nDesen\nBoyut Plastik Desenli Kenar Bantları ile doğru desen, uygun strüktür ve optimum parlaklık seviyesi"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/hg-desen",
+   "http": 200,
+   "baslik": "High Gloss Desen | Boyut Plastik",
+   "meta_aciklama": "High Gloss Desen  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 195,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "High Gloss Desen | Boyut Plastik\nBoyut Plastik High Gloss Kenar Bantları, yüzeye hassas bir şekilde koruyucu lak işlemi uygulanarak üretilir. Olağanüstü bir parlaklık ve pürüzsüz bir yüzey sunar."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/simli",
+   "http": 200,
+   "baslik": "Simli Kenar Bantları | Boyut Plastik",
+   "meta_aciklama": "Simli",
+   "dil": "tr",
+   "temiz_metin_karakter": 36,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Simli Kenar Bantları | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/fantezi",
+   "http": 200,
+   "baslik": "Fantezi Kenar Bantları | Boyut Plastik",
+   "meta_aciklama": "Fantezi",
+   "dil": "tr",
+   "temiz_metin_karakter": 291,
+   "durum": "tarandı",
+   "ozet": "Fantezi Kenar Bantları | Boyut Plastik\nBoyut Plastik Fantezi Dekorlar Koleksiyonu, mobilya endüstrisindeki kullanımları son yıllarda artış gösterme eğiliminde olan taş, metal, mermer, seramik ya da tekstil gibi desenleri birebir yansıtmakta ve iç mekanlara estetik bir dokunuş sağlamaktadır."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-duz",
+   "http": 200,
+   "baslik": "Düz Renk Kenar Bantları | Boyut Plastik",
+   "meta_aciklama": "Düz Kenar Bantları  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 162,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Düz Renk Kenar Bantları | Boyut Plastik\nBoyut Plastik Düz Renk Kenar Bandı koleksiyonunda birbirinden göz alıcı renklere sahip geniş bir renk yelpazesi yer alıyor"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/pvc-kenar-bandi/soft-touch",
+   "http": 200,
+   "baslik": "Soft Touch Kenar Bantları | Boyut Plastik",
+   "meta_aciklama": "Soft Touch",
+   "dil": "tr",
+   "temiz_metin_karakter": 41,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Soft Touch Kenar Bantları | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-hg-desen",
+   "http": 200,
+   "baslik": "High Gloss Desen | Boyut Plastik",
+   "meta_aciklama": "High Gloss Desen  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 195,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "High Gloss Desen | Boyut Plastik\nBoyut Plastik High Gloss Kenar Bantları, yüzeye hassas bir şekilde koruyucu lak işlemi uygulanarak üretilir. Olağanüstü bir parlaklık ve pürüzsüz bir yüzey sunar."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-fantezi",
+   "http": 200,
+   "baslik": "Fantezi",
+   "meta_aciklama": "Fantezi",
+   "dil": "tr",
+   "temiz_metin_karakter": 290,
+   "durum": "tarandı",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler\nBoyut Plastik Fantezi Dekorlar Koleksiyonu, mobilya endüstrisindeki kullanımları son yıllarda artış gösterme eğiliminde olan taş, metal, mermer, seramik ya da tekstil gibi desenleri birebir yansıtmakta ve iç mekanlara estetik bir dokunuş sağlamaktadır."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-simli",
+   "http": 200,
+   "baslik": "Simli",
+   "meta_aciklama": "Simli",
+   "dil": "tr",
+   "temiz_metin_karakter": 37,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-hg-duz-renk",
+   "http": 200,
+   "baslik": "High Gloss Düz Renk | Boyut Plastik",
+   "meta_aciklama": "High Gloss Düz Renk  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 198,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "High Gloss Düz Renk | Boyut Plastik\nBoyut Plastik High Gloss Kenar Bantları, yüzeye hassas bir şekilde koruyucu lak işlemi uygulanarak üretilir. Olağanüstü bir parlaklık ve pürüzsüz bir yüzey sunar."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-desen",
+   "http": 200,
+   "baslik": "Desenli Bantlar | Boyut Plastik",
+   "meta_aciklama": "Desen  |  Boyut Plastik",
+   "dil": "tr",
+   "temiz_metin_karakter": 136,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Desenli Bantlar | Boyut Plastik\nDesen\nBoyut Plastik Desenli Kenar Bantları ile doğru desen, uygun strüktür ve optimum parlaklık seviyesi"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/textures",
+   "http": 200,
+   "baslik": "Textures",
+   "meta_aciklama": "Textures",
+   "dil": "tr",
+   "temiz_metin_karakter": 39,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Mobilyaya Değer Katan İnovatif Çözümler"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/boyut-plastik-intermob-2025te-sektorle-bulustu",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 1194,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nBoyut Plastik, İntermob 2025’te Sektörle Buluştu\nTürkiye’nin önde gelen kenar bandı üreticilerinden Boyut Plastik, 25–28 Eylül 2025 tarihleri arasında Beylikdüzü TÜYAP Fuar ve Kongre Merkezi’nde düzenlenen İntermob Fuarı’nda sektör profesyonelleriyle bir araya geldi.\nFuar süresince, mobilya ve kapı üretiminde kullanılan ağaç bazlı panellerin kenarlarını kaplayan PVC ve ABS kenar bandı çözümlerini, 4. Salon – 431 A no’lu standında ziyaretçilerin beğenisine sundu. Boyut Plastik standı, yerli ve yabancı sektör temsilcilerinden yoğun ilgi gördü.\nİntermob 2025, Boyut Plastik i"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi/abs-kenar-bandi/abs-soft-touch",
+   "http": 200,
+   "baslik": "Soft Touch",
+   "meta_aciklama": "Soft Touch",
+   "dil": "tr",
+   "temiz_metin_karakter": 37,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/urunler/kenar-bandi",
+   "http": 200,
+   "baslik": "Kenar Bandı",
+   "meta_aciklama": "Kenar Bandı",
+   "dil": "tr",
+   "temiz_metin_karakter": 317,
+   "durum": "tarandı",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler\nBoyut Plastik olarak PVC ve ABS'nin kenar bandı uygulaması için uygun ürünler olduğunu düşünmekteyiz.\nHangi ürünün kullanılması gerektiğini pazar belirlemektedir. Örneğin Avrupa ABS'yi tercih ederken, ülkemiz ve Asya PVC’yi tercih etmekte A.B.D.'de her iki ürün de satılmaktadır."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/boyut-plastik-interzum-koln-2025te-global-vizyonunu-sergiledi",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 760,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nBoyut Plastik, Interzum Köln 2025’te Global Vizyonunu Sergiledi\nInterzum’un bu yılki “Rethinking Tomorrow” teması doğrultusunda Boyut Plastik standı; yüksek renk tutarlılığı, yüzey kalitesi ve geniş ürün gamı ile ziyaretçilerden yoğun ilgi gördü. Avrupa başta olmak üzere farklı pazarlardan gelen iş ortaklarıyla gerçekleştirilen görüşmeler, mevcut iş birliklerinin güçlendirilmesi ve yeni ticari fırsatların değerlendirilmesi açısından verimli geçti.\nHall 6 – Stand E010’da yer alan Boyut Plastik, sürdürülebilir üretim anlayışı ve teknik uzmanlığıyla global pazarlardaki güçlü"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/boyut-plastik-interzum-guangzhou-2025te-kuresel-gucunu-sergiledi",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 1220,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nBoyut Plastik, Interzum Guangzhou 2025’te Küresel Gücünü Sergiledi\nBoyut Plastik, mobilya ve iç mekân endüstrisinin önde gelen uluslararası fuarlarından Interzum Guangzhou 2025’e katılarak küresel pazarlardaki güçlü konumunu bir kez daha ortaya koydu.\nAsya–Pasifik bölgesinin en önemli tedarik ve inovasyon platformlarından biri olan fuarda Boyut Plastik; yüksek kaliteli edgeband çözümleri, dekor–kenar bandı uyumundaki uzmanlığı ve müşteri odaklı üretim yaklaşımı ile yoğun ilgi gördü. PVC, ABS, PP ve PMMA malzeme gruplarında sunduğu geniş ürün portföyü, sektör profesyonelle"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/intermob-2024---istanbul-21",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 955,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nIntermob 2024 - Istanbul\nTürkiye’nin önde gelen kenar bandı üreticilerinden Boyut Plastik Ailesi olarak, 12-15 Eylül 2024 tarihleri arasında Beylikdüzü TÜYAP FUAR Merkezi’nde gerçekleşen İntermob Fuarı’nda, mobilya ve kapı üretiminde kullanılan ağaç bazlı panellerin kenarlarını kaplayan PVC, ABS ve PP kategorilerindeki ürünlerimizi sektör temsilcileriyle buluşturarak, 4. Salondaki 431 A no’lu standımızda ağırlamaktan büyük mutluluk duyduk.\nDünya’nın her bir köşesinden gelen ziyaretçiler ile buluşarak, mevcut iş ortaklarımızla olan ilişkilerimizi sağlamlaştırdık, yeni ve p"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/tanitim-filmimiz/boyut-plastik--highlights-from-intermob-2024",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 21,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Medya | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/boyut-plastik-ingilterenin-birmingham-sehrindeki-ulusal-fuar-merkezinde-nec-6-yil-aradan-sonra-ilk-kez-duzenlenen-mobilyaya-deger-katan-kenarbandi-cozumlerini-materials-and-finishes-showda-tanitti",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 501,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nMaterials and Finishes Show 2024 Birmingham - İngiltere\nBoyut Plastik, pandemi nedeniyle altı yıllık bir aradan sonra ilk kez gerçekleşen fuarda, dünya markalarıyla yanyana ülkemizi başarıyla temsil etti. \nMevcut müşterilerini ağırlamanın yanı sıra, yeni müşteri porftföyünü de geliştirmeyi hedefleyen Boyut Plastik, yeniliklere açık dinamizmi ile kendine özgü stratejileri ile rakiplerinden farklılaşarak, müşterilerinin güvenini ve memnuniyetini güçlendirmeye devam etmektedir."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/tanitim-filmimiz/intermob-2023--yenilik-tasarim-ve-sektorel-bulusmalar",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 21,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Medya | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/boyut-plastik-sektorun-dunya-capindaki-en-buyuk-fuari-olan-kolndeki-interzum-2023-fuarinda-mobilyaya-deger-katan-kenarbandi-cozumlerini-tanitti-74",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 514,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nInterzum Köln - 2023\nBoyut Plastik, pandemi nedeniyle dört yıllık bir aradan sonra ilk kez gerçekleşen, fuardaki en önemli salon olan 6. holde, dünya markalarıyla yanyana ülkemizi başarıyla temsil etti. \nMevcut müşterilerini ağırlamanın yanı sıra, yeni müşteri porftföyünü de geliştiren Boyut Plastik, modern tasarımlı, askılı tavan tasarımına sahip standıyla da, ziyaretçilerden tam not aldı. Güçlü ürün portföyümüz ve üretim altyapımız ile bu yılki sloganımız SÜRDÜRÜLEBİLİR BÜYÜME oldu...."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/tanitim-filmimiz/intermob-2022-video",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 21,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Medya | Boyut Plastik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar/intermob-2022",
+   "http": 200,
+   "baslik": "Medya | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 2704,
+   "durum": "tarandı",
+   "ozet": "Medya | Boyut Plastik\nIntermob 2022\nMobilya sektörü için kenar bandı ve dekoratif folyo kategorilerinden oluşan ve Boyut markasıyla ürettiğimiz inovatif ürünlerimiz bu yıl da, Beylikdüzü Tüyap Fuar alanında düzenlenen İntermob fuarındaki 8. salonda bulunan 165 m2’lik standımızda Dünya’nın her bir köşesinden gelen ziyaretçiler ile buluştu.\nDünya çapındaki en büyük ticaret platformlarından birisi olan Intermob Fuarı, Mobilya üretiminin ana hammaddeleri olan MDF, yongalevha, kenar bandı, tutkal, bağlantı elemanları, aksesuar gibi yarımamullerin tedariğinde ülkemizin dünyanın önde gelen merkezleri"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/ceonun-mesaji",
+   "http": 200,
+   "baslik": "Kurumsal | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 2125,
+   "durum": "tarandı",
+   "ozet": "Kurumsal | Boyut Plastik\nCEO'nun Mesajı\nNaser Alim\nAlim Grup Yönetim Kurulu Başkanı – Karadağ Edirne Fahri Konsolosu\nTürkiye ile Balkan ülkeleri arasında köprü kurmak, yalnızca ticari bir hedef değil; bölgesel barış, istikrar ve karşılıklı kalkınma için stratejik bir adımdır. ALİM Grup’un kuruluşundan bu yana tüm faaliyetlerimizin merkezinde, bu coğrafyanın potansiyelini ortaya çıkarmak ve iki bölge arasındaki ekonomik bağı güçlendirmek yer aldı.\n1998’de İstanbul’da başladığımız yolculuk, bugün mobilya ve yapı sektörlerine yönelik yarı mamul üretiminde bölgesel bir güç hâline gelmemizi sağladı"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/sirket-profilimiz",
+   "http": 200,
+   "baslik": "Kurumsal | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 1685,
+   "durum": "tarandı",
+   "ozet": "Kurumsal | Boyut Plastik\nŞirket Profilimiz\nBoyut Plastik, Alim Grup bünyesinde faaliyet gösteren; mobilya ve kapı üretiminde kullanılan PVC, ABS ve PP kenar bandı çözümleriyle Türkiye’den başlayarak uluslararası pazarlarda güçlü bir konum edinmiş bir sanayi kuruluşudur.\nArtan üretim kapasitesi ve entegre üretim altyapısı sayesinde Boyut Plastik; farklı panel markaları, koleksiyonlar ve proje bazlı talepler için yüksek renk, yüzey ve doku uyumu sunan çözümler geliştirmektedir. Düz renklerden ahşap, taş ve tekstil desenlerine kadar uzanan geniş ürün gamı, estetik beklentiler ile teknik gereklili"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/tarihce",
+   "http": 200,
+   "baslik": "Kurumsal | Boyut Plastik",
+   "meta_aciklama": null,
+   "dil": "tr",
+   "temiz_metin_karakter": 734,
+   "durum": "tarandı",
+   "ozet": "Kurumsal | Boyut Plastik\nTarihçe\n1998\nAlim Grup’un temelleri Naser Alim tarafından Istanbul’da atıldı.\n\n2001\nAğaç bazlı panel endüstrisinde faaliyet yürütmek üzere Alim Orman Ürünleri İstanbul’da kuruldu.\n2010\n2005 yılında, mobilya üretiminde kullanılan kenar bandı, dekoratif folyo gibi ürünleri üretmek üzere kurulan Boyut Plastik, Alim Grup bünyesine katıldı\n2016\nAlim Grup Hadımköy’de, 20 bin m2 kapalı alana sahip, idari ve üretim faaliyetlerini sürdüreceği yeni ve modern binasının inşaatına başladı\n2017\nKaradağ ’ın Bar şehrinde bulunan Port of Adria limanındaki serbest bölgede, 12 bin m2’lik"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/temel-degerlerimiz",
+   "http": 200,
+   "baslik": "Temel Değerlerimiz | Boyut Plastik",
+   "meta_aciklama": "Temel Değerlerimiz",
+   "dil": "tr",
+   "temiz_metin_karakter": 1619,
+   "durum": "tarandı",
+   "ozet": "Temel Değerlerimiz | Boyut Plastik\nAdalet Duygusu ve Dürüstlük\nFarklı coğrafyalarda bulunan bütün çalışanlarımıza eşit fırsatlar sunar ve adil şekilde davranırız.\nTüm Paydaşlarımızla İlişkilerimizi , dürüstlük, adalet ve güven üzerine kurarız.\nSözlerimizde ve davranışlarımızda doğru, açık ve tutarlıyız\nHerkesin düşüncesini ifade etmesini teşvik ederiz.\nŞeffaflık\nAçık iletişim içinde çalışırız.\nBilgi ve tecrübelerimizi paylaşırız.\nGeri bildirim kültürü ile çalışırız.\nSorgulama kültürü ile fikirlerimizi paylaşırız.\nSorumluluk\nRisk gördüğümüz ortamların oluşmasına izin vermeyiz.\nEtik değerler ve "
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/misyon-vizyon",
+   "http": 200,
+   "baslik": "Misyon & Vizyon | Boyut Plastik",
+   "meta_aciklama": "Misyon & Vizyon",
+   "dil": "tr",
+   "temiz_metin_karakter": 550,
+   "durum": "tarandı",
+   "ozet": "Misyon & Vizyon | Boyut Plastik\nMisyonumuz\nFaaliyet gösterdiği sektörlerdeki coğrafyasında pazara yakın satış noktaları oluşturmak, üretimini ve ticaretini yaptığı kaliteli, yenilikçi, güvenilir ve çevre dostu ürünleri zamanında ve yüksek hizmet seviyesinde müşterilerine ulaştırmak...\nVizyonumuz\nÖğrenen, sürekli gelişen, değişime açık, yenilikçi, çevreye duyarlı, müşteri ihtiyaçlarını önemseyen, rekabetçi yanını koruyarak faaliyet gösterdiği sektörlerde öne çıkan, iç ve dış tüm paydaşlarının birlikte olmaktan mutluluk duyduğu bir kurum olmak..."
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/politikalarimiz/isg-politikasi",
+   "http": 200,
+   "baslik": "ISG Politikası",
+   "meta_aciklama": "ISG Politikası",
+   "dil": "tr",
+   "temiz_metin_karakter": 1736,
+   "durum": "tarandı",
+   "ozet": "Mobilyaya Değer Katan İnovatif Çözümler\nISG Politikası\nTüm faaliyetlerimizde insanı en değerli varlık olarak kabul ediyoruz. Çalışanlarımıza sürekli, güvenli ve sağlıklı bir çalışma ortamı oluşturmak amacıyla, karşı karşıya olduğumuz, başta yangın olmak üzere, tüm risklerimizi yönetmek ve oluşabilecek her türlü kayıpları en aza indirmek, temel önceliğimizdir.\nBu nedenle;\n· İş Sağlığı ve Güvenliğiyle ilgili yürürlükteki tüm mevzuata uymayı, \n· Her türlü yeni ürün, proses ve tesisleri proje aşamasından itibaren iş sağlığı ve güvenliği kapsamında değerlendirmeyi,\n· Çalışanların işbirliği ile iş s"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/politikalarimiz/cevre-politikasi",
+   "http": 200,
+   "baslik": "Çevre Politikası",
+   "meta_aciklama": "Çevre Politikası",
+   "dil": "tr",
+   "temiz_metin_karakter": 1445,
+   "durum": "tarandı",
+   "ozet": "Çevre Politikası\nÇevreye olan sorumluluğumuzun farkındayız. Çevremizi korumak, muhafaza etmek ve gelecek nesillere ulaştırmak için faaliyetlerimiz sonucunda ortaya çıkan çevresel etkilerimizin azaltılması, çevresel performansımızın sürekli olarak iyileşmesi ve çevre bilincinin yayılması için gayret göstereceğiz.\nBu nedenle;\nÇevre ile ilgili yürürlükteki tüm mevzuata uymayı,\nÖncelikli olarak tekrar kullanımı veya geri dönüşümü mümkün malzemeler kullanmayı tercih ederek çevresel etkimizi azaltmayı,\nGelecek nesillerimize yaşanılabilir bir çevre ve kullanılabilecek doğal kaynak bırakabilmek için f"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/amaclarimiz",
+   "http": 200,
+   "baslik": "Amaçlarımız | Boyut Plastik",
+   "meta_aciklama": "Amaçlarımız  ",
+   "dil": "tr",
+   "temiz_metin_karakter": 712,
+   "durum": "tarandı",
+   "ozet": "Amaçlarımız | Boyut Plastik\nBüyüme ve karlılık :\nKenar bandı sektöründe ; sürdürülebilir büyümeyi destekleyici, mevcut, yeni ve karlı pazarlara ihracatı artırarak global oyuncu olmak \n\nÜrün :\nYenilikçi, rekabetçi, kaliteli, çevre ve kullanıcı dostu, müşterilerimizin beklentilerini karşılayan ürünlerimizle; konforlu yaşam alanları oluşturmak \n\nMarka :\nKenar bandı sektöründe yenilikçi, çevreye duyarlı, güvenilir bir dünya markası olmak\nTedarik Zinciri Yönetimi :\nKaliteli ürünlerimizi zamanında ve yüksek hizmet seviyesinde müşterilerimize ulaştırmak \n\nİnsan :\nÇalışanlarımıza değer veren, sürekli "
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/politikalarimiz/etik-kurallar",
+   "http": 200,
+   "baslik": "Etik Kurallar ve Çalışma İlkelerimiz",
+   "meta_aciklama": "Etik Kurallar ve Çalışma İlkelerimiz",
+   "dil": "tr",
+   "temiz_metin_karakter": 934,
+   "durum": "tarandı",
+   "ozet": "Etik Kurallar ve Çalışma İlkelerimiz\nYapmakta olduğumuz tüm faaliyetlerimizi içinde bulunduğumuz ülkelerin yasalarına uygun, topluma karşı yüksek sorumluluk bilinci içerisinde ahlaklı ve dürüst bir şekilde yürütmekten sorumluyuz. Bu çerçevede, hepimiz en yüksek etik davranış standartlarına sahip, doğru, dürüst ve hakkaniyetli iş yapma taahhüdümüzü korumakla görevliyiz.\nTüm çalışanlarımızdan beklentimiz, kurumumuzun temel davranış ilkelerine diğer çalışanlara örnek olarak şekilde uyulması ve bu standartların uygulanması konusunda diğer çalışma arkadaşlarını teşvik etmesidir.\nTüm uygulamalarda r"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/politikalarimiz/kalite-politikasi",
+   "http": 200,
+   "baslik": "Kalite Politikası",
+   "meta_aciklama": "Kalite Politikası",
+   "dil": "tr",
+   "temiz_metin_karakter": 794,
+   "durum": "tarandı",
+   "ozet": "Kalite Politikası\nGelişen teknolojiyi izleyerek, bu yolla ürün kalitesini ve çeşidini artırarak, sektörde önde gelen oyunculardan olmak\nMüşteri beklentilerini karşılayacak ürünleri sürekli doğru ve zamanında üretmek\nMüşteri memnuniyetini sağlamak amacıyla, müşteri taleplerini her aşamada tam olarak karşılamak.\nTüm süreçlerde, kalite sistemini verimlilik doğrultusunda geliştirerek, kaliteyi artırmak ve maliyetleri düşürmek\nEğitim ve deneyimleri devamlı arttırılan çalışanlar ve diyaloğa açık yönetim anlayışı ile sürekli gelişimi sağlamak.\nİç dinamiğimiz olan çalışanlarımız, bayilerimiz ve müşter"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/kurumsal/kurumsal-sosyal-sorumluluk",
+   "http": 200,
+   "baslik": "Kurumsal Sosyal Sorumluluk",
+   "meta_aciklama": "Kurumsal Sosyal Sorumluluk",
+   "dil": "tr",
+   "temiz_metin_karakter": 1044,
+   "durum": "tarandı",
+   "ozet": "Kurumsal Sosyal Sorumluluk\nKurumsal Sosyal Sorumluluk\nKurumsal Sosyal Sorumluluk yaklaşımını, sürdürülebilirliğin sağlanabilmesi için önemli bulmaktayız. \nİçinde bulunduğumuz tüm operasyonların ve üretim süreçlerinin çevresel etkilerini gözetmekteyiz. \nTüm faaliyetlerimizde ulusal ve uluslararası yasal düzenlemelere ve çevre standartlarına uymayı ilke edindik. Çevre bilinciyle çalışarak, çevre taahhüdünü karşılamadaki ilerleyişimizi hızlandırmayı, çevresel performansımızı sürekli olarak geliştirmeyi, deneyimlerimizi paylaşarak yerel ve küresel çevre sorunlarına ortak çözüm arayışına girmeyi, ç"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/haberler",
+   "http": 200,
+   "baslik": "Haberler",
+   "meta_aciklama": "Haberler",
+   "dil": "tr",
+   "temiz_metin_karakter": 37,
+   "durum": "tarandı — metin çok kısa/boş (içerik görsel, form veya JS listesi olabilir)",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler"
+  },
+  {
+   "url": "https://boyutplastik.com.tr/medya/fuarlar",
+   "http": 200,
+   "baslik": "Fuarlar",
+   "meta_aciklama": "Fuarlar",
+   "dil": "tr",
+   "temiz_metin_karakter": 2786,
+   "durum": "tarandı",
+   "ozet": "Hayata Değer Katan Yenilikçi Çözümler\nHaberler\nFuarlar\nVideolar\nKataloglar \nBoyut Plastik, Interzum Guangzhou 2025’te Küresel Gücünü Sergiledi\nBoyut Plastik, mobilya ve iç mekân endüstrisinin önde gelen uluslararası fuarlarından Interzum Guangzhou 2025’e katılarak küresel pazarlardaki güçlü konumunu bir kez daha ortaya koydu. \nBoyut Plastik, İntermob 2025’te Sektörle Buluştu\nTürkiye’nin önde gelen kenar bandı üreticilerinden Boyut Plastik, 25–28 Eylül 2025 tarihleri arasında Beylikdüzü TÜYAP Fuar ve Kongre Merkezi’nde düzenlenen İntermob Fuarı’nda sektör profesyonelleriyle bir araya geldi. \nBo"
+  }
+ ]
+}
