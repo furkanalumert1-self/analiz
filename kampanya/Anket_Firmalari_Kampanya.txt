@@ -1,0 +1,86 @@
+CallypsoTech — Anket / CATI Firmaları Kampanyası
+
+HEDEF
+Telefonla anket (CATI) yapan araştırma firmalarına, tekrar eden kısa anketleri (eleme, müşteri memnuniyeti / NPS dalgaları) üstlenen Türkçe sesli yapay zekâ anketörünü pilot olarak sattırmak.
+Konumlandırma: "Anketörlerinizin yerine geçen" değil, "kapasitenizi artıran ve akşam / hafta sonu yükünü alan" araç. Bu firmalar anketör saati sattığı için tehdit algısını baştan kırmak gerekiyor.
+
+LİSTE VE ÖNCELİK
+A) Kişili (en yüksek öncelik): Binom, Akademetre, Barem — 6 direktör.
+B) Aktif anketör ilanı verenler (en sıcak, iletişim yok): İM Global, Nova, DRG Grup, Özdemir, Kolektif Piyasa, Malatya Araştırma — ilandaki telefon/başvuru kanalı veya LinkedIn şirket sayfası üzerinden ulaşın.
+C) Sadece genel adres: İmaj, ADA, Arvey, Çözüm, MCS, Ser, Bove, Genar, Pragma, Optimar, Barem, Akademetre — telefonu olanları mailden 1 gün sonra arayın.
+
+AKIŞ (iş günü)
+Gün 0  Mail 1
+Gün 1  (C grubu) Kısa telefon: "Size bir mail gönderdim, doğru kişi kim?"
+Gün 2  (A grubu) LinkedIn bağlantı isteği, not yazmadan veya tek cümleyle
+Gün 4  Mail 2 (aynı zincirde)
+Gün 9  Mail 3 (aynı zincirde, son mesaj)
+Günde en fazla 20–30 mail; kendi alan adınızdan, kişisel adresten (ör. ad@callypsotech...). Göndermeden önce adresleri doğrulayın.
+
+TEKLİF
+Ücretsiz veya düşük bedelli pilot: firmanın seçtiği kısa bir ankette 50–100 tamamlanmış görüşme.
+Pilotta ölçülecekler: tamamlanma oranı, ortalama görüşme süresi, tamamlanan anket başına maliyet, veri tutarlılığı (aynı anketin insan anketör sonuçlarıyla karşılaştırması).
+Fiyat modeli önerisi: tamamlanan anket başına fiyat (firmaların kendi müşterilerine fiyatlama mantığına uyar). Referans: rakip Sesla AI dakikası 0,15–0,25 $; Kariyer.net verisine göre ortalama anketör maaşı 36.500 TL, CATI operatörü 26.000 TL/ay.
+
+KAMPANYADAN ÖNCE HAZIR OLMASI GEREKENLER
+1. 1–2 dakikalık Türkçe örnek anket kaydı (Mail 3'te teklif ediliyor).
+2. Tek sayfalık uyum notu: görüşme başında "yapay zekâ ile yapılan bir anket" bildirimi, kayıt bilgilendirmesi, KVKK aydınlatma, numara kaynağının müşteriye ait olması. Hukukçu onayı alın.
+3. Ürünün gerçekten yaptığı işler (atlama mantığı, kota, açık uçlu cevap kaydı, eşzamanlı arama sayısı) — maillerdeki iddialar bunlarla uyuşmalı.
+
+SIK İTİRAZLAR VE CEVAPLAR
+"Veri kalitesi düşer"      → Pilotta aynı anketi insan anketörle paralel yapın, sonuçları karşılaştırın.
+"Katılımcı yapay zekâyla konuşmaz" → Tamamlanma oranını pilotta ölçün; kısa (3–5 dk) anketlerle başlayın.
+"KVKK / İYS"               → Tanıtım içermeyen anket araması; açık bildirim + kayıt bilgilendirmesi; uyum notu.
+"Siyasi anketler"          → Kampanyada bu alana girmeyin; müşteri memnuniyeti ve eleme anketleriyle başlayın.
+
+İMZA (tüm maillerde)
+--
+{{Gönderen Ad Soyad}}
+CallypsoTech
+{{web sitesi}} | {{telefon}}
+Bu tür e-postaları almak istemiyorsanız "çıkar" yazarak yanıtlamanız yeterlidir.
+
+HİTAP
+Kişili adresler: "Merhaba {{Ad}} {{Hitap}},"   Genel adresler (info@ vb.): "Merhaba," + Mail 1'in sonundaki "İlgili kişiye" cümlesini ekleyin.
+
+
+MAIL 1
+Konu: {{Şirket}} CATI kapasitesi
+
+Merhaba {{Ad}} {{Hitap}},
+
+Telefonla anket projelerinde anketör planlamasının ne kadar yorucu olabileceğini biliyorum: proje bazlı işe alım, eğitim, sık değişen ekip ve özellikle akşam saatlerinde artan arama ihtiyacı.
+
+CallypsoTech olarak Türkçe konuşan bir sesli yapay zekâ anketörü geliştiriyoruz. Asistan, sizin hazırladığınız soru akışını telefonda uyguluyor, atlama mantığına ve kotalara uyuyor, cevapları anında yapılandırılmış veri olarak kaydediyor. Amacımız anketörlerinizin yerini almak değil; kısa eleme anketleri ve memnuniyet dalgaları gibi tekrar eden işleri üstlenerek ekibinizi daha karmaşık görüşmelere ayırmanızı sağlamak.
+
+Bir sonraki projenizde küçük bir pilotla sonuçları kendi verinizle karşılaştırmayı önermek isterim. 15 dakikalık bir görüşme mümkün mü?
+
+[Genel adresler için ekleyin:] Bu mesajı CATI operasyonlarından sorumlu kişiye iletebilirseniz çok sevinirim.
+
+
+MAIL 2
+Konu: Re: {{Şirket}} CATI kapasitesi
+
+Merhaba {{Ad}} {{Hitap}},
+
+Geçen hafta CATI projeleriyle ilgili yazmıştım; yoğunluktan gözden kaçmış olabilir diye kısaca hatırlatmak istedim.
+
+Kariyer.net verilerine göre bir CATI operatörünün aylık maliyeti ortalama 26.000 TL, bir anketörün ise 36.500 TL civarında. Proje bitince ekibi küçültmek, yeni projede yeniden işe almak ve eğitmek bu maliyetin üzerine ekleniyor.
+
+Sesli asistanımız proje boyunca ihtiyaç kadar eşzamanlı arama yapabiliyor, mesai saatinden bağımsız çalışıyor ve yalnızca kullandığınız kadar ücretlendiriliyor. Pilotu sizin seçeceğiniz kısa bir ankette, 50–100 tamamlanmış görüşmeyle yapmayı öneriyoruz; böylece tamamlanma oranını ve görüşme başı maliyeti kendi rakamlarınızla görebilirsiniz.
+
+Önümüzdeki hafta size uygun 15 dakikalık bir zaman var mı?
+
+
+MAIL 3
+Konu: Re: {{Şirket}} CATI kapasitesi
+
+Merhaba {{Ad}} {{Hitap}},
+
+Bu konuda size yazdığım son mesaj; şu an gündeminizde değilse anlıyorum ve daha fazla rahatsız etmeyeceğim.
+
+İleride değerlendirmek isterseniz, asistanın gerçek bir telefon anketini baştan sona nasıl yürüttüğünü gösteren kısa bir Türkçe ses kaydı gönderebilirim. Kayıtta açılış ve bilgilendirme cümlesini, atlama sorularını ve kararsız bir katılımcıyla nasıl ilerlediğini duyabilirsiniz. Bunun için bir görüşme yapmanız gerekmiyor; kaydı dinleyip kendi değerlendirmenizi yapabilirsiniz.
+
+İlgilenirseniz bu maile "kayıt" yazarak yanıt vermeniz yeterli. Konu başka bir ekip arkadaşınızın sorumluluğundaysa, doğru kişiye yönlendirmeniz de bana çok yardımcı olur.
+
+Zamanınız için teşekkür ederim, projelerinizde başarılar dilerim.
