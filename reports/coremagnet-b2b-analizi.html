@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoreMagnet Rekabet Analizi</title>
+<meta name="description" content="CoreMagnet B2B'nin iş modeli, globaldeki ve Türkiye'deki benzer ajanslar, rekabet durumu ve Callypso Engage'e uyarlama planı.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --surface-2:#eeece6; --ink:#16181d; --ink-2:#4a4f5a; --muted:#7c818c;
+  --border:#e2dfd7; --border-strong:#cfcbc0;
+  --brand:#1f4fd1; --brand-soft:#e4ebfc; --brand-ink:#ffffff;
+  --accent:#c2410c; --accent-soft:#fdeadf;
+  --good:#11804a; --good-soft:#dff3e8; --warn:#a16207; --warn-soft:#fbf0d6; --crit:#b42318; --crit-soft:#fbe3e1;
+  --shadow:0 1px 2px rgba(20,22,28,.05),0 8px 24px -14px rgba(20,22,28,.22);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111317; --surface:#181b21; --surface-2:#20242c; --ink:#eef0f4; --ink-2:#c3c8d2; --muted:#8d94a1;
+    --border:#2a2f38; --border-strong:#3a404b;
+    --brand:#7aa2ff; --brand-soft:#1c2846; --brand-ink:#0d1220;
+    --accent:#f08a52; --accent-soft:#3a2216;
+    --good:#4cc787; --good-soft:#15301f; --warn:#e2b04a; --warn-soft:#352a12; --crit:#f07a6e; --crit-soft:#3a1916;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111317; --surface:#181b21; --surface-2:#20242c; --ink:#eef0f4; --ink-2:#c3c8d2; --muted:#8d94a1;
+  --border:#2a2f38; --border-strong:#3a404b;
+  --brand:#7aa2ff; --brand-soft:#1c2846; --brand-ink:#0d1220;
+  --accent:#f08a52; --accent-soft:#3a2216;
+  --good:#4cc787; --good-soft:#15301f; --warn:#e2b04a; --warn-soft:#352a12; --crit:#f07a6e; --crit-soft:#3a1916;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:15.5px;line-height:1.6;padding-inline:16px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;margin:0;text-wrap:balance;font-weight:650}
+p{margin:0 0 10px;color:var(--ink-2)}
+a{color:var(--brand)}
+.wrap{max-width:1120px;margin-inline:auto}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin-inline:-16px;padding:10px 16px}
+.topbar .wrap{display:flex;gap:16px;align-items:center}
+.brandmark{font-family:'Fraunces',serif;font-weight:650;white-space:nowrap}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;font-size:12.5px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:6px 11px;border-radius:99px}
+.nav a:hover{background:var(--surface)}
+.hero{padding:44px 0 26px}
+.eyebrow{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);padding:5px 11px;border-radius:99px}
+.hero h1{font-size:clamp(28px,4.6vw,46px);line-height:1.08;margin-top:14px;max-width:20ch}
+.lede{font-size:17px;max-width:68ch;margin-top:12px}
+.meta{font-size:12.5px;color:var(--muted);margin-top:14px}
+section{padding:30px 0;border-top:1px solid var(--border)}
+section>h2{font-size:clamp(22px,3vw,30px);margin-bottom:6px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:18px;max-width:75ch}
+h3{font-size:18px;margin-bottom:6px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+.card p:last-child{margin-bottom:0}
+.kpi .n{font-family:'Fraunces',serif;font-size:30px;font-weight:650;line-height:1.1}
+.kpi .l{font-size:13px;color:var(--muted)}
+.tldr{background:var(--brand-soft);border:1px solid color-mix(in srgb,var(--brand) 25%,transparent);border-radius:16px;padding:20px 22px}
+.tldr ul{margin:8px 0 0;padding-left:20px}
+.tldr li{margin:6px 0;color:var(--ink)}
+ul.clean{margin:6px 0 0;padding-left:18px}
+ul.clean li{margin:4px 0;color:var(--ink-2)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin:0 4px 4px 0;background:var(--surface-2);color:var(--ink-2)}
+.tag.good{background:var(--good-soft);color:var(--good)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.crit{background:var(--crit-soft);color:var(--crit)}
+.tag.brand{background:var(--brand-soft);color:var(--brand)}
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:720px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--surface-2);font-weight:700}
+tr:last-child td{border-bottom:0}
+td b{color:var(--ink)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.hl td{background:color-mix(in srgb,var(--brand-soft) 60%,transparent)}
+.steps{counter-reset:s;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.step{position:relative;padding-top:42px}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:16px;left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--brand)}
+.step .when{font-size:12px;color:var(--accent);font-weight:700}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin-top:14px}
+.callout p{margin:0;color:var(--ink)}
+.matrix{display:grid;grid-template-columns:28px 1fr 1fr;grid-template-rows:minmax(130px,auto) minmax(130px,auto) 28px;gap:8px}
+.matrix .q{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px}
+.matrix .q h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.matrix .q .tag{font-size:12px}
+.matrix .q .tag.me{background:var(--brand);color:var(--brand-ink)}
+.ax{display:flex;align-items:center;justify-content:center;font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.ax.y{writing-mode:vertical-rl;transform:rotate(180deg);grid-row:1/3;grid-column:1}
+.ax.x{grid-column:2/4}
+.swot{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.swot .card h3{font-size:15px;font-family:'Manrope',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.s-s h3{color:var(--good)} .s-w h3{color:var(--crit)} .s-o h3{color:var(--brand)} .s-t h3{color:var(--warn)}
+.funnel{display:grid;gap:6px;margin-top:8px}
+.funnel .row{display:grid;grid-template-columns:minmax(150px,220px) 1fr auto;gap:10px;align-items:center;font-size:13.5px}
+.funnel .bar{height:22px;border-radius:6px;background:var(--brand);opacity:.85}
+.funnel .v{font-variant-numeric:tabular-nums;font-weight:700;min-width:70px;text-align:right}
+.src{font-size:12.5px;color:var(--muted)}
+.src li{margin:3px 0;word-break:break-word}
+footer{padding:30px 0 50px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--border)}
+@media (max-width:640px){
+  .matrix{grid-template-columns:22px 1fr;grid-template-rows:auto}
+  .matrix .ax{display:none}
+  .matrix .q{grid-column:1/3!important;grid-row:auto!important}
+  .funnel .row{grid-template-columns:1fr auto}
+  .funnel .bar{grid-column:1/3;order:3}
+}
+@media print{.topbar{position:static}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <div class="brandmark">CoreMagnet analizi</div>
+  <nav class="nav">
+    <a href="#ozet">Özet</a><a href="#model">İş modeli</a><a href="#ekonomi">Birim ekonomi</a><a href="#global">Global</a><a href="#turkiye">Türkiye</a><a href="#rekabet">Rekabet</a><a href="#adapte">Uyarlama</a><a href="#plan">90 gün</a><a href="#kaynak">Kaynaklar</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+<header class="hero">
+  <span class="eyebrow">Rakip ve model analizi · Kasım 2026</span>
+  <h1>CoreMagnet B2B nasıl çalışıyor ve bu model bize nasıl uyar?</h1>
+  <p class="lede">coremagnetb2b.com, LinkedIn sayfası ve 40'tan fazla rakip/benchmark sayfası Apify ile tarandı (Website Content Crawler ve Google Search Scraper). Yurt dışından 12, Türkiye'den 14 firma incelendi. Son bölümde modelin Callypso Engage'e nasıl uyarlanabileceği anlatılıyor.</p>
+  <p class="meta">Veri tarihi: 17 Kasım 2026 · Rakamlar firmaların kendi sitelerinde beyan ettikleridir, bağımsız doğrulanmamıştır.</p>
+</header>
+
+<!-- ============ ÖZET ============ -->
+<section id="ozet">
+  <div class="tldr">
+    <h2 style="font-size:22px">Kısaca</h2>
+    <ul>
+      <li><b>CoreMagnet, "done-for-you" outbound ajansı.</b> Hedef firma ve karar verici listesini çıkarıyor, ayrı alan adlarından ısıtılmış posta kutularıyla e-posta ve LinkedIn dizileri gönderiyor, gelen yanıtları karşılıyor ve ilgilenen alıcıyı müşterinin takvimine koyuyor. Mesajlar müşterinin adıyla gidiyor (white-label).</li>
+      <li><b>Asıl farkları fiyat şeffaflığı ve dürüst bir dil.</b> €450 ve €750/ay olmak üzere iki paket var, kurulum ücreti ve taahhüt yok. Taranan Türk rakiplerin hiçbiri sitesinde fiyat yayımlamıyor. Yurt dışında aynı hizmetin piyasası $1.500–6.000/ay.</li>
+      <li><b>Ekip küçük, kanıt görece güçlü.</b> LinkedIn'de 2–10 çalışan görünüyor (3 profil). Sitede isimli 6 vaka var (Tolon, Naz Teknik, YENA, Arkman, Steps, Octo). Sektör listesine bakınca ağırlık ihracatçı üretici ve endüstriyel firmalarda.</li>
+      <li><b>Global örnekler:</b> Belkins, CIENCE, Martal, Leadium, Cleverly, Callbox, SalesAR. Toplantı başı ödemeli modelde A-Sales ve Rhooa Labs, yayımlanmış aylık fiyatla Outbound System öne çıkıyor.</li>
+      <li><b>Türkiye'deki benzerler:</b> Quandatum, SAAS Corner, Digipeak, Asphia, LeoDessa, Nema Digital, SourcingFox doğrudan rakip. İhracata yönelik yüksek temaslı tarafta BAZ Girişim ve Export Miners var. Growth Effect (Vera) ise yazılım tarafından gelen "AI satış ajanı" tehdidi.</li>
+      <li><b>Rekabet:</b> Pazar parçalı ve giriş bariyeri düşük; araçlar ayda $40–100. Farkı veri, teslim edilebilirlik disiplini ve vaka kanıtı yaratıyor. Önümüzdeki dönemin asıl tehdidi AI SDR yazılımları.</li>
+      <li><b>Size önerim:</b> CoreMagnet'i satın almak yerine modelini <b>Callypso Engage'in kendi satışı için içeride kurun.</b> ICP'niz (Türk e-ticaret markaları) CoreMagnet'in veri tabanında yok, Apify ile ise çıkarılabilir. Sonra aynı paketleme mantığını (şeffaf fiyat, 4 haftalık takvim, ölçülen eşikler, isimli vakalar) kendi tekliflerinizde kullanın.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ İŞ MODELİ ============ -->
+<section id="model">
+  <h2>1. CoreMagnet'in iş yapış şekli</h2>
+  <p class="sub">İstanbul Maslak'ta (Eclipse Maslak) bulunan, Next.js ile Vercel üzerinde yayınlanan tek sayfalık bir site. İletişim kişisi Metehan Turkay. LinkedIn'deki sloganı "Get 10x More Client Meetings". Aynı ekip "B2B müşteri bulma rehberi" adlı bir Skool topluluğu (Burhan Kocabıyık) ve @coremagnetb2b.ai Instagram hesabıyla içerik üzerinden de müşteri topluyor.</p>
+
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card kpi"><div class="n">7.850</div><div class="l">"kazanılmış toplantı" (beyan)</div></div>
+    <div class="card kpi"><div class="n">150+</div><div class="l">marka</div></div>
+    <div class="card kpi"><div class="n">25M+</div><div class="l">firma verisi</div></div>
+    <div class="card kpi"><div class="n">2–10</div><div class="l">çalışan (LinkedIn)</div></div>
+  </div>
+
+  <h3>Üç iş kalemini devralıyorlar</h3>
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="card"><h3>Hedef alıcıyı tespit</h3><p>Sektör, ölçek, coğrafya ve satın alma sinyaline göre filtrelenmiş firma ve karar verici listesi çıkarıyorlar. Yurt içi ve yurt dışı pazarları kapsıyor.</p></div>
+    <div class="card"><h3>Çok kanallı erişim</h3><p>İsme ve şirkete özel 2–3 adımlı diziler hazırlanıyor. E-posta ve LinkedIn ayrı kampanyalar olarak değil, tek bir akış olarak çalışıyor. Alan adı ısıtma ve teslimat yönetimi de onlarda.</p></div>
+    <div class="card"><h3>Yanıt ve toplantı</h3><p>Gelen her yanıtı onlar karşılıyor. Yalnızca ilgilenen alıcı müşterinin takvimine düşüyor. Müşteriyle ortak erişimli bir kampanya CRM'i paylaşılıyor.</p></div>
+  </div>
+
+  <h3>İlk toplantıya kadar dört adım</h3>
+  <div class="steps" style="margin-bottom:18px">
+    <div class="card step"><div class="when">1. hafta</div><h3>Tanışma ve hedef</h3><p>Mevcut satış süreci, kazanılan müşteri profili ve hedef pazarlar netleştiriliyor.</p></div>
+    <div class="card step"><div class="when">1.–2. hafta</div><h3>Liste ve mesaj</h3><p>Firma ve karar verici listesi çıkarılıp doğrulanıyor, mesaj yapısı kuruluyor.</p></div>
+    <div class="card step"><div class="when">2.–4. hafta</div><h3>Altyapı ve ısıtma</h3><p>Ayrı alan adları ve posta kutuları alınıp ısıtılıyor. Müşterinin ana alan adı risk almıyor.</p></div>
+    <div class="card step"><div class="when">4. haftadan itibaren</div><h3>Erişim ve toplantı</h3><p>Kampanya açılıyor. İlk toplantılar genelde ikinci ayda geliyor.</p></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>Kendilerini denetledikleri dört eşik</h3>
+      <div class="tablewrap" style="box-shadow:none"><table style="min-width:0">
+        <tr><th>Metrik</th><th>Hedef</th></tr>
+        <tr><td>Pozitif yanıt oranı</td><td class="num"><b>%3–8</b></td></tr>
+        <tr><td>Bounce</td><td class="num"><b>%2 altı</b></td></tr>
+        <tr><td>Spam şikâyeti</td><td class="num"><b>%0,1 altı</b> (aşılırsa kampanya durur)</td></tr>
+        <tr><td>Kutu başına günlük gönderim</td><td class="num"><b>40–60</b></td></tr>
+      </table></div>
+      <p style="margin-top:10px">Açılma oranını bilerek raporlamıyorlar; gerekçe Apple Mail Privacy Protection. Bu tutum, sektörü bilen alıcıya güven veriyor.</p>
+    </div>
+    <div class="card">
+      <h3>Paketler</h3>
+      <div class="tablewrap" style="box-shadow:none"><table style="min-width:0">
+        <tr><th>Paket</th><th>Fiyat</th><th>Kapsam</th></tr>
+        <tr><td><b>Sales Fisher</b></td><td class="num">€450/ay + KDV</td><td>Ayda 750+ firma, 2–3 adımlı dizi, günlük fırsat aktarımı, aylık rapor</td></tr>
+        <tr class="hl"><td><b>Sales Cruiser</b><br><span class="tag brand">en çok tercih edilen</span></td><td class="num">€750/ay + KDV</td><td>Ayda 1.500+ firma, özel hedef kitle araştırması, ortak CRM, <b>yanıt yönetimi ve toplantı ayarlama</b></td></tr>
+        <tr><td><b>Özel program</b></td><td class="num">Teklife göre</td><td>Çoklu ülke ve dil, pazar başına ayrı altyapı, CRM entegrasyonu, haftalık strateji görüşmesi</td></tr>
+      </table></div>
+      <p style="margin-top:10px">Kurulum ücreti yok; alan adı ve posta kutusu maliyetleri pakete dahil. Aylık çalışılıyor, istenildiğinde durdurulabiliyor.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:22px">Veri tabanı (hazır sektör listeleri)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Sektör</th><th>Firma sayısı</th><th>Sektör</th><th>Firma sayısı</th></tr>
+    <tr><td>Makine</td><td class="num">3.581.685</td><td>Yenilenebilir enerji</td><td class="num">387.253</td></tr>
+    <tr><td>Tekstil</td><td class="num">2.362.491</td><td>Elektrik ve elektronik</td><td class="num">312.385</td></tr>
+    <tr><td>İnşaat</td><td class="num">1.253.841</td><td>Kimya</td><td class="num">203.635</td></tr>
+    <tr><td>Maden ve metal</td><td class="num">962.732</td><td>Petrol ve enerji</td><td class="num">175.126</td></tr>
+  </table></div>
+  <p class="src" style="margin-top:8px">Tüm sektörler "satın alma ve tedarik" ekseninde tanımlanmış. Bu da CoreMagnet'in esas olarak <b>ihracatçı üreticiye yurt dışı alıcı bulduğunu</b> gösteriyor. E-ticaret, perakende ve tüketiciye satış açıkça kapsam dışı.</p>
+
+  <h3 style="margin-top:22px">Vaka çalışmaları (sitede isimli)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Firma</th><th>Sektör</th><th>Sonuç (beyan)</th><th>Hikâye</th></tr>
+    <tr><td><b>Tolon</b></td><td>Endüstriyel üretim</td><td class="num">410 ilgili müşteri</td><td>80 yıllık pazar lideri iç pazarın dışına çıktı</td></tr>
+    <tr><td><b>Naz Teknik OSGB</b></td><td>İş sağlığı ve güvenliği</td><td class="num">850 ilgili müşteri</td><td>Geniş çaplı iç pazar erişimi</td></tr>
+    <tr><td><b>YENA Engineering</b></td><td>Metal imalat (NL)</td><td class="num">300 ilgili müşteri</td><td>Kaynaklı imalatta dar, özel hedef kitle</td></tr>
+    <tr><td><b>Arkman</b></td><td>Yazılım</td><td class="num">151 ilgili müşteri</td><td>Mevcut pazarda pay artırımı</td></tr>
+    <tr><td><b>Steps Agency</b></td><td>Pazarlama ajansı</td><td class="num">100+ ilgili müşteri</td><td>Kurumsal firmalara erişim</td></tr>
+    <tr><td><b>Octo</b></td><td>SaaS</td><td class="num">52 ilgili müşteri</td><td>İlk ayda beklentinin üstünde fırsat</td></tr>
+  </table></div>
+  <p class="src" style="margin-top:8px">Logo şeridinde ayrıca Steelify, Tuva Home, Ar Elektrik, BSS ve BAZ var. BAZ Girişim aynı zamanda ihracat danışmanlığı tarafında rakip/ortak konumda (aşağıda).</p>
+
+  <h3 style="margin-top:22px">Satış hunisi (kendi müşterisini nasıl buluyor)</h3>
+  <div class="grid g3">
+    <div class="card"><h3>Giriş teklifi</h3><p>"Hedef kitlenizi tarif edin, size ilk 200 firmalık örnek listeyi çıkaralım" ve 30 dakikalık ücretsiz strateji görüşmesi. Görüşmede ulaşılabilir firma sayısı ve gerçekçi bir toplantı hedefi veriliyor.</p></div>
+    <div class="card"><h3>Ön eleme</h3><p>Form veya Calendly yok, sadece hazır taslaklı bir <span class="mono">mailto</span> var: ne satıyorsunuz, kime (unvan), hangi pazarlar, web sitesi, müşteriyi şu an nasıl buluyorsunuz. Bu sürtünme bilerek konmuş bir eleme adımı.</p></div>
+    <div class="card"><h3>İçerik ve topluluk</h3><p>Skool akademisi ("€1.000 yatırımla €3M gelir" hikâyesi), Instagram Reels ve LinkedIn. Ajanslar, startup'lar ve ihracatçılar burada ısıtılıp hizmete yönlendiriliyor.</p></div>
+  </div>
+
+  <div class="callout"><p><b>Dikkat edilecek nokta:</b> Başlıkta "7.850 kazanılmış toplantı" yazıyor, vakalarda ise "ilgili müşteri kazandırıldı" ifadesi kullanılıyor. İlgili müşteri, pozitif yanıt anlamına geliyor olabilir. Toplantı ile pozitif yanıt arasında genelde 2–3 kat fark olur. CoreMagnet'le görüşürseniz ilk soru "toplantı tanımınız ne: ayarlanan mı, gerçekleşen mi?" olmalı.</p></div>
+</section>
+
+<!-- ============ BİRİM EKONOMİ ============ -->
+<section id="ekonomi">
+  <h2>2. Birim ekonomi: €750'ye nasıl kâr ediyorlar?</h2>
+  <p class="sub">Aşağıdaki hesap CoreMagnet'in beyan ettiği hacim ve eşiklerden türetilmiş bir <b>tahmindir</b>. Araç fiyatları 2026 liste fiyatlarının yaklaşık değerleridir.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Sales Cruiser için tahmini huni (aylık)</h3>
+      <div class="funnel">
+        <div class="row"><span>Erişilen firma</span><div class="bar" style="width:100%"></div><span class="v">1.500</span></div>
+        <div class="row"><span>Gönderilen e-posta (×3 adım)</span><div class="bar" style="width:100%;opacity:.55"></div><span class="v">~4.500</span></div>
+        <div class="row"><span>Yanıt (%5–8)</span><div class="bar" style="width:8%"></div><span class="v">75–120</span></div>
+        <div class="row"><span>Pozitif yanıt (%1–2,5 kişi başı)</span><div class="bar" style="width:3%"></div><span class="v">15–35</span></div>
+        <div class="row"><span>Gerçekleşen toplantı</span><div class="bar" style="width:1.2%"></div><span class="v">6–15</span></div>
+      </div>
+      <p style="margin-top:12px">Bu varsayımlarla toplantı başına maliyet <b>€50–125</b> çıkıyor. Yurt dışında toplantı başı ödemeli modelin piyasası $100–500. Bu açıdan bakınca fiyat, Türk KOBİ'si için çok agresif.</p>
+    </div>
+    <div class="card">
+      <h3>Müşteri başına tahmini doğrudan maliyet</h3>
+      <div class="tablewrap" style="box-shadow:none"><table style="min-width:0">
+        <tr><th>Kalem</th><th>Aylık</th></tr>
+        <tr><td>~225 e-posta/iş günü ÷ 50 = 5 posta kutusu</td><td class="num">€30–40</td></tr>
+        <tr><td>3–5 ikincil alan adı (yıllık bedelin aylığa düşen payı)</td><td class="num">€4–6</td></tr>
+        <tr><td>Sequencer, veri ve doğrulama araçlarının müşteri başı payı</td><td class="num">€30–80</td></tr>
+        <tr><td><b>Toplam araç maliyeti</b></td><td class="num"><b>~€70–130</b></td></tr>
+      </table></div>
+      <p style="margin-top:10px">Geri kalan €600 civarı emeğe kalıyor. Bir operatör, yanıt yönetimi dahil 10–15 müşteriyi yürütebiliyorsa tek kişi ayda €7.500–11.000 ciro üretiyor. Model yüksek brüt marjlı, ama <b>insan kapasitesiyle sınırlı</b>. Ölçeklenmenin yolu otomasyon (AI yanıt sınıflandırma, AI kişiselleştirme).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL ============ -->
+<section id="global">
+  <h2>3. Globalde aynı modelle çalışan firmalar</h2>
+  <p class="sub">Bu kategorinin İngilizce adları "B2B appointment setting", "outbound lead generation agency", "outsourced SDR" ve "cold email agency". Model ABD'de 2010'larda olgunlaştı. Fiyatlandırma üç ana kalıba ayrılıyor.</p>
+
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="card"><span class="tag brand">Sabit aylık</span><h3>$1.500 – $10.000/ay</h3><p>Giriş seviyesi $1,5–2,5K, orta segment (çoğu B2B firma) $3–6K, kurumsal $7–10K+. Ayrıca $1–3K kurulum ücreti yaygın.</p></div>
+    <div class="card"><span class="tag warn">Toplantı başı</span><h3>$100 – $500 / toplantı</h3><p>C-level veya kurumsal alıcıyla toplantıda fiyat $600–1.500+. Çoğu ajans sadece <i>gerçekleşen</i> toplantıyı faturalıyor.</p></div>
+    <div class="card"><span class="tag good">Hibrit</span><h3>$2–4K + $150–400 / toplantı</h3><p>Sabit taban artı toplantı primi. CIENCE ve benzerleri bu modelde. Kazanma riskini taraflar paylaşıyor.</p></div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Firma</th><th>Merkez / ölçek</th><th>Kanallar</th><th>Fiyat modeli</th><th>Öne çıkan</th></tr>
+    <tr><td><b>Belkins</b></td><td>ABD · 1.000+ müşteri</td><td>E-posta, LinkedIn, arama</td><td>Aylık retainer paketleri</td><td>"In-house maliyetin dörtte biri" vaadi; üretim sektörüne özel içerik</td></tr>
+    <tr><td><b>CIENCE</b></td><td>ABD · 2.500+ müşteri</td><td>Arama, e-posta, LinkedIn, web</td><td>Sabit aylık + gerçekleşen toplantı başı komisyon, aylık sözleşme</td><td>SDR başına ayda 5–20+ toplantı beyanı</td></tr>
+    <tr><td><b>Martal Group</b></td><td>Kanada · 200+ satış uzmanı</td><td>E-posta, LinkedIn, arama + kendi AI sistemi</td><td>Retainer</td><td>15 yıl; "AI-powered outbound engine"</td></tr>
+    <tr><td><b>Leadium</b></td><td>ABD</td><td>E-posta, telefon, LinkedIn, SMS, hediye</td><td>Retainer</td><td>Inbound lead'e 5 dakikada dönüş hizmeti de var</td></tr>
+    <tr><td><b>Cleverly</b></td><td>ABD · 1.000 aktif müşteri</td><td>LinkedIn, e-posta, arama</td><td>Paketlenmiş aylık</td><td>1.000+ beş yıldızlı yorum; ürünleştirilmiş, düşük fiyatlı segmentin lideri</td></tr>
+    <tr><td><b>Callbox</b></td><td>ABD/Asya</td><td>6 kanal (telefon, e-posta, LinkedIn, web, chat, etkinlik)</td><td>Program bazlı</td><td>AI hesap önceliklendirme, insanlar arıyor</td></tr>
+    <tr><td><b>SalesAR</b></td><td>Avrupa</td><td>E-posta, LinkedIn, ABM</td><td>SDR ekip kiralama</td><td>Satın alma komitesi haritalama</td></tr>
+    <tr><td><b>Beanstalk Consulting</b></td><td>İngiltere</td><td>Cold e-posta, LinkedIn, ücretli reklam</td><td>Retainer, garantili</td><td>"45 günde canlı değilse ikinci fatura bekler"; sonunda sistem müşteriye kalıyor</td></tr>
+    <tr><td><b>A-Sales</b></td><td>İngiltere</td><td>Telefon ağırlıklı</td><td>Gerçekleşen toplantı başı $500'dan; yönetimli $4K/ay'dan</td><td>Fiyatları en şeffaf yayımlayanlardan</td></tr>
+    <tr><td><b>Rhooa Labs</b></td><td>Avrupa</td><td>E-posta, LinkedIn</td><td>Kurulum + gerçekleşen toplantı başı</td><td>"Toplantı yoksa bize gelir de yok"</td></tr>
+    <tr><td><b>Outbound System</b></td><td>ABD</td><td>Cold e-posta</td><td>$1.499 / $2.499 / $3.999 ay (15K–60K e-posta)</td><td>Yayımlanmış hacim bazlı fiyat; <b>CoreMagnet'in en yakın globali</b></td></tr>
+    <tr><td><b>Konsyg</b></td><td>Global · teknoloji odaklı</td><td>E-posta, arama, LinkedIn, ABM</td><td>SDR outsourcing</td><td>NA, EMEA ve APAC kapsamı</td></tr>
+  </table></div>
+  <div class="callout"><p><b>Ders:</b> Globalde kazanan ajanslar ya hacim ve marka gücüyle (Cleverly, CIENCE) ya da dikey uzmanlıkla (üretim, SaaS, sağlık) ayrışıyor. Toplantı başı ödeme, alıcıya en kolay satılan model. Ancak ajans, teklif ve ICP netleşene kadar riski üstlenmek istemiyor. Bu yüzden önce retainer, sonra toplantı başı modeline geçiş yaygın.</p></div>
+</section>
+
+<!-- ============ TÜRKİYE ============ -->
+<section id="turkiye">
+  <h2>4. Türkiye'de benzer konumlanan şirketler</h2>
+  <p class="sub">Google'da "B2B outbound satış ajansı", "cold email ajansı", "ihracat müşteri bulma" ve "lead generation ajansı randevu" aramalarının sonuçları tarandı. Roicool'un 2027 Türkiye listesi de kaynak olarak kullanıldı. Bu listenin tespitine göre "listedeki ajansların hiçbiri sayfasında fiyat tutarı yayımlamıyor".</p>
+
+  <h3>a) Doğrudan rakipler: outbound / toplantı ayarlama</h3>
+  <div class="tablewrap" style="margin-bottom:18px"><table>
+    <tr><th>Firma</th><th>Yer</th><th>Kanallar</th><th>Model / vaat</th><th>CoreMagnet'e göre</th></tr>
+    <tr class="hl"><td><b>CoreMagnet</b></td><td>İstanbul, Maslak</td><td>E-posta + LinkedIn</td><td>€450 / €750 / özel; kurulum yok, aylık</td><td>Referans</td></tr>
+    <tr><td><b>Quandatum</b></td><td>İstanbul, Ataşehir</td><td>E-posta, LinkedIn, telefon</td><td>3 AI ajanı (araştırma, kişiselleştirme, optimizasyon). "10.000 hedef firmadan ortalama 15 kazanılmış anlaşma". Solvera vakası: 9 ayda 95 toplantı, 6+ anlaşma</td><td>En yakın rakip. AI anlatısı daha güçlü, telefon kanalı var, fiyat açık değil</td></tr>
+    <tr><td><b>SAAS Corner</b></td><td>Kocaeli + Vadistanbul</td><td>E-posta, LinkedIn, telefon</td><td>Dış kaynaklı SDR, "globale açılan B2B şirketler" sayfası, 8 aşamalı sistem, ilk ay %20 indirim</td><td>Yurt dışına açılma konumlanması aynı; satış ekibi kurulumu ve danışmanlık da satıyor</td></tr>
+    <tr><td><b>Digipeak</b></td><td>İstanbul + Londra</td><td>Cold e-posta, LinkedIn araştırma</td><td>Ayda 500–5.000 kişiselleştirilmiş e-posta, en az 3 ay, haftalık rapor</td><td>Tam hizmet dijital ajans. Outbound onlar için bir yan hizmet</td></tr>
+    <tr><td><b>Asphia Consulting</b></td><td>—</td><td>E-posta, LinkedIn, CRM</td><td>"Done-with-you" (müşterinin kendi araçlarında kurup öğretme) ve "done-for-you" seçenekleri; Clay ve Apollo ile zenginleştirme; her gönderim müşteri onayından geçiyor</td><td>Daha teknik ve danışmanlık ağırlıklı. "Sistem sizde kalsın" diyen alıcıyı alıyor</td></tr>
+    <tr><td><b>LeoDessa</b></td><td>İstanbul, Kocaeli</td><td>E-posta, LinkedIn, soğuk arama</td><td>Araştırma, ilk temas ve aktarma; haftalık 8 başlıkta rapor</td><td>Telefon kanalı var</td></tr>
+    <tr><td><b>Nema Digital</b></td><td>—</td><td>Cold e-posta (ana kanal), LinkedIn</td><td>Günlük dönüş bildirimi, iki haftada bir pipeline toplantısı</td><td>Model neredeyse aynı</td></tr>
+    <tr><td><b>SourcingFox</b></td><td>—</td><td>Cold e-posta</td><td>Segmentasyon, persona bazlı mesaj, takip dizileri</td><td>Daha jenerik bir anlatım</td></tr>
+  </table></div>
+
+  <h3>b) İhracata yönelik, yüksek temaslı (dolaylı rakip, olası ortak)</h3>
+  <div class="tablewrap" style="margin-bottom:18px"><table>
+    <tr><th>Firma</th><th>Model</th><th>Fark</th></tr>
+    <tr><td><b>BAZ Girişim</b></td><td>İhracat danışmanlığı: pazar istihbaratı (TradeMap, gümrük, TÜİK), dijital ihracat pazarlaması, %60'a varan devlet desteği yönetimi. 30 ülkede yerel uzman, "yılda yalnızca 30 firma"</td><td>Uçtan uca ve premium. Teşvik bilgisi en büyük kozu. CoreMagnet'in logo şeridinde de yer alıyor.</td></tr>
+    <tr><td><b>Export Miners</b></td><td>"Türkiye'nin ilk ve tek ihracat ajansı": gümrük kayıtlarından alıcı bulma, telefonla arama, müzakere, sevkiyata kadar takip. $15,2M doğrulanmış hacim beyanı</td><td>Toplantıda değil, ihracat gerçekleşince bırakıyor. Garanti bekleyen müşteriyle çalışmadığını açıkça yazıyor.</td></tr>
+  </table></div>
+
+  <h3>c) Inbound ve reklam tabanlı lead generation (farklı yöntem, aynı bütçe)</h3>
+  <div class="tablewrap" style="margin-bottom:18px"><table>
+    <tr><th>Firma</th><th>Model</th></tr>
+    <tr><td><b>Next Lvl</b></td><td>Reklam, açılış sayfası, randevu ve 60 saniyede arama. <b>60 günlük KPI garantisi</b> (tutmazsa ilk 2 ayın retainer'ı iade)</td></tr>
+    <tr><td><b>UNIT İstanbul</b></td><td>LinkedIn ve Google Ads, CRM'de MQL/SQL takibi</td></tr>
+    <tr><td><b>Roicool · ROIBLE · Multiligo</b></td><td>SEO, içerik, reklam ve outbound e-postanın karışımı</td></tr>
+  </table></div>
+
+  <h3>d) Yazılım tarafından gelen tehdit</h3>
+  <div class="card"><p><b>Growth Effect · Vera</b> kendini "yapay zeka satış ajanınız" olarak tanıtıyor: müşteri bulma, sinyal takibi, kişiselleştirilmiş iletişim ve pipeline otomasyonu tek arayüzde. Globalde 11x, Artisan ve Clay tabanlı iş akışları da aynı yönde. Bu araçlar CoreMagnet'in araştırma ve mesaj yazma emeğini ucuzlatıyor. Ajansların kalıcı değeri teslim edilebilirlik, yanıt yönetimi ve dikey uzmanlığa kayıyor.</p></div>
+</section>
+
+<!-- ============ REKABET ============ -->
+<section id="rekabet">
+  <h2>5. Rekabet nasıl?</h2>
+  <p class="sub">Kısaca: <b>kalabalık ama olgunlaşmamış</b> bir pazar. Giriş bariyeri düşük; bir sequencer, bir veri aracı ve birkaç alan adıyla ayda $100'ın altında başlanabiliyor. Bu yüzden onlarca mikro ajans var. Buna karşılık şeffaf fiyat, isimli vaka ve teslim edilebilirlik disiplini gösteren az sayıda oyuncu var.</p>
+
+  <h3>Konumlandırma haritası</h3>
+  <div class="matrix" style="margin-bottom:20px">
+    <div class="ax y">Kapsam: sadece toplantı → uçtan uca satış</div>
+    <div class="q"><h4>Düşük fiyat · geniş kapsam</h4><span class="tag">Growth Effect (Vera, yazılım)</span><span class="tag">Asphia (DWY)</span><p style="font-size:13px;margin-top:8px">AI yazılımları bu köşeyi hedefliyor. Boşluk burada.</p></div>
+    <div class="q"><h4>Yüksek fiyat · geniş kapsam</h4><span class="tag">BAZ Girişim</span><span class="tag">Export Miners</span><span class="tag">SAAS Corner</span><span class="tag">Martal · Callbox</span></div>
+    <div class="q"><h4>Düşük fiyat · dar kapsam</h4><span class="tag me">CoreMagnet</span><span class="tag">Nema Digital</span><span class="tag">SourcingFox</span><span class="tag">Cleverly (global)</span></div>
+    <div class="q"><h4>Yüksek fiyat · dar kapsam</h4><span class="tag">Quandatum</span><span class="tag">Digipeak</span><span class="tag">LeoDessa</span><span class="tag">CIENCE · Belkins (global)</span></div>
+    <div class="ax x">Fiyat (beyan veya tahmin): düşük → yüksek</div>
+  </div>
+  <p class="src" style="margin-top:-10px;margin-bottom:18px">Fiyatı yayımlanmayan Türk ajanslar, kanal sayısı ve "minimum 3 ay" gibi koşullarına bakılarak tahminen konumlandırıldı.</p>
+
+  <div class="swot">
+    <div class="card s-s"><h3>CoreMagnet'in güçlü yanları</h3><ul class="clean">
+      <li>Türkiye'de yayımlanmış tek net fiyat; Euro bazlı olması ihracatçıya uygun</li>
+      <li>Dürüst dil: "ilk ay ısıtmadır", "açılma oranı raporlamıyoruz", "uygun değilse söyleriz"</li>
+      <li>Ölçülebilir eşikler (%3–8, %2, %0,1, 40–60) satış sonrası tartışmayı azaltıyor</li>
+      <li>İsimli 6 vaka ve gerçek kurucu alıntısı</li>
+      <li>Sanayiye özel hazır sektör listeleri</li>
+      <li>İçerik ve topluluk kanalı (Skool, Instagram) düşük maliyetli müşteri getiriyor</li>
+    </ul></div>
+    <div class="card s-w"><h3>Zayıf yanları</h3><ul class="clean">
+      <li>2–10 kişilik ekip: büyüdükçe kalite ve yanıt yönetimi darboğaz olur</li>
+      <li>Telefon kanalı yok (Quandatum, SAAS Corner ve LeoDessa'da var)</li>
+      <li>Garanti veya toplantı başı ödeme yok; risk tamamen müşteride</li>
+      <li>"Toplantı" ile "ilgili müşteri" tanımları karışık</li>
+      <li>Düşük fiyat, yüksek müşteri kaybı riski getiriyor (2. aydan önce sonuç yok)</li>
+      <li>Ön eleme sadece e-postayla yapılıyor, takvim veya form yok</li>
+    </ul></div>
+    <div class="card s-o"><h3>Fırsatlar</h3><ul class="clean">
+      <li>Türk ihracatçının yurt dışı alıcı ihtiyacı yapısal ve büyüyen bir talep</li>
+      <li>Devlet destekleriyle paketleme (BAZ'ın yaptığı gibi), maliyeti alıcı gözünde düşürür</li>
+      <li>Dikey paketler (tekstil, makine) ve toplantı başı ek ücret</li>
+      <li>"Done-with-you" (kur ve öğret) gelir kalemi</li>
+    </ul></div>
+    <div class="card s-t"><h3>Tehditler</h3><ul class="clean">
+      <li>AI SDR yazılımları (Vera, 11x, Artisan) kendin-yap maliyetini çok düşürüyor</li>
+      <li>Gmail, Yahoo ve Outlook'un toplu gönderici kuralları sertleşiyor; teslim edilebilirlik giderek zorlaşıyor</li>
+      <li>Hukuk: Almanya (UWG) gibi pazarlarda B2B soğuk e-posta riskli; Türkiye'de KVKK aydınlatma yükümlülüğü var</li>
+      <li>LinkedIn'in otomasyon araçlarına karşı hesap kısıtlamaları</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ============ ADAPTE ============ -->
+<section id="adapte">
+  <h2>6. Kendi şirketinize nasıl uyarlarsınız?</h2>
+  <p class="sub">Repodaki diğer çalışmalara göre şirketiniz <b>Callypso Engage</b>: Türk e-ticaret firmalarına müşteri segmentleme ve e-posta/SMS ile geri kazanım sunan bir SaaS. Aşağıdaki öneriler bu varsayıma dayanıyor. Farklı bir şirket için yapılacaksa ICP bölümü değişir, yöntem aynı kalır.</p>
+
+  <div class="callout" style="margin:0 0 18px"><p><b>Karar: CoreMagnet'i satın almayın, modelini kopyalayın.</b> Üç nedeni var. (1) Sizin ICP'niz Türk e-ticaret markaları; CoreMagnet bu segmenti açıkça kapsam dışı tutuyor ve veri tabanında yok. (2) Sizin satışınız ürün bilgisi isteyen, "sitenizde şu akış eksik" türünde bir sohbet; bu mesajı dışarıdaki biri iyi yazamaz. (3) Bu ICP, Apify ile ayda araç maliyeti olarak €300'ün altında bir bütçeyle çıkarılabilir.</p></div>
+
+  <h3>Yol A: Callypso Engage'in kendi satışı için "içeride CoreMagnet"</h3>
+  <div class="grid g2" style="margin-bottom:18px">
+    <div class="card">
+      <h3>ICP ve liste (Apify ile)</h3>
+      <ul class="clean">
+        <li><b>Hedef:</b> ikas, Shopify, Ticimax, IdeaSoft ve T-Soft altyapılı, tekrar satın alma potansiyeli olan kategorilerdeki (kozmetik, anne-bebek, gıda, ev, moda) markalar</li>
+        <li><b>Karar verici:</b> kurucu, e-ticaret müdürü, CRM veya pazarlama müdürü</li>
+        <li><b>Kaynaklar:</b> Google Search Scraper ("powered by ikas" vb. izler), Website Content Crawler (altyapı ve e-posta pop-up tespiti), Instagram Profile Scraper (takipçi ve reklam yoğunluğu), Trendyol/Hepsiburada mağaza listeleri, LinkedIn Sales Navigator</li>
+        <li><b>Sinyaller:</b> pop-up'ta e-posta toplanıyor ama hoş geldin akışı yok; sepet terk e-postası yok; yeni kampanya veya indirim dönemi; e-ticaret/CRM rolünde iş ilanı</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Mesaj: "Sepet Röntgeni"ni satışa bağlayın</h3>
+      <p>CoreMagnet'in "ilk 200 firmalık örnek liste" teklifinin karşılığı sizde <b>ücretsiz mini röntgen</b> olabilir. Apify ile siteyi tarayın, test siparişi ve bülten kaydı yapın, 3 bulgu çıkarın.</p>
+      <p class="mono" style="font-size:12.5px;background:var(--surface-2);padding:10px;border-radius:8px;color:var(--ink)">Konu: {Marka} – ikinci siparişi kaçıran 3 nokta<br><br>Merhaba {Ad}, {marka}.com'a dün bültene kaydoldum ve sepeti terk ettim. 48 saattir ne hoş geldin ne hatırlatma e-postası geldi. Benzer bir {kategori} markasında bu iki akış, ilk 60 günde cironun %X'ini geri getirdi. 1 sayfalık röntgeni göndereyim mi?</p>
+      <p>Instagram'daki "Sepet Röntgeni" hesabınız bu e-postanın sosyal kanıtı olur. CoreMagnet'in Skool ve Instagram ile outbound'u birleştirmesinin sizdeki karşılığı bu.</p>
+    </div>
+  </div>
+
+  <h3>Araç yığını ve yaklaşık aylık maliyet</h3>
+  <div class="tablewrap" style="margin-bottom:18px"><table>
+    <tr><th>Katman</th><th>Araç (öneri)</th><th>Yaklaşık maliyet</th><th>Not</th></tr>
+    <tr><td>Veri ve tarama</td><td>Apify (mevcut hesap)</td><td class="num">$49/ay (Starter)</td><td>Google SERP, site tarama, Instagram</td></tr>
+    <tr><td>Kişi bulma ve doğrulama</td><td>Apollo veya Prospeo + MillionVerifier</td><td class="num">$50–100/ay</td><td>Bounce'u %2'nin altında tutmak için doğrulama şart</td></tr>
+    <tr><td>Gönderim altyapısı</td><td>4–5 ikincil alan adı (callypso-mail.com vb.) + 8–10 Google Workspace kutusu</td><td class="num">€70–90/ay</td><td>Ana alan adınızı asla kullanmayın; 3 hafta ısıtın</td></tr>
+    <tr><td>Sequencer</td><td>Smartlead ($39'dan) veya Instantly</td><td class="num">$39–94/ay</td><td>Sınırsız kutu, otomatik ısıtma</td></tr>
+    <tr><td>LinkedIn</td><td>Sales Navigator + manuel bağlantı veya HeyReach</td><td class="num">~$100/ay</td><td>Kurucu profilinden; günlük limitlere uyun</td></tr>
+    <tr><td>Yanıt yönetimi</td><td>Claude API ile yanıt sınıflandırma (ilgili / sonra / ret / otomatik yanıt)</td><td class="num">$10–30/ay</td><td>CoreMagnet'in insan emeğiyle yaptığı işi otomatikleştirir</td></tr>
+    <tr class="hl"><td colspan="2"><b>Toplam</b></td><td class="num"><b>~€300–400/ay</b></td><td>CoreMagnet Sales Cruiser €750 + KDV; üstelik siz kendi ICP'nizi kontrol edersiniz</td></tr>
+  </table></div>
+
+  <h3>Kendinize koyacağınız eşikler (CoreMagnet'ten alınmış)</h3>
+  <div class="grid g4" style="margin-bottom:18px">
+    <div class="card kpi"><div class="n">%3–8</div><div class="l">pozitif yanıt</div></div>
+    <div class="card kpi"><div class="n">&lt;%2</div><div class="l">bounce</div></div>
+    <div class="card kpi"><div class="n">&lt;%0,1</div><div class="l">spam şikâyeti</div></div>
+    <div class="card kpi"><div class="n">40–50</div><div class="l">kutu başına günlük gönderim</div></div>
+  </div>
+
+  <h3>Yol B: Paketlemeyi kendi teklifinize taşıyın</h3>
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="card"><h3>Şeffaf fiyat ve isimli paket</h3><p>"Sales Fisher / Sales Cruiser" mantığıyla iki paket ve bir özel teklif yayımlayın. Örneğin "Geri Kazan" (yazılım) ve "Geri Kazan + Yönetimli" (akışları siz kurup yönetirsiniz). Türk rakiplerin çoğu fiyat yazmıyor; fiyatı yazmak tek başına güven yaratıyor.</p></div>
+    <div class="card"><h3>Takvimi dürüstçe yazın</h3><p>"1. hafta veri entegrasyonu, 2. hafta segmentler, 3. hafta ilk akışlar, 6–8. hafta ilk ölçülebilir geri kazanım." CoreMagnet'in "ilk ay ısıtmadır" cümlesinin karşılığı bu. Erken müşteri kaybını azaltır.</p></div>
+    <div class="card"><h3>Ölçtüğünüz sayıları önden yazın</h3><p>Tekrar satın alma oranı, geri kazanılan müşteri, akış başına ek ciro. Açılma oranı yerine "geri gelen sipariş" raporlayın; CoreMagnet'in açılma oranını reddetmesiyle aynı mantık.</p></div>
+    <div class="card"><h3>Ücretsiz ve somut giriş teklifi</h3><p>"İlk 200 firma" yerine "ücretsiz kayıp müşteri raporu": son 12 ayda tek sipariş verip bir daha gelmeyen müşteri sayısı ve TL karşılığı.</p></div>
+    <div class="card"><h3>"Uygun değilse söyleriz"</h3><p>Ayda X siparişin altındaki markaya "henüz erken" demek, hem müşteri kaybını hem destek yükünü azaltır.</p></div>
+    <div class="card"><h3>İsimli vaka şeridi</h3><p>İlk 3–5 müşteriden logo, rakam ve kurucu alıntısı alın (Kremi gibi). CoreMagnet'in en güçlü sayfası vaka bölümü.</p></div>
+  </div>
+
+  <h3>Yol C (isteğe bağlı): Ortaklık</h3>
+  <div class="card" style="margin-bottom:6px"><p>CoreMagnet ve benzeri ajanslar e-ticaret markalarıyla çalışmıyor, ama müşterileri arasında Steps Agency gibi pazarlama ajansları var. Türk e-ticaret ajanslarıyla (ikas ve Shopify partnerleri) bir <b>gelir paylaşımlı partner programı</b> kurmak, outbound'a paralel ikinci bir kanal olur. İlk outbound kampanyalarınızdan biri doğrudan bu ajanslara yönelik olabilir.</p></div>
+
+  <h3 style="margin-top:18px">Hukuki not</h3>
+  <div class="card"><p>Türkiye'de 6563 sayılı Kanun ve Ticari İletişim Yönetmeliği'ne göre <b>tacir ve esnafa önceden onay alınmadan ticari elektronik ileti gönderilebilir, ama her mesajda kolay bir ret (abonelikten çıkma) imkânı sunulmalı.</b> Kişinin adı ve kurumsal e-postası KVKK kapsamında kişisel veri sayılır; meşru menfaat dayanağı ve aydınlatma metni gerekir. AB'ye gönderimde GDPR, Almanya'da ise çok daha katı UWG kuralları geçerli. Kampanyayı başlatmadan önce bir avukatla teyit edin.</p></div>
+</section>
+
+<!-- ============ 90 GÜN ============ -->
+<section id="plan">
+  <h2>7. 90 günlük uygulama planı</h2>
+  <div class="steps">
+    <div class="card step"><div class="when">Gün 1–14</div><h3>Altyapı ve ICP</h3><ul class="clean"><li>Alan adlarını ve kutuları alın, SPF/DKIM/DMARC ayarlayın, ısıtmayı başlatın</li><li>Kazanılmış müşterilerden ICP çıkarın</li><li>Apify ile ilk 1.000 markalık liste</li></ul></div>
+    <div class="card step"><div class="when">Gün 15–28</div><h3>Mesaj ve röntgen</h3><ul class="clean"><li>3 kategori × 2 mesaj açısı</li><li>Otomatik mini röntgen akışı (site taraması ve 3 bulgu)</li><li>Claude ile yanıt sınıflandırma</li></ul></div>
+    <div class="card step"><div class="when">Gün 29–60</div><h3>İlk dalga</h3><ul class="clean"><li>Haftada 300–400 marka</li><li>Kurucu profilinden LinkedIn bağlantı ve takip</li><li>Haftalık kontrol: pozitif yanıt, bounce, spam</li></ul></div>
+    <div class="card step"><div class="when">Gün 61–90</div><h3>Ölçek veya düzeltme</h3><ul class="clean"><li>Kazanan açıyı ikiye katlayın</li><li>Ajans partner kampanyasını başlatın</li><li>Sitede fiyatlar, takvim ve vaka şeridi</li></ul></div>
+  </div>
+  <div class="callout"><p><b>Başarı ölçütü (90. gün):</b> ayda 1.500 marka erişimi, %3'ün üstünde pozitif yanıt, ayda 8–15 demo, 2–4 yeni ödeyen müşteri. %1'in altında kalırsanız CoreMagnet'in yaklaşımını izleyin: önce listeyi, sonra mesajı, en son pazarı değiştirin.</p></div>
+</section>
+
+<!-- ============ KAYNAKLAR ============ -->
+<section id="kaynak">
+  <h2>Kaynaklar ve yöntem</h2>
+  <p class="sub">Apify <span class="mono">website-content-crawler</span> ile 41 sayfa, <span class="mono">google-search-scraper</span> ile 13 sorgu tarandı (TR lokasyonu). Rakamlar firmaların kendi beyanlarıdır.</p>
+  <ul class="src">
+    <li>coremagnetb2b.com, coremagnetb2b.com/randevu, linkedin.com/company/coremagnet-b2b, skool.com/coremagnet-b2b-7982</li>
+    <li>Türkiye: quandatum.ai, saascorner.co, digipeak.org, asphia.consulting, sourcingfox.com.tr, bazgirisim.com, exportminers.com, nextlvl.com.tr, unitistanbul.com, growtheffect.co, roible.com, roicool.com (En İyi Lead Generation Ajansları 2027 listesi)</li>
+    <li>Global: belkins.io, cience.com, martal.ca, leadium.com, cleverly.co, salesar.io, callboxinc.com, beanstalkconsulting.co, konsyg.com, a-sales.co/pay-per-appointment, rhooalabs.com, outboundsystem.com (cold email agency fiyat rehberi), smartlead.ai (ajans fiyat rehberi)</li>
+  </ul>
+</section>
+
+<footer>Hazırlanma: 17 Kasım 2026 · Apify ile toplanan herkese açık veriler · Fiyat ve araç maliyetleri yaklaşıktır.</footer>
+</div>
+</body>
+</html>
