@@ -12,6 +12,9 @@ CallypsoTech'in Sinateks görüşmesi için hazırladığı çalışma.
 
 ## Yayın
 
+- Geçici paylaşım (private, claude.ai): https://claude.ai/artifact/B1wWWHYc3J1R7d8GhVNCoc
+- Vercel: henüz yayınlanmadı — oturumdaki Vercel token proxy tarafından iletilmedi (`missingToken`). Token düzeltilince:
+
 ```bash
 cd sinateks-callypso && npx vercel deploy --prod
 ```
