@@ -2,7 +2,7 @@
 
 > CallypsoTech · Callypso Engage · 18 Kasım 2026
 > Dayanak raporlar:
-> [01 Rekabet](01-pushouse-rekabet-analizi.md) · [02 Müşteri ve ICP](02-musteri-ve-icp-analizi.md) · [03 Ürün](03-callypso-urun-gap-analizi.md) · [04 Güven](04-guven-olusturma-stratejisi.md) · [05 Satış](05-satis-ve-musteri-kazanimi.md) · [06 Fiyat](06-fiyatlandirma-ve-gelir-modeli.md) · [07 Plan](07-90-gunluk-buyume-plani.md)
+> [01 Rekabet](01-pushouse-rekabet-analizi.md) · [02 Müşteri ve ICP](02-musteri-ve-icp-analizi.md) · [03 Ürün](03-callypso-urun-gap-analizi.md) · [04 Güven](04-guven-olusturma-stratejisi.md) · [05 Satış](05-satis-ve-musteri-kazanimi.md) · [06 Fiyat](06-fiyatlandirma-ve-gelir-modeli.md) · [07 Plan](07-90-gunluk-buyume-plani.md) · [09 Pushouse zayıf noktaları](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md)
 
 ## Soru
 
@@ -84,6 +84,16 @@ Ayrıntı: [04](04-guven-olusturma-stratejisi.md) F.
 4. Kontrollü pilot paketi: teklif, DPA taslağı ve silme prosedürü (avukat incelemesiyle).
 5. RLS çapraz erişim testi ve 1 sayfalık güvenlik notu.
 
+### Pushouse'un zayıf noktalarından gelen ekler
+
+Ayrıntı: [09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md). Kamuya açık müşteri şikâyeti bulunamadı; zayıf noktalar Pushouse sözleşmesinden çıktı.
+- **Sözleşme güvencesi** (ilk ücretli müşteriden önce): Türk hukuku, İstanbul mahkemeleri, Türkçe tek esas metin, TL e-fatura.
+  Pushouse'ta Dubai hukuku ve DIFC mahkemeleri geçerli.
+- **Para kaybettirmeyen koşullar:** İlk 30 gün iade, aylık iptal, kredi devri (3 ay), TL fiyatın 12 ay sabitlenmesi.
+  Pushouse'ta iade yok ve kullanılmayan kredi dönem sonunda yanıyor.
+- **Veri taşınabilirliği ve onay kanıtı raporu:** 10→25 aşamasında.
+  Pushouse'ta fesih sonrası 30 günlük talep penceresi var; onay sorumluluğu tamamen müşteride.
+
 ### Satış için gerekli ürün geliştirmeleri
 
 P0, yaklaşık 60–90 saat. Ayrıntı: [03](03-callypso-urun-gap-analizi.md).
@@ -156,3 +166,4 @@ Avukat görüşü 2. ayda da alınabilir. Tutarlar doğrulanmamış tahminlerdir
 | Fiyat ve 10k USD MRR senaryoları | Yanıtlandı (maliyetler aralık) | 06 |
 | 13 haftalık plan (156 saat) | Yanıtlandı | 07 |
 | Mevzuat | Kısmen: uzman incelemesi gerekli | 04 E |
+| Pushouse'ta olmayan / şikâyet edilen noktalar | Kamuya açık şikâyet bulunamadı. Sözleşme ve siteden 12 bulgu; 9'u plana eklendi, 3'ü zaten plandaydı | 09 |

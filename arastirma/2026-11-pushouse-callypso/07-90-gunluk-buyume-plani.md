@@ -24,14 +24,14 @@ Saat sütunu: Ürün / Satış / Güven-hukuk / Pilot operasyonu.
 | 2 | Veri girişi + liste | CSV sipariş içe aktarma; Supabase Auth; 60 şirketlik kozmetik listesi (Apollo + elle doğrulama) | 8/4/0/0 = **12** | İçe aktarma çalışıyor; liste | 60 doğrulanmış şirket | Supabase projesi | Liste kalitesi yetersizse (< 40) kaynak değiştir |
 | 3 | Segment motoru + dalga 1 | İkinci alım, tükenme zamanı, pasif ve VIP SQL'leri; 20 kişiselleştirilmiş temas | 7/5/0/0 = **12** | Segment raporu (örnek CSV üzerinde) | 20 temas | Hf 2 | — |
 | 4 | Gönderim + dalga 1 tamam | Resend ile gönderim, abonelikten çıkış, onay kaydı; 20 temas daha; takipler; ilk keşif görüşmeleri | 7/5/0/0 = **12** | Uçtan uca test gönderimi | 40 temas; ≥4 görüşme talebi | Alan adı DNS | **Karar 1:** <2 görüşme → mesaj/segment değişikliği (bkz. durdurma kriterleri) |
-| 5 | Holdout + hukuk | Rastgele %10 kontrol grubu ve 30 günlük rapor şablonu; avukat görüşü (B2B e-posta/İYS, DPA, yurt dışı aktarım); görüşmeler | 6/4/2/0 = **12** | Holdout raporu; DPA taslağı | ≥4 görüşme tamamlandı | Avukat | — |
+| 5 | Holdout + hukuk | Rastgele %10 kontrol grubu ve 30 günlük rapor şablonu; avukat görüşü (B2B e-posta/İYS, DPA, yurt dışı aktarım, **Türk hukukuna tabi sözleşme ve tüzel kişilik**); teklife iade, iptal, kredi devri ve fiyat sabitleme maddeleri ([09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md)); görüşmeler | 6/4/2/0 = **12** | Holdout raporu; DPA taslağı | ≥4 görüşme tamamlandı | Avukat | — |
 | 6 | Pilot 1 başlangıcı | RLS çapraz erişim testi; güvenlik notu; pilot 1 veri alımı ve kurulum | 5/4/0/3 = **12** | Pilot 1 canlı | ≥1 pilot başladı | Hf 5 | **Karar 2:** 0 pilot → teklifi değiştir (ücretsiz → süre/kapsam) |
 | 7 | Dalga 2 | 40 temas (birincil + alt. 1); pilot 2 kurulumu; hata düzeltmeleri | 3/5/0/4 = **12** | 2 pilot canlı | Toplam 80 temas | — | — |
 | 8 | Öğrenme | Pilot geri bildirimiyle ürün düzeltmeleri; görüşmeler; fiyat soruları | 4/5/0/3 = **12** | Değişiklik günlüğü | ≥10 görüşme (toplam) | — | — |
 | 9 | Pilot 3 | Pilot 3 kurulumu; temaslar ve takipler | 4/5/0/3 = **12** | 3 pilot | ≥3 pilot | — | **Karar 3:** Birincil segment dönüşümü alt. 1'den düşükse odağı değiştir |
 | 10 | Partner deneyi | 10 ajans/danışman teması; pilot ara raporları | 2/5/2/3 = **12** | Partner listesi | ≥2 partner görüşmesi | — | — |
 | 11 | Sonuç raporları | Pilot 1 sonuç raporu (30+14 gün); partner görüşmeleri | 2/4/2/4 = **12** | İlk sonuç raporu | Rapor teslim | Pilot 1 süresi | — |
-| 12 | Kapanış | Ücretli teklif; vaka çalışması taslağı (onay için); temaslar | 2/3/3/4 = **12** | Teklif + vaka taslağı | ≥1 ücretli müşteri | Hf 11 | **Karar 4:** 0 ücretli → değer önerisi ve fiyatı yeniden test et |
+| 12 | Kapanış | Ücretli teklif; vaka çalışması taslağı (onay için); yorum politikası (≥60 gün kullanım sonrası); temaslar | 2/3/3/4 = **12** | Teklif + vaka taslağı | ≥1 ücretli müşteri | Hf 11 | **Karar 4:** 0 ücretli → değer önerisi ve fiyatı yeniden test et |
 | 13 | Gözden geçirme | ICP puanlarını güncelle; fiyat ve ARPA gözden geçirme; sonraki 90 günün planı; vaka çalışması yayını (onaylıysa) | 3/4/2/3 = **12** | Güncellenmiş [02](02-musteri-ve-icp-analizi.md) ve [06](06-fiyatlandirma-ve-gelir-modeli.md) | Karar dokümanı | — | Devam / pivot |
 
 **Saat toplamları:** Ürün 56 + Satış 56 + Güven/hukuk 17 + Pilot 27 = **156 saat** = 13 × 12 ✔
@@ -50,7 +50,7 @@ Saat sütunu: Ürün / Satış / Güven-hukuk / Pilot operasyonu.
 | Aşama | Odak | Geçiş koşulu (bir sonrakine) | Tahmini zaman [Varsayım] |
 |---|---|---|---|
 | **0 → 10 müşteri** | Problem ve ödeme isteğini doğrulama; elle yürütülen pilotlar | ≥10 ücretli; ≥2 yayımlanmış vaka; 3 ay aylık churn ≤ %5; pilot→ücretli ≥ %40 | 4–8 ay |
-| **10 → 25** | Tek yerleşik entegrasyon (en çok kullanılan altyapı); otomasyon motoru; SMS; referral programı | ≥25 ücretli; müşterilerin ≥%30'u referans/partnerden; CAC ≤ 3 × ARPA | +4–6 ay |
+| **10 → 25** | Tek yerleşik entegrasyon (en çok kullanılan altyapı); otomasyon motoru; SMS; referral programı; **tam veri dışa aktarma ve onay kanıtı raporu** ([09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md)) | ≥25 ücretli; müşterilerin ≥%30'u referans/partnerden; CAC ≤ 3 × ARPA | +4–6 ay |
 | **25 → 50** | Altyapı uygulama mağazası; yıllık plan; yarı zamanlı destek | ≥50; net gelir tutma ≥ %100; destek ≤ müşteri başına ayda 1 saat | +6 ay |
 | **50 → 100** | Tam zamanlı kurucu veya satış işe alımı; ikinci niş veya Avrupa değerlendirmesi ([04](04-guven-olusturma-stratejisi.md) GDPR hazırlığı) | ≥100 ≈ 10k USD MRR (baz senaryo) | +6–12 ay |
 

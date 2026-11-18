@@ -65,6 +65,9 @@
 | Kimlik doğrulama | Var | **2 Kısmen.** `lib/server/users.ts` içinde parola hash'i var. Demo modunda her e-posta kabul ediliyor | Kod, login ekranı | Temel | Orta | 4–8 saat (Supabase Auth'a bağlama) | Supabase | **P0** |
 | Türkçe ve TL tutarlılığı | Var | **2 Kısmen.** Ayarlar İngilizce, landing'de USD | Ekranlar | Güven | Orta | 3–5 saat | — | **P0** |
 | Yapay zekâ asistanı / arama | Var | **4 Eksik** | — | Düşük (bu niş için) | Düşük | — | — | Yapılmamalı (şimdilik) |
+| Tam veri dışa aktarma + iptal sonrası 60 gün erişim | Kısıtlı (fesihten sonra 30 gün içinde talep; sözleşme md. 16) | **4 Eksik** | [09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md) #7 | Taşınabilirlik, güven | Orta | 6–10 saat | Veri modeli | P1 (10→25 aşaması; ilk pilotlarda elle CSV) |
+| Onay kanıtı raporu (zaman, kaynak, metin sürümü, ret geçmişi) | Sorumluluk tamamen müşteride (md. 5.3) | **2 Kısmen.** `consent_events` tablosu var | [09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md) #8 | İYS/KVKK denetiminde kayıt | Orta | 8–12 saat | Onay kaydı akışı | P1 |
+| Limit davranışı: %80/%100 uyarısı, işlemsel mesajlar durmaz | Limitte kullanım sınırlanabilir (md. 6.1b) | **4 Eksik** | [09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md) #4 | Kesintisiz operasyon | Düşük | 3–5 saat | Kullanım bazlı faturalama | P2 |
 
 ## Satışın önünü açan eksikler
 

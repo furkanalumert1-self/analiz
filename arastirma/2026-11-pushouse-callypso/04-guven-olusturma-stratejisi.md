@@ -218,6 +218,9 @@ Gizlilik: Sonuçlar Müşterinin yazılı onayı olmadan yayımlanmaz.
 | 6 | RLS çapraz erişim testi ve 1 sayfalık güvenlik notu | "Verilerim güvende mi?" | Test raporu | 6 saat | 0 | Kurucu | Supabase kurulumu | İlk 30 gün | Güvenlik sorularına yazılı cevap |
 | 7 | İlk 3–5 pilottan izinli vaka çalışması | "Sonuç alır mıyım?" | Vaka | Pilot başına 4 saat | 0 | Kurucu | Pilot tamamlanması | Sonraki 60 gün | ≥2 yayımlanabilir vaka |
 | 8 | Haftalık geliştirme günlüğü | "Ürün yaşıyor mu?" | İçerik | Haftada 0,5 saat | 0 | Kurucu | — | İlk 30 gün → sürekli | Düzenlilik (13 haftada 13 not) |
+| 9 | **Sözleşme güvencesi:** Türk tüzel kişiliği, Türk hukuku, İstanbul mahkemeleri, Türkçe tek esas metin, TL e-fatura; ilk 30 gün iade, aylık iptal, yenileme hatırlatması, kredi devri, TL fiyatın 12 ay sabitlenmesi ([09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md) #1–3, #11) | "Sorun olursa hakkımı nerede ararım? Param yanar mı?" | Sözleşme ve teklif metni | 2 saat + avukat | Avukat görüşüne dahil; şirket kurulumu ayrı | Kurucu + avukat | 5 | İlk 30 gün (5. hafta) | Görüşmelerde sözleşme itirazı sayısı |
+| 10 | **Yorum politikası:** Yorum ve referans yalnız ≥60 gün kullanım + 1 sonuç raporundan sonra istenir; kullanım süresi ve tarih gösterilir ([09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md) #9) | "Bu yorumlar gerçek mi?" | Politika | 1 saat | 0 | Kurucu | 7 | Sonraki 60 gün | Yayımlanan yorumların %100'ünde süre ve tarih bilgisi |
+| 11 | **Tutarlılık ilkesi:** "Pazarlama sayfalarındaki her taahhüt sözleşmede de yazılıdır" cümlesi ve yazılı destek taahhüdü ([09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md) #6) | "Sitede yazan sözleşmede var mı?" | Sayfa ve sözleşme | 0,5 saat | 0 | Kurucu | 2, 9 | İlk 30 gün | Site ile sözleşme arasında çelişki = 0 |
 
 ## Belirsizlikler
 

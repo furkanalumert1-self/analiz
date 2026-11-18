@@ -61,6 +61,15 @@ KDV hariç, TL. USD karşılıkları 50,26 kurla.
 | Scale | ₺5.990 | ≈ $119 | 50 bin müşteriye kadar, tüm akışlar, SMS (kullanım ayrı), çeyreklik strateji görüşmesi | Ana hedef |
 | Pro | ₺9.990+ | ≈ $199+ | Özel akışlar, birden fazla marka/mağaza, öncelikli destek | Büyüyen markalar |
 
+**Ticari koşullar.** Pushouse sözleşmesindeki müşteri aleyhine maddelere karşı yazılmıştır; ayrıntı [09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md).
+- Aylık planda istediği an iptal ve yenilemeden 7 gün önce hatırlatma.
+- İlk 30 gün koşulsuz iade.
+- Kullanılmayan mesaj kredisi en az 3 ay devreder.
+- TL fiyat 12 ay sabit; artış en az 60 gün önceden bildirilir.
+- Sözleşme Türk hukukuna tabi, Türkçe ve TL e-faturalı.
+
+**Maliyet notu:** İade ve kredi devri, erken aşamada küçük bir gelir riski taşır. Mesaj maliyeti müşteriye yansıtıldığı için kredi devrinin brüt marja etkisi sınırlı [Çıkarım].
+
 **Doğrulama yöntemi:**
 1. **Van Westendorp tarzı 4 soru** (çok ucuz / ucuz / pahalı / çok pahalı) 15 keşif görüşmesinde sorulur.
 2. **Ücretli pilot kabul oranı** ölçülür: ₺4.990 teklifine ≥%30 kabul = fiyat makul.
