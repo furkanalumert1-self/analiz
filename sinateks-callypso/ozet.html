@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinateks × Callypso Özet</title>
+<meta name="description" content="Callypso Export Agent'ın Sinateks için ne yapmayı hedeflediği ve beklenen sonuçlar: 5 sayfalık yönetici sunumu.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F6F3; --card:#FFFFFF; --ink:#282522; --ink-2:#68615C; --accent:#A44732; --border:#E7E1DB;
+  --accent-soft:#F4E6E1; --sunk:#F1EDE8; --warn:#8A5A14; --warn-soft:#F6EBD7; --on-accent:#FFFFFF;
+  --shadow:0 1px 2px rgba(40,37,34,.05),0 14px 36px -18px rgba(40,37,34,.25);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1917; --card:#24211F; --ink:#F1ECE7; --ink-2:#B8AEA6; --accent:#E08A72; --border:#3A3531;
+    --accent-soft:#3A2520; --sunk:#201D1B; --warn:#E2B66A; --warn-soft:#3A2F1C; --on-accent:#1B1917; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1917; --card:#24211F; --ink:#F1ECE7; --ink-2:#B8AEA6; --accent:#E08A72; --border:#3A3531;
+  --accent-soft:#3A2520; --sunk:#201D1B; --warn:#E2B66A; --warn-soft:#3A2F1C; --on-accent:#1B1917; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:72px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+.slide{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 16px;scroll-snap-align:start}
+.sheet{width:100%;max-width:1120px;background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);padding:28px 20px;display:flex;flex-direction:column;gap:22px}
+@media(min-width:760px){.sheet{padding:48px 56px;min-height:min(630px,calc(100vh - 120px))}}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;color:var(--ink-2)}
+.head .pg{color:var(--accent)}
+.sheet h2{font-size:clamp(26px,3.6vw,40px)}
+.lede{font-size:clamp(16px,1.7vw,19px);color:var(--ink-2);max-width:62ch}
+.foot{margin-top:auto;font-size:12.5px;color:var(--ink-2);border-top:1px solid var(--border);padding-top:12px}
+.tag{display:inline-block;align-self:flex-start;font-size:12px;font-weight:700;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:3px 9px}
+
+/* 1 cover */
+.cover h1{font-size:clamp(32px,5.2vw,58px);max-width:20ch}
+.cover h1 em{font-style:normal;color:var(--accent)}
+.facts{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:760px){.facts{grid-template-columns:repeat(3,1fr)}}
+.fact{background:var(--sunk);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:600}
+.fact span{color:var(--ink-2);font-size:14px}
+
+/* 2 what it does */
+.jobs{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.jobs{grid-template-columns:repeat(3,1fr)}}
+.job{border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.job .n{width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:700}
+.job h3{font-size:21px}
+.job p{color:var(--ink-2);font-size:15px}
+.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;font-weight:600}
+.pipe span{background:var(--sunk);border-radius:999px;padding:6px 12px}
+.pipe span.h{background:var(--accent-soft);color:var(--accent)}
+.pipe i{font-style:normal;color:var(--ink-2)}
+.extra{background:var(--sunk);border-radius:14px;padding:14px 18px;font-size:15px}
+
+/* 3 example */
+.ex{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:900px){.ex{grid-template-columns:1fr 1fr 1fr}}
+.col{border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.col h3{font-size:18px}
+.col .step{color:var(--accent)}
+.mail{background:var(--sunk);border-radius:10px;padding:12px 14px;font-size:13.5px;line-height:1.55}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
+.kv dt{color:var(--ink-2)}
+.kv dd{margin:0;font-weight:600}
+.miss{display:flex;flex-wrap:wrap;gap:6px}
+.miss span{font-size:12.5px;font-weight:700;background:var(--warn-soft);color:var(--warn);border-radius:999px;padding:3px 10px}
+.ok{font-size:13.5px;font-weight:700;color:var(--accent)}
+
+/* 4 results */
+.res{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.res{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.res{grid-template-columns:repeat(3,1fr)}}
+.r{border:1px solid var(--border);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.r h3{font-size:19px}
+.r p{color:var(--ink-2);font-size:14.5px}
+.r .m{margin-top:auto;padding-top:8px;font-size:13px;font-weight:600;color:var(--ink)}
+.r .m::before{content:"Ölçü: ";color:var(--accent)}
+.sample{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 14px 14px 0;padding:14px 18px;font-size:14.5px}
+
+/* 5 pilot */
+.weeks{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--sunk);border-radius:14px;padding:16px}
+.wk .mono{color:var(--accent)}
+.wk h3{font-size:18px;margin:4px 0 6px}
+.wk p{font-size:14px;color:var(--ink-2)}
+.two{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.box{border:1px solid var(--border);border-radius:16px;padding:18px 20px}
+.box h3{font-size:18px;margin-bottom:8px}
+.box ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--ink-2)}
+.box li{margin:4px 0}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font:inherit;font-size:14px;font-weight:700;border-radius:10px;padding:10px 16px;border:1px solid var(--border);background:var(--card);color:var(--ink);text-decoration:none;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn:disabled{opacity:.4;cursor:default}
+
+/* nav bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--border)}
+.bar .in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.dots{display:flex;gap:6px;margin:0 auto}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:var(--border);cursor:pointer}
+.dots button[aria-current="true"]{background:var(--accent);width:26px;border-radius:6px}
+.count{font-size:13px;color:var(--ink-2);min-width:44px;text-align:center;font-variant-numeric:tabular-nums}
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  html{scroll-snap-type:none}
+  body{padding:0;background:#fff}
+  .bar{display:none}
+  .slide{min-height:auto;padding:0;page-break-after:always;break-after:page}
+  .sheet{box-shadow:none;min-height:auto;border:0;padding:8mm}
+}
+</style>
+</head>
+<body>
+<main id="deck">
+
+<!-- 1 -->
+<section class="slide" id="s1" aria-label="Sayfa 1">
+  <div class="sheet cover">
+    <div class="head"><span class="mono">CallypsoTech · Sinateks için</span><span class="mono pg">1 / 5</span></div>
+    <h1>Her koleksiyondan gelen talebi, <em>kaçmayan bir satış fırsatına</em> dönüştürmek</h1>
+    <p class="lede">Callypso Export Agent, ihracat ekibinizin gelen numune ve fiyat taleplerini hızlı yanıtlamasına ve gönderilen her teklifi sonuna kadar takip etmesine yardım eden bir yapay zekâ asistanıdır. Asistan hazırlar, ekibiniz karar verir.</p>
+    <div class="facts">
+      <div class="fact"><b>4 koleksiyon / yıl</b><span>Elegance, Passion, E‑motion: her biri yeni talepler demek</span></div>
+      <div class="fact"><b>%50 ihracat</b><span>19 ülkeye, farklı dillerde alıcılar</span></div>
+      <div class="fact"><b>Inditex, Mango, LCW, Koton</b><span>Güçlü referanslar, yüksek beklenti</span></div>
+    </div>
+    <p class="foot">Sinateks bilgileri sinateks.com.tr'den alınmıştır. Ayrıntılı analiz ve kaynaklar: <a href="/" >sinateks-callypso.vercel.app</a></p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2" aria-label="Sayfa 2">
+  <div class="sheet">
+    <div class="head"><span class="mono">Uygulama ne yapmak istiyor?</span><span class="mono pg">2 / 5</span></div>
+    <h2>Satış ekibinizin tekrar eden işini üstlenmek</h2>
+    <p class="lede">Bir talebin gelişinden siparişe kadar geçen yolda vakit alan ama karar gerektirmeyen adımları asistan hazırlar. Müşteriye giden her mesaj sizin onayınızdan geçer.</p>
+    <div class="jobs">
+      <div class="job"><span class="n">1</span><h3>Talebi anlar</h3><p>Gelen e‑postadan kalite, kompozisyon, metre, renk, sezon ve teslim yerini çıkarır. Teklif için eksik kalan bilgiyi listeler.</p></div>
+      <div class="job"><span class="n">2</span><h3>Yanıtı hazırlar</h3><p>Eksikleri soran yanıtı ve teklif taslağını alıcının dilinde hazırlar. Temsilciniz düzenler, onaylar veya reddeder.</p></div>
+      <div class="job"><span class="n">3</span><h3>Takibi unutturmaz</h3><p>Her numune ve teklif için takip tarihi açar, zamanı gelince takip mesajını hazırlar, yöneticiye haftalık özet verir.</p></div>
+    </div>
+    <div class="pipe" aria-label="Akış">
+      <span>Talep gelir</span><i>→</i><span>Bilgiler çıkarılır</span><i>→</i><span>Eksikler sorulur</span><i>→</i><span class="h">Siz onaylarsınız</span><i>→</i><span>Teklif gider</span><i>→</i><span>Takip edilir</span>
+    </div>
+    <div class="extra"><b>İsterseniz:</b> Seçeceğiniz tek bir pazarda (ör. İspanya) yeni alıcı adaylarını araştırıp sizin onayınızla ilk teması hazırlar.</div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3" aria-label="Sayfa 3">
+  <div class="sheet">
+    <div class="head"><span class="mono">Bir örnekle</span><span class="mono pg">3 / 5</span></div>
+    <h2>İspanya'dan bir numune talebi geldiğinde</h2>
+    <span class="tag">Örnek demo: alıcı kurgusal, simülasyon</span>
+    <div class="ex">
+      <div class="col">
+        <span class="mono step">1 · Gelen e‑posta</span>
+        <div class="mail">"E‑motion iplik boyalı kumaşlarınızı gördük. SS27 gömlek koleksiyonu için çizgili ve kareli askı numunesi, ayrıca 3 renkte yaklaşık 6.000 metre için fiyat rica ediyoruz. Teslim Valensiya. Organik pamuk seçeneği olursa iyi olur."</div>
+      </div>
+      <div class="col">
+        <span class="mono step">2 · Asistanın çıkardığı</span>
+        <dl class="kv">
+          <dt>Ürün</dt><dd>İplik boyalı gömleklik</dd>
+          <dt>Miktar</dt><dd>~6.000 m, 3 renk</dd>
+          <dt>Sezon</dt><dd>SS27</dd>
+          <dt>Teslim</dt><dd>Valensiya, İspanya</dd>
+          <dt>Numune</dt><dd>Askı</dd>
+        </dl>
+        <p style="font-size:13.5px;font-weight:700">Teklif için eksik:</p>
+        <div class="miss"><span>Gramaj ve en</span><span>Renk referansı</span><span>Hedef fiyat</span><span>Termin</span><span>Incoterm</span><span>Sertifika türü</span></div>
+      </div>
+      <div class="col">
+        <span class="mono step">3 · Onayınıza gelen yanıt</span>
+        <div class="mail">"Dear Lucía, thank you for your interest in our E‑motion collection. We will prepare hangers. To quote accurately, could you confirm: weight and width, colour references, target price and delivery date, Incoterm, and GOTS or OCS?"</div>
+        <p class="ok">Temsilci tek tıkla onaylar · sonra takip tarihi otomatik açılır</p>
+      </div>
+    </div>
+    <p class="foot">Böylece alıcıya tek seferde doğru sorular gider, fiyat ve termin konuşması daha az yazışmayla başlar. Fiyat, MOQ ve sertifika bilgisi Sinateks'ten gelmeden taslağa yazılmaz.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4" aria-label="Sayfa 4">
+  <div class="sheet">
+    <div class="head"><span class="mono">Alacağınız sonuçlar</span><span class="mono pg">4 / 5</span></div>
+    <h2>Sinateks'in eline geçecek olanlar</h2>
+    <div class="res">
+      <div class="r"><h3>Daha hızlı ilk yanıt</h3><p>Koleksiyon sonrası yoğunlukta bile yanıt taslağı hazır bekler; alıcı daha kısa sürede, kendi dilinde yanıt alır.</p><span class="m">talebe ilk yanıt süresi</span></div>
+      <div class="r"><h3>Tek seferde eksiksiz teklif</h3><p>Gramaj, renk, termin gibi bilgiler baştan sorulur; gidip gelen yazışma azalır.</p><span class="m">teklif öncesi ek yazışma sayısı</span></div>
+      <div class="r"><h3>Takipte kayıp yok</h3><p>Gönderilen her numune ve teklifin bir takip tarihi olur; yanıtsız kalanlar görünür.</p><span class="m">takip tarihi olan teklif oranı</span></div>
+      <div class="r"><h3>Yönetici görünürlüğü</h3><p>Açık talepler, bekleyen numuneler ve yanıtsız teklifler her pazartesi tek özette.</p><span class="m">haftalık özet, geciken takip sayısı</span></div>
+      <div class="r"><h3>Ekibe zaman</h3><p>Ayıklama, hatırlatma ve taslak yazma asistana geçer; ekip müşteriyle konuşmaya vakit ayırır.</p><span class="m">talep başına harcanan süre</span></div>
+      <div class="r"><h3>Yeni pazarda ölçülmüş test</h3><p>İsterseniz: seçilen pazarda onaylı aday listesi ve ilk temas sonuçları.</p><span class="m">uygun aday, yanıt ve numune talebi</span></div>
+    </div>
+    <div class="sample"><b>Örnek hesap (varsayımsal, orta senaryo):</b> ayda 60 talep ve talep başına 15 dakika kazanç, ekibe ayda yaklaşık <b>15 saat</b> demektir. Gerçek rakamları pilotta Sinateks'in kendi verisiyle ölçeriz; satış artışı garanti edilmez.</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5" aria-label="Sayfa 5">
+  <div class="sheet">
+    <div class="head"><span class="mono">Nasıl başlarız?</span><span class="mono pg">5 / 5</span></div>
+    <h2>30 günlük pilot: küçük başla, birlikte ölç</h2>
+    <div class="weeks">
+      <div class="wk"><span class="mono">1. hafta</span><h3>Anlama</h3><p>Ürün grubu, pazar ve bugünkü talep akışı; başarı ölçütlerini birlikte yazarız.</p></div>
+      <div class="wk"><span class="mono">2. hafta</span><h3>Kurulum</h3><p>Kumaş alanları, fiyat ve MOQ kuralları, yanıt ve takip şablonları.</p></div>
+      <div class="wk"><span class="mono">3. hafta</span><h3>Gerçek kullanım</h3><p>Gerçek talepler asistandan geçer; her mesaj temsilci onayıyla gider.</p></div>
+      <div class="wk"><span class="mono">4. hafta</span><h3>Sonuç</h3><p>Ölçümleri birlikte değerlendirir, devam kararını verirsiniz.</p></div>
+    </div>
+    <div class="two">
+      <div class="box"><h3>Sinateks'ten gereken</h3><ul><li>1 satış temsilcisi, günde ~15 dakika onay</li><li>5 adet örnek talep (anonim olabilir)</li><li>Fiyat, MOQ ve termin kuralları</li></ul></div>
+      <div class="box"><h3>30 günün sonunda elinizde</h3><ul><li>Talep, teklif ve takiplerin tek ekranda olduğu çalışan bir akış</li><li>Önce/sonra ölçümleri ile yazılı sonuç raporu</li><li>Devam edip etmeme kararı için net veri</li></ul></div>
+    </div>
+    <div class="cta"><b style="font-size:15px">Önerilen sonraki adım:</b><span style="color:var(--ink-2);font-size:15px">45 dakikalık süreç görüşmesi</span><a class="btn" href="/#demo">Demo önizlemesini gör →</a></div>
+    <p class="foot">Uygulama bugün demo aşamasındadır. Sinateks'e özel alanlar, e‑posta bağlantısı ve sistem entegrasyonları pilot hazırlığında birlikte netleştirilir.</p>
+  </div>
+</section>
+</main>
+
+<nav class="bar" aria-label="Sayfalar">
+  <div class="in">
+    <button class="btn" id="prev" type="button" aria-label="Önceki sayfa">←</button>
+    <div class="dots" id="dots"></div>
+    <span class="count" id="count">1 / 5</span>
+    <button class="btn primary" id="next" type="button" aria-label="Sonraki sayfa">→</button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')), dots=document.getElementById('dots'), cur=0;
+  slides.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Sayfa '+(i+1));b.onclick=function(){go(i)};dots.appendChild(b);});
+  var db=[].slice.call(dots.children);
+  function mark(i){cur=i;db.forEach(function(b,j){b.setAttribute('aria-current',j===i)});document.getElementById('count').textContent=(i+1)+' / '+slides.length;document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===slides.length-1;}
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'smooth',block:'start'});mark(i);}
+  document.getElementById('prev').onclick=function(){go(cur-1)};
+  document.getElementById('next').onclick=function(){go(cur+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(['ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
+    if(['ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)mark(slides.indexOf(en.target))})},{threshold:.55});
+    slides.forEach(function(s){io.observe(s)});
+  }
+  mark(0);
+})();
+</script>
+</body>
+</html>

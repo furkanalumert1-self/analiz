@@ -13,6 +13,7 @@ CallypsoTech'in Sinateks görüşmesi için hazırladığı çalışma.
 ## Yayın
 
 - Vercel (production): https://sinateks-callypso.vercel.app — ayrı proje `sinateks-callypso`
+- 5 sayfalık yönetici özeti: https://sinateks-callypso.vercel.app/ozet
 - Geçici kopya (private, claude.ai): https://claude.ai/artifact/B1wWWHYc3J1R7d8GhVNCoc
 - Güncellemek için: `cd sinateks-callypso && npx vercel deploy --prod`
 
