@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinateks × Callypso</title>
+<meta name="description" content="CallypsoTech'in Sinateks için hazırladığı görüşme sunumu: gelen numune ve fiyat taleplerinin yönetimi, teklif sonrası takip ve kontrollü yeni alıcı araştırması.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F6F3; --card:#FFFFFF; --ink:#282522; --ink-2:#68615C; --accent:#A44732; --border:#E7E1DB;
+  --accent-soft:#F4E6E1; --sunk:#F1EDE8; --ok:#2F6B4F; --ok-soft:#E3EFE8; --warn:#8A5A14; --warn-soft:#F6EBD7;
+  --info:#3A5A86; --info-soft:#E4EAF3; --mute-soft:#EEEAE6;
+  --shadow:0 1px 2px rgba(40,37,34,.05),0 10px 28px -16px rgba(40,37,34,.22);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1917; --card:#24211F; --ink:#F1ECE7; --ink-2:#B8AEA6; --accent:#E08A72; --border:#3A3531;
+    --accent-soft:#3A2520; --sunk:#201D1B; --ok:#7CC3A0; --ok-soft:#1E3329; --warn:#E2B66A; --warn-soft:#3A2F1C;
+    --info:#9BB6DE; --info-soft:#1F2A3A; --mute-soft:#2E2A27; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1917; --card:#24211F; --ink:#F1ECE7; --ink-2:#B8AEA6; --accent:#E08A72; --border:#3A3531;
+  --accent-soft:#3A2520; --sunk:#201D1B; --ok:#7CC3A0; --ok-soft:#1E3329; --warn:#E2B66A; --warn-soft:#3A2F1C;
+  --info:#9BB6DE; --info-soft:#1F2A3A; --mute-soft:#2E2A27; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.muted{color:var(--ink-2)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.brand{font-family:'Fraunces',serif;font-weight:600;white-space:nowrap}
+.brand span{color:var(--accent)}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:13px;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.nav a:hover{background:var(--sunk);color:var(--ink)}
+@media(max-width:719px){.nav{display:none}}
+
+/* hero */
+.hero{padding-top:56px;padding-bottom:40px}
+.hero .eyebrow{color:var(--accent)}
+.hero h1{font-size:clamp(32px,5.4vw,54px);margin:14px 0 18px;max-width:18ch}
+.hero .lede{font-size:18px;color:var(--ink-2);max-width:62ch}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--ink-2);font-size:14px}
+
+section{padding:48px 0;border-top:1px solid var(--border)}
+.sec-head{margin-bottom:26px;max-width:70ch}
+.sec-head .num{color:var(--accent);display:block;margin-bottom:8px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.sec-head p{color:var(--ink-2);margin-top:10px}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--ink-2);font-size:15px}
+
+.fact .big{font-family:'Fraunces',serif;font-size:30px;font-weight:600;line-height:1.1}
+.fact .lbl{color:var(--ink-2);font-size:14px;margin-top:6px}
+.src{display:inline-block;margin-top:10px;font-size:12px;font-weight:600}
+
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 12px 12px 0;padding:16px 18px;font-size:15px}
+.callout strong{color:var(--ink)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.c-ok{background:var(--ok-soft);color:var(--ok)}
+.c-demo{background:var(--warn-soft);color:var(--warn)}
+.c-int{background:var(--info-soft);color:var(--info)}
+.c-dev{background:var(--accent-soft);color:var(--accent)}
+.c-unk{background:var(--mute-soft);color:var(--ink-2)}
+.c-hyp{background:var(--warn-soft);color:var(--warn)}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12px;font-weight:700;color:var(--ink-2);background:var(--sunk);text-transform:uppercase;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+td.w{min-width:220px}
+.yes{color:var(--ok);font-weight:700}
+.no{color:var(--ink-2)}
+
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:9px 0;border-bottom:1px dashed var(--border);font-size:15px}
+ul.clean li:last-child{border-bottom:0}
+
+/* opportunity cards */
+.opp{display:grid;gap:0}
+.opp-row{display:grid;grid-template-columns:1fr;gap:4px;padding:12px 0;border-bottom:1px solid var(--border)}
+.opp-row:last-child{border-bottom:0}
+.opp-row dt{font-size:12px;font-weight:700;color:var(--ink-2);text-transform:uppercase;letter-spacing:.04em}
+.opp-row dd{margin:0;font-size:15px}
+@media(min-width:720px){.opp-row{grid-template-columns:170px 1fr;gap:16px}}
+.opp-title{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.opp-title .tag{font-size:12px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;padding:2px 8px}
+:root[data-theme="dark"] .opp-title .tag{color:#1B1917}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .opp-title .tag{color:#1B1917}}
+
+/* before after */
+.flow{list-style:none;margin:0;padding:0;counter-reset:s}
+.flow li{counter-increment:s;position:relative;padding:10px 0 10px 40px;font-size:15px;border-bottom:1px dashed var(--border)}
+.flow li:last-child{border-bottom:0}
+.flow li::before{content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--sunk);color:var(--ink-2)}
+.after .flow li::before{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .after .flow li::before{color:#1B1917}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .after .flow li::before{color:#1B1917}}
+.label-sim{display:inline-block;font-size:12px;font-weight:700;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:3px 9px;margin-bottom:14px}
+
+/* simulation */
+.sim{display:grid;gap:16px}
+@media(min-width:900px){.sim{grid-template-columns:260px 1fr}}
+.steps{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+@media(min-width:900px){.steps{flex-direction:column;overflow:visible}}
+.step-btn{flex:0 0 auto;text-align:left;font:inherit;font-size:14px;font-weight:600;color:var(--ink-2);background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 12px;cursor:pointer;display:flex;gap:10px;align-items:center}
+.step-btn .n{width:24px;height:24px;flex:0 0 24px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:var(--sunk)}
+.step-btn[aria-selected="true"]{border-color:var(--accent);color:var(--ink);box-shadow:var(--shadow)}
+.step-btn[aria-selected="true"] .n{background:var(--accent);color:#fff}
+.step-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{display:none}
+.panel.on{display:block}
+.mail{background:var(--sunk);border:1px solid var(--border);border-radius:12px;padding:16px;font-size:14px;white-space:pre-wrap;font-family:ui-monospace,'IBM Plex Mono',monospace;line-height:1.55;overflow-x:auto}
+.kv{display:grid;grid-template-columns:1fr;gap:10px;margin-top:4px}
+@media(min-width:560px){.kv{grid-template-columns:1fr 1fr}}
+.kv div{background:var(--sunk);border-radius:10px;padding:10px 12px}
+.kv span{display:block;font-size:12px;color:var(--ink-2);font-weight:600}
+.missing{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.missing span{font-size:13px;font-weight:600;background:var(--warn-soft);color:var(--warn);border-radius:999px;padding:4px 11px}
+.sim-nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.btn{font:inherit;font-size:14px;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#1B1917}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#1B1917}}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* screenshots */
+.shots{display:grid;gap:16px}
+@media(min-width:720px){.shots{grid-template-columns:1fr 1fr}}
+figure{margin:0}
+figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border)}
+figcaption{font-size:13px;color:var(--ink-2);margin-top:8px}
+
+/* pilot */
+.weeks{display:grid;gap:16px}
+@media(min-width:720px){.weeks{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.week .wk{color:var(--accent)}
+.week h3{margin:6px 0 10px}
+.week ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink-2)}
+.week ul li{margin:4px 0}
+.who{font-size:13px;margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);color:var(--ink-2)}
+.who b{color:var(--ink)}
+
+/* roi */
+.seg{display:inline-flex;background:var(--sunk);border:1px solid var(--border);border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:14px;font-weight:700;border:0;background:transparent;color:var(--ink-2);padding:8px 14px;border-radius:9px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.inputs{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(min-width:720px){.inputs{grid-template-columns:repeat(4,1fr)}}
+.inputs label{font-size:12px;font-weight:600;color:var(--ink-2);display:flex;flex-direction:column;gap:6px}
+.inputs input{font:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--border);border-radius:9px;padding:8px 10px;width:100%;font-variant-numeric:tabular-nums}
+.inputs input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.out{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(min-width:720px){.out{grid-template-columns:repeat(4,1fr)}}
+.out .card{padding:16px}
+.out .v{font-family:'Fraunces',serif;font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+.out .k{font-size:13px;color:var(--ink-2)}
+.out .s{font-size:12px;color:var(--ink-2);margin-top:4px}
+.funnel{font-size:14px;color:var(--ink-2);margin-top:14px;font-variant-numeric:tabular-nums}
+
+.sources ol{margin:0;padding-left:20px;font-size:14px}
+.sources li{margin:6px 0;word-break:break-word}
+footer{padding:36px 0 56px;border-top:1px solid var(--border);color:var(--ink-2);font-size:13px}
+.theme-toggle{font:inherit;font-size:12px;font-weight:700;border:1px solid var(--border);background:var(--card);color:var(--ink-2);border-radius:8px;padding:5px 9px;cursor:pointer;white-space:nowrap}
+@media(max-width:719px){.theme-toggle{margin-left:auto}}
+@media print{.top{position:static}.nav,.theme-toggle,.sim-nav{display:none}.panel{display:block!important;margin-bottom:16px}section{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Sinateks <span>×</span> Callypso</div>
+    <nav class="nav" aria-label="Bölümler">
+      <a href="#firsat">Fırsat</a><a href="#anlayis">Sinateks</a><a href="#pazar">Pazar</a><a href="#callypso">Callypso</a><a href="#senaryolar">Senaryolar</a><a href="#oncesonra">Önce/Sonra</a><a href="#demo">Demo</a><a href="#pilot">Pilot</a><a href="#deger">Değer</a><a href="#kaynaklar">Kaynaklar</a>
+    </nav>
+    <button class="theme-toggle" id="themeBtn" type="button" aria-label="Tema değiştir">Tema</button>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <span class="mono eyebrow">CallypsoTech · Görüşme sunumu · Kasım 2026</span>
+  <h1>Sinateks'in koleksiyonlarından doğan talepleri satışa taşımak</h1>
+  <p class="lede">Bu sunum, Sinateks'in kamuya açık bilgilerinden yola çıkarak Callypso Export Agent'ın nerede gerçekçi bir katkı sağlayabileceğini gösteriyor. Sinateks'in iç süreçleri hakkındaki her tespit bir <strong>hipotez</strong>; görüşmede birlikte doğrulamayı öneriyoruz.</p>
+  <div class="meta-row"><span>Hazırlayan: CallypsoTech</span><span>Kaynaklar: sinateks.com.tr ve açık kaynaklar</span><span>Gizli müşteri verisi içermez</span></div>
+</div>
+
+<!-- 1 -->
+<section id="firsat">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">01 · Sinateks için fırsat</span><h2>Yönetici özeti</h2></div>
+  <div class="grid g4" style="margin-bottom:22px">
+    <div class="card fact"><div class="big">1977</div><div class="lbl">Ticari faaliyetin başlangıcı; üç kuşaktır kumaş</div><a class="src" href="https://sinateks.com.tr/hakkimizda/" target="_blank" rel="noopener">Kaynak ↗</a></div>
+    <div class="card fact"><div class="big">9 milyon m</div><div class="lbl">Yıllık kumaş üretim kapasitesi (sitede belirtilen)</div><a class="src" href="https://sinateks.com.tr/uretim/" target="_blank" rel="noopener">Kaynak ↗</a></div>
+    <div class="card fact"><div class="big">%50 · 19 ülke</div><div class="lbl">Üretimin ihraç edilen payı (sitede belirtilen; güncelliği teyit edilecek)</div><a class="src" href="https://sinateks.com.tr/uretim/" target="_blank" rel="noopener">Kaynak ↗</a></div>
+    <div class="card fact"><div class="big">4 koleksiyon</div><div class="lbl">Her yıl Elegance, Passion ve E‑motion çizgilerinde</div><a class="src" href="https://sinateks.com.tr/tasarim/" target="_blank" rel="noopener">Kaynak ↗</a></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Gördüğümüz</h3>
+      <p>Sinateks, Bursa Kestel'de iplik boyamadan dokumaya ve boya-apreye kadar entegre üretim yapan, moda sektörüne kumaş tedarik eden bir B2B üretici. Referans olarak Inditex, Mango, LC Waikiki ve Koton'u gösteriyor. Yılda dört koleksiyon çıkarıyor ve üretiminin yarısını ihraç ettiğini belirtiyor.</p>
+    </div>
+    <div class="card">
+      <h3>Önerdiğimiz</h3>
+      <p>İşe en ölçülebilir yerden başlamayı öneriyoruz: koleksiyonlar sonrasında gelen <strong>numune, fiyat ve termin taleplerinin</strong> düzenli işlenmesi ve <strong>teklif sonrası takip</strong>. Yeni yurt dışı alıcı araştırmasını tek bir hedef pazarda, insan onayıyla ve küçük ölçekte test edebiliriz. 30 günlük pilotun başarı ölçütlerini birlikte belirleyelim.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 2 -->
+<section id="anlayis">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">02 · Sinateks'i nasıl anladık?</span><h2>Ürünler, kapasite ve müşteri tipleri</h2><p>Aşağıdaki her satır Sinateks'in kendi sitesinden veya açık bir kaynaktan. Kaynak bağlantıları yeni sekmede açılır.</p></div>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Konu</th><th>Gözlem</th><th>Kaynak</th></tr></thead>
+    <tbody>
+      <tr><td><b>Ne satıyor</b></td><td class="w">Bayan, bay ve çocuk giyime yönelik etek ve gömleklik iplik boyalı kumaşlar. Ayrıca pamuk, viskon, floş, keten, naylon ve karışımlarından düz boyalı kumaşlar.</td><td><a href="https://sinateks.com.tr/uretim/" target="_blank" rel="noopener">Üretim ↗</a></td></tr>
+      <tr><td><b>Koleksiyonlar</b></td><td class="w">Elegance: parlaklığı vurgulayan özel iplikler. Passion: doğal elyaflarla urban/casual. E‑motion: iplik boyalı, hareketli, günlük giyim kumaşları. Her yıl dört dönemsel koleksiyon çıkıyor.</td><td><a href="https://sinateks.com.tr/" target="_blank" rel="noopener">Ana sayfa ↗</a> · <a href="https://sinateks.com.tr/tasarim/" target="_blank" rel="noopener">Tasarım ↗</a></td></tr>
+      <tr><td><b>Üretim</b></td><td class="w">100 armürlü ve 32 bant jakarlı dokuma makinesi var. İplik boyama kapasitesi 200 ton/ay, düz boya ortalaması 50.000 m/gün. Filament tesisi 2019'da devreye girdi.</td><td><a href="https://sinateks.com.tr/bobinboyama/" target="_blank" rel="noopener">Bobin boyama ↗</a> · <a href="https://sinateks.com.tr/kumasboya/" target="_blank" rel="noopener">Kumaş boya ↗</a> · <a href="https://sinateks.com.tr/hakkimizda/" target="_blank" rel="noopener">Tarihçe ↗</a></td></tr>
+      <tr><td><b>Rol</b></td><td class="w">Entegre üretici: iplik boyama, dokuma, boya ve apre. 1977–2001 arasında kumaş ticareti yapmış. İlk ihracatını 2009'da gerçekleştirmiş.</td><td><a href="https://sinateks.com.tr/hakkimizda/" target="_blank" rel="noopener">Hakkımızda ↗</a></td></tr>
+      <tr><td><b>Referanslar</b></td><td class="w">Ana sayfada Inditex, Mango, LC Waikiki ve Koton yer alıyor.</td><td><a href="https://sinateks.com.tr/" target="_blank" rel="noopener">Ana sayfa ↗</a></td></tr>
+      <tr><td><b>Grup şirketleri</b></td><td class="w">"Firmalarımız" başlığında Sembol Boya, Monark Mensucat, SNS Kumaş, Kofiteks, Armen ve Boykim Kimya listeleniyor.</td><td><a href="https://sinateks.com.tr/" target="_blank" rel="noopener">Ana sayfa ↗</a></td></tr>
+      <tr><td><b>Sertifikalar</b></td><td class="w">Sitede Oeko‑Tex belgesi belirtiliyor ve GOTS, GRS ve organik logoları var. Sürdürülebilirlik metninde ise GOTS "süreçte" yazıyor. Güncel durum görüşmede teyit edilecek.</td><td><a href="https://sinateks.com.tr/surdurulebilirlik/" target="_blank" rel="noopener">Sürdürülebilirlik ↗</a></td></tr>
+      <tr><td><b>Ölçek</b></td><td class="w">Kayıt yılı 1991, 2026 itibarıyla 112 çalışan (EMIS kaydı). BTSO 2019 "En Başarılı KOBİ" ödülü.</td><td><a href="https://www.emis.cn/php/company-profile/TR/Sinateks_Kumas_Dokuma_Ve_Orme_Pazarlama_Sanayi_Ticaret_AS_en_4146518.html" target="_blank" rel="noopener">EMIS ↗</a> · <a href="https://sinateks.com.tr/hakkimizda/" target="_blank" rel="noopener">Tarihçe ↗</a></td></tr>
+      <tr><td><b>Talep kanalları</b></td><td class="w">Genel iletişim formu, info@sinateks.com.tr ve telefon var. Sitede numune veya teklif talep formu bulunmuyor. Site yalnızca Türkçe.</td><td><a href="https://sinateks.com.tr/iletisim/" target="_blank" rel="noopener">İletişim ↗</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+      <h3>Olası müşteri tipleri</h3>
+      <ul class="clean">
+        <li><b>Global moda markalarının kumaş ve tedarik ekipleri</b>: referanslarla uyumlu.</li>
+        <li><b>Markalara üretim yapan konfeksiyon firmaları</b>: kumaşı çoğu zaman bunlar satın alır. <span class="chip c-hyp">Hipotez</span></li>
+        <li><b>Türkiye merkezli hazır giyim zincirleri</b>: LC Waikiki ve Koton referansı.</li>
+        <li><b>Kumaş toptancıları ve converter'lar</b>. <span class="chip c-hyp">Hipotez</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Görüşmede doğrulanacaklar</h3>
+      <ul class="clean">
+        <li>İhracatın yapıldığı 19 ülke ve bugünkü dağılım</li>
+        <li>Satışın markalarla doğrudan mı, konfeksiyoncular üzerinden mi döndüğü</li>
+        <li>Yurt dışı satış ofisi, acente veya fuar katılımı</li>
+        <li>Sinateks ile Sembol Boya arasındaki satış ve üretim rolleri</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 3 -->
+<section id="pazar">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">03 · Yeni müşteri kazanımında fırsatlar</span><h2>Pazar ve rakip görünümü</h2><p>Türkiye'nin 2025 dokuma kumaş ihracatı yaklaşık <b>2,30 milyar dolar</b>. Bu ihracatta öne çıkan ülkeler sırasıyla İspanya, Fas ve Mısır. Mısır'a dokuma kumaş ihracatında yüzde 50'ye varan artış görüldü. <a href="https://www.textilegence.com/2025-yilinda-da-turk-tekstil-ihracatinin-yildizi-misir-oldu/" target="_blank" rel="noopener">Kaynak (İTHİB verisi, Textilegence) ↗</a></p></div>
+
+  <div class="grid g3" style="margin-bottom:26px">
+    <div class="card"><span class="mono muted">Öncelik 1</span><h3 style="margin-top:6px">İspanya</h3><p>Türkiye'nin dokuma kumaş ihracatında ilk sırada. Sinateks'in referanslarından Inditex ve Mango İspanya merkezli. Mevcut ilişkilerin yanında yeni marka ve tedarik ekiplerine ulaşmak için en doğal pazar.</p></div>
+    <div class="card"><span class="mono muted">Öncelik 2</span><h3 style="margin-top:6px">Fas</h3><p>Dokuma kumaş ihracatında ikinci sırada. Avrupa markalarına üretim yapan konfeksiyoncuların yoğun olduğu bir pazar olabilir. <span class="chip c-hyp">Hipotez</span></p></div>
+    <div class="card"><span class="mono muted">Öncelik 3</span><h3 style="margin-top:6px">Mısır</h3><p>Dokuma kumaş ihracatında üçüncü sırada ve en hızlı büyüyen pazarlardan biri. Yeni alıcı araştırmasını test etmek için uygun.</p></div>
+  </div>
+  <div class="callout" style="margin-bottom:26px"><strong>Not:</strong> Bu sıralama Türkiye geneline ait. Sinateks'in kendi 19 ülkelik dağılımı öğrenildiğinde pilot pazarı buna göre seçilmeli.</div>
+
+  <h3 style="font-size:20px;margin-bottom:12px">Benzer Bursa üreticilerinin dijital alıcı kanalları</h3>
+  <p class="muted" style="margin-bottom:14px;font-size:15px">Amaç kıyaslama değil, yurt dışı alıcının ilk temasta neyle karşılaştığını görmek. Yalnızca sitelerde doğrudan görülen bilgiler yer alıyor.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Firma</th><th>Uzmanlık</th><th>Site dili</th><th>MOQ, termin, numune bilgisi</th><th>Fuar / acente bilgisi</th></tr></thead>
+    <tbody>
+      <tr><td><b>Sinateks</b><br><a href="https://sinateks.com.tr/" target="_blank" rel="noopener">site ↗</a></td><td>İplik boyalı ve düz boyalı dokuma; etek, gömleklik</td><td>Türkçe</td><td class="no">Sitede yok</td><td class="no">Sitede yok</td></tr>
+      <tr><td><b>Kotonteks</b><br><a href="https://www.kotonteks.com.tr/" target="_blank" rel="noopener">site ↗</a></td><td>İplik boyalı ve düz boyalı armürlü/jakarlı dokuma; yılda 10 milyon m+</td><td>İngilizce</td><td class="yes">Var: 1.000 m MOQ, renk başına 300 m'den başlayan sipariş, 4–5 hafta termin, 1–2 haftada numune</td><td class="yes">Fuar sayfası ve dünya genelinde acente bilgisi var</td></tr>
+      <tr><td><b>Saygı Tekstil</b><br><a href="https://www.saygitekstil.com.tr/" target="_blank" rel="noopener">site ↗</a></td><td>Jakarlı ve armürlü dokuma; yılda 2 ana ve 2 geçiş koleksiyonu</td><td>Türkçe ve İngilizce</td><td class="no">Sitede görülmedi</td><td class="yes">2026 fuarları: Première Vision Paris ve New York, Munich Fabric Start, London Textile Fair</td></tr>
+      <tr><td><b>Sunteks</b><br><a href="https://www.sunteks.com.tr/" target="_blank" rel="noopener">site ↗</a></td><td>Giyim kumaşları; 1977'den beri Bursa</td><td>İngilizce</td><td class="no">Sitede görülmedi</td><td class="no">Sitede görülmedi</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout" style="margin-top:20px"><strong>Fırsat:</strong> Rakipler alıcıya ilk temasta MOQ, termin ve numune koşullarını açıkça sunuyor. Sinateks'te bu bilgiler büyük olasılıkla e‑postayla, talep bazında veriliyor. Bu bilgiler hızlı, tutarlı ve alıcının dilinde verildiğinde fark yaratabilir. Callypso tam bu adımı hızlandırmak için tasarlandı.</div>
+</div>
+</section>
+
+<!-- 4 -->
+<section id="callypso">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">04 · Callypso Export Agent nedir?</span><h2>Ajan hazırlar, ekibiniz karar verir</h2><p>Callypso Export Agent, ihracat ekibinin gelen talepleri, teklifleri ve takipleri tek ekrandan yönettiği bir çalışma paneli. Ajan taslakları hazırlar; hiçbir mesaj insan onayı olmadan gönderilmez.</p></div>
+  <div class="grid g3" style="margin-bottom:24px">
+    <div class="card"><h3>Talebi anlar</h3><p>Gelen e‑postadan ürün, miktar, ülke ve teslim bilgisini çıkarır. Teklif için eksik kalan bilgileri listeler.</p></div>
+    <div class="card"><h3>Taslağı hazırlar</h3><p>Eksik bilgi sorusu, teklif e‑postası veya takip mesajını alıcının dilinde hazırlar. Siz düzenler, onaylar ya da reddedersiniz.</p></div>
+    <div class="card"><h3>Takibi unutturmaz</h3><p>Gönderilen her teklif için bir takip tarihi açar. Yanıtsız teklifleri ve geciken takipleri tek listede gösterir.</p></div>
+  </div>
+
+  <h3 style="font-size:20px;margin-bottom:6px">Bugün ne var, pilot için ne gerekiyor?</h3>
+  <p class="muted" style="margin-bottom:14px;font-size:15px">Demo uygulamasını tek tek inceledik. Durum etiketleri: <span class="chip c-ok">Mevcut</span> <span class="chip c-demo">Demo / simülasyon</span> <span class="chip c-int">Entegrasyonla mümkün</span> <span class="chip c-dev">Geliştirme gerekir</span> <span class="chip c-unk">Henüz doğrulanmadı</span></p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Yetenek</th><th>Demoda gördüğümüz</th><th>Durum</th></tr></thead>
+    <tbody>
+      <tr><td><b>Onay kuyruğu</b></td><td class="w">Her taslak için onayla, düzenle ve reddet adımı var. Gerçek gönderim yapılmıyor.</td><td><span class="chip c-ok">Mevcut (arayüz)</span></td></tr>
+      <tr><td><b>Talep okuma ve eksik bilgi tespiti</b></td><td class="w">Ürün, miktar, ülke ve teslim şekli çıkarılıyor; eksik alanlar işaretleniyor. Bu adımlar önceden tanımlı senaryoyla çalışıyor.</td><td><span class="chip c-demo">Demo / simülasyon</span></td></tr>
+      <tr><td><b>Yanıt ve teklif taslağı</b></td><td class="w">İngilizce bilgi talebi, teklif ve takip e‑postaları hazırlanıyor.</td><td><span class="chip c-demo">Demo / simülasyon</span></td></tr>
+      <tr><td><b>Katalog fiyatıyla teklif hesabı</b></td><td class="w">Örnek katalogda MOQ ve üretim süresi kontrol ediliyor. Hesap adet bazlı.</td><td><span class="chip c-demo">Demo / simülasyon</span></td></tr>
+      <tr><td><b>Teklif listesi ve takip görevleri</b></td><td class="w">Durum, takip tarihi ve geciken takipler listeleniyor. Onaydan sonra liste güncelleniyor.</td><td><span class="chip c-demo">Demo / simülasyon</span></td></tr>
+      <tr><td><b>Müşteri bulma</b></td><td class="w">Ülke, ürün ve müşteri tipine göre filtre, uygunluk gerekçesi ve 5 adımlı ilk temas akışı var. Sonuçlar 6 kurgusal adaydan geliyor.</td><td><span class="chip c-demo">Demo / simülasyon</span></td></tr>
+      <tr><td><b>Kumaşa özgü alanlar</b></td><td class="w">Metre, renk başına miktar, gramaj, en, kompozisyon, numune tipi ve sertifika alanları demoda yok.</td><td><span class="chip c-dev">Geliştirme gerekir</span></td></tr>
+      <tr><td><b>Gerçek e‑posta kutusu bağlantısı</b></td><td class="w">Gmail veya Outlook ile talep alma ve onaylı gönderim demoda yok.</td><td><span class="chip c-int">Entegrasyonla mümkün</span> <span class="chip c-unk">Teyit edilecek</span></td></tr>
+      <tr><td><b>Serbest komutla yapay zekâ</b></td><td class="w">Demo yalnızca tanımlı komutları çalıştırıyor.</td><td><span class="chip c-dev">Geliştirme gerekir</span></td></tr>
+      <tr><td><b>CRM / ERP senkronizasyonu</b></td><td class="w">Demoda "kapsam dışı" olarak belirtiliyor.</td><td><span class="chip c-int">Entegrasyonla mümkün</span> <span class="chip c-unk">Teyit edilecek</span></td></tr>
+      <tr><td><b>Gerçek alıcı araştırması ve iletişim doğrulama</b></td><td class="w">Demoda gerçek araştırma yapılmıyor.</td><td><span class="chip c-unk">Henüz doğrulanmadı</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</section>
+
+<!-- 5 -->
+<section id="senaryolar">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">05 · Sinateks'e özel senaryolar</span><h2>En güçlü üç kullanım alanı</h2><p>"Potansiyel sorun" satırları Sinateks'in yaşadığı doğrulanmış sorunlar değil, görüşmede test edilecek hipotezlerdir.</p></div>
+
+  <div class="grid" style="gap:20px">
+  <article class="card">
+    <div class="opp-title"><span class="tag">Ana senaryo</span><h3 style="margin:0">A · Numune ve fiyat talebi asistanı</h3></div>
+    <dl class="opp">
+      <div class="opp-row"><dt>Mevcut gözlem</dt><dd>Yılda 4 koleksiyon çıkıyor ve satışın yarısı ihracat. Talepler genel form, info@ ve telefonla geliyor; sitede yapılandırılmış talep formu yok.</dd></div>
+      <div class="opp-row"><dt>Potansiyel sorun</dt><dd>Koleksiyon dönemlerinde farklı dillerde, eksik bilgiyle gelen numune ve fiyat talepleri birikiyor olabilir. Gramaj, renk, metre ve termin gibi bilgiler için ek yazışma gerekiyor olabilir. <span class="chip c-hyp">Hipotez</span></dd></div>
+      <div class="opp-row"><dt>İş etkisi</dt><dd>İlk yanıt süresi kısalır, tekrar tekrar bilgi sorma ihtiyacı azalır ve sezon başı fırsatlar kaçmaz.</dd></div>
+      <div class="opp-row"><dt>Callypso çözümü</dt><dd>Talep panele düşer. Kalite, kompozisyon, metre ve renk, sezon, teslim yeri ve sertifika bilgileri çıkarılır, eksikler listelenir. Alıcının dilinde yanıt taslağı hazırlanır ve satış temsilcisinin onayına gider.</dd></div>
+      <div class="opp-row"><dt>Demo</dt><dd>İspanyol bir alıcıdan gelen, E‑motion iplik boyalı gömleklik için numune ve fiyat talebi (aşağıdaki simülasyon).</dd></div>
+      <div class="opp-row"><dt>Ölçüm</dt><dd>İlk yanıt süresi, eksik bilgi nedeniyle yapılan ek yazışma sayısı ve talep başına harcanan süre.</dd></div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <div class="opp-title"><span class="tag">Ana senaryo</span><h3 style="margin:0">B · Numune ve teklif sonrası takip</h3></div>
+    <dl class="opp">
+      <div class="opp-row"><dt>Mevcut gözlem</dt><dd>Sinateks'in sitesinde renk onayı ve kalite kontrol adımları anlatılıyor. Kumaş satışında numune, onay ve toplu sipariş arasında genellikle birden çok adım bulunur.</dd></div>
+      <div class="opp-row"><dt>Potansiyel sorun</dt><dd>Gönderilen numune ve tekliflerin takibi kişilere ve e‑posta kutularına bağlı olabilir. Yanıtsız kalan teklifler gözden kaçabilir. <span class="chip c-hyp">Hipotez</span></dd></div>
+      <div class="opp-row"><dt>İş etkisi</dt><dd>Sonuçsuz kalan teklif sayısı azalır ve yönetici açık fırsatları tek listede görür.</dd></div>
+      <div class="opp-row"><dt>Callypso çözümü</dt><dd>Her numune veya teklif için takip tarihi otomatik açılır ve zamanı gelince takip taslağı onaya düşer. Gelen yanıtlar olumlu, soru veya ret olarak etiketlenir. Haftalık özet yöneticiye gider.</dd></div>
+      <div class="opp-row"><dt>Demo</dt><dd>Callypso demo uygulamasındaki teklif listesi, takip görevleri ve onay kuyruğu.</dd></div>
+      <div class="opp-row"><dt>Ölçüm</dt><dd>Takip tarihi olan teklif oranı, geciken takip sayısı ve teklif sonrası yanıt oranı.</dd></div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <div class="opp-title"><span class="tag">Kontrollü test</span><h3 style="margin:0">C · Tek pazarda yeni alıcı araştırması</h3></div>
+    <dl class="opp">
+      <div class="opp-row"><dt>Mevcut gözlem</dt><dd>Sinateks'in referansları güçlü. Uluslararası pazar araştırmalarına 2006'da başladığını belirtiyor. Türkiye'nin dokuma kumaş ihracatında İspanya, Fas ve Mısır öne çıkıyor.</dd></div>
+      <div class="opp-row"><dt>Potansiyel sorun</dt><dd>Yeni alıcı bulmak fuar ve mevcut ilişkilere bağlı olabilir. Sistematik bir araştırma ve ilk temas süreci olmayabilir. <span class="chip c-hyp">Hipotez</span></dd></div>
+      <div class="opp-row"><dt>İş etkisi</dt><dd>Seçilen ürün grubu ve pazar için nitelikli ve doğrulanmış bir aday listesi çıkar; ilk temas tutarlı yapılır.</dd></div>
+      <div class="opp-row"><dt>Callypso çözümü</dt><dd>Seçilen pazar ve müşteri tipine göre aday listesi çıkarılır ve her aday için uygunluk gerekçesi yazılır. Liste Sinateks onayından geçer. İlk temas taslağı kişiselleştirilir ve gönderim yalnızca onayla yapılır.</dd></div>
+      <div class="opp-row"><dt>Demo</dt><dd>Callypso'daki müşteri bulma ekranı (örnek veriyle). Gerçek araştırma pilotta, elle doğrulamayla yapılır.</dd></div>
+      <div class="opp-row"><dt>Ölçüm</dt><dd>Araştırılan ve uygun bulunan aday sayısı, doğrulanmış iletişim oranı, yanıt ve olumlu yanıt oranı, numune talebi sayısı.</dd></div>
+    </dl>
+  </article>
+  </div>
+</div>
+</section>
+
+<!-- 6 -->
+<section id="oncesonra">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">06 · Öncesi ve sonrası</span><h2>Bir numune talebinin yolculuğu</h2></div>
+  <span class="label-sim">Örnek iş akışı: Sinateks'in doğrulanmış mevcut süreci değildir</span>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Bugün (varsayım)</h3>
+      <ol class="flow">
+        <li>Talep info@ adresine veya bir temsilcinin e‑postasına gelir</li>
+        <li>Kalite, renk ve metre bilgisi elle okunur ve not alınır</li>
+        <li>Eksik bilgiler için alıcıya ayrı bir e‑posta yazılır</li>
+        <li>Fiyat ve termin için planlama ve üretimle yazışılır</li>
+        <li>Teklif hazırlanır ve gönderilir</li>
+        <li>Takip, temsilcinin hafızasına veya bir Excel listesine kalır</li>
+      </ol>
+    </div>
+    <div class="card after">
+      <h3>Callypso ile (önerilen)</h3>
+      <ol class="flow">
+        <li>Talep panele düşer; alıcı ve ülke tanınır</li>
+        <li>Kalite, kompozisyon, metre ve renk, sezon ve teslim yeri otomatik çıkarılır</li>
+        <li>Eksikleri soran yanıt alıcının dilinde hazırlanır ve temsilci onaylar</li>
+        <li>Teklif taslağı Sinateks'in fiyat listesi ve kurallarıyla hazırlanır</li>
+        <li>Onaylanan teklif için takip tarihi otomatik açılır</li>
+        <li>Yanıt gelince etiketlenir; yönetici haftalık özeti görür</li>
+      </ol>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 7 -->
+<section id="demo">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">07 · Canlı demo önizlemesi</span><h2>Sinateks örneğiyle bir talep, adım adım</h2><p>Alıcı ve e‑posta kurgusal. Ürün grubu Sinateks'in sitesindeki E‑motion iplik boyalı koleksiyonu. Fiyat, MOQ ve termin bilgisi bilinmediği için yer tutucu olarak bırakıldı.</p></div>
+  <span class="label-sim">Örnek demo: simülasyon</span>
+
+  <div class="sim">
+    <div class="steps" role="tablist" aria-label="Demo adımları">
+      <button class="step-btn" role="tab" aria-selected="true" aria-controls="p1" id="t1" data-i="0"><span class="n">1</span>Talep gelir</button>
+      <button class="step-btn" role="tab" aria-selected="false" aria-controls="p2" id="t2" data-i="1" tabindex="-1"><span class="n">2</span>Bilgiler çıkarılır</button>
+      <button class="step-btn" role="tab" aria-selected="false" aria-controls="p3" id="t3" data-i="2" tabindex="-1"><span class="n">3</span>Yanıt taslağı</button>
+      <button class="step-btn" role="tab" aria-selected="false" aria-controls="p4" id="t4" data-i="3" tabindex="-1"><span class="n">4</span>Teklif taslağı</button>
+      <button class="step-btn" role="tab" aria-selected="false" aria-controls="p5" id="t5" data-i="4" tabindex="-1"><span class="n">5</span>Takip ve özet</button>
+    </div>
+    <div class="card">
+      <div class="panel on" role="tabpanel" id="p1" aria-labelledby="t1">
+        <h3>Gelen e‑posta</h3>
+        <p style="margin-bottom:12px">Kurgusal bir İspanyol alıcıdan, koleksiyon sonrası gelen numune ve fiyat talebi:</p>
+        <div class="mail">From: Lucía Ortega &lt;lucia.ortega@levante-textiles.example&gt;
+Subject: Sample &amp; price request – yarn-dyed shirting, SS27
+
+Hello Sinateks team,
+
+We saw your E-motion yarn-dyed fabrics and are developing
+shirts for a high-street brand for SS27. Could you send
+hangers of your yarn-dyed stripes and checks (100% cotton
+or cotton/linen) and your price for approx. 6,000 m in
+3 colourways? Delivery to Valencia.
+Organic cotton options would be a plus.
+
+Best regards,
+Lucía</div>
+      </div>
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <h3>Ajanın çıkardığı bilgiler</h3>
+        <div class="kv">
+          <div><span>Ürün</span>İplik boyalı gömleklik, çizgili ve kareli (E‑motion)</div>
+          <div><span>Kompozisyon</span>%100 pamuk veya pamuk/keten</div>
+          <div><span>Miktar</span>Yaklaşık 6.000 m, 3 renk (≈ 2.000 m/renk)</div>
+          <div><span>Sezon</span>SS27</div>
+          <div><span>Teslim yeri</span>Valensiya, İspanya</div>
+          <div><span>Numune</span>Askı (hanger)</div>
+        </div>
+        <p style="margin-top:16px;font-weight:700">Teklif için eksik bilgiler</p>
+        <div class="missing"><span>Gramaj (g/m²) ve en</span><span>Renk referansları</span><span>Hedef fiyat</span><span>Teslim tarihi</span><span>Teslim şekli (Incoterm)</span><span>Sertifika türü: GOTS mu, OCS mi?</span></div>
+        <p class="muted" style="margin-top:14px;font-size:14px">Kural: Sinateks bir sertifikanın kapsamını teyit etmeden, taslağa sertifika iddiası yazılmaz.</p>
+      </div>
+      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <h3>Onaya düşen yanıt taslağı</h3>
+        <div class="mail">To: lucia.ortega@levante-textiles.example
+Subject: Re: Sample &amp; price request – yarn-dyed shirting, SS27
+
+Dear Lucía,
+
+Thank you for your interest in our E-motion collection.
+We will prepare hangers of our yarn-dyed stripes and
+checks. To quote accurately, could you confirm:
+
+1. Target weight (g/m²) and width
+2. Colour references for the 3 colourways
+3. Target price and required delivery date
+4. Incoterm (e.g. FCA Bursa / DAP Valencia)
+5. Required certificate for organic cotton (GOTS or OCS)
+
+Best regards,
+[Sales representative] · Sinateks</div>
+        <p class="muted" style="margin-top:12px;font-size:14px">Temsilci taslağı düzenler, onaylar veya reddeder. Demoda gerçek e‑posta gönderilmez. İstenirse yanıt İspanyolca da hazırlanabilir.</p>
+      </div>
+      <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+        <h3>Alıcı yanıtladıktan sonra teklif taslağı</h3>
+        <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Kalem</th><th>Değer</th></tr></thead>
+          <tbody>
+            <tr><td>Artikel</td><td>[Sinateks artikel kodu]: iplik boyalı gömleklik</td></tr>
+            <tr><td>Miktar</td><td>3 renk × 2.000 m</td></tr>
+            <tr><td>Birim fiyat</td><td>[Sinateks fiyat listesinden]</td></tr>
+            <tr><td>Renk başına MOQ</td><td>[Sinateks kuralıyla kontrol]</td></tr>
+            <tr><td>Termin</td><td>[Planlamadan teyit]</td></tr>
+            <tr><td>Teslim</td><td>[Alıcının seçtiği Incoterm], Valensiya</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="muted" style="margin-top:12px;font-size:14px">Fiyat ve kurallar Sinateks'ten gelmeden bu adım çalışmaz. Pilotun ilk haftasında bu bilgiler birlikte tanımlanır.</p>
+      </div>
+      <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+        <h3>Takip ve yönetici özeti</h3>
+        <ul class="clean">
+          <li><b>Numune kargolandı</b>: 7 gün sonra "numune ulaştı mı?" takip taslağı onaya düşer</li>
+          <li><b>Teklif gönderildi</b>: 5 iş günü sonra takip taslağı hazırlanır</li>
+          <li><b>Alıcı yanıtladı</b>: yanıt "olumlu, soru veya ret" diye etiketlenir ve temsilciye bildirim gider</li>
+          <li><b>Pazartesi özeti</b>: açık talepler, bekleyen numuneler, yanıtsız teklifler ve geciken takipler</li>
+        </ul>
+        <p class="muted" style="margin-top:12px;font-size:14px">Takip aralıkları örnek. Sinateks'in satış ritmine göre ayarlanır.</p>
+      </div>
+      <div class="sim-nav">
+        <button class="btn" type="button" id="prevBtn">← Önceki</button>
+        <button class="btn primary" type="button" id="nextBtn">Sonraki →</button>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:20px;margin:36px 0 6px">Çalışan demo uygulamasından ekranlar</h3>
+  <p class="muted" style="margin-bottom:16px;font-size:15px">Aynı akış, Callypso demo uygulamasında örnek bir mobilya ihracatçısının verisiyle çalışıyor. Ekranlar Kasım 2026'da alındı.</p>
+  <div class="shots">
+    <figure><img src="img/callypso-talepler.jpg" alt="Callypso Talepler ekranı: gelen talep, çıkarılan bilgiler ve eksikler" loading="lazy" width="2560" height="1600"><figcaption>Talepler: çıkarılan bilgiler ve eksikler</figcaption></figure>
+    <figure><img src="img/callypso-ajan-taslak.jpg" alt="Callypso Ajan ekranı: talep incelemesi ve yanıt taslağı" loading="lazy" width="2560" height="1600"><figcaption>Ajan: inceleme, yanıt taslağı ve işlem adımları</figcaption></figure>
+    <figure><img src="img/callypso-teklifler.jpg" alt="Callypso Teklifler ekranı: teklif durumu ve takip görevleri" loading="lazy" width="2560" height="1600"><figcaption>Teklifler: durum, takip tarihi ve geciken takipler</figcaption></figure>
+    <figure><img src="img/callypso-musteri-bulma.jpg" alt="Callypso Müşteri Bulma ekranı: örnek aday listesi" loading="lazy" width="2560" height="1600"><figcaption>Müşteri bulma: örnek veri, gerçek araştırma yapılmaz</figcaption></figure>
+  </div>
+  <p style="margin-top:18px"><a class="btn" href="https://callypsoagent-callypso-export-agent.vercel.app/" target="_blank" rel="noopener">Demo uygulamasını aç ↗</a></p>
+</div>
+</section>
+
+<!-- 8 -->
+<section id="pilot">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">08 · 30 günlük pilot</span><h2>Küçük başla, birlikte ölç</h2><p>Pilotun kapsamı: bir ürün grubu, bir hedef pazar ve bir satış temsilcisi. Başarı ölçütleri ilk hafta birlikte yazılır. Hiçbir mesaj insan onayı olmadan gönderilmez.</p></div>
+  <div class="weeks">
+    <div class="card week"><span class="mono wk">1. Hafta</span><h3>Analiz</h3>
+      <ul><li>Öncelikli ürün grubu ve hedef ülke</li><li>İdeal müşteri profili</li><li>Mevcut talep ve teklif akışının haritası</li><li>Kullanılan sistemler (e‑posta, ERP, Excel)</li><li>Başlangıç ölçümleri</li></ul>
+      <p class="who"><b>Sinateks:</b> satış yöneticisi ve 1 temsilci, 2 görüşme<br><b>CallypsoTech:</b> süreç haritası, ölçüm planı</p></div>
+    <div class="card week"><span class="mono wk">2. Hafta</span><h3>Yapılandırma</h3>
+      <ul><li>Kumaş alanları ve eksik bilgi kuralları</li><li>Yanıt ve takip şablonları</li><li>Örnek aday araştırması ve uygunluk kriterleri</li><li>Entegrasyon ihtiyacının değerlendirilmesi</li></ul>
+      <p class="who"><b>Sinateks:</b> fiyat ve MOQ kuralları, örnek talepler<br><b>CallypsoTech:</b> kurulum ve taslak şablonlar</p></div>
+    <div class="card week"><span class="mono wk">3. Hafta</span><h3>Kontrollü pilot</h3>
+      <ul><li>Gerçek talepler panelde işlenir</li><li>Onaylı aday listesine insan onaylı ilk temas</li><li>Yanıtların takibi</li><li>Teklif fırsatlarının değerlendirilmesi</li><li>Süre ölçümü</li></ul>
+      <p class="who"><b>Sinateks:</b> taslak onayı, günde ~15 dk<br><b>CallypsoTech:</b> günlük kontrol, düzeltmeler</p></div>
+    <div class="card week"><span class="mono wk">4. Hafta</span><h3>Değerlendirme</h3>
+      <ul><li>Araştırılan ve uygun bulunan şirket sayısı</li><li>Doğrulanmış iletişim oranı</li><li>Onaylı ilk temas, yanıt ve olumlu yanıt</li><li>Oluşan toplantı ve teklif fırsatları</li><li>Talep başına süredeki değişim</li></ul>
+      <p class="who"><b>Ortak:</b> sonuç raporu ve devam kararı</p></div>
+  </div>
+  <div class="callout" style="margin-top:20px"><strong>Gerçekçi beklenti:</strong> Kumaşta numune, onay ve toplu sipariş döngüsü genellikle 30 günden uzundur (görüşmede teyit edilecek). Bu yüzden pilot sipariş değil, öncü göstergeleri ölçer: yanıt süresi, takip disiplini ve nitelikli fırsat sayısı.</div>
+</div>
+</section>
+
+<!-- ROI -->
+<section id="deger">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">09 · Ticari değer</span><h2>Değeri nasıl düşünüyoruz?</h2><p>Aşağıdaki rakamlar <b>varsayımsal senaryolardır</b>; Sinateks verisi değildir ve bir sonuç vaadi içermez. Değerleri değiştirerek kendi tahmininizi görebilirsiniz.</p></div>
+  <div class="seg" role="group" aria-label="Senaryo">
+    <button type="button" data-s="t" aria-pressed="false">Temkinli</button>
+    <button type="button" data-s="o" aria-pressed="true">Orta</button>
+    <button type="button" data-s="i" aria-pressed="false">İyimser</button>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <p class="mono muted" style="margin-bottom:12px">Yeni alıcı hunisi (aylık)</p>
+    <div class="inputs" id="inA">
+      <label>Araştırılan aday<input type="number" min="0" step="1" data-k="aday"></label>
+      <label>Uygun oranı %<input type="number" min="0" max="100" step="1" data-k="uygun"></label>
+      <label>Yanıt oranı %<input type="number" min="0" max="100" step="1" data-k="yanit"></label>
+      <label>Olumlu yanıt %<input type="number" min="0" max="100" step="1" data-k="olumlu"></label>
+      <label>Teklif/numune oranı %<input type="number" min="0" max="100" step="1" data-k="teklif"></label>
+      <label>Satışa dönüşüm %<input type="number" min="0" max="100" step="1" data-k="donusum"></label>
+      <label>Ort. sipariş (€)<input type="number" min="0" step="500" data-k="siparis"></label>
+      <label>Brüt marj %<input type="number" min="0" max="100" step="1" data-k="marj"></label>
+    </div>
+    <p class="mono muted" style="margin:20px 0 12px">Operasyon (aylık)</p>
+    <div class="inputs" id="inB">
+      <label>Gelen talep sayısı<input type="number" min="0" step="1" data-k="talep"></label>
+      <label>Talep başına kazanılan dk<input type="number" min="0" step="1" data-k="dk"></label>
+      <label>Saatlik ekip maliyeti (€)<input type="number" min="0" step="1" data-k="saat"></label>
+    </div>
+  </div>
+  <div class="out" style="margin-top:16px" aria-live="polite">
+    <div class="card"><div class="k">Zaman tasarrufu</div><div class="v" id="oTime">–</div><div class="s" id="oTimeS"></div></div>
+    <div class="card"><div class="k">Teklif/numune fırsatı</div><div class="v" id="oOpp">–</div><div class="s">yılda, yeni alıcılardan</div></div>
+    <div class="card"><div class="k">Ciro potansiyeli</div><div class="v" id="oRev">–</div><div class="s">yılda; sipariş garantisi değildir</div></div>
+    <div class="card"><div class="k">Brüt kâr potansiyeli</div><div class="v" id="oPro">–</div><div class="s">ciro × varsayılan marj</div></div>
+  </div>
+  <p class="funnel" id="funnel"></p>
+</div>
+</section>
+
+<!-- sources -->
+<section id="kaynaklar" class="sources">
+<div class="wrap">
+  <div class="sec-head"><span class="mono num">Kaynaklar</span><h2>Kullanılan açık kaynaklar</h2><p>Tüm bağlantılar 18 Kasım 2026'da kontrol edildi.</p></div>
+  <ol>
+    <li><a href="https://sinateks.com.tr/" target="_blank" rel="noopener">sinateks.com.tr: ana sayfa (koleksiyonlar, referanslar, grup şirketleri)</a></li>
+    <li><a href="https://sinateks.com.tr/hakkimizda/" target="_blank" rel="noopener">sinateks.com.tr/hakkimizda: tarihçe</a></li>
+    <li><a href="https://sinateks.com.tr/uretim/" target="_blank" rel="noopener">sinateks.com.tr/uretim: ürünler, kapasite, ihracat payı</a></li>
+    <li><a href="https://sinateks.com.tr/tasarim/" target="_blank" rel="noopener">sinateks.com.tr/tasarim: koleksiyonlar</a></li>
+    <li><a href="https://sinateks.com.tr/bobinboyama/" target="_blank" rel="noopener">sinateks.com.tr/bobinboyama</a> · <a href="https://sinateks.com.tr/kumasboya/" target="_blank" rel="noopener">sinateks.com.tr/kumasboya</a></li>
+    <li><a href="https://sinateks.com.tr/surdurulebilirlik/" target="_blank" rel="noopener">sinateks.com.tr/surdurulebilirlik</a></li>
+    <li><a href="https://sinateks.com.tr/iletisim/" target="_blank" rel="noopener">sinateks.com.tr/iletisim</a></li>
+    <li><a href="https://www.emis.cn/php/company-profile/TR/Sinateks_Kumas_Dokuma_Ve_Orme_Pazarlama_Sanayi_Ticaret_AS_en_4146518.html" target="_blank" rel="noopener">EMIS şirket profili</a></li>
+    <li><a href="https://www.textilegence.com/2025-yilinda-da-turk-tekstil-ihracatinin-yildizi-misir-oldu/" target="_blank" rel="noopener">Textilegence: 2025'te Türk tekstil ihracatı (İTHİB verisi)</a></li>
+    <li><a href="https://www.textilegence.com/2025in-ilk-ceyreginde-turkiye-tekstil-ihracatinda-en-buyuk-artisi-misirda-yasadi/" target="_blank" rel="noopener">Textilegence: 2025 ilk çeyrek tekstil ihracatı</a></li>
+    <li><a href="https://www.kotonteks.com.tr/" target="_blank" rel="noopener">kotonteks.com.tr</a> · <a href="https://www.saygitekstil.com.tr/" target="_blank" rel="noopener">saygitekstil.com.tr</a> · <a href="https://www.sunteks.com.tr/" target="_blank" rel="noopener">sunteks.com.tr</a></li>
+    <li><a href="https://callypsoagent-callypso-export-agent.vercel.app/" target="_blank" rel="noopener">Callypso Export Agent demo uygulaması</a></li>
+  </ol>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Hazırlayan: CallypsoTech. Bu sunum yalnızca kamuya açık kaynaklara dayanır ve Sinateks'e ait gizli veri içermez. Sinateks'in iç süreçlerine dair ifadeler hipotezdir. Demo içerikleri simülasyondur; ROI rakamları varsayımsaldır.</div>
+</footer>
+
+<script>
+(function(){
+  // theme
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  try{var saved=localStorage.getItem('sx-theme'); if(saved) root.setAttribute('data-theme',saved);}catch(e){}
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',nx);
+    try{localStorage.setItem('sx-theme',nx);}catch(e){}
+  });
+
+  // demo stepper
+  var tabs=[].slice.call(document.querySelectorAll('.step-btn')), panels=[].slice.call(document.querySelectorAll('.panel'));
+  var prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), cur=0;
+  function show(i){
+    cur=i;
+    tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;});
+    panels.forEach(function(p,j){var on=j===i;p.classList.toggle('on',on);p.hidden=!on;});
+    prev.disabled=i===0; next.disabled=i===tabs.length-1;
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(i);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();var n=Math.min(i+1,tabs.length-1);show(n);tabs[n].focus();}
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();var p=Math.max(i-1,0);show(p);tabs[p].focus();}
+    });
+  });
+  prev.addEventListener('click',function(){if(cur>0)show(cur-1);});
+  next.addEventListener('click',function(){if(cur<tabs.length-1)show(cur+1);});
+  show(0);
+
+  // ROI (all values hypothetical)
+  var P={
+    t:{aday:40,uygun:50,yanit:8,olumlu:40,teklif:50,donusum:15,siparis:8000,marj:12,talep:30,dk:10,saat:15},
+    o:{aday:80,uygun:60,yanit:12,olumlu:50,teklif:60,donusum:25,siparis:12000,marj:15,talep:60,dk:15,saat:20},
+    i:{aday:120,uygun:70,yanit:18,olumlu:60,teklif:70,donusum:30,siparis:18000,marj:18,talep:100,dk:20,saat:25}
+  };
+  var inputs=[].slice.call(document.querySelectorAll('#inA input,#inB input'));
+  var segs=[].slice.call(document.querySelectorAll('.seg button'));
+  var eur=new Intl.NumberFormat('tr-TR',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  var num=function(v,d){return new Intl.NumberFormat('tr-TR',{maximumFractionDigits:d||0}).format(v);};
+  function val(k){var el=document.querySelector('[data-k="'+k+'"]');var v=parseFloat(el.value);return isFinite(v)&&v>=0?v:0;}
+  function calc(){
+    var uygun=val('aday')*val('uygun')/100, yanit=uygun*val('yanit')/100, olumlu=yanit*val('olumlu')/100,
+        teklif=olumlu*val('teklif')/100, satis=teklif*val('donusum')/100;
+    var rev=satis*val('siparis')*12, pro=rev*val('marj')/100;
+    var hrs=val('talep')*val('dk')/60;
+    document.getElementById('oTime').textContent=num(hrs,1)+' sa/ay';
+    document.getElementById('oTimeS').textContent='≈ '+eur.format(hrs*val('saat'))+' / ay ekip zamanı';
+    document.getElementById('oOpp').textContent=num(teklif*12,1);
+    document.getElementById('oRev').textContent=eur.format(rev);
+    document.getElementById('oPro').textContent=eur.format(pro);
+    document.getElementById('funnel').textContent='Aylık huni: '+num(val('aday'))+' aday → '+num(uygun,1)+' uygun → '+num(yanit,1)+' yanıt → '+num(olumlu,1)+' olumlu → '+num(teklif,1)+' teklif/numune → '+num(satis,2)+' sipariş. Varsayımsal senaryo; kumaşta siparişe dönüşüm genellikle birkaç ay sürer.';
+  }
+  function preset(s){
+    segs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.s===s);});
+    inputs.forEach(function(el){el.value=P[s][el.dataset.k];});
+    calc();
+  }
+  segs.forEach(function(b){b.addEventListener('click',function(){preset(b.dataset.s);});});
+  inputs.forEach(function(el){el.addEventListener('input',function(){segs.forEach(function(b){b.setAttribute('aria-pressed','false');});calc();});});
+  preset('o');
+})();
+</script>
+</body>
+</html>
