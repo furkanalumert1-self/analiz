@@ -104,6 +104,10 @@ Ayrıntı: [10](10-sosyal-medya-analizi-ve-yol-haritasi.md).
   - Partner ajanslarla ortak içerik (rakipte en yüksek etkileşimi bir ajans gönderisi aldı).
 - **Ölçüt:** Beğeni değil, başlayan konuşma ve görüşme.
 - **Süre:** Haftada 1–1,5 saat, satış saatlerinin içinden.
+- **Ücretli reklam (Meta Reklam Kütüphanesi bulgusu):** Pushouse'un 13 aktif Meta reklamı var; hepsi Instagram profiline yönlendiriyor ve "problem → modül" kancası kullanıyor.
+  - **İlk 90 gün:** Callypso için profil/takipçi reklamı **yok**.
+  - **Landing ve video hazır olunca:** Küçük bir retargeting testi.
+  - **İlk izinli vaka çalışmalarından sonra:** 4 haftalık ₺7.500'lik lead testi, önceden belirlenmiş durdurma eşiğiyle.
 
 ### Satış için gerekli ürün geliştirmeleri
 
@@ -179,3 +183,4 @@ Avukat görüşü 2. ayda da alınabilir. Tutarlar doğrulanmamış tahminlerdir
 | Mevzuat | Kısmen: uzman incelemesi gerekli | 04 E |
 | Pushouse'ta olmayan / şikâyet edilen noktalar | Kamuya açık şikâyet bulunamadı. Sözleşme ve siteden 12 bulgu; 9'u plana eklendi, 3'ü zaten plandaydı | 09 |
 | Sosyal medya analizi ve yol haritası | Yanıtlandı. Instagram (11 Reels), LinkedIn ve YouTube herkese açık verisiyle; gönderi akışlarının tamamı girişsiz görülemedi | 10 |
+| Meta Reklam Kütüphanesi | Yanıtlandı. 13 reklam listelendi; harcama ve erişim Meta tarafından paylaşılmıyor | 10 §2a |

@@ -75,7 +75,7 @@
 | Altyapı ortaklıkları | Ticimax sayfasında "Ticimax ve Pushouse iş birliği" kampanyası (https://www.ticimax.com/ticimax-ve-pushouse-is-birligi/). 35 iz içinde Ticimax açık ara önde | **Yüksek.** Ana dağıtım kanalı olduğu görülüyor |
 | Shopify App Store | 6 yorum, 5,0 puan (https://apps.shopify.com/pushouse/reviews) | Düşük–orta. Uluslararası vitrin |
 | SEO ve içerik | 12 sektör sayfası, yaklaşık 30 modül sayfası, blog, ücretsiz hesaplayıcı, WhatsApp butonu oluşturucu, llms.txt | Orta–yüksek. Pazarlama faaliyeti görünür ama getirisi **doğrulanamadı** |
-| Ücretli reklam | Formdaki "Bizi nereden duydunuz" seçeneklerinde Google, Facebook, Instagram ve LinkedIn reklamları var; çerez metninde Google Ads, Meta Pixel ve LinkedIn Insight | Kullanıldığı **çıkarım**; bütçe bilinmiyor |
+| Ücretli reklam | **Meta:** Reklam Kütüphanesi'nde 13 aktif reklam (Türkiye'de ~12 sonuç), bazıları 15 Temmuz 2026'dan beri yayında. Hepsi Instagram profiline yönlendiriyor. Formdaki seçeneklerde Google ve LinkedIn reklamları, çerez metninde Google Ads, Meta Pixel ve LinkedIn Insight da var | Meta reklamları **doğrulandı**. Harcama ve performans bilinmiyor. Ayrıntı: [10](10-sosyal-medya-analizi-ve-yol-haritasi.md) §2a |
 | Partner programı | "%30'a kadar performansa dayalı komisyon"; hedef kitle ajanslar, danışmanlar, yazılım firmaları, markalar, bağımsız uzmanlar (https://www.pushouse.com/tr/is-ortakligi) | Program var; ölçeği bilinmiyor. White-label **kanıtı yok** |
 | Satış akışı | "Toplantı Planla" (Cal.com), "14 gün dene", "Kayıt Ol" | Self-serve ile satış ekibi destekli modelin karışımı |
 
