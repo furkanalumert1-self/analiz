@@ -94,6 +94,17 @@ Ayrıntı: [09](09-pushouse-zayif-noktalar-ve-plan-eklemeleri.md). Kamuya açık
 - **Veri taşınabilirliği ve onay kanıtı raporu:** 10→25 aşamasında.
   Pushouse'ta fesih sonrası 30 günlük talep penceresi var; onay sorumluluğu tamamen müşteride.
 
+### Sosyal medya
+
+Ayrıntı: [10](10-sosyal-medya-analizi-ve-yol-haritasi.md).
+- **Rakipte sosyal medya bir büyüme motoru gibi görünmüyor.** Pushouse'un 11,7 bin Instagram takipçisine karşı Reels başına ortalama 15,5 beğenisi var (yaklaşık %0,14 etkileşim). YouTube kanalının 11 abonesi var.
+- **Callypso takipçi toplamaya çalışmamalı.** Önerilen yol:
+  - Kurucunun LinkedIn profili: haftada 2 gönderi.
+  - Instagram: haftada 1 Reels, güven sayfası işlevi gören bir profil ve hedef markalarla birebir ilişki.
+  - Partner ajanslarla ortak içerik (rakipte en yüksek etkileşimi bir ajans gönderisi aldı).
+- **Ölçüt:** Beğeni değil, başlayan konuşma ve görüşme.
+- **Süre:** Haftada 1–1,5 saat, satış saatlerinin içinden.
+
 ### Satış için gerekli ürün geliştirmeleri
 
 P0, yaklaşık 60–90 saat. Ayrıntı: [03](03-callypso-urun-gap-analizi.md).
@@ -167,3 +178,4 @@ Avukat görüşü 2. ayda da alınabilir. Tutarlar doğrulanmamış tahminlerdir
 | 13 haftalık plan (156 saat) | Yanıtlandı | 07 |
 | Mevzuat | Kısmen: uzman incelemesi gerekli | 04 E |
 | Pushouse'ta olmayan / şikâyet edilen noktalar | Kamuya açık şikâyet bulunamadı. Sözleşme ve siteden 12 bulgu; 9'u plana eklendi, 3'ü zaten plandaydı | 09 |
+| Sosyal medya analizi ve yol haritası | Yanıtlandı. Instagram (11 Reels), LinkedIn ve YouTube herkese açık verisiyle; gönderi akışlarının tamamı girişsiz görülemedi | 10 |

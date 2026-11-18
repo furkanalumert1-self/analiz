@@ -36,6 +36,8 @@ Saat sütunu: Ürün / Satış / Güven-hukuk / Pilot operasyonu.
 
 **Saat toplamları:** Ürün 56 + Satış 56 + Güven/hukuk 17 + Pilot 27 = **156 saat** = 13 × 12 ✔
 
+**Sosyal medya:** 2. haftadan itibaren satış saatlerinin içinden haftada 1–1,5 saat ayrılır: LinkedIn'de haftada 2 gönderi, Instagram'da haftada 1 Reels ve hedef markalarla birebir etkileşim. 7. haftada deney değerlendirilir (sürdür / değiştir / durdur). Ayrıntı: [10](10-sosyal-medya-analizi-ve-yol-haritasi.md). Toplam saat değişmez.
+
 ## İlk 30 günün ayrıntılı takvimi
 
 | Gün | Pzt (2,5 s) | Sal (2,5 s) | Çar (2,5 s) | Per (2,5 s) | Cum (2 s) |
