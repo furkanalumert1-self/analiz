@@ -1,0 +1,372 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fiyatlandırma ve Gelir Modeli</title><meta name="description" content="Pushouse rekabet analizi ve Callypso Engage büyüme stratejisi — CallypsoTech, Kasım 2026">
+<meta name="robots" content="noindex,nofollow"><style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5f5e58;--line:#e4e1d8;--card:#ffffff;--accent:#7a3cff;--accent-soft:#efe8ff;--code:#f3f1ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe6;--muted:#a6a59e;--line:#2f2e2b;--card:#1c1c1a;--accent:#b49bff;--accent-soft:#2a2340;--code:#23221f}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe6;--muted:#a6a59e;--line:#2f2e2b;--card:#1c1c1a;--accent:#b49bff;--accent-soft:#2a2340;--code:#23221f}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1280px;margin:0 auto}
+aside{position:sticky;top:0;height:100vh;overflow:auto;padding:28px 18px;border-right:1px solid var(--line)}
+aside .brand{font-weight:700;font-size:15px;margin-bottom:4px}aside .sub{color:var(--muted);font-size:12.5px;margin-bottom:18px}
+aside a{display:block;padding:7px 10px;border-radius:8px;color:var(--fg);text-decoration:none;font-size:14px;line-height:1.35}
+aside a:hover{background:var(--accent-soft)}aside a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:40px 48px 80px;min-width:0}
+h1{font-size:30px;line-height:1.2;margin:0 0 18px}h2{font-size:22px;margin:40px 0 12px;padding-top:12px;border-top:1px solid var(--line)}h3{font-size:18px;margin:26px 0 8px}
+blockquote{margin:16px 0;padding:10px 16px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;color:var(--fg)}
+blockquote p{margin:6px 0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.45}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--code);font-weight:600;position:sticky;top:0}tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:1px 5px;border-radius:5px;font-size:.88em;word-break:break-word}
+pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.5;white-space:pre-wrap}
+pre code{background:none;padding:0}
+.top{display:none}
+.theme{margin-top:18px;font-size:12.5px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 10px;cursor:pointer}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:8px 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{display:block;border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg);background:var(--card)}
+.card:hover{border-color:var(--accent)}.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13.5px}
+@media (max-width:860px){.wrap{display:block}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:14px 16px}
+aside nav{display:none}aside.open nav{display:block}.top{display:inline-block;margin-top:8px;font-size:13px;border:1px solid var(--line);background:none;color:var(--fg);border-radius:8px;padding:6px 10px}
+main{padding:22px 16px 60px}h1{font-size:24px}}
+</style></head><body><div class="wrap">
+<aside id="sb"><div class="brand">Callypso Engage Araştırması</div><div class="sub">Pushouse rekabet analizi · 18 Kasım 2026</div>
+<button class="top" onclick="document.getElementById('sb').classList.toggle('open')">Bölümler ☰</button>
+<nav><a href="index.html" class="">Özet ve içindekiler</a><a href="01-pushouse-rekabet-analizi.html" class="">01 — Pushouse Rekabet Analizi</a><a href="02-musteri-ve-icp-analizi.html" class="">02 — Pushouse Müşterileri ve İdeal Müşteri Profili (ICP)</a><a href="03-callypso-urun-gap-analizi.html" class="">03 — Callypso Engage Ürün ve Boşluk (Gap) Analizi</a><a href="04-guven-olusturma-stratejisi.html" class="">04 — Güven Oluşturma Stratejisi</a><a href="05-satis-ve-musteri-kazanimi.html" class="">05 — Satış ve Müşteri Kazanım Sistemi</a><a href="06-fiyatlandirma-ve-gelir-modeli.html" class="on">06 — Fiyatlandırma ve Gelir Modeli</a><a href="07-90-gunluk-buyume-plani.html" class="">07 — 90 Günlük (13 Haftalık) Büyüme Planı</a><a href="08-kurucu-karar-raporu.html" class="">08 — Kurucu Karar Raporu</a>
+<button class="theme" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches))?'light':'dark'">Tema değiştir</button></nav></aside>
+<main><h1>06 — Fiyatlandırma ve Gelir Modeli</h1>
+<blockquote>
+<p>Erişim tarihi: <strong>18 Kasım 2026</strong>.
+<strong>Kur:</strong> 1 USD ≈ <strong>50,26 TL</strong>. Kaynak: TCMB gösterge kuru, 13 Kasım 2026 (ikincil haber): <a href="https://www.hisse.net/haber/doviz-kurlarinda-son-durum-13-kasim-guncel-fiyatlar-106876">https://www.hisse.net/haber/doviz-kurlarinda-son-durum-13-kasim-guncel-fiyatlar-106876</a>. Resmî değer TCMB&#39;den teyit edilmeli.
+Tüm Callypso fiyatları <strong>hipotezdir</strong>.</p>
+</blockquote>
+<h2>Kısa bulgular</h2>
+<ul>
+<li>Pushouse&#39;un doğrulanabilen tek güncel fiyatı Shopify listesinde: <strong>$19 / $99 / $149 / $299 aylık</strong>, USD, 14 gün deneme, mesajlar ön ödemeli kontörle ayrıca ödeniyor. Kendi sitesinde kamuya açık fiyat yok (bkz. <a href="01-pushouse-rekabet-analizi.html">01</a>).</li>
+<li>Callypso için önerilen başlangıç: <strong>ücretli/mahsuplu pilot → aylık TL abonelik (₺2.990 / ₺5.990 / ₺9.990+)</strong>. Kurulum hizmeti ayrı ve tek seferlik; MRR&#39;ye dahil edilmez.</li>
+<li><strong>10.000 USD MRR</strong>, tek kurucunun akşam saatleriyle yaptığı cold outreach ile makul bir sürede ulaşılabilir görünmüyor. Baz senaryoda bile ayda 6 yeni müşteri için haftada yaklaşık 460 temas gerekiyor. Ulaşmak için partner/yönlendirme kanalı, daha yüksek dönüşüm veya tam zamanlı satış kapasitesi gerekir.</li>
+</ul>
+<h2>1. Pushouse fiyatları (doğrulanan)</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Aylık</th>
+<th>Yıllık</th>
+<th>İçerik</th>
+<th>Kullanım / mesaj</th>
+<th>Vergi</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Growth</td>
+<td>$19</td>
+<td>$180</td>
+<td>Sepet, stok, kargo, sipariş durumu, toplu mesaj, çark</td>
+<td>Mesaj kontörü ayrı. &quot;Usage limit up to $2,000 per 30 days, used only for optional automatic credit top-up&quot;</td>
+<td>Belirtilmemiş</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>$99</td>
+<td>$960</td>
+<td>+ hoş geldin, ilk alışveriş</td>
+<td>Limit $5.000</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>$149</td>
+<td>$1.440</td>
+<td>+ doğum günü, yeniden sipariş, Reels, Trendyol</td>
+<td>Limit $10.000</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Enterprise Plus</td>
+<td>$299</td>
+<td>$2.880</td>
+<td>+ Flow, AI asistan, geri bildirim, öneriler, AI segmentasyon</td>
+<td>Limit $10.000</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<p>Kaynak: <a href="https://apps.shopify.com/pushouse">https://apps.shopify.com/pushouse</a> (18 Kasım 2026).
+Ticimax/ikas/IdeaSoft mağazalarındaki TL fiyatlar <strong>doğrulanamadı</strong>. Bazı yerel Shopify listelerinde daha önce %1–4 satış komisyonu görülmüştü; güncel İngilizce sayfada yok. <strong>Çelişkili.</strong></p>
+<h2>2. Maliyet kalemleri (aylık, aralık)</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Kalem</th>
+<th>Varsayım</th>
+<th>Kaynak / not</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Altyapı (Supabase, Vercel, alan adı)</td>
+<td>$25–70 sabit + müşteri başına $2–5</td>
+<td>Sağlayıcıların plan fiyatları kontrol edilmeli [Varsayım]</td>
+</tr>
+<tr>
+<td>E-posta gönderimi (Resend vb.)</td>
+<td>10 bin müşterili marka, ayda yaklaşık 20 bin e-posta → müşteri başına $3–10</td>
+<td>Sağlayıcı fiyat sayfası teyit edilmeli [Varsayım]</td>
+</tr>
+<tr>
+<td>SMS (Netgsm vb.)</td>
+<td>Müşteriye <strong>kullanım bazlı yansıtılır</strong>; marj %10–20</td>
+<td>Fiyat teklifle doğrulanmalı [Varsayım]</td>
+</tr>
+<tr>
+<td>WhatsApp (sonraki aşama)</td>
+<td>TR pazarlama mesajı yaklaşık $0,011–0,013 + BSP ücreti; yansıtılır</td>
+<td><a href="https://chatalog.ai/en/pricing-whatsapp-conversation-fees/">https://chatalog.ai/en/pricing-whatsapp-conversation-fees/</a> (ikincil)</td>
+</tr>
+<tr>
+<td>Destek</td>
+<td>Müşteri başına ayda 1–2 saat (ilk 3 ay), sonra 0,5 saat</td>
+<td>[Varsayım]</td>
+</tr>
+<tr>
+<td>Onboarding</td>
+<td>Müşteri başına 4–8 saat, tek seferlik</td>
+<td>[Varsayım]</td>
+</tr>
+<tr>
+<td>Partner komisyonu</td>
+<td>Referral: ilk ay bedeli. Gelir paylaşımı: %20–30</td>
+<td>Pushouse &quot;%30&#39;a kadar&quot;</td>
+</tr>
+<tr>
+<td>Ödeme altyapısı</td>
+<td>Tahsilatın %2–4&#39;ü (iyzico/Stripe vb.)</td>
+<td>[Varsayım]</td>
+</tr>
+</tbody></table></div>
+<p><strong>Brüt marj hedefi:</strong> Kurucu zamanı hariç %75–85. Mesaj maliyetleri yansıtıldığı sürece ulaşılabilir [Çıkarım].</p>
+<h2>3. Model karşılaştırması</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Artı</th>
+<th>Eksi</th>
+<th>Öneri</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kurulum + abonelik</td>
+<td>Erken nakit; onboarding emeği karşılanır</td>
+<td>Küçük markada karar engeli</td>
+<td>Kurulum hizmeti <strong>isteğe bağlı</strong> (₺5.000–10.000); pilot katılımcılarına dahil</td>
+</tr>
+<tr>
+<td>Growth/Scale paketleri (müşteri sayısı bazlı)</td>
+<td>Anlaşılır; Klaviyo benzeri alışkanlık</td>
+<td>Kanal maliyeti değişken</td>
+<td><strong>Ana model</strong></td>
+</tr>
+<tr>
+<td>Kullanıma dayalı (gönderim başı)</td>
+<td>Küçük markaya düşük giriş</td>
+<td>Gelir dalgalı; tahmin zor</td>
+<td>SMS/WhatsApp için ek olarak</td>
+</tr>
+<tr>
+<td>Yıllık abonelik</td>
+<td>Nakit akışı, düşük kayıp</td>
+<td>Erken aşamada güven eksikliği</td>
+<td>6. aydan sonra &quot;2 ay ücretsiz&quot;</td>
+</tr>
+<tr>
+<td>Ajans modeli</td>
+<td>Çoklu müşteri</td>
+<td>Destek yükü ve kanal çatışması</td>
+<td>Referral ile başla</td>
+</tr>
+<tr>
+<td>Pilot sonrası abonelik</td>
+<td>Güven; ölçülmüş değer</td>
+<td>Satış döngüsü uzar (45–60 gün)</td>
+<td><strong>İlk 25 müşteri için ana yol</strong></td>
+</tr>
+<tr>
+<td>Gelir komisyonu (Pushouse benzeri)</td>
+<td>Değerle hizalı</td>
+<td>Ölçüm tartışması; holdout dışında güvenilir değil</td>
+<td><strong>Hayır.</strong> &quot;Satıştan komisyon yok&quot; farklılaştırıcı olarak kullanılabilir</td>
+</tr>
+</tbody></table></div>
+<h2>4. Callypso fiyat hipotezleri</h2>
+<p>KDV hariç, TL. USD karşılıkları 50,26 kurla.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Paket</th>
+<th>Aylık</th>
+<th>≈ USD</th>
+<th>Kapsam</th>
+<th>Hedef</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pilot (ücretli)</td>
+<td>₺4.990 tek sefer (aboneliğe mahsup)</td>
+<td>≈ $99</td>
+<td>30+14 gün, 2 akış, holdout raporu</td>
+<td>4. müşteriden itibaren</td>
+</tr>
+<tr>
+<td>Tasarım ortağı</td>
+<td>₺0</td>
+<td>—</td>
+<td>Pilotla aynı; izinli vaka çalışması karşılığında</td>
+<td>İlk 3 müşteri</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td>₺2.990</td>
+<td>≈ $59</td>
+<td>10 bin müşteriye kadar, e-posta, 4 yaşam döngüsü akışı, aylık holdout raporu</td>
+<td>Küçük markalar</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>₺5.990</td>
+<td>≈ $119</td>
+<td>50 bin müşteriye kadar, tüm akışlar, SMS (kullanım ayrı), çeyreklik strateji görüşmesi</td>
+<td>Ana hedef</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>₺9.990+</td>
+<td>≈ $199+</td>
+<td>Özel akışlar, birden fazla marka/mağaza, öncelikli destek</td>
+<td>Büyüyen markalar</td>
+</tr>
+</tbody></table></div>
+<p><strong>Doğrulama yöntemi:</strong></p>
+<ol>
+<li><strong>Van Westendorp tarzı 4 soru</strong> (çok ucuz / ucuz / pahalı / çok pahalı) 15 keşif görüşmesinde sorulur.</li>
+<li><strong>Ücretli pilot kabul oranı</strong> ölçülür: ₺4.990 teklifine ≥%30 kabul = fiyat makul.</li>
+<li>Kapanışta paket seçimi dağılımı izlenir. Herkes Growth seçiyorsa Scale&#39;in değer önerisi zayıf demektir.</li>
+</ol>
+<h2>5. 10.000 USD MRR senaryoları</h2>
+<p><strong>Formüller:</strong></p>
+<ul>
+<li>MRR = aktif ücretli müşteri × ARPA (aylık ortalama abonelik geliri). <strong>Kurulum ve pilot gelirleri dahil değil.</strong></li>
+<li>Gerekli müşteri = ⌈10.000 / ARPA⌉</li>
+<li>Aktif müşteri (ay t+1) = aktif (t) × (1 − aylık churn) + yeni müşteri</li>
+<li>Durağan tavan = yeni müşteri / churn</li>
+<li>Temas/müşteri = 1 / (temastan ücretli müşteriye dönüşüm)</li>
+<li>Edinme maliyeti (CAC) = (kurucu saati × saat değeri + araç ve reklam) / yeni müşteri</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th></th>
+<th>Muhafazakâr</th>
+<th>Baz</th>
+<th>İyimser</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ARPA</td>
+<td>$60 (≈ ₺3.016)</td>
+<td>$100 (≈ ₺5.026)</td>
+<td>$160 (≈ ₺8.042)</td>
+</tr>
+<tr>
+<td>Gerekli aktif müşteri</td>
+<td>167</td>
+<td>100</td>
+<td>63</td>
+</tr>
+<tr>
+<td>Aylık churn</td>
+<td>%5 (≈ 8,3 müşteri/ay hedefte)</td>
+<td>%4 (4,0)</td>
+<td>%3 (1,9)</td>
+</tr>
+<tr>
+<td>Temastan ücretliye dönüşüm</td>
+<td>%0,2 (500 temas/müşteri)</td>
+<td>%0,3 (333)</td>
+<td>%0,6 (167)</td>
+</tr>
+<tr>
+<td>Huni varsayımı</td>
+<td>%3 olumlu yanıt × %40 görüşme × %35 pilot × %50 ücretli ≈ %0,21</td>
+<td>%4 × %45 × %35 × %50 ≈ %0,32</td>
+<td>%6 × %50 × %40 × %55 ≈ %0,66</td>
+</tr>
+<tr>
+<td>Brüt marj</td>
+<td>%70</td>
+<td>%78</td>
+<td>%82</td>
+</tr>
+<tr>
+<td>CAC (kurucu saati 500 TL varsayımıyla) [Varsayım]</td>
+<td>≈ 60 saat → ₺30.000</td>
+<td>≈ 40 saat → ₺20.000</td>
+<td>≈ 20 saat → ₺10.000</td>
+</tr>
+<tr>
+<td>Ayda 4 yeni müşteriyle 10k MRR</td>
+<td>Ulaşılamaz (tavan 80)</td>
+<td>Ulaşılamaz (tavan 100&#39;e asimptotik yaklaşır)</td>
+<td><strong>21 ay</strong></td>
+</tr>
+<tr>
+<td>Ayda 6 yeni müşteriyle</td>
+<td>Ulaşılamaz (tavan 120 &lt; 167)</td>
+<td><strong>27 ay</strong></td>
+<td><strong>13 ay</strong></td>
+</tr>
+<tr>
+<td>Ayda 10 yeni müşteriyle</td>
+<td><strong>36 ay</strong></td>
+<td><strong>13 ay</strong></td>
+<td><strong>7 ay</strong></td>
+</tr>
+<tr>
+<td>Ayda 6 yeni müşteri için temas</td>
+<td>3.000/ay (≈ 693/hafta)</td>
+<td>2.000/ay (≈ 462/hafta)</td>
+<td>1.000/ay (≈ 231/hafta)</td>
+</tr>
+</tbody></table></div>
+<p>Hesaplar <code>MRR</code> formülüyle aylık simülasyonla yapıldı (her ay: aktif × (1 − churn) + yeni).</p>
+<p><strong>Kurucu kapasitesi tutarlılık kontrolü:</strong></p>
+<ul>
+<li>Haftada 12 saatin yaklaşık 5 saati satışa ayrılırsa, şirket başına 6–8 dakikayla haftada <strong>35–40 kişiselleştirilmiş temas</strong> yapılabilir.</li>
+<li>%0,3 dönüşümle bu ayda yaklaşık <strong>0,5 yeni müşteri</strong> demek. %1 dönüşümle (niş ve videolu temasta mümkün olabilir; doğrulanmalı) yaklaşık <strong>1,5 müşteri/ay</strong>.</li>
+<li><strong>Sonuç:</strong> İlk 10 ücretli müşteri hedefi 3–6 ayda gerçekçi olabilir. 10k USD MRR ise ancak şu kaldıraçlarla gelir:<ul>
+<li>Referans ve ajans kanalı (tek bir temasta birden çok müşteri)</li>
+<li>Altyapı uygulama mağazası (gelen talep)</li>
+<li>Daha yüksek ARPA</li>
+<li>Kurucunun tam zamana geçmesi veya bir satış/operasyon ortağı</li>
+</ul>
+</li>
+</ul>
+<p>Bu senaryolar tahmin veya garanti değildir.</p>
+<h2>Belirsizlikler</h2>
+<ul>
+<li>Türk D2C kozmetik markalarının ödeme isteği ve kanal maliyetlerinin gerçek fiyatları.</li>
+<li>Churn; pilotla gelen müşterilerde daha düşük olabilir, ölçülmeli.</li>
+</ul>
+<h2>Sonraki aksiyonlar</h2>
+<ol>
+<li>15 görüşmede fiyat sorularını sor (bkz. <a href="07-90-gunluk-buyume-plani.html">07</a>, 4–6. haftalar).</li>
+<li>Sağlayıcı fiyatlarını (Supabase, Resend, Netgsm) teklifle teyit et ve marj tablosunu güncelle.</li>
+<li><ol start="10">
+<li>müşteriden sonra ARPA ve churn&#39;ü gerçek veriyle yeniden hesapla.</li>
+</ol>
+</li>
+</ol>
+<div class="pager"><a href="05-satis-ve-musteri-kazanimi.html">← 05 — Satış ve Müşteri Kazanım Sistemi</a><a href="07-90-gunluk-buyume-plani.html">07 — 90 Günlük (13 Haftalık) Büyüme Planı →</a></div></main></div></body></html>

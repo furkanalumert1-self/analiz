@@ -1,0 +1,623 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Güven Oluşturma Stratejisi</title><meta name="description" content="Pushouse rekabet analizi ve Callypso Engage büyüme stratejisi — CallypsoTech, Kasım 2026">
+<meta name="robots" content="noindex,nofollow"><style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5f5e58;--line:#e4e1d8;--card:#ffffff;--accent:#7a3cff;--accent-soft:#efe8ff;--code:#f3f1ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe6;--muted:#a6a59e;--line:#2f2e2b;--card:#1c1c1a;--accent:#b49bff;--accent-soft:#2a2340;--code:#23221f}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe6;--muted:#a6a59e;--line:#2f2e2b;--card:#1c1c1a;--accent:#b49bff;--accent-soft:#2a2340;--code:#23221f}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1280px;margin:0 auto}
+aside{position:sticky;top:0;height:100vh;overflow:auto;padding:28px 18px;border-right:1px solid var(--line)}
+aside .brand{font-weight:700;font-size:15px;margin-bottom:4px}aside .sub{color:var(--muted);font-size:12.5px;margin-bottom:18px}
+aside a{display:block;padding:7px 10px;border-radius:8px;color:var(--fg);text-decoration:none;font-size:14px;line-height:1.35}
+aside a:hover{background:var(--accent-soft)}aside a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:40px 48px 80px;min-width:0}
+h1{font-size:30px;line-height:1.2;margin:0 0 18px}h2{font-size:22px;margin:40px 0 12px;padding-top:12px;border-top:1px solid var(--line)}h3{font-size:18px;margin:26px 0 8px}
+blockquote{margin:16px 0;padding:10px 16px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;color:var(--fg)}
+blockquote p{margin:6px 0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.45}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--code);font-weight:600;position:sticky;top:0}tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:1px 5px;border-radius:5px;font-size:.88em;word-break:break-word}
+pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.5;white-space:pre-wrap}
+pre code{background:none;padding:0}
+.top{display:none}
+.theme{margin-top:18px;font-size:12.5px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 10px;cursor:pointer}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:8px 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{display:block;border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg);background:var(--card)}
+.card:hover{border-color:var(--accent)}.card b{display:block;margin-bottom:4px}.card span{color:var(--muted);font-size:13.5px}
+@media (max-width:860px){.wrap{display:block}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:14px 16px}
+aside nav{display:none}aside.open nav{display:block}.top{display:inline-block;margin-top:8px;font-size:13px;border:1px solid var(--line);background:none;color:var(--fg);border-radius:8px;padding:6px 10px}
+main{padding:22px 16px 60px}h1{font-size:24px}}
+</style></head><body><div class="wrap">
+<aside id="sb"><div class="brand">Callypso Engage Araştırması</div><div class="sub">Pushouse rekabet analizi · 18 Kasım 2026</div>
+<button class="top" onclick="document.getElementById('sb').classList.toggle('open')">Bölümler ☰</button>
+<nav><a href="index.html" class="">Özet ve içindekiler</a><a href="01-pushouse-rekabet-analizi.html" class="">01 — Pushouse Rekabet Analizi</a><a href="02-musteri-ve-icp-analizi.html" class="">02 — Pushouse Müşterileri ve İdeal Müşteri Profili (ICP)</a><a href="03-callypso-urun-gap-analizi.html" class="">03 — Callypso Engage Ürün ve Boşluk (Gap) Analizi</a><a href="04-guven-olusturma-stratejisi.html" class="on">04 — Güven Oluşturma Stratejisi</a><a href="05-satis-ve-musteri-kazanimi.html" class="">05 — Satış ve Müşteri Kazanım Sistemi</a><a href="06-fiyatlandirma-ve-gelir-modeli.html" class="">06 — Fiyatlandırma ve Gelir Modeli</a><a href="07-90-gunluk-buyume-plani.html" class="">07 — 90 Günlük (13 Haftalık) Büyüme Planı</a><a href="08-kurucu-karar-raporu.html" class="">08 — Kurucu Karar Raporu</a>
+<button class="theme" onclick="var r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches))?'light':'dark'">Tema değiştir</button></nav></aside>
+<main><h1>04 — Güven Oluşturma Stratejisi</h1>
+<blockquote>
+<p>Erişim tarihi: <strong>18 Kasım 2026</strong>. Hukuki konular bilgilendirme amaçlıdır. Kesin uyum değerlendirmesi için KVKK ve ticari ileti alanında uzman bir avukattan görüş alınmalıdır.</p>
+</blockquote>
+<h2>Kısa bulgular</h2>
+<ul>
+<li>Tanınmayan bir SaaS&#39;ın ilk güven kaybı genellikle <strong>abartıdan</strong> gelir. Callypso&#39;nun açılış sayfasındaki kurgusal logolar, yorumlar ve &quot;2.400+ marka&quot; ifadesi bugünkü en büyük güven riski (kanıt: <a href="03-callypso-urun-gap-analizi.html">03</a>).</li>
+<li>Pushouse güveni logo duvarı, sayaçlar, Meta rozetleri ve yöntem sayfasıyla kuruyor. Callypso bu ölçekte rekabet edemez. Bunun yerine <strong>&quot;kurucuyu gör, gerçek ürünü gör, sınırları açıkça yazılmış pilotu dene, sonucu kontrol grubuyla ölç&quot;</strong> zinciriyle güven kurmalı.</li>
+<li>Teknik güvende dürüst cümle şu: &quot;Veri modelimiz workspace bazında ayrılmış (RLS). Pilot öncesi bunu test edip raporlayacağız. Sertifikamız yok.&quot; Olmayan sertifika veya SLA iddia edilmemeli.</li>
+</ul>
+<h2>A. Web sitesi ve şirket güvenilirliği</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Unsur</th>
+<th>Bugün</th>
+<th>Yapılacak</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Değer önerisi</td>
+<td>Dağınık: içerik üreticileri, yerel işletmeler, ajanslar, Mailchimp karşılaştırması</td>
+<td>Tek cümle: &quot;Ürünü biten müşteriniz geri gelsin. Kozmetik ve bakım markaları için tekrar alım otomasyonu ve kontrol gruplu ölçüm.&quot;</td>
+<td>Segment kararı: <a href="02-musteri-ve-icp-analizi.html">02</a></td>
+</tr>
+<tr>
+<td>Şirket bilgisi</td>
+<td>Yok. Alan adı <code>callypsoengage.com</code> erişilemiyor</td>
+<td>Unvan, vergi/MERSİS (varsa), adres veya &quot;uzaktan çalışıyoruz&quot; + şehir, kurucu adı ve fotoğrafı, LinkedIn</td>
+<td>Kurumsal e-posta adresi (ad@alanadı)</td>
+</tr>
+<tr>
+<td>İletişim ve destek</td>
+<td>Yok</td>
+<td>E-posta, randevu linki, iş saatleri ve yanıt süresi taahhüdü (&quot;1 iş günü&quot;), WhatsApp iş hattı (isteğe bağlı)</td>
+<td>&quot;7/24&quot; yazma; gerçekçi süre ver</td>
+</tr>
+<tr>
+<td>Fiyat</td>
+<td>USD ve 2.400+ marka iddiası</td>
+<td>TL fiyat aralığı veya &quot;pilot sonrası şeffaf teklif&quot; + pilot ücreti</td>
+<td><a href="06-fiyatlandirma-ve-gelir-modeli.html">06</a></td>
+</tr>
+<tr>
+<td>Entegrasyon durumu</td>
+<td>&quot;Shopify — Hazır&quot; (yanlış)</td>
+<td>Durum tablosu: <strong>Canlı</strong> (CSV içe aktarma, Resend e-posta), <strong>Beta</strong> (holdout raporu), <strong>Planlanan</strong> (ikas/Ticimax API, Netgsm SMS, WhatsApp)</td>
+<td>Her etiketin tarihi olsun</td>
+</tr>
+<tr>
+<td>Hukuki metinler</td>
+<td>Doğrulanamadı</td>
+<td>Gizlilik ve KVKK aydınlatma metni, kullanım koşulları, veri işleme sözleşmesi (DPA) taslağı, alt işleyen listesi (Supabase, Vercel, Resend; bölgeleriyle)</td>
+<td><strong>Metin yayımlamak uyum kanıtı değildir.</strong> Avukat incelemesi gerekir</td>
+</tr>
+<tr>
+<td>Ürün ekranları</td>
+<td>Demo var</td>
+<td>&quot;DEMO VERİSİ&quot; filigranı veya rozeti kalıcı olarak görünsün</td>
+<td>Mevcut demo uyarısı iyi; açılış sayfasına da taşı</td>
+</tr>
+</tbody></table></div>
+<p><strong>Ana sayfada güven unsurlarının sırası:</strong></p>
+<ol>
+<li>Net vaat ve hedef kitle.</li>
+<li>Kurucunun 60 saniyelik videosu.</li>
+<li>3 adımda nasıl çalışır.</li>
+<li>Gerçek ürün ekranları (demo etiketli).</li>
+<li>Ölçüm yöntemi (holdout).</li>
+<li>Pilot programı ve sınırları.</li>
+<li>Entegrasyon durum tablosu.</li>
+<li>Veri ve güvenlik özeti.</li>
+<li>SSS.</li>
+<li>Şirket ve iletişim bilgisi.</li>
+</ol>
+<p>Gerçek referanslar geldikçe bunlar 2. sıraya eklenir.</p>
+<p><strong>İlk beş içerik/arayüz iyileştirmesi:</strong></p>
+<ol>
+<li>Kurgusal logoları, yorumları, &quot;4.9/5 · 2.400+ marka&quot; ifadesini ve &quot;+%30&quot; benzeri iddiaları <strong>tamamen kaldır</strong>.</li>
+<li>Başlığı ve hedef kitleyi kozmetik/bakım nişine daralt; Mailchimp karşılaştırmasını kaldır.</li>
+<li>Türkçe ve TL tutarlılığını sağla (ayarlar ekranı, landing, &quot;LTV &gt; $250&quot; gibi tanımlar).</li>
+<li>Entegrasyon durum tablosunu ekle; &quot;Shopify — Hazır&quot; yazısını düzelt.</li>
+<li>&quot;Kurucu ve şirket&quot; bölümünü ekle ve kurumsal alan adını çalışır hale getir.</li>
+</ol>
+<h2>B. Sosyal kanıt yokken güven</h2>
+<p><strong>Yapılmaması gerekenler:</strong> Sahte müşteri, sahte yorum, izinsiz logo, demo sonucunu gerçek sonuç gibi göstermek. Türkiye&#39;de yanıltıcı ticari uygulama ve haksız rekabet riski de taşır; avukata danışılmalı.</p>
+<p><strong>Alternatifler:</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Alternatif</th>
+<th>Nasıl</th>
+<th>Efor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Açıkça demo etiketli ürün turu</td>
+<td>Mevcut demo + &quot;Bu veriler örnektir&quot; bandı + 2 dakikalık sesli tur</td>
+<td>3–4 saat</td>
+</tr>
+<tr>
+<td>Kurucu problem videoları</td>
+<td>Bir kozmetik markasının <strong>herkese açık</strong> sitesi üzerinden &quot;tekrar alım akışını şöyle kurardım&quot; anlatımı (marka adı izinsiz kullanılmadan, anonimleştirilerek)</td>
+<td>Video başına 1 saat</td>
+</tr>
+<tr>
+<td>Şeffaf geliştirme günlüğü</td>
+<td>Haftalık &quot;bu hafta ne çıktı&quot; notu (LinkedIn + changelog sayfası)</td>
+<td>Haftada 30 dakika</td>
+</tr>
+<tr>
+<td>Tasarım ortağı programı</td>
+<td>3–5 marka, sınırlı kapsam, indirimli/ücretsiz karşılığında görüşme ve izinli vaka çalışması</td>
+<td>Bkz. D</td>
+</tr>
+<tr>
+<td>Yöntemi açıklanmış ilk vaka çalışmaları</td>
+<td>Holdout&#39;lu ve müşteri onaylı</td>
+<td>Pilot başına 3–4 saat</td>
+</tr>
+</tbody></table></div>
+<h3>Vaka çalışması şablonu</h3>
+<pre><code>BAŞLIK: [Marka / anonim ise &quot;Bir cilt bakımı markası&quot;] — [Tek cümle sonuç, nedensel değilse &quot;ilişkilendirilmiş&quot; de]
+
+1. Problem: Müşterinin kendi ifadesiyle (alıntı, onaylı).
+2. Başlangıç ölçümü: Dönem [gg.aa.yyyy–gg.aa.yyyy]; aktif müşteri sayısı; 90 günlük tekrar alım oranı; e-posta listesi ve onaylı kişi sayısı.
+3. Müdahale: Kurulan akışlar (ör. &quot;tükenme zamanı hatırlatması, 2 e-posta&quot;), kanal, sıklık, teklif/kupon.
+4. Süre: [X gün]; olgunlaşma penceresi [30 gün].
+5. Sonuç:
+   - Mesaj alan grup: n = __, sipariş oranı = __%, gelir = __ TL
+   - Kontrol grubu (rastgele %10, mesaj almadı): n = __, sipariş oranı = __%, gelir = __ TL
+   - Artımsal fark = (oran_A − oran_K) × n_A; %95 güven aralığı = [__, __]
+   - İlişkilendirilmiş gelir (UTM/kupon) = __ TL. Bu sayı nedensel ek gelir değildir.
+6. Maliyetler: Kupon indirimi = __ TL; mesaj maliyeti = __ TL; abonelik = __ TL; iade/iptal = __ TL.
+7. Sınırlamalar: Örneklem büyüklüğü, mevsimsellik, eş zamanlı kampanyalar, tek mağaza; başka mağazalar için garanti değildir.
+8. Müşteri onayı: [Ad, unvan, tarih]. Hangi rakamların yayımlanabileceği (tutar mı, oran mı).
+</code></pre>
+<p><strong>Kural:</strong> Kontrol grubu yoksa rakamı &quot;ilişkilendirilmiş&quot; olarak etiketle ve büyük puntoyla öne çıkarma.</p>
+<h2>C. Kurucu odaklı güven ve Loom</h2>
+<p><strong>Mekanizma (hipotez):</strong> Küçük bir SaaS&#39;ta alıcının asıl riski &quot;şirket yarın kaybolur mu, sorun çıkınca biri cevap verir mi&quot; sorusudur. Kurucuyu görmek bu riski azaltabilir; kendi sitesine özel hazırlanmış bir video da &quot;bu kişi işimi gerçekten inceledi&quot; sinyali verebilir. <strong>Hipotez:</strong> Kişiselleştirilmiş video, olumlu yanıt sonrası veya toplantı öncesi kullanıldığında görüşme katılımını ve pilot kabulünü artırır. İlk temasta ise hazırlık maliyeti yüksek ve tıklama oranı belirsiz olduğu için daha az verimlidir. Bu evrensel bir gerçek değil; test edilmeli.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Video kullanım anı</th>
+<th>Artı</th>
+<th>Eksi</th>
+<th>Öneri</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>İlk temas</td>
+<td>Dikkat çeker</td>
+<td>Hazırlık 10–15 dk/kişi. Linkli ilk e-posta teslim edilebilirliği düşürebilir. Yabancı link tıklama çekincesi yaratır</td>
+<td>Yalnız en yüksek potansiyelli 10 hesapta test</td>
+</tr>
+<tr>
+<td>Olumlu yanıt sonrası</td>
+<td>İlgiyi güvene çevirir</td>
+<td>Hazırlık süresi</td>
+<td><strong>Varsayılan</strong></td>
+</tr>
+<tr>
+<td>Toplantı öncesi</td>
+<td>No-show oranını azaltabilir</td>
+<td>—</td>
+<td>Kısa, 45 sn</td>
+</tr>
+<tr>
+<td>Toplantı sonrası</td>
+<td>Karar vericinin ekip içinde paylaşmasını kolaylaştırır</td>
+<td>—</td>
+<td><strong>Varsayılan</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Test tasarımı:</strong></p>
+<ul>
+<li>Birincil segmentten 40 hesap, iki gruba rastgele bölünür.</li>
+<li><strong>A grubu:</strong> Yalnız metin. <strong>B grubu:</strong> Olumlu yanıt sonrası 60–90 saniyelik kişisel video.</li>
+<li>Ölçülenler: Hazırlık süresi (dakika), olumlu yanıt sonrası görüşme kabul oranı, görüşmeye katılım, pilot kabulü.</li>
+<li>İlk temas videosu ayrıca 10 hesapta denenir.</li>
+<li><strong>Karar:</strong> Örneklem küçük olduğu için yalnız büyük farklar anlamlıdır (ör. görüşme kabulünde 2 kat). Fark yoksa süre tasarrufu için metinle devam et.</li>
+<li>Teslim edilebilirlik: İlk e-postada link ve görsel kullanma. Video linkini yalnız yanıt geldikten sonra gönder.</li>
+</ul>
+<h3>Senaryo 1 — İlk / olumlu yanıt sonrası video (60 sn, Türkçe)</h3>
+<blockquote>
+<p>Kamuya açık gözlem: [köşeli parantezler]. Müşterinin iç verisi hakkında varsayım yapılmaz; soru olarak sorulur.</p>
+</blockquote>
+<pre><code>[0–8 sn] Merhaba [Ad], ben Furkan, Callypso Engage&#39;in kurucusuyum. Bu videoyu sadece sizin için çektim.
+[8–25 sn] Sitenizde [ürün adı, ör. 50 ml C vitamini serumu] gördüm. Ürün açıklamasında [yaklaşık kullanım süresi/&quot;günlük kullanım&quot;] yazıyor. Bu tür ürünlerde müşterinin ikinci kez alıp almadığı genelde reklam maliyetini belirliyor.
+[25–40 sn] Ekranda gördüğünüz gibi, bültene kayıt kutunuz var ama [sitede görünen gözlem, ör. &quot;son kampanya duyurusu Instagram&#39;da&quot;]. Sizin tarafta tekrar alım oranını izleyip izlemediğinizi bilmiyorum, onu sormak isterim.
+[40–55 sn] Biz şunu yapıyoruz: Sipariş dosyanızdan ürünü bitmek üzere olan müşterileri bulup doğru zamanda e-posta gönderiyoruz. Sonucu, mesaj göndermediğimiz bir kontrol grubuyla karşılaştırarak ölçüyoruz; yani &quot;gerçekten işe yaradı mı&quot; sorusuna dürüst cevap veriyoruz.
+[55–60 sn] Uygunsa 15 dakika konuşalım, sizin için çalışır mı birlikte bakalım. Takvim linki aşağıda. Teşekkürler.
+</code></pre>
+<h3>Senaryo 2 — Demo sonrası takip videosu (75 sn)</h3>
+<pre><code>[0–10 sn] [Ad], bugünkü görüşme için teşekkürler. Konuştuklarımızı ekibinizle paylaşabilmeniz için kısa bir özet bırakıyorum.
+[10–30 sn] Sizin anlattığınız problem: [müşterinin kendi cümlesi, ör. &quot;ilk siparişten sonra müşteri dönmüyor&quot;]. Elinizde [görüşmede öğrenilen: X aylık sipariş verisi, Y kişilik e-posta listesi] var.
+[30–55 sn] Önerdiğimiz pilot: 30 gün; iki akış: ikinci alım ve tükenme zamanı hatırlatması. Siparişlerinizin %10&#39;u kontrol grubu olarak mesaj almayacak; sonunda iki grubu yan yana koyup size raporlayacağız. Sonuç olumsuz çıkarsa bunu da aynı açıklıkla yazacağız.
+[55–70 sn] Sizden ihtiyacımız: sipariş ve müşteri dosyası (CSV), gönderim alan adınız için iki DNS kaydı ve onaylı e-posta listesi. Verileriniz pilot sonunda isterseniz silinir.
+[70–75 sn] Teklif e-postada. Sorunuz olursa doğrudan bana yazabilirsiniz.
+</code></pre>
+<h2>D. Satış sürecinde güven ve kontrollü pilot</h2>
+<p><strong>Süreç:</strong> Kişiselleştirilmiş mesaj → gerçek problem üzerinden demo → kapsamı net pilot → kurulum desteği → sonuç raporu → şeffaf teklif → abonelik → referans.</p>
+<p><strong>Pilot süresi neden 30 gün?</strong> 14 günlük pilot başlangıç hipotezi olarak değerlendirildi, ancak tekrar alım döngüsü 30–90 gün olan ürünlerde 14 gün yeterli sipariş üretmeyebilir.</p>
+<ul>
+<li><strong>Öneri:</strong> 30 gün gönderim ve 14 gün olgunlaşma (son mesajlardan sonra siparişleri izleme).</li>
+<li>Sipariş hacmi düşükse (&lt; 300/ay) <strong>45–60 gün</strong>.</li>
+<li>Yalnız ikinci alım akışı test ediliyorsa 21 gün kabul edilebilir.</li>
+</ul>
+<h3>Pilot teklif taslağı</h3>
+<pre><code>CALLYPSO ENGAGE — KONTROLLÜ PİLOT TEKLİFİ (Taslak)
+
+Taraflar: CallypsoTech (&quot;Callypso&quot;) ve [Marka] (&quot;Müşteri&quot;)
+Süre: 30 gün gönderim + 14 gün ölçüm. Başlangıç: [tarih].
+
+Kapsam:
+  1) İkinci alım akışı (ilk siparişten [14–21] gün sonra, 1–2 e-posta)
+  2) Tükenme zamanı hatırlatması (ürün bazlı tahmini kullanım süresine göre, 1 e-posta)
+  Kanal: E-posta (Müşterinin kendi alan adından). SMS/WhatsApp kapsam dışı.
+
+Veri ihtiyacı (veri minimizasyonu):
+  Son 12 ayın sipariş dosyası (sipariş no, tarih, müşteri kimliği, e-posta, ürün SKU, adet, tutar)
+  ve pazarlama e-postası onay durumu. Adres ve telefon istenmez.
+
+Sorumluluklar:
+  Callypso: kurulum, şablon taslakları, segment hesaplama, gönderim, haftalık kısa rapor, sonuç raporu.
+  Müşteri: onaylı liste ve onay kanıtının sorumluluğu, metin ve indirim onayı, DNS kayıtları (SPF/DKIM).
+
+Başlangıç metrikleri (pilot öncesi birlikte ölçülür):
+  90 günlük tekrar alım oranı, ortalama sipariş tutarı, e-posta onaylı müşteri sayısı.
+
+Başarı kriteri (önceden yazılır):
+  Mesaj alan grubun 30+14 günlük sipariş oranı kontrol grubundan istatistiksel olarak yüksekse &quot;başarılı&quot;;
+  fark yoksa &quot;sonuçsuz&quot;; düşükse &quot;başarısız&quot;. Her durumda rapor verilir.
+
+Ücret: [Tasarım ortağı: ücretsiz, izinli vaka çalışması karşılığında] veya [Ücretli pilot: X TL + KDV,
+  aboneliğe geçişte ilk aydan düşülür]. Mesaj maliyeti Callypso&#39;ya aittir.
+
+İptal ve veri silme: Müşteri istediği an yazılı bildirimle sonlandırabilir. Pilot bitiminden itibaren 30 gün içinde
+  (veya talep üzerine daha erken) Müşteri verileri silinir ve silme teyidi e-postayla gönderilir.
+
+Ücretliye geçiş: Sonuç raporundan sonra 7 gün içinde [paket adı, aylık TL] teklifi. Otomatik yenileme yoktur.
+
+Gizlilik: Sonuçlar Müşterinin yazılı onayı olmadan yayımlanmaz.
+</code></pre>
+<p><strong>Risk azaltıcı seçenekler:</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Seçenek</th>
+<th>Callypso maliyeti</th>
+<th>Uygulanabilirlik</th>
+<th>Öneri</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ücretsiz tasarım ortaklığı (ilk 3)</td>
+<td>Kurucu zamanı + mesaj maliyeti</td>
+<td>Yüksek</td>
+<td>Evet, yalnız ilk 3</td>
+</tr>
+<tr>
+<td>Ücretli pilot, aboneliğe mahsup</td>
+<td>Düşük</td>
+<td>Yüksek</td>
+<td>4. müşteriden itibaren varsayılan</td>
+</tr>
+<tr>
+<td>&quot;Sonuçsuzsa ikinci ay ücretsiz&quot;</td>
+<td>Bir aylık gelir</td>
+<td>Orta</td>
+<td>Gerekirse</td>
+</tr>
+<tr>
+<td>İlk ay iade garantisi (memnuniyet)</td>
+<td>Bir aylık gelir</td>
+<td>Orta</td>
+<td>Abonelikte değerlendirilebilir</td>
+</tr>
+<tr>
+<td>Gelir/ROI garantisi</td>
+<td>Ölçülemez risk</td>
+<td><strong>Önerilmez.</strong> Kanıtlanamaz ve yanıltıcıdır</td>
+<td>Hayır</td>
+</tr>
+</tbody></table></div>
+<h2>E. Teknik güven ve veri sorumluluğu</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Konu</th>
+<th>Doğrulanan mevcut kontrol</th>
+<th>Eksik kanıt</th>
+<th>Gerekli aksiyon</th>
+<th>Müşteriye dürüst ifade</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Veri işleme rolü</td>
+<td>—</td>
+<td>DPA yok</td>
+<td>Callypso&#39;nun veri işleyen, markanın veri sorumlusu olduğu DPA taslağı (avukat incelemesi)</td>
+<td>&quot;Verilerinizi yalnız sizin talimatınızla, pilot amacıyla işleriz; sözleşmesi şurada.&quot;</td>
+</tr>
+<tr>
+<td>Veri minimizasyonu</td>
+<td>Şema e-posta, telefon ve onay alanları içeriyor</td>
+<td>—</td>
+<td>Pilotta telefon/adres alma</td>
+<td>&quot;Sadece sipariş ve e-posta onayı istiyoruz.&quot;</td>
+</tr>
+<tr>
+<td>Saklama ve silme</td>
+<td>—</td>
+<td>Silme prosedürü yok</td>
+<td>Pilot bitiminden 30 gün sonra silme betiği + teyit e-postası</td>
+<td>&quot;30 gün içinde siliyor ve size teyit gönderiyoruz.&quot;</td>
+</tr>
+<tr>
+<td>Çok kiracılı ayrım</td>
+<td>RLS politikaları <strong>şemada tanımlı</strong> (<code>0001_init.sql</code>)</td>
+<td>Test yok</td>
+<td>İki test workspace&#39;iyle çapraz erişim testi; sonucu belgele</td>
+<td>&quot;Her müşterinin verisi veritabanı seviyesinde ayrılıyor; testi şu tarihte yaptık.&quot;</td>
+</tr>
+<tr>
+<td>Kimlik doğrulama ve erişim</td>
+<td>Demo modunda her girişe izin var</td>
+<td>Gerçek auth yok</td>
+<td>Supabase Auth, en az yetki ilkesi, kurucu dışında erişim yok</td>
+<td>&quot;Verilerinize yalnız kurucu erişir; erişimler loglanır.&quot; (Loglama kurulduktan sonra)</td>
+</tr>
+<tr>
+<td>Entegrasyon izinleri</td>
+<td>—</td>
+<td>—</td>
+<td>Pilotta API anahtarı yerine CSV; sonra yalnız okuma yetkili anahtar</td>
+<td>&quot;Mağazanıza yazma yetkisi istemiyoruz.&quot;</td>
+</tr>
+<tr>
+<td>Şifreleme</td>
+<td>Supabase ve Vercel aktarımda TLS kullanıyor ve diski şifreliyor (sağlayıcı beyanı)</td>
+<td>Callypso&#39;ya özel doğrulama yok</td>
+<td>Sağlayıcı belgelerine link ver</td>
+<td>&quot;Aktarım ve saklamada sağlayıcılarımızın şifrelemesini kullanıyoruz.&quot;</td>
+</tr>
+<tr>
+<td>Loglama</td>
+<td>—</td>
+<td>Yok</td>
+<td>Erişim ve gönderim logları</td>
+<td>Kurulana kadar iddia etme</td>
+</tr>
+<tr>
+<td>Yedekleme ve geri yükleme</td>
+<td>Supabase planına bağlı</td>
+<td>Doğrulanamadı</td>
+<td>Plan seç, geri yükleme testi yap</td>
+<td>Test edilene kadar iddia etme</td>
+</tr>
+<tr>
+<td>Olay yönetimi</td>
+<td>—</td>
+<td>Yok</td>
+<td>1 sayfalık olay prosedürü; 72 saat içinde müşteriye bildirim hedefi</td>
+<td>&quot;Bir ihlal olursa en geç X saat içinde size bildiririz.&quot;</td>
+</tr>
+<tr>
+<td>Alt işleyenler</td>
+<td>—</td>
+<td>Liste yok</td>
+<td>Supabase (bölge), Vercel, Resend; sonra Netgsm/BSP. Yayımla</td>
+<td>Liste</td>
+</tr>
+<tr>
+<td>Yurt dışı aktarım</td>
+<td>—</td>
+<td>Supabase/Resend/Vercel&#39;in sunucu bölgesi doğrulanmadı</td>
+<td>Bölgeyi seç (mümkünse AB). KVKK m.9 kapsamında standart sözleşme gerekip gerekmediğini avukata sor. Standart sözleşmeler imzadan sonra <strong>5 iş günü</strong> içinde Kurum&#39;a bildirilmeli</td>
+<td>Avukat görüşü sonrası</td>
+</tr>
+<tr>
+<td>Destek ve SLA</td>
+<td>—</td>
+<td>—</td>
+<td>&quot;1 iş günü içinde yanıt&quot; hedefi; SLA <strong>garantisi verme</strong></td>
+<td>&quot;Hedefimiz 1 iş günü.&quot;</td>
+</tr>
+<tr>
+<td>Sertifika (ISO 27001, SOC 2)</td>
+<td>Yok</td>
+<td>—</td>
+<td>Şimdilik hedef değil</td>
+<td>&quot;Sertifikamız yok.&quot;</td>
+</tr>
+</tbody></table></div>
+<h3>Mevzuat özeti (Türkiye ve AB)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Alan</th>
+<th>Gereklilik</th>
+<th>Callypso&#39;ya etkisi</th>
+<th>Kaynak</th>
+<th>Uzman incelemesi</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ticari elektronik ileti (6563 sayılı Kanun ve Yönetmelik)</td>
+<td>Tüketiciye (B2C) ticari ileti için <strong>önceden onay</strong> gerekir. <strong>Tacir ve esnafa</strong> önceden onay gerekmez; ancak ret hakkı vardır ve adreslerin gönderimden önce İYS&#39;ye kaydedilmesi gerekir</td>
+<td>Markaların müşterilerine gönderim B2C&#39;dir; onay şart. Callypso&#39;nun markalara cold e-postası B2B&#39;dir; İYS kayıt yükümlülüğü değerlendirilmeli</td>
+<td><a href="https://www.lexpera.com.tr/mevzuat/yonetmelikler/ticari-iletisim-ve-ticari-elektronik-iletiler-hakkinda-yonetmelik">https://www.lexpera.com.tr/mevzuat/yonetmelikler/ticari-iletisim-ve-ticari-elektronik-iletiler-hakkinda-yonetmelik</a> · <a href="https://hukukcularevi.com/ticari-elektronik-ileti-iys-izin-6563-reklam/">https://hukukcularevi.com/ticari-elektronik-ileti-iys-izin-6563-reklam/</a></td>
+<td><strong>Evet.</strong> B2B cold outreach için İYS kaydının nasıl yapılacağı</td>
+</tr>
+<tr>
+<td>İYS entegratörlüğü</td>
+<td>Onay/ret kaydını İYS&#39;ye işleyen firmaların Bakanlık&#39;tan entegratör yetkisi alması gerekiyor (mevcutlar için 31 Mart 2025)</td>
+<td>Callypso müşteri adına İYS&#39;ye kayıt yapacaksa yetki gerekebilir. Alternatif: markanın kendi İYS hesabı veya yetkili entegratör (ör. SMS sağlayıcısı)</td>
+<td><a href="https://ticaret.gov.tr/haberler/entegratorluk-yetkisi-basin-aciklamasi">https://ticaret.gov.tr/haberler/entegratorluk-yetkisi-basin-aciklamasi</a></td>
+<td><strong>Evet</strong></td>
+</tr>
+<tr>
+<td>İdari para cezaları</td>
+<td>25 Aralık 2025 tebliğiyle yeniden değerleme oranında güncellendi</td>
+<td>Uyumsuz gönderim marka için maddi risk; Callypso için itibar riski</td>
+<td><a href="https://hukukcularevi.com/ticari-elektronik-ileti-iys-izin-6563-reklam/">https://hukukcularevi.com/ticari-elektronik-ileti-iys-izin-6563-reklam/</a> (ikincil)</td>
+<td>Güncel tutar Resmî Gazete&#39;den teyit edilmeli</td>
+</tr>
+<tr>
+<td>KVKK — aydınlatma, veri işleyen, yurt dışı aktarım</td>
+<td>Veri işleyen sözleşmesi; yurt dışı aktarımda m.9 güvenceleri; standart sözleşme 5 iş günü içinde bildirim</td>
+<td>Supabase/Resend/Vercel bölgeleri belirleyici</td>
+<td><a href="https://www.kvkk.gov.tr/Icerik/8170/Yurt-Disina-Kisisel-Veri-Aktariminda-Kullanilacak-Standart-Sozlesmelerde-Dikkat-Edilmesi-Gereken-Hususlara-Iliskin-Kamuoyu-Duyurusu">https://www.kvkk.gov.tr/Icerik/8170/Yurt-Disina-Kisisel-Veri-Aktariminda-Kullanilacak-Standart-Sozlesmelerde-Dikkat-Edilmesi-Gereken-Hususlara-Iliskin-Kamuoyu-Duyurusu</a></td>
+<td><strong>Evet</strong></td>
+</tr>
+<tr>
+<td>KVKK — B2B iletişim kişileri</td>
+<td>Cold outreach&#39;te kişi adı ve e-posta kişisel veridir; işleme şartı (meşru menfaat) ve aydınlatma gerekir</td>
+<td>Apollo vb. kaynaklardan veri alırken kaynak ve hukuki dayanak kaydı tutulmalı</td>
+<td>KVKK m.5 ve m.10</td>
+<td><strong>Evet</strong></td>
+</tr>
+<tr>
+<td>GDPR (Avrupa, sonraki aşama)</td>
+<td>Veri işleyen sözleşmesi (m.28), alt işleyen listesi; e-posta pazarlamada ülkeye göre ePrivacy onayı</td>
+<td>Avrupa&#39;ya açılmadan önce AB veri bölgesi ve DPA</td>
+<td>GDPR m.28 (resmî metin: eur-lex.europa.eu)</td>
+<td><strong>Evet</strong></td>
+</tr>
+<tr>
+<td>WhatsApp Business</td>
+<td>İşletme başlatan mesajlarda Meta onaylı şablon ve kullanıcı opt-in&#39;i gerekir; mesaj başı ücret (Temmuz 2025&#39;ten itibaren)</td>
+<td>P2 öncesi politika incelemesi</td>
+<td><a href="https://developers.facebook.com/docs/whatsapp/pricing">https://developers.facebook.com/docs/whatsapp/pricing</a></td>
+<td>Politika kontrolü</td>
+</tr>
+</tbody></table></div>
+<h2>F. Güven aksiyonlarının önceliklendirilmesi</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Aksiyon</th>
+<th>Hedef itiraz</th>
+<th>Kanıt türü</th>
+<th>Efor</th>
+<th>Maliyet [Varsayım]</th>
+<th>Sorumlu</th>
+<th>Bağımlılık</th>
+<th>İlk yayın</th>
+<th>Başarı metriği</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Kurgusal sosyal kanıtı kaldır, Türkçe/TL ve niş mesajı düzelt</td>
+<td>&quot;Bunlar dürüst mü?&quot;</td>
+<td>Sayfa</td>
+<td>4 saat</td>
+<td>0</td>
+<td>Kurucu</td>
+<td>—</td>
+<td><strong>İlk 7 gün</strong></td>
+<td>Sayfada doğrulanamayan iddia kalmaması</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Şirket ve güven sayfası (kurucu, iletişim, entegrasyon durumu, veri özeti, alt işleyenler) + kurumsal alan adı ve e-posta</td>
+<td>&quot;Kim bunlar?&quot;</td>
+<td>Sayfa</td>
+<td>6 saat</td>
+<td>Alan adı ~500–1.000 TL/yıl</td>
+<td>Kurucu</td>
+<td>1</td>
+<td><strong>İlk 7 gün</strong></td>
+<td>Görüşmelerde &quot;kimsiniz&quot; sorusunun azalması</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kuruculu kısa video (genel tanıtım, 60–90 sn)</td>
+<td>&quot;Arkasında biri var mı?&quot;</td>
+<td>Video</td>
+<td>2 saat</td>
+<td>0 (Loom ücretsiz plan)</td>
+<td>Kurucu</td>
+<td>1</td>
+<td><strong>İlk 7 gün</strong></td>
+<td>Video izlenme oranı; görüşme kabulü</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Etkileşimli demo (demo etiketli, 2 dk sesli tur)</td>
+<td>&quot;Çalışıyor mu?&quot;</td>
+<td>Demo</td>
+<td>4 saat</td>
+<td>0</td>
+<td>Kurucu</td>
+<td>1</td>
+<td>İlk 30 gün</td>
+<td>Demo sonrası pilot talebi</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kontrollü pilot paketi (teklif, DPA taslağı, silme prosedürü)</td>
+<td>&quot;Risk alırsam ne olur?&quot;</td>
+<td>Sözleşme ve süreç</td>
+<td>8 saat + avukat</td>
+<td>Avukat görüşü ~5.000–15.000 TL [V]</td>
+<td>Kurucu + avukat</td>
+<td>2</td>
+<td>İlk 30 gün</td>
+<td>Pilot kabul oranı</td>
+</tr>
+<tr>
+<td>6</td>
+<td>RLS çapraz erişim testi ve 1 sayfalık güvenlik notu</td>
+<td>&quot;Verilerim güvende mi?&quot;</td>
+<td>Test raporu</td>
+<td>6 saat</td>
+<td>0</td>
+<td>Kurucu</td>
+<td>Supabase kurulumu</td>
+<td>İlk 30 gün</td>
+<td>Güvenlik sorularına yazılı cevap</td>
+</tr>
+<tr>
+<td>7</td>
+<td>İlk 3–5 pilottan izinli vaka çalışması</td>
+<td>&quot;Sonuç alır mıyım?&quot;</td>
+<td>Vaka</td>
+<td>Pilot başına 4 saat</td>
+<td>0</td>
+<td>Kurucu</td>
+<td>Pilot tamamlanması</td>
+<td>Sonraki 60 gün</td>
+<td>≥2 yayımlanabilir vaka</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Haftalık geliştirme günlüğü</td>
+<td>&quot;Ürün yaşıyor mu?&quot;</td>
+<td>İçerik</td>
+<td>Haftada 0,5 saat</td>
+<td>0</td>
+<td>Kurucu</td>
+<td>—</td>
+<td>İlk 30 gün → sürekli</td>
+<td>Düzenlilik (13 haftada 13 not)</td>
+</tr>
+</tbody></table></div>
+<h2>Belirsizlikler</h2>
+<ul>
+<li>Video ve kurucu görünürlüğünün bu segmentte ne kadar etkili olduğu. Test edilecek.</li>
+<li>İYS ve KVKK&#39;nın B2B cold e-posta ve veri işleyen rolüne uygulanması. Uzman görüşü gerekli.</li>
+<li>Supabase/Resend/Vercel bölge seçimleri.</li>
+</ul>
+<h2>Sonraki aksiyonlar</h2>
+<ol>
+<li>Aksiyon 1–3&#39;ü ilk hafta içinde tamamla.</li>
+<li>Avukattan tek seferlik görüş iste: (a) B2B cold e-posta ve İYS, (b) DPA şablonu, (c) yurt dışı aktarım.</li>
+<li>Video testini ilk 40 hesaplık temas dalgasıyla birlikte başlat.</li>
+</ol>
+<div class="pager"><a href="03-callypso-urun-gap-analizi.html">← 03 — Callypso Engage Ürün ve Boşluk (Gap) Analizi</a><a href="05-satis-ve-musteri-kazanimi.html">05 — Satış ve Müşteri Kazanım Sistemi →</a></div></main></div></body></html>
