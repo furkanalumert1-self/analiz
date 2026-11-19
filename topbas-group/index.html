@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topbaş Group × Callypso</title>
+<meta name="description" content="Topbaş Group için Callypso Export Agent ile B2B müşteri kazanımı ve teklif takibi otomasyon fırsatları. Hazırlayan: CallypsoTech.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F6F3; --card:#FFFFFF; --text:#282522; --muted:#68615C; --accent:#A44732; --border:#E7E1DB;
+  --brand-red:#E2231A; --brand-dark:#10181F; --soft:#F1ECE6; --accent-soft:#F6E9E4;
+  --ok:#3F6B4E; --ok-soft:#E6EFE8; --warn:#8A6516; --warn-soft:#F5EDDA; --info:#3D5A7A; --info-soft:#E5ECF3;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(248,246,243,.92);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;font-size:14px;white-space:nowrap}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--brand-red)}
+.brand span.x{color:var(--muted);font-weight:500}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px;white-space:nowrap}
+.nav a:hover,.nav a.on{background:var(--card);color:var(--text);box-shadow:0 0 0 1px var(--border)}
+@media (max-width:900px){.nav{display:none}}
+
+/* hero */
+.hero{background:var(--brand-dark);color:#F4F1EC;padding:72px 0 64px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:56px solid rgba(226,35,26,.12)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#E9B3A6}
+.hero h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(32px,5vw,54px);line-height:1.1;margin:14px 0 18px;max-width:820px;text-wrap:balance}
+.hero p.lead{font-size:clamp(16px,2vw,19px);max-width:760px;color:#D9D3CC;margin:0 0 28px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#EDE8E2}
+.chip b{color:#fff}
+
+/* sections */
+section.s{padding:72px 0;border-bottom:1px solid var(--border)}
+.s-head{display:grid;grid-template-columns:72px 1fr;gap:8px 20px;margin-bottom:32px}
+.num{font-family:"Source Serif 4",serif;font-size:40px;color:var(--accent);line-height:1}
+.s-head h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.15;margin:0;text-wrap:balance}
+.s-head p{grid-column:2;margin:6px 0 0;color:var(--muted);max-width:760px}
+@media (max-width:640px){.s-head{grid-template-columns:1fr}.s-head p{grid-column:1}.num{font-size:28px}}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.card h3{margin:0 0 6px;font-size:18px;line-height:1.3}
+.card h4{margin:16px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.card p{margin:0 0 10px}
+.card ul{margin:0;padding-left:18px}
+.card li{margin:3px 0}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.xs{font-size:12.5px}
+.co-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--brand-red);margin-bottom:6px}
+.fact{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.fact span{font-size:13px;background:var(--soft);border-radius:8px;padding:4px 10px}
+.src{font-size:12.5px;color:var(--muted)}
+.src a{color:var(--muted)}
+
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.02em;white-space:nowrap}
+.b-ok{background:var(--ok-soft);color:var(--ok)}
+.b-demo{background:var(--warn-soft);color:var(--warn)}
+.b-int{background:var(--info-soft);color:var(--info)}
+.b-dev{background:var(--accent-soft);color:var(--accent)}
+.b-na{background:var(--soft);color:var(--muted)}
+
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow .st{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:6px 10px;font-size:13.5px}
+.flow .st.h{background:var(--accent-soft);border-color:#E6C9BF;color:var(--accent);font-weight:700}
+.flow .ar{color:var(--muted);font-size:13px}
+
+.note{border-left:3px solid var(--accent);background:var(--card);padding:14px 18px;border-radius:0 10px 10px 0;margin:20px 0;font-size:15px}
+.note.warn{border-color:var(--warn)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--card)}
+.tbl th,.tbl td{border-bottom:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--soft)}
+.tbl td.n{text-align:center;font-variant-numeric:tabular-nums;font-weight:700}
+.tbl tr.top td{background:#FBF4F1}
+.tscroll{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r)}
+.tscroll .tbl{min-width:720px}
+
+.pick{display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--accent)}
+.step{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--border)}
+.step:first-of-type{border-top:0}
+.step .i{width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:14px}
+.step b{display:block}
+
+.week{position:relative}
+.week .wk{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:800}
+
+.footer{padding:48px 0 64px;color:var(--muted);font-size:14px}
+.footer ol{padding-left:20px}
+.footer li{margin:4px 0;word-break:break-word}
+
+.kpi-q{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px dashed var(--border)}
+.kpi-q:first-child{border-top:0}
+.kpi-q .t{font-weight:700;min-width:0}
+
+@media print{.top{display:none}.hero{padding:32px 0}section.s{padding:28px 0;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><span class="dot" aria-hidden="true"></span>TOPBAŞ GROUP <span class="x">× Callypso</span></div>
+    <nav class="nav" aria-label="Bölümler">
+      <a href="#anlayis">1 Anlayış</a>
+      <a href="#firsatlar">2 Fırsatlar</a>
+      <a href="#b2b">3 B2B kazanım</a>
+      <a href="#teklif">4 Teklif & takip</a>
+      <a href="#callypso">5 Callypso</a>
+      <a href="#demo">6 Demo</a>
+      <a href="#oncelik">7 Öncelik</a>
+      <a href="#pilot">8 Pilot</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">CallypsoTech · Toplantı sunumu · Kasım 2026</div>
+    <h1>Zincir, dövme ve bağlantı elemanlarında yeni B2B müşterilere ve takip edilen tekliflere giden yol</h1>
+    <p class="lead">ZİMAŞ, TOPÇESAN ve ZCF farklı müşterilere, farklı satın alma döngüleriyle satış yapıyor. Bu sunum, Callypso Export Agent'ın her birinde nerede gerçekçi ve ölçülebilir katkı sağlayabileceğini, neyin bugün demo olduğunu ve 30 günlük bir pilotla neyin test edilebileceğini gösterir.</p>
+    <div class="meta">
+      <span class="chip"><b>3</b> grup şirketi ayrı ayrı analiz edildi</span>
+      <span class="chip"><b>4</b> senaryo · 7 kriterle puanlandı</span>
+      <span class="chip">Kaynaklar sayfa sonunda</span>
+    </div>
+  </div>
+</div>
+
+<!-- 1 -->
+<section class="s" id="anlayis">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">01</div>
+      <h2>Topbaş Group'u nasıl anladık?</h2>
+      <p>Grubun kendi web sitelerinden derlenen bilgiler. Sitelerde birbiriyle çelişen rakamlar da var; bunları aşağıda ayrıca not ettik.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="co-tag">ZİMAŞ · 1976</div>
+        <h3>Transmisyon, konveyör ve taşıyıcı zincirler</h3>
+        <p class="small">Türkiye'de ilk transmisyon zinciri üretimi. Malzeme hazırlığından ısıl işleme kadar entegre üretim, yaklaşık 3.500 zincir çeşidi.</p>
+        <div class="fact"><span>~250 çalışan</span><span>5.000+ ton/yıl ısıl işlem</span><span>IATF 16949 · ISO 9001</span><span>TR / EN / DE site</span></div>
+        <p class="small muted">Ürünler: makaralı (DIN 8187/8188, ISO 606), zirai, fleyer (ISO 4347), pim makaralı, pim çıkıntılı, API-rotary (DIN 8182), dıştan makaralı, kaynak plakalı, kazıyıcı, Gall, yürüyen merdiven zincirleri, stud çivisi.</p>
+        <p class="src">Kaynak: <a href="https://www.zimaszincir.com.tr/" target="_blank" rel="noopener">zimaszincir.com.tr</a></p>
+      </div>
+      <div class="card">
+        <div class="co-tag">TOPÇESAN · 1987</div>
+        <h3>Entegre sıcak dövme ve talaşlı işleme</h3>
+        <p class="small">22.000 m² tesiste dövmehane, kalıphane, ısıl işlem ve talaşlı imalat. Ana müşteri grubu OEM otomotiv üreticileri ile Tier 1–2 yan sanayi.</p>
+        <div class="fact"><span>100+ çalışan</span><span>Ürünlerin %70–80'i ihraç</span><span>PPAP · SOP+3 takip</span></div>
+        <p class="small muted">Ürün grupları: direksiyon ve süspansiyon (tekerlek göbekleri), şasi (aks somunu, aks taşıyıcı), şanzıman (mil mafsalı, dişli kutusu), aftermarket, alüminyum dövme, kardan, maden ve tarım makinesi parçaları.</p>
+        <p class="src">Kaynak: <a href="https://topcesan.com.tr/kurumsal/" target="_blank" rel="noopener">topcesan.com.tr</a> · <a href="https://www.topbasgroup.com.tr/en/products/hot-forming/" target="_blank" rel="noopener">topbasgroup.com.tr</a></p>
+      </div>
+      <div class="card">
+        <div class="co-tag">ZCF · 2015</div>
+        <h3>Soğuk şekillendirme ve bağlantı elemanları</h3>
+        <p class="small">ZİMAŞ'a alt komponent üretimiyle başladı. Bugün cıvata, somun ve bağlantı elemanı üretiyor, kalıplarını da kendisi yapıyor.</p>
+        <div class="fact"><span>200+ ürün çeşidi kapasitesi</span><span>%100 kamera destekli ayıklama</span></div>
+        <p class="small muted">Hedef sektörler: OEM ve Tier 1–2, inşaat, beyaz eşya, mobilya, enerji, rüzgâr santralleri, çelik konstrüksiyon, demiryolu. Tavlama kapasitesinin yaklaşık %70'i ZİMAŞ yarı mamullerine ayrılıyor.</p>
+        <p class="src">Kaynak: <a href="https://www.topbasgroup.com.tr/baglanti-elemanlari/" target="_blank" rel="noopener">topbasgroup.com.tr/baglanti-elemanlari</a> · <a href="https://www.zcf.com.tr/" target="_blank" rel="noopener">zcf.com.tr</a></p>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card">
+        <h3>Grup düzeyinde gördüklerimiz</h3>
+        <ul class="small">
+          <li>Grup yaklaşık 350 kişilik bir kadroyla Bursa Demirtaş OSB'de faaliyet gösteriyor.</li>
+          <li>ZİMAŞ 1983'ten beri Avrupa, Orta Doğu ve komşu ülkelere ihracat yapıyor.</li>
+          <li>Isıl işlem ve laboratuvar altyapısı ortak: ZİMAŞ tesisi, TOPÇESAN parçalarına ısıl işlem ve kalıp nitrasyonu da uyguluyor.</li>
+          <li>Teklif kanalı her sitede aynı: "fiyat teklifi için iletişime geçin" çağrısı, tek telefon ve info@ adresi. ZİMAŞ'ın sektör sayfalarında katalog talep formu da var.</li>
+          <li>ZİMAŞ, müşterilerin zincir talebinde paylaşması gereken 9 teknik parametreyi (hatve, iç genişlik, makara çapı, pim çapı vb.) yayımlıyor.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Bilerek varsaymadığımız şeyler</h3>
+        <ul class="small">
+          <li>Satış veya teklif süreçlerinde sorun olduğunu bilmiyoruz. Toplantıda sorulacak.</li>
+          <li>Hangi CRM ve ERP sistemlerinin kullanıldığı kamuya açık değil.</li>
+          <li>Aylık teklif sayıları, dönüşüm oranları ve sipariş büyüklükleri bilinmiyor. Bu sunumdaki tüm sayısal senaryolar <b>örnek varsayımdır</b>.</li>
+          <li>Sitelerde çelişen bilgiler var: TOPÇESAN'ın kuruluş yılı (1987/1989), ihracat payı (%70/%80) ve çalışan sayıları (250/260/350).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="s" id="firsatlar">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">02</div>
+      <h2>Üç grup şirketinin ticari fırsatları</h2>
+      <p>Üç şirketin iş modelleri farklı olduğu için aynı satış yaklaşımı hepsine uymaz. ZİMAŞ katalog ve distribütör odaklı, TOPÇESAN proje ve nominasyon odaklı, ZCF ise ikisinin arasında bir model izliyor.</p>
+    </div>
+    <div class="tscroll">
+      <table class="tbl">
+        <thead><tr><th style="width:16%"></th><th>ZİMAŞ</th><th>TOPÇESAN</th><th>ZCF</th></tr></thead>
+        <tbody>
+          <tr><td><b>Satış modeli</b></td><td>Standart katalog (DIN/ISO) + özel zincir. Distribütör, bayi ve makine üreticisi.</td><td>Müşteri çizimine göre parça. RFQ → fizibilite → maliyet → nominasyon → PPAP.</td><td>Standart + çizime özel bağlantı elemanı. OEM / Tier ve proje bazlı alım.</td></tr>
+          <tr><td><b>Müşteri tipi</b></td><td>Güç aktarım distribütörleri, ithalatçılar, tarım makinesi, konveyör, forklift, çimento, gıda ve ambalaj ekipmanı üreticileri</td><td>Otomotiv OEM'leri, Tier 1–2 tedarikçiler, tarım makinesi ve maden ekipmanı üreticileri</td><td>Otomotiv Tier 1–2, beyaz eşya, mobilya, enerji (rüzgâr), çelik konstrüksiyon</td></tr>
+          <tr><td><b>Satın alma kararı</b></td><td>Daha kısa döngü. Teknik uyum + fiyat + termin; numune sık görülür.</td><td>Uzun döngü. Kalite onayı, PPAP ve yıllık hacim.</td><td>Orta döngü. Spesifikasyon, sertifika, hacim ve teslim güvenilirliği.</td></tr>
+          <tr><td><b>Otomasyona uygunluk</b></td><td><b>Yüksek.</b> Ürün tanımları açık, alıcılar kamuya açık kaynaklardan bulunabilir.</td><td><b>Seçici.</b> Yeni müşteri bulmada sınırlı, gelen RFQ'ların ön işlenmesinde değerli.</td><td><b>Orta.</b> Önce ürün ve sektör kapsamının netleşmesi gerekir (ZCF'nin ürün sayfası boş).</td></tr>
+          <tr><td><b>İlk fırsat</b></td><td>Hedef pazarlarda distribütör ve makine üreticisi araştırması, uygunluk analizi, onaylı ilk temas</td><td>Gelen RFQ e-postalarında bilgi çıkarma, eksik bilgi kontrolü, yönlendirme ve takip</td><td>Rüzgâr ve çelik konstrüksiyon gibi niş sektörlerde OEM hedef listesi</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src" style="margin-top:10px">Kaynaklar: grup sitesi Mühendislik ve AR-GE sayfası (RFQ ve PPAP süreci), ZİMAŞ "Doğru Zinciri Nasıl Talep Ederiz?" sayfası, ZCF kurumsal sayfası.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="s" id="b2b">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">03</div>
+      <h2>B2B müşteri kazanımında otomasyon fırsatları</h2>
+      <p>Öncelik ZİMAŞ, çünkü ürün tanımları standart, pazar verisi ölçülebilir ve alıcı segmentleri kamuya açık kaynaklardan bulunabilir. Hedef pazarları UN Comtrade verisiyle gerekçelendirdik (HS 731511 makaralı zincir, 2023 ithalatı).</p>
+    </div>
+
+    <div class="flow">
+      <span class="st">Ürün grubu</span><span class="ar">→</span><span class="st">Hedef ülke</span><span class="ar">→</span><span class="st">İthalatçı / distribütör / makine üreticisi</span><span class="ar">→</span><span class="st">Uygunluk analizi</span><span class="ar">→</span><span class="st">Kişisel e-posta taslağı</span><span class="ar">→</span><span class="st h">İnsan onayı</span><span class="ar">→</span><span class="st">Takip</span>
+    </div>
+
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card">
+        <div class="co-tag">PAZAR 1</div>
+        <h3>Almanya</h3>
+        <p class="small"><b>206,6 milyon USD</b> makaralı zincir ithalatı. Türkiye'nin payı yaklaşık <b>%0,3</b> (0,52 milyon USD). Tedarikçiler arasında Çin, Romanya, Japonya ve İtalya öne çıkıyor.</p>
+        <p class="small muted">Neden: en büyük Avrupa pazarı. ZİMAŞ'ın Almanca sitesi var. Hedef segmentler: Antriebstechnik distribütörleri, tarım ve konveyör makinesi üreticileri.</p>
+      </div>
+      <div class="card">
+        <div class="co-tag">PAZAR 2</div>
+        <h3>İtalya</h3>
+        <p class="small"><b>63,4 milyon USD</b> ithalat. Türkiye'nin payı <b>%1,4</b> (0,91 milyon USD) ile bu üç pazarın en yükseği. Türkiye'nin ihracat istatistiğinde de ilk üç alıcı arasında.</p>
+        <p class="small muted">Neden: mevcut bir dayanak var. Güçlü tarım makinesi ve ambalaj makinesi sanayisi. Hedef segment: güç aktarım distribütörleri ve OEM'ler.</p>
+      </div>
+      <div class="card">
+        <div class="co-tag">PAZAR 3</div>
+        <h3>Polonya</h3>
+        <p class="small"><b>48,5 milyon USD</b> ithalat. Türkiye'nin payı yaklaşık <b>%0,2</b>. En büyük tedarikçi Almanya.</p>
+        <p class="small muted">Neden: büyük ve büyüyen bir imalat üssü. Unia, Pronar ve SaMASZ gibi tarım makinesi üreticileri zirai zincir için doğal bir segment oluşturuyor.</p>
+      </div>
+    </div>
+    <p class="src" style="margin-top:10px">Kaynak: UN Comtrade (public API, HS 731511, 2023, raporlayan ülke ithalatı). Alternatif pazar: Kazakistan (8,2 milyon USD ithalat, TR payı %0,9; Türkiye'nin 2. büyük alıcısı). Rakamlar gümrük beyanıdır; ZİMAŞ'ın kendi ihracat dağılımı bilinmiyor.</p>
+
+    <h3 style="margin:36px 0 14px;font-size:20px">İdeal müşteri profilleri</h3>
+    <div class="grid g3">
+      <div class="card small">
+        <div class="co-tag">ZİMAŞ</div>
+        <p><b>Kim:</b> güç aktarım ve rulman distribütörleri, zincir ithalatçıları, tarım ve konveyör makinesi OEM'leri</p>
+        <p><b>Ürün:</b> makaralı (ISO 606), zirai, fleyer (forklift), kazıyıcı zincirler</p>
+        <p><b>Karar verici:</b> satın alma veya kategori müdürü, OEM'de satın alma ve Ar-Ge mühendisi</p>
+        <p><b>Uygunluk kriterleri:</b> DIN/ISO zincir satıyor, Avrupa dışından tedarik ediyor, özel zincir ihtiyacı var</p>
+        <p><b>İlk temas:</b> standart kodlarla eşleşen ürün listesi, 3.500 çeşit ve özel üretim kabiliyeti, numune teklifi</p>
+      </div>
+      <div class="card small">
+        <div class="co-tag">TOPÇESAN</div>
+        <p><b>Kim:</b> otomotiv Tier 1–2 (süspansiyon, şasi, şanzıman), tarım ve maden ekipmanı OEM'leri</p>
+        <p><b>Ürün:</b> sıcak dövme ve işlenmiş parçalar, tekerlek göbeği, mil mafsalı</p>
+        <p><b>Karar verici:</b> emtia satın alma (forging), tedarikçi geliştirme, SQE</p>
+        <p><b>Uygunluk kriterleri:</b> çelik dövme parça alıyor, IATF 16949 tedarikçi istiyor, Avrupa'ya yakın kaynak arıyor</p>
+        <p><b>İlk temas:</b> entegre dövme, ısıl işlem ve işleme kabiliyeti, mevcut OEM referansları (BMW ve Tofaş sitede anılıyor), RFQ davetine açık olunduğu</p>
+      </div>
+      <div class="card small">
+        <div class="co-tag">ZCF</div>
+        <p><b>Kim:</b> beyaz eşya ve mobilya üreticileri, rüzgâr ve çelik konstrüksiyon yüklenicileri, otomotiv Tier 2</p>
+        <p><b>Ürün:</b> cıvata, somun, özel soğuk şekillendirilmiş parçalar</p>
+        <p><b>Karar verici:</b> satın alma, kalite ve tedarikçi geliştirme</p>
+        <p><b>Uygunluk kriterleri:</b> çizime özel bağlantı elemanı ihtiyacı, hacimli seri üretim</p>
+        <p><b>İlk temas:</b> kendi kalıbını yapma kabiliyeti, %100 kamera destekli ayıklama, grup içi ısıl işlem</p>
+      </div>
+    </div>
+    <div class="note small">Gerçek şirket örnekleri yalnızca segmenti göstermek içindir: Almanya'da Mädler (zincir ve güç aktarım ürünleri), İtalya'da Chiaravalli Group (Wippermann zincir distribütörü ve kendi katalogu), Polonya'da Unia, Pronar ve SaMASZ (tarım makinesi). Bu şirketlerin bugün tedarikçi aradığına dair bir bilgimiz yok. İletişim kişileri ve e-posta adresleri pilotta doğrulanarak bulunacak.</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="s" id="teklif">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">04</div>
+      <h2>Teknik teklif ve takip süreçlerinde otomasyon</h2>
+      <p>Topbaş'ın kendi yayımladığı süreçler bir başlangıç noktası sunuyor. Yapay zekâ yalnızca ön değerlendirme, bilgi çıkarma ve taslak hazırlama aşamalarını destekler. Kararlar mühendislerde ve satış ekibinde kalır.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="co-tag">ZİMAŞ · GELEN ZİNCİR TALEBİ</div>
+        <h3>9 parametrelik eksik bilgi kontrolü</h3>
+        <p class="small">ZİMAŞ, doğru teklif için müşteriden şu bilgileri istiyor: zincir no / DIN-ISO kodu, hatve (p), iç genişlik (b1), makara çapı (d3), pim çapı (d1), iç ve dış bakla kalınlığı (s1, s2), bakla yüksekliği (h), sıra sayısı, ek parçalar ve kullanım yeri.</p>
+        <p class="small">Ajan gelen e-postayı bu listeyle karşılaştırır. Eksik alanlar için müşteriye gidecek bir soru taslağı hazırlar ve satış ekibinin onayına sunar.</p>
+        <p class="src">Kaynak: <a href="https://www.zimaszincir.com.tr/dogru-zinciri-nasil-talep-ederiz/" target="_blank" rel="noopener">Doğru Zinciri Nasıl Talep Ederiz?</a></p>
+      </div>
+      <div class="card">
+        <div class="co-tag">TOPÇESAN · OEM RFQ</div>
+        <h3>RFQ ön işleme</h3>
+        <p class="small">Yayımlanan süreç şöyle: teknik resim ve şartname incelemesi → fizibilite → maliyetlendirme → nominasyon → proje planı → PPAP → SOP+3 ay takip.</p>
+        <p class="small">Ajanın rolü yalnızca ilk adımda: e-postadan ve eklerden parça adı, malzeme, yıllık hacim, SOP tarihi ve istenen teslim koşullarını çıkarmak, eksikleri listelemek ve talebi doğru mühendise yönlendirmek.</p>
+        <p class="src">Kaynak: <a href="https://www.topbasgroup.com.tr/yetkinlikler/muhendislik-ve-ar-ge/" target="_blank" rel="noopener">Mühendislik ve AR-GE</a></p>
+      </div>
+    </div>
+    <div class="flow" style="margin-top:20px">
+      <span class="st">Teklif oluşturuldu</span><span class="ar">→</span><span class="st">Gönderildi</span><span class="ar">→</span><span class="st">Yanıt bekleniyor</span><span class="ar">→</span><span class="st">Takip zamanı</span><span class="ar">→</span><span class="st">Hatırlatma taslağı</span><span class="ar">→</span><span class="st h">Satış onayı</span><span class="ar">→</span><span class="st">Yanıt sınıflandırma</span><span class="ar">→</span><span class="st">Ekibe bildirim</span>
+    </div>
+    <div class="note warn small"><b>Değişmez kural:</b> teknik uygunluk, üretilebilirlik, maliyet, fiyat ve termin kararları yetkili mühendis ve satış ekibine aittir. Ajan fiyat önermez ve müşteriye onaysız hiçbir e-posta göndermez. Gizli teknik resimler pilot boyunca yalnızca Topbaş'ın onayladığı ortamda işlenir.</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="s" id="callypso">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">05</div>
+      <h2>Callypso Export Agent nasıl çalışır?</h2>
+      <p>Uygulamayı 19 Kasım 2026'da inceledik. Bugünkü sürüm, "Atlas Office Furniture" adlı kurgusal bir şirketle hazırlanmış etkileşimli bir demo. Uygulama da bunu açıkça belirtiyor: "Gerçek yapay zekâ bağlı değildir" ve "Örnek veri, gerçek araştırma yapılmaz".</p>
+    </div>
+    <div class="grid g4" style="margin-bottom:18px">
+      <div class="card small"><span class="badge b-ok">Mevcut ve doğrulandı</span><p style="margin-top:8px">Arayüz ve iş akışı: talep listesi, müşteri kartı, teklif tablosu, takip görevleri, onay kuyruğu (onayla, düzenle, reddet), ürün kataloğu</p></div>
+      <div class="card small"><span class="badge b-demo">Demo / simülasyon</span><p style="margin-top:8px">Ajan sohbeti (önceden tanımlı yanıtlar), talepten bilgi çıkarma, müşteri bulma (6 kurgusal aday), teklif hesaplama, e-posta "gönderimi"</p></div>
+      <div class="card small"><span class="badge b-int">Entegrasyonla mümkün</span><p style="margin-top:8px">E-posta kutusu (IMAP veya Graph), CRM ve ERP veri aktarımı, kamuya açık şirket verisi kaynakları</p></div>
+      <div class="card small"><span class="badge b-dev">Geliştirme gerekli</span><p style="margin-top:8px">Gerçek LLM bağlantısı, teknik resim veya PDF'ten bilgi çıkarma, Topbaş ürün yapısı (zincir kodları, 9 parametre), çok şirketli kullanım</p></div>
+    </div>
+    <div class="tscroll">
+      <table class="tbl">
+        <thead><tr><th>Kullanım alanı</th><th>Uygulamadaki karşılığı</th><th>Durum</th></tr></thead>
+        <tbody>
+          <tr><td>B2B potansiyel müşteri bulma</td><td>Müşteri Bulma: ülke, ürün grubu ve müşteri tipi filtreleri</td><td><span class="badge b-demo">Demo</span> <span class="badge b-dev">Gerçek veri için geliştirme</span></td></tr>
+          <tr><td>İthalatçı ve distribütör araştırması</td><td>"Hedef pazarda müşteri araştır" komutu</td><td><span class="badge b-demo">Demo</span></td></tr>
+          <tr><td>Müşteri uygunluk analizi</td><td>Görünür bir puanlama yok</td><td><span class="badge b-dev">Geliştirme</span></td></tr>
+          <tr><td>Kişisel ilk temas e-postası</td><td>Onay kuyruğundaki e-posta taslakları</td><td><span class="badge b-demo">Demo</span></td></tr>
+          <tr><td>Gelen yanıtların sınıflandırılması</td><td>Talep durumları (Yeni, Teklife hazır, Teklif verildi)</td><td><span class="badge b-demo">Demo</span> <span class="badge b-int">E-posta entegrasyonu</span></td></tr>
+          <tr><td>Teklif taleplerinin analizi</td><td>Talepler: ürün, miktar, ülke, teslim şekli ve eksikler</td><td><span class="badge b-demo">Demo</span></td></tr>
+          <tr><td>Teknik dokümandan bilgi çıkarma</td><td>Yok</td><td><span class="badge b-dev">Geliştirme</span></td></tr>
+          <tr><td>Teklif taslağı</td><td>Katalog fiyatıyla teklif hesaplama (demo adım 5)</td><td><span class="badge b-demo">Demo</span> · dövme parçalar için uygun değil</td></tr>
+          <tr><td>Teklif sonrası takip</td><td>Teklif durumu, takip tarihi, geciken görev, takip mesajı taslağı</td><td><span class="badge b-ok">Akış mevcut</span> <span class="badge b-demo">Veri demo</span></td></tr>
+          <tr><td>CRM ve e-posta entegrasyonu</td><td>"ERP senkronizasyonu kapsam dışı" notu var</td><td><span class="badge b-na">Doğrulanamadı / yok</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src" style="margin-top:10px">Kaynak: <a href="https://callypsoagent-callypso-export-agent.vercel.app/" target="_blank" rel="noopener">callypsoagent-callypso-export-agent.vercel.app</a> (Genel Bakış, Ajan, Talepler, Müşteri Bulma, Müşteriler, Teklifler, Ürünler ve Onaylar sayfaları incelendi; sayfalar herhangi bir harici API çağrısı yapmıyor).</p>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="s" id="demo">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">06</div>
+      <h2>Topbaş Group'a özel demo senaryoları</h2>
+      <p>İki adet 60–90 saniyelik Loom akışı. Her ikisi de mevcut demo arayüzü üzerinden anlatılır ve ekranda "simülasyon" olarak işaretlenir. Topbaş verileri canlı sisteme girilmez.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <span class="badge b-demo">Simülasyon</span>
+        <h3 style="margin-top:10px">Demo 1: ZİMAŞ zirai zincir · Polonya</h3>
+        <div class="flow"><span class="st">Zirai zincir</span><span class="ar">→</span><span class="st">Polonya</span><span class="ar">→</span><span class="st">Tarım makinesi OEM'leri + distribütörler</span><span class="ar">→</span><span class="st">Uygunluk</span><span class="ar">→</span><span class="st">İlk temas</span><span class="ar">→</span><span class="st">Takip</span></div>
+        <p class="small"><b>Ekranlar:</b> Müşteri Bulma → Müşteriler → Onaylar → Teklifler (takip görevi)</p>
+        <p class="small"><b>Örnek veri:</b> ürün "Zirai zincir (ZİMAŞ katalog grubu)". Adaylar kurgusal; bir segment notu: "Polonya'da tarım makinesi üreticisi, ISO 606 tahrik zinciri kullanıyor (doğrulanacak)".</p>
+        <p class="small"><b>İzleyicinin göreceği fayda:</b> araştırma, uygunluk gerekçesi ve e-posta taslağının tek akışta hazırlanması; gönderim kararının insanda kalması.</p>
+      </div>
+      <div class="card">
+        <span class="badge b-demo">Simülasyon</span>
+        <h3 style="margin-top:10px">Demo 2: TOPÇESAN tekerlek göbeği RFQ</h3>
+        <div class="flow"><span class="st">RFQ e-postası</span><span class="ar">→</span><span class="st">Bilgi çıkarma</span><span class="ar">→</span><span class="st">Eksikler</span><span class="ar">→</span><span class="st">Mühendise yönlendirme</span><span class="ar">→</span><span class="st">Yanıt taslağı</span><span class="ar">→</span><span class="st">Takip</span></div>
+        <p class="small"><b>Ekranlar:</b> Talepler → Ajan → Onaylar → Teklifler</p>
+        <p class="small"><b>Örnek veri:</b> kurgusal bir Tier 1 müşterisinden "front wheel hub, forged steel, 40.000 adet/yıl" talebi. Teknik resim yok, malzeme sınıfı belirtilmemiş, SOP tarihi eksik.</p>
+        <p class="small"><b>İzleyicinin göreceği fayda:</b> eksik bilginin ilk gün tespit edilmesi, talebin doğru mühendise gitmesi, fiyat yazılmadan yanıt taslağı hazırlanması.</p>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:14px">Konuşma metinleri, kapanış cümleleri ve ekran sırası toplantı dosyasında ayrıca yer alıyor.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="s" id="oncelik">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">07</div>
+      <h2>Öncelikli otomasyon fırsatı ve olası iş etkisi</h2>
+      <p>Dört senaryoyu 7 kriterle 1–5 arasında puanladık (5 = en elverişli). Puanlar, kamuya açık bilgiler ve uygulamanın bugünkü durumu üzerinden verilmiş ön değerlendirmelerdir.</p>
+    </div>
+    <div class="tscroll">
+      <table class="tbl">
+        <thead><tr><th>Senaryo</th><th>Ticari değer</th><th>Uygulama kolaylığı</th><th>Ürünle uyum</th><th>Entegrasyon (5 = az)</th><th>Veri erişimi</th><th>Pilot</th><th>Ölçülebilirlik</th><th>Toplam</th></tr></thead>
+        <tbody>
+          <tr class="top"><td><b>A</b> · ZİMAŞ yeni ihracat müşterileri</td><td class="n">5</td><td class="n">4</td><td class="n">4</td><td class="n">4</td><td class="n">4</td><td class="n">5</td><td class="n">4</td><td class="n">30</td></tr>
+          <tr class="top"><td><b>D</b> · Grup geneli teklif takibi</td><td class="n">4</td><td class="n">4</td><td class="n">5</td><td class="n">3</td><td class="n">3</td><td class="n">4</td><td class="n">5</td><td class="n">28</td></tr>
+          <tr><td><b>C</b> · ZCF OEM müşteri kazanımı</td><td class="n">4</td><td class="n">3</td><td class="n">3</td><td class="n">4</td><td class="n">3</td><td class="n">3</td><td class="n">3</td><td class="n">23</td></tr>
+          <tr><td><b>B</b> · TOPÇESAN teknik RFQ</td><td class="n">4</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td class="n">2</td><td class="n">3</td><td class="n">3</td><td class="n">19</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <div class="pick">Seçim 1 · Senaryo A</div>
+        <p class="small">Ürünler standart kodlarla tanımlı ve hedef pazar verisi var. Alıcılar kamuya açık kaynaklardan bulunabilir ve gizli veri gerektirmez. Müşteri Bulma ve Onaylar ekranlarının akışı doğrudan karşılık buluyor. Gerçek araştırma için veri kaynağı bağlantısı geliştirilmesi gerekiyor.</p>
+      </div>
+      <div class="card">
+        <div class="pick">Seçim 2 · Senaryo D (ZİMAŞ zincir talebi kontrolüyle)</div>
+        <p class="small">Teklif takibi, uygulamada en olgun akış: durumlar, takip tarihi, geciken görevler ve onaylı hatırlatma burada hazır. ZİMAŞ'ın 9 parametrelik talep listesiyle birleştiğinde gelen talepler de kapsama giriyor. TOPÇESAN RFQ'su gizlilik ve teknik resim gereksinimleri nedeniyle ikinci faza bırakıldı.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:36px 0 12px;font-size:20px">Olası iş etkisi · örnek varsayımlar</h3>
+    <p class="small muted" style="margin:0 0 14px">Aşağıdaki tüm girdiler <b>örnek varsayımdır</b>; Topbaş'ın gerçek verisiyle güncellenecektir. Bunlar sonuç değil, hesap modelidir.</p>
+    <div class="grid g2">
+      <div class="tscroll">
+        <table class="tbl" style="min-width:0">
+          <thead><tr><th>A · B2B kazanım (3 ay)</th><th>Temkinli</th><th>Orta</th><th>İyimser</th></tr></thead>
+          <tbody>
+            <tr><td>Araştırılan şirket</td><td class="n">600</td><td class="n">600</td><td class="n">600</td></tr>
+            <tr><td>Uygun müşteri oranı</td><td class="n">%30</td><td class="n">%40</td><td class="n">%50</td></tr>
+            <tr><td>Onaylı temas sayısı</td><td class="n">180</td><td class="n">240</td><td class="n">300</td></tr>
+            <tr><td>Yanıt oranı</td><td class="n">%4</td><td class="n">%6</td><td class="n">%9</td></tr>
+            <tr><td>Teklif fırsatı (yanıtların)</td><td class="n">%30 → 2</td><td class="n">%40 → 6</td><td class="n">%50 → 13</td></tr>
+            <tr><td>Satışa dönüşüm</td><td class="n">%15</td><td class="n">%20</td><td class="n">%25</td></tr>
+            <tr><td>Ortalama ilk sipariş (örnek)</td><td class="n">€10.000</td><td class="n">€15.000</td><td class="n">€20.000</td></tr>
+            <tr><td><b>Beklenen ilk sipariş değeri</b></td><td class="n">~€3.200</td><td class="n">~€17.300</td><td class="n">~€67.500</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tscroll">
+        <table class="tbl" style="min-width:0">
+          <thead><tr><th>D · Teklif ve takip (aylık)</th><th>Temkinli</th><th>Orta</th><th>İyimser</th></tr></thead>
+          <tbody>
+            <tr><td>Aylık teklif talebi</td><td class="n">80</td><td class="n">120</td><td class="n">160</td></tr>
+            <tr><td>Talep başına ön işlem süresi</td><td class="n">45 dk</td><td class="n">45 dk</td><td class="n">45 dk</td></tr>
+            <tr><td>Desteklenebilir oran</td><td class="n">%30</td><td class="n">%45</td><td class="n">%60</td></tr>
+            <tr><td>Destekli işlem + insan kontrolü</td><td class="n">20 dk</td><td class="n">15 dk</td><td class="n">12 dk</td></tr>
+            <tr><td><b>Aylık zaman tasarrufu</b></td><td class="n">10 saat</td><td class="n">27 saat</td><td class="n">53 saat</td></tr>
+            <tr><td>Saatlik tam maliyet (örnek)</td><td class="n">₺600</td><td class="n">₺800</td><td class="n">₺1.000</td></tr>
+            <tr><td><b>Aylık operasyonel etki</b></td><td class="n">₺6.000</td><td class="n">₺21.600</td><td class="n">₺52.800</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:12px">Not: Senaryo A'da sipariş döngüsü (numune ve onay) 3 ayı aşabilir; erken dönemde en anlamlı gösterge, nitelikli teklif fırsatı sayısıdır. Senaryo D'nin asıl değeri, zaman tasarrufundan çok takipsiz kalan teklif sayısının azalmasıdır ve bu ancak pilotta ölçülebilir.</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="s" id="pilot">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="num">08</div>
+      <h2>30 günlük pilot planı</h2>
+      <p>Tek grup şirketi, tek ürün grubu ve tek pazarla sınırlı bir pilot öneriyoruz: ZİMAŞ, bir zincir ailesi ve bir ülke. Bunlara ek olarak mevcut açık tekliflerin takibi. Müşteriye giden her e-posta insan onayından geçer.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card week small">
+        <div class="wk">1. Hafta · Araştırma</div>
+        <ul>
+          <li>Öncelikli şirket ve ürün grubunun teyidi</li>
+          <li>Hedef müşteri profili ve uygunluk kriterleri</li>
+          <li>Mevcut talep ve teklif sürecinin haritası</li>
+          <li>Başlangıç ölçümleri: talep başına süre, açık teklif sayısı, takip gecikmesi</li>
+        </ul>
+      </div>
+      <div class="card week small">
+        <div class="wk">2. Hafta · Yapılandırma</div>
+        <ul>
+          <li>Hedef liste kaynakları ve veri alanları</li>
+          <li>9 parametrelik talep şablonu</li>
+          <li>Onay akışı: kim onaylar, kim gönderir</li>
+          <li>EN, DE ve PL e-posta taslakları</li>
+          <li>E-posta ve CRM/ERP entegrasyon ihtiyacı (dışa aktarımla da başlanabilir)</li>
+        </ul>
+      </div>
+      <div class="card week small">
+        <div class="wk">3. Hafta · Kontrollü uygulama</div>
+        <ul>
+          <li>İnsan onaylı ilk temaslar (küçük parti)</li>
+          <li>Açık teklifler için takip taslakları</li>
+          <li>Satış ekibinin her taslağı puanlaması</li>
+          <li>Hata ve istisna kaydı</li>
+        </ul>
+      </div>
+      <div class="card week small">
+        <div class="wk">4. Hafta · Ölçüm</div>
+        <ul>
+          <li>Araştırılan ve uygun bulunan şirket sayısı</li>
+          <li>Yanıt ve olumlu dönüş oranı</li>
+          <li>Talep başına ön işlem süresi (öncesi ve sonrası)</li>
+          <li>Zamanında takip edilen teklif sayısı</li>
+          <li>Oluşan nitelikli fırsatlar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note small">KPI'lar yalnızca pilotta gerçekten uygulanan süreçler için raporlanır. Uygulamadığımız bir süreç için sonuç gösterilmez. Başarı ölçütleri toplantıda Topbaş ekibiyle birlikte belirlenecek.</div>
+
+    <div class="card" style="margin-top:18px">
+      <h3>Pilot öncesi netleşmesi gerekenler</h3>
+      <div class="grid g2 small" style="margin-top:8px">
+        <div>
+          <div class="kpi-q"><span class="t">1.</span><span>Hangi grup şirketinde yeni müşteri kazanımı öncelikli?</span></div>
+          <div class="kpi-q"><span class="t">2.</span><span>Hangi ürün grubu ve pazar büyütülmek isteniyor?</span></div>
+          <div class="kpi-q"><span class="t">3.</span><span>Teknik talepler hangi kanallardan geliyor ve teklifler nerede tutuluyor?</span></div>
+        </div>
+        <div>
+          <div class="kpi-q"><span class="t">4.</span><span>Hangi CRM, ERP ve e-posta sistemleri kullanılıyor?</span></div>
+          <div class="kpi-q"><span class="t">5.</span><span>Veriler hangi ortamda işlenebilir, gizlilik sınırları neler?</span></div>
+          <div class="kpi-q"><span class="t">6.</span><span>Pilotun başarılı sayılması için hangi sonuç gerekli?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <h3 style="color:var(--text);font-size:18px">Kaynaklar</h3>
+    <ol class="xs">
+      <li><a href="https://topbasgroup.com.tr/" target="_blank" rel="noopener">topbasgroup.com.tr</a>: <a href="https://topbasgroup.com.tr/grup-sirketleri/" target="_blank" rel="noopener">Grup şirketleri</a>, <a href="https://topbasgroup.com.tr/urunler/" target="_blank" rel="noopener">Ürünler</a>, <a href="https://topbasgroup.com.tr/yetkinlikler/" target="_blank" rel="noopener">Yetkinlikler</a>, <a href="https://topbasgroup.com.tr/hakkimizda/" target="_blank" rel="noopener">Hakkımızda</a>, <a href="https://topbasgroup.com.tr/en/about-us/" target="_blank" rel="noopener">About us</a></li>
+      <li><a href="https://www.topbasgroup.com.tr/yetkinlikler/muhendislik-ve-ar-ge/" target="_blank" rel="noopener">Mühendislik ve AR-GE (RFQ, PPAP, SOP+3)</a> · <a href="https://www.topbasgroup.com.tr/baglanti-elemanlari/" target="_blank" rel="noopener">Bağlantı elemanları (ZCF)</a> · <a href="https://www.topbasgroup.com.tr/en/products/hot-forming/" target="_blank" rel="noopener">Hot forming (TOPÇESAN)</a></li>
+      <li><a href="https://www.zimaszincir.com.tr/" target="_blank" rel="noopener">zimaszincir.com.tr</a> · <a href="https://www.zimaszincir.com.tr/sektorel-endustriyel-zincir-cozumleri/" target="_blank" rel="noopener">Sektörel çözümler</a> · <a href="https://www.zimaszincir.com.tr/dogru-zinciri-nasil-talep-ederiz/" target="_blank" rel="noopener">Doğru zinciri nasıl talep ederiz?</a> · <a href="https://www.zimaszincir.com.tr/yetkinlikler/" target="_blank" rel="noopener">Yetkinlikler</a></li>
+      <li><a href="https://topcesan.com.tr/kurumsal/" target="_blank" rel="noopener">topcesan.com.tr/kurumsal</a> · <a href="https://topcesan.com.tr/urunler/" target="_blank" rel="noopener">Ürünler</a></li>
+      <li><a href="https://www.zcf.com.tr/" target="_blank" rel="noopener">zcf.com.tr</a> · <a href="https://www.zcf.com.tr/kurumsal/" target="_blank" rel="noopener">Kurumsal</a></li>
+      <li>UN Comtrade, HS 731511, 2023 (public API): <a href="https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=276&period=2023&cmdCode=731511&flowCode=M" target="_blank" rel="noopener">Almanya</a>, <a href="https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=380&period=2023&cmdCode=731511&flowCode=M" target="_blank" rel="noopener">İtalya</a>, <a href="https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=616&period=2023&cmdCode=731511&flowCode=M" target="_blank" rel="noopener">Polonya</a>, <a href="https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=792&period=2023&cmdCode=731511&flowCode=X" target="_blank" rel="noopener">Türkiye ihracatı</a></li>
+      <li>Segment örnekleri: <a href="https://www.fmb-messe.de/en/exhibitors/madler-gmbh-241587/" target="_blank" rel="noopener">Mädler (FMB)</a>, <a href="https://chiaravalli.com/en/products/industrial/wippermann-roller-chain" target="_blank" rel="noopener">Chiaravalli Group</a>, <a href="https://www.agriland.ie/?p=338811" target="_blank" rel="noopener">Polonya tarım makinesi üreticileri (Agriland)</a></li>
+      <li>Ürün incelemesi: <a href="https://callypsoagent-callypso-export-agent.vercel.app/" target="_blank" rel="noopener">Callypso Export Agent (demo)</a>, 19.11.2026</li>
+    </ol>
+    <p class="xs" style="margin-top:20px">Hazırlayan: CallypsoTech. Bu sunum Topbaş Group'un kamuya açık bilgilerine dayanır; gizli teknik resim, müşteri fiyatı veya özel veri içermez. Topbaş Group adı ve marka renkleri yalnızca müşteriyi tanımlamak için kullanılmıştır; bu sayfa Topbaş Group tarafından yayımlanmamıştır.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  if(!('IntersectionObserver' in window)||!links.length)return;
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('on')});var a=map[e.target.id];if(a)a.classList.add('on')}})},{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('section.s').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
