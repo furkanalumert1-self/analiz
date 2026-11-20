@@ -212,6 +212,51 @@ Takip e-postaları: gün 0 / 2 / 5 / 9 / 14. Cold e-postada ancak 2. veya 3. tak
 
 ---
 
+## 10. İhracat için ayrı Instagram sayfası (kitle toplama amacıyla)
+
+**Soru:** @sepetrontgeni gibi genel gönderilerle ihracatçı kitlesi toplayan bir sayfa açılmalı mı?
+
+**Cevap (🟡): Evet, ama şirket hesabı olarak değil medya/konu sayfası olarak, 90 günlük test şeklinde.**
+
+**Kanıt (✅ Apify, 20.11.2026):**
+
+| Hesap | Takipçi | Gönderi | Etkileşim |
+|---|---|---|---|
+| @ihracatinmedyasi (konu/medya) | 38.654 | 212 | Ort. 99 beğeni, 2,2 yorum |
+| @tradeatlas (şirket) | 2.262 | 967 | Ort. 1,8 beğeni, 0 yorum |
+| @exportminers (ajans) | 1.538 | 183 | Ort. 1,8 beğeni, 0 yorum |
+| @bilvio (şirket) | 276 | 346 | Son gönderi verisi dönmedi |
+| #ihracat (31 gönderi) | — | — | Medyan 44 beğeni. Öne çıkanlar: destek/mevzuat yorumu, gerçek sipariş hikâyesi (240 beğeni, 63 yorum), görüş paylaşımı |
+| @sepetrontgeni | 6 | 38 | 0–20 beğeni |
+
+**Yorum:**
+- Instagram'da ihracatçı kitlesi var ve konu sayfası formatında toplanabiliyor.
+- Ürün tanıtan şirket hesapları ise etkileşim almıyor.
+- Ayrışma alanı boş görünüyor: büyük hesap haber veriyor, “tekliften siparişe pratik satış taktikleri” veren bir sayfa görünmüyor.
+- Risk: Aynı format e-ticarette henüz tutmadı (@sepetrontgeni: 6 takipçi). Önce aşağıdaki dersler uygulanmalı.
+
+**Nasıl yapılmalı:**
+- **İsim:** “İhracat Röntgeni” veya “Teklif Röntgeni”. Kullanıcı adının müsait olup olmadığı kontrol edilmedi.
+- **Ritim:** Haftada 3 gönderi, LinkedIn'deki içeriklerden üretilerek:
+  1. Gündem/destek yorumu
+  2. Sahadan hikâye veya pazar efsanesi
+  3. Şablon gönderisi (“ŞABLON” yazana DM ile 3 İngilizce takip e-postası)
+- **@sepetrontgeni'den dersler:**
+  - İlk 2 saniyede kanca (rakam veya soru)
+  - Yüz ya da ses kullanımı
+  - Bio'da net bir vaat
+  - Otomatik DM
+  - İlk 1.000 takipçi için iş birliği ve dış kanallardan yönlendirme (hesap sıfırdan kendiliğinden büyümez)
+- **Takipçiden müşteriye akış:** Takip → PDF (DM) → bio linkindeki ücretsiz Teklif Röntgeni testi → 30 dk analiz görüşmesi → Export Agent pilotu.
+- **90 gün hedefleri (🔵 varsayım):**
+  - 30. gün: 150+ takipçi, 10 PDF talebi
+  - 60. gün: 500+ takipçi, ilk 3 test
+  - 90. gün: 1.000+ takipçi ve en az 1 görüşme adayı
+  - Tutmazsa emek outbound'a kaydırılır.
+- **LinkedIn'in rolü:** Karar vericiye doğrudan ulaşan ana satış kanalı olarak kalır.
+
+---
+
 ## Doğrulanamayanlar / sınırlar
 - Cold e-postaların hangi alan adından ve hangi araçla gönderildiği bilinmiyor. Teslim edilebilirlik bulgusu bu yüzden 🟡.
 - Engage dashboard'unun giriş arkası incelenmedi; yalnızca “Demo ile devam et” girişi görüldü.

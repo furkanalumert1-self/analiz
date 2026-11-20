@@ -24,6 +24,7 @@ import {
   EXPORT_MAGNET,
   PRO_LOOK,
   LEAD_CAPTURE,
+  EXPORT_SOCIAL,
   type Product,
 } from "@/lib/data";
 import { resetAll, usePersistent, type CheckMap, type NoteMap } from "@/lib/store";
@@ -647,9 +648,10 @@ function Roadmap({ checks, toggle }: Ctx) {
 
 /* ----------------------------------------------------------------- Site & Lead */
 function SiteLead({ checks, toggle }: Ctx) {
-  const [tab, setTab] = useState<"mimari" | "rontgen" | "gorunum" | "form">("rontgen");
+  const [tab, setTab] = useState<"ig" | "mimari" | "rontgen" | "gorunum" | "form">("ig");
   const tabs = [
-    ["rontgen", "İhracat Teklif Röntgeni"],
+    ["ig", "İhracat için Instagram?"],
+    ["rontgen", "İhracat analiz sayfası (test)"],
     ["form", "Form ile e-posta toplama"],
     ["gorunum", "Profesyonel görünüm"],
     ["mimari", "Site yapısı & demo akışı"],
@@ -667,10 +669,72 @@ function SiteLead({ checks, toggle }: Ctx) {
         ))}
       </div>
 
+      {tab === "ig" && (
+        <div className="space-y-4">
+          <Card className="border-accent">
+            <div className="flex items-center justify-between gap-2"><div className="font-semibold">{EXPORT_SOCIAL.question}</div><StatusBadge status={EXPORT_SOCIAL.status} /></div>
+            <p className="mt-2 text-sm font-medium">{EXPORT_SOCIAL.verdict}</p>
+          </Card>
+          <Card>
+            <div className="mb-1 font-medium">Kanıt: Instagram'da ihracat içeriği kime işliyor?</div>
+            <p className="mb-3 text-xs text-muted">Apify ile 20 Kasım 2026'da çekildi. Ortalama beğeni son gönderilerden hesaplandı.</p>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px] text-sm">
+                <thead className="text-left text-xs text-muted"><tr><th className="py-2 pr-3">Hesap</th><th className="py-2 pr-3">Takipçi</th><th className="py-2 pr-3">Gönderi</th><th className="py-2 pr-3">Etkileşim</th><th className="py-2">Not</th></tr></thead>
+                <tbody>{EXPORT_SOCIAL.evidence.map((r) => <tr key={r.account} className="border-t border-line align-top"><td className="py-2 pr-3 font-medium">{r.account}</td><td className="py-2 pr-3 tabular-nums">{r.followers}</td><td className="py-2 pr-3 tabular-nums">{r.posts}</td><td className="py-2 pr-3">{r.engagement}</td><td className="py-2 text-muted">{r.note}</td></tr>)}</tbody>
+              </table>
+            </div>
+            <div className="mt-2"><StatusBadge status="dogrulandi" /></div>
+          </Card>
+          <Card>
+            <div className="font-medium">Gerekçeler</div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{EXPORT_SOCIAL.reasons.map((x) => <li key={x}>{x}</li>)}</ul>
+          </Card>
+          <div className="grid gap-3 md:grid-cols-2">
+            {EXPORT_SOCIAL.plan.map((p) => (
+              <Card key={p.channel} className="!p-4">
+                <div className="flex items-center justify-between gap-2"><div className="font-medium">{p.channel}</div><Tag>{p.cadence}</Tag></div>
+                <p className="mt-1.5 text-sm text-muted">{p.what}</p>
+              </Card>
+            ))}
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <Card>
+              <div className="font-medium">@sepetrontgeni'den alınacak dersler</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{EXPORT_SOCIAL.lessons.map((x) => <li key={x}>{x}</li>)}</ul>
+            </Card>
+            <Card>
+              <div className="font-medium">Takipçiden müşteriye akış</div>
+              <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm">{EXPORT_SOCIAL.funnel.map((x) => <li key={x}>{x}</li>)}</ol>
+              <div className="mt-4 font-medium">İsim ve bio</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">{EXPORT_SOCIAL.naming.map((x) => <li key={x}>{x}</li>)}</ul>
+            </Card>
+          </div>
+          <Card>
+            <div className="mb-3 font-medium">İçerik serileri (haftada 3, Instagram + LinkedIn)</div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {EXPORT_SOCIAL.series.map((x, i) => (
+                <div key={x.title} className="rounded-lg border border-line p-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Check checked={!!checks["ES" + i]} onChange={(v) => toggle("ES" + i, v)} label={<span className="font-medium">{x.title}</span>} />
+                    <span className="ml-auto"><Tag>{x.format}</Tag></span>
+                  </div>
+                  <p className="mt-1.5 pl-6.5 text-sm text-muted">{x.example}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+          <Card>
+            <div className="flex items-center justify-between gap-2"><div className="font-medium">90 günlük test hedefleri</div><StatusBadge status="ornek" /></div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{EXPORT_SOCIAL.kpis.map((x) => <li key={x}>{x}</li>)}</ul>
+          </Card>
+        </div>
+      )}
+
       {tab === "rontgen" && (
         <div className="space-y-4">
           <Card className="border-accent">
-            <div className="flex items-center justify-between gap-2"><div className="font-semibold">{EXPORT_MAGNET.name}: oluşturmalı mıyım?</div><StatusBadge status="cikarim" /></div>
+            <div className="flex items-center justify-between gap-2"><div className="font-semibold">Web sitesinde {EXPORT_MAGNET.name} test sayfası</div><StatusBadge status="cikarim" /></div>
             <p className="mt-2 text-sm">{EXPORT_MAGNET.verdict}</p>
           </Card>
           <div className="grid gap-4 md:grid-cols-2">

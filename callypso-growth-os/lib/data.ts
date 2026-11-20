@@ -44,6 +44,10 @@ export const SOURCES = [
   { id: "s-exportminers", label: "Export Miners SSS", url: "https://www.exportminers.com/sikca-sorulan-sorular" },
   { id: "s-volza", label: "Volza fiyat sayfası", url: "https://volza.com/pricing/" },
   { id: "s-apollo", label: "Apollo.io fiyat özeti (3. taraf)", url: "https://www.knowlee.ai/blog/tools/apollo-io-pricing-2026" },
+  { id: "s-ig-ihracatinmedyasi", label: "Instagram @ihracatinmedyasi", url: "https://www.instagram.com/ihracatinmedyasi/" },
+  { id: "s-ig-tradeatlas", label: "Instagram @tradeatlas", url: "https://www.instagram.com/tradeatlas/" },
+  { id: "s-ig-exportminers", label: "Instagram @exportminers", url: "https://www.instagram.com/exportminers/" },
+  { id: "s-ig-tag", label: "Instagram #ihracat etiketi", url: "https://www.instagram.com/explore/tags/ihracat/" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -692,12 +696,24 @@ export const INBOUND = [
     product: "export" as Product,
     channel: "LinkedIn (kurucu profili)",
     actions: [
-      "Haftada 3 paylaşım: ‘yanıtsız teklif’ verisi, Incoterms ipucu, demo ekran kaydı",
+      "Haftada 3 paylaşım; aynı içerikler İhracat/Teklif Röntgeni Instagram sayfasında da kullanılır (bkz. Site & Lead → İhracat için Instagram?)",
       "Hedef: ihracat müdürleri, İnegöl/Bursa mobilya firmaları; günde 10 bağlantı isteği + kişisel not",
       "Ayda 1 ‘ihracat teklif takibi’ mini rehberi (PDF) ile lead toplama",
     ],
     contribution: "Yüksek — outbound'u ısıtır, isminiz tanınır",
     workload: "Haftada 3 saat",
+  },
+  {
+    product: "export" as Product,
+    channel: "Instagram — İhracat/Teklif Röntgeni sayfası (kitle toplama)",
+    actions: [
+      "Medya/konu sayfası olarak aç (şirket hesabı değil); isim ‘İhracat Röntgeni’ veya ‘Teklif Röntgeni’",
+      "Haftada 3: gündem/destek yorumu, sahadan hikâye veya pazar efsanesi, şablon (ŞABLON → DM)",
+      "Bio linki: ücretsiz Teklif Röntgeni testi; otomatik DM aracı kur",
+      "İlk 1.000 takipçi için iş birliği + LinkedIn ve WhatsApp gruplarından yönlendirme",
+    ],
+    contribution: "Orta-yüksek potansiyel (İhracatın Medyası: 38.654 takipçi); 90 günlük test (çıkarım)",
+    workload: "Haftada 3–4 saat (LinkedIn içeriğinden üretilirse)",
   },
   {
     product: "export" as Product,
@@ -948,6 +964,7 @@ export const ROADMAP = [
       "Haftada 100 hedefli e-posta + LinkedIn ritmi",
       "Engage Sepet Röntgeni sayfası ve 5 e-postalık nurture",
       "Engage TL fiyat ve Türkçe demo verisi",
+      "İhracat Instagram sayfası (İhracat/Teklif Röntgeni) — 90 günlük test, haftada 3 gönderi",
       "İhracat Teklif Röntgeni sayfası (8 soruluk test + rapor e-postası)",
       "Form altyapısı: Next.js formu + Supabase + Resend, KVKK metinleriyle",
       "Demoları demo.callypsotech.com'a taşı, vercel.app adreslerini yönlendir",
@@ -1178,5 +1195,69 @@ export const LEAD_CAPTURE = {
     "Analiz sayfası ziyaret → form gönderimi (hedef ≥ %10, varsayım)",
     "Form → görüşme (hedef ≥ %20, varsayım)",
     "Görüşme → pilot (hedef ≥ %30, varsayım)",
+  ],
+};
+
+// ---------------------------------------------------------------------------
+// 9) İhracat için ayrı bir Instagram sayfası (kitle toplama amacıyla) açılmalı mı? (Apify, 2026-11-20)
+// ---------------------------------------------------------------------------
+export const EXPORT_SOCIAL = {
+  question: "Genel ihracat gönderileriyle kitle toplayıp ihracatçıları Callypso'ya çekecek, @sepetrontgeni benzeri bir Instagram sayfası açılmalı mı?",
+  verdict:
+    "Evet, açılabilir. Ama şirket hesabı olarak değil, medya/konu sayfası olarak ve 90 günlük ölçülü bir test şeklinde. Veri iki şeyi gösteriyor: (1) Ürün tanıtan ihracat şirketi hesapları büyümüyor; (2) haber, destek/mevzuat yorumu ve sahadan hikâye paylaşan konu hesapları ihracatçı kitlesini toplayabiliyor. Ön koşul: @sepetrontgeni'den alınan derslerle başlamak ve bu süre içinde LinkedIn'i ana satış kanalı olarak sürdürmek.",
+  status: "cikarim" as Status,
+  evidence: [
+    { account: "İhracatın Medyası (konu/medya sayfası)", followers: "38.654", posts: "212", engagement: "Ort. 99 beğeni, 2,2 yorum", note: "Kanıt: ihracat konusunda Instagram'da kitle toplanabiliyor; 212 gönderiyle bu seviyeye gelmiş" },
+    { account: "TradeAtlas (şirket)", followers: "2.262", posts: "967", engagement: "Ort. 1,8 beğeni, 0 yorum", note: "Ürün/veri tanıtımı odaklı şirket içeriği etkileşim almıyor" },
+    { account: "Export Miners (ajans)", followers: "1.538", posts: "183", engagement: "Ort. 1,8 beğeni, 0 yorum", note: "Aktif işletme hesabı; hizmet tanıtımı ağırlıklı" },
+    { account: "Bilvio (şirket)", followers: "276", posts: "346", engagement: "Son gönderi verisi dönmedi", note: "Çok gönderi, az takipçi" },
+    { account: "#ihracat etiketi (31 gönderi)", followers: "—", posts: "—", engagement: "Medyan 44 beğeni", note: "En çok etkileşim: gündem/destek yorumu (döviz dönüşüm desteği), gerçek sipariş hikâyesi (240 beğeni, 63 yorum), ‘Avrupa pazarı bitti’ gibi görüş paylaşımı" },
+    { account: "@sepetrontgeni (sizin)", followers: "6", posts: "38", engagement: "0–20 beğeni, 0 yorum", note: "Aynı model e-ticarette henüz tutmadı; ikinci sayfaya aynı formatla başlamak riskli" },
+  ],
+  reasons: [
+    "Fırsat var: İhracatın Medyası gibi bir konu sayfası 38 bin ihracatçıya ulaşmış; kitle Instagram'da mevcut",
+    "Kazanan içerik türü belli: gündem/destek yorumu, sahadan hikâye ve görüş. Ürün tanıtımı kazanmıyor (şirket hesapları ort. 1,8 beğeni)",
+    "Ayrışma alanı boş: büyük hesap haber veriyor; ‘tekliften siparişe pratik satış taktikleri’ veren bir sayfa görünmüyor. Teklif Röntgeni bu boşluğa oturur",
+    "Risk: @sepetrontgeni 38 gönderide 6 takipçide. Format düzeltilmeden ikinci sayfa açmak emeği ikiye böler",
+    "Kapasite: iki günlük sayfa haftada 8–10 saat demek. Bu yüzden ihracat sayfası haftada 3 gönderiyle başlamalı ve LinkedIn içeriğinden üretilmeli",
+  ],
+  lessons: [
+    "İlk 2 saniyede kanca: rakam veya soru (‘Gönderdiğiniz teklife neden cevap gelmiyor?’ — rakam kullanacaksanız kaynaklı olsun). Sepet Röntgeni videoları marka hikâyesiyle başlıyor; ihracatçının kendi sorunuyla başlayın",
+    "Yüz veya ses: etiket verisinde öne çıkan gönderilerin çoğu kişisel hesaplardan; en azından seslendirme ve kurucu imzası kullanın",
+    "Takip sebebi: bio'da ‘Her hafta 3 ihracat satış taktiği + gündemdeki desteklerin ihracatçıya etkisi’ gibi net bir vaat",
+    "Etkileşim mekaniği: ‘ŞABLON yaz, 3 İngilizce takip e-postasını DM'den göndereyim’ (otomatik DM aracı şart; @sepetrontgeni'de karşılıksız kaldı)",
+    "Dağıtım: hesap sıfırdan büyümez; büyük hesaplarla iş birliği, LinkedIn'den yönlendirme ve ihracatçı WhatsApp gruplarında paylaşım ilk 1.000 takipçiyi getirir",
+  ],
+  naming: [
+    "Sepet Röntgeni ile aynı aileden bir isim marka bütünlüğü sağlar: ‘İhracat Röntgeni’ veya ‘Teklif Röntgeni’",
+    "Kullanıcı adı müsaitliği kontrol edilmedi (@ihracatrontgeni, @teklifrontgeni gibi seçenekleri Instagram'da deneyin)",
+    "Bio: ‘İhracatta tekliften siparişe pratik satış taktikleri · Gündemdeki desteklerin ihracatçıya etkisi · Ücretsiz Teklif Röntgeni ↓ · by CallypsoTech’",
+  ],
+  funnel: [
+    "Genel gönderi (haber yorumu, hikâye, taktik) → takip",
+    "Haftada 1 ‘kayıt al’ gönderisi: ŞABLON/REHBER yorumu → otomatik DM ile PDF",
+    "PDF'in içinde ve bio linkinde: ücretsiz Teklif Röntgeni testi (web sitesi)",
+    "Test sonucu düşük olanlara: 30 dk analiz görüşmesi → Export Agent pilotu",
+    "Ölçüm: takipçi, DM ile PDF alan sayısı, bio link tıklaması, test, görüşme",
+  ],
+  plan: [
+    { channel: "Instagram — İhracat/Teklif Röntgeni sayfası", cadence: "Haftada 3 gönderi", what: "1 gündem/destek yorumu + 1 sahadan hikâye veya pazar efsanesi + 1 taktik/şablon (kayıt alan gönderi). Reels ve carousel karışık." },
+    { channel: "LinkedIn — kurucu profili", cadence: "Haftada 3 paylaşım", what: "Aynı içeriklerin metin/carousel hali. Karar vericiye doğrudan ulaşan ana satış kanalı olarak kalır." },
+    { channel: "Instagram — iş birliği", cadence: "Ayda 1–2", what: "İhracatın Medyası gibi hesaplara konuk içerik veya sponsorlu gönderi fiyatı sorun (fiyat bilinmiyor); mali müşavir ve dış ticaret danışmanlarıyla ortak canlı yayın." },
+    { channel: "@sepetrontgeni", cadence: "Mevcut ritim", what: "E-ticaret odağında kalsın; aynı derslerle (kanca, yüz/ses, DM otomasyonu) düzeltilsin. İki kitle karıştırılmasın." },
+  ],
+  series: [
+    { title: "Gündem: destek ve mevzuat", format: "Reels / carousel", example: "Döviz dönüşüm desteği gibi bir kararın ihracatçıya 3 maddelik etkisi (etiket verisinde en çok yorum alan konu türü)", status: "ornek" as Status },
+    { title: "Teklif Röntgeni vakası", format: "Carousel", example: "Anonim bir İngilizce teklif e-postası: öncesi → sonrası (geçerlilik, Incoterms, termin, net CTA)", status: "ornek" as Status },
+    { title: "Sahadan hikâye", format: "Reels / metin", example: "Fuar sonrası 30 kartvizitten kaçı takip edildi? Gerçek hikâye (izinle) veya kendi gözleminiz", status: "ornek" as Status },
+    { title: "Pazar efsanesi", format: "Reels", example: "‘Avrupa pazarı bitti’ gibi yaygın bir cümleyi veriyle tartışmak", status: "ornek" as Status },
+    { title: "Hazır şablon (kayıt alan)", format: "Carousel + DM", example: "‘Yanıtsız teklif için 3 İngilizce takip e-postası’ — ŞABLON yazana DM ile", status: "ornek" as Status },
+    { title: "Marka vakası (Sepet Röntgeni formatı)", format: "Reels", example: "Büyük bir ihracatçı markanın yurt dışı satış hamlesi → ‘senin firmana dersi’ (kaynaklı)", status: "ornek" as Status },
+  ],
+  kpis: [
+    "30. gün: 12+ gönderi, 150+ takipçi, ilk 10 DM ile PDF talebi",
+    "60. gün: 500+ takipçi, haftalık 5+ PDF talebi, ilk 3 Teklif Röntgeni testi",
+    "90. gün: 1.000+ takipçi ve en az 1 görüşme/pilot adayı. Tutmazsa sayfayı LinkedIn içeriğinin arşivine çevirin, emeği outbound'a kaydırın",
+    "Hedefler başlangıç varsayımıdır; ilk 30 günün verisiyle güncelleyin",
   ],
 };
