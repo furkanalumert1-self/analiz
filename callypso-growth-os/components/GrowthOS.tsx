@@ -18,6 +18,12 @@ import {
   STRATEGY,
   TEMPLATES,
   TRUST_CHECKLIST,
+  ARCHITECTURE,
+  DEMO_FLOW,
+  DEMO_FIXES,
+  EXPORT_MAGNET,
+  PRO_LOOK,
+  LEAD_CAPTURE,
   type Product,
 } from "@/lib/data";
 import { resetAll, usePersistent, type CheckMap, type NoteMap } from "@/lib/store";
@@ -32,6 +38,7 @@ const SECTIONS = [
   { id: "export", label: "Export Agent Stratejisi" },
   { id: "competitors", label: "Rakip İstihbaratı" },
   { id: "trust", label: "Güven & CRO Listesi" },
+  { id: "site", label: "Site & Lead Sistemi" },
   { id: "funnel", label: "Satış Hunisi" },
   { id: "inbound", label: "Inbound Büyüme" },
   { id: "plan", label: "5 Günlük Plan" },
@@ -137,6 +144,7 @@ export default function GrowthOS() {
         {section === "export" && <ProductStrategy product="export" {...ctx} />}
         {section === "competitors" && <Competitors {...ctx} />}
         {section === "trust" && <Trust {...ctx} />}
+        {section === "site" && <SiteLead {...ctx} />}
         {section === "funnel" && <Funnel {...ctx} />}
         {section === "inbound" && <Inbound {...ctx} />}
         {section === "plan" && <Plan {...ctx} />}
@@ -633,6 +641,158 @@ function Roadmap({ checks, toggle }: Ctx) {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+/* ----------------------------------------------------------------- Site & Lead */
+function SiteLead({ checks, toggle }: Ctx) {
+  const [tab, setTab] = useState<"mimari" | "rontgen" | "gorunum" | "form">("rontgen");
+  const tabs = [
+    ["rontgen", "İhracat Teklif Röntgeni"],
+    ["form", "Form ile e-posta toplama"],
+    ["gorunum", "Profesyonel görünüm"],
+    ["mimari", "Site yapısı & demo akışı"],
+  ] as const;
+  const proDone = PRO_LOOK.filter((p) => checks[p.id]).length;
+  return (
+    <div>
+      <SectionTitle
+        title="Site & Lead Sistemi"
+        subtitle="Tek ana site + ürün sayfaları + iki ücretsiz analiz sayfası (Teklif Röntgeni, Sepet Röntgeni) + KVKK uyumlu formlar. Ziyaretçiyi takvim yerine önce ücretsiz analize, oradan görüşmeye taşır."
+      />
+      <div className="mb-5 flex flex-wrap gap-1.5">
+        {tabs.map(([id, label]) => (
+          <button key={id} onClick={() => setTab(id)} className={`rounded-md px-3 py-1.5 text-sm ${tab === id ? "bg-ink text-bg" : "bg-surface-2 text-muted hover:text-ink"}`}>{label}</button>
+        ))}
+      </div>
+
+      {tab === "rontgen" && (
+        <div className="space-y-4">
+          <Card className="border-accent">
+            <div className="flex items-center justify-between gap-2"><div className="font-semibold">{EXPORT_MAGNET.name}: oluşturmalı mıyım?</div><StatusBadge status="cikarim" /></div>
+            <p className="mt-2 text-sm">{EXPORT_MAGNET.verdict}</p>
+          </Card>
+          <div className="grid gap-4 md:grid-cols-2">
+            {EXPORT_MAGNET.tiers.map((t) => (
+              <Card key={t.title}><div className="font-medium">{t.title}</div><p className="mt-1.5 text-sm text-muted">{t.text}</p></Card>
+            ))}
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <Card>
+              <div className="font-medium">Sayfa kurgusu (yukarıdan aşağı)</div>
+              <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm">{EXPORT_MAGNET.pageSections.map((x) => <li key={x}>{x}</li>)}</ol>
+            </Card>
+            <Card>
+              <div className="flex items-center justify-between"><div className="font-medium">8 soruluk test</div><StatusBadge status="ornek" /></div>
+              <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm">{EXPORT_MAGNET.quiz.map((x) => <li key={x}>{x}</li>)}</ol>
+            </Card>
+            <Card>
+              <div className="font-medium">Raporda ne olacak</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{EXPORT_MAGNET.report.map((x) => <li key={x}>{x}</li>)}</ul>
+            </Card>
+            <Card>
+              <div className="font-medium">Takip sekansı</div>
+              <ul className="mt-2 space-y-1 text-sm">{EXPORT_MAGNET.followUp.map((x) => <li key={x}>{x}</li>)}</ul>
+            </Card>
+          </div>
+          <Card><div className="text-xs font-medium text-muted">Cold e-postada nasıl kullanılır?</div><p className="mt-1 text-sm">{EXPORT_MAGNET.coldUse}</p></Card>
+          <Card>
+            <div className="mb-2 font-medium">Uygulama adımları</div>
+            <div className="space-y-2">
+              {[
+                ["SL1", "Test sorularını ve skor hesabını kesinleştir (her soru 0–12,5 puan)"],
+                ["SL2", "/teklif-rontgeni sayfasını ana sitede yayınla (form altyapısı sekmesindeki yapı ile)"],
+                ["SL3", "Rapor şablonunu hazırla (Google Docs → PDF, 30 dk'da doldurulabilir)"],
+                ["SL4", "5 e-postalık takip sekansını kur"],
+                ["SL5", "Linki LinkedIn profiline, imzaya ve 2. takip e-postasına ekle"],
+              ].map(([id, t]) => <Check key={id} checked={!!checks[id]} onChange={(v) => toggle(id, v)} label={t} />)}
+            </div>
+          </Card>
+        </div>
+      )}
+
+      {tab === "form" && (
+        <div className="space-y-4">
+          <Card>
+            <div className="mb-3 font-medium">Form nereye konmalı?</div>
+            <div className="space-y-2">
+              {LEAD_CAPTURE.placements.map((p) => (
+                <div key={p.where} className="flex items-start gap-2 text-sm"><PriorityBadge p={p.priority} /><div><span className="font-medium">{p.where}:</span> {p.what}</div></div>
+              ))}
+            </div>
+          </Card>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card><div className="font-medium">İhracat formu alanları</div><ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{LEAD_CAPTURE.fieldsExport.map((x) => <li key={x}>{x}</li>)}</ul></Card>
+            <Card><div className="font-medium">E-ticaret formu alanları</div><ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{LEAD_CAPTURE.fieldsEngage.map((x) => <li key={x}>{x}</li>)}</ul></Card>
+          </div>
+          <Card>
+            <div className="flex items-center justify-between gap-2"><div className="font-medium">KVKK ve ticari ileti kuralları</div><StatusBadge status="cikarim" /></div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{LEAD_CAPTURE.legal.map((x) => <li key={x}>{x}</li>)}</ul>
+            <p className="mt-2 text-xs text-muted">Hukuki tavsiye değildir; metinleri yayından önce bir hukukçuya kontrol ettirin.</p>
+          </Card>
+          <Card>
+            <div className="mb-2 font-medium">Teknik altyapı seçenekleri</div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[520px] text-sm">
+                <thead className="text-left text-xs text-muted"><tr><th className="py-2 pr-3">Seçenek</th><th className="py-2 pr-3">Araçlar</th><th className="py-2">Not</th></tr></thead>
+                <tbody>{LEAD_CAPTURE.stack.map((r) => <tr key={r.option} className="border-t border-line align-top"><td className="py-2 pr-3 font-medium">{r.option}</td><td className="py-2 pr-3">{r.tools}</td><td className="py-2 text-muted">{r.note}</td></tr>)}</tbody>
+              </table>
+            </div>
+          </Card>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card><div className="font-medium">Form sonrası akış</div><ol className="mt-2 list-decimal space-y-1 pl-5 text-sm">{LEAD_CAPTURE.flow.map((x) => <li key={x}>{x}</li>)}</ol></Card>
+            <Card>
+              <div className="font-medium">Yapılmaması gerekenler</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{LEAD_CAPTURE.avoid.map((x) => <li key={x}>{x}</li>)}</ul>
+              <div className="mt-4 font-medium">Ölçülecekler</div>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">{LEAD_CAPTURE.metrics.map((x) => <li key={x}>{x}</li>)}</ul>
+            </Card>
+          </div>
+        </div>
+      )}
+
+      {tab === "gorunum" && (
+        <Card>
+          <Progress value={proDone / PRO_LOOK.length} label={`Profesyonel görünüm · ${proDone}/${PRO_LOOK.length}`} />
+          <div className="mt-4 space-y-3">
+            {PRO_LOOK.map((p) => (
+              <div key={p.id} className="border-t border-line pt-3 first:border-0 first:pt-0">
+                <div className="flex flex-wrap items-start gap-2">
+                  <Check checked={!!checks[p.id]} onChange={(v) => toggle(p.id, v)} label={p.text} />
+                  <span className="ml-auto flex shrink-0 gap-1"><Tag>{p.area}</Tag><PriorityBadge p={p.priority} /><StatusBadge status={p.status} /></span>
+                </div>
+                {p.evidence !== "—" && <div className="mt-1 pl-6.5 text-xs text-muted">Kanıt: {p.evidence}</div>}
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {tab === "mimari" && (
+        <div className="space-y-4">
+          <Card>
+            <div className="font-medium">Önerilen yapı: tek ana site, ürünler altında</div>
+            <pre className="mt-3 overflow-x-auto rounded-lg bg-surface-2 p-3 text-xs leading-relaxed">{ARCHITECTURE.tree.join("\n")}</pre>
+          </Card>
+          <div className="grid gap-3 md:grid-cols-2">
+            {ARCHITECTURE.principles.map((p) => <Card key={p.title} className="!p-4"><div className="font-medium">{p.title}</div><p className="mt-1 text-sm text-muted">{p.text}</p></Card>)}
+          </div>
+          <Card>
+            <div className="mb-2 font-medium">Demo linkini ne zaman göndermeli?</div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[520px] text-sm">
+                <thead className="text-left text-xs text-muted"><tr><th className="py-2 pr-3">Aşama</th><th className="py-2 pr-3">Ne gönderilir</th><th className="py-2">Neden</th></tr></thead>
+                <tbody>{DEMO_FLOW.map((r) => <tr key={r.stage} className="border-t border-line align-top"><td className="py-2 pr-3 font-medium">{r.stage}</td><td className="py-2 pr-3">{r.send}</td><td className="py-2 text-muted">{r.why}</td></tr>)}</tbody>
+              </table>
+            </div>
+          </Card>
+          <Card>
+            <div className="mb-2 font-medium">Demo sayfalarında yapılacaklar</div>
+            <div className="space-y-2">{DEMO_FIXES.map((x, i) => <Check key={x} checked={!!checks["DF" + i]} onChange={(v) => toggle("DF" + i, v)} label={x} />)}</div>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }

@@ -948,6 +948,10 @@ export const ROADMAP = [
       "Haftada 100 hedefli e-posta + LinkedIn ritmi",
       "Engage Sepet Röntgeni sayfası ve 5 e-postalık nurture",
       "Engage TL fiyat ve Türkçe demo verisi",
+      "İhracat Teklif Röntgeni sayfası (8 soruluk test + rapor e-postası)",
+      "Form altyapısı: Next.js formu + Supabase + Resend, KVKK metinleriyle",
+      "Demoları demo.callypsotech.com'a taşı, vercel.app adreslerini yönlendir",
+      "Profesyonel görünüm: ikon seti, favicon/logo, ekran görüntüleri, tek ana CTA",
       "Google Search Console ve aylık GEO soru takibi",
     ],
   },
@@ -1013,3 +1017,166 @@ export const TEMPLATES = [
       "Merhaba {Ad},\n\n{Marka}'nın sitesinde sepete ekleyip çıkan müşteriye ne gittiğini test ettim: {gözlem}.\n\nÜcretsiz ‘Sepet Röntgeni’ hazırlıyoruz: mağazanızda eksik olan 3 geri kazanım akışını ve tahmini etkisini 48 saatte tek sayfada çıkarıyoruz. İster misiniz?\n\n{Adınız} · CallypsoTech",
   },
 ];
+
+// ---------------------------------------------------------------------------
+// 8) Site mimarisi, ihracat analiz sayfası, profesyonel görünüm, form ile lead toplama
+// ---------------------------------------------------------------------------
+export const ARCHITECTURE = {
+  tree: [
+    "www.callypsotech.com — Şirket: kime ne çözüyoruz, kurucu, iletişim",
+    "├── /ihracat-ajani — Export Agent tanıtım sayfası (index)",
+    "│   ├── /ihracat-ajani/mobilya — sektör sayfası (ilk niş)",
+    "│   ├── /teklif-rontgeni — ücretsiz ihracat analizi (lead sayfası)",
+    "│   └── /ihracat-ajani/pilot — 14 günlük pilot teklifi",
+    "├── /engage — Engage tanıtım sayfası (index)",
+    "│   └── /sepet-rontgeni — ücretsiz e-ticaret analizi (lead sayfası)",
+    "├── /rehber/… — SEO/GEO içerikleri",
+    "└── /hakkimizda · /iletisim · /kvkk · /gizlilik · /cerez",
+    "demo.callypsotech.com/export · /engage — demolar (noindex)",
+    "app.callypsotech.com — gerçek müşteri paneli (ileride)",
+  ],
+  principles: [
+    { title: "Tanıtım sayfaları ana alan adında", text: "Google ve AI motorlarının güveni tek alan adında birikir; ‘Callypso’ isim çakışması yüzünden bu birikim kritik." },
+    { title: "Demo ve uygulama alt alan adında", text: "Ayrı uygulamalar, noindex olmalı; vercel.app yerine demo.callypsotech.com güven verir. Vercel'de alan adı + DNS'te CNAME yeterli." },
+    { title: "Ürün başına ayrı marka/alan adı yok", text: "Tek kişilik girişimde iki marka iki kat iş demek. callypsoengage.com gibi çalışmayan adresleri kaldırın." },
+    { title: "Ana sayfa yönlendirir, listelemez", text: "İki büyük kart: ‘İhracatçıysanız →’ ve ‘E-ticaret markasıysanız →’. Diğer ürünler küçük ‘Erken erişim’ alanına." },
+  ],
+};
+
+export const DEMO_FLOW = [
+  { stage: "Cold e-posta", send: "Link yok, tek soru", why: "Teslim oranı ve merak" },
+  { stage: "Olumlu yanıt", send: "Kişisel Loom + firmaya özel demo linki (?firma=…&ref=loom)", why: "Bağlamı video verir, demo kanıtlar; kimin açtığını görürsünüz" },
+  { stage: "Takip", send: "Tanıtım sayfası + pilot sayfası", why: "Şirket içinde paylaşılabilir, güven veren sayfa" },
+  { stage: "Toplantı sonrası", send: "Alıcının 3 ürünü ve 1 örnek talebiyle hazırlanmış demo", why: "‘Bu benim işim’ hissi" },
+];
+
+export const DEMO_FIXES = [
+  "Sabit üst şerit: ‘Örnek senaryo · Kendi kataloğunuzla görün → 15 dk görüşme’",
+  "İlk açılışta 3 adımlık tur: Talep gelir → Ajan teklif hazırlar → Siz onaylarsınız",
+  "Linkteki firma adını karşılamada göster (‘Merhaba Nordhaus ekibi’)",
+  "Demo ziyaretini UTM/ref ile kaydet; aynı gün takip et",
+  "Engage demosunu Türkçe ve TL veriye çevir",
+];
+
+export const EXPORT_MAGNET = {
+  name: "İhracat Teklif Röntgeni",
+  verdict:
+    "Evet, oluşturun. Export Agent'ın soğuk satışını ‘yazılım alın’dan ‘ücretsiz sorun tespiti’ne çevirir; Sepet Röntgeni ile aynı mantık, aynı marka dili. Engage'den farkı: ihracatçı teklif dosyalarını paylaşmak istemeyebilir, bu yüzden iki kademeli kurun.",
+  tiers: [
+    {
+      title: "Kademe 1 — 2 dakikalık öz değerlendirme (sayfada)",
+      text: "8 soruluk test → ‘Teklif Takip Skoru’ (0–100) ekranda, detaylı rapor e-postaya. Düşük sürtünme, e-posta toplar, belge istemez.",
+    },
+    {
+      title: "Kademe 2 — 30 dk ücretsiz analiz görüşmesi",
+      text: "Skoru düşük çıkanlara: son 10 talep/teklif birlikte (ekran paylaşımı, dosya almadan) incelenir; 48 saatte 1 sayfalık rapor. Bu, doğrudan pilot girişidir.",
+    },
+  ],
+  quiz: [
+    "Ayda kaç yabancı talep alıyorsunuz? (0–5 / 6–20 / 21–50 / 50+)",
+    "Yeni bir talebe ilk yanıtınız ortalama ne kadar sürüyor? (aynı gün / 1–2 gün / 3+ gün / bilmiyorum)",
+    "Gönderdiğiniz tekliflerin takibini nerede tutuyorsunuz? (CRM / Excel / e-posta kutusu / tutmuyoruz)",
+    "Yanıtsız bir teklifi kaç kez takip ediyorsunuz? (0 / 1 / 2+)",
+    "Tekliflerinizde Incoterms, geçerlilik süresi ve termin standart mı? (evet / bazen / hayır)",
+    "Teklifleri hangi dillerde hazırlayabiliyorsunuz?",
+    "Teklifi kim hazırlıyor ve onaylıyor? (tek kişi / ekip / firma sahibi)",
+    "Fuar sonrası kartvizitleri ne kadar sürede takip ediyorsunuz?",
+  ],
+  pageSections: [
+    "Başlık: ‘Tekliflerinizin kaçı cevapsız kalıyor? 2 dakikada öğrenin.’",
+    "Alt başlık: ‘İhracatçılar için ücretsiz Teklif Röntgeni — dosya istemiyoruz.’",
+    "Test (8 soru, ilerleme çubuğu) → skor ekranı",
+    "Raporda ne var: yanıt süresi, takip boşluğu, teklif standardı, 3 hızlı düzeltme",
+    "Örnek rapor görseli (‘Örnek’ etiketli, Atlas Office Furniture senaryosu)",
+    "Kurucu kutusu: fotoğraf + ‘raporu ben hazırlıyorum’",
+    "Gizlilik notu: ‘Teklif dosyası istemiyoruz; verileriniz yalnızca rapor için kullanılır’ + KVKK linki",
+    "İkinci CTA: ‘30 dk analiz görüşmesi’",
+  ],
+  report: [
+    "Teklif Takip Skoru ve sektör içi konum (ilk 20 rapordan sonra; öncesinde yalnızca skor)",
+    "En büyük 3 boşluk ve her biri için bugün yapılabilecek düzeltme",
+    "Hazır takip e-postası şablonu (İngilizce)",
+    "Teklif kontrol listesi: Incoterms, geçerlilik, termin, ödeme şekli, numune",
+    "Export Agent'ın bu boşlukları nasıl kapattığına dair 1 paragraf + pilot teklifi",
+  ],
+  followUp: [
+    "Gün 0: Rapor e-postası (otomatik)",
+    "Gün 2: ‘Raporu inceleme fırsatınız oldu mu?’ + 1 düzeltme örneği",
+    "Gün 5: Örnek senaryo (demo şirketi üzerinden, ‘örnek’ etiketli)",
+    "Gün 9: 30 dk analiz görüşmesi daveti",
+    "Gün 14: Son çağrı — pilot kontenjanı",
+  ],
+  coldUse:
+    "Cold e-postada link yine yok; ikinci veya üçüncü takipte ‘Size özel bir Teklif Röntgeni hazırlayabilirim’ diye teklif edin. LinkedIn paylaşımlarının ve imzanın sonunda ise doğrudan link verin.",
+};
+
+export const PRO_LOOK: { id: string; area: string; text: string; evidence: string; status: Status; priority: Priority }[] = [
+  { id: "PL1", area: "Kimlik", text: "Emoji ikonları (📞💬📧🔍🤖📅🌙🌍🛡️) tutarlı bir SVG ikon setiyle değiştir (ör. Lucide)", evidence: "Ana sayfa HTML'inde 12 emoji ikon", status: "dogrulandi", priority: "P1" },
+  { id: "PL2", area: "Kimlik", text: "Favicon ve gerçek logo (SVG + PNG) ekle", evidence: "favicon.ico 404, sayfada icon etiketi yok; logo.png 404", status: "dogrulandi", priority: "P1" },
+  { id: "PL3", area: "Kimlik", text: "Tek ana CTA: ‘Ücretsiz analiz al’; ‘Görüşme planla’ ikincil. Aynı sayfada 15 buton yerine 2 tür", evidence: "Ana sayfada 15 buton, hepsi aynı takvime gidiyor", status: "dogrulandi", priority: "P1" },
+  { id: "PL4", area: "Kanıt", text: "Gerçek ürün ekran görüntüleri (Export Agent onay ekranı, Engage akış kurucu), ‘örnek veri’ etiketiyle", evidence: "Ana sitede hiç görsel yok (img: 0)", status: "dogrulandi", priority: "P1" },
+  { id: "PL5", area: "Kanıt", text: "Sahte ‘CANLI GÖRÜŞME · 02:34’ ve ‘Q3 SaaS Outreach · 847 lead’ kartlarına ‘örnek’ etiketi", evidence: "Ana sayfa hero ve Engage kartı", status: "dogrulandi", priority: "P0" },
+  { id: "PL6", area: "Kanıt", text: "‘Nasıl çalışıyoruz’ bölümü: Analiz → 14 gün pilot → ölçüm → abonelik (süre ve sorumluluklarla)", evidence: "Sitede süreç/teklif yapısı yok", status: "dogrulandi", priority: "P1" },
+  { id: "PL7", area: "Kişi", text: "Kurucu fotoğrafı, 60 sn video, LinkedIn; ‘Raporunuzu ben hazırlıyorum’ cümlesi", evidence: "Sitede kişi bilgisi yok", status: "dogrulandi", priority: "P1" },
+  { id: "PL8", area: "Kurumsal", text: "Altbilgide yasal unvan, şehir, vergi dairesi/no (varsa), KVKK, gizlilik, çerez linkleri", evidence: "Altbilgide yalnızca ‘bireysel girişim’ ve e-posta", status: "dogrulandi", priority: "P1" },
+  { id: "PL9", area: "Kurumsal", text: "Şirket alan adlı e-posta imzası: ad, unvan, telefon, www linki, LinkedIn", evidence: "—", status: "ornek", priority: "P1" },
+  { id: "PL10", area: "Mesaj", text: "H1'i somutlaştır: ‘İhracat tekliflerinizi ve e-ticaret gelirinizi kaçırmayın’ gibi, kime + sonuç", evidence: "H1: ‘Her Kanalda Yapay Zeka’", status: "dogrulandi", priority: "P1" },
+  { id: "PL11", area: "Mesaj", text: "Ürün sayısını ve adlarını her yerde aynı yaz; ‘ürün görseli’, ‘iç mekan tasarımı’ gibi gösterilmeyen ürünleri kaldır", evidence: "Metinde 4 ve 6 platform birlikte geçiyor", status: "dogrulandi", priority: "P1" },
+  { id: "PL12", area: "Teknik", text: "Özel 404 sayfası (ana sayfaya ve analiz sayfalarına link)", evidence: "Olmayan URL → Vercel'in düz ‘NOT_FOUND’ hata metni (markasız)", status: "dogrulandi", priority: "P2" },
+  { id: "PL13", area: "Teknik", text: "PNG paylaşım görseli; LinkedIn Post Inspector ile kontrol", evidence: "og-image.svg", status: "dogrulandi", priority: "P1" },
+  { id: "PL14", area: "Mesaj", text: "Türkçe-İngilizce karışık ifadeleri azalt (‘Outreach’, ‘lead’, ‘Q3 SaaS’ hedef kitle dili değil)", evidence: "Hero kartlarında İngilizce örnekler", status: "dogrulandi", priority: "P2" },
+];
+
+export const LEAD_CAPTURE = {
+  placements: [
+    { where: "Ana sayfa hero", what: "‘Ücretsiz analiz al’ → iki seçenek: İhracat / E-ticaret", priority: "P0" as Priority },
+    { where: "/teklif-rontgeni ve /sepet-rontgeni", what: "Asıl lead formu (test + e-posta)", priority: "P0" as Priority },
+    { where: "Demo sayfaları", what: "Üst şerit + ‘Bu demoyu kendi verinizle görün’ kısa formu", priority: "P1" as Priority },
+    { where: "Rehber yazılarının sonu", what: "Konuya bağlı PDF (ör. ‘İhracat teklif kontrol listesi’) karşılığında e-posta", priority: "P1" as Priority },
+    { where: "Altbilgi", what: "Aylık bülten: ‘Ayda 1 e-posta, ihracat ve e-ticaret satış taktikleri’", priority: "P2" as Priority },
+  ],
+  avoid: [
+    "Açılır pencere (pop-up) ve sayfaya girer girmez form: B2B'de güveni düşürür",
+    "‘Bültene abone ol’ gibi değeri belirsiz teklif: karşılığında ne alacağı net olmalı",
+    "Uzun form: ilk adımda en fazla 4 alan; gerisini testten veya sonraki adımda al",
+    "Ön işaretli onay kutusu: KVKK/İYS açısından geçersiz",
+  ],
+  fieldsExport: [
+    "Ad Soyad *",
+    "İş e-postası * (gmail/hotmail uyarısı, engel değil)",
+    "Firma web sitesi *",
+    "Ürün grubu (seçim)",
+    "Aylık yabancı talep sayısı (seçim) — testten otomatik gelir",
+  ],
+  fieldsEngage: [
+    "Ad Soyad *",
+    "E-posta *",
+    "Mağaza adresi (URL) *",
+    "Altyapı: Shopify / ikas / Ticimax / IdeaSoft / diğer",
+    "Aylık sipariş aralığı (seçim)",
+  ],
+  legal: [
+    "Formun altında KVKK aydınlatma metni linki: ‘Verileriniz analiz raporunu hazırlamak için işlenir.’ Aydınlatma bir bilgilendirmedir, onay kutusu gerektirmez",
+    "Pazarlama e-postası için ayrı, işaretsiz ve isteğe bağlı onay kutusu: ‘Satış ipuçları ve kampanya e-postaları almak istiyorum’",
+    "Tacir ve esnafa gönderilen ticari iletilerde önceden onay şartı farklıdır; her iletide ret (abonelikten çıkma) bağlantısı ve İYS durumu için bir hukukçuya teyit ettirin",
+    "Onay metni, tarih-saat ve kaynak sayfa kayıt altına alınsın (ispat yükü gönderende)",
+  ],
+  stack: [
+    { option: "En hızlı (bugün)", tools: "Tally veya Google Forms gömülü form → Google Sheets + e-posta bildirimi", note: "Kod gerektirmez; görünüm daha az özel" },
+    { option: "Önerilen (2–3 saat)", tools: "Next.js formu → sunucu tarafı API route → Supabase tablo + Resend ile otomatik rapor/teşekkür e-postası", note: "Engage'de Supabase ve Resend zaten kullanılıyor; send alt alan adında Resend DKIM kaydı mevcut (doğrulandı)" },
+    { option: "Büyüyünce", tools: "Aynı form → CRM (HubSpot Free / Pipedrive) + nurture sekansı", note: "İlk 50 lead'den sonra" },
+  ],
+  flow: [
+    "Form gönderilir → teşekkür ekranı: skor + ‘raporunuz 48 saat içinde e-postanızda’ + takvim linki (isteğe bağlı)",
+    "Anında: teşekkür e-postası (şirket alan adından, kişi imzalı)",
+    "Size bildirim: yeni lead + cevaplar + firma sitesi",
+    "48 saat içinde: rapor e-postası (elle hazırlanır, şablonla 30 dk)",
+    "Nurture: Gün 2 / 5 / 9 / 14 e-postaları; yanıt gelince durur",
+    "Dashboard'a haftalık: form görüntülenme, gönderim, rapor, görüşme, pilot",
+  ],
+  metrics: [
+    "Analiz sayfası ziyaret → form gönderimi (hedef ≥ %10, varsayım)",
+    "Form → görüşme (hedef ≥ %20, varsayım)",
+    "Görüşme → pilot (hedef ≥ %30, varsayım)",
+  ],
+};

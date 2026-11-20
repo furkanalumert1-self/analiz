@@ -183,6 +183,35 @@ Hazır metinler (🔵): cold e-posta, gün 3 takibi, Loom senaryosu, pilot tekli
 
 ---
 
+## 9. Site yapısı, İhracat Teklif Röntgeni, profesyonel görünüm ve form ile lead toplama
+
+**Site yapısı:** Tek ana site (`www.callypsotech.com`) olsun. Ürün tanıtımları `/ihracat-ajani` ve `/engage` altında, ücretsiz analizler `/teklif-rontgeni` ve `/sepet-rontgeni` adreslerinde yer alsın. Demolar `demo.callypsotech.com` altında ve noindex olsun; gerçek müşteri paneli ileride `app.callypsotech.com` olur. Cold e-postada link verilmez. Demo linki yalnızca olumlu yanıttan sonra, Loom videosuyla ve takip edilebilir bir parametreyle (`?firma=…&ref=loom`) gönderilir.
+
+**İhracat Teklif Röntgeni: oluşturulmalı (🟡).** İki kademeli kurulmalı, çünkü ihracatçı teklif dosyalarını paylaşmak istemeyebilir:
+1. **Sayfadaki test:** 8 soruluk öz değerlendirme sonunda ekranda bir “Teklif Takip Skoru” (0–100) görünür; detaylı rapor e-postayla gelir. Belge istenmez.
+2. **Ücretsiz görüşme:** 30 dakikalık analiz görüşmesinde son 10 talep, dosya alınmadan ekran paylaşımıyla incelenir. 48 saat içinde 1 sayfalık rapor gönderilir.
+
+Takip e-postaları: gün 0 / 2 / 5 / 9 / 14. Cold e-postada ancak 2. veya 3. takipte teklif edilir; LinkedIn'de ve e-posta imzasında doğrudan link verilir.
+
+**Profesyonel görünüm (✅ gözlemler):**
+- 12 emoji ikon kullanılıyor → tutarlı bir SVG ikon seti
+- Favicon yok, `logo.png` 404 veriyor → favicon ve gerçek logo
+- 15 buton aynı takvime gidiyor → tek ana CTA: “Ücretsiz analiz al”
+- Sitede hiç görsel yok → “örnek veri” etiketli gerçek ürün ekran görüntüleri
+- Sahte “canlı görüşme” ve “847 lead” kartları → “örnek” etiketi
+- Kişi ve unvan bilgisi yok → kurucu bölümü ve altbilgide yasal bilgiler
+- 404 sayfası Vercel'in markasız hata metni → özel 404 sayfası
+- H1 belirsiz → “kime + sonuç” anlatan H1
+
+**Form ile e-posta toplama:**
+- **Nereye:** Hero'daki “Ücretsiz analiz al” butonu, iki analiz sayfası, demo şeridi ve rehber yazılarının sonundaki PDF. Açılır pencere (pop-up) kullanılmamalı.
+- **Kaç alan:** Başta en fazla 4 alan; ihracat ve e-ticaret için alanlar uygulamada listeli.
+- **KVKK:** Formun altına aydınlatma metni linki konur; bu bir bilgilendirmedir, onay kutusu gerekmez. Pazarlama e-postası için ayrı, işaretsiz ve isteğe bağlı bir onay kutusu konur. Onayın kaydı tutulur. Tacir ve esnafa gidecek ticari iletiler ve İYS durumu bir hukukçuya teyit ettirilmeli.
+- **Teknik altyapı (önerilen):** Next.js formu → sunucu tarafında API route → Supabase'e kayıt + Resend ile otomatik e-posta. Resend'in DKIM kaydı gönderim alt alan adında zaten mevcut (✅). En hızlı alternatif Tally → Google Sheets.
+- **Hedefler (🔵 varsayım):** ziyaret → form ≥ %10, form → görüşme ≥ %20, görüşme → pilot ≥ %30.
+
+---
+
 ## Doğrulanamayanlar / sınırlar
 - Cold e-postaların hangi alan adından ve hangi araçla gönderildiği bilinmiyor. Teslim edilebilirlik bulgusu bu yüzden 🟡.
 - Engage dashboard'unun giriş arkası incelenmedi; yalnızca “Demo ile devam et” girişi görüldü.
