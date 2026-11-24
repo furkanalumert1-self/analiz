@@ -1,52 +1,62 @@
-# Offers lens
+# Offers lens (2. tur: demo + Türkiye)
 
 ## Ürün A: Callypso Engage
-Skor: 3/10 | Oy: PASS
+Skor: 4/10 | Oy: PASS
 
 ### Güçlü olan
-- Hayal edilen sonuç net ve para ile ölçülüyor: tekrar satın alma ve otomasyon geliri. Alıcı bunu anlıyor.
-- Alıcının parası var ve bulunması kolay: Türk D2C e-ticaret markaları mağaza platformları üzerinden görünür.
-- Yerel taşlar (İYS, Netgsm, TL, WhatsApp) gerçek bir sürtünmeyi azaltabilir; yığına (stack) konacak doğru malzeme.
+- Demo, Türk D2C markasına "tek panelden e-posta + SMS + WhatsApp, İYS uyumlu" vaadini somut gösteriyor; ₺ rakamlı dashboard ve hazır otomasyonlar (sepet terk, win-back, ikinci alışveriş) gelir sonucunu görünür kılıyor.
+- Kremi Beauty gibi belirli bir firmaya hazırlanmış fırsat analizi doğru satış hareketi: genel ürün değil, o markanın kaybettiği gelir gösteriliyor.
 
 ### Öldürebilecek olanlar (en tehlikeli 3, en tehlikelisi önce)
-1. **Uydurma kanıt.** Sitedeki logolar, isimli referanslar ve "4.9/5 · 2,400+ marka" demo içeriği. Bu lensin en çok önem verdiği değişken olan "olasılık" sıfır değil, eksi: gerçek bir alıcı bunu fark ettiği an güven biter. Yayında kalmamalı.
-2. **Fiyatla rekabet = emtia.** Mailchimp'e karşı tablo ve $49 Growth, farkı "daha ucuz" olarak konumluyor. Pazar kalabalık (Klaviyo, Omnisend, Insider, Netmera, Segmentify, yerel SMS firmaları). Onların fiyatları araştırılmadı: açık soru, /founder-competitors cevaplar.
-3. **Çaba alıcıda.** Segment kurmak, şablon yazmak, WhatsApp şablon onayı, İYS bağlantısı: yazılım satılıyor, sonuç değil. Tek başına bir kurucunun "kendin yap" SaaS'ını bu kalabalıkta öne çıkarması zor; müşteri edinme maliyeti bilinmiyor (/founder-cfo).
+1. **Fiyatla rekabet / emtia riski.** Teklif şu an "Mailchimp'ten ucuz, aynı kanallar" diye okunuyor. Offers lens bunu emtia sayar. Türkiye'de Insider, Netmera, Segmentify ve yerel SMS firmaları zaten var. Bunlar karşısında alıcının "hayır demesi aptalca" olacağı bir fark henüz yok.
+2. **Pazarın müşteri verisine sahip olmaması.** Satışın büyük kısmı Trendyol/Hepsiburada'dan geçiyorsa marka müşteri iletişim verisine sahip olmayabilir. Bu durumda acı küçük, ulaşılabilir kitle dar. Bu bir hipotez, /founder-consumer ile doğrulanmalı.
+3. **Olasılık ve efor.** Alıcı entegrasyon (ikas, Ticimax, IdeaSoft, T-Soft), İYS kaydı ve WhatsApp şablon onayı gibi işleri kendisi yapmak zorunda kalırsa efor yüksek, sonuca ulaşma süresi uzun olur.
+
+### Türkiye'ye özel notlar
+- Fiyat USD, alıcı TL ödüyor. Yüksek enflasyonda kur riski kimde kalacak? Açık soru: /founder-pricing.
+- İYS ve KVKK uyumu canlıya geçmeden "demo mode"dan çıkmalı. Bu, yerel oyuncularla eşit koşul, bir fark değil.
+- Yerel altyapılarla entegrasyon olmadan Shopify odağı Türkiye'de pazarı daraltabilir. Platform payları bilinmiyor: /founder-competitors.
+
+### Demoyu satış aracı olarak nasıl buldum
+Dashboard ikna edici ama landing sayfası Türk alıcıyla konuşmuyor: İngilizce referanslar, $ fiyat, "Alex Jordan", "LTV > $250". Uydurma logolar ve "2.400+ marka" ifadesi gerçek bir Türk prospect'e asla gerçekmiş gibi gösterilmemeli. Lansman öncesi kaldırılmalı. En güçlü satış aracı demo değil, firmaya özel fırsat analizi.
 
 ### Kurucuya soracağım sorular
-- Bunu bugün kullanmakta olan tek bir gerçek mağaza var mı?
-- Klaviyo/Insider kullanan bir marka neden sana geçsin; fiyat dışında tek cümlelik sebep ne?
-- "İlk 30 günde X TL ek gelir, yoksa ücret yok" diyebilir misin? Diyemiyorsan neden?
-- Fiyatı iki katına çıkarsan hâlâ bariz seçim olur muydun?
+- Kremi Beauty analizini gördükten sonra o firma ne dedi, para ödemeyi teklif etti mi?
+- Hedef markanın gelirinin yüzde kaçı kendi sitesinden geliyor?
+- Insider/Netmera yerine sizi seçmenin tek cümlelik nedeni ne?
 
 ### FUND IF ise: koşullar
-PASS. Yeniden değerlendirme için: sahte kanıtların kaldırılması, en az birkaç gerçek mağazada ölçülmüş sonuç ve fiyat yerine sonuca dayalı bir teklif (ör. hazır kurulan otomasyonlar + gelir garantisi).
+PASS. Kurucu yazılımı "gelir garantili, kurulumu biz yapıyoruz" türünde bir hizmet teklifine çevirirse yeniden bakarım. Örnek: İYS kaydı + WhatsApp kurulumu + 5 otomasyon bizden, 60 günde ölçülebilir ek gelir yoksa ücret iadesi. Garantinin maliyeti: /founder-cfo.
 
 ## Ürün B: Callypso Export Agent
-Skor: 6/10 | Oy: FUND IF
+Skor: 7/10 | Oy: FUND IF
 
 ### Güçlü olan
-- Acı somut ve pahalı: İngilizce gelen talebe geç ya da eksik cevap = kaybedilen ihracat siparişi. Demodaki teklifler tek tek beş haneli EUR (demo veri, ama sipariş büyüklüğünün yazılım fiyatını küçük gösterdiğini düşündürüyor).
-- Alıcı dar ve bulunabilir: Türk ihracatçı üreticiler kümeler, fuarlar ve sektör birlikleri etrafında toplanıyor. Demo persona (İnegöl mobilya) tek bir dikeye odaklanmayı mümkün kılıyor.
-- Değer denkleminde zaman ve çaba lehine: talepten eksik bilgiyi çıkarmak, taslak cevap ve fiyat teklifi hazırlamak, takip görevi açmak. İnsan onayı adımı riski düşürüyor ve güveni artırıyor.
-- Fiyat henüz yok: emtia tuzağına düşmeden sonuca göre fiyatlama şansı hâlâ açık.
+- Pazar, Offers lens'in dört testinin çoğunu geçiyor. Acı büyük: yabancı dilde gelen talepler yavaş ya da hiç cevaplanmazsa sipariş kaçıyor. Alıcının parası var: üretici döviz kazanıyor. Bulması kolay: İnegöl, Denizli, Kayseri gibi kümeler, ihracatçı birlikleri ve fuarlar hazır kanal. Büyüme payı açık soru.
+- Değer denklemi güçlü: hayal edilen sonuç (daha fazla ihracat siparişi) net. Sonuca ulaşma süresi kısa: ilk talebe aynı gün taslak. Efor düşük: Türkçe çalış, İngilizce/Almanca/Arapça gönder, her mesaj onaydan geçer.
+- Onay adımı Türk üreticinin "yapay zekâ müşterime saçma bir şey yazar" korkusunu doğrudan karşılıyor.
 
 ### Öldürebilecek olanlar (en tehlikeli 3, en tehlikelisi önce)
-1. **Olasılık kanıtsız.** Gerçek yapay zekâ bağlı değil, akış senaryolu. Gerçek, dağınık taleplerde doğru çalıştığı gösterilene kadar teklif bir vaat.
-2. **Kurulum çabası.** Katalog, fiyat listesi, e-posta, ERP bağlantısı yok. Alıcının bunları kendisi yüklemesi gerekirse çaba sonucu yer.
-3. **Ödeme isteği ve pazar büyüklüğü bilinmiyor.** Kaç üreticinin bu acıyı ödeyecek kadar hissettiği, ne ödeyeceği ve birine ulaşmanın maliyeti açık soru: /founder-consumer (ödeme isteği), /founder-competitors (alternatifler ve fiyatları), /founder-cfo (birim ekonomi).
+1. **Kanıt yok, yani olasılık düşük algılanıyor.** "Bu ajan bize sipariş getirdi" diyen tek bir gerçek üretici yoksa alıcı inanmaz. Pilot sonucu her şeyden önce gelir.
+2. **Fiyat ve teklif tanımsız.** Ne satıldığı (yazılım mı, kurulum + yazılım mı, sonuç bazlı mı) belli değil. Açık soru: /founder-pricing.
+3. **Canlıya geçiş eforu.** Gerçek e-posta, katalog yükleme ve ERP bağlantısı alıcıya iş yükü olarak düşerse efor artar, denklem bozulur.
+
+### Türkiye'ye özel notlar
+- Devlet ihracat destekleri yazılım veya pazara giriş masrafını ortak finanse edebilir mi? Doğrulanmadı. Doğrulanırsa alıcının "fedakârlığını" düşüren en güçlü stack öğesi olur. Araştırılacak: /founder-cfo, /founder-competitors.
+- Kümeler ve birlikler üzerinden toplu satış mümkün mü? Kaç üretici var, kaçında ihracat müdürü var? Açık soru: /founder-consumer.
+
+### Demoyu satış aracı olarak nasıl buldum
+Çok iyi. Arayüz tamamen Türkçe, persona inandırıcı (İnegöl, Orgatec, EUR, EXW), 7 adımlık akış tek oturumda değer gösteriyor. Bir sonraki adım: demoyu prospect'in kendi kataloğu ve gerçek bir gelen talebiyle "Wizard of Oz" usulü çalıştırmak.
 
 ### Kurucuya soracağım sorular
-- Gerçek bir ihracat müdürünün gelen kutusundan 20 talebi sisteme verip sonuçları gösterebilir misin?
-- Alıcı bugün bu işi kime/neye yaptırıyor (çalışan, tercüman, genel yapay zekâ aracı) ve onun maliyeti ne?
-- İlk müşteride katalog ve fiyat listesini sen mi yükleyeceksin?
-- Hangi garanti verilebilir: ör. "her talebe X saatte onaya hazır taslak, yoksa ay ücretsiz"?
+- Bir ihracat müdürü ayda kaç talebi cevapsız bırakıyor, kaybedilen bir sipariş ortalama kaç euro?
+- Bu demoyu kaç üreticiye gösterdin, kaçı pilot için para teklif etti?
+- Sonuç bazlı fiyatlamayı (ör. kazanılan siparişten pay) üstlenebilir misin?
 
 ### FUND IF ise: koşullar
-1. Gerçek yapay zekâ bağlanır ve en az bir üreticinin gerçek talepleriyle sonuç gösterilir.
-2. Tek dikey ile başlanır; kurulum "biz yaparız" (katalog, fiyat listesi, şablonlar) olarak yığına konur.
-3. Fiyat sonuca bağlanır (yanıt süresi, teklife dönen talep) ve /founder-cfo'nun karşılayabileceği bir garantiyle desteklenir.
-4. Ödeme isteği gerçek alıcılarla (ön satış veya pilot) doğrulanır.
+1. 3–5 Türk üreticiyle ücretli pilot; ölçülen cevap süresi ve dönen teklif sayısı.
+2. Net isimli stack: talep yanıtı + teklif + takip + "kataloğunu biz yüklüyoruz" kurulumu + sonuç garantisi (ör. 90 günde belirli sayıda nitelikli teklif yoksa iade; tutar /founder-cfo).
+3. Fiyat Türkiye'deki alternatiflere (çevirmen, ek satış elemanı, ajans) göre belirlenmeli, yazılım fiyatlarına göre değil.
 
 ## Tek birini seçmek zorunda olsaydım
-**Ürün B.** Bu lens önce pazara bakar: B'de acı daha büyük ve paraya doğrudan bağlı, alıcı dar ve bulunabilir, rakip kalabalığı (araştırılmamış olsa da) A'daki kadar görünür değil ve fiyat henüz emtiaya kilitlenmemiş. A ise kalabalık bir pazarda fiyatla yarışıyor ve uydurma kanıtla güveni baştan zedeliyor. B'nin zayıflığı (kanıt ve kurulum) düzeltilebilir; A'nınki (farklılaşmama) teklifin kendisinde.
+**Export Agent.** Offers lens önce pazara bakar. Export Agent'ta acı büyük, para döviz cinsinden, alıcı kümelerde toplu. Sonuç da (sipariş) doğrudan ölçülebilir, bu yüzden güçlü bir garanti kurulabilir. Engage kalabalık bir pazarda fiyatla yarışıyor. Export Agent'ın ise henüz doğrudan bir muadili görünmüyor (/founder-competitors ile doğrulanmalı), bu yüzden fiyatı iki katına çıkarsa bile bariz seçim olabilir.

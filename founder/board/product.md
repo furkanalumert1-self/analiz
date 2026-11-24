@@ -1,53 +1,68 @@
-# Product lens
+# Product lens (2. tur: demo + Türkiye)
 
 ## Ürün A: Callypso Engage
-Skor: 4/10 | Oy: PASS
+Skor: 4/10 | Oy: FUND IF
 
 ### Güçlü olan
-- Kapsam doğru problemi hedefliyor: sepet terk, hoş geldin, geri kazanım gibi otomasyonlar e-ticarette gelirle doğrudan ilişkili.
-- Türkiye'ye özgü ayrıntılar (İYS onayı, Netgsm, TL, WhatsApp) küresel araçların zayıf kaldığı bir yerde doğru içgüdü.
-- Demo dolu ve tutarlı: panel, kanallar, otomasyonlar, analitik bir mağaza sahibinin ilk beş dakikada görmek isteyeceği yapıda.
+- Arayüz büyük ölçüde Türkçe, ₺ rakamlar ve İYS/Netgsm/WhatsApp gibi yerel unsurlar doğru yere işaret ediyor.
+- Landing'deki "bloğu aç-kapat, segment seç, gönder'e bas" canlı demosu anahtar istemiyor. Ürünün ne yaptığını ilk dakikada hissettiriyor.
+- Kremi Beauty gibi tek bir markaya özel fırsat analizi, demonun gerçek satış görüşmesinde kullanılabileceğini gösteriyor.
 
 ### Öldürebilecek olanlar (en tehlikeli 3, en tehlikelisi önce)
-1. **Sahte sosyal kanıt.** Logolar, isimli referanslar ve "4.9/5 · 2.400+ marka" yer tutucu içerik. Product lens açısından bu bir zevk ve özen sorunu: müşterinin göremediği yerde köşe kesen ürün, gördüğü yerde de keser. İlk gerçek alıcı bunu fark ettiği an güven biter.
-2. **Odak yok.** E-posta + SMS + WhatsApp + formlar + teslim edilebilirlik + Customer 360 + atıf + dört farklı hedef kitle (markalar, içerik üreticileri, yerel işletmeler, ajanslar). "Tek şey" belirsiz. Bu kadar geniş bir yüzeyi tek kişi derinlemesine iyi yapamaz.
-3. **Asıl deneyim dikişlerde ve hepsi demo modunda.** Bu ürünün değeri mesajın gerçekten gelen kutusuna/telefona ulaşmasında, İYS onayının doğru işlenmesinde, Meta şablon onayında ve mağaza senkronunda. Bunların hiçbiri çalışmıyor; ekranlar bir şablondan (app.config.ts, "re-run setup") türemiş görünüyor. Görünen kısım hazır, zor kısım yapılmamış.
+1. **Odak yok.** Email + SMS + WhatsApp + formlar + Customer 360 + atıf + teslimat paneli; hedefte e-ticaret, içerik üreticisi, yerel işletme ve ajans var. Product lens "tek şey nedir?" diye sorar, demo buna cevap vermiyor. Bu, Türkiye'de köklü oyuncuların (Insider, Netmera, Segmentify, yerel SMS firmaları) zaten sattığı bir paket. Fark yaratacak tek dikiş görünmüyor.
+2. **Deneyimin en kritik dikişleri ürünün dışında.** Değer anı "terk edilen sepetten geri gelen ₺" ve bu an ikas/Ticimax/IdeaSoft/T-Soft verisine, İYS onay senkronuna ve WhatsApp şablon onayına bağlı. Bunların hiçbiri demoda gösterilemiyor. Bunlar kırılırsa deneyimin tamamı kırılır.
+3. **Pazaryeri gerçeği.** Satışın büyük kısmı Trendyol/Hepsiburada'dan geliyorsa marka müşteri iletişim verisine sahip olmayabilir. Ürünün üzerinde çalışacağı kitle düşündüğümüzden küçük olabilir (açık soru: /founder-consumer).
+
+### Türkiye'ye özel notlar
+- Fiyat $ cinsinden, alıcı ise TL ile ve yüksek enflasyonda ödüyor. TL fiyat ve fiyat ankrajı gerekli (/founder-cfo, /founder-competitors).
+- İYS ve KVKK bir "Scale" planı özelliği değil, giriş koşulu. Ücretsiz planda bile olmalı.
+- WhatsApp baskın kanal. Odak oraya kayabilir.
+
+### Demoyu satış aracı olarak nasıl buldum
+Kabuk iyi, ama demo Türk alıcıya yabancı bir ürün gibi konuşuyor. Landing'de "$14.8K Gelir" ve İngilizce e-posta konusu var, kullanıcı "Alex Jordan", segment kuralında "LTV > $250" yazıyor, grafik ayları İngilizce, Ayarlar açıklamaları İngilizce. Panel ilk açılışta 14 menü öğesiyle karşılıyor ve rehberli bir "aha" akışı yok. Placeholder logolar ve "2.400+ marka" ibaresi gerçek bir Türk adaya bir kez gösterilse güveni bitirir. Bunlar canlıya çıkmadan önce kaldırılmalı.
 
 ### Kurucuya soracağım sorular
-- Tek cümleyle: Engage hangi tek işi Türk D2C markası için herkesten iyi yapıyor?
-- Bir mağaza bağlanıp ilk gerçek otomasyon gelir getirene kadar ne kadar sürüyor? Bunu bir kez gerçek bir mağazada yaşadın mı?
-- Sahte logo ve referansları ne zaman kaldırıyorsun?
-- Bilinen rakipler (Klaviyo, Omnisend, Insider, Netmera, Segmentify) karşısında fark ne? Fiyat ve konum verisi yok; bu /founder-competitors işi.
-- $49 fiyatı ödeme isteği ile test edildi mi? Bu /founder-consumer ve /founder-pricing işi; birim ekonomisi (SMS/WhatsApp maliyeti dahil) /founder-cfo işi.
+- Tek cümleyle: Engage hangi Türk markasına, rakiplerin yapamadığı hangi şeyi yapıyor?
+- İlk entegrasyon hangi altyapıyla olacak: ikas mı, Ticimax mı, Shopify mı?
+- Hedef markanın cirosunun yüzde kaçı kendi sitesinden geliyor?
+- Kremi Beauty görüşmesinde demo gösterildi mi, nerede takıldılar?
 
 ### FUND IF ise: koşullar
-Oy PASS. Şu olursa yeniden bakarım: sahte kanıt kaldırılır, ürün tek kanal ve tek otomasyona indirilir (örn. İYS uyumlu WhatsApp sepet hatırlatma) ve bu tek akış gerçek bir mağazada uçtan uca çalışır.
+- Tek kanal ve tek akışa daralt (ör. "ikas mağazası için WhatsApp + İYS uyumlu terk edilen sepet"), gerisini kes.
+- Demoyu baştan sona Türkçeleştir, ₺ kullan, Türk persona koy, placeholder kanıtları kaldır.
+- 3 gerçek Türk markasında bir ölçülebilir geri kazanım sonucu al.
 
 ## Ürün B: Callypso Export Agent
-Skor: 6/10 | Oy: FUND IF
+Skor: 7/10 | Oy: FUND IF
 
 ### Güçlü olan
-- Tek cümleyle anlatılabiliyor: "Gelen ihracat talebini okur, eksik bilgiyi bulur, katalog fiyatından İngilizce teklif taslağı hazırlar, sen onaylarsın."
-- Deneyimden geriye doğru tasarlanmış: talep → eksik bilgi → yanıt → teklif → onay → takip; yedi adım bir ihracat müdürünün gerçek gününü izliyor.
-- İnsan onayı her giden mesajda var. Bu, yanlış bir teklifin müşteriye gitmesi gibi en pahalı hatayı ürün seviyesinde engelliyor; iyi bir tasarım kararı.
-- Persona somut (İnegöl ofis mobilyası, EUR, Almanya/Hollanda/BAE bayileri). Belirli bir kullanıcı için yapılmış hissi veriyor.
+- **Tek şey net:** "Yabancı alıcı talebini, onayınla, doğru teklife ve takibe çevirir." Product lens'in istediği tek cümle bu.
+- Demo deneyimden geriye doğru kurulmuş. İlk ekran "Adım 1/7 – Almanya'dan 200 koltuk talebi" diyor ve kullanıcıyı elinden tutup akışa sokuyor. Aha anı ilk dakikada geliyor.
+- Yerelleştirme isabetli: kullanıcı Türkçe çalışıyor, dışarıya İngilizce yazılıyor, EUR/Incoterm/MOQ kullanılıyor ve persona (İnegöl, Orgatec) tanıdık. Onay adımı, işini kaptırmaktan korkan ihracat müdürünün itirazını karşılıyor.
 
 ### Öldürebilecek olanlar (en tehlikeli 3, en tehlikelisi önce)
-1. **Sihirli an sahte.** Ürünün özü talebi doğru okuyup doğru taslak yazmak; demoda gerçek yapay zekâ yok, yanıtlar senaryodan geliyor. Gerçek, dağınık talep e-postalarında (eksik Incoterm, yanlış birim, karışık dil) kalite tutmazsa geri kalan her şey anlamsız.
-2. **En kritik dikiş eksik: gelen kutusu.** Talepler e-postada, WhatsApp'ta, fuar kartlarında yaşıyor. E-posta entegrasyonu yokken kullanıcı kopyala-yapıştır yapacak; bu adım deneyimi öldürür.
-3. **Kapsam kayması riski.** Prospect arama (6 hayali aday), CRM, ERP senkronu şimdiden listede. Çekirdek akış kanıtlanmadan bunlara dağılmak Engage'deki hatayı tekrarlar.
+1. **Gerçek AI kalitesi.** Senaryolu akış kusursuz. Gerçek, dağınık talepte (eksik bilgi, Almanca/Arapça, PDF ekler) çıkarım ve fiyat hataları güveni hemen bitirir. Yanlış fiyatlı bir teklif, ihracatçı için doğrudan para kaybı demek.
+2. **E-posta ve katalog dikişi.** Talep gelen kutusunda, fiyatlar Excel'de ya da ERP'de duruyor. Ajan bunlara bağlanmazsa kullanıcı kopyala-yapıştır yapar ve deneyim çöker.
+3. **Kapsam kayması.** Müşteri bulma, CRM ve teklif bir arada. Müşteri bulma (şu an 6 kurgusal aday) ayrı ve zor bir ürün. Erken eklenirse odak dağılır.
+
+### Türkiye'ye özel notlar
+- Kümelenmiş pazar (İnegöl, Denizli, Kayseri, Gaziantep...), ihracatçı birlikleri ve fuarlar doğal kanallar.
+- Devlet ihracat destekleri yazılım maliyetini karşılayabilir mi? Doğrulanmadı, açık soru.
+- Fiyat hiç belirtilmemiş. TL mi EUR mu ödenecek, ne kadar ödenecek: /founder-consumer ve /founder-cfo. Benzer araçlar: /founder-competitors.
+
+### Demoyu satış aracı olarak nasıl buldum
+Güçlü. "Demoyu sıfırla" ve "DEMO MODU" etiketleri dürüst. Bir ihracat müdürü kendi gününü ekranda görüyor. Eksik olan tek şey bir sonraki adım: demonun sonunda "kendi talebinizi deneyin" ya da pilot çağrısı yok.
 
 ### Kurucuya soracağım sorular
-- Gerçek bir üreticinin son 20 gerçek talebini sisteme versek, kaç tanesinde taslak düzeltmesiz onaylanır?
-- Talep ürüne hangi kapıdan giriyor: e-posta yönlendirme mi, gelen kutusu bağlantısı mı?
-- Fiyat nedir ve kim öder: ihracat müdürü mü, patron mu? Bilinmiyor; /founder-consumer ve /founder-pricing işi.
-- Kaç Türk ihracatçı üretici bu acıyı yaşıyor ve nasıl ulaşılır? Pazar büyüklüğü yok; /founder-competitors ve /founder-consumer işi.
+- Bir ihracat müdürü haftada kaç talep alıyor, bir teklif kaç saatini yiyor?
+- İlk sürüm hangi gelen kutusu ve fiyat listesi formatını okuyacak?
+- Kaç İnegöl üreticisine gösterildi, ne dediler?
+- Müşteri bulmayı ilk sürümden çıkarmaya razı mısınız?
 
 ### FUND IF ise: koşullar
-1. Gerçek yapay zekâ bağlanır ve en az bir gerçek üreticinin gerçek talepleriyle test edilir; düzeltmesiz onay oranı ölçülür.
-2. Gelen kutusundan talep alma çalışır (en azından e-posta yönlendirme).
-3. Prospect arama ve CRM genişlemesi, çekirdek talep→teklif akışı gerçek kullanımda kanıtlanana kadar dondurulur.
-4. Bir fiyat belirlenir ve en az bir üreticiye ödeme istenerek test edilir.
+- Gerçek AI'yı tek dar akışta bağla: e-postadan talebe, oradan onaylı teklife. Müşteri bulmayı kes.
+- 3–5 üreticiyle kendi gerçek talepleriyle pilot yap ve hata oranını ölç.
+- Fiyatı belirle ve bir pilotun ödeme yapmasını sağla.
 
 ## Tek birini seçmek zorunda olsaydım
-Export Agent. Product lens odak ve deneyim netliğine bakar: B'nin tek cümlesi, belirli bir kullanıcısı ve uçtan uca düşünülmüş bir akışı var; A ise çok şey yapmaya çalışan, kalabalık bir kategoride, şablondan türemiş ve sahte kanıtla sunulan bir ürün. B'nin en büyük açığı (gerçek yapay zekâ ve gelen kutusu) çözülebilir bir mühendislik işi; A'nın açığı ise "neden bu ürün" sorusunun cevapsız olması. Tek kişilik bir kurucu için daha dar ve daha net olanı seçerim.
+**Export Agent.** Engage kalabalık bir pazarda her şeyi yapmaya çalışıyor, kritik deneyimi de kontrol etmediği entegrasyonlara bağlı. Export Agent'ın tek bir işi, tek bir kullanıcısı ve ilk dakikada gelen bir aha anı var. Kurucu tek başına çalışıyorsa odak bir ürünü gerektirir. Product lens'in vereceği karar Engage'e "şimdilik hayır" demek.

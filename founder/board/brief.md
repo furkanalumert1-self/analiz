@@ -38,3 +38,18 @@ Neither has real customers yet as far as the demos show; both run on demo data.
 - Flow shown: 7 steps from inquiry → missing info identified → English reply draft → customer reply → quote from catalog price → draft edited and approved → quote updated and follow-up task created.
 - Human-in-the-loop: nothing is sent without approval.
 - Out of scope in the demo: real AI, email sending, ERP sync, catalog editing, real prospect research.
+
+---
+
+## Founder's clarification (round 2, 24 Nov 2026)
+
+The founder says: **both systems are demo systems, and they are meant for Turkey.**
+
+How the board must read this:
+- The demos are not finished products and do not claim to be. Demo data, the scripted agent, placeholder logos/testimonials and "Demo mode" integrations are expected at this stage. Do **not** score them as defects of the business. Judge instead: (1) is the demo a good tool to sell and validate the idea with Turkish buyers, (2) is the business behind it right for Turkey, (3) what must be true before the demo becomes a live product for Turkish customers.
+- Placeholder social proof still matters in one way: it must not be shown to real Turkish prospects as if real, and must be replaced before any public launch. Treat it as a launch checklist item, not a verdict.
+- The market is Turkey only (for now). Turkey-specific factors the board should weigh, each as a question to check, not as a researched fact:
+  - Engage: İYS (the national consent registry for commercial electronic messages) and KVKK (personal data law) compliance; Turkish D2C stores often run on local platforms (ikas, Ticimax, IdeaSoft, T-Soft) as well as Shopify, and much volume runs through marketplaces (Trendyol, Hepsiburada) where the brand may not own customer contact data; WhatsApp is the dominant messaging app; buyers pay in TL with high inflation, while the landing page prices in USD.
+  - Export Agent: Turkish manufacturers selling abroad (furniture, textile, machinery clusters such as İnegöl, Bursa, Denizli, Kayseri, Konya, Gaziantep); exporter associations and trade fairs as channels; state export-support programs may exist that could co-fund software or market-entry work (unverified, an open question); outbound messages are in English/German/Arabic while the user works in Turkish.
+- Localization observed in the demos: Engage's dashboard is Turkish with ₺ figures, but the landing page prices in $, testimonials and logos are English/foreign, the demo user is "Alex Jordan", one segment rule reads "LTV > $250", chart months are English (Jan–Jun) and the Settings integration descriptions are in English. Export Agent is fully Turkish in the UI, with English outbound drafts, EUR prices and a Turkish persona (Elif Yıldız, Atlas Office Furniture, İnegöl).
+- The founder's repo also holds a prepared opportunity analysis for a Turkish cosmetics brand (Kremi Beauty) for Engage, which suggests the demos are used in sales conversations with specific Turkish companies.
