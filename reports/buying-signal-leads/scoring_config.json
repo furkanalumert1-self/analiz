@@ -1,0 +1,45 @@
+{
+ "signal_weights": {
+  "hiring": 30,
+  "new_market": 25,
+  "distributor": 20,
+  "trade_fair": 10,
+  "capacity": 10,
+  "export_target": 15,
+  "new_exec": 20,
+  "trade_mission": 10,
+  "new_product": 5
+ },
+ "icp_fit": 5,
+ "target_sectors": [
+  "Tekstil",
+  "Mobilya",
+  "Hazır giyim",
+  "Gıda",
+  "Kozmetik",
+  "Makine",
+  "Otomotiv yan sanayi",
+  "Plastik",
+  "Ambalaj",
+  "Endüstriyel üretim"
+ ],
+ "recency_multiplier": {
+  "7": 1.0,
+  "14": 0.9,
+  "30": 0.8,
+  "90": 0.6,
+  "unknown": 0.5,
+  "upcoming_event": 0.9
+ },
+ "source_reliability": {
+  "job_board": 0.95,
+  "company_site": 0.9,
+  "news": 0.85,
+  "linkedin": 0.8,
+  "social": 0.7
+ },
+ "tiers": {
+  "hot": 30,
+  "warm": 18
+ }
+}
