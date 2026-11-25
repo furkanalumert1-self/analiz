@@ -1,4 +1,4 @@
-# Callypso: two products (Callypso Engage and Callypso Export Agent)
+# Callypso: two products (Callypso Engage and Callypso Export Agent, now sold as OmniExport)
 
 The founder has built two working demos under the Callypso name and wants a review of both.
 Neither has real customers yet as far as the demos show; both run on demo data.
@@ -20,3 +20,7 @@ Neither has real customers yet as far as the demos show; both run on demo data.
 ## Budget and constraints
 - Not stated. The founder appears to be building alone (same Callypso brand, both on Vercel, a companion repo of market reports for Etsy/Turkish e-commerce).
 - Open: which product to focus on, the Export Agent's price, the founder's time and money.
+
+## Update (25 Nov 2026)
+- Export Agent is now published as **OmniExport** on the founder's company site (callypsotech.com/export.html), sold to Turkish exporters via a free 14-day demo and a 15-minute discovery call. No price is shown on the site.
+- The site leads with outbound prospecting (market research, first contact), then inquiry/quote handling and follow-up.
