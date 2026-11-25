@@ -125,3 +125,19 @@ Bu yapı Engage'e bir boşluk bırakıyor olabilir: alt segmentte, fiyatı açı
 - İhracat destek programlarının yazılım maliyetini karşılayıp karşılamadığına bakılmadı.
 - ikas ve Ticimax'ın kendi e-posta/SMS/WhatsApp modüllerine bakılmadı. Engage için en kritik açık soru bu.
 - Teklif Robotu, Asistflow ve asistanim.ai ile demo görüşmesi yapılmadı. Gerçek kapsamları satıcının tanıtımından okundu.
+
+---
+
+## Ek (25 Kasım 2026): platformların kendi pazarlama araçları ve mesaj maliyetleri
+
+Bir önceki turda "araştırılmadı" diye bırakılan en kritik soru buydu. Cevap Engage için önemli.
+
+- **ikas'ın kendi pazarlama paketi var** ([ikas Pazarlama](https://ikas.com/tr/mars), [Otomasyon ve Pazarlama](https://ikas.com/tr/otomasyon-ve-pazarlama)): otomasyon, SMS, e-posta, segment, popup, affiliate. Sepet hatırlatma "mail, WhatsApp ve SMS" kurgularıyla yapılıyor. ikas kullanıcılarına ücretsiz bir sürüm de var: aylık 1.000 kontör, 1 segment, 1 otomasyon, 1 akış. "Gelişmiş Sepet Hatırlatma" Scale paketinde (₺6.998/ay, [fiyat sayfası](https://ikas.com/tr/pricing), Kasım 2026).
+- **Ticimax'ın da kendi pazarlama otomasyonu var** ([Ticimax Pazarlama Otomasyonları](https://www.ticimax.com/pazarlama-otomasyonlari/)): müşteri segmentasyonu, otomatik e-posta ve SMS (hoş geldin, doğum günü), toplu e-posta, sepet hatırlatma. WhatsApp sepet hatırlatması bu sayfada geçmiyor.
+- **Sonuç:** ikas ve Ticimax kullanıcısı için "segment + e-posta + SMS + sepet hatırlatma" altyapıyla birlikte geliyor. ikas'ta WhatsApp da dahil. Kurulun önerdiği "ikas için WhatsApp sepet kurtarma" örneği bu yüzden zayıf: ikas bunu kendisi yapıyor.
+- **Bu araçlar olmayan büyük dilim:** AfterShip sayımına göre Türk mağazalarının yaklaşık %37'si WooCommerce, %13'ü özel yazılım, %11,5'i Shopify, %10'u Wix üzerinde ([AfterShip](https://www.aftership.com/ecommerce/statistics/regions/tr)). Bu mağazaların yerleşik Türkçe, İYS uyumlu bir SMS/WhatsApp aracı yok; Shopify tarafında Klaviyo var.
+
+**Mesaj maliyetleri (Engage'in fiyatlamasını doğrudan etkiler):**
+- WhatsApp pazarlama mesajı, Türkiye'deki alıcıya: üçüncü taraf kaynaklara göre mesaj başına yaklaşık **0,011–0,0125 $** ([ManyChat](https://help.manychat.com/hc/en-us/articles/14281380243740), [GoHighLevel](https://ideas.gohighlevel.com/changelog/updated-whatsapp-per-message-pricing-effective-july-2026)). Resmî Meta tablosu ([Meta](https://developers.facebook.com/docs/whatsapp/pricing)) bu turda açılıp kontrol edilmedi.
+- SMS: tek bulunan TL rakamı, HubSpot pazaryerindeki Netgsm uygulamasında **0,42 TL/SMS** ([HubSpot listing](https://ecosystem.hubspot.com/marketplace/listing/netgsm-sms), Temmuz 2026). Netgsm'in resmî tarifesi değil.
+- Engage'in Growth planı (49 $/ay) "sınırsız e-posta + SMS kampanyası" ve 25.000 müşteri vaat ediyor. 25.000 kişiye tek bir SMS kampanyası, yukarıdaki fiyatla yaklaşık 10.500 TL; aynı kitleye tek bir WhatsApp kampanyası yaklaşık 275 $. Yani "sınırsız SMS" bu fiyatta sürdürülemez; mesajların kontörle ayrıca satılması gerekir (ikas da böyle yapıyor).
